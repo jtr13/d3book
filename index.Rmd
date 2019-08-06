@@ -27,15 +27,13 @@ If you don't have it already, download [Chrome browser](https://www.google.com/c
 
 ## View the DOM in Elements pane
 
-1. Open a *downloaded version* of [`shapes.html`](https://raw.githubusercontent.com/jtr13/d3book/master/code/shapes.html){target="_blank"} -- click *File, Save Page As...` then open up the file in Chrome. 
+1. Open a *downloaded version* of [`shapes.html`](https://raw.githubusercontent.com/jtr13/d3book/master/code/shapes.html){target="_blank"} -- click *File, Save Page As...` then open up the file in Chrome. (Or download a zip whole repo. Clicking [here](https://github.com/jtr13/d3book/archive/master.zip){target="_blank"} will start the download. Or fork and clone the  [repo](https://github.com/jtr13/d3book){target="_blank"}).
 
-Or download a zip whole repo. Clicking [here](https://github.com/jtr13/d3book/archive/master.zip){target="_blank"} will start the download. 
+2. Click *View, Developer, Developer Tools,* then the Elements tab. 
 
-Or fork and clone the  [repo](https://github.com/jtr13/d3book){target="_blank"}.
+3. Hover the mouse over various elements in the `<body> ... </body>` section.  Observe the highlighted sections in the rendered web page on the left of the screen. Click on the mini black triangles to the left of the `<head>`, `<body>` and `<svg>` tags to open these sections of the DOM tree. Your screen should look like this:
 
-2. Click *View, Developer, Developer Tools,* then the Elements tab.
-
-3. Hover the mouse over various elements in the `<body> ... </body>` section.  Observe the highlighted sections in the rendered web page on the left of the screen. Click on the mini black triangles as needed to open new sections of the DOM tree.
+![](/images/elements.png)
 
 4. Now try the reverse: right click on elements on the web page, choose "Inspect" and see what is highlighted in the Elements pane.
 
