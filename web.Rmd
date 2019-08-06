@@ -1,7 +1,5 @@
 # Web Technologies
 
-# Introduction {#intro}
-
 Prequisites for learning D3 include a basic understanding of: 
 
 1. HTML -- the language of the web
