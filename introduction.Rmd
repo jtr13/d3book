@@ -1,8 +1,16 @@
 # Introduction
 
-This book is not designed to be a standalone resource but rather an accompaniment to Scott Murray’s [*Interactive Data Visualization for the Web, 2nd edition*](https://www.amazon.com/Interactive-Data-Visualization-Web-Introduction/dp/1491921285/). *IDVW2* is written for graphics designers not data science students so the pain points are somewhat different. In places where I recommend a different method from *IDVW2*, I will state so clearly.
+Although it has plenty of new material and exercises, this book frequently references Scott Murray’s [*Interactive Data Visualization for the Web, 2nd edition*](https://www.amazon.com/Interactive-Data-Visualization-Web-Introduction/dp/1491921285/), a required book for GR5702. As such this resource is more a supplement to *IDVW2* rather than an alternative.
 
-In particular we will, in general, use a later version of JavaScript, but feel free to use the book methods if you prefer. The new JavaScript is summarized here (add link). My examples are different though you are encouraged to read Murray’s examples as well and study [his code](https://github.com/alignedleft/d3-book/releases).
+*IDVW2* is the gold standard for learning D3. You may be wondering, why do we need any extra material? Here's why:
 
-Material is organized slightly differently. Follow the order here -- sections of *IDVW2* will be referenced as relevant.
+- *IDVW2* is written for graphics designers not data science students so the pain points are somewhat different. As the title states, my intended audience is R users, though you certainly don't need to know R to use this resource.
+
+- *IDVW2* does not use certain ES6 conventions which make coding easier (and more like R emo::ji("star_struck")).
+
+- *IDVW2* does not include examples involved advanced statistics.
+
+- I prefer presenting some of the material in a different order than presented in *IDVW2*. 
+
+None of this detracts from the fact that *IDVW2* is absolutely essential to learning D3. Although we will consider different examples, you are encouraged to study [the code examples in Murray's text](https://github.com/alignedleft/d3-book/releases).
 
