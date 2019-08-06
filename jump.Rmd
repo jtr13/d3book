@@ -1,0 +1,16 @@
+# Introduction {#intro}
+
+Prequisites for learning D3 include a basic understanding of: 
+
+1. HTML -- the language of the web
+
+2. CSS -- used for styling web pages, and more importantly for our purposes, selecting elements on a page or in a graphic
+
+3. SVG -- the graphics format that we will be using
+
+4. JavaScript -- language for making web pages interactive, animated, code is executed when page is opened or refreshed
+
+As our focus is D3, not building complex web sites with multiple pages, we will learn minimal amounts of these technologies on a need to know basis.
+
+## HTML
+

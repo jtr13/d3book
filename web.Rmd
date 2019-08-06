@@ -1,0 +1,13 @@
+# Web Technologies
+
+
+## Learn to use Chrome Developer Tools
+
+1. Opening Chrome: click *View, Developer, JavaScript Console*. (There are [other ways to open Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/open)).
+
+2. Using the JavaScript Console to execute code, not necessarily connected with the current page.
+
+3. 
+
+
+

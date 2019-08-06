@@ -1,6 +1,20 @@
 book_filename: "d3book"
 output_dir: docs
 delete_merged_file: true
-language:
-  ui:
-    chapter_name: "Chapter "
+edit: https://github.com/jtr13/d3book/edit/master/%s
+# chapter ordering
+rmd_files: ["jump.Rmd",
+  "introduction.Rmd",
+  "web.Rmd",
+  "d3intro.Rmd",
+  "data.Rmd",
+  "scales.Rmd"]
+
+  # axes
+  # margins
+  # transitions
+  # interactivity
+  # paths
+  # layouts
+  # case study:
+
