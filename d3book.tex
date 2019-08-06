@@ -29,8 +29,6 @@
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
-\usepackage{natbib}
-\bibliographystyle{apalike}
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -71,7 +69,6 @@
 \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
 \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\usepackage{longtable,booktabs}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -90,7 +87,7 @@
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{5}
+\setcounter{secnumdepth}{0}
 % Redefines (sub)paragraphs to behave more like sections
 \ifx\paragraph\undefined\else
 \let\oldparagraph\paragraph
@@ -125,119 +122,296 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-08-05}
+    \date{2019-08-06}
 
-\usepackage{booktabs}
 
 \begin{document}
 \maketitle
 
-{
-\setcounter{tocdepth}{1}
-\tableofcontents
-}
-\hypertarget{prerequisites}{%
-\chapter{Prerequisites}\label{prerequisites}}
+\hypertarget{jump-in-the-deep-end}{%
+\chapter{Jump in the deep end}\label{jump-in-the-deep-end}}
 
-This is a \emph{sample} book written in \textbf{Markdown}. You can use anything that Pandoc's Markdown supports, e.g., a math equation \(a^2 + b^2 = c^2\).
+Let's skip the explanations and start coding in D3 right now. Why? So
+you can see the benefits and know what you're working toward when you
+get stuck in the weeds. Then we'll go back and start learning step by
+step.
 
-The \textbf{bookdown} package can be installed from CRAN or Github:
+\hypertarget{what-you-need}{%
+\subsection{What you need}\label{what-you-need}}
+
+\href{https://www.google.com/chrome/}{Chrome browser}
+
+\hypertarget{elements}{%
+\subsection{Elements}\label{elements}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Open a \emph{downloaded version} of \texttt{shapes.html}.
+\end{enumerate}
+
+You can obtain a downloaded copy of the file by:
+
+\begin{itemize}
+\tightlist
+\item
+  clicking
+  \href{https://raw.githubusercontent.com/jtr13/d3book/master/code/shapes.html}{here}
+  and then File, Save Page As\ldots{}
+\end{itemize}
+
+\textbf{or}
+
+\begin{itemize}
+\tightlist
+\item
+  downloading a ZIP of the whole repo by clicking
+  \href{https://github.com/jtr13/d3book/archive/master.zip}{here}
+\end{itemize}
+
+\textbf{or}
+
+\begin{itemize}
+\tightlist
+\item
+  forking and cloning the \href{https://github.com/jtr13/d3book}{repo}
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  Click \emph{View, Developer, Developer Tools,} then the
+  \texttt{Elements} tab.
+\item
+  Hover the mouse over various elements in the
+  \texttt{\textless{}body\textgreater{}\ ...\ \textless{}/body\textgreater{}}
+  section.
+\item
+  Click the Console tab. Type
+  \texttt{d3.select("circle").attr("cx",\ "200");} at the prompt
+  (\texttt{\textgreater{}}), press enter and see what happens.
+\item
+  Now try some of the following and/or experiment on your own with
+  changing attributes of the circle:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{install.packages}\NormalTok{(}\StringTok{"bookdown"}\NormalTok{)}
-\CommentTok{# or the development version}
-\CommentTok{# devtools::install_github("rstudio/bookdown")}
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"circle"}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,} \StringTok{"300"}\NormalTok{)}\OperatorTok{;}
+
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"circle"}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,} \StringTok{"400"}\NormalTok{)}\OperatorTok{;}
+
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"circle"}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,} \StringTok{"500"}\NormalTok{)}\OperatorTok{;}
+
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"circle"}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,} \StringTok{"600"}\NormalTok{)}\OperatorTok{;}
+
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"circle"}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,} \StringTok{"100"}\NormalTok{)}\OperatorTok{;}
+
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"circle"}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"r"}\OperatorTok{,} \StringTok{"30"}\NormalTok{)}\OperatorTok{;}
+
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"circle"}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"r"}\OperatorTok{,} \StringTok{"130"}\NormalTok{)}\OperatorTok{;}
+
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"circle"}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"r"}\OperatorTok{,} \StringTok{"3"}\NormalTok{)}\OperatorTok{;}
+
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"circle"}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"r"}\OperatorTok{,} \StringTok{"30"}\NormalTok{)}\OperatorTok{;}
+
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"circle"}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"red"}\NormalTok{)}\OperatorTok{;}
+
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"circle"}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"aliceblue"}\NormalTok{)}\OperatorTok{;}
+
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"circle"}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"lightseagreen"}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
-
-Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading \texttt{\#}.
-
-To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): \url{https://yihui.name/tinytex/}.
-
-\hypertarget{intro}{%
-\chapter{Introduction}\label{intro}}
-
-You can label chapter and section titles using \texttt{\{\#label\}} after them, e.g., we can reference Chapter \ref{intro}. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \ref{methods}.
-
-Figures and tables with captions will be placed in \texttt{figure} and \texttt{table} environments, respectively.
+\item
+  Refresh the page. What happened?
+\item
+  Go to Elements. Look at the value of the \texttt{y1} attribute of the
+  SVG \texttt{\textless{}line\textgreater{}} element. Go back to the
+  Console and enter the following:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar =} \KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\FloatTok{.1}\NormalTok{, }\FloatTok{.1}\NormalTok{))}
-\KeywordTok{plot}\NormalTok{(pressure, }\DataTypeTok{type =} \StringTok{'b'}\NormalTok{, }\DataTypeTok{pch =} \DecValTok{19}\NormalTok{)}
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"line"}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"y1"}\OperatorTok{,} \StringTok{"10"}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.8\linewidth]{d3book_files/figure-latex/nice-fig-1} 
-
-}
-
-\caption{Here is a nice figure!}\label{fig:nice-fig}
-\end{figure}
-
-Reference a figure by its code chunk label with the \texttt{fig:} prefix, e.g., see Figure \ref{fig:nice-fig}. Similarly, you can reference tables generated from \texttt{knitr::kable()}, e.g., see Table \ref{tab:nice-tab}.
+\item
+  Go back to Elements and observe. What happened?
+\item
+  Stay in Elements and refresh the page. What happened to \texttt{y1}?
+\item
+  Now back to the Console to make style changes to the HTML elements:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(}
-  \KeywordTok{head}\NormalTok{(iris, }\DecValTok{20}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Here is a nice table!'}\NormalTok{,}
-  \DataTypeTok{booktabs =} \OtherTok{TRUE}
-\NormalTok{)}
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"h1"}\NormalTok{).}\AttributeTok{style}\NormalTok{(}\StringTok{"color"}\OperatorTok{,} \StringTok{"purple"}\NormalTok{)}\OperatorTok{;}
+
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"h2"}\NormalTok{).}\AttributeTok{style}\NormalTok{(}\StringTok{"font-size"}\OperatorTok{,} \StringTok{"50px"}\NormalTok{)}\OperatorTok{;}
+
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"h2"}\NormalTok{).}\AttributeTok{style}\NormalTok{(}\StringTok{"font-family"}\OperatorTok{,} \StringTok{"Impact"}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
+\end{enumerate}
 
-\begin{table}[t]
+\hypertarget{part-b-transitions-ch.-9}{%
+\subsection{Part B: Transitions (Ch.
+9)}\label{part-b-transitions-ch.-9}}
 
-\caption{\label{tab:nice-tab}Here is a nice table!}
-\centering
-\begin{tabular}{rrrrl}
-\toprule
-Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
-\midrule
-5.1 & 3.5 & 1.4 & 0.2 & setosa\\
-4.9 & 3.0 & 1.4 & 0.2 & setosa\\
-4.7 & 3.2 & 1.3 & 0.2 & setosa\\
-4.6 & 3.1 & 1.5 & 0.2 & setosa\\
-5.0 & 3.6 & 1.4 & 0.2 & setosa\\
-\addlinespace
-5.4 & 3.9 & 1.7 & 0.4 & setosa\\
-4.6 & 3.4 & 1.4 & 0.3 & setosa\\
-5.0 & 3.4 & 1.5 & 0.2 & setosa\\
-4.4 & 2.9 & 1.4 & 0.2 & setosa\\
-4.9 & 3.1 & 1.5 & 0.1 & setosa\\
-\addlinespace
-5.4 & 3.7 & 1.5 & 0.2 & setosa\\
-4.8 & 3.4 & 1.6 & 0.2 & setosa\\
-4.8 & 3.0 & 1.4 & 0.1 & setosa\\
-4.3 & 3.0 & 1.1 & 0.1 & setosa\\
-5.8 & 4.0 & 1.2 & 0.2 & setosa\\
-\addlinespace
-5.7 & 4.4 & 1.5 & 0.4 & setosa\\
-5.4 & 3.9 & 1.3 & 0.4 & setosa\\
-5.1 & 3.5 & 1.4 & 0.3 & setosa\\
-5.7 & 3.8 & 1.7 & 0.3 & setosa\\
-5.1 & 3.8 & 1.5 & 0.3 & setosa\\
-\bottomrule
-\end{tabular}
-\end{table}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Try these:
 
-You can write citations, too. For example, we are using the \textbf{bookdown} package \citep{R-bookdown} in this sample book, which was built on top of R Markdown and \textbf{knitr} \citep{xie2015}.
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"circle"}\NormalTok{).}\AttributeTok{transition}\NormalTok{().}\AttributeTok{duration}\NormalTok{(}\DecValTok{2000}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,} \StringTok{"400"}\NormalTok{)}\OperatorTok{;}
 
-\hypertarget{literature}{%
-\chapter{Literature}\label{literature}}
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"ellipse"}\NormalTok{).}\AttributeTok{transition}\NormalTok{().}\AttributeTok{duration}\NormalTok{(}\DecValTok{2000}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"transform"}\OperatorTok{,} \StringTok{"translate (400, 400)"}\NormalTok{)}\OperatorTok{;}
 
-Here is a review of existing methods.
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"line"}\NormalTok{).}\AttributeTok{transition}\NormalTok{().}\AttributeTok{duration}\NormalTok{(}\DecValTok{2000}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"x1"}\OperatorTok{,} \StringTok{"400"}\NormalTok{)}\OperatorTok{;}
 
-\hypertarget{methods}{%
-\chapter{Methods}\label{methods}}
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"line"}\NormalTok{).}\AttributeTok{transition}\NormalTok{().}\AttributeTok{duration}\NormalTok{(}\DecValTok{2000}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"y1"}\OperatorTok{,} \StringTok{"250"}\NormalTok{)}\OperatorTok{;}
 
-We describe our methods in this chapter.
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"p"}\NormalTok{).}\AttributeTok{transition}\NormalTok{().}\AttributeTok{duration}\NormalTok{(}\DecValTok{2000}\NormalTok{).}\AttributeTok{style}\NormalTok{(}\StringTok{"font-size"}\OperatorTok{,} \StringTok{"72px"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Experiment with more transitions.
+\end{enumerate}
 
-\hypertarget{applications}{%
-\chapter{Applications}\label{applications}}
+\hypertarget{part-c-interactivity-ch.-10}{%
+\subsection{Part C: Interactivity (Ch.
+10)}\label{part-c-interactivity-ch.-10}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Set up a function to turn the fill color to yellow:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{function} \AttributeTok{goyellow}\NormalTok{() }\OperatorTok{\{}\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"yellow"}\NormalTok{)}\OperatorTok{\};}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Add an event listener to the circle that will be trigger a call to
+  \texttt{goyellow()} on a mouseover:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"circle"}\NormalTok{).}\AttributeTok{on}\NormalTok{(}\StringTok{"mouseover"}\OperatorTok{,}\NormalTok{ goyellow)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Test it out.
+\item
+  Add the same event listener to the ellipse. Test it out.
+\item
+  Create a function \texttt{goblue()} that changes the fill color to
+  blue.
+\item
+  Add event listeners to the circle and ellipse that will trigger a call
+  to \texttt{goblue()} on a \emph{mouseout}. Test out your code.
+\item
+  Try out a click event. (Note the use of an anonymous function.)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"line"}\NormalTok{).}\AttributeTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,} \KeywordTok{function}\NormalTok{()}
+  \OperatorTok{\{}\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"stroke-width"}\OperatorTok{,} \StringTok{"10"}\NormalTok{)}\OperatorTok{;\}}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Try another click event. What's happening?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{).}\AttributeTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,} \KeywordTok{function}\NormalTok{()}
+  \OperatorTok{\{}\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"text"}\NormalTok{).}\AttributeTok{text}\NormalTok{(}\VerbatimStringTok{`(}\SpecialCharTok{$\{}\VariableTok{d3}\NormalTok{.}\AttributeTok{mouse}\NormalTok{(}\KeywordTok{this}\NormalTok{)}\SpecialCharTok{\}}\VerbatimStringTok{)`}\NormalTok{)}\OperatorTok{\}}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+\end{enumerate}
+
+\hypertarget{introduction}{%
+\chapter{Introduction}\label{introduction}}
+
+Although it has plenty of new material and exercises, this book
+frequently references Scott Murray's
+\href{https://www.amazon.com/Interactive-Data-Visualization-Web-Introduction/dp/1491921285/}{\emph{Interactive
+Data Visualization for the Web, 2nd edition}}, a required book for
+GR5702. As such this resource is more a supplement to \emph{IDVW2}
+rather than an alternative.
+
+\emph{IDVW2} is the gold standard for learning D3. You may be wondering,
+why do we need any extra material? Here's why:
+
+\begin{itemize}
+\item
+  \emph{IDVW2} is written for graphics designers not data science
+  students so the pain points are somewhat different. As the title
+  states, my intended audience is R users, though you certainly don't
+  need to know R to use this resource.
+\item
+  \emph{IDVW2} does not use certain ES6 conventions which make coding
+  easier (and more like R 🤩).
+\item
+  \emph{IDVW2} does not include examples involved advanced statistics.
+\item
+  I prefer presenting some of the material in a different order than
+  presented in \emph{IDVW2}.
+\end{itemize}
+
+None of this detracts from the fact that \emph{IDVW2} is absolutely
+essential to learning D3. Although we will consider different examples,
+you are encouraged to study
+\href{https://github.com/alignedleft/d3-book/releases}{Murray's code
+examples} in addition to reading the text.
+
+\hypertarget{web-technologies}{%
+\chapter{Web Technologies}\label{web-technologies}}
+
+Prequisites for learning D3 include a basic understanding of:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  HTML -- the language of the web
+\item
+  CSS -- used for styling web pages, and more importantly for our
+  purposes, selecting elements on a page or in a graphic
+\item
+  SVG -- the graphics format that we will be using
+\item
+  JavaScript -- language for making web pages interactive, animated,
+  code is executed when page is opened or refreshed
+\end{enumerate}
+
+As our focus is D3, not building complex web sites with multiple pages,
+we will learn minimal amounts of these technologies on a need to know
+basis.
+
+\hypertarget{html}{%
+\section{HTML}\label{html}}
+
+\hypertarget{learn-to-use-chrome-developer-tools}{%
+\section{Learn to use Chrome Developer
+Tools}\label{learn-to-use-chrome-developer-tools}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Opening Chrome: click \emph{View, Developer, JavaScript Console}.
+  (There are
+  \href{https://developers.google.com/web/tools/chrome-devtools/open}{other
+  ways to open Chrome DevTools}).
+\item
+  Using the JavaScript Console to execute code, not necessarily
+  connected with the current page.
+\item
+\end{enumerate}
+
+\hypertarget{back-to-d3}{%
+\chapter{Back to D3}\label{back-to-d3}}
 
 Some \emph{significant} applications are demonstrated in this chapter.
 
@@ -252,7 +426,8 @@ Some \emph{significant} applications are demonstrated in this chapter.
 
 We have finished a nice book.
 
-\bibliography{book.bib,packages.bib}
+\hypertarget{scales}{%
+\chapter{Scales}\label{scales}}
 
 
 \end{document}
