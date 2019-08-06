@@ -6,11 +6,11 @@ Although it has plenty of new material and exercises, this book frequently refer
 
 - *IDVW2* is written for graphics designers not data science students so the pain points are somewhat different. As the title states, my intended audience is R users, though you certainly don't need to know R to use this resource.
 
-- *IDVW2* does not use certain ES6 conventions which make coding easier (and more like R emo::ji("star_struck")).
+- *IDVW2* does not use certain ES6 conventions which make coding easier (and more like R `r emo::ji("star_struck")`).
 
 - *IDVW2* does not include examples involved advanced statistics.
 
 - I prefer presenting some of the material in a different order than presented in *IDVW2*. 
 
-None of this detracts from the fact that *IDVW2* is absolutely essential to learning D3. Although we will consider different examples, you are encouraged to study [the code examples in Murray's text](https://github.com/alignedleft/d3-book/releases).
+None of this detracts from the fact that *IDVW2* is absolutely essential to learning D3. Although we will consider different examples, you are encouraged to study [Murray's code examples ](https://github.com/alignedleft/d3-book/releases){target="_blank"} in addition to reading the text.
 
