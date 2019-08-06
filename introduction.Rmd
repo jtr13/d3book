@@ -6,7 +6,7 @@ Although it has plenty of new material and exercises, this book frequently refer
 
 - *IDVW2* is written for graphics designers not data science students so the pain points are somewhat different. As the title states, my intended audience is R users, though you certainly don't need to know R to use this resource.
 
-- *IDVW2* does not use certain ES6 conventions which make coding easier (and more like R `r emo::ji("star_struck")`).
+- *IDVW2* does not use certain ES6 conventions which make coding easier (and more like R!)
 
 - *IDVW2* does not include examples involved advanced statistics.
 
