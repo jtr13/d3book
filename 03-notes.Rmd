@@ -1,0 +1,2 @@
+This book is not designed to be a standalone resource but rather an accompaniment to Scott Murray’s *Interactive Data Visualization for the Web, 2nd edition*. *IDVW2* is written for graphics designers not data science students so the pain points are somewhat different. In places where I recommend a different method from *IDVW2*, I will state so clearly.
+
