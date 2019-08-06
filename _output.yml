@@ -6,7 +6,7 @@ bookdown::gitbook:
         <li><a href="./">D3 for R Users</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    download: ["pdf"]
+    download: null
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
