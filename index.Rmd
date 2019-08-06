@@ -21,29 +21,26 @@ knitr::write_bib(c(
 
 Let's skip the explanations and start coding in D3 right now. Why? So you can see the benefits and know what you're working toward when you get stuck in the weeds.  Then we'll go back and start learning step by step. 
 
-### What you need
+## Setup
 
-[Chrome browser](https://www.google.com/chrome/){target="_blank"}
+If you don't have it already, download [Chrome browser](https://www.google.com/chrome/){target="_blank"}.
 
-### Elements 
+## View the DOM in Elements pane
 
-1. Open a *downloaded version* of `shapes.html`.
+1. Open a *downloaded version* of [`shapes.html`](https://raw.githubusercontent.com/jtr13/d3book/master/code/shapes.html){target="_blank"} -- click *File, Save Page As...` then open up the file in Chrome. 
 
-You can obtain a downloaded copy of the file by:
+Or download a zip whole repo. Clicking [here](https://github.com/jtr13/d3book/archive/master.zip){target="_blank"} will start the download. 
 
-- clicking [here](https://raw.githubusercontent.com/jtr13/d3book/master/code/shapes.html){target="_blank"} and then File, Save Page As...
+Or fork and clone the  [repo](https://github.com/jtr13/d3book){target="_blank"}.
 
-**or**
+2. Click *View, Developer, Developer Tools,* then the Elements tab.
 
-- downloading a ZIP of the whole repo by clicking [here](https://github.com/jtr13/d3book/archive/master.zip){target="_blank"}
+3. Hover the mouse over various elements in the `<body> ... </body>` section.  Observe the highlighted sections in the rendered web page on the left of the screen. Click on the mini black triangles as needed to open new sections of the DOM tree.
 
-**or**
+4. Now try the reverse: right click on elements on the web page, choose "Inspect" and see what is highlighted in the Elements pane.
 
-- forking and cloning the [repo](https://github.com/jtr13/d3book){target="_blank"}
+## Run code in the JavaScript Console
 
-2.  Click *View, Developer, Developer Tools,* then the `Elements` tab.
-
-3.  Hover the mouse over various elements in the `<body> ... </body>` section.
 
 4.  Click the Console tab. Type `d3.select("circle").attr("cx", "200");` at the prompt (`>`), press enter and see what happens.
 

@@ -130,10 +130,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Jump in the deep end</a><ul>
-<li class="chapter" data-level="1.0.1" data-path="index.html"><a href="index.html#what-you-need"><i class="fa fa-check"></i><b>1.0.1</b> What you need</a></li>
-<li class="chapter" data-level="1.0.2" data-path="index.html"><a href="index.html#elements"><i class="fa fa-check"></i><b>1.0.2</b> Elements</a></li>
-<li class="chapter" data-level="1.0.3" data-path="index.html"><a href="index.html#part-b-transitions-ch.-9"><i class="fa fa-check"></i><b>1.0.3</b> Part B: Transitions (Ch. 9)</a></li>
-<li class="chapter" data-level="1.0.4" data-path="index.html"><a href="index.html#part-c-interactivity-ch.-10"><i class="fa fa-check"></i><b>1.0.4</b> Part C: Interactivity (Ch. 10)</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#setup"><i class="fa fa-check"></i><b>1.1</b> Setup</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#view-the-dom-in-elements-pane"><i class="fa fa-check"></i><b>1.2</b> View the DOM in Elements pane</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#run-code-in-the-javascript-console"><i class="fa fa-check"></i><b>1.3</b> Run code in the JavaScript Console</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#part-b-transitions-ch.-9"><i class="fa fa-check"></i><b>1.3.1</b> Part B: Transitions (Ch. 9)</a></li>
+<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#part-c-interactivity-ch.-10"><i class="fa fa-check"></i><b>1.3.2</b> Part C: Interactivity (Ch. 10)</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
 <li class="chapter" data-level="3" data-path="web-technologies.html"><a href="web-technologies.html"><i class="fa fa-check"></i><b>3</b> Web Technologies</a><ul>
@@ -174,30 +176,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="jump-in-the-deep-end" class="section level1">
 <h1><span class="header-section-number">1</span> Jump in the deep end</h1>
 <p>Let’s skip the explanations and start coding in D3 right now. Why? So you can see the benefits and know what you’re working toward when you get stuck in the weeds. Then we’ll go back and start learning step by step.</p>
-<div id="what-you-need" class="section level3">
-<h3><span class="header-section-number">1.0.1</span> What you need</h3>
-<p><a href="https://www.google.com/chrome/" target="_blank">Chrome browser</a></p>
+<div id="setup" class="section level2">
+<h2><span class="header-section-number">1.1</span> Setup</h2>
+<p>If you don’t have it already, download <a href="https://www.google.com/chrome/" target="_blank">Chrome browser</a>.</p>
 </div>
-<div id="elements" class="section level3">
-<h3><span class="header-section-number">1.0.2</span> Elements</h3>
+<div id="view-the-dom-in-elements-pane" class="section level2">
+<h2><span class="header-section-number">1.2</span> View the DOM in Elements pane</h2>
 <ol style="list-style-type: decimal">
-<li>Open a <em>downloaded version</em> of <code>shapes.html</code>.</li>
+<li>Open a <em>downloaded version</em> of <a href="https://raw.githubusercontent.com/jtr13/d3book/master/code/shapes.html" target="_blank"><code>shapes.html</code></a> – click *File, Save Page As…` then open up the file in Chrome.</li>
 </ol>
-<p>You can obtain a downloaded copy of the file by:</p>
-<ul>
-<li>clicking <a href="https://raw.githubusercontent.com/jtr13/d3book/master/code/shapes.html" target="_blank">here</a> and then File, Save Page As…</li>
-</ul>
-<p><strong>or</strong></p>
-<ul>
-<li>downloading a ZIP of the whole repo by clicking <a href="https://github.com/jtr13/d3book/archive/master.zip" target="_blank">here</a></li>
-</ul>
-<p><strong>or</strong></p>
-<ul>
-<li>forking and cloning the <a href="https://github.com/jtr13/d3book" target="_blank">repo</a></li>
-</ul>
+<p>Or download a zip whole repo. Clicking <a href="https://github.com/jtr13/d3book/archive/master.zip" target="_blank">here</a> will start the download.</p>
+<p>Or fork and clone the <a href="https://github.com/jtr13/d3book" target="_blank">repo</a>.</p>
 <ol start="2" style="list-style-type: decimal">
-<li><p>Click <em>View, Developer, Developer Tools,</em> then the <code>Elements</code> tab.</p></li>
-<li><p>Hover the mouse over various elements in the <code>&lt;body&gt; ... &lt;/body&gt;</code> section.</p></li>
+<li><p>Click <em>View, Developer, Developer Tools,</em> then the Elements tab.</p></li>
+<li><p>Hover the mouse over various elements in the <code>&lt;body&gt; ... &lt;/body&gt;</code> section. Observe the highlighted sections in the rendered web page on the left of the screen. Click on the mini black triangles as needed to open new sections of the DOM tree.</p></li>
+<li><p>Now try the reverse: right click on elements on the web page, choose “Inspect” and see what is highlighted in the Elements pane.</p></li>
+</ol>
+</div>
+<div id="run-code-in-the-javascript-console" class="section level2">
+<h2><span class="header-section-number">1.3</span> Run code in the JavaScript Console</h2>
+<ol start="4" style="list-style-type: decimal">
 <li><p>Click the Console tab. Type <code>d3.select(&quot;circle&quot;).attr(&quot;cx&quot;, &quot;200&quot;);</code> at the prompt (<code>&gt;</code>), press enter and see what happens.</p></li>
 <li><p>Now try some of the following and/or experiment on your own with changing attributes of the circle:</p>
 <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;300&quot;</span>)<span class="op">;</span>
@@ -235,9 +233,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;h2&quot;</span>).<span class="at">style</span>(<span class="st">&quot;font-family&quot;</span><span class="op">,</span> <span class="st">&quot;Impact&quot;</span>)<span class="op">;</span></code></pre></li>
 </ol>
-</div>
 <div id="part-b-transitions-ch.-9" class="section level3">
-<h3><span class="header-section-number">1.0.3</span> Part B: Transitions (Ch. 9)</h3>
+<h3><span class="header-section-number">1.3.1</span> Part B: Transitions (Ch. 9)</h3>
 <ol style="list-style-type: decimal">
 <li><p>Try these:</p>
 <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">transition</span>().<span class="at">duration</span>(<span class="dv">2000</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;400&quot;</span>)<span class="op">;</span>
@@ -253,7 +250,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 </div>
 <div id="part-c-interactivity-ch.-10" class="section level3">
-<h3><span class="header-section-number">1.0.4</span> Part C: Interactivity (Ch. 10)</h3>
+<h3><span class="header-section-number">1.3.2</span> Part C: Interactivity (Ch. 10)</h3>
 <ol style="list-style-type: decimal">
 <li><p>Set up a function to turn the fill color to yellow:</p>
 <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">goyellow</span>() <span class="op">{</span><span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;yellow&quot;</span>)<span class="op">};</span></code></pre></li>
@@ -271,6 +268,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <span class="op">{</span><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;text&quot;</span>).<span class="at">text</span>(<span class="vs">`(</span><span class="sc">${</span><span class="va">d3</span>.<span class="at">mouse</span>(<span class="kw">this</span>)<span class="sc">}</span><span class="vs">)`</span>)<span class="op">}</span>)<span class="op">;</span></code></pre></li>
 </ol>
 
+</div>
 </div>
 </div>
             </section>
