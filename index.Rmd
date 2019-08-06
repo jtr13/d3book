@@ -33,7 +33,7 @@ If you don't have it already, download [Chrome browser](https://www.google.com/c
 
 3. Hover the mouse over various elements in the `<body> ... </body>` section.  Observe the highlighted sections in the rendered web page on the left of the screen. Click on the mini black triangles to the left of the `<head>`, `<body>` and `<svg>` tags to open these sections of the DOM tree. Your screen should look like this:
 
-![](/images/elements.png)
+![](../images/elements.png)
 
 4. Now try the reverse: right click on elements on the web page, choose "Inspect" and see what is highlighted in the Elements pane.
 
