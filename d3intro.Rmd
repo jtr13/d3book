@@ -1,6 +1,37 @@
 # Back to D3
 
-Some _significant_ applications are demonstrated in this chapter.
+## Selections
+
+### Select by tag
+
+The ability to select elements on a page is key to being able to manipulate them.  `d3.select()` will select the first match; `d3.selectAll()` will select all matches.
+
+Chaining, similar to the tidyverse pipe operator `%>%`, allows us to act on the selected elements.  For example:
+
+``` js
+d3.select("circle");
+```
+
+selects the first circle in the order in which circles appear in the `<svg>` grouping. If there were more than one circle we could select them all with:
+
+``` js
+d3.selectAll("circle");
+```
+
+We can select HTML elements by tag in the same way:
+
+``` js
+d3.select("h1");
+d3.selectAll("h1");
+```
+
+### Select by class
+
+Classes 
+
+
+
+
 
 ## Example one
 

@@ -1,16 +1,171 @@
-# Introduction
+--- 
+title: "D3 for R Users"
+author: "Joyce Robbins"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+---
 
-Although it has plenty of new material and exercises, this book frequently references Scott Murray’s [*Interactive Data Visualization for the Web, 2nd edition*](https://www.amazon.com/Interactive-Data-Visualization-Web-Introduction/dp/1491921285/), a required book for GR5702. As such this resource is more a supplement to *IDVW2* rather than an alternative.
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
 
-*IDVW2* is the gold standard for learning D3. You may be wondering, why do we need any extra material? Here's why:
 
-- *IDVW2* is written for graphics designers not data science students so the pain points are somewhat different. As the title states, my intended audience is R users, though you certainly don't need to know R to use this resource.
+# Jump in the deep end
 
-- *IDVW2* does not use certain ES6 conventions which make coding easier (and more like R!)
+Let's skip the explanations and start coding in D3 right now. Why? So you can see the benefits and know what you're working toward when you get stuck in the weeds.  Then we'll go back and start learning step by step. 
 
-- *IDVW2* does not include examples involved advanced statistics.
+## Setup
 
-- I prefer presenting some of the material in a different order than presented in *IDVW2*. 
+If you don't have it already, download the [Chrome browser](https://www.google.com/chrome/){target="_blank"}.
 
-None of this detracts from the fact that *IDVW2* is absolutely essential to learning D3. Although we will consider different examples, you are encouraged to study [Murray's code examples ](https://github.com/alignedleft/d3-book/releases){target="_blank"} in addition to reading the text.
+## View the DOM in the Elements pane
+
+1. First, you will need a *downloaded copy* of `shapes.html`. To download, open the following page and then click *File, Save Page As...*: [`shapes.html`](https://raw.githubusercontent.com/jtr13/d3book/master/code/shapes.html){target="_blank"}. (Or download a zip of the whole repo. Clicking [here](https://github.com/jtr13/d3book/archive/master.zip){target="_blank"} will start the download. Or fork and clone the  [repo](https://github.com/jtr13/d3book){target="_blank"}).
+
+2. If Chrome is your default browser, you can open `shapes.html` by double clicking it. Otherwise, open it with *File, Open File...* in Chrome.
+
+3. Click *View, Developer, Developer Tools,* then the Elements tab. 
+
+4. Hover the mouse over various elements in the `<body> ... </body>` section.  Observe the highlighted sections in the rendered web page on the left of the screen. Click on the mini black triangles to the left of the `<body>` and `<svg>` tags if needed to open these sections of the DOM tree. Your screen should look like this:
+
+```{r, echo=FALSE, fig.align='center', out.width="80%"}
+knitr::include_graphics("images/elements.png")
+```
+
+5. Now try the reverse: right click on elements on the web page, choose "Inspect" and see what is highlighted in the Elements pane. Get comfortable with the connection between the code on the right and the rendered elements on the left.
+
+## The JavaScript console
+
+1. Switch to the Console tab, next to the Elements tab. Let's practice running some code (think R console.) Note that the code is unrelated to the `shapes.html` web page that we have open. 
+
+2. Type the following lines of code at the prompt (`>`), press enter after each line--that is, after the semicolon (`;`)--and see what happens:
+
+    ``` javascript
+    3 + 4;
+    
+    "3" + "4";
+    
+    x = [1, 2, 3];
+    
+    x[1];
+    
+    x + 1;
+    
+    y = {a: 3, b: 4};
+    
+    y["b"];
+    ```
+
+## Use D3 to change elements on the page
+
+1.  Now we'll start using D3 to manipulate elements on the page. Try the following, by entering one line at a time in the Console as before:
+
+    ``` javascript
+    d3.select("circle").attr("cx", "200");
+
+    d3.select("circle").attr("cx", "500");
+
+    d3.select("circle").attr("cx", "100");
+
+    d3.select("circle").attr("r", "30");
+
+    d3.select("circle").attr("r", "130");
+
+    d3.select("circle").attr("r", "3");
+
+    d3.select("circle").attr("fill", "red");
+
+    d3.select("circle").attr("fill", "aliceblue");
+
+    d3.select("circle").attr("fill", "lightseagreen");
+    ```
+
+2.  Refresh the page. What happened?
+
+3.  Go to Elements. Look at the value of the `y1` attribute of the SVG `<line>` element. Go back to the Console and enter the following:
+
+    ``` javascript
+    d3.select("line").attr("y1", "10");
+    ```
+
+4.  Switch back to Elements and observe. What happened?
+
+5.  Stay in Elements and refresh the page. What happened to `y1`?
+
+6. Return to the Console to make style changes to the HTML elements:
+
+    ``` javascript
+    d3.select("h1").style("color", "purple");
+
+    d3.select("h2").style("font-size", "50px");
+
+    d3.select("h2").style("font-family", "Impact");
+    ```
+
+## Transitions
+
+1.  Try these:
+
+    ``` javascript
+    d3.select("circle").transition().duration(2000).attr("cx", "400");
+
+    d3.select("ellipse").transition().duration(2000).attr("transform", "translate (400, 400)");
+
+    d3.select("line").transition().duration(2000).attr("x1", "400");
+
+    d3.select("line").transition().duration(2000).attr("y1", "250");
+
+    d3.select("p").transition().duration(2000).style("font-size", "72px");
+    ```
+
+2.  Experiment with more transitions.
+
+## Interactivity
+
+1.  Set up a function to turn the fill color to yellow:
+
+    ``` javascript
+    function goyellow() {d3.select(this).attr("fill", "yellow")};
+    ```
+
+2.  Add an event listener to the circle that will be trigger a call to `goyellow()` on a mouseover:
+
+    ``` javascript
+    d3.select("circle").on("mouseover", goyellow);
+    ```
+
+3.  Test it out.
+
+4.  Add the same event listener to the ellipse. Test it out.
+
+5.  Create a function `goblue()` that changes the fill color to blue.
+
+6.  Add event listeners to the circle and ellipse that will trigger a call to `goblue()` on a *mouseout*. Test out your code.
+
+7.  Try out a click event. (Note the use of an anonymous function.)
+
+    ``` javascript
+    d3.select("line").on("click", function()
+      {d3.select(this).attr("stroke-width", "10");});
+    ```
+
+8.  Try another click event. What's happening?
+
+    ``` javascript
+    d3.select("svg").on("click", function()
+      {d3.select("text").text(`(${d3.mouse(this)})`)});
+    ```
+
+Ok, now that we have a taste for what D3 can do, let's break it down, which we'll do in the next chapter.
+
+
+
+
 
