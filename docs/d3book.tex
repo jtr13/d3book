@@ -125,7 +125,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-08-07}
+    \date{2019-08-08}
 
 \usepackage{booktabs}
 
@@ -147,8 +147,8 @@ In terms of content, we will use certain ES6 conventions not covered in \emph{ID
 
 Without further ado, let's start coding.
 
-\hypertarget{jump-in-the-deep-end}{%
-\chapter{Jump in the deep end}\label{jump-in-the-deep-end}}
+\hypertarget{jump}{%
+\chapter{Jump in the deep end}\label{jump}}
 
 Let's skip the explanations and start coding in D3 right now. Why? So you can see the benefits and know what you're working toward when you get stuck in the weeds. Then we'll go back and start learning step by step.
 
@@ -369,7 +369,12 @@ In the \texttt{\textless{}head\textgreater{}} section we use \texttt{\textless{}
 \hypertarget{css-cascading-style-sheets}{%
 \section{CSS -- Cascading Style Sheets}\label{css-cascading-style-sheets}}
 
-CSS is used for styling web pages, and more importantly for our purposes, selecting elements on a page or in a graphic. \texttt{shapes.html} has style information in the \texttt{\textless{}head\textgreater{}} section that uses CSS:
+CSS is used for styling web pages, and more importantly for our purposes, selecting elements on a page or in a graphic. We will generally work with internal style sheets since it's simpler when starting out to have everything in one document. External style sheets, however, are generally the preferred method for web design.
+
+\hypertarget{internal-style-sheet}{%
+\subsection{Internal style sheet}\label{internal-style-sheet}}
+
+\texttt{shapes.html} has an \emph{internal style sheet}: CSS style information appears in the \texttt{\textless{}head\textgreater{}} section marked off with \texttt{\textless{}style\textgreater{}} tags:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -382,6 +387,59 @@ CSS is used for styling web pages, and more importantly for our purposes, select
 
 Here we specify that all HTML \texttt{\textless{}h1\textgreater{}} headers should be red and all HTML paragraphs \texttt{\textless{}p\textgreater{}} should be blue. This is an example of an \emph{internal style sheet}. Later we will consider alternatives: \emph{external style sheets} and \emph{inline styling}.
 
+Styling for coder designed classes is also specified in this section. For example, we could style a ``formal'' class as such:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{<}\NormalTok{style type}\OperatorTok{=}\StringTok{"text/css"}\OperatorTok{>}
+\NormalTok{    .}\AttributeTok{formal} \OperatorTok{\{}\DataTypeTok{color}\OperatorTok{:}\NormalTok{ red}\OperatorTok{;}        
+\NormalTok{        font}\OperatorTok{-}\DataTypeTok{size}\OperatorTok{:}\NormalTok{ 30px}\OperatorTok{;}
+\NormalTok{        font}\OperatorTok{-}\DataTypeTok{family}\OperatorTok{:}\NormalTok{ Lucida Calligraphy}\OperatorTok{;}
+        \OperatorTok{\}}   
+\NormalTok{</style}\OperatorTok{>}
+\end{Highlighting}
+\end{Shaded}
+
+Note that classes are defined by the ``.'' before the name.
+
+\hypertarget{external-style-sheets}{%
+\subsection{External style sheets}\label{external-style-sheets}}
+
+External style sheets are \texttt{.css} files that contain styling information and are linked to with a \texttt{\textless{}link\textgreater{}} tag in the \texttt{\textless{}head\textgreater{}} section of an HTML document:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{<}\NormalTok{head}\OperatorTok{>}
+    \OperatorTok{<}\NormalTok{link rel}\OperatorTok{=}\StringTok{"stylesheet"}\NormalTok{ href}\OperatorTok{=}\StringTok{"style.css"}\OperatorTok{>}
+\NormalTok{</head}\OperatorTok{>}
+\end{Highlighting}
+\end{Shaded}
+
+External style sheets are the preferred way of styling as they can easily be modified without changing the web page; in fact, the motivation for CSS came from a desire in the early days of the internet to separate styling from content.
+
+Developers have the option now of choosing premade themes, which are shared through external style sheets. They can be quite complex. The \href{https://github.com/thomaspark/bootswatch/blob/master/docs/4/minty/bootstrap.css}{\texttt{.css} file} for the ~Minty~ theme from Bootswatch, for example, contains over 10,000 lines.
+
+\href{http://www.csszengarden.com/}{CSS Zen Garden} demonstrates the power of external style sheets: the same HTML document takes on very different looks depending on the stylesheet to which it is linked.
+
+\hypertarget{inline-styling}{%
+\subsection{Inline styling}\label{inline-styling}}
+
+With inline styling, styling is added to each tag individually:
+
+\begin{verbatim}
+<span style="color: white; background-color: fuchsia; font-family: impact; 
+      font-size: 24px; border-style: solid; border-color: limegreen; 
+      border-width: 3px">
+      Styled inline
+</span>
+\end{verbatim}
+
+{Styled inline}
+
+This is how early web pages were styled. To take a step back in time, use developer tools to view the source code for the main page of \href{http://www.dolekemp96.org/main.htm}{www.dolekemp96.org}, an old web site that has been maintained for historical purposes. As you can see, it's a tedious way of writing content, which internal and external style sheets eliminate.
+
+Although you will not be adding inline styling manually, you will notice that when we select elements and change the styling with D3, the modifications are made inline. In other words, we do not make changes to the elements directly, not via a style sheet.
+
 \hypertarget{svg-scalable-vector-graphics}{%
 \section{SVG -- Scalable Vector Graphics}\label{svg-scalable-vector-graphics}}
 
@@ -390,24 +448,19 @@ SVG is a human readable graphics format that facilitates manipulation of individ
 \begin{Shaded}
 \begin{Highlighting}[]
 \OperatorTok{<}\NormalTok{svg width}\OperatorTok{=}\StringTok{"500"}\NormalTok{ height}\OperatorTok{=}\StringTok{"300"}\OperatorTok{>}  \OperatorTok{<!--}\NormalTok{ some SVG }\OperatorTok{-->}
-    \OperatorTok{<}\NormalTok{rect x}\OperatorTok{=}\StringTok{"20"}\NormalTok{ y}\OperatorTok{=}\StringTok{"20"}\NormalTok{ width}\OperatorTok{=}\StringTok{"460"}\NormalTok{ height}\OperatorTok{=}\StringTok{"260"}\NormalTok{ fill}\OperatorTok{=}\StringTok{"aliceblue"}\OperatorTok{>}\NormalTok{</rect}\OperatorTok{>}
+    \OperatorTok{<}\NormalTok{rect x}\OperatorTok{=}\StringTok{"20"}\NormalTok{ y}\OperatorTok{=}\StringTok{"20"}\NormalTok{ width}\OperatorTok{=}\StringTok{"460"}\NormalTok{ height}\OperatorTok{=}\StringTok{"260"}\NormalTok{ fill}\OperatorTok{=}\StringTok{"lightblue"}\OperatorTok{>}\NormalTok{</rect}\OperatorTok{>}
     \OperatorTok{<}\NormalTok{circle cx}\OperatorTok{=}\StringTok{"50"}\NormalTok{ cy}\OperatorTok{=}\StringTok{"75"}\NormalTok{ r}\OperatorTok{=}\StringTok{"20"}\NormalTok{ fill}\OperatorTok{=}\StringTok{"blue"}\OperatorTok{>}\NormalTok{</circle}\OperatorTok{>}
     \OperatorTok{<}\NormalTok{ellipse cx}\OperatorTok{=}\StringTok{"175"}\NormalTok{ cy}\OperatorTok{=}\StringTok{"100"}\NormalTok{ rx}\OperatorTok{=}\StringTok{"45"}\NormalTok{ ry}\OperatorTok{=}\StringTok{"30"}\NormalTok{ fill}\OperatorTok{=}\StringTok{"green"}\OperatorTok{>}\NormalTok{</ellipse}\OperatorTok{>}
     \OperatorTok{<}\NormalTok{text x}\OperatorTok{=}\StringTok{"150"}\NormalTok{ y}\OperatorTok{=}\StringTok{"200"}\OperatorTok{>}\NormalTok{(}\DecValTok{150}\OperatorTok{,} \DecValTok{200}\NormalTok{)</text}\OperatorTok{>}
-    \OperatorTok{<}\NormalTok{line x1}\OperatorTok{=}\StringTok{"250"}\NormalTok{ y1}\OperatorTok{=}\StringTok{"150"}\NormalTok{ x2}\OperatorTok{=}\StringTok{"300"}\NormalTok{ y2}\OperatorTok{=}\StringTok{"200"}\NormalTok{ stroke}\OperatorTok{=}\StringTok{"red"}\NormalTok{ stroke}\OperatorTok{-}\NormalTok{width}\OperatorTok{=}\StringTok{"3"}\OperatorTok{>}\NormalTok{</line}\OperatorTok{>}
+    \OperatorTok{<}\NormalTok{line x1}\OperatorTok{=}\StringTok{"250"}\NormalTok{ y1}\OperatorTok{=}\StringTok{"150"}\NormalTok{ x2}\OperatorTok{=}\StringTok{"300"}\NormalTok{ y2}\OperatorTok{=}\StringTok{"200"}\NormalTok{ stroke}\OperatorTok{=}\StringTok{"red"}\NormalTok{ stroke}\OperatorTok{-}\NormalTok{width}\OperatorTok{=}\StringTok{"5"}\OperatorTok{>}\NormalTok{</line}\OperatorTok{>}
 \NormalTok{</svg}\OperatorTok{>}
 \end{Highlighting}
 \end{Shaded}
 
 Rendered:
 
-\begin{verbatim}
-<rect x="20" y="20" width="460" height="260" fill="aliceblue"></rect>
-<circle cx="50" cy="75" r="20" fill="blue"></circle>
-<ellipse cx="175" cy="100" rx="45" ry="30" fill="green"></ellipse>
-<text x="150" y="200">(150, 200)</text>
-<line x1="250" y1="150" x2="300" y2="200" stroke="red" stroke-width="3"></line>
-\end{verbatim}
+`
+(150, 200)
 
 There are very few SVG tags that you'll need to know, and once we get going with D3, you will not have to code any SVG manually. It is worth doing a little to become familiar with the format and in particular to get used to the new location of the origin.
 
@@ -460,16 +513,123 @@ Of note:
   \end{itemize}
 \end{itemize}
 
-\hypertarget{back-to-d3}{%
-\chapter{Back to D3}\label{back-to-d3}}
+\hypertarget{d3intro}{%
+\chapter{Selecting and modifying elements with D3}\label{d3intro}}
 
-Some \emph{significant} applications are demonstrated in this chapter.
+\hypertarget{selections}{%
+\section{Selections}\label{selections}}
 
-\hypertarget{example-one}{%
-\section{Example one}\label{example-one}}
+\hypertarget{select-by-tag}{%
+\subsection{Select by tag}\label{select-by-tag}}
 
-\hypertarget{example-two}{%
-\section{Example two}\label{example-two}}
+The ability to select elements on a page is key to being able to manipulate them. \texttt{d3.select()} will select the first match; \texttt{d3.selectAll()} will select all matches.
+
+Chaining, similar to the tidyverse pipe operator \texttt{\%\textgreater{}\%}, allows us to act on the selected elements. For example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+selects the first circle in the order in which circles appear in the \texttt{\textless{}svg\textgreater{}} grouping. If there were more than one circle we could select them all with:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+We can select HTML elements by tag in the same way:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"h1"}\NormalTok{)}\OperatorTok{;}
+\VariableTok{d3}\NormalTok{.}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"h1"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{select-by-class}{%
+\subsection{Select by class}\label{select-by-class}}
+
+Classes are selected by adding a ``.'' before the class name:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"circle.legend"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+This provides one method of selecting a certain collection of elements of the same type.
+
+\hypertarget{select-by-id}{%
+\subsection{Select by ID}\label{select-by-id}}
+
+IDs differ from classes in that they are unique identifies. IDs are selected by adding a ``\#'' before the ID:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"circle#henry"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{modify-existing-elements}{%
+\section{Modify existing elements}\label{modify-existing-elements}}
+
+\hypertarget{get-or-set-attribute-api}{%
+\subsection{\texorpdfstring{Get or set attribute \href{https://github.com/d3/d3-selection/blob/v1.4.0/README.md\#selection_attr}{API}}{Get or set attribute API}}\label{get-or-set-attribute-api}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"circle"}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"r"}\NormalTok{)}\OperatorTok{;}           \CommentTok{// see radius}
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"circle"}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"r"}\OperatorTok{,} \StringTok{"10"}\NormalTok{)}\OperatorTok{;}     \CommentTok{// set radius to 10}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{get-or-set-style-api}{%
+\subsection{\texorpdfstring{Get or set style \href{https://github.com/d3/d3-selection/blob/v1.4.0/README.md\#selection_style}{API}}{Get or set style API}}\label{get-or-set-style-api}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"h1"}\NormalTok{).}\AttributeTok{style}\NormalTok{(}\StringTok{"color"}\NormalTok{)}\OperatorTok{;}
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"h1"}\NormalTok{).}\AttributeTok{style}\NormalTok{(}\StringTok{"color"}\OperatorTok{,} \StringTok{"blue"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{get-or-set-text}{%
+\section{Get or set text}\label{get-or-set-text}}
+
+\hypertarget{tips-and-tricks}{%
+\section{Tips and tricks}\label{tips-and-tricks}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  The SVG \texttt{\textless{}text\textgreater{}} tag can be tricky. It differs from HTML text tags (\texttt{\textless{}p\textgreater{},\ \textless{}h1\textgreater{},\ \textless{}h2\textgreater{},} etc.) in that it has \texttt{x} and \texttt{y} attributes that allow you to position text on an SVG canvas. Unlike HTML, the fill attribute controls the color of the text. Compare:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"p"}\NormalTok{).}\AttributeTok{style}\NormalTok{(}\StringTok{"color"}\OperatorTok{,} \StringTok{"red"}\NormalTok{)}\OperatorTok{;}   \CommentTok{// HTML}
+\CommentTok{// with}
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"text"}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"red"}\NormalTok{)}\OperatorTok{;}  \CommentTok{// SVG}
+\end{Highlighting}
+\end{Shaded}
+\item
+  It is easy to confuse \texttt{.attr()} and \texttt{.style()}. In general, properties such as position on the SVG, class, and ID are \emph{attributes}, while decorative properties such as color, font, font size, etc. are \emph{styles}. However, in some cases, you can use either. For example, the following both make the circle blue:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"circle"}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"blue"}\NormalTok{)}\OperatorTok{;}
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"circle"}\NormalTok{).}\AttributeTok{style}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"blue"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+  The first will add a \texttt{fill="blue"} attribute to the \texttt{\textless{}circle\textgreater{}} tag, while the latter will add \texttt{style="fill:\ blue;"}. All is well and good until you find yourself with \emph{both} in the same tag, in which case the \texttt{style} property will take precedence. The bottom line: don't mix the two options because it can cause problems.
+\item
+  To further complicat matters, \texttt{.style()} is just shorthand for \texttt{.attr("style",\ "...")} so
+\end{enumerate}
+
+Have any tips to add to this page? \href{https://github.com/jtr13/d3book/edit/master/d3intro.Rmd}{Fork the repo, edit the page, and submit a pull request.}
 
 \hypertarget{final-words}{%
 \chapter{Final Words}\label{final-words}}

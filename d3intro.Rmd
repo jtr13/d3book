@@ -1,4 +1,4 @@
-# Back to D3
+# Selecting and modifying elements with D3 {#d3intro}
 
 ## Selections
 
@@ -27,12 +27,65 @@ d3.selectAll("h1");
 
 ### Select by class
 
-Classes 
+Classes are selected by adding a "." before the class name:
+
+``` js
+d3.selectAll("circle.legend")
+```
+
+This provides one method of selecting a certain collection of elements of the same type.
+
+### Select by ID
+
+IDs differ from classes in that they are unique identifies.  IDs are selected by adding a "#" before the ID:
+
+``` js
+d3.select("circle#henry");
+```
+
+## Modify existing elements
+
+### Get or set attribute [API](https://github.com/d3/d3-selection/blob/v1.4.0/README.md#selection_attr)
+
+``` js
+d3.select("circle").attr("r");           // see radius
+d3.select("circle").attr("r", "10");     // set radius to 10
+```
+
+
+### Get or set style [API](https://github.com/d3/d3-selection/blob/v1.4.0/README.md#selection_style)
+
+``` js
+d3.select("h1").style("color");
+d3.select("h1").style("color", "blue");
+```
+
+## Get or set text
+
+
+## Tips and tricks
+
+1. The SVG `<text>` tag can be tricky.  It differs from HTML text tags (`<p>, <h1>, <h2>,` etc.) in that it has `x` and `y` attributes that allow you to position text on an SVG canvas.  Unlike HTML, the fill attribute controls the color of the text. Compare:
+    
+    ``` js
+    d3.select("p").style("color", "red");   // HTML
+    // with
+    d3.select("text").attr("fill", "red");  // SVG
+    ```
+
+2. It is easy to confuse `.attr()` and `.style()`. <br> In general, properties such as position on the SVG, class, and ID are *attributes*, while decorative properties such as color, font, font size, etc. are *styles*.  However, in some cases, you can use either. For example, the following both make the circle blue:
+
+    ``` js
+    d3.select("circle").attr("fill", "blue");
+    d3.select("circle").style("fill", "blue");
+    ```
+    
+    The first will add a `fill="blue"` attribute to the `<circle>` tag, while the latter will add `style="fill: blue;"`. All is well and good until you find yourself with *both* in the same tag, in which case the `style` property will take precedence. The bottom line: don't mix the two options because it can cause problems.
 
 
 
 
+3. To further complicat matters, `.style()` is just shorthand for `.attr("style", "...")` so 
 
-## Example one
+Have any tips to add to this page? [Fork the repo, edit the page, and submit a pull request.](https://github.com/jtr13/d3book/edit/master/d3intro.Rmd){target="_blank"}
 
-## Example two

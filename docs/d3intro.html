@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Final Words | d3book.utf8.md</title>
+  <title>4 Selecting and modifying elements with D3 | d3book.utf8.md</title>
   <meta name="description" content="D3 for R Users" />
   <meta name="generator" content="bookdown 0.10.2 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Final Words | d3book.utf8.md" />
+  <meta property="og:title" content="4 Selecting and modifying elements with D3 | d3book.utf8.md" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Final Words | d3book.utf8.md" />
+  <meta name="twitter:title" content="4 Selecting and modifying elements with D3 | d3book.utf8.md" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="d3intro.html">
-<link rel="next" href="scales.html">
+<link rel="prev" href="web-tech.html">
+<link rel="next" href="final-words.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -185,18 +185,73 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="final-words" class="section level1">
-<h1><span class="header-section-number">5</span> Final Words</h1>
-<p>We have finished a nice book.</p>
+<div id="d3intro" class="section level1">
+<h1><span class="header-section-number">4</span> Selecting and modifying elements with D3</h1>
+<div id="selections" class="section level2">
+<h2><span class="header-section-number">4.1</span> Selections</h2>
+<div id="select-by-tag" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Select by tag</h3>
+<p>The ability to select elements on a page is key to being able to manipulate them. <code>d3.select()</code> will select the first match; <code>d3.selectAll()</code> will select all matches.</p>
+<p>Chaining, similar to the tidyverse pipe operator <code>%&gt;%</code>, allows us to act on the selected elements. For example:</p>
+<pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">;</span></code></pre>
+<p>selects the first circle in the order in which circles appear in the <code>&lt;svg&gt;</code> grouping. If there were more than one circle we could select them all with:</p>
+<pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">d3</span>.<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">;</span></code></pre>
+<p>We can select HTML elements by tag in the same way:</p>
+<pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;h1&quot;</span>)<span class="op">;</span>
+<span class="va">d3</span>.<span class="at">selectAll</span>(<span class="st">&quot;h1&quot;</span>)<span class="op">;</span></code></pre>
+</div>
+<div id="select-by-class" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Select by class</h3>
+<p>Classes are selected by adding a “.” before the class name:</p>
+<pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">d3</span>.<span class="at">selectAll</span>(<span class="st">&quot;circle.legend&quot;</span>)</code></pre>
+<p>This provides one method of selecting a certain collection of elements of the same type.</p>
+</div>
+<div id="select-by-id" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> Select by ID</h3>
+<p>IDs differ from classes in that they are unique identifies. IDs are selected by adding a “#” before the ID:</p>
+<pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle#henry&quot;</span>)<span class="op">;</span></code></pre>
+</div>
+</div>
+<div id="modify-existing-elements" class="section level2">
+<h2><span class="header-section-number">4.2</span> Modify existing elements</h2>
+<div id="get-or-set-attribute-api" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Get or set attribute <a href="https://github.com/d3/d3-selection/blob/v1.4.0/README.md#selection_attr">API</a></h3>
+<pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;r&quot;</span>)<span class="op">;</span>           <span class="co">// see radius</span>
+<span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;10&quot;</span>)<span class="op">;</span>     <span class="co">// set radius to 10</span></code></pre>
+</div>
+<div id="get-or-set-style-api" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Get or set style <a href="https://github.com/d3/d3-selection/blob/v1.4.0/README.md#selection_style">API</a></h3>
+<pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;h1&quot;</span>).<span class="at">style</span>(<span class="st">&quot;color&quot;</span>)<span class="op">;</span>
+<span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;h1&quot;</span>).<span class="at">style</span>(<span class="st">&quot;color&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)<span class="op">;</span></code></pre>
+</div>
+</div>
+<div id="get-or-set-text" class="section level2">
+<h2><span class="header-section-number">4.3</span> Get or set text</h2>
+</div>
+<div id="tips-and-tricks" class="section level2">
+<h2><span class="header-section-number">4.4</span> Tips and tricks</h2>
+<ol style="list-style-type: decimal">
+<li><p>The SVG <code>&lt;text&gt;</code> tag can be tricky. It differs from HTML text tags (<code>&lt;p&gt;, &lt;h1&gt;, &lt;h2&gt;,</code> etc.) in that it has <code>x</code> and <code>y</code> attributes that allow you to position text on an SVG canvas. Unlike HTML, the fill attribute controls the color of the text. Compare:</p>
+<pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;p&quot;</span>).<span class="at">style</span>(<span class="st">&quot;color&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span>   <span class="co">// HTML</span>
+<span class="co">// with</span>
+<span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;text&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span>  <span class="co">// SVG</span></code></pre></li>
+<li><p>It is easy to confuse <code>.attr()</code> and <code>.style()</code>. <br> In general, properties such as position on the SVG, class, and ID are <em>attributes</em>, while decorative properties such as color, font, font size, etc. are <em>styles</em>. However, in some cases, you can use either. For example, the following both make the circle blue:</p>
+<pre class="sourceCode js"><code class="sourceCode javascript"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)<span class="op">;</span>
+<span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">style</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)<span class="op">;</span></code></pre>
+<p>The first will add a <code>fill=&quot;blue&quot;</code> attribute to the <code>&lt;circle&gt;</code> tag, while the latter will add <code>style=&quot;fill: blue;&quot;</code>. All is well and good until you find yourself with <em>both</em> in the same tag, in which case the <code>style</code> property will take precedence. The bottom line: don’t mix the two options because it can cause problems.</p></li>
+<li><p>To further complicat matters, <code>.style()</code> is just shorthand for <code>.attr(&quot;style&quot;, &quot;...&quot;)</code> so</p></li>
+</ol>
+<p>Have any tips to add to this page? <a href="https://github.com/jtr13/d3book/edit/master/d3intro.Rmd" target="_blank">Fork the repo, edit the page, and submit a pull request.</a></p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="d3intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="scales.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="web-tech.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="final-words.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -226,7 +281,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jtr13/d3book/edit/master/data.Rmd",
+"link": "https://github.com/jtr13/d3book/edit/master/d3intro.Rmd",
 "text": "Edit"
 },
 "history": {

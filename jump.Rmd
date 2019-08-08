@@ -17,7 +17,7 @@ knitr::write_bib(c(
 ```
 
 
-# Jump in the deep end
+# Jump in the deep end {#jump}
 
 Let's skip the explanations and start coding in D3 right now. Why? So you can see the benefits and know what you're working toward when you get stuck in the weeds.  Then we'll go back and start learning step by step. 
 

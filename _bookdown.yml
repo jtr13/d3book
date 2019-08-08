@@ -4,7 +4,7 @@ delete_merged_file: true
 edit: https://github.com/jtr13/d3book/edit/master/%s
 # chapter ordering
 rmd_files: ["index.Rmd",
-  "introduction.Rmd",
+  "jump.Rmd",
   "web.Rmd",
   "d3intro.Rmd",
   "data.Rmd",
