@@ -45,9 +45,9 @@ d3.select("circle#henry");
 
 ## Modify existing elements
 
-### Get or set attribute
+### Modifying attributes
 
-[link to API](https://github.com/d3/d3-selection/blob/v1.4.0/README.md#selection_attr)
+[link to get or set attribute API](https://github.com/d3/d3-selection/blob/v1.4.0/README.md#selection_attr)
 
 ``` js
 d3.select("circle").attr("r");           // see radius
@@ -55,16 +55,55 @@ d3.select("circle").attr("r", "10");     // set radius to 10
 ```
 
 
-### Get or set style 
+### Modifying styles
 
-[link to API](https://github.com/d3/d3-selection/blob/v1.4.0/README.md#selection_style)
+[link to get or set style API](https://github.com/d3/d3-selection/blob/v1.4.0/README.md#selection_style)
 
 ``` js
 d3.select("h1").style("color");
 d3.select("h1").style("color", "blue");
 ```
 
-## Get or set text
+## Modifying text
+
+### HTML text
+
+``` html
+<p id="typo">Manhatten</p>
+```
+
+<p id="typo">
+Manhatten
+</p>
+
+Hover to execute this code (and fix the typo):
+
+``` js
+d3.select("#typo").text("Manhattan");
+```
+
+### SVG text
+``` svg
+<svg width="500" height="100">
+  <rect width="500" height="100" fill="#326EA4"></rect>
+<text id="svgtypo" x="50" y="70" fill="white"
+    font-weight="bold" font-size="40px">
+    Web scrapping is fun.</text>
+</svg>  
+```
+
+<p style="font-size: 50%; line-height: 50%;">
+svg
+</p>
+<svg width="500" height="100">
+<rect width="500" height="100" fill="#326EA4"></rect> <text id="svgtypo" x="50" y="70" fill="white"
+    font-weight="bold" font-size="40px"> Web scrapping is fun.</text>
+</svg>
+Hover to execute this code (and fix the typo):
+
+``` js
+d3.select("#svgtypo").text("Web scraping is fun.");
+```
 
 
 ## Tips and tricks
@@ -85,8 +124,6 @@ d3.select("h1").style("color", "blue");
     ```
     
     The first will add a `fill="blue"` attribute to the `<circle>` tag, while the latter will add `style="fill: blue;"`. All is well and good until you find yourself with *both* in the same tag, in which case the `style` property will take precedence. The bottom line: don't mix the two options because it can cause problems.
-
-
 
 
 3. To further complicat matters, `.style()` is just shorthand for `.attr("style", "...")` so 
