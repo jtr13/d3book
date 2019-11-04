@@ -1,4 +1,4 @@
-\documentclass[]{book}
+\documentclass[openany]{book}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -434,8 +434,6 @@ With inline styling, styling is added to each tag individually:
 </span>
 \end{verbatim}
 
-{Styled inline}
-
 This is how early web pages were styled. To take a step back in time, use developer tools to view the source code for the main page of \href{http://www.dolekemp96.org/main.htm}{www.dolekemp96.org}, an old web site that has been maintained for historical purposes. As you can see, it's a tedious way of writing content, which internal and external style sheets eliminate.
 
 Although you will not be adding inline styling manually, you will notice that when we select elements and change the styling with D3, the modifications are made inline. In other words, we do not make changes to the elements directly, not via a style sheet.
@@ -460,7 +458,8 @@ SVG is a human readable graphics format that facilitates manipulation of individ
 Rendered:
 
 `
-(150, 200)
+
+\includegraphics[width=0.5\linewidth]{images/shapessvg}
 
 There are very few SVG tags that you'll need to know, and once we get going with D3, you will not have to code any SVG manually. It is worth doing a little to become familiar with the format and in particular to get used to the new location of the origin.
 

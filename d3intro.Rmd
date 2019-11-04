@@ -45,7 +45,9 @@ d3.select("circle#henry");
 
 ## Modify existing elements
 
-### Get or set attribute [API](https://github.com/d3/d3-selection/blob/v1.4.0/README.md#selection_attr)
+### Get or set attribute
+
+[API](https://github.com/d3/d3-selection/blob/v1.4.0/README.md#selection_attr)
 
 ``` js
 d3.select("circle").attr("r");           // see radius
@@ -53,7 +55,9 @@ d3.select("circle").attr("r", "10");     // set radius to 10
 ```
 
 
-### Get or set style [API](https://github.com/d3/d3-selection/blob/v1.4.0/README.md#selection_style)
+### Get or set style
+
+[API](https://github.com/d3/d3-selection/blob/v1.4.0/README.md#selection_style)
 
 ``` js
 d3.select("h1").style("color");
@@ -65,7 +69,7 @@ d3.select("h1").style("color", "blue");
 
 ## Tips and tricks
 
-1. The SVG `<text>` tag can be tricky.  It differs from HTML text tags (`<p>, <h1>, <h2>,` etc.) in that it has `x` and `y` attributes that allow you to position text on an SVG canvas.  Unlike HTML, the fill attribute controls the color of the text. Compare:
+1. **SVG `<text>`** -- This tag can be tricky.  It differs from HTML text tags (`<p>, <h1>, <h2>,` etc.) in that it has `x` and `y` attributes that allow you to position text on an SVG canvas.  Unlike HTML, the *fill* attribute controls the color of the text. Compare:
     
     ``` js
     d3.select("p").style("color", "red");   // HTML
@@ -73,7 +77,7 @@ d3.select("h1").style("color", "blue");
     d3.select("text").attr("fill", "red");  // SVG
     ```
 
-2. It is easy to confuse `.attr()` and `.style()`. <br> In general, properties such as position on the SVG, class, and ID are *attributes*, while decorative properties such as color, font, font size, etc. are *styles*.  However, in some cases, you can use either. For example, the following both make the circle blue:
+2. **`.attr()` vs. `.style()`** -- At times it is difficult to remember which of these methods to use. In general, properties such as position on the SVG, class, and ID are *attributes*, while decorative properties such as color, font, font size, etc. are *styles*.  However, in some cases, you can use either. For example, the following both make the circle blue:
 
     ``` js
     d3.select("circle").attr("fill", "blue");
@@ -83,9 +87,13 @@ d3.select("h1").style("color", "blue");
     The first will add a `fill="blue"` attribute to the `<circle>` tag, while the latter will add `style="fill: blue;"`. All is well and good until you find yourself with *both* in the same tag, in which case the `style` property will take precedence. The bottom line: don't mix the two options because it can cause problems.
 
 
+3. **`style`** is an attribute! To further complicat matters, `.style()` is just shorthand for `.attr("style", "...")` so the following are in fact equivalent:
 
-
-3. To further complicat matters, `.style()` is just shorthand for `.attr("style", "...")` so 
+    ``` js
+    d3.select("circle").style("fill", "blue");
+    d3.select("circle").attr("style", "fill: blue;");
+    ```
+    
 
 Have any tips to add to this page? [Fork the repo, edit the page, and submit a pull request.](https://github.com/jtr13/d3book/edit/master/d3intro.Rmd){target="_blank"}
 
