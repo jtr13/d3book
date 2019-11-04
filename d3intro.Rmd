@@ -45,7 +45,9 @@ d3.select("circle#henry");
 
 ## Modify existing elements
 
-### Get or set attribute [API](https://github.com/d3/d3-selection/blob/v1.4.0/README.md#selection_attr)
+### Get or set attribute
+
+[link to API](https://github.com/d3/d3-selection/blob/v1.4.0/README.md#selection_attr)
 
 ``` js
 d3.select("circle").attr("r");           // see radius
@@ -53,7 +55,9 @@ d3.select("circle").attr("r", "10");     // set radius to 10
 ```
 
 
-### Get or set style [API](https://github.com/d3/d3-selection/blob/v1.4.0/README.md#selection_style)
+### Get or set style 
+
+[link to API](https://github.com/d3/d3-selection/blob/v1.4.0/README.md#selection_style)
 
 ``` js
 d3.select("h1").style("color");
