@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 Jump in the deep end | D3 for R Users</title>
   <meta name="description" content="2 Jump in the deep end | D3 for R Users" />
-  <meta name="generator" content="bookdown 0.10.2 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 Jump in the deep end | D3 for R Users" />
   <meta property="og:type" content="book" />
@@ -24,15 +24,15 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2019-08-08" />
+<meta name="date" content="2019-11-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="web-tech.html">
+<link rel="prev" href="index.html"/>
+<link rel="next" href="web-tech.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -55,7 +55,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -157,10 +156,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1.3" data-path="d3intro.html"><a href="d3intro.html#select-by-id"><i class="fa fa-check"></i><b>4.1.3</b> Select by ID</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="d3intro.html"><a href="d3intro.html#modify-existing-elements"><i class="fa fa-check"></i><b>4.2</b> Modify existing elements</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="d3intro.html"><a href="d3intro.html#get-or-set-attribute-api"><i class="fa fa-check"></i><b>4.2.1</b> Get or set attribute <span>API</span></a></li>
-<li class="chapter" data-level="4.2.2" data-path="d3intro.html"><a href="d3intro.html#get-or-set-style-api"><i class="fa fa-check"></i><b>4.2.2</b> Get or set style <span>API</span></a></li>
+<li class="chapter" data-level="4.2.1" data-path="d3intro.html"><a href="d3intro.html#modifying-attributes"><i class="fa fa-check"></i><b>4.2.1</b> Modifying attributes</a></li>
+<li class="chapter" data-level="4.2.2" data-path="d3intro.html"><a href="d3intro.html#modifying-styles"><i class="fa fa-check"></i><b>4.2.2</b> Modifying styles</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="d3intro.html"><a href="d3intro.html#get-or-set-text"><i class="fa fa-check"></i><b>4.3</b> Get or set text</a></li>
+<li class="chapter" data-level="4.3" data-path="d3intro.html"><a href="d3intro.html#modifying-text"><i class="fa fa-check"></i><b>4.3</b> Modifying text</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="d3intro.html"><a href="d3intro.html#html-text"><i class="fa fa-check"></i><b>4.3.1</b> HTML text</a></li>
+<li class="chapter" data-level="4.3.2" data-path="d3intro.html"><a href="d3intro.html#svg-text"><i class="fa fa-check"></i><b>4.3.2</b> SVG text</a></li>
+</ul></li>
 <li class="chapter" data-level="4.4" data-path="d3intro.html"><a href="d3intro.html#tips-and-tricks"><i class="fa fa-check"></i><b>4.4</b> Tips and tricks</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
@@ -210,68 +212,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol style="list-style-type: decimal">
 <li><p>Switch to the Console tab, next to the Elements tab. Let’s practice running some code (think R console.) Note that the code is unrelated to the <code>shapes.html</code> web page that we have open.</p></li>
 <li><p>Type the following lines of code at the prompt (<code>&gt;</code>), press enter after each line–that is, after the semicolon (<code>;</code>)–and see what happens:</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="dv">3</span> <span class="op">+</span> <span class="dv">4</span><span class="op">;</span>
-
-<span class="st">&quot;3&quot;</span> <span class="op">+</span> <span class="st">&quot;4&quot;</span><span class="op">;</span>
-
-x <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">;</span>
-
-x[<span class="dv">1</span>]<span class="op">;</span>
-
-x <span class="op">+</span> <span class="dv">1</span><span class="op">;</span>
-
-y <span class="op">=</span> <span class="op">{</span><span class="dt">a</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span> <span class="dt">b</span><span class="op">:</span> <span class="dv">4</span><span class="op">};</span>
-
-y[<span class="st">&quot;b&quot;</span>]<span class="op">;</span></code></pre></li>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="dv">3</span> <span class="op">+</span> <span class="dv">4</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="st">&quot;3&quot;</span> <span class="op">+</span> <span class="st">&quot;4&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">x <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">x[<span class="dv">1</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">x <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">y <span class="op">=</span> <span class="op">{</span><span class="dt">a</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span> <span class="dt">b</span><span class="op">:</span> <span class="dv">4</span><span class="op">};</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">y[<span class="st">&quot;b&quot;</span>]<span class="op">;</span></a></code></pre></div></li>
 </ol>
 </div>
 <div id="use-d3-to-change-elements-on-the-page" class="section level2">
 <h2><span class="header-section-number">2.4</span> Use D3 to change elements on the page</h2>
 <ol style="list-style-type: decimal">
 <li><p>Now we’ll start using D3 to manipulate elements on the page. Try the following, by entering one line at a time in the Console as before:</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;200&quot;</span>)<span class="op">;</span>
-
-<span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;500&quot;</span>)<span class="op">;</span>
-
-<span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;100&quot;</span>)<span class="op">;</span>
-
-<span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)<span class="op">;</span>
-
-<span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;130&quot;</span>)<span class="op">;</span>
-
-<span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;3&quot;</span>)<span class="op">;</span>
-
-<span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span>
-
-<span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;aliceblue&quot;</span>)<span class="op">;</span>
-
-<span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightseagreen&quot;</span>)<span class="op">;</span></code></pre></li>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;200&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;500&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;100&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;130&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;3&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;aliceblue&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightseagreen&quot;</span>)<span class="op">;</span></a></code></pre></div></li>
 <li><p>Refresh the page. What happened?</p></li>
 <li><p>Go to Elements. Look at the value of the <code>y1</code> attribute of the SVG <code>&lt;line&gt;</code> element. Go back to the Console and enter the following:</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;line&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;y1&quot;</span><span class="op">,</span> <span class="st">&quot;10&quot;</span>)<span class="op">;</span></code></pre></li>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;line&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;y1&quot;</span><span class="op">,</span> <span class="st">&quot;10&quot;</span>)<span class="op">;</span></a></code></pre></div></li>
 <li><p>Switch back to Elements and observe. What happened?</p></li>
 <li><p>Stay in Elements and refresh the page. What happened to <code>y1</code>?</p></li>
 <li><p>Return to the Console to make style changes to the HTML elements:</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;h1&quot;</span>).<span class="at">style</span>(<span class="st">&quot;color&quot;</span><span class="op">,</span> <span class="st">&quot;purple&quot;</span>)<span class="op">;</span>
-
-<span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;h2&quot;</span>).<span class="at">style</span>(<span class="st">&quot;font-size&quot;</span><span class="op">,</span> <span class="st">&quot;50px&quot;</span>)<span class="op">;</span>
-
-<span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;h2&quot;</span>).<span class="at">style</span>(<span class="st">&quot;font-family&quot;</span><span class="op">,</span> <span class="st">&quot;Impact&quot;</span>)<span class="op">;</span></code></pre></li>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;h1&quot;</span>).<span class="at">style</span>(<span class="st">&quot;color&quot;</span><span class="op">,</span> <span class="st">&quot;purple&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;h2&quot;</span>).<span class="at">style</span>(<span class="st">&quot;font-size&quot;</span><span class="op">,</span> <span class="st">&quot;50px&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;h2&quot;</span>).<span class="at">style</span>(<span class="st">&quot;font-family&quot;</span><span class="op">,</span> <span class="st">&quot;Impact&quot;</span>)<span class="op">;</span></a></code></pre></div></li>
 </ol>
 </div>
 <div id="transitions" class="section level2">
 <h2><span class="header-section-number">2.5</span> Transitions</h2>
 <ol style="list-style-type: decimal">
 <li><p>Try these:</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">transition</span>().<span class="at">duration</span>(<span class="dv">2000</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;400&quot;</span>)<span class="op">;</span>
-
-<span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;ellipse&quot;</span>).<span class="at">transition</span>().<span class="at">duration</span>(<span class="dv">2000</span>).<span class="at">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span> <span class="st">&quot;translate (400, 400)&quot;</span>)<span class="op">;</span>
-
-<span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;line&quot;</span>).<span class="at">transition</span>().<span class="at">duration</span>(<span class="dv">2000</span>).<span class="at">attr</span>(<span class="st">&quot;x1&quot;</span><span class="op">,</span> <span class="st">&quot;400&quot;</span>)<span class="op">;</span>
-
-<span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;line&quot;</span>).<span class="at">transition</span>().<span class="at">duration</span>(<span class="dv">2000</span>).<span class="at">attr</span>(<span class="st">&quot;y1&quot;</span><span class="op">,</span> <span class="st">&quot;250&quot;</span>)<span class="op">;</span>
-
-<span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;p&quot;</span>).<span class="at">transition</span>().<span class="at">duration</span>(<span class="dv">2000</span>).<span class="at">style</span>(<span class="st">&quot;font-size&quot;</span><span class="op">,</span> <span class="st">&quot;72px&quot;</span>)<span class="op">;</span></code></pre></li>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">transition</span>().<span class="at">duration</span>(<span class="dv">2000</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;400&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;ellipse&quot;</span>).<span class="at">transition</span>().<span class="at">duration</span>(<span class="dv">2000</span>).<span class="at">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span> <span class="st">&quot;translate (400, 400)&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;line&quot;</span>).<span class="at">transition</span>().<span class="at">duration</span>(<span class="dv">2000</span>).<span class="at">attr</span>(<span class="st">&quot;x1&quot;</span><span class="op">,</span> <span class="st">&quot;400&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;line&quot;</span>).<span class="at">transition</span>().<span class="at">duration</span>(<span class="dv">2000</span>).<span class="at">attr</span>(<span class="st">&quot;y1&quot;</span><span class="op">,</span> <span class="st">&quot;250&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;p&quot;</span>).<span class="at">transition</span>().<span class="at">duration</span>(<span class="dv">2000</span>).<span class="at">style</span>(<span class="st">&quot;font-size&quot;</span><span class="op">,</span> <span class="st">&quot;72px&quot;</span>)<span class="op">;</span></a></code></pre></div></li>
 <li><p>Experiment with more transitions.</p></li>
 </ol>
 </div>
@@ -279,19 +281,19 @@ y[<span class="st">&quot;b&quot;</span>]<span class="op">;</span></code></pre></
 <h2><span class="header-section-number">2.6</span> Interactivity</h2>
 <ol style="list-style-type: decimal">
 <li><p>Set up a function to turn the fill color to yellow:</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">goyellow</span>() <span class="op">{</span><span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;yellow&quot;</span>)<span class="op">};</span></code></pre></li>
+<div class="sourceCode" id="cb6"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">function</span> <span class="at">goyellow</span>() <span class="op">{</span><span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;yellow&quot;</span>)<span class="op">};</span></a></code></pre></div></li>
 <li><p>Add an event listener to the circle that will be trigger a call to <code>goyellow()</code> on a mouseover:</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">on</span>(<span class="st">&quot;mouseover&quot;</span><span class="op">,</span> goyellow)<span class="op">;</span></code></pre></li>
+<div class="sourceCode" id="cb7"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">on</span>(<span class="st">&quot;mouseover&quot;</span><span class="op">,</span> goyellow)<span class="op">;</span></a></code></pre></div></li>
 <li><p>Test it out.</p></li>
 <li><p>Add the same event listener to the ellipse. Test it out.</p></li>
 <li><p>Create a function <code>goblue()</code> that changes the fill color to blue.</p></li>
 <li><p>Add event listeners to the circle and ellipse that will trigger a call to <code>goblue()</code> on a <em>mouseout</em>. Test out your code.</p></li>
 <li><p>Try out a click event. (Note the use of an anonymous function.)</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;line&quot;</span>).<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>()
-  <span class="op">{</span><span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">attr</span>(<span class="st">&quot;stroke-width&quot;</span><span class="op">,</span> <span class="st">&quot;10&quot;</span>)<span class="op">;}</span>)<span class="op">;</span></code></pre></li>
+<div class="sourceCode" id="cb8"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;line&quot;</span>).<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>()</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">  <span class="op">{</span><span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">attr</span>(<span class="st">&quot;stroke-width&quot;</span><span class="op">,</span> <span class="st">&quot;10&quot;</span>)<span class="op">;}</span>)<span class="op">;</span></a></code></pre></div></li>
 <li><p>Try another click event. What’s happening?</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>()
-  <span class="op">{</span><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;text&quot;</span>).<span class="at">text</span>(<span class="vs">`(</span><span class="sc">${</span><span class="va">d3</span>.<span class="at">mouse</span>(<span class="kw">this</span>)<span class="sc">}</span><span class="vs">)`</span>)<span class="op">}</span>)<span class="op">;</span></code></pre></li>
+<div class="sourceCode" id="cb9"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>()</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">  <span class="op">{</span><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;text&quot;</span>).<span class="at">text</span>(<span class="vs">`(</span><span class="sc">${</span><span class="va">d3</span>.<span class="at">mouse</span>(<span class="kw">this</span>)<span class="sc">}</span><span class="vs">)`</span>)<span class="op">}</span>)<span class="op">;</span></a></code></pre></div></li>
 </ol>
 <p>Ok, now that we have a taste for what D3 can do, let’s break it down, which we’ll do in the next chapter.</p>
 
