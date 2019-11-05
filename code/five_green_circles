@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Five Green Circles</title>
+
+		<script src="https://d3js.org/d3.v5.min.js"></script>  <!-- link to D3 Version 5 library -->
+
+
+	</head>
+
+	<body>
+    <h1>Five Green Circles</h1>
+		<svg width="500" height="400">
+			<rect x="0" y="0" width="500" height="400" fill="aliceblue"></rect>
+			<circle cx="50" cy="100" r="20" fill="green"></circle>
+			<circle cx="50" cy="150" r="20" fill="green"></circle>
+			<circle id="henry" cx="50" cy="200" r="20" fill="green"></circle>
+			<circle cx="50" cy="250" r="20" fill="green"></circle>
+			<circle cx="50" cy="300" r="20" fill="green"></circle>
+		</svg>
+
+		<script>
+		    // JavaScript / D3 will go here
+		</script>
+
+	</body>
+
+</html>
