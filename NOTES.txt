@@ -1,0 +1,42 @@
+NOTES
+
+Have tried everything to control the background color of code chunks as in myslidy.css (see d3 lectures folder) to no avail.  Gitbook appears to work differently.
+
+I can control some things but not all.
+
+Works:
+
+  pre {
+    font-size: 200%;
+    font-weight: bold;
+    width: 80%;
+  }
+
+  .sourceCode {
+   font-size: 200%;
+   width: 40%;
+}
+
+Doesn't work:
+
+  pre {
+    font-family: "Times New Roman";
+    border-color: green;
+    color: orange;
+    background-color: green;
+  }
+
+This work for <div class="sourceCode"> not
+<pre class="sourceCode">
+
+.sourceCode {
+   background-color: green;
+}
+
+FONT AWESOME
+
+Use only 5.1.0 or earlier
+
+
+
+

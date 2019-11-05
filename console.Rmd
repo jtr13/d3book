@@ -1,0 +1,409 @@
+# D3 in the Console <i class="far fa-folder"></i> {#d3console}
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+## Selections <i class="fas fa-clipboard-list"></i>
+
+### Select by tag
+
+The ability to select elements on a page is key to being able to manipulate them.  `d3.select()` will select the first match; `d3.selectAll()` will select all matches.
+
+``` js
+d3.select("svg").select("circle");
+```
+
+selects the first circle in the order in which circles appear in the `<svg>` grouping. If there were more than one circle we could select them all with:
+
+``` js
+d3.select("svg").selectAll("circle");
+```
+
+We can select HTML elements by tag in the same way:
+
+``` js
+d3.select("body").select("h1");
+d3.select("body").selectAll("h1");
+```
+
+### Select by class
+
+Classes are selected by adding a "." before the class name:
+
+``` js
+d3.select("svg").selectAll("circle.apple")
+```
+
+This provides one method of selecting a certain collection of elements of the same type.
+
+### Select by ID
+
+IDs differ from classes in that they are unique identifies.  IDs are selected by adding a "#" before the ID:
+
+``` js
+d3.select("svg").select("circle#henry");
+```
+
+### Store selections
+
+
+It is often helpful to store selections for later use. Here we store the svg selection in `mysvg`:
+
+``` js
+var mysvg = d3.select("svg");
+```
+
+> <i class="far fa-lightbulb"></i> *The JavaScript community is moving toward using `let` and `const` instead of `var`; we, however, will stick with `var` to be consistent with *IDVW*. Of course you're welcome to use `const` and `let` instead, and if so, may find these articles helpful: [Let It Be - How to declare JavaScript variables](https://madhatted.com/2016/1/25/let-it-be){target="_blank"} and [ES2015 const is not about immutability](https://mathiasbynens.be/notes/es6-const){target="_blank"}.*
+
+
+Store circle selection in a variable:
+
+``` js
+var svg = d3.select("svg");
+
+var circ = svg.selectAll("circle");
+
+```
+
+## Modify existing elements <i class="fas fa-exchange-alt"></i>
+
+Try out the code in this section with a downloaded copy of [five_green_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/five_green_circles.html){target="_blank"} opened in Chrome and the Console visible.
+
+### Modifying attributes
+
+[link to get or set attribute API](https://github.com/d3/d3-selection/blob/v1.4.0/README.md#selection_attr)
+
+
+``` js
+d3.select("circle").attr("r");           // see radius
+
+d3.select("circle").attr("r", "10");     // set radius to 10
+```
+
+### Modifying styles
+
+[link to get or set style API](https://github.com/d3/d3-selection/blob/v1.4.0/README.md#selection_style)
+
+
+``` js
+d3.select("h1").style("color");
+
+d3.select("h1").style("color", "blue");
+```
+
+> <i class="far fa-lightbulb"></i> *It is often difficult to remember whether to use `.attr()` or `.style()` In general, properties such as position on the SVG, class, and ID are *attributes*, while decorative properties such as color, font, font size, etc. are *styles*.  However, in some cases, you can use either. For example, the following both make the circle blue:*
+
+``` js
+d3.select("circle").attr("fill", "blue");
+
+d3.select("circle").style("fill", "blue");
+```
+    
+*The first will add a `fill="blue"` attribute to the `<circle>` tag, while the latter will add `style="fill: blue;"`. All is well and good until you find yourself with both in the same tag, in which case the `style` property will take precedence. The bottom line: don't mix the two options because it can cause problems.*
+
+
+> <i class="far fa-lightbulb"></i> *To further complicate matters, `.style()` is just shorthand for `.attr("style", "...")` so the following are in fact equivalent:*
+
+``` js
+d3.select("circle").style("fill", "blue");
+
+d3.select("circle").attr("style", "fill: blue;");
+```
+
+*In other words, style is an attribute!* <i class="far fa-grimace"></i>
+
+
+### Modifying text
+
+This section is interactive. Hover over code as directed to observe effects.
+
+#### HTML text {-}
+
+<style>
+.fancy {
+  color: red;
+  font-family: garamond;
+  font-size: 30px;
+}
+</style>
+
+``` html
+<p id="typo" class="fancy">Manhatten</p>
+```
+
+<div>
+<p id="typo" class="fancy">Manhatten</p>
+</div>
+
+Hover to execute this code (and fix the typo):  
+
+<div id="fixtypo">
+```{js, eval=FALSE}
+d3.select("#typo").text("Manhattan");
+```
+</div>
+
+<script>
+d3.select("#fixtypo")
+.on("mouseover", function () {
+d3.select("#typo").text("Manhattan")
+})
+.on("mouseout", function () {
+d3.select("#typo").text("Manhatten")
+});
+</script>
+
+#### SVG text {-}
+``` svg
+<svg width="500" height="100">
+  <rect width="500" height="100" fill="#326EA4"></rect>
+  <text id="svgtypo" x="50" y="70" fill="white" font-weight="bold" font-size="40px">
+     Web scrapping is fun.</text>
+</svg>  
+```
+
+<p style="font-size: 50%; line-height: 50%;">svg</p>
+
+<svg width="500" height="100">
+<rect width="500" height="100" fill="#326EA4"></rect>
+<text id="svgtypo" x="50" y="70" fill="white"
+    font-weight="bold" font-size="40px">
+    Web scrapping is fun.</text>
+</svg>  
+
+
+Hover to execute this code (and fix the typo):  
+
+<div id="fixsvgtypo">
+```{js, eval=FALSE}
+d3.select("#svgtypo").text("Web scraping is fun.");
+```
+</div>
+
+<script>
+d3.select("#fixsvgtypo")
+.on("mouseover", function () {
+d3.select("#svgtypo").text("Web scraping is fun.")
+})
+.on("mouseout", function () {
+d3.select("#svgtypo").text("Web scrapping is fun.")
+});
+</script>  
+
+> <i class="far fa-lightbulb"></i> *The SVG `<text>` tag can be tricky.  It differs from HTML text tags (`<p>, <h1>, <h2>,` etc.) in that it has `x` and `y` attributes that allow you to position text on an SVG canvas. Unlike HTML, the fill attribute controls the color of the text. Compare:*
+
+
+``` js
+d3.select("p").style("color", "red");   // HTML
+
+d3.select("text").attr("fill", "red");  // SVG
+```
+
+### Moving SVG text
+
+``` svg
+<svg width="600" height="100">
+  <rect width="600" height="100" fill="#326EA4"></rect>
+  <text id="moveleft" x="200" y="70" fill="white" font-weight="bold" font-size="40px">
+      I want to move left.</text>
+</svg>  
+```
+
+<p style="font-size: 50%; line-height: 50%;">svg</p>
+<svg width="600" height="100">
+<rect width="600" height="100" fill= "#326EA4"></rect>
+<text id="moveleft" x="200" y="70" fill="white"
+font-weight="bold" font-size="40px">I want to move left.</text>
+</svg>  
+
+Hover to execute this code:  
+
+<div id="move">
+```{js, eval=FALSE}
+d3.select("#moveleft").attr("x", "20").text("Thanks, now I'm happy!");
+```
+</div>
+
+<script>
+d3.select("#move")
+.on("mouseover", function () {
+d3.select("#moveleft").attr("x", "20").text("Thanks, now I'm happy!")
+})
+.on("mouseout", function () {
+d3.select("#moveleft").attr("x", "200").text("I want to move left.")
+});
+</script>
+
+## Adding elements <i class="far fa-plus-square"></i>
+
+### HTML
+
+Continue trying out code with `five_green_circles.html` open in Chrome.
+
+The following adds a `<p>` tag but doesn't change how the page looks, since there's no text associated with it.
+
+``` js
+d3.select("body").append("p");
+```
+
+To add text, use `.text()`:
+
+``` js
+d3.select("body").append("p").text("This is a complete sentence.");
+```
+
+> <i class="far fa-lightbulb"></i> *To debug adding an element, go to the Elements tab to see what was added and where. If an element is in the wrong place in the HTML tree, it will not be visible.*
+
+
+### SVG
+
+Likewise, here we add a `<circle>` to the `<svg>`, but we can't see it since it has no attributes.
+
+``` js
+d3.select("svg").append("circle");
+```
+
+Adding attributes will create visible circles:
+
+``` js
+d3.select("svg").append("rect").attr("x", "0").attr("y", "0")
+    .attr("width", "500").attr("height", "400").attr("fill", "lightblue");
+    
+d3.select("svg").append("circle").attr("cx", "200")
+    .attr("cy", "100").attr("r", "25").attr("fill", "orange");
+    
+d3.select("svg").append("circle").attr("cx", "300")
+    .attr("cy", "150").attr("r", "25").attr("fill", "red");  
+```
+
+
+We can use a saved selection to assist in creating a new element:
+
+``` js
+mysvg = d3.select("svg");
+
+mysvg.append("circle").attr("cx", "250").attr("cy", "250").attr("r", "50")
+  .attr("fill", "red");
+```
+
+## Removing elements <i class="far fa-minus-square"></i>
+
+These methods will remove matching elements in order, starting with the first find in the document.
+
+### HTML
+
+``` js
+d3.select("p").remove();
+```
+
+### SVG
+
+``` js
+d3.select("svg").select("circle").remove();
+
+d3.select("svg").selectAll("circle").remove();
+```
+
+
+## Exercise <i class="fas fa-dumbbell"></i>
+
+Download and open a fresh copy of [five_green_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/five_green_circles.html){target="_blank"} in Chrome with Developer Tools open. Do the following in the Console with D3:
+
+1. Select the circle with ID "henry" and make it blue.
+
+2. Select all circles of "apple" class make them red.
+
+3. Select the first circle and add an orange border ("stroke"), and stroke width ("stroke-width") of 5.
+
+4. Select all circles of "apple" class and move them to the middle of the svg.
+
+
+## Binding data… *finally\!* <i class="fas fa-table"></i>
+
+To follow along with the code in this section, download and open a fresh copy of [six_blue_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html){target="_blank"}.
+
+Bind data:
+
+``` js
+d3.select("svg").selectAll("circle").data([90, 230, 140, 75, 180, 25]);
+```
+
+Check data binding:
+
+``` js
+d3.select("svg").selectAll("circle").data();
+```
+
+Set x-coordinate of each circle to data value using arrow function:
+
+``` js
+d3.select("svg").selectAll("circle").attr("cx", d => d);
+```
+
+Set x-coordinate of each circle to data value with a JavaScript function:
+
+``` js
+d3.select("svg").selectAll("circle").attr("cx", function(d) {return d;});
+```
+
+We'll bind a new set of data to the circles, this time storying the dataset in a variable:
+
+``` js
+var dataset = [50, 80, 110, 140, 170, 200];
+```
+
+We'll also store a selection of all circles before binding the data:
+
+``` js
+circ = d3.select("svg").selectAll("circle");
+```
+
+And now, the data bind:
+
+``` js
+circ.data(dataset);
+```
+
+Nothing appears to have happened; the circles remain the same and there is no evidence of any changes looking at the circles in the DOM (see Elements tab).
+
+We can check that the data are indeed bound with:
+
+``` js
+circ.data();  // now we see data
+```
+
+Modify elements w/ stored selections, bound data:
+
+``` js
+circ.attr("cx", function(d) {return d;});
+
+circ.attr("cx", function(d) {return d/2;});
+
+circ.attr("cx", function(d) {return d/4;}).attr("r", "10");
+```
+
+Same as above, using arrow functions:
+
+``` js
+circ.attr("cx", d => d);
+
+circ.attr("cx", d => d/2);
+
+circ.attr("r", d => d/4).attr("r", "10");
+```
+
+Note that if we bind a new set of data to the DOM elements, the original set will be overwritten:
+
+``` js
+var newdata = [145, 29, 53, 196, 200, 12];
+
+circ.data(newdata);
+
+circ.transition()
+    .duration(2000)
+    .attr("cx", d => 2*d);
+```
+
+## Exercise <i class="fas fa-dumbbell"></i>
+
+With `six_blue_circles.html` open in Chrome, practice binding data to the circles and modifying the circles based on the data as in the examples above.
+

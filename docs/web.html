@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 Web tech | D3 for R Users</title>
-  <meta name="description" content="3 Web tech | D3 for R Users" />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <title>3 Web tech  | D3 for R Users</title>
+  <meta name="description" content="3 Web tech  | D3 for R Users" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 Web tech | D3 for R Users" />
+  <meta property="og:title" content="3 Web tech  | D3 for R Users" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 Web tech | D3 for R Users" />
+  <meta name="twitter:title" content="3 Web tech  | D3 for R Users" />
   
   
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2019-11-04" />
+<meta name="date" content="2019-11-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="jump.html"/>
-<link rel="next" href="d3intro.html"/>
+<link rel="next" href="d3console.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +40,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -47,6 +48,10 @@
 
 
 
+
+
+<link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -128,45 +133,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">D3 for R Users</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
-<li class="chapter" data-level="2" data-path="jump.html"><a href="jump.html"><i class="fa fa-check"></i><b>2</b> Jump in the deep end</a><ul>
-<li class="chapter" data-level="2.1" data-path="jump.html"><a href="jump.html#setup"><i class="fa fa-check"></i><b>2.1</b> Setup</a></li>
-<li class="chapter" data-level="2.2" data-path="jump.html"><a href="jump.html#view-the-dom-in-the-elements-pane"><i class="fa fa-check"></i><b>2.2</b> View the DOM in the Elements pane</a></li>
-<li class="chapter" data-level="2.3" data-path="jump.html"><a href="jump.html#the-javascript-console"><i class="fa fa-check"></i><b>2.3</b> The JavaScript console</a></li>
-<li class="chapter" data-level="2.4" data-path="jump.html"><a href="jump.html#use-d3-to-change-elements-on-the-page"><i class="fa fa-check"></i><b>2.4</b> Use D3 to change elements on the page</a></li>
-<li class="chapter" data-level="2.5" data-path="jump.html"><a href="jump.html#transitions"><i class="fa fa-check"></i><b>2.5</b> Transitions</a></li>
-<li class="chapter" data-level="2.6" data-path="jump.html"><a href="jump.html#interactivity"><i class="fa fa-check"></i><b>2.6</b> Interactivity</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Note to readers <i class="fas fa-book"></i></a></li>
+<li class="chapter" data-level="2" data-path="jump.html"><a href="jump.html"><i class="fa fa-check"></i><b>2</b> Jump in the deep end <i class="fas fa-swimmer"></i></a><ul>
+<li class="chapter" data-level="2.1" data-path="jump.html"><a href="jump.html#get-ready"><i class="fa fa-check"></i><b>2.1</b> Get ready <i class="fas fa-forward"></i></a></li>
+<li class="chapter" data-level="2.2" data-path="jump.html"><a href="jump.html#elements-tab"><i class="fa fa-check"></i><b>2.2</b> Elements tab <i class="far fa-folder"></i></a></li>
+<li class="chapter" data-level="2.3" data-path="jump.html"><a href="jump.html#console-tab"><i class="fa fa-check"></i><b>2.3</b> Console tab <i class="far fa-folder"></i></a></li>
+<li class="chapter" data-level="2.4" data-path="jump.html"><a href="jump.html#modify-elements"><i class="fa fa-check"></i><b>2.4</b> Modify elements <i class="fas fa-exchange-alt"></i></a></li>
+<li class="chapter" data-level="2.5" data-path="jump.html"><a href="jump.html#transitions"><i class="fa fa-check"></i><b>2.5</b> Transitions <i class="far fa-paper-plane"></i></a></li>
+<li class="chapter" data-level="2.6" data-path="jump.html"><a href="jump.html#interactivity"><i class="fa fa-check"></i><b>2.6</b> Interactivity <i class="fas fa-mouse-pointer"></i></a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="web-tech.html"><a href="web-tech.html"><i class="fa fa-check"></i><b>3</b> Web tech</a><ul>
-<li class="chapter" data-level="3.1" data-path="web-tech.html"><a href="web-tech.html#html-hypertext-markup-language"><i class="fa fa-check"></i><b>3.1</b> HTML – HyperText Markup Language</a></li>
-<li class="chapter" data-level="3.2" data-path="web-tech.html"><a href="web-tech.html#css-cascading-style-sheets"><i class="fa fa-check"></i><b>3.2</b> CSS – Cascading Style Sheets</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="web-tech.html"><a href="web-tech.html#internal-style-sheet"><i class="fa fa-check"></i><b>3.2.1</b> Internal style sheet</a></li>
-<li class="chapter" data-level="3.2.2" data-path="web-tech.html"><a href="web-tech.html#external-style-sheets"><i class="fa fa-check"></i><b>3.2.2</b> External style sheets</a></li>
-<li class="chapter" data-level="3.2.3" data-path="web-tech.html"><a href="web-tech.html#inline-styling"><i class="fa fa-check"></i><b>3.2.3</b> Inline styling</a></li>
+<li class="chapter" data-level="3" data-path="web.html"><a href="web.html"><i class="fa fa-check"></i><b>3</b> Web tech <i class="fas fa-server"></i></a><ul>
+<li class="chapter" data-level="3.1" data-path="web.html"><a href="web.html#html"><i class="fa fa-check"></i><b>3.1</b> HTML <i class="fab fa-html5"></i></a></li>
+<li class="chapter" data-level="3.2" data-path="web.html"><a href="web.html#css"><i class="fa fa-check"></i><b>3.2</b> CSS <i class="fab fa-css3"></i></a><ul>
+<li class="chapter" data-level="3.2.1" data-path="web.html"><a href="web.html#internal-style-sheet"><i class="fa fa-check"></i><b>3.2.1</b> Internal style sheet</a></li>
+<li class="chapter" data-level="3.2.2" data-path="web.html"><a href="web.html#external-style-sheets"><i class="fa fa-check"></i><b>3.2.2</b> External style sheets</a></li>
+<li class="chapter" data-level="3.2.3" data-path="web.html"><a href="web.html#inline-styling"><i class="fa fa-check"></i><b>3.2.3</b> Inline styling</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="web-tech.html"><a href="web-tech.html#svg-scalable-vector-graphics"><i class="fa fa-check"></i><b>3.3</b> SVG – Scalable Vector Graphics</a></li>
-<li class="chapter" data-level="3.4" data-path="web-tech.html"><a href="web-tech.html#javascript"><i class="fa fa-check"></i><b>3.4</b> JavaScript</a></li>
-<li class="chapter" data-level="3.5" data-path="web-tech.html"><a href="web-tech.html#d3-data-driven-documents"><i class="fa fa-check"></i><b>3.5</b> D3 – Data Driven Documents</a></li>
-<li class="chapter" data-level="3.6" data-path="web-tech.html"><a href="web-tech.html#putting-it-all-together"><i class="fa fa-check"></i><b>3.6</b> Putting it all together</a></li>
+<li class="chapter" data-level="3.3" data-path="web.html"><a href="web.html#svg"><i class="fa fa-check"></i><b>3.3</b> SVG <i class="far fa-image"></i></a></li>
+<li class="chapter" data-level="3.4" data-path="web.html"><a href="web.html#javascript"><i class="fa fa-check"></i><b>3.4</b> JavaScript <i class="fab fa-js-square"></i></a></li>
+<li class="chapter" data-level="3.5" data-path="web.html"><a href="web.html#d3"><i class="fa fa-check"></i><b>3.5</b> D3 <i class="far fa-chart-bar"></i></a></li>
+<li class="chapter" data-level="3.6" data-path="web.html"><a href="web.html#html-tree"><i class="fa fa-check"></i><b>3.6</b> HTML tree <i class="fas fa-tree"></i></a></li>
+<li class="chapter" data-level="3.7" data-path="web.html"><a href="web.html#exercise"><i class="fa fa-check"></i><b>3.7</b> Exercise <i class="fas fa-dumbbell"></i></a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="d3intro.html"><a href="d3intro.html"><i class="fa fa-check"></i><b>4</b> Selecting and modifying elements with D3</a><ul>
-<li class="chapter" data-level="4.1" data-path="d3intro.html"><a href="d3intro.html#selections"><i class="fa fa-check"></i><b>4.1</b> Selections</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="d3intro.html"><a href="d3intro.html#select-by-tag"><i class="fa fa-check"></i><b>4.1.1</b> Select by tag</a></li>
-<li class="chapter" data-level="4.1.2" data-path="d3intro.html"><a href="d3intro.html#select-by-class"><i class="fa fa-check"></i><b>4.1.2</b> Select by class</a></li>
-<li class="chapter" data-level="4.1.3" data-path="d3intro.html"><a href="d3intro.html#select-by-id"><i class="fa fa-check"></i><b>4.1.3</b> Select by ID</a></li>
+<li class="chapter" data-level="4" data-path="d3console.html"><a href="d3console.html"><i class="fa fa-check"></i><b>4</b> D3 in the Console <i class="far fa-folder"></i></a><ul>
+<li class="chapter" data-level="4.1" data-path="d3console.html"><a href="d3console.html#selections"><i class="fa fa-check"></i><b>4.1</b> Selections <i class="fas fa-clipboard-list"></i></a><ul>
+<li class="chapter" data-level="4.1.1" data-path="d3console.html"><a href="d3console.html#select-by-tag"><i class="fa fa-check"></i><b>4.1.1</b> Select by tag</a></li>
+<li class="chapter" data-level="4.1.2" data-path="d3console.html"><a href="d3console.html#select-by-class"><i class="fa fa-check"></i><b>4.1.2</b> Select by class</a></li>
+<li class="chapter" data-level="4.1.3" data-path="d3console.html"><a href="d3console.html#select-by-id"><i class="fa fa-check"></i><b>4.1.3</b> Select by ID</a></li>
+<li class="chapter" data-level="4.1.4" data-path="d3console.html"><a href="d3console.html#store-selections"><i class="fa fa-check"></i><b>4.1.4</b> Store selections</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="d3intro.html"><a href="d3intro.html#modify-existing-elements"><i class="fa fa-check"></i><b>4.2</b> Modify existing elements</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="d3intro.html"><a href="d3intro.html#modifying-attributes"><i class="fa fa-check"></i><b>4.2.1</b> Modifying attributes</a></li>
-<li class="chapter" data-level="4.2.2" data-path="d3intro.html"><a href="d3intro.html#modifying-styles"><i class="fa fa-check"></i><b>4.2.2</b> Modifying styles</a></li>
+<li class="chapter" data-level="4.2" data-path="d3console.html"><a href="d3console.html#modify-existing-elements"><i class="fa fa-check"></i><b>4.2</b> Modify existing elements <i class="fas fa-exchange-alt"></i></a><ul>
+<li class="chapter" data-level="4.2.1" data-path="d3console.html"><a href="d3console.html#modifying-attributes"><i class="fa fa-check"></i><b>4.2.1</b> Modifying attributes</a></li>
+<li class="chapter" data-level="4.2.2" data-path="d3console.html"><a href="d3console.html#modifying-styles"><i class="fa fa-check"></i><b>4.2.2</b> Modifying styles</a></li>
+<li class="chapter" data-level="4.2.3" data-path="d3console.html"><a href="d3console.html#modifying-text"><i class="fa fa-check"></i><b>4.2.3</b> Modifying text</a></li>
+<li class="chapter" data-level="4.2.4" data-path="d3console.html"><a href="d3console.html#moving-svg-text"><i class="fa fa-check"></i><b>4.2.4</b> Moving SVG text</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="d3intro.html"><a href="d3intro.html#modifying-text"><i class="fa fa-check"></i><b>4.3</b> Modifying text</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="d3intro.html"><a href="d3intro.html#html-text"><i class="fa fa-check"></i><b>4.3.1</b> HTML text</a></li>
-<li class="chapter" data-level="4.3.2" data-path="d3intro.html"><a href="d3intro.html#svg-text"><i class="fa fa-check"></i><b>4.3.2</b> SVG text</a></li>
+<li class="chapter" data-level="4.3" data-path="d3console.html"><a href="d3console.html#adding-elements"><i class="fa fa-check"></i><b>4.3</b> Adding elements <i class="far fa-plus-square"></i></a><ul>
+<li class="chapter" data-level="4.3.1" data-path="d3console.html"><a href="d3console.html#html-1"><i class="fa fa-check"></i><b>4.3.1</b> HTML</a></li>
+<li class="chapter" data-level="4.3.2" data-path="d3console.html"><a href="d3console.html#svg-1"><i class="fa fa-check"></i><b>4.3.2</b> SVG</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="d3intro.html"><a href="d3intro.html#tips-and-tricks"><i class="fa fa-check"></i><b>4.4</b> Tips and tricks</a></li>
+<li class="chapter" data-level="4.4" data-path="d3console.html"><a href="d3console.html#removing-elements"><i class="fa fa-check"></i><b>4.4</b> Removing elements <i class="far fa-minus-square"></i></a><ul>
+<li class="chapter" data-level="4.4.1" data-path="d3console.html"><a href="d3console.html#html-2"><i class="fa fa-check"></i><b>4.4.1</b> HTML</a></li>
+<li class="chapter" data-level="4.4.2" data-path="d3console.html"><a href="d3console.html#svg-2"><i class="fa fa-check"></i><b>4.4.2</b> SVG</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
-<li class="chapter" data-level="6" data-path="scales.html"><a href="scales.html"><i class="fa fa-check"></i><b>6</b> Scales</a></li>
+<li class="chapter" data-level="4.5" data-path="d3console.html"><a href="d3console.html#exercise-1"><i class="fa fa-check"></i><b>4.5</b> Exercise <i class="fas fa-dumbbell"></i></a></li>
+<li class="chapter" data-level="4.6" data-path="d3console.html"><a href="d3console.html#binding-data-finally"><i class="fa fa-check"></i><b>4.6</b> Binding data… <em>finally!</em> <i class="fas fa-table"></i></a></li>
+<li class="chapter" data-level="4.7" data-path="d3console.html"><a href="d3console.html#exercise-2"><i class="fa fa-check"></i><b>4.7</b> Exercise <i class="fas fa-dumbbell"></i></a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -187,20 +200,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="web-tech" class="section level1">
-<h1><span class="header-section-number">3</span> Web tech</h1>
+<div id="web" class="section level1">
+<h1><span class="header-section-number">3</span> Web tech <i class="fas fa-server"></i></h1>
 <p>Read: Chapter 3 “Technology Fundamentals” (pp. 17-62)</p>
 <p><em>There is a lot of material in this chapter. It is worth making the effort to learn it now and start D3 with a solid foundation of elementary HTML/CSS/SVG/JavaScript.</em></p>
 <p>Here we examine <code>shapes.html</code> from Chapter 1 to see how the various technologies are combined into a single document.</p>
-<div id="html-hypertext-markup-language" class="section level2">
-<h2><span class="header-section-number">3.1</span> HTML – HyperText Markup Language</h2>
-<p>Note that <code>shapes.html</code> has an HTML extension; HTML in fact provides the structure for the document. It has a <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> section.</p>
+<div id="html" class="section level2">
+<h2><span class="header-section-number">3.1</span> HTML <i class="fab fa-html5"></i></h2>
+<p>Note that <code>shapes.html</code> has an HyperText Markup Language or <code>.html</code> extension; HTML in fact provides the structure for the document. It has a <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> section.</p>
 <p>In the <code>&lt;head&gt;</code> section we use <code>&lt;script&gt;</code> tags to link to the D3 library:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="op">&lt;</span>script src<span class="op">=</span><span class="st">&quot;https://d3js.org/d3.v5.min.js&quot;</span><span class="op">&gt;</span>&lt;/script<span class="op">&gt;</span><span class="vs">`</span></a></code></pre></div>
 </div>
-<div id="css-cascading-style-sheets" class="section level2">
-<h2><span class="header-section-number">3.2</span> CSS – Cascading Style Sheets</h2>
-<p>CSS is used for styling web pages, and more importantly for our purposes, selecting elements on a page or in a graphic. We will generally work with internal style sheets since it’s simpler when starting out to have everything in one document. External style sheets, however, are generally the preferred method for web design.</p>
+<div id="css" class="section level2">
+<h2><span class="header-section-number">3.2</span> CSS <i class="fab fa-css3"></i></h2>
+<p>CSS (Cascading Style Sheets) is used for styling web pages, and more importantly for our purposes, selecting elements on a page or in a graphic. We will generally work with internal style sheets since it’s simpler when starting out to have everything in one document. External style sheets, however, are generally the preferred method for web design.</p>
 <div id="internal-style-sheet" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> Internal style sheet</h3>
 <p><code>shapes.html</code> has an <em>internal style sheet</em>: CSS style information appears in the <code>&lt;head&gt;</code> section marked off with <code>&lt;style&gt;</code> tags:</p>
@@ -241,9 +254,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Although you will not be adding inline styling manually, you will notice that when we select elements and change the styling with D3, the modifications are made inline. In other words, we do not make changes to the elements directly, not via a style sheet.</p>
 </div>
 </div>
-<div id="svg-scalable-vector-graphics" class="section level2">
-<h2><span class="header-section-number">3.3</span> SVG – Scalable Vector Graphics</h2>
-<p>SVG is a human readable graphics format that facilitates manipulation of individual elements. You may be familiar with <code>.svg</code> files. Here we have SVG graphics within <code>&lt;svg&gt;</code> tags in the <code>&lt;body&gt;</code> section of the HTML document:</p>
+<div id="svg" class="section level2">
+<h2><span class="header-section-number">3.3</span> SVG <i class="far fa-image"></i></h2>
+<p>SVG (Scalable Vector Graphics) is a human readable graphics format that facilitates manipulation of individual elements. You may be familiar with <code>.svg</code> files. Here we have SVG graphics within <code>&lt;svg&gt;</code> tags in the <code>&lt;body&gt;</code> section of the HTML document:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="op">&lt;</span>svg width<span class="op">=</span><span class="st">&quot;500&quot;</span> height<span class="op">=</span><span class="st">&quot;300&quot;</span><span class="op">&gt;</span>  <span class="op">&lt;!--</span> some SVG <span class="op">--&gt;</span></a>
 <a class="sourceLine" id="cb15-2" data-line-number="2">    <span class="op">&lt;</span>rect x<span class="op">=</span><span class="st">&quot;20&quot;</span> y<span class="op">=</span><span class="st">&quot;20&quot;</span> width<span class="op">=</span><span class="st">&quot;460&quot;</span> height<span class="op">=</span><span class="st">&quot;260&quot;</span> fill<span class="op">=</span><span class="st">&quot;lightblue&quot;</span><span class="op">&gt;</span>&lt;/rect<span class="op">&gt;</span></a>
 <a class="sourceLine" id="cb15-3" data-line-number="3">    <span class="op">&lt;</span>circle cx<span class="op">=</span><span class="st">&quot;50&quot;</span> cy<span class="op">=</span><span class="st">&quot;75&quot;</span> r<span class="op">=</span><span class="st">&quot;20&quot;</span> fill<span class="op">=</span><span class="st">&quot;blue&quot;</span><span class="op">&gt;</span>&lt;/circle<span class="op">&gt;</span></a>
@@ -265,22 +278,25 @@ Rendered:
 <p>There are very few SVG tags that you’ll need to know, and once we get going with D3, you will not have to code any SVG manually. It is worth doing a little to become familiar with the format and in particular to get used to the new location of the origin.</p>
 </div>
 <div id="javascript" class="section level2">
-<h2><span class="header-section-number">3.4</span> JavaScript</h2>
-<p>JavaScript is the most common language for making web pages interactive. Code is executed when page is opened or refreshed. So far we have run JavaScript in the Console, but have not included it in the web page itself. When we do so, it will be between <code>&lt;script&gt;</code> tags in the <code>&lt;body&gt;</code> section of the HTML document.</p>
+<h2><span class="header-section-number">3.4</span> JavaScript <i class="fab fa-js-square"></i></h2>
+<p>JavaScript is the most common language for making web pages interactive. Code is executed when pages are opened or refreshed. So far we have run JavaScript in the Console, but have not included it in the web page itself. When we do so, it will be between <code>&lt;script&gt;</code> tags in the <code>&lt;body&gt;</code> section of the HTML document, or in a separate <code>.js</code> file.</p>
 </div>
-<div id="d3-data-driven-documents" class="section level2">
-<h2><span class="header-section-number">3.5</span> D3 – Data Driven Documents</h2>
-<p>D3 is a JavaScript library well suited to interactive graphics. As such, it is also included between <code>&lt;script&gt;</code> tags in the <code>&lt;body&gt;</code> section. For D3 to work, you must link to the D3 library in the <code>&lt;head&gt;</code> section of the document.</p>
-<p>There seems to be a misconception that D3 is a high level language. It is not. You will be working on the pixel level to create graphics, including drawing your own axes and doing other things that you’re not used to doing if you’ve been working in R or Python. (On the bright side, after D3, R base graphics will seem very high level.)</p>
+<div id="d3" class="section level2">
+<h2><span class="header-section-number">3.5</span> D3 <i class="far fa-chart-bar"></i></h2>
+<p>D3 (Data Driven Documents) is a JavaScript library well suited to interactive graphics. As such, it is also included between <code>&lt;script&gt;</code> tags in the <code>&lt;body&gt;</code> section. For D3 to work, you must link to the D3 library in the <code>&lt;head&gt;</code> section of the document.</p>
+<p>There seems to be a misconception that D3 is a high level language. It is not. You will be working on the pixel level to create graphics, including drawing your own axes and doing other things that you’re not used to doing if you’ve been working in R or Python.</p>
+<blockquote>
+<p><i class="far fa-lightbulb"></i> <em>On the bright side, after D3, you will gain a new appreciation for base R graphics. You will write code such as <code>plot(iris$Sepal.Length, iris$Sepal.Width, pch = 16, col = iris$Species, las = 1, xlab = &quot;Sepal.Length&quot;, ylab = &quot;Sepal.Width&quot;)</code> and think: wow, there are axes! Amazing!</em></p>
+</blockquote>
 <p>It is legitimate to ask why you need to know D3 as a data scientist. Many if not most of you will not be coding in JavaScript from the ground up in your future careers. However, it’s a great way to learn how interactive graphics work under the hood, and will give you a solid foundation which you can draw on to tweak visualizations that you build with high level tools such as <a href="https://plot.ly/">Plotly</a>.</p>
 </div>
-<div id="putting-it-all-together" class="section level2">
-<h2><span class="header-section-number">3.6</span> Putting it all together</h2>
+<div id="html-tree" class="section level2">
+<h2><span class="header-section-number">3.6</span> HTML tree <i class="fas fa-tree"></i></h2>
 <p>While <code>shapes.html</code> appears as a single consistent document, it is actually comprised of multiple languages. HTML, CSS, and SVG are already there, and we will be adding JavaScript / D3 soon.</p>
-<p><img src="images/shapes.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="images/shapes.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>Of note:</p>
 <ul>
-<li><p>An HTML is composed of lines or sections set off with tags. In particular <code>&lt;style&gt; ... &lt;/style&gt;</code>, <code>&lt;svg&gt; ... &lt;/svg&gt;</code>, and <code>&lt;script&gt; ... &lt;/script&gt;</code> indicate the inclusion of CSS, SVG, and JavaScript/D3 respectively.</p></li>
+<li><p>An HTML document is composed of lines or sections set off with tags. In particular <code>&lt;style&gt; ... &lt;/style&gt;</code>, <code>&lt;svg&gt; ... &lt;/svg&gt;</code>, and <code>&lt;script&gt; ... &lt;/script&gt;</code> indicate the inclusion of CSS, SVG, and JavaScript/D3 respectively.</p></li>
 <li><p>For D3 to work, you must link to a D3 library. Here we link to an online version, but you can also download a copy from <a href="https://d3js.org" class="uri">https://d3js.org</a> and reference the local copy with:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="op">&lt;</span>script src<span class="op">=</span><span class="st">&quot;d3.js&quot;</span><span class="op">&gt;</span>&lt;/script<span class="op">&gt;</span></a></code></pre></div></li>
 <li><p>Comment syntax varies with language:</p>
@@ -291,6 +307,21 @@ Rendered:
 <li><p><code>/* JavaScript</code> <br> <code>multiline comment */</code></p></li>
 </ul></li>
 </ul>
+</div>
+<div id="exercise" class="section level2">
+<h2><span class="header-section-number">3.7</span> Exercise <i class="fas fa-dumbbell"></i></h2>
+<p>Download a fresh copy of <code>shapes.html</code>. (Reminder: open the following page and then click <em>File, Save Page As…</em>: <a href="https://raw.githubusercontent.com/jtr13/d3book/master/code/shapes.html" target="_blank"><code>shapes.html</code></a>). Open the file in a text editor of your choice on one half of your screen. If you don’t want to think about it, just use RStudio since it’s already installed and provides syntax highlighting for <code>.html</code>. On the other half of your screen open the same file in Chrome. Developer Tools should not be open; we will not be using the Console. As you make changes to the <code>.html</code> file, save the file and then refresh the browser to see the effects. Keyboard shortcuts to save and refresh are helpful here.</p>
+<p>Your screen should look like this:</p>
+<p><img src="images/editor_chrome.png" width="80%" style="display: block; margin: auto;" /></p>
+<ol style="list-style-type: decimal">
+<li><p>Add an additional circle to the svg.</p></li>
+<li><p>Add styling to the internal style sheet to style circles.</p></li>
+<li><p>Add two additional paragraphs use the <code>&lt;p&gt;</code> tag.</p></li>
+<li><p>Add an ID attribute to one of the circles.</p></li>
+<li><p>Add a class attribute to two of the <code>&lt;p&gt;</code> tags.</p></li>
+<li><p>Use the internal style sheet to style paragraphs of the class you created in 5.</p></li>
+<li><p>Adjust additional elements as desired.</p></li>
+</ol>
 
 </div>
 </div>
@@ -300,16 +331,18 @@ Rendered:
         </div>
       </div>
 <a href="jump.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="d3intro.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="d3console.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({

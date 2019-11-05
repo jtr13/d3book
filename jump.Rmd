@@ -1,50 +1,55 @@
-# Jump in the deep end {#jump}
+# Jump in the deep end <i class="fas fa-swimmer"></i> {#jump} 
 
 Let's skip the explanations and start coding in D3 right now. Why? So you can see the benefits and know what you're working toward when you get stuck in the weeds.  Then we'll go back and start learning step by step. 
 
-## Setup
 
-If you don't have it already, download the [Chrome browser](https://www.google.com/chrome/){target="_blank"}.
+## Get ready <i class="fas fa-forward"></i>
 
-## View the DOM in the Elements pane
+1. If you don't have it already, download the [Chrome browser](https://www.google.com/chrome/){target="_blank"}.
 
-1. First, you will need a *downloaded copy* of `shapes.html`. To download, open the following page and then click *File, Save Page As...*: [`shapes.html`](https://raw.githubusercontent.com/jtr13/d3book/master/code/shapes.html){target="_blank"}. (Or download a zip of the whole repo. Clicking [here](https://github.com/jtr13/d3book/archive/master.zip){target="_blank"} will start the download. Or fork and clone the  [repo](https://github.com/jtr13/d3book){target="_blank"}).
 
-2. If Chrome is your default browser, you can open `shapes.html` by double clicking it. Otherwise, open it with *File, Open File...* in Chrome.
+2. Download a copy of `shapes.html`:  open the following page and then click *File, Save Page As...*: [`shapes.html`](https://raw.githubusercontent.com/jtr13/d3book/master/code/shapes.html){target="_blank"}. (Or download a zip of the whole repo. Clicking [here](https://github.com/jtr13/d3book/archive/master.zip){target="_blank"} will start the download. Or fork and clone the  [repo](https://github.com/jtr13/d3book){target="_blank"}).
 
-3. Click *View, Developer, Developer Tools,* then the Elements tab. 
+3. If Chrome is your default browser, open `shapes.html` by double clicking it. Otherwise, open it with *File, Open File...* in Chrome.
 
-4. Hover the mouse over various elements in the `<body> ... </body>` section.  Observe the highlighted sections in the rendered web page on the left of the screen. Click on the mini black triangles to the left of the `<body>` and `<svg>` tags if needed to open these sections of the DOM tree. Your screen should look like this:
+## Elements tab <i class="far fa-folder"></i>
+
+1. In Chrome, click *View, Developer, Developer Tools,* then the Elements tab. 
+
+2. Hover the mouse over various elements in the `<body> ... </body>` section.  Observe the highlighted sections in the rendered web page on the left of the screen. Click on the mini black triangles to the left of the `<body>` and `<svg>` tags if needed to open these sections of the DOM tree. Your screen should look like this:
 
 ```{r, echo=FALSE, fig.align='center', out.width="80%"}
 knitr::include_graphics("images/elements.png")
 ```
 
-5. Now try the reverse: right click on elements on the web page, choose "Inspect" and see what is highlighted in the Elements pane. Get comfortable with the connection between the code on the right and the rendered elements on the left.
+3. Now try the reverse: right click on elements on the web page, choose "Inspect" and see what is highlighted in the Elements pane. Get comfortable with the connection between the code on the right and the rendered elements on the left.
 
-## The JavaScript console
+## Console tab <i class="far fa-folder"></i>
 
-1. Switch to the Console tab, next to the Elements tab. Let's practice running some code (think R console.) Note that the code is unrelated to the `shapes.html` web page that we have open. 
+1. Switch to the Console tab, next to the Elements tab. Let's practice running some code. Note that the code is unrelated to the `shapes.html` web page that we have open. 
+    
+> <i class="far fa-lightbulb"></i> *We will spend a lot of time in the Console since it's interactive -- think R console. Eventually we will switch to including JavaScript/D3 in `.html` or `.js` files and use the Console only for testing things out or debugging.* 
+
 
 2. Type the following lines of code at the prompt (`>`), press enter after each line--that is, after the semicolon (`;`)--and see what happens:
 
-    ``` javascript
-    3 + 4;
+``` javascript
+3 + 4;
     
-    "3" + "4";
-    
-    x = [1, 2, 3];
-    
-    x[1];
-    
-    x + 1;
-    
-    y = {a: 3, b: 4};
-    
-    y["b"];
-    ```
+"3" + "4";
 
-## Use D3 to change elements on the page
+ x = [1, 2, 3];
+    
+x[1];
+    
+x + 1;
+    
+y = {a: 3, b: 4};
+    
+y["b"];
+```
+
+## Modify elements <i class="fas fa-exchange-alt"></i>
 
 1.  Now we'll start using D3 to manipulate elements on the page. Try the following, by entering one line at a time in the Console as before:
 
@@ -67,6 +72,14 @@ knitr::include_graphics("images/elements.png")
 
     d3.select("circle").attr("fill", "lightseagreen");
     ```
+    
+```{r, include=FALSE}
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+    
+> <i class="far fa-lightbulb"></i> *Note that "select" and "attr" are separate operations chained together with "." -- think pipe (%>%) operator.*
+
+    
 
 2.  Refresh the page. What happened?
 
@@ -90,7 +103,7 @@ knitr::include_graphics("images/elements.png")
     d3.select("h2").style("font-family", "Impact");
     ```
 
-## Transitions
+## Transitions <i class="far fa-paper-plane"></i>
 
 1.  Try these:
 
@@ -108,7 +121,8 @@ knitr::include_graphics("images/elements.png")
 
 2.  Experiment with more transitions.
 
-## Interactivity
+## Interactivity <i class="fas fa-mouse-pointer"></i> 
+
 
 1.  Set up a function to turn the fill color to yellow:
 
@@ -145,8 +159,4 @@ knitr::include_graphics("images/elements.png")
     ```
 
 Ok, now that we have a taste for what D3 can do, let's break it down, which we'll do in the next chapter.
-
-
-
-
 
