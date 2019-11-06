@@ -1,7 +1,9 @@
 book_filename: "d3book"
 output_dir: docs
 delete_merged_file: true
+view: https://github.com/jtr13/d3book/blob/master/%s
 edit: https://github.com/jtr13/d3book/edit/master/%s
+
 # chapter ordering
 rmd_files: ["index.Rmd",
   "jump.Rmd",
