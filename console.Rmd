@@ -161,7 +161,6 @@ d3.select("#typo").text("Manhatten")
 </svg>  
 ```
 
-<p style="font-size: 50%; line-height: 50%;">svg</p>
 
 <svg width="500" height="100">
 <rect width="500" height="100" fill="#326EA4"></rect>
@@ -208,7 +207,6 @@ d3.select("text").attr("fill", "red");  // SVG
 </svg>  
 ```
 
-<p style="font-size: 50%; line-height: 50%;">svg</p>
 <svg width="600" height="100">
 <rect width="600" height="100" fill= "#326EA4"></rect>
 <text id="moveleft" x="200" y="70" fill="white"
