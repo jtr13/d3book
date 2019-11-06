@@ -6,7 +6,8 @@ edit: https://github.com/jtr13/d3book/edit/master/%s
 rmd_files: ["index.Rmd",
   "jump.Rmd",
   "web.Rmd",
-  "console.Rmd"]
+  "console.Rmd",
+  "more_chapters.Rmd"]
 
 # scripts.Rmd
   # axes

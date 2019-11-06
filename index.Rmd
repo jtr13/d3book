@@ -20,7 +20,7 @@ knitr::write_bib(c(
 
 
 
-# Note to readers <i class="fas fa-book"></i>
+# Note to readers <i class="fas fa-book"></i> {-}
 
 This guide adapts Scott Murray’s [*Interactive Data Visualization for the Web, 2nd edition*](https://www.amazon.com/Interactive-Data-Visualization-Web-Introduction/dp/1491921285/)--a required text for GR5702--for the needs of this course. Be sure to get the second edition, which is a comprehensive update to D3 version 4. The first edition uses D3 version 3, which is not compatible. (To add to the complication, the current version of D3 is v5.  However, since differences between v4 and v5 are minimal, unless otherwise indicated in this guide, the code in *IDVW2* will work with either.)
 
