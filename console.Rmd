@@ -317,7 +317,7 @@ Download and open a fresh copy of [five_green_circles.html](https://raw.githubus
 
 ## Binding data… *finally\!* <i class="fas fa-table"></i>
 
-To follow along with the code in this section, download and open a fresh copy of [six_blue_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html){target="_blank"}.
+To follow along with the code in this section, download and open [six_blue_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html){target="_blank"}.
 
 Bind data:
 

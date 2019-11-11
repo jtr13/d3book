@@ -16,11 +16,58 @@ link-citations: yes
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
+
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
+# <i class="fa fa-hand-o-right"></i> {-}
+
+<style>
+			rect {
+				pointer-events: all;
+			}
+
+			.node {
+				fill: blue;
+			}
+
+			.cursor {
+				fill: none;
+				stroke: brown;
+				pointer-events: none;
+			}
+
+			.link {
+				stroke: red;
+			}
+
+			.svg-container {
+				display: inline-block;
+				position: relative;
+				width: 100%;
+				padding-bottom: 20%;  <!-- changed this to be the same as y/x aspect ratio, not explained-->
+				vertical-align: top;
+				overflow: hidden;
+			}
+			.svg-content {
+				display: inline-block;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+</style>
+
+<div id="container" class="svg-container">
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="scripts/index1.js"></script>
+</div>
 
 
-# Note to readers <i class="fas fa-book"></i> {-}
+<div style="text-align: right;"> <!-- needs to be in parent -->
+<a href="https://bl.ocks.org/mbostock/929623" target="_blank" style="font-size: 90%; font-style: italic;">source</a>
+</div>
+
+## Note to readers <i class="fas fa-book"></i> {-}
 
 This guide adapts Scott Murray’s [*Interactive Data Visualization for the Web, 2nd edition*](https://www.amazon.com/Interactive-Data-Visualization-Web-Introduction/dp/1491921285/)--a required text for GR5702--for the needs of this course. Be sure to get the second edition, which is a comprehensive update to D3 version 4. The first edition uses D3 version 3, which is not compatible. (To add to the complication, the current version of D3 is v5.  However, since differences between v4 and v5 are minimal, unless otherwise indicated in this guide, the code in *IDVW2* will work with either.)
 
