@@ -16,6 +16,13 @@ In the `<head>` section we use `<script>` tags to link to the D3 library:
 <script src="https://d3js.org/d3.v5.min.js"></script>
 ```
 
+HTML content is enclosed between opening an closing **tags** such as `<h1>` and `</h1>`.
+
+HTML class and ID **attributes** are included inside the opening tags:
+
+`<h1 class="myclass" id="myid">This is an h1 header.</h1>`
+
+
 ## CSS <i class="fab fa-css3"></i>
 
 CSS (Cascading Style Sheets) is used for styling web pages, and more importantly for our purposes, selecting elements on a page or in a graphic. We will generally work with internal style sheets since it's simpler when starting out to have everything in one document.  External style sheets, however, are generally the preferred method for web design.

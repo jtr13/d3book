@@ -20,7 +20,7 @@ knitr::write_bib(c(
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
-# Welcome `r emo::ji("wave")` {-}
+# Welcome {-}
 
 <style>
 			rect {
