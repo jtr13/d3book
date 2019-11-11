@@ -20,7 +20,7 @@ knitr::write_bib(c(
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
-# <i class="fa fa-hand-o-right"></i> {-}
+# Welcome `r emo::ji("wave")` {-}
 
 <style>
 			rect {
@@ -63,13 +63,11 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 </div>
 
 
-<div style="text-align: right;"> <!-- needs to be in parent -->
-<a href="https://bl.ocks.org/mbostock/929623" target="_blank" style="font-size: 90%; font-style: italic;">source</a>
+<div style="text-align: right; font-size: 85%; font-style: italic;"> <!-- needs to be in parent -->
+Adapted from <a href="https://bl.ocks.org/mbostock/929623" target="_blank">Build Your Own Graph!</a>
 </div>
 
-## Note to readers <i class="fas fa-book"></i> {-}
-
-This guide adapts Scott Murray’s [*Interactive Data Visualization for the Web, 2nd edition*](https://www.amazon.com/Interactive-Data-Visualization-Web-Introduction/dp/1491921285/)--a required text for GR5702--for the needs of this course. Be sure to get the second edition, which is a comprehensive update to D3 version 4. The first edition uses D3 version 3, which is not compatible. (To add to the complication, the current version of D3 is v5.  However, since differences between v4 and v5 are minimal, unless otherwise indicated in this guide, the code in *IDVW2* will work with either.)
+This guide serves as a companion text to Scott Murray’s [*Interactive Data Visualization for the Web, 2nd edition*](https://www.amazon.com/Interactive-Data-Visualization-Web-Introduction/dp/1491921285/)--a required text for GR5702. Be sure to get the second edition, which is a comprehensive update to D3 version 4. The first edition uses D3 version 3, which is not compatible. (To add to the complication, the current version of D3 is v5.  However, since differences between v4 and v5 are minimal, unless otherwise indicated in this guide, the code in *IDVW2* will work with either.)
 
 We rely on the text heavily but also deviate from it in several ways. *IDVW2* is written for graphics designers not data science students so the pain points are somewhat different. 
 

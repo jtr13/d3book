@@ -304,7 +304,7 @@ d3.select("svg").selectAll("circle").remove();
 
 ## Exercise <i class="fas fa-dumbbell"></i>
 
-Download and open a fresh copy of [five_green_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/five_green_circles.html){target="_blank"} in Chrome with Developer Tools open. Do the following in the Console with D3:
+Download and open a fresh copy of [five_green_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/five_green_circles.html){target="_blank"} in Chrome. Open Developer Tools open and do the following in the Console with D3:
 
 1. Select the circle with ID "henry" and make it blue.
 
@@ -313,6 +313,36 @@ Download and open a fresh copy of [five_green_circles.html](https://raw.githubus
 3. Select the first circle and add an orange border ("stroke"), and stroke width ("stroke-width") of 5.
 
 4. Select all circles of "apple" class and move them to the middle of the svg.
+
+## Exercise <i class="fas fa-dumbbell"></i> <i class="fas fa-dumbbell"></i>
+
+Download and open a fresh copy of  [six_blue_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html){target="_blank"} in Chrome. Open Developer Tools and execute Steps 1-4 one at a time in the Console. After Step 4, refresh the page to go back to Step 1 if so desired. (You do not need to create a loop as in the visual.)
+
+> <i class="far fa-lightbulb"></i> *This exercise is provided as a challenge. It's fine to skip this exercise and move on to the next section.*
+
+<table>
+<col width="50%">
+<col width="50%">
+<tr><td>
+
+1. Move all the circles to the right. 
+
+2. Move them back to the left *and* change their color.
+
+3. In a text editor, add an id to the third circle in `six_blue_circles.html`, save the file, and then in the Console, move only that circle to the right.
+
+4. Move all the circles to the middle of the screen, *then* move them all to the same location.
+
+</td><td>
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<svg id="jump1" width="500" height="400"></svg>
+<script src="scripts/jump1.js"></script>
+
+</td></tr></table>
+
+
+
 
 
 ## Binding data… *finally\!* <i class="fas fa-table"></i>
@@ -403,5 +433,5 @@ circ.transition()
 
 ## Exercise <i class="fas fa-dumbbell"></i>
 
-With `six_blue_circles.html` open in Chrome, practice binding data to the circles and modifying the circles based on the data as in the examples above.
+Download and open a fresh copy of  [six_blue_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html){target="_blank"} in Chrome and practice binding data to the circles and modifying the circles based on the data as in the examples above.
 

@@ -147,11 +147,15 @@ Of note:
 
 - An HTML document is composed of lines or sections set off with tags. In particular `<style> ... </style>`, `<svg> ... </svg>`, and `<script> ... </script>` indicate the inclusion of CSS, SVG, and JavaScript/D3 respectively.
 
-- For D3 to work, you must link to a D3 library.  Here we link to an online version, but you can also download a copy from https://d3js.org and reference the local copy with:
+- For D3 to work, you must link to a D3 library. To link to the online version, copy and paste the `<script>` line from [https://d3js.org ](https://d3js.org ){target="_blank"}. Alternatively, you can also download a copy from the same site and reference your local copy with:
 
     ``` js
     <script src="d3.js"></script>
     ```
+    
+- There are two main sections. The `<head>` section contains the *title*, *link to D3 library*, and *internal CSS*. The `<body>` section contains HTML elements (`<h1>`, `<p>`, etc.), SVGs (between `<svg>`/`</svg>`tags) and JavaScript/D3 scripts (between `<script>`/`<script>`tags).
+
+> <i class="far fa-lightbulb"></i> *Do not assume that if it works that it is correct; today's browsers can be very forgiving.*
 
 - Comment syntax varies with language:
 

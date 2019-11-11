@@ -155,30 +155,3 @@ y["b"];
     d3.select("svg").on("click", function()
       {d3.select("text").text(`(${d3.mouse(this)})`)});
     ```
-
-## Exercise <i class="fas fa-dumbbell"></i> <i class="fas fa-dumbbell"></i>
-
-Download and open [six_blue_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html){target="_blank"}. Execute Steps 1-4 one at a time in the Console. After Step 4, refresh the page to go back to Step 1 if so desired. (You do not need to create a loop as in the visual.)
-
-This exercise is provided as a challenge. It's fine to skip this exercise and move on to the next chapter, where we break it all down.
-
-<table>
-<col width="50%">
-<col width="50%">
-<tr><td>
-
-1. Move all the circles to the right. 
-
-2. Move them back to the left *and* change their color.
-
-3. In a text editor, add an id to the third circle in `six_blue_circles.html`, save the file, and then in the Console, move only that circle to the right.
-
-4. Move all the circles to the middle of the screen, *then* move them all to the same location.
-
-</td><td>
-
-<script src="https://d3js.org/d3.v5.min.js"></script>
-<svg id="jump1" width="500" height="400"></svg>
-<script src="scripts/jump1.js"></script>
-
-</td></tr></table>
