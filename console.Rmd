@@ -382,7 +382,7 @@ var dataset = [50, 80, 110, 140, 170, 200];
 We'll also store a selection of all circles before binding the data:
 
 ``` js
-circ = d3.select("svg").selectAll("circle");
+var circ = d3.select("svg").selectAll("circle");
 ```
 
 And now, the data bind:
