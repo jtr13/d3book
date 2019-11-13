@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 D3 in the Console  | D3 for R Users</title>
   <meta name="description" content="3 D3 in the Console  | D3 for R Users" />
-  <meta name="generator" content="bookdown 0.14.1 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.15.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 D3 in the Console  | D3 for R Users" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2019-11-11" />
+<meta name="date" content="2019-11-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="web.html"/>
-<link rel="next" href="more-chapters-coming-soon.html"/>
+<link rel="next" href="update-enter-and-exit.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -153,7 +153,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.4" data-path="web.html"><a href="web.html#javascript"><i class="fa fa-check"></i><b>2.4</b> JavaScript <i class="fab fa-js-square"></i></a></li>
 <li class="chapter" data-level="2.5" data-path="web.html"><a href="web.html#d3"><i class="fa fa-check"></i><b>2.5</b> D3 <i class="far fa-chart-bar"></i></a></li>
 <li class="chapter" data-level="2.6" data-path="web.html"><a href="web.html#html-tree"><i class="fa fa-check"></i><b>2.6</b> HTML tree <i class="fas fa-tree"></i></a></li>
-<li class="chapter" data-level="2.7" data-path="web.html"><a href="web.html#exercise"><i class="fa fa-check"></i><b>2.7</b> Exercise <i class="fas fa-dumbbell"></i></a></li>
+<li class="chapter" data-level="2.7" data-path="web.html"><a href="web.html#exercise-shapes"><i class="fa fa-check"></i><b>2.7</b> Exercise <i class="fas fa-dumbbell"></i>: shapes</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="d3console.html"><a href="d3console.html"><i class="fa fa-check"></i><b>3</b> D3 in the Console <i class="far fa-folder"></i></a><ul>
 <li class="chapter" data-level="3.1" data-path="d3console.html"><a href="d3console.html#selections"><i class="fa fa-check"></i><b>3.1</b> Selections <i class="fas fa-clipboard-list"></i></a><ul>
@@ -163,25 +163,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1.4" data-path="d3console.html"><a href="d3console.html#store-selections"><i class="fa fa-check"></i><b>3.1.4</b> Store selections</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="d3console.html"><a href="d3console.html#modify-existing-elements"><i class="fa fa-check"></i><b>3.2</b> Modify existing elements <i class="fas fa-exchange-alt"></i></a><ul>
-<li class="chapter" data-level="3.2.1" data-path="d3console.html"><a href="d3console.html#modifying-attributes"><i class="fa fa-check"></i><b>3.2.1</b> Modifying attributes</a></li>
-<li class="chapter" data-level="3.2.2" data-path="d3console.html"><a href="d3console.html#modifying-styles"><i class="fa fa-check"></i><b>3.2.2</b> Modifying styles</a></li>
-<li class="chapter" data-level="3.2.3" data-path="d3console.html"><a href="d3console.html#modifying-text"><i class="fa fa-check"></i><b>3.2.3</b> Modifying text</a></li>
-<li class="chapter" data-level="3.2.4" data-path="d3console.html"><a href="d3console.html#moving-svg-text"><i class="fa fa-check"></i><b>3.2.4</b> Moving SVG text</a></li>
+<li class="chapter" data-level="3.2.1" data-path="d3console.html"><a href="d3console.html#modify-attributes"><i class="fa fa-check"></i><b>3.2.1</b> Modify attributes</a></li>
+<li class="chapter" data-level="3.2.2" data-path="d3console.html"><a href="d3console.html#modify-styles"><i class="fa fa-check"></i><b>3.2.2</b> Modify styles</a></li>
+<li class="chapter" data-level="3.2.3" data-path="d3console.html"><a href="d3console.html#modify-text"><i class="fa fa-check"></i><b>3.2.3</b> Modify text</a></li>
+<li class="chapter" data-level="3.2.4" data-path="d3console.html"><a href="d3console.html#move-svg-text"><i class="fa fa-check"></i><b>3.2.4</b> Move SVG text</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="d3console.html"><a href="d3console.html#adding-elements"><i class="fa fa-check"></i><b>3.3</b> Adding elements <i class="far fa-plus-square"></i></a><ul>
+<li class="chapter" data-level="3.3" data-path="d3console.html"><a href="d3console.html#add-elements"><i class="fa fa-check"></i><b>3.3</b> Add elements <i class="far fa-plus-square"></i></a><ul>
 <li class="chapter" data-level="3.3.1" data-path="d3console.html"><a href="d3console.html#html-1"><i class="fa fa-check"></i><b>3.3.1</b> HTML</a></li>
 <li class="chapter" data-level="3.3.2" data-path="d3console.html"><a href="d3console.html#svg-1"><i class="fa fa-check"></i><b>3.3.2</b> SVG</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="d3console.html"><a href="d3console.html#removing-elements"><i class="fa fa-check"></i><b>3.4</b> Removing elements <i class="far fa-minus-square"></i></a><ul>
+<li class="chapter" data-level="3.4" data-path="d3console.html"><a href="d3console.html#remove-elements"><i class="fa fa-check"></i><b>3.4</b> Remove elements <i class="far fa-minus-square"></i></a><ul>
 <li class="chapter" data-level="3.4.1" data-path="d3console.html"><a href="d3console.html#html-2"><i class="fa fa-check"></i><b>3.4.1</b> HTML</a></li>
 <li class="chapter" data-level="3.4.2" data-path="d3console.html"><a href="d3console.html#svg-2"><i class="fa fa-check"></i><b>3.4.2</b> SVG</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="d3console.html"><a href="d3console.html#exercise-1"><i class="fa fa-check"></i><b>3.5</b> Exercise <i class="fas fa-dumbbell"></i></a></li>
-<li class="chapter" data-level="3.6" data-path="d3console.html"><a href="d3console.html#exercise-2"><i class="fa fa-check"></i><b>3.6</b> Exercise <i class="fas fa-dumbbell"></i> <i class="fas fa-dumbbell"></i></a></li>
-<li class="chapter" data-level="3.7" data-path="d3console.html"><a href="d3console.html#binding-data-finally"><i class="fa fa-check"></i><b>3.7</b> Binding data… <em>finally!</em> <i class="fas fa-table"></i></a></li>
-<li class="chapter" data-level="3.8" data-path="d3console.html"><a href="d3console.html#exercise-3"><i class="fa fa-check"></i><b>3.8</b> Exercise <i class="fas fa-dumbbell"></i></a></li>
+<li class="chapter" data-level="3.5" data-path="d3console.html"><a href="d3console.html#exercise-green-circles"><i class="fa fa-check"></i><b>3.5</b> Exercise <i class="fas fa-dumbbell"></i>: green circles</a></li>
+<li class="chapter" data-level="3.6" data-path="d3console.html"><a href="d3console.html#exercise-blue-circles"><i class="fa fa-check"></i><b>3.6</b> Exercise <i class="fas fa-dumbbell"></i> <i class="fas fa-dumbbell"></i>: blue circles</a></li>
+<li class="chapter" data-level="3.7" data-path="d3console.html"><a href="d3console.html#bind-data-finally"><i class="fa fa-check"></i><b>3.7</b> Bind data… <em>finally!</em> <i class="fas fa-table"></i></a></li>
+<li class="chapter" data-level="3.8" data-path="d3console.html"><a href="d3console.html#exercise-data-bind"><i class="fa fa-check"></i><b>3.8</b> Exercise <i class="fas fa-dumbbell"></i>: data bind</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="more-chapters-coming-soon.html"><a href="more-chapters-coming-soon.html"><i class="fa fa-check"></i><b>4</b> More chapters coming soon <i class="fas fa-screwdriver"></i></a></li>
+<li class="chapter" data-level="4" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html"><i class="fa fa-check"></i><b>4</b> Update, Enter, and Exit <i class="fa fa-refresh"></i></a><ul>
+<li class="chapter" data-level="4.1" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#lecture-slides"><i class="fa fa-check"></i><b>4.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
+<li class="chapter" data-level="4.2" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#remove-some-elements"><i class="fa fa-check"></i><b>4.2</b> Remove some elements <i class="far fa-minus-square"></i></a></li>
+<li class="chapter" data-level="4.3" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#add-some-elements"><i class="fa fa-check"></i><b>4.3</b> Add some elements <i class="far fa-plus-square"></i></a></li>
+<li class="chapter" data-level="4.4" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#data-enter-append"><i class="fa fa-check"></i><b>4.4</b> Data / enter / append <i class="fa fa-table"></i></a></li>
+<li class="chapter" data-level="4.5" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#exercise-horizontal-bar-chart"><i class="fa fa-check"></i><b>4.5</b> Exercise <i class="fas fa-dumbbell"></i>: horizontal bar chart</a></li>
+<li class="chapter" data-level="4.6" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#merge-selections"><i class="fa fa-check"></i><b>4.6</b> Merge selections <i class="fa fa-code-fork"></i></a></li>
+<li class="chapter" data-level="4.7" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#exercise-merge"><i class="fa fa-check"></i><b>4.7</b> Exercise <i class="fas fa-dumbbell"></i>: merge</a></li>
+<li class="chapter" data-level="4.8" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#groups"><i class="fa fa-check"></i><b>4.8</b> Groups <i class="fa fa-object-group"></i></a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="more-chapters-coming-soon.html"><a href="more-chapters-coming-soon.html"><i class="fa fa-check"></i><b>5</b> More chapters coming soon <i class="fas fa-screwdriver"></i></a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -244,15 +254,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="modify-existing-elements" class="section level2">
 <h2><span class="header-section-number">3.2</span> Modify existing elements <i class="fas fa-exchange-alt"></i></h2>
 <p>Try out the code in this section with a downloaded copy of <a href="https://raw.githubusercontent.com/jtr13/d3book/master/code/five_green_circles.html" target="_blank">five_green_circles.html</a> opened in Chrome and the Console visible.</p>
-<div id="modifying-attributes" class="section level3">
-<h3><span class="header-section-number">3.2.1</span> Modifying attributes</h3>
+<div id="modify-attributes" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Modify attributes</h3>
 <p><a href="https://github.com/d3/d3-selection/blob/v1.4.0/README.md#selection_attr">link to get or set attribute API</a></p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;r&quot;</span>)<span class="op">;</span>           <span class="co">// see radius</span></a>
 <a class="sourceLine" id="cb24-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb24-3" data-line-number="3"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;10&quot;</span>)<span class="op">;</span>     <span class="co">// set radius to 10</span></a></code></pre></div>
 </div>
-<div id="modifying-styles" class="section level3">
-<h3><span class="header-section-number">3.2.2</span> Modifying styles</h3>
+<div id="modify-styles" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Modify styles</h3>
 <p><a href="https://github.com/d3/d3-selection/blob/v1.4.0/README.md#selection_style">link to get or set style API</a></p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;h1&quot;</span>).<span class="at">style</span>(<span class="st">&quot;color&quot;</span>)<span class="op">;</span></a>
 <a class="sourceLine" id="cb25-2" data-line-number="2"></a>
@@ -272,8 +282,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb27-3" data-line-number="3"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;style&quot;</span><span class="op">,</span> <span class="st">&quot;fill: blue;&quot;</span>)<span class="op">;</span></a></code></pre></div>
 <p><em>In other words, style is an attribute!</em> <i class="far fa-grimace"></i></p>
 </div>
-<div id="modifying-text" class="section level3">
-<h3><span class="header-section-number">3.2.3</span> Modifying text</h3>
+<div id="modify-text" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> Modify text</h3>
 <p>This section is interactive. Hover over code as directed to observe effects.</p>
 <div id="html-text" class="section level4 unnumbered">
 <h4>HTML text</h4>
@@ -338,8 +348,8 @@ d3.select("#svgtypo").text("Web scrapping is fun.")
 <a class="sourceLine" id="cb32-3" data-line-number="3"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;text&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span>  <span class="co">// SVG</span></a></code></pre></div>
 </div>
 </div>
-<div id="moving-svg-text" class="section level3">
-<h3><span class="header-section-number">3.2.4</span> Moving SVG text</h3>
+<div id="move-svg-text" class="section level3">
+<h3><span class="header-section-number">3.2.4</span> Move SVG text</h3>
 <div class="sourceCode" id="cb33"><pre class="sourceCode svg"><code class="sourceCode xml"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="kw">&lt;svg</span><span class="ot"> width=</span><span class="st">&quot;600&quot;</span><span class="ot"> height=</span><span class="st">&quot;100&quot;</span><span class="kw">&gt;</span></a>
 <a class="sourceLine" id="cb33-2" data-line-number="2">  <span class="kw">&lt;rect</span><span class="ot"> width=</span><span class="st">&quot;600&quot;</span><span class="ot"> height=</span><span class="st">&quot;100&quot;</span><span class="ot"> fill=</span><span class="st">&quot;#326EA4&quot;</span><span class="kw">&gt;&lt;/rect&gt;</span></a>
 <a class="sourceLine" id="cb33-3" data-line-number="3">  <span class="kw">&lt;text</span><span class="ot"> id=</span><span class="st">&quot;moveleft&quot;</span><span class="ot"> x=</span><span class="st">&quot;200&quot;</span><span class="ot"> y=</span><span class="st">&quot;70&quot;</span><span class="ot"> fill=</span><span class="st">&quot;white&quot;</span><span class="ot"> font-weight=</span><span class="st">&quot;bold&quot;</span><span class="ot"> font-size=</span><span class="st">&quot;40px&quot;</span><span class="kw">&gt;</span></a>
@@ -365,8 +375,8 @@ d3.select("#moveleft").attr("x", "200").text("I want to move left.")
 </script>
 </div>
 </div>
-<div id="adding-elements" class="section level2">
-<h2><span class="header-section-number">3.3</span> Adding elements <i class="far fa-plus-square"></i></h2>
+<div id="add-elements" class="section level2">
+<h2><span class="header-section-number">3.3</span> Add elements <i class="far fa-plus-square"></i></h2>
 <div id="html-1" class="section level3">
 <h3><span class="header-section-number">3.3.1</span> HTML</h3>
 <p>Continue trying out code with <code>five_green_circles.html</code> open in Chrome.</p>
@@ -398,8 +408,8 @@ d3.select("#moveleft").attr("x", "200").text("I want to move left.")
 <a class="sourceLine" id="cb39-4" data-line-number="4">  .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span></a></code></pre></div>
 </div>
 </div>
-<div id="removing-elements" class="section level2">
-<h2><span class="header-section-number">3.4</span> Removing elements <i class="far fa-minus-square"></i></h2>
+<div id="remove-elements" class="section level2">
+<h2><span class="header-section-number">3.4</span> Remove elements <i class="far fa-minus-square"></i></h2>
 <p>These methods will remove matching elements in order, starting with the first find in the document.</p>
 <div id="html-2" class="section level3">
 <h3><span class="header-section-number">3.4.1</span> HTML</h3>
@@ -412,8 +422,8 @@ d3.select("#moveleft").attr("x", "200").text("I want to move left.")
 <a class="sourceLine" id="cb41-3" data-line-number="3"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">remove</span>()<span class="op">;</span></a></code></pre></div>
 </div>
 </div>
-<div id="exercise-1" class="section level2">
-<h2><span class="header-section-number">3.5</span> Exercise <i class="fas fa-dumbbell"></i></h2>
+<div id="exercise-green-circles" class="section level2">
+<h2><span class="header-section-number">3.5</span> Exercise <i class="fas fa-dumbbell"></i>: green circles</h2>
 <p>Download and open a fresh copy of <a href="https://raw.githubusercontent.com/jtr13/d3book/master/code/five_green_circles.html" target="_blank">five_green_circles.html</a> in Chrome. Open Developer Tools open and do the following in the Console with D3:</p>
 <ol style="list-style-type: decimal">
 <li><p>Select the circle with ID “henry” and make it blue.</p></li>
@@ -422,8 +432,8 @@ d3.select("#moveleft").attr("x", "200").text("I want to move left.")
 <li><p>Select all circles of “apple” class and move them to the middle of the svg.</p></li>
 </ol>
 </div>
-<div id="exercise-2" class="section level2">
-<h2><span class="header-section-number">3.6</span> Exercise <i class="fas fa-dumbbell"></i> <i class="fas fa-dumbbell"></i></h2>
+<div id="exercise-blue-circles" class="section level2">
+<h2><span class="header-section-number">3.6</span> Exercise <i class="fas fa-dumbbell"></i> <i class="fas fa-dumbbell"></i>: blue circles</h2>
 <p>Download and open a fresh copy of <a href="https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html" target="_blank">six_blue_circles.html</a> in Chrome. Open Developer Tools and execute Steps 1-4 one at a time in the Console. After Step 4, refresh the page to go back to Step 1 if so desired. (You do not need to create a loop as in the visual.)</p>
 <blockquote>
 <p><i class="far fa-lightbulb"></i> <em>This exercise is provided as a challenge. It’s fine to skip this exercise and move on to the next section.</em></p>
@@ -449,8 +459,8 @@ d3.select("#moveleft").attr("x", "200").text("I want to move left.")
 </tr>
 </table>
 </div>
-<div id="binding-data-finally" class="section level2">
-<h2><span class="header-section-number">3.7</span> Binding data… <em>finally!</em> <i class="fas fa-table"></i></h2>
+<div id="bind-data-finally" class="section level2">
+<h2><span class="header-section-number">3.7</span> Bind data… <em>finally!</em> <i class="fas fa-table"></i></h2>
 <p>To follow along with the code in this section, download and open <a href="https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html" target="_blank">six_blue_circles.html</a>.</p>
 <p>Bind data:</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">data</span>([<span class="dv">90</span><span class="op">,</span> <span class="dv">230</span><span class="op">,</span> <span class="dv">140</span><span class="op">,</span> <span class="dv">75</span><span class="op">,</span> <span class="dv">180</span><span class="op">,</span> <span class="dv">25</span>])<span class="op">;</span></a></code></pre></div>
@@ -490,8 +500,8 @@ d3.select("#moveleft").attr("x", "200").text("I want to move left.")
 <a class="sourceLine" id="cb52-6" data-line-number="6">    .<span class="at">duration</span>(<span class="dv">2000</span>)</a>
 <a class="sourceLine" id="cb52-7" data-line-number="7">    .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="dv">2</span><span class="op">*</span>d)<span class="op">;</span></a></code></pre></div>
 </div>
-<div id="exercise-3" class="section level2">
-<h2><span class="header-section-number">3.8</span> Exercise <i class="fas fa-dumbbell"></i></h2>
+<div id="exercise-data-bind" class="section level2">
+<h2><span class="header-section-number">3.8</span> Exercise <i class="fas fa-dumbbell"></i>: data bind</h2>
 <p>Download and open a fresh copy of <a href="https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html" target="_blank">six_blue_circles.html</a> in Chrome and practice binding data to the circles and modifying the circles based on the data as in the examples above.</p>
 
 </div>
@@ -502,7 +512,7 @@ d3.select("#moveleft").attr("x", "200").text("I want to move left.")
         </div>
       </div>
 <a href="web.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="more-chapters-coming-soon.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="update-enter-and-exit.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -518,6 +528,7 @@ d3.select("#moveleft").attr("x", "200").text("I want to move left.")
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
+"github": false,
 "facebook": true,
 "twitter": true,
 "linkedin": false,
@@ -533,7 +544,7 @@ gitbook.start({
 },
 "edit": {
 "link": "https://github.com/jtr13/d3book/edit/master/console.Rmd",
-"text": "Edit .Rmd"
+"text": "Edit"
 },
 "history": {
 "link": null,
@@ -541,11 +552,11 @@ gitbook.start({
 },
 "view": {
 "link": "https://github.com/jtr13/d3book/blob/master/console.Rmd",
-"text": "View .Rmd"
+"text": null
 },
 "download": ["d3book.pdf"],
 "toc": {
-"collapse": "subsection"
+"collapse": "section"
 }
 });
 });

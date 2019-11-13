@@ -23,38 +23,38 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 # Welcome {-}
 
 <style>
-			rect {
-				pointer-events: all;
-			}
+rect {
+	pointer-events: all;
+	}
 
-			.node {
-				fill: blue;
-			}
+	.node {
+	fill: blue;
+	}
 
-			.cursor {
-				fill: none;
-				stroke: brown;
-				pointer-events: none;
-			}
+	.cursor {
+	fill: none;
+	stroke: brown;
+	pointer-events: none;
+	}
 
-			.link {
-				stroke: red;
-			}
+	.link {
+	stroke: red;
+}
 
-			.svg-container {
-				display: inline-block;
-				position: relative;
-				width: 100%;
-				padding-bottom: 20%;  <!-- changed this to be the same as y/x aspect ratio, not explained-->
-				vertical-align: top;
-				overflow: hidden;
-			}
-			.svg-content {
-				display: inline-block;
-				position: absolute;
-				top: 0;
-				left: 0;
-			}
+.svg-container {
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	padding-bottom: 20%;  <!-- changed this to be the same as y/x aspect ratio, not explained-->
+	vertical-align: top;
+	overflow: hidden;
+}
+.svg-content {
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
 </style>
 
 <div id="container" class="svg-container">
@@ -63,7 +63,7 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 </div>
 
 
-<div style="text-align: right; font-size: 85%; font-style: italic;"> <!-- needs to be in parent -->
+<div style="text-align: right; font-size: 85%; font-style: italic;"> <!-- text-align needs to be in parent -->
 Adapted from <a href="https://bl.ocks.org/mbostock/929623" target="_blank">Build Your Own Graph!</a>
 </div>
 
