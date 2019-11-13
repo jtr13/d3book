@@ -124,7 +124,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-11-11}
+    \date{2019-11-13}
 
 \usepackage{booktabs}
 
@@ -135,19 +135,15 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\hypertarget{section}{%
-\chapter*{}\label{section}}
-\addcontentsline{toc}{chapter}{}
+\hypertarget{welcome}{%
+\chapter*{Welcome}\label{welcome}}
+\addcontentsline{toc}{chapter}{Welcome}
 
 \hypertarget{container}{}
 
-source
+Adapted from Build Your Own Graph!
 
-\hypertarget{note-to-readers}{%
-\section*{Note to readers }\label{note-to-readers}}
-\addcontentsline{toc}{section}{Note to readers }
-
-This guide adapts Scott Murray's \href{https://www.amazon.com/Interactive-Data-Visualization-Web-Introduction/dp/1491921285/}{\emph{Interactive Data Visualization for the Web, 2nd edition}}--a required text for GR5702--for the needs of this course. Be sure to get the second edition, which is a comprehensive update to D3 version 4. The first edition uses D3 version 3, which is not compatible. (To add to the complication, the current version of D3 is v5. However, since differences between v4 and v5 are minimal, unless otherwise indicated in this guide, the code in \emph{IDVW2} will work with either.)
+This guide serves as a companion text to Scott Murray's \href{https://www.amazon.com/Interactive-Data-Visualization-Web-Introduction/dp/1491921285/}{\emph{Interactive Data Visualization for the Web, 2nd edition}}--a required text for GR5702. Be sure to get the second edition, which is a comprehensive update to D3 version 4. The first edition uses D3 version 3, which is not compatible. (To add to the complication, the current version of D3 is v5. However, since differences between v4 and v5 are minimal, unless otherwise indicated in this guide, the code in \emph{IDVW2} will work with either.)
 
 We rely on the text heavily but also deviate from it in several ways. \emph{IDVW2} is written for graphics designers not data science students so the pain points are somewhat different.
 
@@ -374,25 +370,6 @@ Let's skip the explanations and start coding in D3 right now. Why? So you can se
 \end{Shaded}
 \end{enumerate}
 
-\hypertarget{exercise}{%
-\section{\texorpdfstring{Exercise }{Exercise  }}\label{exercise}}
-
-Download and open \href{https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html}{six\_blue\_circles.html}. Execute Steps 1-4 one at a time in the Console. After Step 4, refresh the page to go back to Step 1 if so desired. (You do not need to create a loop as in the visual.)
-
-This exercise is provided as a challenge. It's fine to skip this exercise and move on to the next chapter, where we break it all down.
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  Move all the circles to the right.
-\item
-  Move them back to the left \emph{and} change their color.
-\item
-  In a text editor, add an id to the third circle in \texttt{six\_blue\_circles.html}, save the file, and then in the Console, move only that circle to the right.
-\item
-  Move all the circles to the middle of the screen, \emph{then} move them all to the same location.
-\end{enumerate}
-
 \hypertarget{web}{%
 \chapter{Web tech }\label{web}}
 
@@ -414,6 +391,12 @@ In the \texttt{\textless{}head\textgreater{}} section we use \texttt{\textless{}
 \OperatorTok{<}\NormalTok{script src}\OperatorTok{=}\StringTok{"https://d3js.org/d3.v5.min.js"}\OperatorTok{>}\NormalTok{</script}\OperatorTok{>}
 \end{Highlighting}
 \end{Shaded}
+
+HTML content is enclosed between opening an closing \textbf{tags} such as \texttt{\textless{}h1\textgreater{}} and \texttt{\textless{}/h1\textgreater{}}.
+
+HTML class and ID \textbf{attributes} are included inside the opening tags:
+
+\texttt{\textless{}h1\ class="myclass"\ id="myid"\textgreater{}This\ is\ an\ h1\ header.\textless{}/h1\textgreater{}}
 
 \hypertarget{css}{%
 \section{CSS }\label{css}}
@@ -543,13 +526,22 @@ Of note:
 \item
   An HTML document is composed of lines or sections set off with tags. In particular \texttt{\textless{}style\textgreater{}\ ...\ \textless{}/style\textgreater{}}, \texttt{\textless{}svg\textgreater{}\ ...\ \textless{}/svg\textgreater{}}, and \texttt{\textless{}script\textgreater{}\ ...\ \textless{}/script\textgreater{}} indicate the inclusion of CSS, SVG, and JavaScript/D3 respectively.
 \item
-  For D3 to work, you must link to a D3 library. Here we link to an online version, but you can also download a copy from \url{https://d3js.org} and reference the local copy with:
+  For D3 to work, you must link to a D3 library. To link to the online version, copy and paste the \texttt{\textless{}script\textgreater{}} line from \url{https://d3js.org}. Alternatively, you can also download a copy from the same site and reference your local copy with:
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \OperatorTok{<}\NormalTok{script src}\OperatorTok{=}\StringTok{"d3.js"}\OperatorTok{>}\NormalTok{</script}\OperatorTok{>}
 \end{Highlighting}
 \end{Shaded}
+\item
+  There are two main sections. The \texttt{\textless{}head\textgreater{}} section contains the \emph{title}, \emph{link to D3 library}, and \emph{internal CSS}. The \texttt{\textless{}body\textgreater{}} section contains HTML elements (\texttt{\textless{}h1\textgreater{}}, \texttt{\textless{}p\textgreater{}}, etc.), SVGs (between \texttt{\textless{}svg\textgreater{}}/\texttt{\textless{}/svg\textgreater{}}tags) and JavaScript/D3 scripts (between \texttt{\textless{}script\textgreater{}}/\texttt{\textless{}script\textgreater{}}tags).
+\end{itemize}
+
+\begin{quote}
+ \emph{Do not assume that if it works that it is correct; today's browsers can be very forgiving.}
+\end{quote}
+
+\begin{itemize}
 \item
   Comment syntax varies with language:
 
@@ -565,8 +557,8 @@ Of note:
   \end{itemize}
 \end{itemize}
 
-\hypertarget{exercise-1}{%
-\section{Exercise }\label{exercise-1}}
+\hypertarget{exercise-shapes}{%
+\section{Exercise : shapes}\label{exercise-shapes}}
 
 Download a fresh copy of \texttt{shapes.html}. (Reminder: open the following page and then click \emph{File, Save Page As\ldots{}}: \href{https://raw.githubusercontent.com/jtr13/d3book/master/code/shapes.html}{\texttt{shapes.html}}). Open the file in a text editor of your choice on one half of your screen. If you don't want to think about it, just use RStudio since it's already installed and provides syntax highlighting for \texttt{.html}. On the other half of your screen open the same file in Chrome. Developer Tools should not be open; we will not be using the Console. As you make changes to the \texttt{.html} file, save the file and then refresh the browser to see the effects. Keyboard shortcuts to save and refresh are helpful here.
 
@@ -680,8 +672,8 @@ Store circle selection in a variable:
 
 Try out the code in this section with a downloaded copy of \href{https://raw.githubusercontent.com/jtr13/d3book/master/code/five_green_circles.html}{five\_green\_circles.html} opened in Chrome and the Console visible.
 
-\hypertarget{modifying-attributes}{%
-\subsection{Modifying attributes}\label{modifying-attributes}}
+\hypertarget{modify-attributes}{%
+\subsection{Modify attributes}\label{modify-attributes}}
 
 \href{https://github.com/d3/d3-selection/blob/v1.4.0/README.md\#selection_attr}{link to get or set attribute API}
 
@@ -693,8 +685,8 @@ Try out the code in this section with a downloaded copy of \href{https://raw.git
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{modifying-styles}{%
-\subsection{Modifying styles}\label{modifying-styles}}
+\hypertarget{modify-styles}{%
+\subsection{Modify styles}\label{modify-styles}}
 
 \href{https://github.com/d3/d3-selection/blob/v1.4.0/README.md\#selection_style}{link to get or set style API}
 
@@ -734,8 +726,8 @@ Try out the code in this section with a downloaded copy of \href{https://raw.git
 
 \emph{In other words, style is an attribute!}
 
-\hypertarget{modifying-text}{%
-\subsection{Modifying text}\label{modifying-text}}
+\hypertarget{modify-text}{%
+\subsection{Modify text}\label{modify-text}}
 
 This section is interactive. Hover over code as directed to observe effects.
 
@@ -797,8 +789,8 @@ Hover to execute this code (and fix the typo):
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{moving-svg-text}{%
-\subsection{Moving SVG text}\label{moving-svg-text}}
+\hypertarget{move-svg-text}{%
+\subsection{Move SVG text}\label{move-svg-text}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -821,8 +813,8 @@ Hover to execute this code:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{adding-elements}{%
-\section{Adding elements }\label{adding-elements}}
+\hypertarget{add-elements}{%
+\section{Add elements }\label{add-elements}}
 
 \hypertarget{html-1}{%
 \subsection{HTML}\label{html-1}}
@@ -886,8 +878,8 @@ We can use a saved selection to assist in creating a new element:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{removing-elements}{%
-\section{Removing elements }\label{removing-elements}}
+\hypertarget{remove-elements}{%
+\section{Remove elements }\label{remove-elements}}
 
 These methods will remove matching elements in order, starting with the first find in the document.
 
@@ -911,10 +903,10 @@ These methods will remove matching elements in order, starting with the first fi
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{exercise-2}{%
-\section{Exercise }\label{exercise-2}}
+\hypertarget{exercise-green-circles}{%
+\section{Exercise : green circles}\label{exercise-green-circles}}
 
-Download and open a fresh copy of \href{https://raw.githubusercontent.com/jtr13/d3book/master/code/five_green_circles.html}{five\_green\_circles.html} in Chrome with Developer Tools open. Do the following in the Console with D3:
+Download and open a fresh copy of \href{https://raw.githubusercontent.com/jtr13/d3book/master/code/five_green_circles.html}{five\_green\_circles.html} in Chrome. Open Developer Tools open and do the following in the Console with D3:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -928,8 +920,29 @@ Download and open a fresh copy of \href{https://raw.githubusercontent.com/jtr13/
   Select all circles of ``apple'' class and move them to the middle of the svg.
 \end{enumerate}
 
-\hypertarget{binding-data-finally}{%
-\section{\texorpdfstring{Binding data\ldots{} \emph{finally!} }{Binding data\ldots{} finally! }}\label{binding-data-finally}}
+\hypertarget{exercise-blue-circles}{%
+\section{\texorpdfstring{Exercise : blue circles}{Exercise  : blue circles}}\label{exercise-blue-circles}}
+
+Download and open a fresh copy of \href{https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html}{six\_blue\_circles.html} in Chrome. Open Developer Tools and execute Steps 1-4 one at a time in the Console. After Step 4, refresh the page to go back to Step 1 if so desired. (You do not need to create a loop as in the visual.)
+
+\begin{quote}
+ \emph{This exercise is provided as a challenge. It's fine to skip this exercise and move on to the next section.}
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Move all the circles to the right.
+\item
+  Move them back to the left \emph{and} change their color.
+\item
+  In a text editor, add an id to the third circle in \texttt{six\_blue\_circles.html}, save the file, and then in the Console, move only that circle to the right.
+\item
+  Move all the circles to the middle of the screen, \emph{then} move them all to the same location.
+\end{enumerate}
+
+\hypertarget{bind-data-finally}{%
+\section{\texorpdfstring{Bind data\ldots{} \emph{finally!} }{Bind data\ldots{} finally! }}\label{bind-data-finally}}
 
 To follow along with the code in this section, download and open \href{https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html}{six\_blue\_circles.html}.
 
@@ -977,7 +990,7 @@ We'll also store a selection of all circles before binding the data:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{circ }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{).}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}\OperatorTok{;}
+\KeywordTok{var}\NormalTok{ circ }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{).}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1037,10 +1050,352 @@ Note that if we bind a new set of data to the DOM elements, the original set wil
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{exercise-3}{%
-\section{Exercise }\label{exercise-3}}
+\hypertarget{exercise-data-bind}{%
+\section{Exercise : data bind}\label{exercise-data-bind}}
 
-With \texttt{six\_blue\_circles.html} open in Chrome, practice binding data to the circles and modifying the circles based on the data as in the examples above.
+Download and open a fresh copy of \href{https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html}{six\_blue\_circles.html} in Chrome and practice binding data to the circles and modifying the circles based on the data as in the examples above.
+
+\hypertarget{update-enter-and-exit}{%
+\chapter{Update, Enter, and Exit }\label{update-enter-and-exit}}
+
+\hypertarget{lecture-slides}{%
+\section{Lecture slides }\label{lecture-slides}}
+
+\href{https://github.com/jtr13/D3/blob/master/UpdateEnterExit.pdf}{D3 Data Bind}
+
+\hypertarget{remove-some-elements}{%
+\section{Remove some elements }\label{remove-some-elements}}
+
+\emph{a.k.a. more DOM elements than data values}
+
+We'll start with six circles and remove some.
+
+Download and open a fresh copy of \href{https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html}{six\_blue\_circles.html} in Chrome.
+
+Let's bind four data values to the six circles:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{ svg }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}\OperatorTok{;}
+
+\VariableTok{svg}\NormalTok{.}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{data}\NormalTok{([}\DecValTok{123}\OperatorTok{,} \DecValTok{52}\OperatorTok{,} \DecValTok{232}\OperatorTok{,} \DecValTok{90}\NormalTok{])}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+Click the black triangle to view the \texttt{\_enter}, \texttt{\_exit}, and \texttt{\_groups} fields.
+
+We can store the selection in a variable:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{ circ }\OperatorTok{=} \VariableTok{svg}\NormalTok{.}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{data}\NormalTok{([}\DecValTok{123}\OperatorTok{,} \DecValTok{52}\OperatorTok{,} \DecValTok{232}\OperatorTok{,} \DecValTok{90}\NormalTok{])}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+Let's look at the exit selection:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{circ}\NormalTok{.}\AttributeTok{exit}\NormalTok{()}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+Try this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{circ}\NormalTok{.}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"red"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+What happened and why?
+
+Now try this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{circ}\NormalTok{.}\AttributeTok{exit}\NormalTok{().}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"purple"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+What happened and why?
+
+What do you think this will do? Try it.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{circ}\NormalTok{.}\AttributeTok{exit}\NormalTok{().}\AttributeTok{transition}\NormalTok{().}\AttributeTok{duration}\NormalTok{(}\DecValTok{2000}\NormalTok{).}\AttributeTok{remove}\NormalTok{()}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+Create a new variable \texttt{circ2} and compare it to \texttt{circ}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{ circ2 }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}\OperatorTok{;}
+
+\VariableTok{circ}\NormalTok{.}\AttributeTok{data}\NormalTok{()}\OperatorTok{;}
+
+\VariableTok{circ2}\NormalTok{.}\AttributeTok{data}\NormalTok{()}\OperatorTok{;}
+
+\VariableTok{circ}\NormalTok{.}\AttributeTok{exit}\NormalTok{()}\OperatorTok{;}
+
+\VariableTok{circ2}\NormalTok{.}\AttributeTok{exit}\NormalTok{()}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+What's going on?
+
+\hypertarget{add-some-elements}{%
+\section{Add some elements }\label{add-some-elements}}
+
+\emph{a.k.a. more data values than DOM elements}
+
+We'll start with six circles and add some.
+
+Let's bind new data to the circles:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{ circ }\OperatorTok{=} \VariableTok{svg}\NormalTok{.}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{data}\NormalTok{([}\DecValTok{123}\OperatorTok{,} \DecValTok{52}\OperatorTok{,} \DecValTok{232}\OperatorTok{,} \DecValTok{90}\OperatorTok{,} \DecValTok{34}\OperatorTok{,} \DecValTok{12}\OperatorTok{,} \DecValTok{189}\OperatorTok{,} \DecValTok{110}\NormalTok{])}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+And look at the enter selection:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{circ}\NormalTok{.}\AttributeTok{enter}\NormalTok{()}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+How many placeholders are in the enter selection?
+
+Let's add circles for each of these placeholders:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{circ}\NormalTok{.}\AttributeTok{enter}\NormalTok{()}
+\NormalTok{    .}\AttributeTok{append}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,} \StringTok{"100"}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cy"}\OperatorTok{,}\NormalTok{ (d}\OperatorTok{,}\NormalTok{ i) }\OperatorTok{=>}\NormalTok{ i }\OperatorTok{*} \DecValTok{50} \OperatorTok{+} \DecValTok{25}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{attr}\NormalTok{(}\StringTok{"r"}\OperatorTok{,} \StringTok{"20"}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"blue"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+Try this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{circ}\NormalTok{.}\AttributeTok{transition}\NormalTok{()}
+\NormalTok{  .}\AttributeTok{duration}\NormalTok{(}\DecValTok{3000}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,} \StringTok{"400"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+What do you need to do to act on \emph{all} of the circles?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{svg}\NormalTok{.}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{transition}\NormalTok{()}
+\NormalTok{  .}\AttributeTok{duration}\NormalTok{(}\DecValTok{2000}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cy"}\OperatorTok{,}\NormalTok{ (d}\OperatorTok{,}\NormalTok{ i) }\OperatorTok{=>}\NormalTok{ (i }\OperatorTok{*} \DecValTok{50}\NormalTok{) }\OperatorTok{+} \DecValTok{25}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,} \StringTok{"200"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{data-enter-append}{%
+\section{Data / enter / append }\label{data-enter-append}}
+
+We'll start with nothing--not even an SVG--and add elements with the data / enter / append sequence.
+
+Download and open a fresh copy of \href{https://raw.githubusercontent.com/jtr13/d3book/master/code/D3template.html}{D3template.html} in Chrome.
+
+Let's first add an SVG and store it in a variable:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{ svg }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"body"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{append}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"width"}\OperatorTok{,} \StringTok{"500"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"height"}\OperatorTok{,} \StringTok{"400"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+Create an array of values:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{ specialdata }\OperatorTok{=}\NormalTok{ [}\DecValTok{100}\OperatorTok{,} \DecValTok{250}\OperatorTok{,} \DecValTok{300}\NormalTok{]}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+Add rectangles:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{ bars }\OperatorTok{=} \VariableTok{svg}\NormalTok{.}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"rect"}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{data}\NormalTok{(specialdata)}
+\NormalTok{      .}\AttributeTok{enter}\NormalTok{()}
+\NormalTok{      .}\AttributeTok{append}\NormalTok{(}\StringTok{"rect"}\NormalTok{)}
+\NormalTok{        .}\AttributeTok{attr}\NormalTok{(}\StringTok{"x"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>}\NormalTok{ d)}
+\NormalTok{        .}\AttributeTok{attr}\NormalTok{(}\StringTok{"y"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>}\NormalTok{ d)}
+\NormalTok{        .}\AttributeTok{attr}\NormalTok{(}\StringTok{"width"}\OperatorTok{,} \StringTok{"50"}\NormalTok{)}
+\NormalTok{        .}\AttributeTok{attr}\NormalTok{(}\StringTok{"height"}\OperatorTok{,} \StringTok{"30"}\NormalTok{)}
+\NormalTok{        .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"red"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{exercise-horizontal-bar-chart}{%
+\section{Exercise : horizontal bar chart}\label{exercise-horizontal-bar-chart}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Create a new html file (try to recreate the template without looking\ldots{} or save a copy of \href{https://raw.githubusercontent.com/jtr13/d3book/master/code/D3template.html}{this one}) and open it in your text editor.
+\end{enumerate}
+
+\begin{quote}
+ \emph{If you create a new file in RStudio, choose ``Text File'' and use the \texttt{.html} file extension when you save it. Do not choose ``R HTML''.}
+\end{quote}
+
+Add a script that adds an svg element and horizontal bars of the lengths (in pixels) specified in \texttt{bardata}. Create the bars with the data / enter / append sequence.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \KeywordTok{var}\NormalTok{ bardata }\OperatorTok{=}\NormalTok{ [}\DecValTok{300}\OperatorTok{,} \DecValTok{100}\OperatorTok{,} \DecValTok{150}\OperatorTok{,} \DecValTok{225}\OperatorTok{,} \DecValTok{75}\OperatorTok{,} \DecValTok{275}\NormalTok{]}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{merge-selections}{%
+\section{Merge selections }\label{merge-selections}}
+
+a.k.a. combining update and enter selections with \texttt{.merge()}
+
+Download and open a fresh copy of \href{https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html}{six\_blue\_circles.html} in Chrome.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{ svg }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}\OperatorTok{;}
+\KeywordTok{var}\NormalTok{ circ }\OperatorTok{=} \VariableTok{svg}\NormalTok{.}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}\OperatorTok{;}
+\KeywordTok{var}\NormalTok{ allcirc }\OperatorTok{=} \VariableTok{circ}\NormalTok{.}\AttributeTok{data}\NormalTok{([}\DecValTok{123}\OperatorTok{,} \DecValTok{52}\OperatorTok{,} \DecValTok{232}\OperatorTok{,} \DecValTok{90}\OperatorTok{,} \DecValTok{34}\OperatorTok{,} \DecValTok{12}\OperatorTok{,} \DecValTok{189}\OperatorTok{,} \DecValTok{110}\NormalTok{])}
+\NormalTok{      .}\AttributeTok{enter}\NormalTok{()  }\CommentTok{// 2 placeholders}
+\NormalTok{        .}\AttributeTok{append}\NormalTok{(}\StringTok{"circle"}\NormalTok{)  }\CommentTok{// placeholders -> circles}
+\NormalTok{          .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,} \StringTok{"100"}\NormalTok{)  }\CommentTok{// acts on enter selection only}
+\NormalTok{          .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cy"}\OperatorTok{,}\NormalTok{ (d}\OperatorTok{,}\NormalTok{ i) }\OperatorTok{=>}\NormalTok{ (i }\OperatorTok{-} \DecValTok{5}\NormalTok{) }\OperatorTok{*} \DecValTok{50}\NormalTok{)}
+\NormalTok{          .}\AttributeTok{attr}\NormalTok{(}\StringTok{"r"}\OperatorTok{,} \StringTok{"20"}\NormalTok{)}
+\NormalTok{          .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"red"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{merge}\NormalTok{(circ)  }\CommentTok{// combines enter and update selections}
+    
+\VariableTok{allcirc}\NormalTok{.}\AttributeTok{transition}\NormalTok{() }\CommentTok{// acts on all 8 circles}
+\NormalTok{        .}\AttributeTok{duration}\NormalTok{(}\DecValTok{3000}\NormalTok{)}
+\NormalTok{        .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,} \StringTok{"400"}\NormalTok{)}
+\NormalTok{        .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"purple"}\NormalTok{)}\OperatorTok{;}
+
+\VariableTok{allcirc}\NormalTok{.}\AttributeTok{transition}\NormalTok{() }\CommentTok{// acts on all 8 circles}
+\NormalTok{      .}\AttributeTok{duration}\NormalTok{(}\DecValTok{3000}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,} \StringTok{"50"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{exercise-merge}{%
+\section{Exercise : merge}\label{exercise-merge}}
+
+Open the bar chart you created in the previous exercise in Chrome, and work in the Console.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Change the data to any six other values and update the lengths of the bars.
+\item
+  Bind a new dataset, \texttt{newbardata} to the bars, update the bar lengths, and remove any extra bars.
+
+  \texttt{newbardata\ =\ {[}250,\ 125,\ 80,\ 100{]};}
+\item
+  Bind a new dataset, \texttt{reallynewbardata}, to the bars, then add additional bars so each data value has a bar. Make the outline (stroke) of the new bars a different color.
+
+  \texttt{reallynewbardata\ =\ {[}300,\ 100,\ 250,\ 50,\ 200,\ 150,\ 325,\ 275{]};}
+\item
+  Use \texttt{.merge()} to combine the update and enter selections into one selection and then transition the height of all of the bars to half their current height.
+\item
+  Add text labels inside the bars at the right end with the length of the bar in pixels.
+\end{enumerate}
+
+\hypertarget{groups}{%
+\section{Groups }\label{groups}}
+
+Download and open a fresh copy of \href{https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html}{six\_blue\_circles.html} in Chrome.
+
+Run this code in the Console:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{ svg }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}\OperatorTok{;}
+
+\KeywordTok{var}\NormalTok{ specialdata }\OperatorTok{=}\NormalTok{ [}\DecValTok{100}\OperatorTok{,} \DecValTok{250}\OperatorTok{,} \DecValTok{300}\NormalTok{]}\OperatorTok{;}
+
+\KeywordTok{var}\NormalTok{ bars }\OperatorTok{=} \VariableTok{svg}\NormalTok{.}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"rect"}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{data}\NormalTok{(specialdata)}
+\NormalTok{      .}\AttributeTok{enter}\NormalTok{()}
+\NormalTok{      .}\AttributeTok{append}\NormalTok{(}\StringTok{"rect"}\NormalTok{)}
+\NormalTok{        .}\AttributeTok{attr}\NormalTok{(}\StringTok{"x"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>}\NormalTok{ d)}
+\NormalTok{        .}\AttributeTok{attr}\NormalTok{(}\StringTok{"y"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>}\NormalTok{ d)}
+\NormalTok{        .}\AttributeTok{attr}\NormalTok{(}\StringTok{"width"}\OperatorTok{,} \StringTok{"50"}\NormalTok{)}
+\NormalTok{        .}\AttributeTok{attr}\NormalTok{(}\StringTok{"height"}\OperatorTok{,} \StringTok{"30"}\NormalTok{)}
+\NormalTok{        .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"red"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+What's going on?
+
+Refresh the page, and try the following instead:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{ svg }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}\OperatorTok{;}
+
+\KeywordTok{var}\NormalTok{ specialdata }\OperatorTok{=}\NormalTok{ [}\DecValTok{100}\OperatorTok{,} \DecValTok{250}\OperatorTok{,} \DecValTok{300}\NormalTok{]}\OperatorTok{;}
+
+\KeywordTok{var}\NormalTok{ bars }\OperatorTok{=} \VariableTok{svg}\NormalTok{.}\AttributeTok{append}\NormalTok{(}\StringTok{"g"}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{attr}\NormalTok{(}\StringTok{"id"}\OperatorTok{,} \StringTok{"rects"}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"rect"}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{data}\NormalTok{(specialdata)}
+\NormalTok{      .}\AttributeTok{enter}\NormalTok{()}
+\NormalTok{      .}\AttributeTok{append}\NormalTok{(}\StringTok{"rect"}\NormalTok{)}
+\NormalTok{        .}\AttributeTok{attr}\NormalTok{(}\StringTok{"x"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>}\NormalTok{ d)}
+\NormalTok{        .}\AttributeTok{attr}\NormalTok{(}\StringTok{"y"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>}\NormalTok{ d)}
+\NormalTok{        .}\AttributeTok{attr}\NormalTok{(}\StringTok{"width"}\OperatorTok{,} \StringTok{"50"}\NormalTok{)}
+\NormalTok{        .}\AttributeTok{attr}\NormalTok{(}\StringTok{"height"}\OperatorTok{,} \StringTok{"30"}\NormalTok{)}
+\NormalTok{        .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"red"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+Compare:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{select}\NormalTok{(}\StringTok{"g#rects"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"rect"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"purple"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+and
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"rect"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"purple"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{more-chapters-coming-soon}{%
 \chapter{More chapters coming soon }\label{more-chapters-coming-soon}}
