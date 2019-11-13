@@ -68,7 +68,7 @@ var circ = svg.selectAll("circle");
 
 Try out the code in this section with a downloaded copy of [five_green_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/five_green_circles.html){target="_blank"} opened in Chrome and the Console visible.
 
-### Modifying attributes
+### Modify attributes
 
 [link to get or set attribute API](https://github.com/d3/d3-selection/blob/v1.4.0/README.md#selection_attr)
 
@@ -79,7 +79,7 @@ d3.select("circle").attr("r");           // see radius
 d3.select("circle").attr("r", "10");     // set radius to 10
 ```
 
-### Modifying styles
+### Modify styles
 
 [link to get or set style API](https://github.com/d3/d3-selection/blob/v1.4.0/README.md#selection_style)
 
@@ -112,7 +112,7 @@ d3.select("circle").attr("style", "fill: blue;");
 *In other words, style is an attribute!* <i class="far fa-grimace"></i>
 
 
-### Modifying text
+### Modify text
 
 This section is interactive. Hover over code as directed to observe effects.
 
@@ -197,7 +197,7 @@ d3.select("p").style("color", "red");   // HTML
 d3.select("text").attr("fill", "red");  // SVG
 ```
 
-### Moving SVG text
+### Move SVG text
 
 ``` svg
 <svg width="600" height="100">
@@ -231,7 +231,7 @@ d3.select("#moveleft").attr("x", "200").text("I want to move left.")
 });
 </script>
 
-## Adding elements <i class="far fa-plus-square"></i>
+## Add elements <i class="far fa-plus-square"></i>
 
 ### HTML
 
@@ -283,7 +283,7 @@ mysvg.append("circle").attr("cx", "250").attr("cy", "250").attr("r", "50")
   .attr("fill", "red");
 ```
 
-## Removing elements <i class="far fa-minus-square"></i>
+## Remove elements <i class="far fa-minus-square"></i>
 
 These methods will remove matching elements in order, starting with the first find in the document.
 
@@ -302,7 +302,7 @@ d3.select("svg").selectAll("circle").remove();
 ```
 
 
-## Exercise <i class="fas fa-dumbbell"></i>
+## Exercise <i class="fas fa-dumbbell"></i>: green circles
 
 Download and open a fresh copy of [five_green_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/five_green_circles.html){target="_blank"} in Chrome. Open Developer Tools open and do the following in the Console with D3:
 
@@ -314,7 +314,7 @@ Download and open a fresh copy of [five_green_circles.html](https://raw.githubus
 
 4. Select all circles of "apple" class and move them to the middle of the svg.
 
-## Exercise <i class="fas fa-dumbbell"></i> <i class="fas fa-dumbbell"></i>
+## Exercise <i class="fas fa-dumbbell"></i> <i class="fas fa-dumbbell"></i>: blue circles
 
 Download and open a fresh copy of  [six_blue_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html){target="_blank"} in Chrome. Open Developer Tools and execute Steps 1-4 one at a time in the Console. After Step 4, refresh the page to go back to Step 1 if so desired. (You do not need to create a loop as in the visual.)
 
@@ -345,7 +345,7 @@ Download and open a fresh copy of  [six_blue_circles.html](https://raw.githubuse
 
 
 
-## Binding data… *finally\!* <i class="fas fa-table"></i>
+## Bind data… *finally\!* <i class="fas fa-table"></i>
 
 To follow along with the code in this section, download and open [six_blue_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html){target="_blank"}.
 
@@ -431,7 +431,7 @@ circ.transition()
     .attr("cx", d => 2*d);
 ```
 
-## Exercise <i class="fas fa-dumbbell"></i>
+## Exercise <i class="fas fa-dumbbell"></i>: data bind
 
 Download and open a fresh copy of  [six_blue_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html){target="_blank"} in Chrome and practice binding data to the circles and modifying the circles based on the data as in the examples above.
 

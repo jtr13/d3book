@@ -174,7 +174,7 @@ Of note:
     
     - `/* JavaScript` <br> `multiline comment */`
     
-## Exercise <i class="fas fa-dumbbell"></i>
+## Exercise <i class="fas fa-dumbbell"></i>: shapes
 
 Download a fresh copy of `shapes.html`. (Reminder: open the following page and then click *File, Save Page As...*: [`shapes.html`](https://raw.githubusercontent.com/jtr13/d3book/master/code/shapes.html){target="_blank"}). Open the file in a text editor of your choice on one half of your screen. If you don't want to think about it, just use RStudio since it's already installed and provides syntax highlighting for `.html`. On the other half of your screen open the same file in Chrome. Developer Tools should not be open; we will not be using the Console.  As you make changes to the `.html` file, save the file and then refresh the browser to see the effects. Keyboard shortcuts to save and refresh are helpful here.
 
