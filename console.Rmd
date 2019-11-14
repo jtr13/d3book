@@ -1,6 +1,6 @@
 # D3 in the Console <i class="far fa-folder"></i> {#d3console}
 
-<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://d3js.org/d3.v5.js"></script>
 
 ## Selections <i class="fas fa-clipboard-list"></i>
 
@@ -335,7 +335,6 @@ Download and open a fresh copy of  [six_blue_circles.html](https://raw.githubuse
 
 </td><td>
 
-<script src="https://d3js.org/d3.v5.min.js"></script>
 <svg id="jump1" width="500" height="400"></svg>
 <script src="scripts/jump1.js"></script>
 
