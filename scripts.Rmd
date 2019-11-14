@@ -45,7 +45,7 @@ d3.select("svg").append("circle").attr("cx", "200").attr("cy", "250")
 ## Practice 2
 
 Start with bare minimum `html` (w/ D3 link):
-[D3template.html](https://raw.githubusercontent.com/jtr13/D3/master/D3template.html).
+[D3template.html](https://raw.githubusercontent.com/jtr13/D3/master/d3template.html).
 
 Open the file in your text editor. Then add code to the `<script>`
 section to create an svg and then add `svg` elements to it.
