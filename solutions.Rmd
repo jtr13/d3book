@@ -1,0 +1,26 @@
+# Your solutions here <i class="fa fa-check-square-o"></i>
+
+
+### Web tech: shapes {-}
+
+<a href="https://github.com/jtr13/d3book/edit/master/solutions.Rmd" target="_blank"><i class="fa fa-edit"></i></a>
+
+### D3 in the Console: green circles {-}
+
+<a href="https://github.com/jtr13/d3book/edit/master/solutions.Rmd" target="_blank"><i class="fa fa-edit"></i></a>
+
+### D3 in the Console: blue circles {-}
+
+<a href="https://github.com/jtr13/d3book/edit/master/solutions.Rmd" target="_blank"><i class="fa fa-edit"></i></a>
+
+### D3 in the Console: data bind {-}
+
+<a href="https://github.com/jtr13/d3book/edit/master/solutions.Rmd" target="_blank"><i class="fa fa-edit"></i></a>
+
+### Update, Enter, and Exit: horizontal bar chart {-}
+
+<a href="https://github.com/jtr13/d3book/edit/master/solutions.Rmd" target="_blank"><i class="fa fa-edit"></i></a>
+
+### Update, Enter, and Exit: merge {-}
+
+<a href="https://github.com/jtr13/d3book/edit/master/solutions.Rmd" target="_blank"><i class="fa fa-edit"></i></a>

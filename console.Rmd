@@ -314,6 +314,8 @@ Download and open a fresh copy of [five_green_circles.html](https://raw.githubus
 
 4. Select all circles of "apple" class and move them to the middle of the svg.
 
+[](#d3-in-the-console-green-circles)
+
 ## Exercise <i class="fas fa-dumbbell"></i> <i class="fas fa-dumbbell"></i>: blue circles
 
 Download and open a fresh copy of  [six_blue_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html){target="_blank"} in Chrome. Open Developer Tools and execute Steps 1-4 one at a time in the Console. After Step 4, refresh the page to go back to Step 1 if so desired. (You do not need to create a loop as in the visual.)
@@ -340,7 +342,7 @@ Download and open a fresh copy of  [six_blue_circles.html](https://raw.githubuse
 
 </td></tr></table>
 
-
+[](#d3-in-the-console-blue-circles)
 
 
 
