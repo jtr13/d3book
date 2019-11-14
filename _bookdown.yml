@@ -10,6 +10,7 @@ rmd_files: ["index.Rmd",
   "web.Rmd",
   "console.Rmd",
   "update.Rmd",
+  "solutions.Rmd",
   "more_chapters.Rmd"]
 
 # scripts.Rmd
