@@ -3,3 +3,7 @@
 <center>
 <iframe src="https://giphy.com/embed/EIiJp9cQ3GeEU" width="240" height="240" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/please-construction-patient-EIiJp9cQ3GeEU">via GIPHY</a></p>
 </center>
+
+## Maintainer links
+
+Edit [`bookdown.yml`](https://github.com/jtr13/d3book/edit/master/_bookdown.yml){target="_blank"}
