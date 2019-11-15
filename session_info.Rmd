@@ -1,0 +1,13 @@
+---
+title: "session_info"
+author: "Joyce Robbins"
+date: "`r Sys.Date()`"
+output: github_document
+---
+
+```{r}
+options(width = 100)
+devtools::session_info()
+```
+
+
