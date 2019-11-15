@@ -1,5 +1,6 @@
 # Your solutions here <i class="fa fa-check-square-o"></i>
 
+Add your code and submit a PR.
 
 ### Web tech: shapes {-}
 <a href="https://github.com/jtr13/d3book/edit/master/solutions.Rmd" target="_blank"><i class="fa fa-edit"></i></a>
