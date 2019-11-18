@@ -317,3 +317,227 @@ d3.select("svg")
   .attr("fill", "purple");
 ```
 
+## General Update Pattern
+
+Open Developer Tools on this page.
+
+<svg id="gup"></svg>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script>
+  var svg = d3.select("svg#gup")
+    .attr("width", "500")
+    .attr("height", "500");
+
+  var bardata = [300, 100, 150, 225, 75, 275];
+
+  var bars = svg.selectAll("rect")
+    .data(bardata);
+
+  bars.enter()
+    .append("rect")
+      .attr("x", "30")
+      .attr("y", (d, i) => i*50)
+      .attr("width", d => d)
+      .attr("height", "35")
+      .attr("fill", "lightgreen");
+</script>
+
+
+Create a function in the Console:
+``` js
+function changedata(data) {
+  d3.select("svg#gup")
+    .selectAll("rect")
+    .data(data)
+    .attr("width", d => d);
+    }
+```
+
+Test it out:
+``` js
+changedata([258, 373, 278, 9, 72, 96]);
+```
+
+What happens if there are too many data values?
+
+``` js
+changedata([196, 360, 283, 390, 46, 56, 152]);
+```
+
+
+Let's use the enter selection to add new bars in this case:
+
+``` js
+function changedata(data) {
+  var bars = d3.select("svg#gup") 
+    .selectAll("rect")
+    .data(data);    // bars is the update selection
+    
+  bars.enter()
+    .append("rect")
+      .attr("x", "30")  // until merge, acts on
+      .attr("y", (d, i) => i * 50) // enter selection only
+      .attr("height", "35")  
+      .attr("fill", "lightgreen")
+    .merge(bars) // merge in the update selection
+      .attr("width", d => d); // acts on all bars
+  }
+```
+
+What happens if we have more bars than data values?
+
+``` js
+changedata([325, 116, 25]);
+```
+
+Let's add to the function to remove the extra bars in this case:
+
+``` js
+function changedata(data) {
+  var bars = d3.select("svg#gup") 
+    .selectAll("rect")
+    .data(data);    // bars is the update selection
+    
+  bars.enter()
+    .append("rect")
+      .attr("x", "30")  // until merge, acts on
+      .attr("y", (d, i) => i * 50) // enter selection only
+      .attr("height", "35")  
+      .attr("fill", "lightgreen")
+    .merge(bars) // merge in the update selection
+      .attr("width", d => d); // acts on all bars
+      
+  bars.exit()
+    .remove();
+  }
+```
+
+Try:
+``` js
+changedata([271, 49, 389]);
+```
+
+A fancy exit:
+``` js
+function changedata(data) {
+  var bars = d3.select("svg#gup") 
+    .selectAll("rect")
+    .data(data);    // bars is the update selection
+    
+  bars.enter()
+    .append("rect")
+      .attr("x", "30")  // until merge, acts on
+      .attr("y", (d, i) => i * 50) // enter selection only
+      .attr("height", "35")  
+      .attr("fill", "lightgreen")
+    .merge(bars) // merge in the update selection
+      .attr("width", d => d); // acts on all bars
+      
+  bars.exit()
+    .attr("fill", "red")
+    .transition()
+    .duration(2000)
+    .attr("width", "0")
+    .remove();
+  }
+```
+
+``` js
+changedata([234, 129, 432, 286, 49, 372]);
+
+changedata([401, 23, 173]);
+```
+
+VOILA! We have created the D3 General Update Pattern!
+
+More examples from Mike Bostock (creator of D3):
+
+[General Update Pattern, I](https://bl.ocks.org/mbostock/3808218)
+
+[General Update Pattern, II](https://bl.ocks.org/mbostock/3808221)
+
+[General Update Pattern, III](https://bl.ocks.org/mbostock/3808234)
+
+It is covered in *IDVW* in the "Other Kinds of Data Updates" section on pp. 178-186 in Chapter 9. (The earlier part of Chapter 9 deals with data updates in which the number of DOM elements remains the same.)
+
+**Note that the General Update Pattern changed with D3 Version 4 so avoid examples from Version 3.**
+
+Also available here: [general_update_pattern.html](code/general_update_pattern.html){target="_blank"}
+
+``` js
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>EDAV5_1</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+  </head>
+
+  <body>
+
+    <script id="s1">
+
+// Create svg and initial bars
+
+var svg = d3.select("body")
+  .append("svg")
+    .attr("width", "500")
+    .attr("height", "400");
+
+var bardata = [300, 100, 150, 225, 75, 275];
+
+var bars = svg.selectAll("rect")
+  .data(bardata);
+
+bars.enter().append("rect")
+  .attr("x", "30")
+  .attr("y", (d, i) => i*50)
+  .attr("width", d => d)
+  .attr("height", "35")
+  .attr("fill", "lightgreen");
+
+// General Update Pattern
+
+function update(data) {
+
+  var bars = svg.selectAll("rect")    // data join
+    .data(data);
+
+    bars.enter()
+      .append("rect")    // add new elements
+        .attr("x", "30")
+        .attr("y", (d, i) => i*50)
+        .attr("width", d => d)
+        .attr("height", "35")
+        .attr("fill", "yellow")
+      .merge(bars)    // merge
+        .transition()
+        .duration(2000)
+        .attr("width", d => d)
+        .attr("fill", "orange");
+
+    bars.exit().remove();    // remove extra elements
+    }
+
+    </script>
+
+  </body>
+
+</html>
+```
+
+## Exercise: <i class="fas fa-dumbbell"></i>: functions
+
+Open [general_update_pattern.html](code/general_update_pattern.html){target="_blank"} and practice running the `update()` function with different datasets in the Console.
+
+For example:
+``` js
+update([100, 200, 300]);
+```
+
+## Exercise <i class="fas fa-dumbbell"></i>: vertical bar chart
+
+Change the bar chart in [general_update_pattern.html](code/general_update_pattern.html){target="_blank"} to a vertical bar chart.
+
+
+
