@@ -177,51 +177,69 @@ Add a script that adds an svg element and horizontal bars of the lengths (in pix
 
 a.k.a. combining update and enter selections with `.merge()`
 
-Download and open a fresh copy of  [six_blue_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html){target="_blank"} in Chrome.
+Open [six_blue_circles.html](code/six_blue_circles.html){target="_blank"} in Chrome. (You do not need to download it first.)
 
-Copy and paste the following into the Console. What happens? Why?
+Run the following code in the Console:
 
 ``` js
 var svg = d3.select("svg");
-var circ = svg.selectAll("circle");
-var allcirc = circ.data([123, 52, 232, 90, 34, 12, 189, 110])
-      .enter()  // 2 placeholders
+var circ = svg.selectAll("circle")
+  .data([123, 52, 232, 90, 34, 12, 189, 110]);
+  
+var allcirc = circ.enter()  // 2 placeholders
         .append("circle")  // placeholders -> circles
           .attr("cx", "100")  // acts on enter selection only
           .attr("cy", (d, i) => (i - 5) * 50)
           .attr("r", "20")
           .attr("fill", "red");
-	
+```
+
+Now try to predict what the following code will do. Were you right?
+
+``` js
 allcirc.transition() 
         .duration(3000)
         .attr("cx", "400")
         .attr("fill", "purple");
 ```
 
-Refresh the page and then copy and paste the following into the Console and run. What changed? Why?
+Refresh the page and then copy and paste the following into the Console and run.
 
 ``` js
 var svg = d3.select("svg");
-var circ = svg.selectAll("circle");
-var allcirc = circ.data([123, 52, 232, 90, 34, 12, 189, 110])
-      .enter()  // 2 placeholders
+var circ = svg.selectAll("circle")
+  .data([123, 52, 232, 90, 34, 12, 189, 110]); // update selection
+  
+var allcirc = circ.enter()  // 2 placeholders
         .append("circle")  // placeholders -> circles
           .attr("cx", "100")  // acts on enter selection only
           .attr("cy", (d, i) => (i - 5) * 50)
           .attr("r", "20")
           .attr("fill", "red")
-	.merge(circ)  // combines enter and update selections
-	
+	      .merge(circ);  // combines enter and update selections
+```
+
+And now, the following code (same as before).  What changed? Why?
+
+``` js	
 allcirc.transition() 
         .duration(3000)
         .attr("cx", "400")
         .attr("fill", "purple");
 ```
 
+Note the pattern:
+
+Store the data bind in X.
+
+Y = X.enter().append() *attributes* .merge(X)
+
+Do more stuff with Y.
+
 
 ## Exercise <i class="fas fa-dumbbell"></i>: merge
 
-Open the bar chart you created in the previous exercise in Chrome, or download and open [this one](code/barchart1.html){target="_blank"} and work in the Console.
+Open the bar chart you created in the previous exercise in Chrome, or [this one](code/barchart1.html){target="_blank"} and work in the Console. (You don't have to download it.)
 
 1. Change the data to any six other values and update the lengths of the bars.
 
@@ -239,7 +257,7 @@ Open the bar chart you created in the previous exercise in Chrome, or download a
 
 ## Groups <i class="fa fa-object-group"></i>
 
-Download and open a fresh copy of  [six_blue_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html){target="_blank"} in Chrome.
+Open [six_blue_circles.html](code/six_blue_circles.html){target="_blank"} in Chrome. (You do not need to download it first.)
 
 Run this code in the Console:
 
