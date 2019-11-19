@@ -126,37 +126,51 @@ svg.selectAll("circle")
 
 We'll start with nothing--not even an SVG--and add elements with the data / enter / append sequence.
 
-Download and open a fresh copy of  [d3template.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/d3template.html){target="_blank"} in Chrome.
-
-Let's first add an SVG and store it in a variable:
+Open Developer Tools and copy and paste the code below in the Console. The SVG will be added here:
+<div id="dea"></div>
 
 ``` js
-var svg = d3.select("body")
+var svg = d3.select("div#dea")
   .append("svg")
-  .attr("width", "500")
-  .attr("height", "400");
+  .attr("width", "400")
+  .attr("height", "250");
 ```  
 
 Create an array of values:
 
 ``` js
-var specialdata = [100, 250, 300];
+var specialdata = [75, 150, 200];
 ```
 
 Add rectangles:
 
 ``` js
-var bars = svg.selectAll("rect")
-      .data(specialdata)
-      .enter()
-      .append("rect")
-        .attr("x", d => d)
-        .attr("y", d => d)
-        .attr("width", "50")
-        .attr("height", "30")
-        .attr("fill", "red");
+  svg.selectAll("rect")
+    .data(specialdata)
+    .enter()
+    .append("rect")
+      .attr("x", d => d)
+      .attr("y", d => d)
+      .attr("width", "50")
+      .attr("height", "30")
+      .attr("fill", "pink");
 ```
 
+### Labels
+
+Note that we can also label the rectangles with the data value:
+
+``` js
+  svg.selectAll("text")
+      .data(specialdata)
+      .enter()
+      .append("text")
+      .attr("x", d => d + 25)
+      .attr("y", d => d + 25)
+      .text(d => d)
+      .attr("fill", "blue")
+      .attr("text-anchor", "middle");
+```      
 
 
 ## Exercise <i class="fas fa-dumbbell"></i>: horizontal bar chart
@@ -322,7 +336,7 @@ d3.select("svg")
 Open Developer Tools on this page.
 
 <svg id="gup"></svg>
-<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://d3js.org/d3.v5.js"></script>
 <script>
   var svg = d3.select("svg#gup")
     .attr("width", "500")

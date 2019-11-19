@@ -24,7 +24,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2019-11-18" />
+<meta name="date" content="2019-11-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -185,7 +185,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#lecture-slides"><i class="fa fa-check"></i><b>4.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="4.2" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#remove-some-elements"><i class="fa fa-check"></i><b>4.2</b> Remove some elements <i class="far fa-minus-square"></i></a></li>
 <li class="chapter" data-level="4.3" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#add-some-elements"><i class="fa fa-check"></i><b>4.3</b> Add some elements <i class="far fa-plus-square"></i></a></li>
-<li class="chapter" data-level="4.4" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#data-enter-append"><i class="fa fa-check"></i><b>4.4</b> Data / enter / append <i class="fa fa-table"></i></a></li>
+<li class="chapter" data-level="4.4" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#data-enter-append"><i class="fa fa-check"></i><b>4.4</b> Data / enter / append <i class="fa fa-table"></i></a><ul>
+<li class="chapter" data-level="4.4.1" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#labels"><i class="fa fa-check"></i><b>4.4.1</b> Labels</a></li>
+</ul></li>
 <li class="chapter" data-level="4.5" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#exercise-horizontal-bar-chart"><i class="fa fa-check"></i><b>4.5</b> Exercise <i class="fas fa-dumbbell"></i>: horizontal bar chart</a></li>
 <li class="chapter" data-level="4.6" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#merge-selections"><i class="fa fa-check"></i><b>4.6</b> Merge selections <i class="fa fa-code-fork"></i></a></li>
 <li class="chapter" data-level="4.7" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#exercise-merge"><i class="fa fa-check"></i><b>4.7</b> Exercise <i class="fas fa-dumbbell"></i>: merge</a></li>
@@ -239,119 +241,119 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>objects, arrays, arrays of objects, functions (and other things)</p>
 <div id="arrays-of-arrays" class="section level2">
 <h2><span class="header-section-number">5.1</span> Arrays of arrays</h2>
-<div class="sourceCode" id="cb88"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb88-1" data-line-number="1"><span class="kw">var</span> array_dataset <span class="op">=</span> [[<span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">40</span>]<span class="op">,</span> [<span class="dv">300</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">20</span>]]<span class="op">;</span></a>
-<a class="sourceLine" id="cb88-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb88-3" data-line-number="3"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</a>
-<a class="sourceLine" id="cb88-4" data-line-number="4">  .<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</a>
-<a class="sourceLine" id="cb88-5" data-line-number="5">  .<span class="at">data</span>(array_dataset)</a>
-<a class="sourceLine" id="cb88-6" data-line-number="6">  .<span class="at">enter</span>()</a>
-<a class="sourceLine" id="cb88-7" data-line-number="7">  .<span class="at">append</span>(<span class="st">&quot;circle&quot;</span>)</a>
-<a class="sourceLine" id="cb88-8" data-line-number="8">  .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> d[<span class="dv">0</span>])</a>
-<a class="sourceLine" id="cb88-9" data-line-number="9">  .<span class="at">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> d[<span class="dv">1</span>])</a>
-<a class="sourceLine" id="cb88-10" data-line-number="10">  .<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> d[<span class="dv">2</span>])</a>
-<a class="sourceLine" id="cb88-11" data-line-number="11">  .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb89-1" data-line-number="1"><span class="kw">var</span> array_dataset <span class="op">=</span> [[<span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">40</span>]<span class="op">,</span> [<span class="dv">300</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">20</span>]]<span class="op">;</span></a>
+<a class="sourceLine" id="cb89-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb89-3" data-line-number="3"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</a>
+<a class="sourceLine" id="cb89-4" data-line-number="4">  .<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</a>
+<a class="sourceLine" id="cb89-5" data-line-number="5">  .<span class="at">data</span>(array_dataset)</a>
+<a class="sourceLine" id="cb89-6" data-line-number="6">  .<span class="at">enter</span>()</a>
+<a class="sourceLine" id="cb89-7" data-line-number="7">  .<span class="at">append</span>(<span class="st">&quot;circle&quot;</span>)</a>
+<a class="sourceLine" id="cb89-8" data-line-number="8">  .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> d[<span class="dv">0</span>])</a>
+<a class="sourceLine" id="cb89-9" data-line-number="9">  .<span class="at">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> d[<span class="dv">1</span>])</a>
+<a class="sourceLine" id="cb89-10" data-line-number="10">  .<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> d[<span class="dv">2</span>])</a>
+<a class="sourceLine" id="cb89-11" data-line-number="11">  .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span></a></code></pre></div>
 </div>
 <div id="arrays-of-objects" class="section level2">
 <h2><span class="header-section-number">5.2</span> Arrays of objects</h2>
-<div class="sourceCode" id="cb89"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb89-1" data-line-number="1"><span class="kw">var</span> object_dataset <span class="op">=</span> [ <span class="op">{</span></a>
-<a class="sourceLine" id="cb89-2" data-line-number="2">    <span class="dt">cx</span><span class="op">:</span> <span class="dv">100</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb89-3" data-line-number="3">    <span class="dt">cy</span><span class="op">:</span> <span class="dv">200</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb89-4" data-line-number="4">    <span class="dt">fill</span><span class="op">:</span> <span class="vs">`red`</span></a>
-<a class="sourceLine" id="cb89-5" data-line-number="5">  <span class="op">},</span></a>
-<a class="sourceLine" id="cb89-6" data-line-number="6">  <span class="op">{</span></a>
-<a class="sourceLine" id="cb89-7" data-line-number="7">    <span class="dt">cx</span><span class="op">:</span> <span class="dv">300</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb89-8" data-line-number="8">    <span class="dt">cy</span><span class="op">:</span> <span class="dv">100</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb89-9" data-line-number="9">    <span class="dt">fill</span><span class="op">:</span> <span class="vs">`blue`</span></a>
-<a class="sourceLine" id="cb89-10" data-line-number="10">  <span class="op">}</span>]<span class="op">;</span></a>
-<a class="sourceLine" id="cb89-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb89-12" data-line-number="12"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</a>
-<a class="sourceLine" id="cb89-13" data-line-number="13">  .<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</a>
-<a class="sourceLine" id="cb89-14" data-line-number="14">  .<span class="at">data</span>(object_dataset)</a>
-<a class="sourceLine" id="cb89-15" data-line-number="15">  .<span class="at">enter</span>()</a>
-<a class="sourceLine" id="cb89-16" data-line-number="16">  .<span class="at">append</span>(<span class="st">&quot;circle&quot;</span>)</a>
-<a class="sourceLine" id="cb89-17" data-line-number="17">  .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">cx</span>)</a>
-<a class="sourceLine" id="cb89-18" data-line-number="18">  .<span class="at">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">cy</span>)</a>
-<a class="sourceLine" id="cb89-19" data-line-number="19">  .<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;50&quot;</span>)</a>
-<a class="sourceLine" id="cb89-20" data-line-number="20">  .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">fill</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb90-1" data-line-number="1"><span class="kw">var</span> object_dataset <span class="op">=</span> [ <span class="op">{</span></a>
+<a class="sourceLine" id="cb90-2" data-line-number="2">    <span class="dt">cx</span><span class="op">:</span> <span class="dv">100</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb90-3" data-line-number="3">    <span class="dt">cy</span><span class="op">:</span> <span class="dv">200</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb90-4" data-line-number="4">    <span class="dt">fill</span><span class="op">:</span> <span class="vs">`red`</span></a>
+<a class="sourceLine" id="cb90-5" data-line-number="5">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb90-6" data-line-number="6">  <span class="op">{</span></a>
+<a class="sourceLine" id="cb90-7" data-line-number="7">    <span class="dt">cx</span><span class="op">:</span> <span class="dv">300</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb90-8" data-line-number="8">    <span class="dt">cy</span><span class="op">:</span> <span class="dv">100</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb90-9" data-line-number="9">    <span class="dt">fill</span><span class="op">:</span> <span class="vs">`blue`</span></a>
+<a class="sourceLine" id="cb90-10" data-line-number="10">  <span class="op">}</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb90-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb90-12" data-line-number="12"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</a>
+<a class="sourceLine" id="cb90-13" data-line-number="13">  .<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</a>
+<a class="sourceLine" id="cb90-14" data-line-number="14">  .<span class="at">data</span>(object_dataset)</a>
+<a class="sourceLine" id="cb90-15" data-line-number="15">  .<span class="at">enter</span>()</a>
+<a class="sourceLine" id="cb90-16" data-line-number="16">  .<span class="at">append</span>(<span class="st">&quot;circle&quot;</span>)</a>
+<a class="sourceLine" id="cb90-17" data-line-number="17">  .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">cx</span>)</a>
+<a class="sourceLine" id="cb90-18" data-line-number="18">  .<span class="at">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">cy</span>)</a>
+<a class="sourceLine" id="cb90-19" data-line-number="19">  .<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;50&quot;</span>)</a>
+<a class="sourceLine" id="cb90-20" data-line-number="20">  .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">fill</span>)<span class="op">;</span></a></code></pre></div>
 </div>
 <div id="map" class="section level2">
 <h2><span class="header-section-number">5.3</span> <code>.map()</code></h2>
 <p>Take <em>one data value</em>, return one value.</p>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math#Methods" class="uri">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math#Methods</a></p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb90-1" data-line-number="1"><span class="va">Math</span>.<span class="at">sqrt</span>(<span class="dv">3</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb90-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb90-3" data-line-number="3"><span class="kw">var</span> x <span class="op">=</span> [<span class="dv">3</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">7</span>]<span class="op">;</span></a>
-<a class="sourceLine" id="cb90-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb90-5" data-line-number="5"><span class="va">Math</span>.<span class="at">sqrt</span>(x)<span class="op">;</span> <span class="co">// oops, it&#39;s not R</span></a>
-<a class="sourceLine" id="cb90-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb90-7" data-line-number="7">Math<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb91-1" data-line-number="1"><span class="va">Math</span>.<span class="at">sqrt</span>(<span class="dv">3</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb91-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb91-3" data-line-number="3"><span class="kw">var</span> x <span class="op">=</span> [<span class="dv">3</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">7</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb91-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb91-5" data-line-number="5"><span class="va">Math</span>.<span class="at">sqrt</span>(x)<span class="op">;</span> <span class="co">// oops, it&#39;s not R</span></a>
+<a class="sourceLine" id="cb91-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb91-7" data-line-number="7">Math<span class="op">;</span></a></code></pre></div>
 <p><code>map()</code> to the rescue</p>
 <p>Use map to operate on each array element separately.</p>
 <p>Analogy:</p>
 <p>R list:<code>lapply()</code> :: JavaScript array:<code>.map()</code></p>
 <p>(What is the tidyverse equivalent of <code>lapply()</code>? <code>map()</code>!!!!!!)</p>
 <p>Do something to every element of a simple array:</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb91-1" data-line-number="1"><span class="va">x</span>.<span class="at">map</span>(<span class="va">Math</span>.<span class="at">sqrt</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb91-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb91-3" data-line-number="3"><span class="va">x</span>.<span class="at">map</span>(d <span class="op">=&gt;</span> d<span class="op">*</span><span class="dv">3</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb91-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb91-5" data-line-number="5"><span class="va">x</span>.<span class="at">map</span>(<span class="kw">function</span>(d) <span class="op">{</span><span class="cf">return</span> d<span class="op">*</span><span class="dv">3</span><span class="op">;}</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb91-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb91-7" data-line-number="7">[<span class="dv">10</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">40</span>].<span class="at">map</span>((d<span class="op">,</span> i) <span class="op">=&gt;</span> d<span class="op">*</span>i)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="va">x</span>.<span class="at">map</span>(<span class="va">Math</span>.<span class="at">sqrt</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb92-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb92-3" data-line-number="3"><span class="va">x</span>.<span class="at">map</span>(d <span class="op">=&gt;</span> d<span class="op">*</span><span class="dv">3</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb92-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb92-5" data-line-number="5"><span class="va">x</span>.<span class="at">map</span>(<span class="kw">function</span>(d) <span class="op">{</span><span class="cf">return</span> d<span class="op">*</span><span class="dv">3</span><span class="op">;}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb92-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb92-7" data-line-number="7">[<span class="dv">10</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">40</span>].<span class="at">map</span>((d<span class="op">,</span> i) <span class="op">=&gt;</span> d<span class="op">*</span>i)<span class="op">;</span></a></code></pre></div>
 <p>My nested array language:</p>
 <p>[<em>element1, element2</em>]</p>
 <p><em>element1</em> = [<em>item1, item2, item3</em>]</p>
 <p><em>element2</em> = [<em>item1, item2, item3</em>]</p>
 <p>Do something to the first item of every element of a nested array:</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="va">array_dataset</span>.<span class="at">map</span>(d <span class="op">=&gt;</span> <span class="va">Math</span>.<span class="at">sqrt</span>(d[<span class="dv">0</span>]))</a></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb93-1" data-line-number="1"><span class="va">array_dataset</span>.<span class="at">map</span>(d <span class="op">=&gt;</span> <span class="va">Math</span>.<span class="at">sqrt</span>(d[<span class="dv">0</span>]))</a></code></pre></div>
 <p>Sum up all items in each element of the array:</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb93-1" data-line-number="1"><span class="va">array_dataset</span>.<span class="at">map</span>(d <span class="op">=&gt;</span> d[<span class="dv">0</span>] <span class="op">+</span> d[<span class="dv">1</span>] <span class="op">+</span> d[<span class="dv">2</span>])<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb94-1" data-line-number="1"><span class="va">array_dataset</span>.<span class="at">map</span>(d <span class="op">=&gt;</span> d[<span class="dv">0</span>] <span class="op">+</span> d[<span class="dv">1</span>] <span class="op">+</span> d[<span class="dv">2</span>])<span class="op">;</span></a></code></pre></div>
 <p>Created a nested array out of a simple array:</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb94-1" data-line-number="1">[<span class="dv">10</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">30</span>].<span class="at">map</span>(d <span class="op">=&gt;</span> [d<span class="op">,</span> <span class="va">Math</span>.<span class="at">pow</span>(d<span class="op">,</span> <span class="dv">2</span>)])<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb95-1" data-line-number="1">[<span class="dv">10</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">30</span>].<span class="at">map</span>(d <span class="op">=&gt;</span> [d<span class="op">,</span> <span class="va">Math</span>.<span class="at">pow</span>(d<span class="op">,</span> <span class="dv">2</span>)])<span class="op">;</span></a></code></pre></div>
 <p>Create an array of objects out of a simple array (note the parentheses around the object):</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb95-1" data-line-number="1">[<span class="dv">10</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">30</span>].<span class="at">map</span>(d <span class="op">=&gt;</span> (<span class="op">{</span><span class="dt">n</span><span class="op">:</span> d<span class="op">,</span> <span class="dt">nsq</span><span class="op">:</span> <span class="va">Math</span>.<span class="at">pow</span>(d<span class="op">,</span> <span class="dv">2</span>)<span class="op">}</span>))<span class="op">;</span></a>
-<a class="sourceLine" id="cb95-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb95-3" data-line-number="3">[<span class="dv">10</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">30</span>].<span class="at">map</span>((d<span class="op">,</span> i) <span class="op">=&gt;</span> (<span class="op">{</span><span class="dt">index</span><span class="op">:</span> i<span class="op">,</span> <span class="dt">value</span><span class="op">:</span> d<span class="op">}</span>))<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb96-1" data-line-number="1">[<span class="dv">10</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">30</span>].<span class="at">map</span>(d <span class="op">=&gt;</span> (<span class="op">{</span><span class="dt">n</span><span class="op">:</span> d<span class="op">,</span> <span class="dt">nsq</span><span class="op">:</span> <span class="va">Math</span>.<span class="at">pow</span>(d<span class="op">,</span> <span class="dv">2</span>)<span class="op">}</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb96-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb96-3" data-line-number="3">[<span class="dv">10</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">30</span>].<span class="at">map</span>((d<span class="op">,</span> i) <span class="op">=&gt;</span> (<span class="op">{</span><span class="dt">index</span><span class="op">:</span> i<span class="op">,</span> <span class="dt">value</span><span class="op">:</span> d<span class="op">}</span>))<span class="op">;</span></a></code></pre></div>
 </div>
 <div id="d3-statistics" class="section level2">
 <h2><span class="header-section-number">5.4</span> D3 statistics</h2>
 <p>Take <em>arrays</em> –&gt; return single values (like R!)</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb96-1" data-line-number="1"><span class="kw">var</span> x <span class="op">=</span> [<span class="dv">12</span><span class="op">,</span> <span class="dv">34</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">43</span><span class="op">,</span> <span class="dv">90</span><span class="op">,</span> <span class="dv">72</span>]<span class="op">;</span></a>
-<a class="sourceLine" id="cb96-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb96-3" data-line-number="3"><span class="va">d3</span>.<span class="at">mean</span>(x)<span class="op">;</span></a>
-<a class="sourceLine" id="cb96-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb96-5" data-line-number="5"><span class="va">d3</span>.<span class="at">sum</span>(x)<span class="op">;</span></a>
-<a class="sourceLine" id="cb96-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb96-7" data-line-number="7"><span class="va">d3</span>.<span class="at">min</span>(x)<span class="op">;</span></a>
-<a class="sourceLine" id="cb96-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb96-9" data-line-number="9"><span class="va">d3</span>.<span class="at">max</span>(x)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="kw">var</span> x <span class="op">=</span> [<span class="dv">12</span><span class="op">,</span> <span class="dv">34</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">43</span><span class="op">,</span> <span class="dv">90</span><span class="op">,</span> <span class="dv">72</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb97-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb97-3" data-line-number="3"><span class="va">d3</span>.<span class="at">mean</span>(x)<span class="op">;</span></a>
+<a class="sourceLine" id="cb97-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb97-5" data-line-number="5"><span class="va">d3</span>.<span class="at">sum</span>(x)<span class="op">;</span></a>
+<a class="sourceLine" id="cb97-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb97-7" data-line-number="7"><span class="va">d3</span>.<span class="at">min</span>(x)<span class="op">;</span></a>
+<a class="sourceLine" id="cb97-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb97-9" data-line-number="9"><span class="va">d3</span>.<span class="at">max</span>(x)<span class="op">;</span></a></code></pre></div>
 <p>Take an array, return two values:</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="va">d3</span>.<span class="at">extent</span>(x)<span class="op">;</span>  \\ Think <span class="st">&quot;range&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb98-1" data-line-number="1"><span class="va">d3</span>.<span class="at">extent</span>(x)<span class="op">;</span>  \\ Think <span class="st">&quot;range&quot;</span></a></code></pre></div>
 <p>Take a single value, return an array:</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb98-1" data-line-number="1"><span class="va">d3</span>.<span class="at">range</span>(<span class="dv">5</span>)<span class="op">;</span> \\ Think<span class="op">:</span> count <span class="im">from</span> <span class="dv">0</span> to n<span class="dv">-1</span></a></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="va">d3</span>.<span class="at">range</span>(<span class="dv">5</span>)<span class="op">;</span> \\ Think<span class="op">:</span> count <span class="im">from</span> <span class="dv">0</span> to n<span class="dv">-1</span></a></code></pre></div>
 <p><a href="https://github.com/d3/d3/blob/master/API.md#statistics" class="uri">https://github.com/d3/d3/blob/master/API.md#statistics</a></p>
 </div>
 <div id="d3-.map" class="section level2">
 <h2><span class="header-section-number">5.5</span> D3 + <code>.map()</code></h2>
 <p>Helpful when dealing with arrays of arrays, or arrays of objects</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="kw">var</span> dataset <span class="op">=</span> [[<span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">40</span>]<span class="op">,</span> [<span class="dv">300</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">20</span>]]<span class="op">;</span></a>
-<a class="sourceLine" id="cb99-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb99-3" data-line-number="3"><span class="va">d3</span>.<span class="at">sum</span>(<span class="va">dataset</span>.<span class="at">map</span>(d <span class="op">=&gt;</span> d[<span class="dv">0</span>]))<span class="op">;</span></a>
-<a class="sourceLine" id="cb99-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb99-5" data-line-number="5"><span class="va">dataset</span>.<span class="at">map</span>(d <span class="op">=&gt;</span> <span class="va">d3</span>.<span class="at">sum</span>(d))<span class="op">;</span></a>
-<a class="sourceLine" id="cb99-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb99-7" data-line-number="7"><span class="va">d3</span>.<span class="at">range</span>(<span class="dv">5</span>).<span class="at">map</span>(d <span class="op">=&gt;</span> [d <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> d<span class="op">,</span> d <span class="op">+</span> <span class="dv">1</span>])<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb100-1" data-line-number="1"><span class="kw">var</span> dataset <span class="op">=</span> [[<span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">40</span>]<span class="op">,</span> [<span class="dv">300</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">20</span>]]<span class="op">;</span></a>
+<a class="sourceLine" id="cb100-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb100-3" data-line-number="3"><span class="va">d3</span>.<span class="at">sum</span>(<span class="va">dataset</span>.<span class="at">map</span>(d <span class="op">=&gt;</span> d[<span class="dv">0</span>]))<span class="op">;</span></a>
+<a class="sourceLine" id="cb100-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb100-5" data-line-number="5"><span class="va">dataset</span>.<span class="at">map</span>(d <span class="op">=&gt;</span> <span class="va">d3</span>.<span class="at">sum</span>(d))<span class="op">;</span></a>
+<a class="sourceLine" id="cb100-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb100-7" data-line-number="7"><span class="va">d3</span>.<span class="at">range</span>(<span class="dv">5</span>).<span class="at">map</span>(d <span class="op">=&gt;</span> [d <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> d<span class="op">,</span> d <span class="op">+</span> <span class="dv">1</span>])<span class="op">;</span></a></code></pre></div>
 </div>
 <div id="exercise-math" class="section level2">
 <h2><span class="header-section-number">5.6</span> Exercise: <i class="fas fa-dumbbell"></i>: math</h2>
 <p>Use the following to find the sample standard deviation of 3, 5, 7, 8 and 9.</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb100-1" data-line-number="1"><span class="va">d3</span>.<span class="at">sum</span>()</a>
-<a class="sourceLine" id="cb100-2" data-line-number="2"><span class="va">d3</span>.<span class="at">mean</span>()</a>
-<a class="sourceLine" id="cb100-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb100-4" data-line-number="4"><span class="va">Math</span>.<span class="at">sqrt</span>()</a>
-<a class="sourceLine" id="cb100-5" data-line-number="5"><span class="va">Math</span>.<span class="at">pow</span>()</a>
-<a class="sourceLine" id="cb100-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb100-7" data-line-number="7">.<span class="at">map</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb101-1" data-line-number="1"><span class="va">d3</span>.<span class="at">sum</span>()</a>
+<a class="sourceLine" id="cb101-2" data-line-number="2"><span class="va">d3</span>.<span class="at">mean</span>()</a>
+<a class="sourceLine" id="cb101-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb101-4" data-line-number="4"><span class="va">Math</span>.<span class="at">sqrt</span>()</a>
+<a class="sourceLine" id="cb101-5" data-line-number="5"><span class="va">Math</span>.<span class="at">pow</span>()</a>
+<a class="sourceLine" id="cb101-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb101-7" data-line-number="7">.<span class="at">map</span>()</a></code></pre></div>
 
 </div>
 </div>
