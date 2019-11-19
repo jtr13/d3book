@@ -1,6 +1,7 @@
 # Update, Enter, and Exit <i class="fa fa-refresh"></i>
 
 ## Lecture slides <i class="fa fa-television"></i>
+
  
 [D3 Data Bind](https://github.com/jtr13/D3/blob/master/UpdateEnterExit.pdf){target="_blank"}
 
@@ -126,8 +127,14 @@ svg.selectAll("circle")
 
 We'll start with nothing--not even an SVG--and add elements with the data / enter / append sequence.
 
-Open Developer Tools and copy and paste the code below in the Console. The SVG will be added here:
+Open Developer Tools and copy and paste the code below in the Console. (Click <i class="fa fa-align-justify"></i> above to close the table of contents on the left so you'll have more screen space.)
+
+The SVG will be added here:
+
+<br>  
+
 <div id="dea"></div>
+
 
 ``` js
 var svg = d3.select("div#dea")
@@ -336,7 +343,6 @@ d3.select("svg")
 Open Developer Tools on this page.
 
 <svg id="gup"></svg>
-<script src="https://d3js.org/d3.v5.js"></script>
 <script>
   var svg = d3.select("svg#gup")
     .attr("width", "500")

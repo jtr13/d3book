@@ -11,41 +11,39 @@ Practice creating an ordinal scale in the Console:
 ``` js
 var ordscale = d3.scaleBand()
   .domain([0, 1, 2, 3, 4])
-  .range([0, 100])
-  
-ordscale(1);
-
-ordscale(3);
-
-ordscale(2.5);
-
-ordscale(7);
+  .range([0, 100]);
 ```
+  
+``` js  
+ordscale(1);
+```
+
+Try other numbers: `ordscale(3);`, `ordscale(2.5);`, `ordscale(7);`, etc.
 
 Add inner padding and try again.
 
 See diagram here: https://github.com/d3/d3-scale#band-scales
 
-(Do not use `d3.scaleOrdinal()` for this purpose.)
+> <i class="far fa-lightbulb"></i> *Be sure to use `d3.scaleBand()`, not `d3.scaleOrdinal()` for this use case.
 
+## Examples
 
-Ordinal scale for x-axis
+### `d3.scaleBand()`
 
-Simple example [ScaleBand.html](ScaleBand.html)
+**Vertical bar chart with labels**
 
-[EDAV5_4_scaleBand.html](EDAV5_4_scaleBand.html)
+`d3.scaleBand()` used to create an `xScale` function to convert bar numbers to pixels. Change the `w` parameter and observe how the bars are resized to fit on the SVG.
 
-Linear scale for y-axis
-[EDAV5_5_scaleLinear.html](EDAV5_5_scaleLinear.html)
+[d3.scaleBand.html](code/d3.scaleBand.html){target="_blank"}
 
-Axes
-=======
-[EDAV6Lect-Axes.pdf](EDAV6Lect-Axes.pdf)
+### `d3.scaleLinear()`
 
-Margins [EDAV6_1_margins.html](EDAV6_1_margins.html)
+**Vertical bar chart with labels**
 
-y-axis [EDAV6_2_yaxis.html](EDAV6_2_yaxis.html)
+`d3.scaleLinear()` is added to create a `yScale` function to convert bar heights to pixels. Change the data and observe how the bars are resized to fit on the SVG.
 
-Practice
-=======
-Add an x-axis to the previous file.
+[d3.scaleLinear.html](code/d3.scaleLinear.html){target="_blank"}
+
+## Axes
+
+(to be added)

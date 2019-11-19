@@ -11,11 +11,12 @@ rmd_files: ["index.Rmd",
   "console.Rmd",
   "update.Rmd",
   "js.Rmd",
+  "scales_and_axes.Rmd",
   "solutions.Rmd",
   "more_chapters.Rmd"]
 
-# scripts.Rmd
-  # axes
+
+
   # margins
   # transitions
   # interactivity

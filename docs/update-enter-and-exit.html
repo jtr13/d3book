@@ -52,6 +52,7 @@
 
 <link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<script src="d3.js"></script>
 
 
 <style type="text/css">
@@ -204,7 +205,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.5" data-path="just-enough-js.html"><a href="just-enough-js.html#d3-.map"><i class="fa fa-check"></i><b>5.5</b> D3 + <code>.map()</code></a></li>
 <li class="chapter" data-level="5.6" data-path="just-enough-js.html"><a href="just-enough-js.html#exercise-math"><i class="fa fa-check"></i><b>5.6</b> Exercise: <i class="fas fa-dumbbell"></i>: math</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="your-solutions-here.html"><a href="your-solutions-here.html"><i class="fa fa-check"></i><b>6</b> Your solutions here <i class="fa fa-check-square-o"></i></a><ul>
+<li class="chapter" data-level="6" data-path="scales-and-axes.html"><a href="scales-and-axes.html"><i class="fa fa-check"></i><b>6</b> Scales and axes <i class="fa fa-arrows"></i></a><ul>
+<li class="chapter" data-level="6.1" data-path="scales-and-axes.html"><a href="scales-and-axes.html#lecture-slides-1"><i class="fa fa-check"></i><b>6.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
+<li class="chapter" data-level="6.2" data-path="scales-and-axes.html"><a href="scales-and-axes.html#examples"><i class="fa fa-check"></i><b>6.2</b> Examples</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="scales-and-axes.html"><a href="scales-and-axes.html#d3.scaleband"><i class="fa fa-check"></i><b>6.2.1</b> <code>d3.scaleBand()</code></a></li>
+<li class="chapter" data-level="6.2.2" data-path="scales-and-axes.html"><a href="scales-and-axes.html#d3.scalelinear"><i class="fa fa-check"></i><b>6.2.2</b> <code>d3.scaleLinear()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="scales-and-axes.html"><a href="scales-and-axes.html#axes"><i class="fa fa-check"></i><b>6.3</b> Axes</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="your-solutions-here.html"><a href="your-solutions-here.html"><i class="fa fa-check"></i><b>7</b> Your solutions here <i class="fa fa-check-square-o"></i></a><ul>
 <li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#web-tech-shapes"><i class="fa fa-check"></i>Web tech: shapes</a></li>
 <li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#d3-in-the-console-green-circles"><i class="fa fa-check"></i>D3 in the Console: green circles</a></li>
 <li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#d3-in-the-console-blue-circles"><i class="fa fa-check"></i>D3 in the Console: blue circles</a></li>
@@ -212,8 +221,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#update-enter-and-exit-horizontal-bar-chart"><i class="fa fa-check"></i>Update, Enter, and Exit: horizontal bar chart</a></li>
 <li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#update-enter-and-exit-merge"><i class="fa fa-check"></i>Update, Enter, and Exit: merge</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="more-chapters-coming-soon.html"><a href="more-chapters-coming-soon.html"><i class="fa fa-check"></i><b>7</b> More chapters coming soon <i class="fas fa-screwdriver"></i></a><ul>
-<li class="chapter" data-level="7.1" data-path="more-chapters-coming-soon.html"><a href="more-chapters-coming-soon.html#maintainer-links"><i class="fa fa-check"></i><b>7.1</b> Maintainer links</a></li>
+<li class="chapter" data-level="8" data-path="more-chapters-coming-soon.html"><a href="more-chapters-coming-soon.html"><i class="fa fa-check"></i><b>8</b> More chapters coming soon <i class="fas fa-screwdriver"></i></a><ul>
+<li class="chapter" data-level="8.1" data-path="more-chapters-coming-soon.html"><a href="more-chapters-coming-soon.html#maintainer-links"><i class="fa fa-check"></i><b>8.1</b> Maintainer links</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -308,7 +317,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="data-enter-append" class="section level2">
 <h2><span class="header-section-number">4.4</span> Data / enter / append <i class="fa fa-table"></i></h2>
 <p>We’ll start with nothing–not even an SVG–and add elements with the data / enter / append sequence.</p>
-Open Developer Tools and copy and paste the code below in the Console. The SVG will be added here:
+<p>Open Developer Tools and copy and paste the code below in the Console. (Click <i class="fa fa-align-justify"></i> above to close the table of contents on the left so you’ll have more screen space.)</p>
+<p>The SVG will be added here:</p>
+<p><br></p>
 <div id="dea">
 
 </div>
@@ -457,7 +468,6 @@ Open Developer Tools and copy and paste the code below in the Console. The SVG w
 <p>Open Developer Tools on this page.</p>
 <svg id="gup">
 </svg>
-<script src="https://d3js.org/d3.v5.js"></script>
 <script>
   var svg = d3.select("svg#gup")
     .attr("width", "500")
