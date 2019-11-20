@@ -1,0 +1,199 @@
+# Transitions <i class="far fa-paper-plane"></i>
+
+Read *IDVW2*, Chapter 9: transitions section (pp. 158-178)
+
+<svg width="300" height="200">
+	<rect x="0" y="0" width="300" height="200" fill="lightblue"></rect>
+	<circle cx="150" cy="40" r="15" fill="red"></circle>
+	<circle cx="150" cy="80" r="15" fill="red"></circle>
+	<circle id="henry" cx="150" cy="120" r="15" fill="red"></circle>
+	<circle class="apple" cx="150" cy="160" r="15" fill="red"></circle>
+</svg>
+
+## Examples
+
+Open Developer Tools and try in the Console:
+
+``` js
+d3.select("svg")
+  .selectAll("circle")
+  .transition()
+  .duration(2000)
+  .attr("cx", "275");
+```  
+
+``` js
+d3.select("svg")
+  .selectAll("circle")
+  .transition()
+  .duration(2000)
+  .attr("cx", "25")
+  .attr("fill", "green");
+```  
+  
+## Do this
+
+Run simultaneous transitions on *different* selections:
+
+``` js
+d3.select("svg").selectAll("circle#henry").transition()
+    .duration(2000).attr("cx", "275");
+d3.select("svg").selectAll("circle.apple").transition()
+    .duration(2000).attr("cx", "25");
+```
+
+Run sequential transitions on the same selection in one chain:
+
+``` js
+d3.select("svg").selectAll("circle")
+  .transition().duration(2000).attr("cx", "275")
+  .transition().duration(2000).attr("cx", "25");
+```
+
+Transition from *something* to *something*:
+
+``` js
+d3.select("svg").append("circle")
+    .attr("cx", "200")
+    .attr("cy", "100")
+    .attr("r", "5")
+    .attr("fill", "lightblue")
+    .transition()
+    .duration(4000)
+    .attr("r", "25")
+    .attr("fill", "blue");
+```    
+
+## Not this
+
+DO NOT run two transitions on the same selection at the same time (see p. 172).
+
+(What works in the Console *will not work* in a script.)
+
+``` js
+d3.select("svg").selectAll("circle").transition()
+    .duration(2000).attr("cx", "250");
+d3.select("svg").selectAll("circle").transition()
+    .duration(2000).attr("cx", "75");
+```
+
+DO NOT transition from *nothing* to something:
+
+``` js
+d3.select("svg").append("circle")
+    .transition()
+    .duration(2000)
+    .attr("cx", "200")
+    .attr("cy", "100")
+    .attr("r", "25")
+    .attr("fill", "red");
+```    
+
+DO NOT store a selection with a transition (it's no longer a selection with the transition):
+
+Try this:
+
+``` js
+var circ = d3.select("svg")
+  .selectAll("circle")
+  .data([50, 95, 100, 200, 50, 150, 250])
+  .enter()
+  .append("circle")
+    .attr("cx", d => d)
+    .attr("cy", "100")
+    .attr("fill", "blue")
+    .attr("r", "0")
+    .transition()
+    .duration(2000)
+    .attr("r", "25");
+```    
+
+And then this:
+
+``` js
+circ.attr("fill", "green");
+```
+
+DO NOT put a transition before a merge:
+
+``` js
+d3.select("svg")
+  .selectAll("circle")
+  .transition()
+  .duration(2000)
+    .attr("cx", "300")
+  .merge("oldcirc")
+    .attr("fill", "green");
+```
+
+BE AWARE that not everything transitions (for example, text doesn't.)
+
+
+## Strategy
+
+**Example 1**
+
+Think carefully about what you want to happen, and then decide what goes before and after the transition.
+
+Plan what you want to happen:
+
+1. New bars appear with orange fill.
+
+2. All bars in proper location.
+
+3. Fill color for all bars transitions to blue.
+
+Add code:
+
+
+``` js
+
+var bars = d3.selectAll("svg")
+  .selectAll("rect")
+  .data(dataset);
+  
+bars.enter()                  // 1. new bars
+  .append("rect")
+    .attr("fill", "orange")
+  .merge(bars)                // 2. all bars in location
+    .attr("x", ...)
+    .attr("y", ...)
+    .attr("width", ...)
+    .attr("height", ...)
+  .transition()
+  .duration(2000)
+    .attr("fill", "blue");   // 3. all transition to blue
+```
+
+**Example 2**
+
+Plan
+
+1. A new bar appears from the right side.
+
+2. Once it reaches its spot, it turns purple.
+  
+(Try this one.)  
+  
+``` js
+var bars = d3.selectAll("svg")
+  .append("g")
+  .selectAll("rect")
+  .data([125]);
+  
+bars.enter()                 
+  .append("rect")
+    .attr("x", "325")
+    .attr("y", d => 200 - d )
+    .attr("width", "30")
+    .attr("height", d => d)
+    .attr("fill", "blue")
+  .transition()
+  .duration(3000)
+    .attr("x", "50")   // transition only affect "x"
+  .transition(2000)
+  .duration(2000)
+    .attr("fill", "purple");  // 2nd transition
+```    
+    
+Further reading: [Working with Transitions](https://bost.ocks.org/mike/transition/){target="_blank"}.     

@@ -1,6 +1,6 @@
 # Web tech <i class="fas fa-server"></i> {#web}
 
-Read: Chapter 3 "Technology Fundamentals" (pp. 17-62) 
+Read *IDVW2*, Chapter 3: Technology Fundamentals
 
 *There is a lot of material in this chapter. It is worth making the effort to learn it now and start D3 with a solid foundation of elementary HTML/CSS/SVG/JavaScript.*
 

@@ -12,6 +12,8 @@ rmd_files: ["index.Rmd",
   "update.Rmd",
   "js.Rmd",
   "scales_and_axes.Rmd",
+  "interactivity.Rmd",
+  "transitions.Rmd",
   "solutions.Rmd",
   "more_chapters.Rmd"]
 

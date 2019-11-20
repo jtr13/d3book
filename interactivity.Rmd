@@ -1,0 +1,123 @@
+# Interactivity <i class="fas fa-mouse-pointer"></i> 
+
+Read *IDVW2*, Chapter 10: Interactivity
+
+## Binding event listeners
+
+<svg width="300" height="200">
+  <rect width="300" height="200" fill="pink"></rect>
+  <circle cx="50" cy="75" r="20" fill="blue"></circle>
+  <ellipse cx="175" cy="100" rx="45" ry="30" fill="green"></ellipse>
+  <text x="100" y="150">(100, 150)</text>
+  <line x1="250" y1="150" x2="275" y2="175" stroke="red" stroke-width="5"></line>
+</svg>
+
+Open Developer Tools and try this code in the Console:
+
+``` js
+d3.select("svg")
+  .on("click", function () {
+    d3.select("svg")
+      .append("text")
+        .attr("x", "100")
+        .attr("y", "40")
+        .text("Hello World");
+        });
+```
+
+## What is *this*?
+
+In the content of event handlers, "this" is the element that received the event, a.k.a. what you clicked on if it's a click event.
+
+Examples from [the first chapter](jump.html#interactivity):
+
+``` js
+d3.select("line")
+  .on("click", function() {
+    d3.select(this)
+      .attr("stroke-width", "10");
+      });
+```
+
+``` js
+d3.select("svg")
+  .on("click", function() {
+    d3.select("text")
+      .text(`(${d3.mouse(this).map(Math.round)})`)
+      });
+```
+
+We can separate the function and the event listener:
+
+
+``` js
+function goyellow() {
+  d3.select(this)
+    .attr("fill", "yellow")
+    };
+```
+
+``` js
+d3.select("circle")
+  .on("mouseover", goyellow);
+```
+
+Try this in the Console:  
+
+``` js
+d3.select("svg")
+  .on("click", function () {
+    console.log(d3.mouse(this));
+    });
+```    
+
+### Location on SVG
+
+`d3.mouse(this)`
+
+### Attribute of an element
+
+`d3.select(this).attr("id");`
+
+### Value of radio button
+
+`d3.select(this).node().value;`  (string)
+
+`+d3.select(this).node().value;` (number)
+
+## Example
+
+HTML:
+
+``` html
+<p id="add">Add an element</p>
+
+<p id="remove_left">Remove bar (left)</p>
+
+<p id="remove_right">Remove bar (right)</p>
+```
+
+JavaScript:
+
+``` js
+d3.selectAll("p")
+    .on("click", function () {
+      var paraID = d3.select(this).attr("id");
+      if (paraID == "add") {
+          var newvalue = Math.floor(Math.random()*400);
+          bardata.push(newvalue);
+          } else if (paraID == "remove_left") {
+          bardata.shift();
+          } else {
+          bardata.pop();
+          };
+      update(bardata);
+      });
+```
+
+## Putting it all together
+
+Vertical bar chart with add / remove buttons and general update pattern
+
+[vertical_bar.html](code/vertical_bar.html){target="_blank"}
+
