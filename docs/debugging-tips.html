@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7 Interactivity  | D3 for R Users</title>
-  <meta name="description" content="7 Interactivity  | D3 for R Users" />
+  <title>9 Debugging Tips  | D3 for R Users</title>
+  <meta name="description" content="9 Debugging Tips  | D3 for R Users" />
   <meta name="generator" content="bookdown 0.15.1 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 Interactivity  | D3 for R Users" />
+  <meta property="og:title" content="9 Debugging Tips  | D3 for R Users" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 Interactivity  | D3 for R Users" />
+  <meta name="twitter:title" content="9 Debugging Tips  | D3 for R Users" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="scales-and-axes.html"/>
-<link rel="next" href="transitions-1.html"/>
+<link rel="prev" href="transitions-1.html"/>
+<link rel="next" href="your-solutions-here.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -268,105 +268,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="interactivity-1" class="section level1">
-<h1><span class="header-section-number">7</span> Interactivity <i class="fas fa-mouse-pointer"></i></h1>
-<p>Read <em>IDVW2</em>, Chapter 10: Interactivity</p>
-<div id="binding-event-listeners" class="section level2">
-<h2><span class="header-section-number">7.1</span> Binding event listeners</h2>
-<svg width="300" height="200">
-<rect width="300" height="200" fill="pink"></rect>
-<circle cx="50" cy="75" r="20" fill="blue"></circle>
-<ellipse cx="175" cy="100" rx="45" ry="30" fill="green"></ellipse>
-<text x="100" y="150">(100, 150)</text>
-<line x1="250" y1="150" x2="275" y2="175" stroke="red" stroke-width="5"></line>
-</svg>
-<p>Open Developer Tools and try this code in the Console:</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb105-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</a>
-<a class="sourceLine" id="cb105-2" data-line-number="2">  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span> () <span class="op">{</span></a>
-<a class="sourceLine" id="cb105-3" data-line-number="3">    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</a>
-<a class="sourceLine" id="cb105-4" data-line-number="4">      .<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</a>
-<a class="sourceLine" id="cb105-5" data-line-number="5">        .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;100&quot;</span>)</a>
-<a class="sourceLine" id="cb105-6" data-line-number="6">        .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> <span class="st">&quot;40&quot;</span>)</a>
-<a class="sourceLine" id="cb105-7" data-line-number="7">        .<span class="at">text</span>(<span class="st">&quot;Hello World&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb105-8" data-line-number="8">        <span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
-</div>
-<div id="what-is-this" class="section level2">
-<h2><span class="header-section-number">7.2</span> What is <em>this</em>?</h2>
-<p>In the content of event handlers, “this” is the element that received the event, a.k.a. what you clicked on if it’s a click event.</p>
-<p>Examples from <a href="jump.html#interactivity">the first chapter</a>:</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb106-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;line&quot;</span>)</a>
-<a class="sourceLine" id="cb106-2" data-line-number="2">  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></a>
-<a class="sourceLine" id="cb106-3" data-line-number="3">    <span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>)</a>
-<a class="sourceLine" id="cb106-4" data-line-number="4">      .<span class="at">attr</span>(<span class="st">&quot;stroke-width&quot;</span><span class="op">,</span> <span class="st">&quot;10&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb106-5" data-line-number="5">      <span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
-<div class="sourceCode" id="cb107"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb107-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</a>
-<a class="sourceLine" id="cb107-2" data-line-number="2">  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></a>
-<a class="sourceLine" id="cb107-3" data-line-number="3">    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;text&quot;</span>)</a>
-<a class="sourceLine" id="cb107-4" data-line-number="4">      .<span class="at">text</span>(<span class="vs">`(</span><span class="sc">${</span><span class="va">d3</span>.<span class="at">mouse</span>(<span class="kw">this</span>).<span class="at">map</span>(<span class="va">Math</span>.<span class="at">round</span>)<span class="sc">}</span><span class="vs">)`</span>)</a>
-<a class="sourceLine" id="cb107-5" data-line-number="5">      <span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
-<p>We can separate the function and the event listener:</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb108-1" data-line-number="1"><span class="kw">function</span> <span class="at">goyellow</span>() <span class="op">{</span></a>
-<a class="sourceLine" id="cb108-2" data-line-number="2">  <span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>)</a>
-<a class="sourceLine" id="cb108-3" data-line-number="3">    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;yellow&quot;</span>)</a>
-<a class="sourceLine" id="cb108-4" data-line-number="4">    <span class="op">};</span></a></code></pre></div>
-<div class="sourceCode" id="cb109"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb109-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>)</a>
-<a class="sourceLine" id="cb109-2" data-line-number="2">  .<span class="at">on</span>(<span class="st">&quot;mouseover&quot;</span><span class="op">,</span> goyellow)<span class="op">;</span></a></code></pre></div>
-<p>Try this in the Console:</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb110-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</a>
-<a class="sourceLine" id="cb110-2" data-line-number="2">  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span> () <span class="op">{</span></a>
-<a class="sourceLine" id="cb110-3" data-line-number="3">    <span class="va">console</span>.<span class="at">log</span>(<span class="va">d3</span>.<span class="at">mouse</span>(<span class="kw">this</span>))<span class="op">;</span></a>
-<a class="sourceLine" id="cb110-4" data-line-number="4">    <span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
-<div id="location-on-svg" class="section level3">
-<h3><span class="header-section-number">7.2.1</span> Location on SVG</h3>
-<p><code>d3.mouse(this)</code></p>
-</div>
-<div id="attribute-of-an-element" class="section level3">
-<h3><span class="header-section-number">7.2.2</span> Attribute of an element</h3>
-<p><code>d3.select(this).attr(&quot;id&quot;);</code></p>
-</div>
-<div id="value-of-radio-button" class="section level3">
-<h3><span class="header-section-number">7.2.3</span> Value of radio button</h3>
-<p><code>d3.select(this).node().value;</code> (string)</p>
-<p><code>+d3.select(this).node().value;</code> (number)</p>
-</div>
-</div>
-<div id="example-2" class="section level2">
-<h2><span class="header-section-number">7.3</span> Example</h2>
-<p>HTML:</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb111-1" data-line-number="1"><span class="kw">&lt;p</span><span class="ot"> id=</span><span class="st">&quot;add&quot;</span><span class="kw">&gt;</span>Add an element<span class="kw">&lt;/p&gt;</span></a>
-<a class="sourceLine" id="cb111-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb111-3" data-line-number="3"><span class="kw">&lt;p</span><span class="ot"> id=</span><span class="st">&quot;remove_left&quot;</span><span class="kw">&gt;</span>Remove bar (left)<span class="kw">&lt;/p&gt;</span></a>
-<a class="sourceLine" id="cb111-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb111-5" data-line-number="5"><span class="kw">&lt;p</span><span class="ot"> id=</span><span class="st">&quot;remove_right&quot;</span><span class="kw">&gt;</span>Remove bar (right)<span class="kw">&lt;/p&gt;</span></a></code></pre></div>
-<p>JavaScript:</p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb112-1" data-line-number="1"><span class="va">d3</span>.<span class="at">selectAll</span>(<span class="st">&quot;p&quot;</span>)</a>
-<a class="sourceLine" id="cb112-2" data-line-number="2">    .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span> () <span class="op">{</span></a>
-<a class="sourceLine" id="cb112-3" data-line-number="3">      <span class="kw">var</span> paraID <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">attr</span>(<span class="st">&quot;id&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb112-4" data-line-number="4">      <span class="cf">if</span> (paraID <span class="op">==</span> <span class="st">&quot;add&quot;</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb112-5" data-line-number="5">          <span class="kw">var</span> newvalue <span class="op">=</span> <span class="va">Math</span>.<span class="at">floor</span>(<span class="va">Math</span>.<span class="at">random</span>()<span class="op">*</span><span class="dv">400</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb112-6" data-line-number="6">          <span class="va">bardata</span>.<span class="at">push</span>(newvalue)<span class="op">;</span></a>
-<a class="sourceLine" id="cb112-7" data-line-number="7">          <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (paraID <span class="op">==</span> <span class="st">&quot;remove_left&quot;</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb112-8" data-line-number="8">          <span class="va">bardata</span>.<span class="at">shift</span>()<span class="op">;</span></a>
-<a class="sourceLine" id="cb112-9" data-line-number="9">          <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb112-10" data-line-number="10">          <span class="va">bardata</span>.<span class="at">pop</span>()<span class="op">;</span></a>
-<a class="sourceLine" id="cb112-11" data-line-number="11">          <span class="op">};</span></a>
-<a class="sourceLine" id="cb112-12" data-line-number="12">      <span class="at">update</span>(bardata)<span class="op">;</span></a>
-<a class="sourceLine" id="cb112-13" data-line-number="13">      <span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
-</div>
-<div id="putting-it-all-together" class="section level2">
-<h2><span class="header-section-number">7.4</span> Putting it all together</h2>
-<p>Vertical bar chart with add / remove buttons and general update pattern</p>
-<p><a href="code/vertical_bar.html" target="_blank">vertical_bar.html</a></p>
+<div id="debugging-tips" class="section level1">
+<h1><span class="header-section-number">9</span> Debugging Tips <i class="fa fa-bug"></i></h1>
+<ul>
+<li><p>Make extensive use of Elements to see what’s being added to the DOM.</p></li>
+<li><p>Make extensive use of Console to check the values of variables and/or test code.</p></li>
+<li><p>Pay attention to errors in the Console.</p></li>
+<li><p>Use <code>console.log()</code> esp. in functions</p></li>
+<li><p>Post Minimal Working Examples on Piazza. See:</p>
+<p><a href="https://stackoverflow.com/help/mcve" target="_blank">“How to create a Minimal, Complete, and Verifiable example”</a></p>
+<p><a href="https://www.jessemaegan.com/post/so-you-ve-been-asked-to-make-a-reprex/" target="_blank">“So you’ve been asked to make a reprex”</a></p>
+<p>(But don’t worry if it’s not perfect, we’re not going to judge.)</p></li>
+<li><p>Use a text editor that helps you identify unmatched () {} [].</p></li>
+</ul>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="scales-and-axes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="transitions-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="transitions-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="your-solutions-here.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -397,7 +320,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jtr13/d3book/edit/master/interactivity.Rmd",
+"link": "https://github.com/jtr13/d3book/edit/master/debugging.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -405,7 +328,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/jtr13/d3book/blob/master/interactivity.Rmd",
+"link": "https://github.com/jtr13/d3book/blob/master/debugging.Rmd",
 "text": null
 },
 "download": ["d3book.pdf"],

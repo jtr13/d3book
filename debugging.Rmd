@@ -1,0 +1,19 @@
+# Debugging Tips <i class="fa fa-bug"></i>
+
+* Make extensive use of Elements to see what's being added to the DOM.
+
+* Make extensive use of Console to check the values of variables and/or test code.
+
+* Pay attention to errors in the Console. 
+
+* Use `console.log()` esp. in functions
+
+* Post Minimal Working Examples on Piazza. See:
+
+    ["How to create a Minimal, Complete, and Verifiable example"](https://stackoverflow.com/help/mcve){target="_blank"}
+
+    ["So you’ve been asked to make a reprex"](https://www.jessemaegan.com/post/so-you-ve-been-asked-to-make-a-reprex/){target="_blank"}
+
+    (But don't worry if it's not perfect, we're not going to judge.)
+
+* Use a text editor that helps you identify unmatched () {} [].
