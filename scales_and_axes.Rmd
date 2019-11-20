@@ -1,8 +1,14 @@
-# Scales and axes <i class="fa fa-arrows"></i>
+# Scales and Axes <i class="fa fa-arrows"></i>
 
-## Lecture slides <i class="fa fa-television"></i>
+## Scales
+
+### Lecture slides <i class="fa fa-television"></i>
  
 [Scales](pdfs/scales.pdf){target="_blank"}
+
+### Practice
+
+See: *IDVW2*, Chapter 7: Scales
 
 Practice creating an ordinal scale in the Console:
 
@@ -26,9 +32,9 @@ See diagram here: https://github.com/d3/d3-scale#band-scales
 
 > <i class="far fa-lightbulb"></i> *Be sure to use `d3.scaleBand()`, not `d3.scaleOrdinal()` for this use case.
 
-## Examples
+### Examples
 
-### `d3.scaleBand()`
+#### `d3.scaleBand()` {-}
 
 **Vertical bar chart with labels**
 
@@ -36,7 +42,7 @@ See diagram here: https://github.com/d3/d3-scale#band-scales
 
 [d3.scaleBand.html](code/d3.scaleBand.html){target="_blank"}
 
-### `d3.scaleLinear()`
+#### `d3.scaleLinear()` {-}
 
 **Vertical bar chart with labels**
 
@@ -44,6 +50,37 @@ See diagram here: https://github.com/d3/d3-scale#band-scales
 
 [d3.scaleLinear.html](code/d3.scaleLinear.html){target="_blank"}
 
-## Axes
+## Margins
 
-(to be added)
+### Lecture slides <i class="fa fa-television"></i>
+
+[Margins](pdfs/margins.pdf){target="_blank"}
+
+"Margin convention"
+
+``` js
+  var w = 500;
+  var h = 400;
+  var margin = {top: 25, right: 0, bottom: 25, left: 25};
+  var innerWidth = w - margin.left - margin.right;
+  var innerHeight = h - margin.top - margin.bottom;
+```
+
+### Example
+
+Full example, vertical bar chart with margins: [margins.html](code/margins.html){target="_blank"}
+
+## Axes 
+
+See: *IDVW2*, Chapter 8: Axes
+
+### Lecture slides <i class="fa fa-television"></i>
+
+[Axes](pdfs/axes.pdf){target="_blank"}
+
+### Example
+
+Full example: vertical bar chart with axes: [axes.html](code/axes.html){target="_blank"}
+
+Practice changing the data and seeing what happens.
+
