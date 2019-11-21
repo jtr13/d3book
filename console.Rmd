@@ -161,6 +161,7 @@ d3.select("#typo").text("Manhatten")
 </svg>  
 ```
 
+Hover on this SVG to execute the code below it (and fix the typo):  
 
 <svg width="500" height="100">
 <rect width="500" height="100" fill="#326EA4"></rect>
@@ -169,8 +170,6 @@ d3.select("#typo").text("Manhatten")
     Web scrapping is fun.</text>
 </svg>  
 
-
-Hover to execute this code (and fix the typo):  
 
 <div id="fixsvgtypo">
 ```{js, eval=FALSE}
@@ -207,13 +206,14 @@ d3.select("text").attr("fill", "red");  // SVG
 </svg>  
 ```
 
+Hover on this SVG to execute the code below it:  
+
 <svg width="600" height="100">
 <rect width="600" height="100" fill= "#326EA4"></rect>
 <text id="moveleft" x="200" y="70" fill="white"
 font-weight="bold" font-size="40px">I want to move left.</text>
 </svg>  
 
-Hover to execute this code:  
 
 <div id="move">
 ```{js, eval=FALSE}
