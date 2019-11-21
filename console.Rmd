@@ -1,5 +1,7 @@
 # D3 in the Console <i class="far fa-folder"></i> {#d3console}
 
+Read *IDVW2*, Chapter 6: Drawing with Data. Skip pp. 89-96 as we will not be drawing bar charts with the `div`approach.
+
 <script src="https://d3js.org/d3.v5.js"></script>
 
 ## Selections <i class="fas fa-clipboard-list"></i>
@@ -276,6 +278,8 @@ d3.select("svg").append("circle").attr("cx", "300")
 
 We can use a saved selection to assist in creating a new element:
 
+(*IDVW2*, pp. 97-98)
+
 ``` js
 mysvg = d3.select("svg");
 
@@ -347,6 +351,8 @@ Download and open a fresh copy of  [six_blue_circles.html](https://raw.githubuse
 
 
 ## Bind data… *finally\!* <i class="fas fa-table"></i>
+
+(*IDVW2*, pp. 98-108)
 
 To follow along with the code in this section, download and open [six_blue_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html){target="_blank"}.
 
