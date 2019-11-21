@@ -36,6 +36,8 @@ See diagram here: https://github.com/d3/d3-scale#band-scales
 
 #### `d3.scaleBand()` {-}
 
+*IDVW2* Chapter 9, pp. 150-153
+
 **Vertical bar chart with labels**
 
 `d3.scaleBand()` used to create an `xScale` function to convert bar numbers to pixels. Change the `w` parameter and observe how the bars are resized to fit on the SVG.
