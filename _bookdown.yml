@@ -5,7 +5,8 @@ view: https://github.com/jtr13/d3book/blob/master/%s
 edit: https://github.com/jtr13/d3book/edit/master/%s
 
 # chapter ordering
-rmd_files: ["index.Rmd",
+rmd_files: [
+  "index.Rmd",
   "jump.Rmd",
   "web.Rmd",
   "console.Rmd",
@@ -16,8 +17,11 @@ rmd_files: ["index.Rmd",
   "transitions.Rmd",
   "debugging.Rmd",
   "solutions.Rmd",
-  "more_chapters.Rmd"]
+  "more_chapters.Rmd"
+  ]
 
+# from: https://github.com/hadley/r4ds/blob/master/_bookdown.yml
+before_chapter_script: "_common.R"
 
 
   # margins

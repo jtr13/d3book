@@ -128,7 +128,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-11-19}
+    \date{2019-11-24}
 
 \usepackage{booktabs}
 
@@ -144,8 +144,6 @@
 \addcontentsline{toc}{chapter}{Welcome}
 
 \hypertarget{container}{}
-
-Adapted from Build Your Own Graph!
 
 This guide serves as a companion text to Scott Murray's \href{https://www.amazon.com/Interactive-Data-Visualization-Web-Introduction/dp/1491921285/}{\emph{Interactive Data Visualization for the Web, 2nd edition}}--a required text for GR5702. Be sure to get the second edition, which is a comprehensive update to D3 version 4. The first edition uses D3 version 3, which is not compatible. (To add to the complication, the current version of D3 is v5. However, since differences between v4 and v5 are minimal, unless otherwise indicated in this guide, the code in \emph{IDVW2} will work with either.)
 
@@ -377,7 +375,7 @@ Let's skip the explanations and start coding in D3 right now. Why? So you can se
 \hypertarget{web}{%
 \chapter{Web tech }\label{web}}
 
-Read: Chapter 3 ``Technology Fundamentals'' (pp.~17-62)
+Read \emph{IDVW2}, Chapter 3: Technology Fundamentals
 
 \emph{There is a lot of material in this chapter. It is worth making the effort to learn it now and start D3 with a solid foundation of elementary HTML/CSS/SVG/JavaScript.}
 
@@ -593,6 +591,8 @@ Your screen should look like this:
 \hypertarget{d3console}{%
 \chapter{D3 in the Console }\label{d3console}}
 
+Read \emph{IDVW2}, Chapter 6: Drawing with Data. Skip pp.~89-96 as we will not be drawing bar charts with the \texttt{div}approach.
+
 \hypertarget{selections}{%
 \section{Selections }\label{selections}}
 
@@ -772,9 +772,9 @@ Hover to execute this code (and fix the typo):
 \end{Highlighting}
 \end{Shaded}
 
-Web scrapping is fun.
+Hover on this SVG to execute the code below it (and fix the typo):
 
-Hover to execute this code (and fix the typo):
+Web scrapping is fun.
 
 \hypertarget{fixsvgtypo}{}
 \begin{Shaded}
@@ -808,9 +808,9 @@ Hover to execute this code (and fix the typo):
 \end{Highlighting}
 \end{Shaded}
 
-I want to move left.
+Hover on this SVG to execute the code below it:
 
-Hover to execute this code:
+I want to move left.
 
 \hypertarget{move}{}
 \begin{Shaded}
@@ -874,6 +874,8 @@ Adding attributes will create visible circles:
 \end{Shaded}
 
 We can use a saved selection to assist in creating a new element:
+
+(\emph{IDVW2}, pp.~97-98)
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -953,6 +955,8 @@ Download and open a fresh copy of \href{https://raw.githubusercontent.com/jtr13/
 
 \hypertarget{bind-data-finally}{%
 \section{\texorpdfstring{Bind data\ldots{} \emph{finally!} }{Bind data\ldots{} finally! }}\label{bind-data-finally}}
+
+(\emph{IDVW2}, pp.~98-108)
 
 To follow along with the code in this section, download and open \href{https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html}{six\_blue\_circles.html}.
 
@@ -1067,6 +1071,8 @@ Download and open a fresh copy of \href{https://raw.githubusercontent.com/jtr13/
 
 \hypertarget{update-enter-and-exit}{%
 \chapter{Update, Enter, and Exit }\label{update-enter-and-exit}}
+
+\emph{IDVW2}, Chapter 9, pp.~178-184; Chapter 12, pp.~231-249
 
 \hypertarget{lecture-slides}{%
 \section{Lecture slides }\label{lecture-slides}}
@@ -1379,7 +1385,7 @@ Do more stuff with Y.
 \hypertarget{exercise-merge}{%
 \section{Exercise : merge}\label{exercise-merge}}
 
-Open the bar chart you created in the previous exercise in Chrome, or \href{code/barchart1.html}{this one} and work in the Console. (You don't have to download it.)
+Open the bar chart you created in the previous exercise in Chrome, or \href{code/horiz_bar.html}{this one} and work in the Console. (You don't have to download it.)
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1710,104 +1716,146 @@ objects, arrays, arrays of objects, functions (and other things)
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{var}\NormalTok{ array_dataset }\OperatorTok{=}\NormalTok{ [[}\DecValTok{100}\OperatorTok{,} \DecValTok{200}\OperatorTok{,} \DecValTok{40}\NormalTok{]}\OperatorTok{,}\NormalTok{ [}\DecValTok{300}\OperatorTok{,} \DecValTok{150}\OperatorTok{,} \DecValTok{20}\NormalTok{]]}\OperatorTok{;}
+\CommentTok{// try me in the Console }
+\KeywordTok{var}\NormalTok{ array_dataset }\OperatorTok{=}\NormalTok{ [[}\DecValTok{100}\OperatorTok{,} \DecValTok{75}\OperatorTok{,} \DecValTok{30}\NormalTok{]}\OperatorTok{,}\NormalTok{ [}\DecValTok{200}\OperatorTok{,} \DecValTok{125}\OperatorTok{,} \DecValTok{20}\NormalTok{]]}\OperatorTok{;}
 
-\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg#arrays"}\NormalTok{)}
 \NormalTok{  .}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
 \NormalTok{  .}\AttributeTok{data}\NormalTok{(array_dataset)}
 \NormalTok{  .}\AttributeTok{enter}\NormalTok{()}
 \NormalTok{  .}\AttributeTok{append}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
-\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>}\NormalTok{ d[}\DecValTok{0}\NormalTok{])}
-\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cy"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>}\NormalTok{ d[}\DecValTok{1}\NormalTok{])}
-\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"r"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>}\NormalTok{ d[}\DecValTok{2}\NormalTok{])}
-\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"red"}\NormalTok{)}\OperatorTok{;}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>}\NormalTok{ d[}\DecValTok{0}\NormalTok{])}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cy"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>}\NormalTok{ d[}\DecValTok{1}\NormalTok{])}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"r"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>}\NormalTok{ d[}\DecValTok{2}\NormalTok{])}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"red"}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
+
+svg\#arrays
 
 \hypertarget{arrays-of-objects}{%
 \section{Arrays of objects}\label{arrays-of-objects}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{var}\NormalTok{ object_dataset }\OperatorTok{=}\NormalTok{ [ }\OperatorTok{\{}
-    \DataTypeTok{cx}\OperatorTok{:} \DecValTok{100}\OperatorTok{,}
-    \DataTypeTok{cy}\OperatorTok{:} \DecValTok{200}\OperatorTok{,}
-    \DataTypeTok{fill}\OperatorTok{:} \VerbatimStringTok{`red`}
-  \OperatorTok{\},}
-  \OperatorTok{\{}
-    \DataTypeTok{cx}\OperatorTok{:} \DecValTok{300}\OperatorTok{,}
-    \DataTypeTok{cy}\OperatorTok{:} \DecValTok{100}\OperatorTok{,}
-    \DataTypeTok{fill}\OperatorTok{:} \VerbatimStringTok{`blue`}
-  \OperatorTok{\}}\NormalTok{]}\OperatorTok{;}
+\CommentTok{// Try me in the Console}
+\KeywordTok{var}\NormalTok{ object_dataset }\OperatorTok{=}\NormalTok{ [}
+  \OperatorTok{\{}\DataTypeTok{cx}\OperatorTok{:} \DecValTok{100}\OperatorTok{,} \DataTypeTok{cy}\OperatorTok{:} \DecValTok{150}\OperatorTok{,} \DataTypeTok{fill}\OperatorTok{:} \VerbatimStringTok{`red`}\OperatorTok{\},}
+  \OperatorTok{\{}\DataTypeTok{cx}\OperatorTok{:} \DecValTok{200}\OperatorTok{,} \DataTypeTok{cy}\OperatorTok{:} \DecValTok{100}\OperatorTok{,} \DataTypeTok{fill}\OperatorTok{:} \VerbatimStringTok{`blue`}\OperatorTok{\}}
+\NormalTok{  ]}\OperatorTok{;}
 
-\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg#objects"}\NormalTok{)}
 \NormalTok{  .}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
 \NormalTok{  .}\AttributeTok{data}\NormalTok{(object_dataset)}
 \NormalTok{  .}\AttributeTok{enter}\NormalTok{()}
 \NormalTok{  .}\AttributeTok{append}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
-\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>} \VariableTok{d}\NormalTok{.}\AttributeTok{cx}\NormalTok{)}
-\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cy"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>} \VariableTok{d}\NormalTok{.}\AttributeTok{cy}\NormalTok{)}
-\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"r"}\OperatorTok{,} \StringTok{"50"}\NormalTok{)}
-\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>} \VariableTok{d}\NormalTok{.}\AttributeTok{fill}\NormalTok{)}\OperatorTok{;}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>} \VariableTok{d}\NormalTok{.}\AttributeTok{cx}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cy"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>} \VariableTok{d}\NormalTok{.}\AttributeTok{cy}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"r"}\OperatorTok{,} \StringTok{"30"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>} \VariableTok{d}\NormalTok{.}\AttributeTok{fill}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
+
+svg\#objects
 
 \hypertarget{map}{%
 \section{\texorpdfstring{\texttt{.map()}}{.map()}}\label{map}}
 
-Take \emph{one data value}, return one value.
+What's the issue?
 
-\url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math\#Methods}
+In R many operations are \href{https://bookdown.org/rdpeng/rprogdatascience/vectorized-operations.html}{vectorized}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\VariableTok{Math}\NormalTok{.}\AttributeTok{sqrt}\NormalTok{(}\DecValTok{3}\NormalTok{)}\OperatorTok{;}
-
-\KeywordTok{var}\NormalTok{ x }\OperatorTok{=}\NormalTok{ [}\DecValTok{3}\OperatorTok{,} \DecValTok{5}\OperatorTok{,} \DecValTok{7}\NormalTok{]}\OperatorTok{;}
-
-\VariableTok{Math}\NormalTok{.}\AttributeTok{sqrt}\NormalTok{(x)}\OperatorTok{;} \CommentTok{// oops, it's not R}
-
-\NormalTok{Math}\OperatorTok{;}
+\KeywordTok{sqrt}\NormalTok{(}\DecValTok{3}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\texttt{map()} to the rescue
+\begin{verbatim}
+## R output ##  [1] 1.732051
+\end{verbatim}
 
-Use map to operate on each array element separately.
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{7}\NormalTok{)}
+\KeywordTok{sqrt}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
 
-Analogy:
+\begin{verbatim}
+## R output ##  [1] 1.732051 2.236068 2.645751
+\end{verbatim}
 
-R list:\texttt{lapply()} :: JavaScript array:\texttt{.map()}
+Not so in JavaScript:
 
-(What is the tidyverse equivalent of \texttt{lapply()}? \texttt{map()}!!!!!!)
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{Math}\NormalTok{.}\AttributeTok{sqrt}\NormalTok{(}\DecValTok{3}\NormalTok{)}\OperatorTok{;}     \CommentTok{// Try me in the Console}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{ x }\OperatorTok{=}\NormalTok{ [}\DecValTok{3}\OperatorTok{,} \DecValTok{5}\OperatorTok{,} \DecValTok{7}\NormalTok{]}\OperatorTok{;}     \CommentTok{// Try me in the Console}
+\VariableTok{Math}\NormalTok{.}\AttributeTok{sqrt}\NormalTok{(x)}\OperatorTok{;}          \CommentTok{// Doesn't work...}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{simple-arrays}{%
+\subsection{Simple arrays}\label{simple-arrays}}
+
+Use \texttt{.map()} to operate on each array element separately. The concept is similar to \texttt{lapply()} or \texttt{purrr::map()}, but unlike in R, it's needed for simple arrays.
+
+\textbf{R}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{7}\NormalTok{)}
+\KeywordTok{sqrt}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## R output ##  [1] 1.732051 2.236068 2.645751
+\end{verbatim}
+
+\textbf{JavaScript}
 
 Do something to every element of a simple array:
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{ x }\OperatorTok{=}\NormalTok{ [}\DecValTok{3}\OperatorTok{,} \DecValTok{5}\OperatorTok{,} \DecValTok{7}\NormalTok{]}\OperatorTok{;}     \CommentTok{// try me}
 \VariableTok{x}\NormalTok{.}\AttributeTok{map}\NormalTok{(}\VariableTok{Math}\NormalTok{.}\AttributeTok{sqrt}\NormalTok{)}\OperatorTok{;}
-
-\VariableTok{x}\NormalTok{.}\AttributeTok{map}\NormalTok{(d }\OperatorTok{=>}\NormalTok{ d}\OperatorTok{*}\DecValTok{3}\NormalTok{)}\OperatorTok{;}
-
-\VariableTok{x}\NormalTok{.}\AttributeTok{map}\NormalTok{(}\KeywordTok{function}\NormalTok{(d) }\OperatorTok{\{}\ControlFlowTok{return}\NormalTok{ d}\OperatorTok{*}\DecValTok{3}\OperatorTok{;\}}\NormalTok{)}\OperatorTok{;}
-
-\NormalTok{[}\DecValTok{10}\OperatorTok{,} \DecValTok{20}\OperatorTok{,} \DecValTok{30}\OperatorTok{,} \DecValTok{40}\NormalTok{].}\AttributeTok{map}\NormalTok{((d}\OperatorTok{,}\NormalTok{ i) }\OperatorTok{=>}\NormalTok{ d}\OperatorTok{*}\NormalTok{i)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
 
-My nested array language:
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{[}\DecValTok{4}\OperatorTok{,} \DecValTok{10}\OperatorTok{,} \DecValTok{12}\NormalTok{].}\AttributeTok{map}\NormalTok{(d }\OperatorTok{=>}\NormalTok{ d}\OperatorTok{*}\DecValTok{3}\NormalTok{)}\OperatorTok{;}     \CommentTok{// try me}
+\end{Highlighting}
+\end{Shaded}
 
-{[}\emph{element1, element2}{]}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{[}\DecValTok{4}\OperatorTok{,} \DecValTok{10}\OperatorTok{,} \DecValTok{12}\NormalTok{].}\AttributeTok{map}\NormalTok{(}\KeywordTok{function}\NormalTok{(d) }\OperatorTok{\{}\ControlFlowTok{return}\NormalTok{ d}\OperatorTok{*}\DecValTok{3}\OperatorTok{;\}}\NormalTok{)}\OperatorTok{;}     \CommentTok{// try me}
+\end{Highlighting}
+\end{Shaded}
 
-\emph{element1} = {[}\emph{item1, item2, item3}{]}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{[}\DecValTok{10}\OperatorTok{,} \DecValTok{20}\OperatorTok{,} \DecValTok{30}\OperatorTok{,} \DecValTok{40}\NormalTok{].}\AttributeTok{map}\NormalTok{((d}\OperatorTok{,}\NormalTok{ i) }\OperatorTok{=>}\NormalTok{ d}\OperatorTok{*}\NormalTok{i)}\OperatorTok{;}     \CommentTok{// try me}
+\end{Highlighting}
+\end{Shaded}
 
-\emph{element2} = {[}\emph{item1, item2, item3}{]}
+\hypertarget{arrays-of-arrays-1}{%
+\subsection{Arrays of arrays}\label{arrays-of-arrays-1}}
 
 Do something to the first item of every element of a nested array:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\VariableTok{array_dataset}\NormalTok{.}\AttributeTok{map}\NormalTok{(d }\OperatorTok{=>} \VariableTok{Math}\NormalTok{.}\AttributeTok{sqrt}\NormalTok{(d[}\DecValTok{0}\NormalTok{]))}
+\NormalTok{[[}\DecValTok{1}\OperatorTok{,} \DecValTok{2}\NormalTok{]}\OperatorTok{,}\NormalTok{ [}\DecValTok{3}\OperatorTok{,} \DecValTok{4}\NormalTok{]].}\AttributeTok{map}\NormalTok{(d }\OperatorTok{=>} \VariableTok{Math}\NormalTok{.}\AttributeTok{sqrt}\NormalTok{(d[}\DecValTok{0}\NormalTok{]))  }\CommentTok{// try me}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1815,7 +1863,7 @@ Sum up all items in each element of the array:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\VariableTok{array_dataset}\NormalTok{.}\AttributeTok{map}\NormalTok{(d }\OperatorTok{=>}\NormalTok{ d[}\DecValTok{0}\NormalTok{] }\OperatorTok{+}\NormalTok{ d[}\DecValTok{1}\NormalTok{] }\OperatorTok{+}\NormalTok{ d[}\DecValTok{2}\NormalTok{])}\OperatorTok{;}
+\NormalTok{[[}\DecValTok{1}\OperatorTok{,} \DecValTok{2}\OperatorTok{,} \DecValTok{3}\NormalTok{]}\OperatorTok{,}\NormalTok{ [}\DecValTok{4}\OperatorTok{,} \DecValTok{5}\OperatorTok{,} \DecValTok{6}\NormalTok{]].}\AttributeTok{map}\NormalTok{(d }\OperatorTok{=>}\NormalTok{ d[}\DecValTok{0}\NormalTok{] }\OperatorTok{+}\NormalTok{ d[}\DecValTok{1}\NormalTok{] }\OperatorTok{+}\NormalTok{ d[}\DecValTok{2}\NormalTok{])}\OperatorTok{;} \CommentTok{// try me}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1827,48 +1875,100 @@ Created a nested array out of a simple array:
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{create-arrays-of-objects}{%
+\subsection{Create arrays of objects}\label{create-arrays-of-objects}}
+
 Create an array of objects out of a simple array (note the parentheses around the object):
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{[}\DecValTok{10}\OperatorTok{,} \DecValTok{20}\OperatorTok{,} \DecValTok{30}\NormalTok{].}\AttributeTok{map}\NormalTok{(d }\OperatorTok{=>}\NormalTok{ (}\OperatorTok{\{}\DataTypeTok{n}\OperatorTok{:}\NormalTok{ d}\OperatorTok{,} \DataTypeTok{nsq}\OperatorTok{:} \VariableTok{Math}\NormalTok{.}\AttributeTok{pow}\NormalTok{(d}\OperatorTok{,} \DecValTok{2}\NormalTok{)}\OperatorTok{\}}\NormalTok{))}\OperatorTok{;}
+\NormalTok{[}\DecValTok{10}\OperatorTok{,} \DecValTok{20}\OperatorTok{,} \DecValTok{30}\NormalTok{].}\AttributeTok{map}\NormalTok{(d }\OperatorTok{=>}\NormalTok{ (}\OperatorTok{\{}\DataTypeTok{n}\OperatorTok{:}\NormalTok{ d}\OperatorTok{,} \DataTypeTok{nsq}\OperatorTok{:} \VariableTok{Math}\NormalTok{.}\AttributeTok{pow}\NormalTok{(d}\OperatorTok{,} \DecValTok{2}\NormalTok{)}\OperatorTok{\}}\NormalTok{))}\OperatorTok{;}  \CommentTok{// try me}
+\end{Highlighting}
+\end{Shaded}
 
-\NormalTok{[}\DecValTok{10}\OperatorTok{,} \DecValTok{20}\OperatorTok{,} \DecValTok{30}\NormalTok{].}\AttributeTok{map}\NormalTok{((d}\OperatorTok{,}\NormalTok{ i) }\OperatorTok{=>}\NormalTok{ (}\OperatorTok{\{}\DataTypeTok{index}\OperatorTok{:}\NormalTok{ i}\OperatorTok{,} \DataTypeTok{value}\OperatorTok{:}\NormalTok{ d}\OperatorTok{\}}\NormalTok{))}\OperatorTok{;}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{[}\DecValTok{10}\OperatorTok{,} \DecValTok{20}\OperatorTok{,} \DecValTok{30}\NormalTok{].}\AttributeTok{map}\NormalTok{((d}\OperatorTok{,}\NormalTok{ i) }\OperatorTok{=>}\NormalTok{ (}\OperatorTok{\{}\DataTypeTok{index}\OperatorTok{:}\NormalTok{ i}\OperatorTok{,} \DataTypeTok{value}\OperatorTok{:}\NormalTok{ d}\OperatorTok{\}}\NormalTok{))}\OperatorTok{;}  \CommentTok{// try me}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{sorting}{%
+\section{Sorting}\label{sorting}}
+
+Sorting in JavaScript sorts by character and modifies the original array:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{ x }\OperatorTok{=}\NormalTok{ [}\DecValTok{3}\OperatorTok{,} \DecValTok{1}\OperatorTok{,} \DecValTok{5}\OperatorTok{,} \DecValTok{12}\OperatorTok{,} \DecValTok{7}\NormalTok{]}\OperatorTok{;}     \CommentTok{// try me}
+\VariableTok{x}\NormalTok{.}\AttributeTok{sort}\NormalTok{()}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x}\OperatorTok{;}     \CommentTok{// try me}
+\end{Highlighting}
+\end{Shaded}
+
+If we don't want to modify the original array we can make a copy. If we want to sort by number, not character, we can pass the comparator function \texttt{d3.ascending} to \texttt{.sort()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{ x }\OperatorTok{=}\NormalTok{ [}\DecValTok{3}\OperatorTok{,} \DecValTok{1}\OperatorTok{,} \DecValTok{5}\OperatorTok{,} \DecValTok{12}\OperatorTok{,} \DecValTok{7}\NormalTok{]}\OperatorTok{;}     \CommentTok{// try me}
+\KeywordTok{var}\NormalTok{ y }\OperatorTok{=}\NormalTok{ x}\OperatorTok{;}
+\VariableTok{y}\NormalTok{.}\AttributeTok{sort}\NormalTok{(}\VariableTok{d3}\NormalTok{.}\AttributeTok{ascending}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
 
 \hypertarget{d3-statistics}{%
 \section{D3 statistics}\label{d3-statistics}}
 
-Take \emph{arrays} --\textgreater{} return single values (like R!)
+D3 brings us back to familiar ground with functions that take an \emph{array} and return a single value. Here are D3 functions with the same names and behavior as their R equivalents:
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+R & D3\tabularnewline
+\midrule
+\endhead
+\texttt{min(x)} & \texttt{d3.min(x)}\tabularnewline
+\texttt{max(x)} & \texttt{d3.max(x)}\tabularnewline
+\texttt{sum(x)} & \texttt{d3.sum(x)}\tabularnewline
+\texttt{mean(x)} & \texttt{d3.mean(x)}\tabularnewline
+\texttt{median(x)} & \texttt{d3.median(x)}\tabularnewline
+\bottomrule
+\end{longtable}
+
+A few with different names:
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+R & D3\tabularnewline
+\midrule
+\endhead
+\texttt{range(x)} & \texttt{d3.extent(x)}\tabularnewline
+\texttt{var(x)} & \texttt{d3.variance(x)}\tabularnewline
+\texttt{sd(x)} & \texttt{d3.deviation(x)}\tabularnewline
+\bottomrule
+\end{longtable}
+
+Quantiles works a bit differently in D3: \emph{the value returned depends on the sort order of x.} Therefore it is crucial to \href{just-enough-js.html\#sorting}{sort the array} first. Next, \texttt{p} takes a single value, not an array as in R.
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+R & D3\tabularnewline
+\midrule
+\endhead
+\texttt{quantile(x)} & \texttt{d3.quantile(x,\ p)}\tabularnewline
+\bottomrule
+\end{longtable}
+
+Thus for a single quantile we have:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{var}\NormalTok{ x }\OperatorTok{=}\NormalTok{ [}\DecValTok{12}\OperatorTok{,} \DecValTok{34}\OperatorTok{,} \DecValTok{1}\OperatorTok{,} \DecValTok{43}\OperatorTok{,} \DecValTok{90}\OperatorTok{,} \DecValTok{72}\NormalTok{]}\OperatorTok{;}
-
-\VariableTok{d3}\NormalTok{.}\AttributeTok{mean}\NormalTok{(x)}\OperatorTok{;}
-
-\VariableTok{d3}\NormalTok{.}\AttributeTok{sum}\NormalTok{(x)}\OperatorTok{;}
-
-\VariableTok{d3}\NormalTok{.}\AttributeTok{min}\NormalTok{(x)}\OperatorTok{;}
-
-\VariableTok{d3}\NormalTok{.}\AttributeTok{max}\NormalTok{(x)}\OperatorTok{;}
-\end{Highlighting}
-\end{Shaded}
-
-Take an array, return two values:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\VariableTok{d3}\NormalTok{.}\AttributeTok{extent}\NormalTok{(x)}\OperatorTok{;}\NormalTok{  \textbackslash{}\textbackslash{} Think }\StringTok{"range"}
-\end{Highlighting}
-\end{Shaded}
-
-Take a single value, return an array:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\VariableTok{d3}\NormalTok{.}\AttributeTok{range}\NormalTok{(}\DecValTok{5}\NormalTok{)}\OperatorTok{;}\NormalTok{ \textbackslash{}\textbackslash{} Think}\OperatorTok{:}\NormalTok{ count }\ImportTok{from} \DecValTok{0}\NormalTok{ to n}\DecValTok{-1}
+\KeywordTok{var}\NormalTok{ x }\OperatorTok{=}\NormalTok{ [}\DecValTok{12}\OperatorTok{,} \DecValTok{34}\OperatorTok{,} \DecValTok{1}\OperatorTok{,} \DecValTok{43}\OperatorTok{,} \DecValTok{90}\OperatorTok{,} \DecValTok{72}\NormalTok{]}\OperatorTok{;}      \CommentTok{// try me}
+\KeywordTok{var}\NormalTok{ y }\OperatorTok{=}\NormalTok{ x}\OperatorTok{;}
+\VariableTok{d3}\NormalTok{.}\AttributeTok{quantile}\NormalTok{(}\VariableTok{y}\NormalTok{.}\AttributeTok{sort}\NormalTok{(}\VariableTok{d3}\NormalTok{.}\AttributeTok{ascending}\NormalTok{)}\OperatorTok{,} \FloatTok{.25}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1877,44 +1977,96 @@ Take a single value, return an array:
 \hypertarget{d3-.map}{%
 \section{\texorpdfstring{D3 + \texttt{.map()}}{D3 + .map()}}\label{d3-.map}}
 
-Helpful when dealing with arrays of arrays, or arrays of objects
+D3 statistics functions combined with \texttt{.map()} can be helpful in a variety of situations.
+
+Vectorizing a parameter, for example to mimic \texttt{quantile(x)} in R:
+
+\textbf{R}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{var}\NormalTok{ dataset }\OperatorTok{=}\NormalTok{ [[}\DecValTok{100}\OperatorTok{,} \DecValTok{200}\OperatorTok{,} \DecValTok{40}\NormalTok{]}\OperatorTok{,}\NormalTok{ [}\DecValTok{300}\OperatorTok{,} \DecValTok{150}\OperatorTok{,} \DecValTok{20}\NormalTok{]]}\OperatorTok{;}
-
-\VariableTok{d3}\NormalTok{.}\AttributeTok{sum}\NormalTok{(}\VariableTok{dataset}\NormalTok{.}\AttributeTok{map}\NormalTok{(d }\OperatorTok{=>}\NormalTok{ d[}\DecValTok{0}\NormalTok{]))}\OperatorTok{;}
-
-\VariableTok{dataset}\NormalTok{.}\AttributeTok{map}\NormalTok{(d }\OperatorTok{=>} \VariableTok{d3}\NormalTok{.}\AttributeTok{sum}\NormalTok{(d))}\OperatorTok{;}
-
-\VariableTok{d3}\NormalTok{.}\AttributeTok{range}\NormalTok{(}\DecValTok{5}\NormalTok{).}\AttributeTok{map}\NormalTok{(d }\OperatorTok{=>}\NormalTok{ [d }\OperatorTok{-} \DecValTok{1}\OperatorTok{,}\NormalTok{ d}\OperatorTok{,}\NormalTok{ d }\OperatorTok{+} \DecValTok{1}\NormalTok{])}\OperatorTok{;}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{12}\NormalTok{, }\DecValTok{34}\NormalTok{, }\DecValTok{43}\NormalTok{, }\DecValTok{72}\NormalTok{, }\DecValTok{90}\NormalTok{);  }
+\KeywordTok{quantile}\NormalTok{(x)}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{exercise-math}{%
-\section{Exercise: : math}\label{exercise-math}}
+\begin{verbatim}
+## R output ##     0%   25%   50%   75%  100% 
+## R output ##   1.00 17.50 38.50 64.75 90.00
+\end{verbatim}
 
-Use the following to find the sample standard deviation of 3, 5, 7, 8 and 9.
+\textbf{JavaScript}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\VariableTok{d3}\NormalTok{.}\AttributeTok{sum}\NormalTok{()}
-\VariableTok{d3}\NormalTok{.}\AttributeTok{mean}\NormalTok{()}
+\KeywordTok{var}\NormalTok{ x }\OperatorTok{=}\NormalTok{ [}\DecValTok{1}\OperatorTok{,} \DecValTok{12}\OperatorTok{,} \DecValTok{34}\OperatorTok{,} \DecValTok{43}\OperatorTok{,} \DecValTok{72}\OperatorTok{,} \DecValTok{90}\NormalTok{]}\OperatorTok{;}      \CommentTok{// try me}
+\NormalTok{[}\DecValTok{0}\OperatorTok{,} \FloatTok{.25}\OperatorTok{,} \FloatTok{.5}\OperatorTok{,} \FloatTok{.75}\OperatorTok{,} \DecValTok{1}\NormalTok{].}\AttributeTok{map}\NormalTok{(p }\OperatorTok{=>} \VariableTok{d3}\NormalTok{.}\AttributeTok{quantile}\NormalTok{(x}\OperatorTok{,}\NormalTok{ p))}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
 
-\VariableTok{Math}\NormalTok{.}\AttributeTok{sqrt}\NormalTok{()}
-\VariableTok{Math}\NormalTok{.}\AttributeTok{pow}\NormalTok{()}
+Sum up the first item of all elements in an array of arrays:
 
-\NormalTok{.}\AttributeTok{map}\NormalTok{()}
+\textbf{R}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{l <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{200}\NormalTok{, }\DecValTok{40}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\DecValTok{300}\NormalTok{, }\DecValTok{150}\NormalTok{, }\DecValTok{20}\NormalTok{))}
+\KeywordTok{sum}\NormalTok{(purrr}\OperatorTok{::}\KeywordTok{map_dbl}\NormalTok{(l, }\OperatorTok{~}\NormalTok{.x[}\DecValTok{1}\NormalTok{]))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## R output ##  [1] 400
+\end{verbatim}
+
+\textbf{JavaScript}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{ dataset }\OperatorTok{=}\NormalTok{ [[}\DecValTok{100}\OperatorTok{,} \DecValTok{200}\OperatorTok{,} \DecValTok{40}\NormalTok{]}\OperatorTok{,}\NormalTok{ [}\DecValTok{300}\OperatorTok{,} \DecValTok{150}\OperatorTok{,} \DecValTok{20}\NormalTok{]]}\OperatorTok{;}     \CommentTok{// try me}
+\VariableTok{d3}\NormalTok{.}\AttributeTok{sum}\NormalTok{(}\VariableTok{dataset}\NormalTok{.}\AttributeTok{map}\NormalTok{(d }\OperatorTok{=>}\NormalTok{ d[}\DecValTok{0}\NormalTok{]))}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+Sum up all items in each array to create a simple array:
+
+\textbf{R}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{l <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{200}\NormalTok{, }\DecValTok{40}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\DecValTok{300}\NormalTok{, }\DecValTok{150}\NormalTok{, }\DecValTok{20}\NormalTok{))}
+\NormalTok{purrr}\OperatorTok{::}\KeywordTok{map_dbl}\NormalTok{(l, }\OperatorTok{~}\KeywordTok{sum}\NormalTok{(.x))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## R output ##  [1] 340 470
+\end{verbatim}
+
+\textbf{JavaScript}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{ dataset }\OperatorTok{=}\NormalTok{ [[}\DecValTok{100}\OperatorTok{,} \DecValTok{200}\OperatorTok{,} \DecValTok{40}\NormalTok{]}\OperatorTok{,}\NormalTok{ [}\DecValTok{300}\OperatorTok{,} \DecValTok{150}\OperatorTok{,} \DecValTok{20}\NormalTok{]]}\OperatorTok{;}     \CommentTok{// try me}
+\VariableTok{dataset}\NormalTok{.}\AttributeTok{map}\NormalTok{(d }\OperatorTok{=>} \VariableTok{d3}\NormalTok{.}\AttributeTok{sum}\NormalTok{(d))}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
 
 \hypertarget{scales-and-axes}{%
-\chapter{Scales and axes }\label{scales-and-axes}}
+\chapter{Scales and Axes }\label{scales-and-axes}}
+
+\hypertarget{scales}{%
+\section{Scales}\label{scales}}
 
 \hypertarget{lecture-slides-1}{%
-\section{Lecture slides }\label{lecture-slides-1}}
+\subsection{Lecture slides }\label{lecture-slides-1}}
 
 \href{pdfs/scales.pdf}{Scales}
+
+\hypertarget{practice}{%
+\subsection{Practice}\label{practice}}
+
+See: \emph{IDVW2}, Chapter 7: Scales
 
 Practice creating an ordinal scale in the Console:
 
@@ -1943,10 +2095,13 @@ See diagram here: \url{https://github.com/d3/d3-scale\#band-scales}
 \end{quote}
 
 \hypertarget{examples}{%
-\section{Examples}\label{examples}}
+\subsection{Examples}\label{examples}}
 
 \hypertarget{d3.scaleband}{%
-\subsection{\texorpdfstring{\texttt{d3.scaleBand()}}{d3.scaleBand()}}\label{d3.scaleband}}
+\subsubsection*{\texorpdfstring{\texttt{d3.scaleBand()}}{d3.scaleBand()}}\label{d3.scaleband}}
+\addcontentsline{toc}{subsubsection}{\texttt{d3.scaleBand()}}
+
+\emph{IDVW2} Chapter 9, pp.~150-153
 
 \textbf{Vertical bar chart with labels}
 
@@ -1955,7 +2110,8 @@ See diagram here: \url{https://github.com/d3/d3-scale\#band-scales}
 \href{code/d3.scaleBand.html}{d3.scaleBand.html}
 
 \hypertarget{d3.scalelinear}{%
-\subsection{\texorpdfstring{\texttt{d3.scaleLinear()}}{d3.scaleLinear()}}\label{d3.scalelinear}}
+\subsubsection*{\texorpdfstring{\texttt{d3.scaleLinear()}}{d3.scaleLinear()}}\label{d3.scalelinear}}
+\addcontentsline{toc}{subsubsection}{\texttt{d3.scaleLinear()}}
 
 \textbf{Vertical bar chart with labels}
 
@@ -1963,10 +2119,438 @@ See diagram here: \url{https://github.com/d3/d3-scale\#band-scales}
 
 \href{code/d3.scaleLinear.html}{d3.scaleLinear.html}
 
+\hypertarget{margins}{%
+\section{Margins}\label{margins}}
+
+\hypertarget{lecture-slides-2}{%
+\subsection{Lecture slides }\label{lecture-slides-2}}
+
+\href{pdfs/margins.pdf}{Margins}
+
+``Margin convention''
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \KeywordTok{var}\NormalTok{ w }\OperatorTok{=} \DecValTok{500}\OperatorTok{;}
+  \KeywordTok{var}\NormalTok{ h }\OperatorTok{=} \DecValTok{400}\OperatorTok{;}
+  \KeywordTok{var}\NormalTok{ margin }\OperatorTok{=} \OperatorTok{\{}\DataTypeTok{top}\OperatorTok{:} \DecValTok{25}\OperatorTok{,} \DataTypeTok{right}\OperatorTok{:} \DecValTok{0}\OperatorTok{,} \DataTypeTok{bottom}\OperatorTok{:} \DecValTok{25}\OperatorTok{,} \DataTypeTok{left}\OperatorTok{:} \DecValTok{25}\OperatorTok{\};}
+  \KeywordTok{var}\NormalTok{ innerWidth }\OperatorTok{=}\NormalTok{ w }\OperatorTok{-} \VariableTok{margin}\NormalTok{.}\AttributeTok{left} \OperatorTok{-} \VariableTok{margin}\NormalTok{.}\AttributeTok{right}\OperatorTok{;}
+  \KeywordTok{var}\NormalTok{ innerHeight }\OperatorTok{=}\NormalTok{ h }\OperatorTok{-} \VariableTok{margin}\NormalTok{.}\AttributeTok{top} \OperatorTok{-} \VariableTok{margin}\NormalTok{.}\AttributeTok{bottom}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{example}{%
+\subsection{Example}\label{example}}
+
+Full example, vertical bar chart with margins: \href{code/margins.html}{margins.html}
+
 \hypertarget{axes}{%
 \section{Axes}\label{axes}}
 
-(to be added)
+See: \emph{IDVW2}, Chapter 8: Axes
+
+\hypertarget{lecture-slides-3}{%
+\subsection{Lecture slides }\label{lecture-slides-3}}
+
+\href{pdfs/axes.pdf}{Axes}
+
+\hypertarget{example-1}{%
+\subsection{Example}\label{example-1}}
+
+Full example: vertical bar chart with axes: \href{code/axes.html}{axes.html}
+
+Practice changing the data and seeing what happens.
+
+\hypertarget{interactivity-1}{%
+\chapter{Interactivity }\label{interactivity-1}}
+
+Read \emph{IDVW2}, Chapter 10: Interactivity
+
+\hypertarget{binding-event-listeners}{%
+\section{Binding event listeners}\label{binding-event-listeners}}
+
+(100, 150)
+
+Open Developer Tools and try this code in the Console:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,} \KeywordTok{function}\NormalTok{ () }\OperatorTok{\{}
+    \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{append}\NormalTok{(}\StringTok{"text"}\NormalTok{)}
+\NormalTok{        .}\AttributeTok{attr}\NormalTok{(}\StringTok{"x"}\OperatorTok{,} \StringTok{"100"}\NormalTok{)}
+\NormalTok{        .}\AttributeTok{attr}\NormalTok{(}\StringTok{"y"}\OperatorTok{,} \StringTok{"40"}\NormalTok{)}
+\NormalTok{        .}\AttributeTok{text}\NormalTok{(}\StringTok{"Hello World"}\NormalTok{)}\OperatorTok{;}
+        \OperatorTok{\}}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{what-is-this}{%
+\section{\texorpdfstring{What is \emph{this}?}{What is this?}}\label{what-is-this}}
+
+In the content of event handlers, ``this'' is the element that received the event, a.k.a. what you clicked on if it's a click event.
+
+Examples from \href{jump.html\#interactivity}{the first chapter}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"line"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,} \KeywordTok{function}\NormalTok{() }\OperatorTok{\{}
+    \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{attr}\NormalTok{(}\StringTok{"stroke-width"}\OperatorTok{,} \StringTok{"10"}\NormalTok{)}\OperatorTok{;}
+      \OperatorTok{\}}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,} \KeywordTok{function}\NormalTok{() }\OperatorTok{\{}
+    \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"text"}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{text}\NormalTok{(}\VerbatimStringTok{`(}\SpecialCharTok{$\{}\VariableTok{d3}\NormalTok{.}\AttributeTok{mouse}\NormalTok{(}\KeywordTok{this}\NormalTok{).}\AttributeTok{map}\NormalTok{(}\VariableTok{Math}\NormalTok{.}\AttributeTok{round}\NormalTok{)}\SpecialCharTok{\}}\VerbatimStringTok{)`}\NormalTok{)}
+      \OperatorTok{\}}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+We can separate the function and the event listener:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{function} \AttributeTok{goyellow}\NormalTok{() }\OperatorTok{\{}
+  \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"yellow"}\NormalTok{)}
+    \OperatorTok{\};}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{on}\NormalTok{(}\StringTok{"mouseover"}\OperatorTok{,}\NormalTok{ goyellow)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+Try this in the Console:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,} \KeywordTok{function}\NormalTok{ () }\OperatorTok{\{}
+    \VariableTok{console}\NormalTok{.}\AttributeTok{log}\NormalTok{(}\VariableTok{d3}\NormalTok{.}\AttributeTok{mouse}\NormalTok{(}\KeywordTok{this}\NormalTok{))}\OperatorTok{;}
+    \OperatorTok{\}}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{location-on-svg}{%
+\subsection{Location on SVG}\label{location-on-svg}}
+
+\texttt{d3.mouse(this)}
+
+\hypertarget{attribute-of-an-element}{%
+\subsection{Attribute of an element}\label{attribute-of-an-element}}
+
+\texttt{d3.select(this).attr("id");}
+
+\hypertarget{value-of-radio-button}{%
+\subsection{Value of radio button}\label{value-of-radio-button}}
+
+\texttt{d3.select(this).node().value;} (string)
+
+\texttt{+d3.select(this).node().value;} (number)
+
+\hypertarget{example-2}{%
+\section{Example}\label{example-2}}
+
+HTML:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{<p}\OtherTok{ id=}\StringTok{"add"}\KeywordTok{>}\NormalTok{Add an element}\KeywordTok{</p>}
+
+\KeywordTok{<p}\OtherTok{ id=}\StringTok{"remove_left"}\KeywordTok{>}\NormalTok{Remove bar (left)}\KeywordTok{</p>}
+
+\KeywordTok{<p}\OtherTok{ id=}\StringTok{"remove_right"}\KeywordTok{>}\NormalTok{Remove bar (right)}\KeywordTok{</p>}
+\end{Highlighting}
+\end{Shaded}
+
+JavaScript:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"p"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,} \KeywordTok{function}\NormalTok{ () }\OperatorTok{\{}
+      \KeywordTok{var}\NormalTok{ paraID }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"id"}\NormalTok{)}\OperatorTok{;}
+      \ControlFlowTok{if}\NormalTok{ (paraID }\OperatorTok{==} \StringTok{"add"}\NormalTok{) }\OperatorTok{\{}
+          \KeywordTok{var}\NormalTok{ newvalue }\OperatorTok{=} \VariableTok{Math}\NormalTok{.}\AttributeTok{floor}\NormalTok{(}\VariableTok{Math}\NormalTok{.}\AttributeTok{random}\NormalTok{()}\OperatorTok{*}\DecValTok{400}\NormalTok{)}\OperatorTok{;}
+          \VariableTok{bardata}\NormalTok{.}\AttributeTok{push}\NormalTok{(newvalue)}\OperatorTok{;}
+          \OperatorTok{\}} \ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (paraID }\OperatorTok{==} \StringTok{"remove_left"}\NormalTok{) }\OperatorTok{\{}
+          \VariableTok{bardata}\NormalTok{.}\AttributeTok{shift}\NormalTok{()}\OperatorTok{;}
+          \OperatorTok{\}} \ControlFlowTok{else} \OperatorTok{\{}
+          \VariableTok{bardata}\NormalTok{.}\AttributeTok{pop}\NormalTok{()}\OperatorTok{;}
+          \OperatorTok{\};}
+      \AttributeTok{update}\NormalTok{(bardata)}\OperatorTok{;}
+      \OperatorTok{\}}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{putting-it-all-together}{%
+\section{Putting it all together}\label{putting-it-all-together}}
+
+Vertical bar chart with add / remove buttons and general update pattern
+
+\href{code/vertical_bar.html}{vertical\_bar.html}
+
+\hypertarget{transitions-1}{%
+\chapter{Transitions }\label{transitions-1}}
+
+Read \emph{IDVW2}, Chapter 9: transitions section (pp.~158-178)
+
+\hypertarget{examples-1}{%
+\section{Examples}\label{examples-1}}
+
+Open Developer Tools and try in the Console:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{transition}\NormalTok{()}
+\NormalTok{  .}\AttributeTok{duration}\NormalTok{(}\DecValTok{2000}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,} \StringTok{"275"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{transition}\NormalTok{()}
+\NormalTok{  .}\AttributeTok{duration}\NormalTok{(}\DecValTok{2000}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,} \StringTok{"25"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"green"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{do-this}{%
+\section{Do this}\label{do-this}}
+
+Run simultaneous transitions on \emph{different} selections:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{).}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"circle#henry"}\NormalTok{).}\AttributeTok{transition}\NormalTok{()}
+\NormalTok{    .}\AttributeTok{duration}\NormalTok{(}\DecValTok{2000}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,} \StringTok{"275"}\NormalTok{)}\OperatorTok{;}
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{).}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"circle.apple"}\NormalTok{).}\AttributeTok{transition}\NormalTok{()}
+\NormalTok{    .}\AttributeTok{duration}\NormalTok{(}\DecValTok{2000}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,} \StringTok{"25"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+Run sequential transitions on the same selection in one chain:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{).}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{transition}\NormalTok{().}\AttributeTok{duration}\NormalTok{(}\DecValTok{2000}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,} \StringTok{"275"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{transition}\NormalTok{().}\AttributeTok{duration}\NormalTok{(}\DecValTok{2000}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,} \StringTok{"25"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+Transition from \emph{something} to \emph{something}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{).}\AttributeTok{append}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,} \StringTok{"200"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cy"}\OperatorTok{,} \StringTok{"100"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"r"}\OperatorTok{,} \StringTok{"5"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"lightblue"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{transition}\NormalTok{()}
+\NormalTok{    .}\AttributeTok{duration}\NormalTok{(}\DecValTok{4000}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"r"}\OperatorTok{,} \StringTok{"25"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"blue"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{not-this}{%
+\section{Not this}\label{not-this}}
+
+DO NOT run two transitions on the same selection at the same time (see p.~172).
+
+(What works in the Console \emph{will not work} in a script.)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{).}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"circle"}\NormalTok{).}\AttributeTok{transition}\NormalTok{()}
+\NormalTok{    .}\AttributeTok{duration}\NormalTok{(}\DecValTok{2000}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,} \StringTok{"250"}\NormalTok{)}\OperatorTok{;}
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{).}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"circle"}\NormalTok{).}\AttributeTok{transition}\NormalTok{()}
+\NormalTok{    .}\AttributeTok{duration}\NormalTok{(}\DecValTok{2000}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,} \StringTok{"75"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+DO NOT transition from \emph{nothing} to something:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{).}\AttributeTok{append}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{transition}\NormalTok{()}
+\NormalTok{    .}\AttributeTok{duration}\NormalTok{(}\DecValTok{2000}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,} \StringTok{"200"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cy"}\OperatorTok{,} \StringTok{"100"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"r"}\OperatorTok{,} \StringTok{"25"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"red"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+DO NOT store a selection with a transition (it's no longer a selection with the transition):
+
+Try this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{ circ }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{data}\NormalTok{([}\DecValTok{50}\OperatorTok{,} \DecValTok{95}\OperatorTok{,} \DecValTok{100}\OperatorTok{,} \DecValTok{200}\OperatorTok{,} \DecValTok{50}\OperatorTok{,} \DecValTok{150}\OperatorTok{,} \DecValTok{250}\NormalTok{])}
+\NormalTok{  .}\AttributeTok{enter}\NormalTok{()}
+\NormalTok{  .}\AttributeTok{append}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>}\NormalTok{ d)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cy"}\OperatorTok{,} \StringTok{"100"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"blue"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"r"}\OperatorTok{,} \StringTok{"0"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{transition}\NormalTok{()}
+\NormalTok{    .}\AttributeTok{duration}\NormalTok{(}\DecValTok{2000}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"r"}\OperatorTok{,} \StringTok{"25"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+And then this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{circ}\NormalTok{.}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"green"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+DO NOT put a transition before a merge:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{transition}\NormalTok{()}
+\NormalTok{  .}\AttributeTok{duration}\NormalTok{(}\DecValTok{2000}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,} \StringTok{"300"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{merge}\NormalTok{(}\StringTok{"oldcirc"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"green"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+BE AWARE that not everything transitions (for example, text doesn't.)
+
+\hypertarget{strategy}{%
+\section{Strategy}\label{strategy}}
+
+\textbf{Example 1}
+
+Think carefully about what you want to happen, and then decide what goes before and after the transition.
+
+Plan what you want to happen:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  New bars appear with orange fill.
+\item
+  All bars in proper location.
+\item
+  Fill color for all bars transitions to blue.
+\end{enumerate}
+
+Add code:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\KeywordTok{var}\NormalTok{ bars }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"rect"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{data}\NormalTok{(dataset)}\OperatorTok{;}
+  
+\VariableTok{bars}\NormalTok{.}\AttributeTok{enter}\NormalTok{()                  }\CommentTok{// 1. new bars}
+\NormalTok{  .}\AttributeTok{append}\NormalTok{(}\StringTok{"rect"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"orange"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{merge}\NormalTok{(bars)                }\CommentTok{// 2. all bars in location}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"x"}\OperatorTok{,}\NormalTok{ ...)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"y"}\OperatorTok{,}\NormalTok{ ...)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"width"}\OperatorTok{,}\NormalTok{ ...)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"height"}\OperatorTok{,}\NormalTok{ ...)}
+\NormalTok{  .}\AttributeTok{transition}\NormalTok{()}
+\NormalTok{  .}\AttributeTok{duration}\NormalTok{(}\DecValTok{2000}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"blue"}\NormalTok{)}\OperatorTok{;}   \CommentTok{// 3. all transition to blue}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Example 2}
+
+Plan
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  A new bar appears from the right side.
+\item
+  Once it reaches its spot, it turns purple.
+\end{enumerate}
+
+(Try this one.)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{ bars }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{append}\NormalTok{(}\StringTok{"g"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"rect"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{data}\NormalTok{([}\DecValTok{125}\NormalTok{])}\OperatorTok{;}
+  
+\VariableTok{bars}\NormalTok{.}\AttributeTok{enter}\NormalTok{()                 }
+\NormalTok{  .}\AttributeTok{append}\NormalTok{(}\StringTok{"rect"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"x"}\OperatorTok{,} \StringTok{"325"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"y"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>} \DecValTok{200} \OperatorTok{-}\NormalTok{ d )}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"width"}\OperatorTok{,} \StringTok{"30"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"height"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>}\NormalTok{ d)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"blue"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{transition}\NormalTok{()}
+\NormalTok{  .}\AttributeTok{duration}\NormalTok{(}\DecValTok{3000}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"x"}\OperatorTok{,} \StringTok{"50"}\NormalTok{)   }\CommentTok{// transition only affect "x"}
+\NormalTok{  .}\AttributeTok{transition}\NormalTok{(}\DecValTok{2000}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{duration}\NormalTok{(}\DecValTok{2000}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"purple"}\NormalTok{)}\OperatorTok{;}  \CommentTok{// 2nd transition}
+\end{Highlighting}
+\end{Shaded}
+
+Further reading: \href{https://bost.ocks.org/mike/transition/}{Working with Transitions}.
+
+\hypertarget{debugging-tips}{%
+\chapter{Debugging Tips }\label{debugging-tips}}
+
+\begin{itemize}
+\item
+  Make extensive use of Elements to see what's being added to the DOM.
+\item
+  Make extensive use of Console to check the values of variables and/or test code.
+\item
+  Pay attention to errors in the Console.
+\item
+  Use \texttt{console.log()} esp.~in functions
+\item
+  Post Minimal Working Examples on Piazza. See:
+
+  \href{https://stackoverflow.com/help/mcve}{``How to create a Minimal, Complete, and Verifiable example''}
+
+  \href{https://www.jessemaegan.com/post/so-you-ve-been-asked-to-make-a-reprex/}{``So you've been asked to make a reprex''}
+
+  (But don't worry if it's not perfect, we're not going to judge.)
+\item
+  Use a text editor that helps you identify unmatched () \{\} {[}{]}.
+\end{itemize}
 
 \hypertarget{your-solutions-here}{%
 \chapter{Your solutions here }\label{your-solutions-here}}

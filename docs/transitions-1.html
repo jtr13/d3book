@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8 Transitions  | D3 for R Users</title>
   <meta name="description" content="8 Transitions  | D3 for R Users" />
-  <meta name="generator" content="bookdown 0.15.1 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8 Transitions  | D3 for R Users" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2019-11-20" />
+<meta name="date" content="2019-11-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,10 @@
 
 <link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<script src="libs/clipboard-1.7.1/clipboard.min.js"></script>
+<link href="libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
+<link href="libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
+<script src="libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
 <script src="d3.js"></script>
 
 
@@ -200,10 +204,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="just-enough-js.html"><a href="just-enough-js.html"><i class="fa fa-check"></i><b>5</b> Just Enough JS <i class="fab fa-js-square"></i></a><ul>
 <li class="chapter" data-level="5.1" data-path="just-enough-js.html"><a href="just-enough-js.html#arrays-of-arrays"><i class="fa fa-check"></i><b>5.1</b> Arrays of arrays</a></li>
 <li class="chapter" data-level="5.2" data-path="just-enough-js.html"><a href="just-enough-js.html#arrays-of-objects"><i class="fa fa-check"></i><b>5.2</b> Arrays of objects</a></li>
-<li class="chapter" data-level="5.3" data-path="just-enough-js.html"><a href="just-enough-js.html#map"><i class="fa fa-check"></i><b>5.3</b> <code>.map()</code></a></li>
-<li class="chapter" data-level="5.4" data-path="just-enough-js.html"><a href="just-enough-js.html#d3-statistics"><i class="fa fa-check"></i><b>5.4</b> D3 statistics</a></li>
-<li class="chapter" data-level="5.5" data-path="just-enough-js.html"><a href="just-enough-js.html#d3-.map"><i class="fa fa-check"></i><b>5.5</b> D3 + <code>.map()</code></a></li>
-<li class="chapter" data-level="5.6" data-path="just-enough-js.html"><a href="just-enough-js.html#exercise-math"><i class="fa fa-check"></i><b>5.6</b> Exercise: <i class="fas fa-dumbbell"></i>: math</a></li>
+<li class="chapter" data-level="5.3" data-path="just-enough-js.html"><a href="just-enough-js.html#map"><i class="fa fa-check"></i><b>5.3</b> <code>.map()</code></a><ul>
+<li class="chapter" data-level="5.3.1" data-path="just-enough-js.html"><a href="just-enough-js.html#simple-arrays"><i class="fa fa-check"></i><b>5.3.1</b> Simple arrays</a></li>
+<li class="chapter" data-level="5.3.2" data-path="just-enough-js.html"><a href="just-enough-js.html#arrays-of-arrays-1"><i class="fa fa-check"></i><b>5.3.2</b> Arrays of arrays</a></li>
+<li class="chapter" data-level="5.3.3" data-path="just-enough-js.html"><a href="just-enough-js.html#create-arrays-of-objects"><i class="fa fa-check"></i><b>5.3.3</b> Create arrays of objects</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="just-enough-js.html"><a href="just-enough-js.html#sorting"><i class="fa fa-check"></i><b>5.4</b> Sorting</a></li>
+<li class="chapter" data-level="5.5" data-path="just-enough-js.html"><a href="just-enough-js.html#d3-statistics"><i class="fa fa-check"></i><b>5.5</b> D3 statistics</a></li>
+<li class="chapter" data-level="5.6" data-path="just-enough-js.html"><a href="just-enough-js.html#d3-.map"><i class="fa fa-check"></i><b>5.6</b> D3 + <code>.map()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="scales-and-axes.html"><a href="scales-and-axes.html"><i class="fa fa-check"></i><b>6</b> Scales and Axes <i class="fa fa-arrows"></i></a><ul>
 <li class="chapter" data-level="6.1" data-path="scales-and-axes.html"><a href="scales-and-axes.html#scales"><i class="fa fa-check"></i><b>6.1</b> Scales</a><ul>
@@ -281,80 +289,80 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="examples-1" class="section level2">
 <h2><span class="header-section-number">8.1</span> Examples</h2>
 <p>Open Developer Tools and try in the Console:</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb113-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</a>
-<a class="sourceLine" id="cb113-2" data-line-number="2">  .<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</a>
-<a class="sourceLine" id="cb113-3" data-line-number="3">  .<span class="at">transition</span>()</a>
-<a class="sourceLine" id="cb113-4" data-line-number="4">  .<span class="at">duration</span>(<span class="dv">2000</span>)</a>
-<a class="sourceLine" id="cb113-5" data-line-number="5">  .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;275&quot;</span>)<span class="op">;</span></a></code></pre></div>
-<div class="sourceCode" id="cb114"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb114-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</a>
-<a class="sourceLine" id="cb114-2" data-line-number="2">  .<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</a>
-<a class="sourceLine" id="cb114-3" data-line-number="3">  .<span class="at">transition</span>()</a>
-<a class="sourceLine" id="cb114-4" data-line-number="4">  .<span class="at">duration</span>(<span class="dv">2000</span>)</a>
-<a class="sourceLine" id="cb114-5" data-line-number="5">  .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)</a>
-<a class="sourceLine" id="cb114-6" data-line-number="6">  .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;green&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb132-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</a>
+<a class="sourceLine" id="cb132-2" data-line-number="2">  .<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</a>
+<a class="sourceLine" id="cb132-3" data-line-number="3">  .<span class="at">transition</span>()</a>
+<a class="sourceLine" id="cb132-4" data-line-number="4">  .<span class="at">duration</span>(<span class="dv">2000</span>)</a>
+<a class="sourceLine" id="cb132-5" data-line-number="5">  .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;275&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb133-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</a>
+<a class="sourceLine" id="cb133-2" data-line-number="2">  .<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</a>
+<a class="sourceLine" id="cb133-3" data-line-number="3">  .<span class="at">transition</span>()</a>
+<a class="sourceLine" id="cb133-4" data-line-number="4">  .<span class="at">duration</span>(<span class="dv">2000</span>)</a>
+<a class="sourceLine" id="cb133-5" data-line-number="5">  .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)</a>
+<a class="sourceLine" id="cb133-6" data-line-number="6">  .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;green&quot;</span>)<span class="op">;</span></a></code></pre></div>
 </div>
 <div id="do-this" class="section level2">
 <h2><span class="header-section-number">8.2</span> Do this</h2>
 <p>Run simultaneous transitions on <em>different</em> selections:</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb115-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;circle#henry&quot;</span>).<span class="at">transition</span>()</a>
-<a class="sourceLine" id="cb115-2" data-line-number="2">    .<span class="at">duration</span>(<span class="dv">2000</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;275&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb115-3" data-line-number="3"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;circle.apple&quot;</span>).<span class="at">transition</span>()</a>
-<a class="sourceLine" id="cb115-4" data-line-number="4">    .<span class="at">duration</span>(<span class="dv">2000</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb134-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;circle#henry&quot;</span>).<span class="at">transition</span>()</a>
+<a class="sourceLine" id="cb134-2" data-line-number="2">    .<span class="at">duration</span>(<span class="dv">2000</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;275&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb134-3" data-line-number="3"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;circle.apple&quot;</span>).<span class="at">transition</span>()</a>
+<a class="sourceLine" id="cb134-4" data-line-number="4">    .<span class="at">duration</span>(<span class="dv">2000</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)<span class="op">;</span></a></code></pre></div>
 <p>Run sequential transitions on the same selection in one chain:</p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb116-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</a>
-<a class="sourceLine" id="cb116-2" data-line-number="2">  .<span class="at">transition</span>().<span class="at">duration</span>(<span class="dv">2000</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;275&quot;</span>)</a>
-<a class="sourceLine" id="cb116-3" data-line-number="3">  .<span class="at">transition</span>().<span class="at">duration</span>(<span class="dv">2000</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb135-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</a>
+<a class="sourceLine" id="cb135-2" data-line-number="2">  .<span class="at">transition</span>().<span class="at">duration</span>(<span class="dv">2000</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;275&quot;</span>)</a>
+<a class="sourceLine" id="cb135-3" data-line-number="3">  .<span class="at">transition</span>().<span class="at">duration</span>(<span class="dv">2000</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)<span class="op">;</span></a></code></pre></div>
 <p>Transition from <em>something</em> to <em>something</em>:</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb117-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">append</span>(<span class="st">&quot;circle&quot;</span>)</a>
-<a class="sourceLine" id="cb117-2" data-line-number="2">    .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;200&quot;</span>)</a>
-<a class="sourceLine" id="cb117-3" data-line-number="3">    .<span class="at">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> <span class="st">&quot;100&quot;</span>)</a>
-<a class="sourceLine" id="cb117-4" data-line-number="4">    .<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;5&quot;</span>)</a>
-<a class="sourceLine" id="cb117-5" data-line-number="5">    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightblue&quot;</span>)</a>
-<a class="sourceLine" id="cb117-6" data-line-number="6">    .<span class="at">transition</span>()</a>
-<a class="sourceLine" id="cb117-7" data-line-number="7">    .<span class="at">duration</span>(<span class="dv">4000</span>)</a>
-<a class="sourceLine" id="cb117-8" data-line-number="8">    .<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)</a>
-<a class="sourceLine" id="cb117-9" data-line-number="9">    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb136-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">append</span>(<span class="st">&quot;circle&quot;</span>)</a>
+<a class="sourceLine" id="cb136-2" data-line-number="2">    .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;200&quot;</span>)</a>
+<a class="sourceLine" id="cb136-3" data-line-number="3">    .<span class="at">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> <span class="st">&quot;100&quot;</span>)</a>
+<a class="sourceLine" id="cb136-4" data-line-number="4">    .<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;5&quot;</span>)</a>
+<a class="sourceLine" id="cb136-5" data-line-number="5">    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightblue&quot;</span>)</a>
+<a class="sourceLine" id="cb136-6" data-line-number="6">    .<span class="at">transition</span>()</a>
+<a class="sourceLine" id="cb136-7" data-line-number="7">    .<span class="at">duration</span>(<span class="dv">4000</span>)</a>
+<a class="sourceLine" id="cb136-8" data-line-number="8">    .<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)</a>
+<a class="sourceLine" id="cb136-9" data-line-number="9">    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)<span class="op">;</span></a></code></pre></div>
 </div>
 <div id="not-this" class="section level2">
 <h2><span class="header-section-number">8.3</span> Not this</h2>
 <p>DO NOT run two transitions on the same selection at the same time (see p. 172).</p>
 <p>(What works in the Console <em>will not work</em> in a script.)</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb118-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">transition</span>()</a>
-<a class="sourceLine" id="cb118-2" data-line-number="2">    .<span class="at">duration</span>(<span class="dv">2000</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;250&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb118-3" data-line-number="3"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">transition</span>()</a>
-<a class="sourceLine" id="cb118-4" data-line-number="4">    .<span class="at">duration</span>(<span class="dv">2000</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;75&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb137-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">transition</span>()</a>
+<a class="sourceLine" id="cb137-2" data-line-number="2">    .<span class="at">duration</span>(<span class="dv">2000</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;250&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb137-3" data-line-number="3"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">transition</span>()</a>
+<a class="sourceLine" id="cb137-4" data-line-number="4">    .<span class="at">duration</span>(<span class="dv">2000</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;75&quot;</span>)<span class="op">;</span></a></code></pre></div>
 <p>DO NOT transition from <em>nothing</em> to something:</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb119-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">append</span>(<span class="st">&quot;circle&quot;</span>)</a>
-<a class="sourceLine" id="cb119-2" data-line-number="2">    .<span class="at">transition</span>()</a>
-<a class="sourceLine" id="cb119-3" data-line-number="3">    .<span class="at">duration</span>(<span class="dv">2000</span>)</a>
-<a class="sourceLine" id="cb119-4" data-line-number="4">    .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;200&quot;</span>)</a>
-<a class="sourceLine" id="cb119-5" data-line-number="5">    .<span class="at">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> <span class="st">&quot;100&quot;</span>)</a>
-<a class="sourceLine" id="cb119-6" data-line-number="6">    .<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)</a>
-<a class="sourceLine" id="cb119-7" data-line-number="7">    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb138-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">append</span>(<span class="st">&quot;circle&quot;</span>)</a>
+<a class="sourceLine" id="cb138-2" data-line-number="2">    .<span class="at">transition</span>()</a>
+<a class="sourceLine" id="cb138-3" data-line-number="3">    .<span class="at">duration</span>(<span class="dv">2000</span>)</a>
+<a class="sourceLine" id="cb138-4" data-line-number="4">    .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;200&quot;</span>)</a>
+<a class="sourceLine" id="cb138-5" data-line-number="5">    .<span class="at">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> <span class="st">&quot;100&quot;</span>)</a>
+<a class="sourceLine" id="cb138-6" data-line-number="6">    .<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)</a>
+<a class="sourceLine" id="cb138-7" data-line-number="7">    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span></a></code></pre></div>
 <p>DO NOT store a selection with a transition (it’s no longer a selection with the transition):</p>
 <p>Try this:</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb120-1" data-line-number="1"><span class="kw">var</span> circ <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</a>
-<a class="sourceLine" id="cb120-2" data-line-number="2">  .<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</a>
-<a class="sourceLine" id="cb120-3" data-line-number="3">  .<span class="at">data</span>([<span class="dv">50</span><span class="op">,</span> <span class="dv">95</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">250</span>])</a>
-<a class="sourceLine" id="cb120-4" data-line-number="4">  .<span class="at">enter</span>()</a>
-<a class="sourceLine" id="cb120-5" data-line-number="5">  .<span class="at">append</span>(<span class="st">&quot;circle&quot;</span>)</a>
-<a class="sourceLine" id="cb120-6" data-line-number="6">    .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> d)</a>
-<a class="sourceLine" id="cb120-7" data-line-number="7">    .<span class="at">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> <span class="st">&quot;100&quot;</span>)</a>
-<a class="sourceLine" id="cb120-8" data-line-number="8">    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)</a>
-<a class="sourceLine" id="cb120-9" data-line-number="9">    .<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;0&quot;</span>)</a>
-<a class="sourceLine" id="cb120-10" data-line-number="10">    .<span class="at">transition</span>()</a>
-<a class="sourceLine" id="cb120-11" data-line-number="11">    .<span class="at">duration</span>(<span class="dv">2000</span>)</a>
-<a class="sourceLine" id="cb120-12" data-line-number="12">    .<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb139-1" data-line-number="1"><span class="kw">var</span> circ <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</a>
+<a class="sourceLine" id="cb139-2" data-line-number="2">  .<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</a>
+<a class="sourceLine" id="cb139-3" data-line-number="3">  .<span class="at">data</span>([<span class="dv">50</span><span class="op">,</span> <span class="dv">95</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">250</span>])</a>
+<a class="sourceLine" id="cb139-4" data-line-number="4">  .<span class="at">enter</span>()</a>
+<a class="sourceLine" id="cb139-5" data-line-number="5">  .<span class="at">append</span>(<span class="st">&quot;circle&quot;</span>)</a>
+<a class="sourceLine" id="cb139-6" data-line-number="6">    .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> d)</a>
+<a class="sourceLine" id="cb139-7" data-line-number="7">    .<span class="at">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> <span class="st">&quot;100&quot;</span>)</a>
+<a class="sourceLine" id="cb139-8" data-line-number="8">    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)</a>
+<a class="sourceLine" id="cb139-9" data-line-number="9">    .<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;0&quot;</span>)</a>
+<a class="sourceLine" id="cb139-10" data-line-number="10">    .<span class="at">transition</span>()</a>
+<a class="sourceLine" id="cb139-11" data-line-number="11">    .<span class="at">duration</span>(<span class="dv">2000</span>)</a>
+<a class="sourceLine" id="cb139-12" data-line-number="12">    .<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)<span class="op">;</span></a></code></pre></div>
 <p>And then this:</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb121-1" data-line-number="1"><span class="va">circ</span>.<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;green&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb140-1" data-line-number="1"><span class="va">circ</span>.<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;green&quot;</span>)<span class="op">;</span></a></code></pre></div>
 <p>DO NOT put a transition before a merge:</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb122-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</a>
-<a class="sourceLine" id="cb122-2" data-line-number="2">  .<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</a>
-<a class="sourceLine" id="cb122-3" data-line-number="3">  .<span class="at">transition</span>()</a>
-<a class="sourceLine" id="cb122-4" data-line-number="4">  .<span class="at">duration</span>(<span class="dv">2000</span>)</a>
-<a class="sourceLine" id="cb122-5" data-line-number="5">    .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;300&quot;</span>)</a>
-<a class="sourceLine" id="cb122-6" data-line-number="6">  .<span class="at">merge</span>(<span class="st">&quot;oldcirc&quot;</span>)</a>
-<a class="sourceLine" id="cb122-7" data-line-number="7">    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;green&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb141-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</a>
+<a class="sourceLine" id="cb141-2" data-line-number="2">  .<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</a>
+<a class="sourceLine" id="cb141-3" data-line-number="3">  .<span class="at">transition</span>()</a>
+<a class="sourceLine" id="cb141-4" data-line-number="4">  .<span class="at">duration</span>(<span class="dv">2000</span>)</a>
+<a class="sourceLine" id="cb141-5" data-line-number="5">    .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;300&quot;</span>)</a>
+<a class="sourceLine" id="cb141-6" data-line-number="6">  .<span class="at">merge</span>(<span class="st">&quot;oldcirc&quot;</span>)</a>
+<a class="sourceLine" id="cb141-7" data-line-number="7">    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;green&quot;</span>)<span class="op">;</span></a></code></pre></div>
 <p>BE AWARE that not everything transitions (for example, text doesn’t.)</p>
 </div>
 <div id="strategy" class="section level2">
@@ -368,22 +376,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Fill color for all bars transitions to blue.</p></li>
 </ol>
 <p>Add code:</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb123-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb123-2" data-line-number="2"><span class="kw">var</span> bars <span class="op">=</span> <span class="va">d3</span>.<span class="at">selectAll</span>(<span class="st">&quot;svg&quot;</span>)</a>
-<a class="sourceLine" id="cb123-3" data-line-number="3">  .<span class="at">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</a>
-<a class="sourceLine" id="cb123-4" data-line-number="4">  .<span class="at">data</span>(dataset)<span class="op">;</span></a>
-<a class="sourceLine" id="cb123-5" data-line-number="5">  </a>
-<a class="sourceLine" id="cb123-6" data-line-number="6"><span class="va">bars</span>.<span class="at">enter</span>()                  <span class="co">// 1. new bars</span></a>
-<a class="sourceLine" id="cb123-7" data-line-number="7">  .<span class="at">append</span>(<span class="st">&quot;rect&quot;</span>)</a>
-<a class="sourceLine" id="cb123-8" data-line-number="8">    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;orange&quot;</span>)</a>
-<a class="sourceLine" id="cb123-9" data-line-number="9">  .<span class="at">merge</span>(bars)                <span class="co">// 2. all bars in location</span></a>
-<a class="sourceLine" id="cb123-10" data-line-number="10">    .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> ...)</a>
-<a class="sourceLine" id="cb123-11" data-line-number="11">    .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> ...)</a>
-<a class="sourceLine" id="cb123-12" data-line-number="12">    .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> ...)</a>
-<a class="sourceLine" id="cb123-13" data-line-number="13">    .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> ...)</a>
-<a class="sourceLine" id="cb123-14" data-line-number="14">  .<span class="at">transition</span>()</a>
-<a class="sourceLine" id="cb123-15" data-line-number="15">  .<span class="at">duration</span>(<span class="dv">2000</span>)</a>
-<a class="sourceLine" id="cb123-16" data-line-number="16">    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)<span class="op">;</span>   <span class="co">// 3. all transition to blue</span></a></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb142-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb142-2" data-line-number="2"><span class="kw">var</span> bars <span class="op">=</span> <span class="va">d3</span>.<span class="at">selectAll</span>(<span class="st">&quot;svg&quot;</span>)</a>
+<a class="sourceLine" id="cb142-3" data-line-number="3">  .<span class="at">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</a>
+<a class="sourceLine" id="cb142-4" data-line-number="4">  .<span class="at">data</span>(dataset)<span class="op">;</span></a>
+<a class="sourceLine" id="cb142-5" data-line-number="5">  </a>
+<a class="sourceLine" id="cb142-6" data-line-number="6"><span class="va">bars</span>.<span class="at">enter</span>()                  <span class="co">// 1. new bars</span></a>
+<a class="sourceLine" id="cb142-7" data-line-number="7">  .<span class="at">append</span>(<span class="st">&quot;rect&quot;</span>)</a>
+<a class="sourceLine" id="cb142-8" data-line-number="8">    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;orange&quot;</span>)</a>
+<a class="sourceLine" id="cb142-9" data-line-number="9">  .<span class="at">merge</span>(bars)                <span class="co">// 2. all bars in location</span></a>
+<a class="sourceLine" id="cb142-10" data-line-number="10">    .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> ...)</a>
+<a class="sourceLine" id="cb142-11" data-line-number="11">    .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> ...)</a>
+<a class="sourceLine" id="cb142-12" data-line-number="12">    .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> ...)</a>
+<a class="sourceLine" id="cb142-13" data-line-number="13">    .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> ...)</a>
+<a class="sourceLine" id="cb142-14" data-line-number="14">  .<span class="at">transition</span>()</a>
+<a class="sourceLine" id="cb142-15" data-line-number="15">  .<span class="at">duration</span>(<span class="dv">2000</span>)</a>
+<a class="sourceLine" id="cb142-16" data-line-number="16">    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)<span class="op">;</span>   <span class="co">// 3. all transition to blue</span></a></code></pre></div>
 <p><strong>Example 2</strong></p>
 <p>Plan</p>
 <ol style="list-style-type: decimal">
@@ -391,24 +399,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Once it reaches its spot, it turns purple.</p></li>
 </ol>
 <p>(Try this one.)</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb124-1" data-line-number="1"><span class="kw">var</span> bars <span class="op">=</span> <span class="va">d3</span>.<span class="at">selectAll</span>(<span class="st">&quot;svg&quot;</span>)</a>
-<a class="sourceLine" id="cb124-2" data-line-number="2">  .<span class="at">append</span>(<span class="st">&quot;g&quot;</span>)</a>
-<a class="sourceLine" id="cb124-3" data-line-number="3">  .<span class="at">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</a>
-<a class="sourceLine" id="cb124-4" data-line-number="4">  .<span class="at">data</span>([<span class="dv">125</span>])<span class="op">;</span></a>
-<a class="sourceLine" id="cb124-5" data-line-number="5">  </a>
-<a class="sourceLine" id="cb124-6" data-line-number="6"><span class="va">bars</span>.<span class="at">enter</span>()                 </a>
-<a class="sourceLine" id="cb124-7" data-line-number="7">  .<span class="at">append</span>(<span class="st">&quot;rect&quot;</span>)</a>
-<a class="sourceLine" id="cb124-8" data-line-number="8">    .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;325&quot;</span>)</a>
-<a class="sourceLine" id="cb124-9" data-line-number="9">    .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="dv">200</span> <span class="op">-</span> d )</a>
-<a class="sourceLine" id="cb124-10" data-line-number="10">    .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)</a>
-<a class="sourceLine" id="cb124-11" data-line-number="11">    .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> d)</a>
-<a class="sourceLine" id="cb124-12" data-line-number="12">    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)</a>
-<a class="sourceLine" id="cb124-13" data-line-number="13">  .<span class="at">transition</span>()</a>
-<a class="sourceLine" id="cb124-14" data-line-number="14">  .<span class="at">duration</span>(<span class="dv">3000</span>)</a>
-<a class="sourceLine" id="cb124-15" data-line-number="15">    .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;50&quot;</span>)   <span class="co">// transition only affect &quot;x&quot;</span></a>
-<a class="sourceLine" id="cb124-16" data-line-number="16">  .<span class="at">transition</span>(<span class="dv">2000</span>)</a>
-<a class="sourceLine" id="cb124-17" data-line-number="17">  .<span class="at">duration</span>(<span class="dv">2000</span>)</a>
-<a class="sourceLine" id="cb124-18" data-line-number="18">    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;purple&quot;</span>)<span class="op">;</span>  <span class="co">// 2nd transition</span></a></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb143-1" data-line-number="1"><span class="kw">var</span> bars <span class="op">=</span> <span class="va">d3</span>.<span class="at">selectAll</span>(<span class="st">&quot;svg&quot;</span>)</a>
+<a class="sourceLine" id="cb143-2" data-line-number="2">  .<span class="at">append</span>(<span class="st">&quot;g&quot;</span>)</a>
+<a class="sourceLine" id="cb143-3" data-line-number="3">  .<span class="at">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</a>
+<a class="sourceLine" id="cb143-4" data-line-number="4">  .<span class="at">data</span>([<span class="dv">125</span>])<span class="op">;</span></a>
+<a class="sourceLine" id="cb143-5" data-line-number="5">  </a>
+<a class="sourceLine" id="cb143-6" data-line-number="6"><span class="va">bars</span>.<span class="at">enter</span>()                 </a>
+<a class="sourceLine" id="cb143-7" data-line-number="7">  .<span class="at">append</span>(<span class="st">&quot;rect&quot;</span>)</a>
+<a class="sourceLine" id="cb143-8" data-line-number="8">    .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;325&quot;</span>)</a>
+<a class="sourceLine" id="cb143-9" data-line-number="9">    .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="dv">200</span> <span class="op">-</span> d )</a>
+<a class="sourceLine" id="cb143-10" data-line-number="10">    .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)</a>
+<a class="sourceLine" id="cb143-11" data-line-number="11">    .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> d)</a>
+<a class="sourceLine" id="cb143-12" data-line-number="12">    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)</a>
+<a class="sourceLine" id="cb143-13" data-line-number="13">  .<span class="at">transition</span>()</a>
+<a class="sourceLine" id="cb143-14" data-line-number="14">  .<span class="at">duration</span>(<span class="dv">3000</span>)</a>
+<a class="sourceLine" id="cb143-15" data-line-number="15">    .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;50&quot;</span>)   <span class="co">// transition only affect &quot;x&quot;</span></a>
+<a class="sourceLine" id="cb143-16" data-line-number="16">  .<span class="at">transition</span>(<span class="dv">2000</span>)</a>
+<a class="sourceLine" id="cb143-17" data-line-number="17">  .<span class="at">duration</span>(<span class="dv">2000</span>)</a>
+<a class="sourceLine" id="cb143-18" data-line-number="18">    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;purple&quot;</span>)<span class="op">;</span>  <span class="co">// 2nd transition</span></a></code></pre></div>
 <p>Further reading: <a href="https://bost.ocks.org/mike/transition/" target="_blank">Working with Transitions</a>.</p>
 
 </div>
