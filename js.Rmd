@@ -155,7 +155,7 @@ If we don't want to modify the original array we can make a copy. If we want to 
 
 ``` js
 var x = [3, 1, 5, 12, 7];     // try me
-var y = x;
+var y = x.slice();
 y.sort(d3.ascending);
 ```
 
