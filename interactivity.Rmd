@@ -85,7 +85,9 @@ d3.select("svg")
 
 `+d3.select(this).node().value;` (number)
 
-## Example
+## Add / remove "buttons"
+
+(HTML paragraphs are used as buttons in this example.)
 
 HTML:
 
