@@ -1,4 +1,4 @@
-# Object Constancy {#object}
+# Object Constancy <i class="fa fa-object-ungroup"></i> {#object}
 
 ## No object constancy
 <table>
@@ -24,7 +24,7 @@
 
 ## Object constancy
 
-Slides: [ObjectConstancy.pdf](ObjectConstancy.pdf)
+Slides: [object_constancy.pdf](pdfs/object_constancy.pdf){target="_blank"}
 
 Example: [object_constancy.html](code/object_constancy.html){target="_blank"}
 
