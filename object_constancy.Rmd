@@ -24,7 +24,9 @@
 
 ## Object constancy
 
-Slides: [object_constancy.pdf](pdfs/object_constancy.pdf){target="_blank"}
+Slides: 
+
+[object_constancy.pdf](pdfs/object_constancy.pdf){target="_blank"}
 
 Example: [object_constancy.html](code/object_constancy.html){target="_blank"}
 
