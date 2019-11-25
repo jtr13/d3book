@@ -1,0 +1,14 @@
+## Object constancy
+
+<div id="chart2" style="width: 550px; float:left;"></div>
+  <div style="width: 200px; float: left;">
+    <p>**Transitions**</p>
+    <input type="radio" class="oc" name="duration2" value="0" checked="true">&nbsp;Off</input>
+      <input type="radio" class = "oc" name="duration2" value="1500">&nbsp;On</input>
+        <p></p>
+        <p id="add2" class="oc">Add an element</p>
+          <p id="remove_right2" class="oc">Remove bar (right)</p>
+            <p id="remove_left2" class="oc">Remove bar (left)</p>
+              </div>
+
+              <script src="scripts/obj_const.js"></script>

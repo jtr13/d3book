@@ -15,6 +15,7 @@ rmd_files: [
   "scales_and_axes.Rmd",
   "interactivity.Rmd",
   "transitions.Rmd",
+  "object_constancy.Rmd",
   "debugging.Rmd",
   "solutions.Rmd",
   "more_chapters.Rmd"
