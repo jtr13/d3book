@@ -373,11 +373,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb109"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb109-1" data-line-number="1">x<span class="op">;</span>     <span class="co">// try me</span></a></code></pre></div>
 <p>If we don’t want to modify the original array we can make a copy. If we want to sort by number, not character, we can pass the comparator function <code>d3.ascending</code> to <code>.sort()</code>:</p>
 <div class="sourceCode" id="cb110"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb110-1" data-line-number="1"><span class="kw">var</span> x <span class="op">=</span> [<span class="dv">3</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">12</span><span class="op">,</span> <span class="dv">7</span>]<span class="op">;</span>     <span class="co">// try me</span></a>
-<a class="sourceLine" id="cb110-2" data-line-number="2"><span class="kw">var</span> y <span class="op">=</span> x<span class="op">;</span></a>
+<a class="sourceLine" id="cb110-2" data-line-number="2"><span class="kw">var</span> y <span class="op">=</span> <span class="va">x</span>.<span class="at">slice</span>()<span class="op">;</span></a>
 <a class="sourceLine" id="cb110-3" data-line-number="3"><span class="va">y</span>.<span class="at">sort</span>(<span class="va">d3</span>.<span class="at">ascending</span>)<span class="op">;</span></a></code></pre></div>
 </div>
 <div id="d3-statistics" class="section level2">
 <h2><span class="header-section-number">5.5</span> D3 statistics</h2>
+<p><a href="https://github.com/d3/d3-array/blob/v1.2.4/README.md#statistics" target="_blank">link to API</a></p>
 <p>D3 brings us back to familiar ground with functions that take an <em>array</em> and return a single value. Here are D3 functions with the same names and behavior as their R equivalents:</p>
 <table>
 <thead>
