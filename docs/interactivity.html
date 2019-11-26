@@ -382,18 +382,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">7.5.1</span> Global variable example</h3>
 <p>Here the circle click behavior depends on the value of the radio button: if the “Move left” radio button is checked, the circle will move left <em>when clicked</em>. If the “Move right” radio button is checked, the circle will move right <em>when clicked</em>.</p>
 <p>A global variable is used to keep track of the radio button value. The event listener on the circle conditions the behavior on the value of this global variable.</p>
+<div id="radio" style="margin-left: 30px">
 <h4>
 Click the circle.
 </h4>
-<div id="radio">
 <p><input type="radio" name="direction" value="left" checked="true"> Move left
-<input type="radio" name="direction" value="right"> Move right<br></p>
-</div>
-<svg id="radio" width="300" height="200">
+<input type="radio" name="direction" value="right"> Move right<br>
+<svg id='radio' width='300' height='200'>
 <rect x='0' y='0' width='300' height ='200' fill = 'lightblue'></rect>
 <circle cx='150' cy='100' r='20' fill='red'></circle>
 <text x='10' y='190' style = 'font-size: 80%;'>svg#radio</text>
-</svg>
+</svg></p>
 <div class="sourceCode" id="cb132"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb132-1" data-line-number="1"><span class="co">// global variable keeps track of which radio button is clicked</span></a>
 <a class="sourceLine" id="cb132-2" data-line-number="2"><span class="kw">var</span> action <span class="op">=</span> <span class="st">&quot;left&quot;</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb132-3" data-line-number="3"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;div#radio&quot;</span>)</a>
@@ -440,16 +439,16 @@ d3.select("svg#radio").select("circle")
 
 </script>
 </div>
+</div>
 <div id="turn-off-event-listener" class="section level3">
 <h3><span class="header-section-number">7.5.2</span> Turn off event listener</h3>
 <p>In this example, the event listeners on the squares are turned on or off depending on the value of the radio button. Event listeners can be removed by setting the behavior to <code>null</code>.</p>
+<div id="radio2" style="margin-left: 30px">
 <h4>
 Click a square.
 </h4>
-<div id="radio2">
 <p><input type="radio" name="square" value="red" checked="true"> Red active
 <input type="radio" name="square" value="blue"> Blue active<br></p>
-</div>
 <svg id="radio2" width="300" height="200">
 <rect x='0' y='0' width='300' height ='200' fill = 'lightblue'></rect>
 <rect id='red' x='75' y='75' width='50' height='50' fill='red'></rect>
@@ -507,6 +506,7 @@ d3.select("div#radio2").selectAll("input")
 });
 
 </script>
+</div>
 
 </div>
 </div>
