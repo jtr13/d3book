@@ -342,35 +342,35 @@ Remove bar (left)
 <ol style="list-style-type: decimal">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb146"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb146-1" data-line-number="1"><span class="kw">var</span> svg <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb146-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb146-3" data-line-number="3"><span class="kw">var</span> dataset <span class="op">=</span> [<span class="op">{</span><span class="dt">key</span><span class="op">:</span> <span class="dv">12</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="dv">100</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">200</span><span class="op">},</span></a>
-<a class="sourceLine" id="cb146-4" data-line-number="4">              <span class="op">{</span><span class="dt">key</span><span class="op">:</span> <span class="dv">16</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="dv">250</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">300</span><span class="op">}</span>]<span class="op">;</span></a>
-<a class="sourceLine" id="cb146-5" data-line-number="5">              </a>
-<a class="sourceLine" id="cb146-6" data-line-number="6"><span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;text&quot;</span>)</a>
-<a class="sourceLine" id="cb146-7" data-line-number="7">  .<span class="at">data</span>(dataset<span class="op">,</span> d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">key</span>)</a>
-<a class="sourceLine" id="cb146-8" data-line-number="8">  .<span class="at">exit</span>()</a>
-<a class="sourceLine" id="cb146-9" data-line-number="9">  .<span class="at">remove</span>()<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb148-1" data-line-number="1"><span class="kw">var</span> svg <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb148-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb148-3" data-line-number="3"><span class="kw">var</span> dataset <span class="op">=</span> [<span class="op">{</span><span class="dt">key</span><span class="op">:</span> <span class="dv">12</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="dv">100</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">200</span><span class="op">},</span></a>
+<a class="sourceLine" id="cb148-4" data-line-number="4">              <span class="op">{</span><span class="dt">key</span><span class="op">:</span> <span class="dv">16</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="dv">250</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">300</span><span class="op">}</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb148-5" data-line-number="5">              </a>
+<a class="sourceLine" id="cb148-6" data-line-number="6"><span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;text&quot;</span>)</a>
+<a class="sourceLine" id="cb148-7" data-line-number="7">  .<span class="at">data</span>(dataset<span class="op">,</span> d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">key</span>)</a>
+<a class="sourceLine" id="cb148-8" data-line-number="8">  .<span class="at">exit</span>()</a>
+<a class="sourceLine" id="cb148-9" data-line-number="9">  .<span class="at">remove</span>()<span class="op">;</span></a></code></pre></div>
 <p>Then:</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb147-1" data-line-number="1"><span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;text&quot;</span>)</a>
-<a class="sourceLine" id="cb147-2" data-line-number="2">  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">x</span>)</a>
-<a class="sourceLine" id="cb147-3" data-line-number="3">  .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">y</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb149-1" data-line-number="1"><span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;text&quot;</span>)</a>
+<a class="sourceLine" id="cb149-2" data-line-number="2">  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">x</span>)</a>
+<a class="sourceLine" id="cb149-3" data-line-number="3">  .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">y</span>)<span class="op">;</span></a></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li></li>
 </ol>
 <p>(Refresh)</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb148-1" data-line-number="1"><span class="kw">var</span> dataset <span class="op">=</span> [<span class="op">{</span><span class="dt">key</span><span class="op">:</span> <span class="dv">23</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="dv">300</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">150</span><span class="op">},</span></a>
-<a class="sourceLine" id="cb148-2" data-line-number="2">              <span class="op">{</span><span class="dt">key</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="dv">450</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">270</span><span class="op">}</span>]<span class="op">;</span></a>
-<a class="sourceLine" id="cb148-3" data-line-number="3">              </a>
-<a class="sourceLine" id="cb148-4" data-line-number="4"><span class="kw">var</span> databind <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;text&quot;</span>)</a>
-<a class="sourceLine" id="cb148-5" data-line-number="5">  .<span class="at">data</span>(dataset<span class="op">,</span> d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">key</span>)</a>
-<a class="sourceLine" id="cb148-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb148-7" data-line-number="7"><span class="va">databind</span>.<span class="at">exit</span>().<span class="at">remove</span>()<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb150-1" data-line-number="1"><span class="kw">var</span> dataset <span class="op">=</span> [<span class="op">{</span><span class="dt">key</span><span class="op">:</span> <span class="dv">23</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="dv">300</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">150</span><span class="op">},</span></a>
+<a class="sourceLine" id="cb150-2" data-line-number="2">              <span class="op">{</span><span class="dt">key</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="dv">450</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">270</span><span class="op">}</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb150-3" data-line-number="3">              </a>
+<a class="sourceLine" id="cb150-4" data-line-number="4"><span class="kw">var</span> databind <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;text&quot;</span>)</a>
+<a class="sourceLine" id="cb150-5" data-line-number="5">  .<span class="at">data</span>(dataset<span class="op">,</span> d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">key</span>)</a>
+<a class="sourceLine" id="cb150-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb150-7" data-line-number="7"><span class="va">databind</span>.<span class="at">exit</span>().<span class="at">remove</span>()<span class="op">;</span></a></code></pre></div>
 <p>Then:</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb149-1" data-line-number="1"><span class="va">databind</span>.<span class="at">enter</span>().<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</a>
-<a class="sourceLine" id="cb149-2" data-line-number="2">  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">x</span>)</a>
-<a class="sourceLine" id="cb149-3" data-line-number="3">  .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">y</span>)</a>
-<a class="sourceLine" id="cb149-4" data-line-number="4">  .<span class="at">text</span>(d <span class="op">=&gt;</span> <span class="vs">`key: </span><span class="sc">${</span><span class="va">d</span>.<span class="at">key</span><span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb151-1" data-line-number="1"><span class="va">databind</span>.<span class="at">enter</span>().<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</a>
+<a class="sourceLine" id="cb151-2" data-line-number="2">  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">x</span>)</a>
+<a class="sourceLine" id="cb151-3" data-line-number="3">  .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">y</span>)</a>
+<a class="sourceLine" id="cb151-4" data-line-number="4">  .<span class="at">text</span>(d <span class="op">=&gt;</span> <span class="vs">`key: </span><span class="sc">${</span><span class="va">d</span>.<span class="at">key</span><span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></a></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>Experiment with other data binds.</li>
 </ol>

@@ -145,6 +145,8 @@
 
 \hypertarget{container}{}
 
+\includegraphics[width=5in]{images/networkgraph}
+
 This guide serves as a companion text to Scott Murray's \href{https://www.amazon.com/Interactive-Data-Visualization-Web-Introduction/dp/1491921285/}{\emph{Interactive Data Visualization for the Web, 2nd edition}}--a required text for GR5702. Be sure to get the second edition, which is a comprehensive update to D3 version 4. The first edition uses D3 version 3, which is not compatible. (To add to the complication, the current version of D3 is v5. However, since differences between v4 and v5 are minimal, unless otherwise indicated in this guide, the code in \emph{IDVW2} will work with either.)
 
 We rely on the text heavily but also deviate from it in several ways. \emph{IDVW2} is written for graphics designers not data science students so the pain points are somewhat different.
@@ -2171,7 +2173,7 @@ Read \emph{IDVW2}, Chapter 10: Interactivity
 \hypertarget{binding-event-listeners}{%
 \section{Binding event listeners}\label{binding-event-listeners}}
 
-(100, 150)
+\includegraphics{d3book_files/figure-latex/unnamed-chunk-28-1.png}
 
 Open Developer Tools and try this code in the Console:
 
@@ -2315,19 +2317,13 @@ Here the circle click behavior depends on the value of the radio button: if the 
 
 A global variable is used to keep track of the radio button value. The event listener on the circle conditions the behavior on the value of this global variable.
 
-Click the circle.
-
-\leavevmode\hypertarget{radio}{}%
-~Move left
-~Move right
-
-svg\#radio
+\includegraphics{d3book_files/figure-latex/unnamed-chunk-30-1.png}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{// global variable keeps track of which radio button is clicked}
 \KeywordTok{var}\NormalTok{ action }\OperatorTok{=} \StringTok{"left"}\OperatorTok{;}
-\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"div#radio"}\NormalTok{)}
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"div#rad"}\NormalTok{)}
 \NormalTok{  .}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"input"}\NormalTok{)}
 \NormalTok{  .}\AttributeTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,} \KeywordTok{function}\NormalTok{() }\OperatorTok{\{}\NormalTok{ action }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{).}\AttributeTok{node}\NormalTok{().}\AttributeTok{value}\OperatorTok{;} \OperatorTok{\}}\NormalTok{)}\OperatorTok{;}
       
@@ -2354,13 +2350,7 @@ svg\#radio
 
 In this example, the event listeners on the squares are turned on or off depending on the value of the radio button. Event listeners can be removed by setting the behavior to \texttt{null}.
 
-Click a square.
-
-\leavevmode\hypertarget{radio2}{}%
-~Red active
-~Blue active
-
-svg\#radio2
+\includegraphics{d3book_files/figure-latex/unnamed-chunk-33-1.png}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2378,7 +2368,7 @@ svg\#radio2
 \NormalTok{  .}\AttributeTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,}\NormalTok{ jump)}\OperatorTok{;}
     
 \CommentTok{// switch event listeners if radio button is clicked}
-\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"div#radio2"}\NormalTok{).}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"input"}\NormalTok{)}
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"div#rad2"}\NormalTok{).}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"input"}\NormalTok{)}
 \NormalTok{  .}\AttributeTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,} \KeywordTok{function}\NormalTok{ () }\OperatorTok{\{}
   \ControlFlowTok{if}\NormalTok{ (}\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{).}\AttributeTok{node}\NormalTok{().}\AttributeTok{value} \OperatorTok{==} \StringTok{"blue"}\NormalTok{) }\OperatorTok{\{}
     \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg#radio2"}\NormalTok{).}\AttributeTok{select}\NormalTok{(}\StringTok{"rect#blue"}\NormalTok{).}\AttributeTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,}\NormalTok{ jump)}\OperatorTok{;}

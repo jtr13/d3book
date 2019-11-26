@@ -4,13 +4,19 @@ Read *IDVW2*, Chapter 10: Interactivity
 
 ## Binding event listeners
 
+```{r, echo=FALSE, eval=!HTML}
+webshot::webshot("https://jtr13.github.io/d3book/interactivity.html", selector = "svg")
+```
+
+```{asis, echo=HTML}
 <svg width="300" height="200">
-  <rect width="300" height="200" fill="pink"></rect>
+  <rect width="300" height="200" fill="lightblue"></rect>
   <circle cx="50" cy="75" r="20" fill="blue"></circle>
   <ellipse cx="175" cy="100" rx="45" ry="30" fill="green"></ellipse>
   <text x="100" y="150">(100, 150)</text>
   <line x1="250" y1="150" x2="275" y2="175" stroke="red" stroke-width="5"></line>
 </svg>
+```  
 
 Open Developer Tools and try this code in the Console:
 
