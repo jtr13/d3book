@@ -101,7 +101,7 @@ y["b"];
     d3.select("h2").style("font-family", "Impact");
     ```
 
-## Transitions <i class="far fa-paper-plane"></i>
+## Add transitions <i class="far fa-paper-plane"></i>
 
 1.  Try these:
 
@@ -119,7 +119,7 @@ y["b"];
 
 2.  Experiment with more transitions.
 
-## Interactivity <i class="fas fa-mouse-pointer"></i> 
+## Add interactivity <i class="fas fa-mouse-pointer"></i> 
 
 
 1.  Set up a function to turn the fill color to yellow:
