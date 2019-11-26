@@ -173,6 +173,11 @@ d3.select("svg#radio").select("circle")
 
 In this example, the event listeners on the squares are turned on or off depending on the value of the radio button. Event listeners can be removed by setting the behavior to `null`.
 
+```{r, echo=FALSE}
+if (!knitr::is_html_output()) webshot::webshot("https://jtr13.github.io/d3book/interactivity.html#turn-off-event-listener", selector = "div#radio2")
+```
+
+```{asis, echo=knitr::is_html_output()}
 <div id="radio2" style="margin-left: 30px">
 <h4>Click a square.</h4>
 <input type="radio" name="square" value="red" checked="true">&nbsp;Red active
@@ -184,7 +189,10 @@ In this example, the event listeners on the squares are turned on or off dependi
   <rect id='blue' x='175' y='75' width='50' height='50' fill='blue'></rect>
   <text x='10' y='190' style = 'font-size: 80%;'>svg#radio2</text>
 </svg>
+</div>
+```
 
+<div style="margin-left: 30px">
 
 ```{js}
 // movement function
