@@ -1,4 +1,4 @@
-# Interactivity <i class="fas fa-mouse-pointer"></i> 
+# Interactivity <i class="fas fa-mouse-pointer"></i>
 
 Read *IDVW2*, Chapter 10: Interactivity
 
@@ -27,7 +27,7 @@ d3.select("svg")
 
 ## What is *this*?
 
-In the content of event handlers, "this" is the element that received the event, a.k.a. what you clicked on if it's a click event.
+In the context of event handlers, "this" is the element that received the event, a.k.a. what you clicked on if it's a click event.
 
 Examples from [the first chapter](jump.html#interactivity):
 
@@ -93,9 +93,7 @@ HTML:
 
 ``` html
 <p id="add">Add an element</p>
-
 <p id="remove_left">Remove bar (left)</p>
-
 <p id="remove_right">Remove bar (right)</p>
 ```
 
@@ -122,4 +120,90 @@ d3.selectAll("p")
 Vertical bar chart with add / remove buttons and general update pattern
 
 [vertical_bar.html](code/vertical_bar.html){target="_blank"}
+
+## Dependent event listeners
+
+In these examples, the behavior or existence of one event listener depends on another.
+
+### Global variable example
+
+Here the circle click behavior depends on the value of the radio button: if the "Move left" radio button is checked, the circle will move left *when clicked*. If the "Move right" radio button is checked, the circle will move right *when clicked*.
+
+A global variable is used to keep track of the radio button value. The event listener on the circle conditions the behavior on the value of this global variable.
+
+<h4>Click the circle.</h4>
+<input type="radio" name="direction" value="left" checked="true">&nbsp;Move left
+<input type="radio" name="direction" value="right">&nbsp;Move right<br>
+<svg id='radio' width='300' height='200'>
+  <rect x='0' y='0' width='300' height ='200' fill = 'lightblue'></rect>
+  <circle cx='150' cy='100' r='20' fill='red'></circle>
+  <text x='10' y='190' style = 'font-size: 80%;'>svg#radio</text>
+</svg>
+
+
+```{js}
+// global variable keeps track of which radio button is clicked
+var action = "left";
+d3.selectAll("input")
+  .on("click", function() { action = d3.select(this).node().value; });
+	  
+// circle click behavior depends on value of "action"
+d3.select("svg#radio").select("circle")
+  .on("click", function () {
+    if (action == "left") {
+      var cx_new = +d3.select(this).attr("cx") - 50;
+      if (cx_new < 20) cx_new = 20;
+      } else {
+      var cx_new = +d3.select(this).attr("cx") + 50;
+      if (cx_new > 280) cx_new = 280;
+      }
+    d3.select(this)
+      .transition()
+      .duration(500)
+      .attr("cx", cx_new);
+      });
+
+```
+
+### Turn off event listener
+
+In this example, the event listeners on the squares are turned on or off depending on the value of the radio button. Event listeners can be removed by setting the behavior to `null`.
+
+<h4>Click a square.</h4>
+<input type="radio" name="square" value="red" checked="true">&nbsp;Red active
+<input type="radio" name="square" value="blue">&nbsp;Blue active<br>
+<svg id='radio2' width='300' height='200'>
+  <rect x='0' y='0' width='300' height ='200' fill = 'lightblue'></rect>
+  <rect id='red' x='75' y='75' width='50' height='50' fill='red'></rect>
+  <rect id='blue' x='175' y='75' width='50' height='50' fill='blue'></rect>
+  <text x='10' y='190' style = 'font-size: 80%;'>svg#radio2</text>
+</svg>
+
+
+```{js}
+// movement function
+var jump = function () {
+      d3.select(this).transition().duration(500)
+      .attr('y', '0')
+      .transition().duration(500).ease(d3.easeBounce)
+      .attr('y', '75')
+};
+
+// initial setup: add event listener to red square
+d3.select("svg#radio2")
+  .select("rect#red")
+  .on("click", jump);
+    
+// switch event listeners if radio button is clicked
+d3.selectAll("input").on("click", function () {
+  if (d3.select(this).node().value == "blue") {
+    d3.select("svg#radio2").select("rect#blue").on("click", jump);
+    d3.select("svg#radio2").select("rect#red").on("click", null);
+    } else {
+    d3.select("svg#radio2").select("rect#red").on("click", jump);
+    d3.select("svg#radio2").select("rect#blue").on("click", null);
+    }
+});
+
+```
 

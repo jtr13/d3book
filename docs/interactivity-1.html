@@ -24,7 +24,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2019-11-25" />
+<meta name="date" content="2019-11-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -237,6 +237,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="interactivity-1.html"><a href="interactivity-1.html#add-remove-buttons"><i class="fa fa-check"></i><b>7.3</b> Add / remove “buttons”</a></li>
 <li class="chapter" data-level="7.4" data-path="interactivity-1.html"><a href="interactivity-1.html#putting-it-all-together"><i class="fa fa-check"></i><b>7.4</b> Putting it all together</a></li>
+<li class="chapter" data-level="7.5" data-path="interactivity-1.html"><a href="interactivity-1.html#dependent-event-listeners"><i class="fa fa-check"></i><b>7.5</b> Dependent event listeners</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="interactivity-1.html"><a href="interactivity-1.html#global-variable-example"><i class="fa fa-check"></i><b>7.5.1</b> Global variable example</a></li>
+<li class="chapter" data-level="7.5.2" data-path="interactivity-1.html"><a href="interactivity-1.html#turn-off-event-listener"><i class="fa fa-check"></i><b>7.5.2</b> Turn off event listener</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="transitions-1.html"><a href="transitions-1.html"><i class="fa fa-check"></i><b>8</b> Transitions <i class="far fa-paper-plane"></i></a><ul>
 <li class="chapter" data-level="8.1" data-path="transitions-1.html"><a href="transitions-1.html#examples-1"><i class="fa fa-check"></i><b>8.1</b> Examples</a></li>
@@ -306,7 +310,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="what-is-this" class="section level2">
 <h2><span class="header-section-number">7.2</span> What is <em>this</em>?</h2>
-<p>In the content of event handlers, “this” is the element that received the event, a.k.a. what you clicked on if it’s a click event.</p>
+<p>In the context of event handlers, “this” is the element that received the event, a.k.a. what you clicked on if it’s a click event.</p>
 <p>Examples from <a href="jump.html#interactivity">the first chapter</a>:</p>
 <div class="sourceCode" id="cb125"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb125-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;line&quot;</span>)</a>
 <a class="sourceLine" id="cb125-2" data-line-number="2">  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></a>
@@ -349,10 +353,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>(HTML paragraphs are used as buttons in this example.)</p>
 <p>HTML:</p>
 <div class="sourceCode" id="cb130"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb130-1" data-line-number="1"><span class="kw">&lt;p</span><span class="ot"> id=</span><span class="st">&quot;add&quot;</span><span class="kw">&gt;</span>Add an element<span class="kw">&lt;/p&gt;</span></a>
-<a class="sourceLine" id="cb130-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb130-3" data-line-number="3"><span class="kw">&lt;p</span><span class="ot"> id=</span><span class="st">&quot;remove_left&quot;</span><span class="kw">&gt;</span>Remove bar (left)<span class="kw">&lt;/p&gt;</span></a>
-<a class="sourceLine" id="cb130-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb130-5" data-line-number="5"><span class="kw">&lt;p</span><span class="ot"> id=</span><span class="st">&quot;remove_right&quot;</span><span class="kw">&gt;</span>Remove bar (right)<span class="kw">&lt;/p&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb130-2" data-line-number="2"><span class="kw">&lt;p</span><span class="ot"> id=</span><span class="st">&quot;remove_left&quot;</span><span class="kw">&gt;</span>Remove bar (left)<span class="kw">&lt;/p&gt;</span></a>
+<a class="sourceLine" id="cb130-3" data-line-number="3"><span class="kw">&lt;p</span><span class="ot"> id=</span><span class="st">&quot;remove_right&quot;</span><span class="kw">&gt;</span>Remove bar (right)<span class="kw">&lt;/p&gt;</span></a></code></pre></div>
 <p>JavaScript:</p>
 <div class="sourceCode" id="cb131"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb131-1" data-line-number="1"><span class="va">d3</span>.<span class="at">selectAll</span>(<span class="st">&quot;p&quot;</span>)</a>
 <a class="sourceLine" id="cb131-2" data-line-number="2">    .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span> () <span class="op">{</span></a>
@@ -372,7 +374,133 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">7.4</span> Putting it all together</h2>
 <p>Vertical bar chart with add / remove buttons and general update pattern</p>
 <p><a href="code/vertical_bar.html" target="_blank">vertical_bar.html</a></p>
+</div>
+<div id="dependent-event-listeners" class="section level2">
+<h2><span class="header-section-number">7.5</span> Dependent event listeners</h2>
+<p>In these examples, the behavior or existence of one event listener depends on another.</p>
+<div id="global-variable-example" class="section level3">
+<h3><span class="header-section-number">7.5.1</span> Global variable example</h3>
+<p>Here the circle click behavior depends on the value of the radio button: if the “Move left” radio button is checked, the circle will move left <em>when clicked</em>. If the “Move right” radio button is checked, the circle will move right <em>when clicked</em>.</p>
+<p>A global variable is used to keep track of the radio button value. The event listener on the circle conditions the behavior on the value of this global variable.</p>
+<h4>
+Click the circle.
+</h4>
+<p><input type="radio" name="direction" value="left" checked="true"> Move left
+<input type="radio" name="direction" value="right"> Move right<br>
+<svg id='radio' width='300' height='200'>
+<rect x='0' y='0' width='300' height ='200' fill = 'lightblue'></rect>
+<circle cx='150' cy='100' r='20' fill='red'></circle>
+<text x='10' y='190' style = 'font-size: 80%;'>svg#radio</text>
+</svg></p>
+<div class="sourceCode" id="cb132"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb132-1" data-line-number="1"><span class="co">// global variable keeps track of which radio button is clicked</span></a>
+<a class="sourceLine" id="cb132-2" data-line-number="2"><span class="kw">var</span> action <span class="op">=</span> <span class="st">&quot;left&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb132-3" data-line-number="3"><span class="va">d3</span>.<span class="at">selectAll</span>(<span class="st">&quot;input&quot;</span>)</a>
+<a class="sourceLine" id="cb132-4" data-line-number="4">  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span> action <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">node</span>().<span class="at">value</span><span class="op">;</span> <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb132-5" data-line-number="5">      </a>
+<a class="sourceLine" id="cb132-6" data-line-number="6"><span class="co">// circle click behavior depends on value of &quot;action&quot;</span></a>
+<a class="sourceLine" id="cb132-7" data-line-number="7"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg#radio&quot;</span>).<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>)</a>
+<a class="sourceLine" id="cb132-8" data-line-number="8">  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb132-9" data-line-number="9">    <span class="cf">if</span> (action <span class="op">==</span> <span class="st">&quot;left&quot;</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb132-10" data-line-number="10">      <span class="kw">var</span> cx_new <span class="op">=</span> <span class="op">+</span><span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span>) <span class="op">-</span> <span class="dv">50</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb132-11" data-line-number="11">      <span class="cf">if</span> (cx_new <span class="op">&lt;</span> <span class="dv">20</span>) cx_new <span class="op">=</span> <span class="dv">20</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb132-12" data-line-number="12">      <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb132-13" data-line-number="13">      <span class="kw">var</span> cx_new <span class="op">=</span> <span class="op">+</span><span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span>) <span class="op">+</span> <span class="dv">50</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb132-14" data-line-number="14">      <span class="cf">if</span> (cx_new <span class="op">&gt;</span> <span class="dv">280</span>) cx_new <span class="op">=</span> <span class="dv">280</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb132-15" data-line-number="15">      <span class="op">}</span></a>
+<a class="sourceLine" id="cb132-16" data-line-number="16">    <span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>)</a>
+<a class="sourceLine" id="cb132-17" data-line-number="17">      .<span class="at">transition</span>()</a>
+<a class="sourceLine" id="cb132-18" data-line-number="18">      .<span class="at">duration</span>(<span class="dv">500</span>)</a>
+<a class="sourceLine" id="cb132-19" data-line-number="19">      .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> cx_new)<span class="op">;</span></a>
+<a class="sourceLine" id="cb132-20" data-line-number="20">      <span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<script type="text/javascript">
+// global variable keeps track of which radio button is clicked
+var action = "left";
+d3.selectAll("input")
+  .on("click", function() { action = d3.select(this).node().value; });
+      
+// circle click behavior depends on value of "action"
+d3.select("svg#radio").select("circle")
+  .on("click", function () {
+    if (action == "left") {
+      var cx_new = +d3.select(this).attr("cx") - 50;
+      if (cx_new < 20) cx_new = 20;
+      } else {
+      var cx_new = +d3.select(this).attr("cx") + 50;
+      if (cx_new > 280) cx_new = 280;
+      }
+    d3.select(this)
+      .transition()
+      .duration(500)
+      .attr("cx", cx_new);
+      });
 
+</script>
+</div>
+<div id="turn-off-event-listener" class="section level3">
+<h3><span class="header-section-number">7.5.2</span> Turn off event listener</h3>
+<p>In this example, the event listeners on the squares are turned on or off depending on the value of the radio button. Event listeners can be removed by setting the behavior to <code>null</code>.</p>
+<h4>
+Click a square.
+</h4>
+<p><input type="radio" name="square" value="red" checked="true"> Red active
+<input type="radio" name="square" value="blue"> Blue active<br>
+<svg id='radio2' width='300' height='200'>
+<rect x='0' y='0' width='300' height ='200' fill = 'lightblue'></rect>
+<rect id='red' x='75' y='75' width='50' height='50' fill='red'></rect>
+<rect id='blue' x='175' y='75' width='50' height='50' fill='blue'></rect>
+<text x='10' y='190' style = 'font-size: 80%;'>svg#radio2</text>
+</svg></p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb133-1" data-line-number="1"><span class="co">// movement function</span></a>
+<a class="sourceLine" id="cb133-2" data-line-number="2"><span class="kw">var</span> jump <span class="op">=</span> <span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb133-3" data-line-number="3">      <span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">transition</span>().<span class="at">duration</span>(<span class="dv">500</span>)</a>
+<a class="sourceLine" id="cb133-4" data-line-number="4">      .<span class="at">attr</span>(<span class="st">&#39;y&#39;</span><span class="op">,</span> <span class="st">&#39;0&#39;</span>)</a>
+<a class="sourceLine" id="cb133-5" data-line-number="5">      .<span class="at">transition</span>().<span class="at">duration</span>(<span class="dv">500</span>).<span class="at">ease</span>(<span class="va">d3</span>.<span class="at">easeBounce</span>)</a>
+<a class="sourceLine" id="cb133-6" data-line-number="6">      .<span class="at">attr</span>(<span class="st">&#39;y&#39;</span><span class="op">,</span> <span class="st">&#39;75&#39;</span>)</a>
+<a class="sourceLine" id="cb133-7" data-line-number="7"><span class="op">};</span></a>
+<a class="sourceLine" id="cb133-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb133-9" data-line-number="9"><span class="co">// initial setup: add event listener to red square</span></a>
+<a class="sourceLine" id="cb133-10" data-line-number="10"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg#radio2&quot;</span>)</a>
+<a class="sourceLine" id="cb133-11" data-line-number="11">  .<span class="at">select</span>(<span class="st">&quot;rect#red&quot;</span>)</a>
+<a class="sourceLine" id="cb133-12" data-line-number="12">  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> jump)<span class="op">;</span></a>
+<a class="sourceLine" id="cb133-13" data-line-number="13">    </a>
+<a class="sourceLine" id="cb133-14" data-line-number="14"><span class="co">// switch event listeners if radio button is clicked</span></a>
+<a class="sourceLine" id="cb133-15" data-line-number="15"><span class="va">d3</span>.<span class="at">selectAll</span>(<span class="st">&quot;input&quot;</span>).<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb133-16" data-line-number="16">  <span class="cf">if</span> (<span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">node</span>().<span class="at">value</span> <span class="op">==</span> <span class="st">&quot;blue&quot;</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb133-17" data-line-number="17">    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg#radio2&quot;</span>).<span class="at">select</span>(<span class="st">&quot;rect#blue&quot;</span>).<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> jump)<span class="op">;</span></a>
+<a class="sourceLine" id="cb133-18" data-line-number="18">    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg#radio2&quot;</span>).<span class="at">select</span>(<span class="st">&quot;rect#red&quot;</span>).<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">null</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb133-19" data-line-number="19">    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb133-20" data-line-number="20">    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg#radio2&quot;</span>).<span class="at">select</span>(<span class="st">&quot;rect#red&quot;</span>).<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> jump)<span class="op">;</span></a>
+<a class="sourceLine" id="cb133-21" data-line-number="21">    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg#radio2&quot;</span>).<span class="at">select</span>(<span class="st">&quot;rect#blue&quot;</span>).<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">null</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb133-22" data-line-number="22">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb133-23" data-line-number="23"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<script type="text/javascript">
+// movement function
+var jump = function () {
+      d3.select(this).transition().duration(500)
+      .attr('y', '0')
+      .transition().duration(500).ease(d3.easeBounce)
+      .attr('y', '75')
+};
+
+// initial setup: add event listener to red square
+d3.select("svg#radio2")
+  .select("rect#red")
+  .on("click", jump);
+    
+// switch event listeners if radio button is clicked
+d3.selectAll("input").on("click", function () {
+  if (d3.select(this).node().value == "blue") {
+    d3.select("svg#radio2").select("rect#blue").on("click", jump);
+    d3.select("svg#radio2").select("rect#red").on("click", null);
+    } else {
+    d3.select("svg#radio2").select("rect#red").on("click", jump);
+    d3.select("svg#radio2").select("rect#blue").on("click", null);
+    }
+});
+
+</script>
+
+</div>
 </div>
 </div>
             </section>

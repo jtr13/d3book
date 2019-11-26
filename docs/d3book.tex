@@ -128,7 +128,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-11-24}
+    \date{2019-11-26}
 
 \usepackage{booktabs}
 
@@ -1915,13 +1915,15 @@ If we don't want to modify the original array we can make a copy. If we want to 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{var}\NormalTok{ x }\OperatorTok{=}\NormalTok{ [}\DecValTok{3}\OperatorTok{,} \DecValTok{1}\OperatorTok{,} \DecValTok{5}\OperatorTok{,} \DecValTok{12}\OperatorTok{,} \DecValTok{7}\NormalTok{]}\OperatorTok{;}     \CommentTok{// try me}
-\KeywordTok{var}\NormalTok{ y }\OperatorTok{=}\NormalTok{ x}\OperatorTok{;}
+\KeywordTok{var}\NormalTok{ y }\OperatorTok{=} \VariableTok{x}\NormalTok{.}\AttributeTok{slice}\NormalTok{()}\OperatorTok{;}
 \VariableTok{y}\NormalTok{.}\AttributeTok{sort}\NormalTok{(}\VariableTok{d3}\NormalTok{.}\AttributeTok{ascending}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
 
 \hypertarget{d3-statistics}{%
 \section{D3 statistics}\label{d3-statistics}}
+
+\href{https://github.com/d3/d3-array/blob/v1.2.4/README.md\#statistics}{link to API}
 
 D3 brings us back to familiar ground with functions that take an \emph{array} and return a single value. Here are D3 functions with the same names and behavior as their R equivalents:
 
@@ -2189,7 +2191,7 @@ Open Developer Tools and try this code in the Console:
 \hypertarget{what-is-this}{%
 \section{\texorpdfstring{What is \emph{this}?}{What is this?}}\label{what-is-this}}
 
-In the content of event handlers, ``this'' is the element that received the event, a.k.a. what you clicked on if it's a click event.
+In the context of event handlers, ``this'' is the element that received the event, a.k.a. what you clicked on if it's a click event.
 
 Examples from \href{jump.html\#interactivity}{the first chapter}:
 
@@ -2259,17 +2261,17 @@ Try this in the Console:
 
 \texttt{+d3.select(this).node().value;} (number)
 
-\hypertarget{example-2}{%
-\section{Example}\label{example-2}}
+\hypertarget{add-remove-buttons}{%
+\section{Add / remove ``buttons''}\label{add-remove-buttons}}
+
+(HTML paragraphs are used as buttons in this example.)
 
 HTML:
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{<p}\OtherTok{ id=}\StringTok{"add"}\KeywordTok{>}\NormalTok{Add an element}\KeywordTok{</p>}
-
 \KeywordTok{<p}\OtherTok{ id=}\StringTok{"remove_left"}\KeywordTok{>}\NormalTok{Remove bar (left)}\KeywordTok{</p>}
-
 \KeywordTok{<p}\OtherTok{ id=}\StringTok{"remove_right"}\KeywordTok{>}\NormalTok{Remove bar (right)}\KeywordTok{</p>}
 \end{Highlighting}
 \end{Shaded}
@@ -2300,6 +2302,88 @@ JavaScript:
 Vertical bar chart with add / remove buttons and general update pattern
 
 \href{code/vertical_bar.html}{vertical\_bar.html}
+
+\hypertarget{dependent-event-listeners}{%
+\section{Dependent event listeners}\label{dependent-event-listeners}}
+
+In these examples, the behavior or existence of one event listener depends on another.
+
+\hypertarget{global-variable-example}{%
+\subsection{Global variable example}\label{global-variable-example}}
+
+Here the circle click behavior depends on the value of the radio button: if the ``Move left'' radio button is checked, the circle will move left \emph{when clicked}. If the ``Move right'' radio button is checked, the circle will move right \emph{when clicked}.
+
+A global variable is used to keep track of the radio button value. The event listener on the circle conditions the behavior on the value of this global variable.
+
+Click the circle.
+
+~Move left
+~Move right
+svg\#radio
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{// global variable keeps track of which radio button is clicked}
+\KeywordTok{var}\NormalTok{ action }\OperatorTok{=} \StringTok{"left"}\OperatorTok{;}
+\VariableTok{d3}\NormalTok{.}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"input"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,} \KeywordTok{function}\NormalTok{() }\OperatorTok{\{}\NormalTok{ action }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{).}\AttributeTok{node}\NormalTok{().}\AttributeTok{value}\OperatorTok{;} \OperatorTok{\}}\NormalTok{)}\OperatorTok{;}
+      
+\CommentTok{// circle click behavior depends on value of "action"}
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg#radio"}\NormalTok{).}\AttributeTok{select}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,} \KeywordTok{function}\NormalTok{ () }\OperatorTok{\{}
+    \ControlFlowTok{if}\NormalTok{ (action }\OperatorTok{==} \StringTok{"left"}\NormalTok{) }\OperatorTok{\{}
+      \KeywordTok{var}\NormalTok{ cx_new }\OperatorTok{=} \OperatorTok{+}\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\NormalTok{) }\OperatorTok{-} \DecValTok{50}\OperatorTok{;}
+      \ControlFlowTok{if}\NormalTok{ (cx_new }\OperatorTok{<} \DecValTok{20}\NormalTok{) cx_new }\OperatorTok{=} \DecValTok{20}\OperatorTok{;}
+      \OperatorTok{\}} \ControlFlowTok{else} \OperatorTok{\{}
+      \KeywordTok{var}\NormalTok{ cx_new }\OperatorTok{=} \OperatorTok{+}\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\NormalTok{) }\OperatorTok{+} \DecValTok{50}\OperatorTok{;}
+      \ControlFlowTok{if}\NormalTok{ (cx_new }\OperatorTok{>} \DecValTok{280}\NormalTok{) cx_new }\OperatorTok{=} \DecValTok{280}\OperatorTok{;}
+      \OperatorTok{\}}
+    \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{transition}\NormalTok{()}
+\NormalTok{      .}\AttributeTok{duration}\NormalTok{(}\DecValTok{500}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,}\NormalTok{ cx_new)}\OperatorTok{;}
+      \OperatorTok{\}}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{turn-off-event-listener}{%
+\subsection{Turn off event listener}\label{turn-off-event-listener}}
+
+In this example, the event listeners on the squares are turned on or off depending on the value of the radio button. Event listeners can be removed by setting the behavior to \texttt{null}.
+
+Click a square.
+
+~Red active
+~Blue active
+svg\#radio2
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{// movement function}
+\KeywordTok{var}\NormalTok{ jump }\OperatorTok{=} \KeywordTok{function}\NormalTok{ () }\OperatorTok{\{}
+      \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{).}\AttributeTok{transition}\NormalTok{().}\AttributeTok{duration}\NormalTok{(}\DecValTok{500}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{attr}\NormalTok{(}\StringTok{'y'}\OperatorTok{,} \StringTok{'0'}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{transition}\NormalTok{().}\AttributeTok{duration}\NormalTok{(}\DecValTok{500}\NormalTok{).}\AttributeTok{ease}\NormalTok{(}\VariableTok{d3}\NormalTok{.}\AttributeTok{easeBounce}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{attr}\NormalTok{(}\StringTok{'y'}\OperatorTok{,} \StringTok{'75'}\NormalTok{)}
+\OperatorTok{\};}
+
+\CommentTok{// initial setup: add event listener to red square}
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg#radio2"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{select}\NormalTok{(}\StringTok{"rect#red"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,}\NormalTok{ jump)}\OperatorTok{;}
+    
+\CommentTok{// switch event listeners if radio button is clicked}
+\VariableTok{d3}\NormalTok{.}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"input"}\NormalTok{).}\AttributeTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,} \KeywordTok{function}\NormalTok{ () }\OperatorTok{\{}
+  \ControlFlowTok{if}\NormalTok{ (}\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{).}\AttributeTok{node}\NormalTok{().}\AttributeTok{value} \OperatorTok{==} \StringTok{"blue"}\NormalTok{) }\OperatorTok{\{}
+    \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg#radio2"}\NormalTok{).}\AttributeTok{select}\NormalTok{(}\StringTok{"rect#blue"}\NormalTok{).}\AttributeTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,}\NormalTok{ jump)}\OperatorTok{;}
+    \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg#radio2"}\NormalTok{).}\AttributeTok{select}\NormalTok{(}\StringTok{"rect#red"}\NormalTok{).}\AttributeTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,} \KeywordTok{null}\NormalTok{)}\OperatorTok{;}
+    \OperatorTok{\}} \ControlFlowTok{else} \OperatorTok{\{}
+    \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg#radio2"}\NormalTok{).}\AttributeTok{select}\NormalTok{(}\StringTok{"rect#red"}\NormalTok{).}\AttributeTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,}\NormalTok{ jump)}\OperatorTok{;}
+    \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg#radio2"}\NormalTok{).}\AttributeTok{select}\NormalTok{(}\StringTok{"rect#blue"}\NormalTok{).}\AttributeTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,} \KeywordTok{null}\NormalTok{)}\OperatorTok{;}
+    \OperatorTok{\}}
+\OperatorTok{\}}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{transitions-1}{%
 \chapter{Transitions }\label{transitions-1}}
@@ -2527,6 +2611,128 @@ Plan
 \end{Shaded}
 
 Further reading: \href{https://bost.ocks.org/mike/transition/}{Working with Transitions}.
+
+\hypertarget{object}{%
+\chapter{Object Constancy }\label{object}}
+
+\hypertarget{no-object-constancy}{%
+\section{No object constancy}\label{no-object-constancy}}
+
+\hypertarget{chart}{}
+
+\textbf{Transitions}
+
+~Off
+~On
+
+Add an element
+
+Remove bar (right)
+
+Remove bar (left)
+
+\textbf{Of note:}
+
+\begin{itemize}
+\item
+  Rather than smoothly transitioning off to the left, all bars are resized when ``Remove bar (left)'' is clicked
+\item
+  When "Remove bar (right) is clicked, the bar on the right immediately disappears, and then the remaining bars transition to their new places to the right.
+\end{itemize}
+
+\hypertarget{object-constancy}{%
+\section{Object constancy}\label{object-constancy}}
+
+Slides:
+
+\href{pdfs/object_constancy.pdf}{object\_constancy.pdf}
+
+Example: \href{code/object_constancy.html}{object\_constancy.html}
+
+\textbf{Of note:}
+
+\begin{itemize}
+\tightlist
+\item
+  Bars now smoothly transition off to the left and right
+\end{itemize}
+
+\hypertarget{practice-joining-data-by-key}{%
+\subsection{Practice joining data by key}\label{practice-joining-data-by-key}}
+
+Download and open \href{code/keys.html}{keys.html}
+
+(or open \href{https://jtr13.github.io/D3/DataBindwithKeys.html}{this online version}) in a new tab.
+
+Try the following:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{ svg }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}\OperatorTok{;}
+
+\KeywordTok{var}\NormalTok{ dataset }\OperatorTok{=}\NormalTok{ [}\OperatorTok{\{}\DataTypeTok{key}\OperatorTok{:} \DecValTok{12}\OperatorTok{,} \DataTypeTok{x}\OperatorTok{:} \DecValTok{100}\OperatorTok{,} \DataTypeTok{y}\OperatorTok{:} \DecValTok{200}\OperatorTok{\},}
+              \OperatorTok{\{}\DataTypeTok{key}\OperatorTok{:} \DecValTok{16}\OperatorTok{,} \DataTypeTok{x}\OperatorTok{:} \DecValTok{250}\OperatorTok{,} \DataTypeTok{y}\OperatorTok{:} \DecValTok{300}\OperatorTok{\}}\NormalTok{]}\OperatorTok{;}
+              
+\VariableTok{svg}\NormalTok{.}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"text"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{data}\NormalTok{(dataset}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>} \VariableTok{d}\NormalTok{.}\AttributeTok{key}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{exit}\NormalTok{()}
+\NormalTok{  .}\AttributeTok{remove}\NormalTok{()}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+Then:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{svg}\NormalTok{.}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"text"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"x"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>} \VariableTok{d}\NormalTok{.}\AttributeTok{x}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"y"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>} \VariableTok{d}\NormalTok{.}\AttributeTok{y}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+\end{enumerate}
+
+(Refresh)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{ dataset }\OperatorTok{=}\NormalTok{ [}\OperatorTok{\{}\DataTypeTok{key}\OperatorTok{:} \DecValTok{23}\OperatorTok{,} \DataTypeTok{x}\OperatorTok{:} \DecValTok{300}\OperatorTok{,} \DataTypeTok{y}\OperatorTok{:} \DecValTok{150}\OperatorTok{\},}
+              \OperatorTok{\{}\DataTypeTok{key}\OperatorTok{:} \DecValTok{5}\OperatorTok{,} \DataTypeTok{x}\OperatorTok{:} \DecValTok{450}\OperatorTok{,} \DataTypeTok{y}\OperatorTok{:} \DecValTok{270}\OperatorTok{\}}\NormalTok{]}\OperatorTok{;}
+              
+\KeywordTok{var}\NormalTok{ databind }\OperatorTok{=} \VariableTok{svg}\NormalTok{.}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"text"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{data}\NormalTok{(dataset}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>} \VariableTok{d}\NormalTok{.}\AttributeTok{key}\NormalTok{)}
+
+\VariableTok{databind}\NormalTok{.}\AttributeTok{exit}\NormalTok{().}\AttributeTok{remove}\NormalTok{()}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+Then:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{databind}\NormalTok{.}\AttributeTok{enter}\NormalTok{().}\AttributeTok{append}\NormalTok{(}\StringTok{"text"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"x"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>} \VariableTok{d}\NormalTok{.}\AttributeTok{x}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"y"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>} \VariableTok{d}\NormalTok{.}\AttributeTok{y}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{text}\NormalTok{(d }\OperatorTok{=>} \VerbatimStringTok{`key: }\SpecialCharTok{$\{}\VariableTok{d}\NormalTok{.}\AttributeTok{key}\SpecialCharTok{\}}\VerbatimStringTok{`}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Experiment with other data binds.
+\end{enumerate}
 
 \hypertarget{debugging-tips}{%
 \chapter{Debugging Tips }\label{debugging-tips}}

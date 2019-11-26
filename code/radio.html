@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<meta name="generator" content="BBEdit 13.0" />
+	<script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+  <h4>Click the circle.</h4>
+  <input type="radio" name="direction" value="left" checked="true">Move left
+  <input type="radio" name="direction" value="right">Move right<br>
+  <svg id='radio' width='300' height='200'>
+    <rect x='0' y='0' width='300' height ='200' fill = 'lightblue'></rect>
+    <circle cx='150' cy='100' r='20' fill='red'></circle>
+    <text x='10' y='190' style = 'font-size: 80%;'>svg#radio</text>
+  </svg>
+  <script>
+    // global variable keeps track of which radio button is clicked
+    var action = "left";
+    d3.selectAll("input")
+      .on("click", function() {
+					action = d3.select(this).node().value;
+			  });
+			  
+		// circle click behavior depends on value of "action"
+		d3.select("svg#radio")
+		  .select("circle")
+		  .on("click", function () {
+		    if (action == "left") {
+		      var cx_new = +d3.select(this).attr("cx") - 50;
+		      if (cx_new < 20) cx_new = 20;
+		      } else {
+		      var cx_new = +d3.select(this).attr("cx") + 50;
+		      if (cx_new > 280) cx_new = 280;
+		      }
+		      
+		    d3.select(this)
+		      .transition()
+		      .duration(500)
+		      .attr("cx", cx_new);
+		      });
+
+  </script>
+</body>
+</html>
