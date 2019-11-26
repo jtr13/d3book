@@ -16,3 +16,4 @@ knitr::opts_chunk$set(
   comment="## R output ## "
 )
 
+HTML <- knitr::is_html_output()
