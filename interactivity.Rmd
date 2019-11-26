@@ -132,8 +132,10 @@ Here the circle click behavior depends on the value of the radio button: if the 
 A global variable is used to keep track of the radio button value. The event listener on the circle conditions the behavior on the value of this global variable.
 
 <h4>Click the circle.</h4>
+<div id="radio">
 <input type="radio" name="direction" value="left" checked="true">&nbsp;Move left
 <input type="radio" name="direction" value="right">&nbsp;Move right<br>
+</div>
 <svg id='radio' width='300' height='200'>
   <rect x='0' y='0' width='300' height ='200' fill = 'lightblue'></rect>
   <circle cx='150' cy='100' r='20' fill='red'></circle>
@@ -144,7 +146,8 @@ A global variable is used to keep track of the radio button value. The event lis
 ```{js}
 // global variable keeps track of which radio button is clicked
 var action = "left";
-d3.selectAll("input")
+d3.select("div#radio")
+  .selectAll("input")
   .on("click", function() { action = d3.select(this).node().value; });
 	  
 // circle click behavior depends on value of "action"
@@ -170,8 +173,10 @@ d3.select("svg#radio").select("circle")
 In this example, the event listeners on the squares are turned on or off depending on the value of the radio button. Event listeners can be removed by setting the behavior to `null`.
 
 <h4>Click a square.</h4>
+<div id="radio2">
 <input type="radio" name="square" value="red" checked="true">&nbsp;Red active
 <input type="radio" name="square" value="blue">&nbsp;Blue active<br>
+</div>
 <svg id='radio2' width='300' height='200'>
   <rect x='0' y='0' width='300' height ='200' fill = 'lightblue'></rect>
   <rect id='red' x='75' y='75' width='50' height='50' fill='red'></rect>
@@ -195,7 +200,8 @@ d3.select("svg#radio2")
   .on("click", jump);
     
 // switch event listeners if radio button is clicked
-d3.selectAll("input").on("click", function () {
+d3.select("div#radio2").selectAll("input")
+  .on("click", function () {
   if (d3.select(this).node().value == "blue") {
     d3.select("svg#radio2").select("rect#blue").on("click", jump);
     d3.select("svg#radio2").select("rect#red").on("click", null);

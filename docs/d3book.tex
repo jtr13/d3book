@@ -2317,15 +2317,18 @@ A global variable is used to keep track of the radio button value. The event lis
 
 Click the circle.
 
+\leavevmode\hypertarget{radio}{}%
 ~Move left
 ~Move right
+
 svg\#radio
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{// global variable keeps track of which radio button is clicked}
 \KeywordTok{var}\NormalTok{ action }\OperatorTok{=} \StringTok{"left"}\OperatorTok{;}
-\VariableTok{d3}\NormalTok{.}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"input"}\NormalTok{)}
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"div#radio"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"input"}\NormalTok{)}
 \NormalTok{  .}\AttributeTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,} \KeywordTok{function}\NormalTok{() }\OperatorTok{\{}\NormalTok{ action }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{).}\AttributeTok{node}\NormalTok{().}\AttributeTok{value}\OperatorTok{;} \OperatorTok{\}}\NormalTok{)}\OperatorTok{;}
       
 \CommentTok{// circle click behavior depends on value of "action"}
@@ -2353,8 +2356,10 @@ In this example, the event listeners on the squares are turned on or off dependi
 
 Click a square.
 
+\leavevmode\hypertarget{radio2}{}%
 ~Red active
 ~Blue active
+
 svg\#radio2
 
 \begin{Shaded}
@@ -2373,7 +2378,8 @@ svg\#radio2
 \NormalTok{  .}\AttributeTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,}\NormalTok{ jump)}\OperatorTok{;}
     
 \CommentTok{// switch event listeners if radio button is clicked}
-\VariableTok{d3}\NormalTok{.}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"input"}\NormalTok{).}\AttributeTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,} \KeywordTok{function}\NormalTok{ () }\OperatorTok{\{}
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"div#radio2"}\NormalTok{).}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"input"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,} \KeywordTok{function}\NormalTok{ () }\OperatorTok{\{}
   \ControlFlowTok{if}\NormalTok{ (}\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{).}\AttributeTok{node}\NormalTok{().}\AttributeTok{value} \OperatorTok{==} \StringTok{"blue"}\NormalTok{) }\OperatorTok{\{}
     \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg#radio2"}\NormalTok{).}\AttributeTok{select}\NormalTok{(}\StringTok{"rect#blue"}\NormalTok{).}\AttributeTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,}\NormalTok{ jump)}\OperatorTok{;}
     \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg#radio2"}\NormalTok{).}\AttributeTok{select}\NormalTok{(}\StringTok{"rect#red"}\NormalTok{).}\AttributeTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,} \KeywordTok{null}\NormalTok{)}\OperatorTok{;}
