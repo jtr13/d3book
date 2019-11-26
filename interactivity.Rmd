@@ -145,9 +145,11 @@ webshot::webshot("https://jtr13.github.io/d3book/interactivity.html#global-varia
   <circle cx='150' cy='100' r='20' fill='red'></circle>
   <text x='10' y='190' style = 'font-size: 80%;'>svg#radio</text>
 </svg>
+</div>  
 ```
   
 
+<div style="margin-left: 30px">
 ```{js}
 // global variable keeps track of which radio button is clicked
 var action = "left";
@@ -180,7 +182,7 @@ d3.select("svg#radio").select("circle")
 In this example, the event listeners on the squares are turned on or off depending on the value of the radio button. Event listeners can be removed by setting the behavior to `null`.
 
 ```{r, echo=FALSE, eval=!knitr::is_html_output()}
-webshot::webshot("https://jtr13.github.io/d3book/interactivity.html#turn-off-event-listener", selector = "#radio2")
+webshot::webshot("https://jtr13.github.io/d3book/interactivity.html#turn-off-event-listener", selector = "#rad2")
 ```
 
 ```{asis, echo=knitr::is_html_output()}
