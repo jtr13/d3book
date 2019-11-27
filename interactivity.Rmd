@@ -214,7 +214,7 @@ var jump = function () {
       d3.select(this).transition().duration(500)
       .attr('y', '0')
       .transition().duration(500).ease(d3.easeBounce)
-      .attr('y', '75')
+      .attr('y', '75');
 };
 
 // initial setup: add event listener to red square
