@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Read csv file</title>
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<style type="text/css">
+
+		</style>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+
+			//Width and height
+			var w = 600;
+			var h = 300;
+			var padding = 40;
+			
+			//Create scale functions
+			var xScale = d3.scaleLinear()
+								 .domain([0, 1])
+								 .range([padding, w - padding / 2]);
+
+			var yScale = d3.scaleLinear()
+								 .domain([0, 1])
+								 .range([h - padding, padding / 2]);
+
+			//Define X axis
+			var xAxis = d3.axisBottom()
+							  .scale(xScale)
+							  .ticks(5);
+
+			//Define Y axis
+			var yAxis = d3.axisLeft()
+							  .scale(yScale)
+							  .ticks(5);
+
+			//Create SVG element
+			var svg = d3.select("body")
+						.append("svg")
+						.attr("width", w)
+						.attr("height", h);
+			
+			//Create X axis
+			svg.append("g")
+				.attr("class", "axis")
+				.attr("transform", "translate(0," + (h - padding) + ")")
+				.call(xAxis);
+			
+			//Create Y axis
+			svg.append("g")
+				.attr("class", "axis")
+				.attr("transform", "translate(" + padding + ",0)")
+				.call(yAxis);
+				
+			var rowConverter = function (d) {
+			return {
+			   grad: +d.graduation_rate,
+			   attend: +d.attendance_rate,
+			   name: d.school_name
+			   };
+			   }
+				
+			d3.csv("https://data.cityofnewyork.us/api/views/uq7m-95z8/rows.csv", rowConverter)
+        .then(function(data) {
+        
+      // data is now whole data set
+      // draw chart in here!
+				
+				//Create circles
+			var allCircles = svg.selectAll("circle")
+			   .data(data)
+			   .enter()
+			   .append("circle")
+			   .attr("cx", d => xScale(d.attend))
+			   .attr("cy", d => yScale(d.grad))
+			   .attr("r", 2.5)
+			   .on("click", function (d)
+			     { console.log(d.name)});
+			   })
+  .catch(function(error){
+     console.log("ERROR"); 
+  });	
+  
+  
+
+		</script>
+	</body>
+</html>
