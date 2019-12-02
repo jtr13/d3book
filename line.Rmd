@@ -1,0 +1,305 @@
+# Line charts <i class="fa fa-line-chart"></i>
+
+## SVG `<line>` element
+
+(Use for two points only.)
+
+``` html
+<line x1="0" y1="80" x2="100" y2="20" stroke="black" />
+```
+
+``` js
+var x1 = 0;
+var y1 = 80;
+var x2 = 100;
+var y2 = 20;
+
+d3.select("svg")
+  .append("line")
+  .attr("x1", x1)
+  .attr("x2", x2)
+  .attr("y1", y1)
+  .attr("y2", y2);
+```
+
+## SVG `<path>` element
+
+(Use if you have more than two points.)
+
+``` html
+<svg width = "500" height = "400">
+  <path d="M 50 400 L 100 300 L 150 300 L 200 33 L 250 175
+     L 300 275 L 350 250 L 400 125" fill="none"
+      stroke="red" stroke-width="5">
+  </path>
+</svg>
+```
+
+`d` attribute:
+
+M = move to
+
+L = line to
+
+More options: [https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d)
+
+
+## SVG editors
+
+(a digression)
+
+ex. [SVG-edit](https://svg-edit.github.io/svgedit/releases/svg-edit-2.8.1/svg-editor.html)
+
+### Save plots as SVG files in R {-}
+
+Save plots as SVG files:
+
+``` r
+> svg("xsquared.svg")
+> plot(1:10, (1:10)^2, axes=F)
+> dev.off()
+
+> library(svglite)
+> svglite("xsquared2.svg")
+> plot(1:10, (1:10)^2, axes=F)
+> dev.off()
+```
+
+Set graphics device to svg in code
+chunk options:
+
+`r ''````{r dev="svglite"}
+```
+
+## Back to line charts
+
+Format that we have:
+
+Day|High Temp
+----|----
+April 1|60
+April 2|43
+April 3|43
+April 4|56
+April 5|45
+April 6|62
+April 7|49
+
+Format that we need:
+
+``` html
+<path class="line" fill="none" d="M0,116.66666666666669C27.777777777777786,155.5131766381766,55.55555555555557, 194.35968660968655,83.33333333333333,215.83333333333331C111.11111111111109,237.30698005698008,138.88888888888889,
+241.40776353276354,166.66666666666666,215.83333333333331C194.44444444444443,190.2589031339031,222.22222222222223,
+135.00925925925924,250,140C277.77777777777777,144.99074074074076,305.55555555555554,210.22186609686608,333.3333333333333,
+204.16666666666666C361.1111111111111,198.11146723646723,388.8888888888889,120.76994301994304,416.6666666666667,
+105.00000000000003C444.44444444444446,89.23005698005701,472.22222222222223,135.03169515669518,500,180.83333333333334"></path>
+```
+
+### Step 1: Create a line generator
+
+Expects data in an array of 2-dimensional arrays, that is, an array of (x,y) pairs:
+
+``` js
+> var dataset = [ [0, 60], [1, 43], [2, 43], [3, 56], [4, 45], [5, 62], [6, 49] ];
+
+> var mylinegen = d3.line()
+```
+Test it in the Console:
+
+``` js
+> mylinegen(dataset);
+```
+
+Add an ordinal scale for x:
+
+``` js
+> var xScale = d3.scaleBand()
+    .domain(d3.range(dataset.length))
+    .range([0, 500])
+```    
+
+... and a linear scale for y:
+
+``` js    
+> var yScale = d3.scaleLinear()
+    .domain([d3.min(dataset, d => d[1]) - 20,
+             d3.max(dataset, d => d[1]) + 20])
+    .range([400, 0]);         
+```             
+
+*Why `d[1]` instead of `d`? (See p. 122)
+
+
+Add accessor functions `.x()` and `.y()`:
+
+``` js
+mylinegen
+    .x(d => xScale(d[0]))
+    .y(d => yScale(d[1]));
+```
+
+Test again:
+
+``` js
+> mylinegen(dataset);
+```
+
+Now let's add a `<path>` element with that `d` attribute: (this step is just for learning purposes...)
+
+``` js
+> var mypath = mylinegen(dataset);
+
+> d3.select("svg").append("path").attr("d", mypath)
+    .attr("fill", "none").attr("stroke", "red")
+    .attr("stroke-width", "5");
+```
+
+### Step 2: Put the line generator to work
+
+Now let's do it the direct way: bind the *datum* and calculate the path in one step:
+
+``` js
+> d3.select("svg").append("path")
+    .datum(dataset)
+    .attr("d", mylinegen)
+    .attr("fill", "none")
+    .attr("stroke", "teal")
+    .attr("stroke-width", "5");
+```
+
+Finally, we'll add a class and style definitions:
+
+``` html
+<style>
+  .linestyle {
+    fill: none;
+    stroke: teal;
+    stroke-width: 5px;
+  }
+</style>
+```
+
+The `append("path")` line becomes:
+
+``` js
+svg.append("path")
+    .datum(dataset)
+    .attr("d", mylinegen)
+    .attr("class", "linestyle");
+```
+
+Putting it all together, we have:
+
+``` html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Line generator</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style type ="text/css">
+      .linestyle {
+        fill: none;
+        stroke: teal;
+        stroke-width: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      var w = 500;
+      var h = 400;
+      var svg = d3.select("body").append("svg")
+          .attr("width", w).attr("height", h);
+      var dataset = [ [0, 60], [1, 43], [2, 43], [3, 56],
+          [4, 45], [5, 62], [6, 49] ];
+      var xScale = d3.scaleBand()
+        .domain(d3.range(dataset.length))
+        .range([0, w]);
+      var yScale = d3.scaleLinear()
+        .domain([d3.min(dataset, d => d[1]) - 20,
+                 d3.max(dataset, d => d[1]) + 20])
+        .range([h, 0]);
+      var mylinegen = d3.line()
+        .x(d => xScale(d[0]))
+        .y(d => yScale(d[1]));
+      svg.append("path")
+         .datum(dataset)
+         .attr("d", mylinegen)
+         .attr("class", "linestyle");
+    </script>
+
+  </body>
+</html>
+```
+
+
+And another example with axes:
+
+``` html
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<style type ="text/css">
+      .line {
+        fill: none;
+        stroke: red;
+        stroke-width: 1.5px;
+      }
+		</style>
+	</head>
+	<body>
+    <svg width="600" height="400"></svg>
+    <script>
+      var svg = d3.select("svg")
+      var margin = {top: 20, right: 50, bottom: 30, left: 50}
+      var width =  +svg.attr("width") - margin.left - margin.right
+      var height = +svg.attr("height") - margin.top - margin.bottom
+      var g = svg.append("g").attr("transform", `translate(${margin.left}, ${margin.top})`);
+      var parseTime = d3.timeParse("%d-%b-%y");
+      var xScale = d3.scaleTime().range([0, width]);
+      var yScale = d3.scaleLinear()
+        .domain([20, 80])
+        .range([height, 0]);
+      var line = d3.line()
+        .x(d => xScale(d.date))
+        .y(d => yScale(d.high));
+      var data = 
+      [{"date":"1-Apr-18","high":60},
+      {"date":"2-Apr-18","high":43},
+      {"date":"3-Apr-18","high":43},
+      {"date":"4-Apr-18","high":56},
+      {"date":"5-Apr-18","high":45},
+      {"date":"6-Apr-18","high":62},
+      {"date":"7-Apr-18","high":49}];
+      data.forEach(function(d) {
+            d.date = parseTime(d.date);
+      });
+     
+      xScale
+        .domain(d3.extent(data, d => d.date));
+        
+      g.append("g")
+          .attr("transform", `translate(0, ${height})`)
+          .call(d3.axisBottom(xScale).ticks(7));
+      g.append("g")
+          .call(d3.axisLeft(yScale))
+      g.append("path")
+          .datum(data)
+          .attr("class", "line")
+          .attr("fill", "none")
+          .attr("d", line);
+    </script>
+	</body>
+</html>
+```
+
+(Also uses: `d3.timeParse()` and JavaScript [`Array.foreach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) )
+
+## Additional Resources
+
+[Multiple Time Series in D3](https://medium.com/@ecb2198/multiple-time-series-in-d3-5562b981236c) by Eric Boxer (EDAV 2018)
+

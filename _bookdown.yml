@@ -17,6 +17,7 @@ rmd_files: [
   "transitions.Rmd",
   "object_constancy.Rmd",
   "read.Rmd",
+  "line.Rmd",
   "debugging.Rmd",
   "solutions.Rmd",
   "more_chapters.Rmd"
