@@ -16,6 +16,7 @@ rmd_files: [
   "interactivity.Rmd",
   "transitions.Rmd",
   "object_constancy.Rmd",
+  "read.Rmd",
   "debugging.Rmd",
   "solutions.Rmd",
   "more_chapters.Rmd"

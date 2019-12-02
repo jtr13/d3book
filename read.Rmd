@@ -1,0 +1,225 @@
+# Reading files 
+
+As you've surely noticed by this point, many things in JavaScript operate on an *asynchronous* basis. Code is not executed linearly from beginning to end but rather in response to various triggers. For example, event listeners behave asynchronously: code will execute only if a mouse click event occurs.
+
+The benefit to reading files asynchronously is that we don't have to wait to while a file loads for other things to happen. It would be very frustrating to navigate to a new web page and have to wait for all the scripts to finish before we could do anything on the page.
+
+## Promises
+
+Loading data is one area where [D3 v5 introduces major changes from D3 v4](https://github.com/d3/d3/blob/master/CHANGES.md){target="_blank"}. While v4 uses [callbacks](https://javascript.info/callbacks){target="_blank"}, v5 switches to [promises](https://javascript.info/promise-basics){target="_blank"}, as [promises facilitate cleaner and more flexile code than callbacks](https://hiddentao.com/archives/2014/04/21/why-promises-are-more-flexible-than-callbacks){target="_blank"}.
+
+The concept is simple. We want to control what code needs to wait until data loaded to be executed and what doesn't. We can do that with the following structure:
+
+``` js
+var rowConverter = function (d) {
+  return {
+    disp: +d.disp,
+    mpg: +d.mpg,
+    carname: d.carname,
+    cylcolor: d.cylcolor
+    }
+};  
+
+d3.csv("data/mtcars.csv", rowConverter)
+  .then(function(data) {
+
+// stuff that requires the loaded data
+
+  })
+  .catch(function(error) {
+  
+// error handling  
+  
+  });
+```  
+
+The row converter function is used to select variables and change data types ("+" converts to floating point). `d3.csv()` returns a promise. If the promise is resolved, the `.then()` function will execute; if the promise is rejected, the `.catch()` function will execute.
+
+> <i class="fa fa-exclamation-triangle"></i> *Forget the mindset that you read files and store them file in variables for later use. It doesn't work that way here. The data is read in and acted on immediately. If most of the code requires loaded data, then most of the code will appear in the `.then()` method.*
+
+A simple example of loading data in **v5** can be found in [this block](https://blockbuilder.org/tiktaktok/c2e02e2916c226ef44ed233cb46db40c){target="_blank"}. In contrast to the example above, an anonymous row converter function (with arrow functions) is used instead of calling a separate row converter function. Note as well that it's not necessary to include all variables in the row converter as this author has done. To test, fork the block and delete all the variables that aren't used, so that the row converter (line 56) becomes:
+
+``` js
+d => ({
+			HighwayMpg: parseInt(d.HighwayMpg),
+			Horsepower: parseInt(d.Horsepower),
+		})
+```
+
+You will see that the code still works.
+
+For more about `d3.csv()`, see the [`d3.fetch` API](https://github.com/d3/d3-fetch/blob/v1.1.2/README.md#csv){target="_blank"}.
+
+## Local server
+
+For security reasons, Chrome does not let you read local files. To be able to do so, you can run a local server. One option is [http-server](https://www.npmjs.com/package/http-server){target="_blank"}. Follow the instructions to install `http-server`, navigate in Terminal to the directory with your html file, and then enter `http-server`. You should get a message like this:
+
+``` bash
+Starting up http-server, serving ./
+Available on:
+  http://127.0.0.1:8080
+  http://192.168.1.54:8080
+Hit CTRL-C to stop the server
+```
+
+Copy and paste the URL in the browser and you should see your page with data loaded. As indicated, Control-c will stop the server.
+
+## Other local options
+
+A simple way to avoid this issue is to upload data files to GitHub and read them from there. There are other workarounds, including opening Chrome from the command line with the `--allow-file-access-from-files` flag.
+
+## Hosting online
+
+[blockbuilder.org](https://blockbuilder.org/) offers a convenient option, with good documentation, for sharing D3 examples online. You can also [search blockbuilder](https://blockbuilder.org/search){target="_blank"} for examples. Remember to pay attention to the version of D3 in use; some authors are including v5 in the block titles but this practice is not widespread. Remember as well that not all examples are good examples, both in terms of the graph choices and the quality of the code.
+
+A few reputable block authors, in terms of quality of D3 code, are:
+
+[Mike Bostock](https://bl.ocks.org/mbostock){target=_"blank"} (creator of D3)
+
+[Ian Johnson](https://bl.ocks.org/enjalot){target="_blank"} (creator of blockbuilder.org)
+
+[Curran Kelleher](https://bl.ocks.org/curran){target="_blank"} (data viz consultant / educator)
+
+[Malcolm Maclean](https://bl.ocks.org/d3noob){target="_blank"} (author of [D3 Tips and Tricks, v5.x](https://leanpub.com/d3-t-and-t-v5){target="_blank"}, lots of simple v5 examples with v5 in title)
+
+[Kent Russell](https://bl.ocks.org/timelyportfolio){target="_blank"} (creator of interactive `parcoords` package in R)
+
+## Example
+
+```{r, echo=FALSE}
+library(dplyr)
+copytodocs <- mtcars %>% 
+  tibble::rownames_to_column("carname") %>% 
+  mutate(cylcolor = factor(cyl, labels = c("green", "red", "blue")))
+write.csv(copytodocs, file="docs/data/mtcars.csv", row.names = FALSE)
+```
+
+<div id="cars"></div>
+
+<center>
+<h4>mtcars</h4>
+</center>
+
+```{js}
+// width and height
+var w = 600;
+var h = 300;
+var padding = 50;
+
+// create scale functions
+var xScale = d3.scaleLinear()
+					 .domain([0, 1])
+					 .range([padding, w - padding]);
+
+var yScale = d3.scaleLinear()
+					 .domain([0, 1])
+					 .range([h - padding, padding]);
+
+// define X axis
+var xAxis = d3.axisBottom()
+				  .scale(xScale)
+				  .ticks(5);
+
+// define Y axis
+var yAxis = d3.axisLeft()
+				  .scale(yScale)
+				  .ticks(5);
+
+// create SVG element
+var svg = d3.select("div#cars")
+			.append("svg")
+			.attr("width", w)
+			.attr("height", h);
+
+// create text element
+svg.append("text")
+  .attr("id", "nm")
+  .attr("x", 2*padding)
+  .attr("y", h - (2*padding));
+
+// create X axis
+svg.append("g")
+	.attr("id", "xaxis")
+	.attr("transform", "translate(0," + (h - padding) + ")")
+	.call(xAxis);
+
+// create Y axis
+svg.append("g")
+	.attr("id", "yaxis")
+	.attr("transform", "translate(" + padding + ",0)")
+	.call(yAxis);
+	
+// create axis labels
+svg.append("text")
+  .attr("x", w - 2*padding)
+  .attr("y", h - padding)
+  .text("displacement");
+  
+svg.append("text")
+  .attr("x", padding / 2)
+  .attr("y", padding)
+  .attr("text-anchor", "middle")
+  .text("mpg");
+  
+var rowConverter = function (d) {
+  return {
+    disp: +d.disp,
+    mpg: +d.mpg,
+    carname: d.carname,
+    cylcolor: d.cylcolor
+    }
+};  
+  
+d3.csv("data/mtcars.csv", rowConverter)
+  .then(function(data) {
+  
+   xScale.domain([d3.min(data.map(d => d.disp)), d3.max(data.map(d => d.disp))]);
+   
+   d3.select("#xaxis").call(xAxis);
+
+   yScale.domain([d3.min(data.map(d => d.mpg)), d3.max(data.map(d => d.mpg))]);
+   
+   d3.select("#yaxis").call(yAxis);
+
+	//Create circles
+  var allCircles = svg.selectAll("circle")
+     .data(data)
+     .enter()
+     .append("circle")
+     .attr("cx", d => xScale(d.disp))
+     .attr("cy", d => yScale(d.mpg))
+     .attr("r", "4")
+     .attr("fill", d => d.cylcolor)
+     .attr("fill-opacity", ".5")
+     .on("mouseover", function (d) {   // IDVW2, p. 270
+       var xPos = +d3.select(this).attr("cx") + 10;
+       var yPos = +d3.select(this).attr("cy");
+       d3.select(this).style("cursor", "pointer"); 
+       svg.append("text")
+         .attr("id", "tooltip")
+         .attr("x", xPos)
+         .attr("y", yPos)
+         .attr("font-size", "11px")
+         .attr("alignment-baseline", "middle")
+         .text(d.carname);  // not a function (already in one)
+     })
+     .on("mouseout", function () {
+       d3.select("#tooltip").remove();
+     })
+     .transition()
+     .duration(100)
+     .on("end", grow);
+  });
+
+// grow() is based on: https://blockbuilder.org/nbremer/f749e822f33e422f2b5a7d541e5691cb
+
+function grow() {
+	//Let the fill opacity of each circle vary randomly
+	d3.select(this)
+		.transition().duration(2000*Math.random())
+		.attr("fill-opacity", .25 + .75*Math.random())
+		.on("end", grow);
+};
+```
+
+

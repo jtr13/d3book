@@ -132,6 +132,14 @@ There are very few SVG tags that you'll need to know, and once we get going with
 
 JavaScript is the most common language for making web pages interactive. Code is executed when pages are opened or refreshed. So far we have run JavaScript in the Console, but have not included it in the web page itself. When we do so, it will be between `<script>` tags in the `<body>` section of the HTML document, or in a separate `.js` file.
 
+We will learn JavaScript on an as-needed basis. In terms of data, we will begin with simple arrays:
+
+`var x = [3, 5, 1, 6, 7]`
+
+In the [Just Enough JS](just-enough-js.html) chapter, we cover more complex data structures and some methods for data manipulation. 
+
+[javascript.info](javascript.info){target="_blank"} is an excellent resource for expanding your knowledge beyond the basics.
+
 ## D3 <i class="far fa-chart-bar"></i>
 
 D3 (Data Driven Documents) is a JavaScript library well suited to interactive graphics. As such, it is also included between `<script>` tags in the `<body>` section. For D3 to work, you must link to the D3 library in the `<head>` section of the document.
