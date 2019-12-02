@@ -359,13 +359,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="example-2" class="section level2">
 <h2><span class="header-section-number">10.5</span> Example</h2>
+<div id="cars" style="width: 600px">
 <center>
 <h4>
 mtcars
 </h4>
 </center>
-<div id="cars">
-
 </div>
 <div class="sourceCode" id="cb153"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb153-1" data-line-number="1"><span class="co">// width and height</span></a>
 <a class="sourceLine" id="cb153-2" data-line-number="2"><span class="kw">var</span> w <span class="op">=</span> <span class="dv">600</span><span class="op">;</span></a>
@@ -374,118 +373,117 @@ mtcars
 <a class="sourceLine" id="cb153-5" data-line-number="5"></a>
 <a class="sourceLine" id="cb153-6" data-line-number="6"><span class="co">// create scale functions</span></a>
 <a class="sourceLine" id="cb153-7" data-line-number="7"><span class="kw">var</span> xScale <span class="op">=</span> <span class="va">d3</span>.<span class="at">scaleLinear</span>()</a>
-<a class="sourceLine" id="cb153-8" data-line-number="8">                     .<span class="at">domain</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>])</a>
-<a class="sourceLine" id="cb153-9" data-line-number="9">                     .<span class="at">range</span>([padding<span class="op">,</span> w <span class="op">-</span> padding])<span class="op">;</span></a>
-<a class="sourceLine" id="cb153-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb153-11" data-line-number="11"><span class="kw">var</span> yScale <span class="op">=</span> <span class="va">d3</span>.<span class="at">scaleLinear</span>()</a>
-<a class="sourceLine" id="cb153-12" data-line-number="12">                     .<span class="at">domain</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>])</a>
-<a class="sourceLine" id="cb153-13" data-line-number="13">                     .<span class="at">range</span>([h <span class="op">-</span> padding<span class="op">,</span> padding])<span class="op">;</span></a>
-<a class="sourceLine" id="cb153-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb153-15" data-line-number="15"><span class="co">// define X axis</span></a>
-<a class="sourceLine" id="cb153-16" data-line-number="16"><span class="kw">var</span> xAxis <span class="op">=</span> <span class="va">d3</span>.<span class="at">axisBottom</span>()</a>
-<a class="sourceLine" id="cb153-17" data-line-number="17">                  .<span class="at">scale</span>(xScale)</a>
-<a class="sourceLine" id="cb153-18" data-line-number="18">                  .<span class="at">ticks</span>(<span class="dv">5</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb153-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb153-20" data-line-number="20"><span class="co">// define Y axis</span></a>
-<a class="sourceLine" id="cb153-21" data-line-number="21"><span class="kw">var</span> yAxis <span class="op">=</span> <span class="va">d3</span>.<span class="at">axisLeft</span>()</a>
-<a class="sourceLine" id="cb153-22" data-line-number="22">                  .<span class="at">scale</span>(yScale)</a>
-<a class="sourceLine" id="cb153-23" data-line-number="23">                  .<span class="at">ticks</span>(<span class="dv">5</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb153-24" data-line-number="24"></a>
-<a class="sourceLine" id="cb153-25" data-line-number="25"><span class="co">// create SVG element</span></a>
-<a class="sourceLine" id="cb153-26" data-line-number="26"><span class="kw">var</span> svg <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;div#cars&quot;</span>)</a>
-<a class="sourceLine" id="cb153-27" data-line-number="27">            .<span class="at">append</span>(<span class="st">&quot;svg&quot;</span>)</a>
-<a class="sourceLine" id="cb153-28" data-line-number="28">            .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> w)</a>
-<a class="sourceLine" id="cb153-29" data-line-number="29">            .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> h)<span class="op">;</span></a>
-<a class="sourceLine" id="cb153-30" data-line-number="30"></a>
-<a class="sourceLine" id="cb153-31" data-line-number="31"><span class="co">// create text element</span></a>
-<a class="sourceLine" id="cb153-32" data-line-number="32"><span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</a>
-<a class="sourceLine" id="cb153-33" data-line-number="33">  .<span class="at">attr</span>(<span class="st">&quot;id&quot;</span><span class="op">,</span> <span class="st">&quot;nm&quot;</span>)</a>
-<a class="sourceLine" id="cb153-34" data-line-number="34">  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="dv">2</span><span class="op">*</span>padding)</a>
-<a class="sourceLine" id="cb153-35" data-line-number="35">  .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> h <span class="op">-</span> (<span class="dv">2</span><span class="op">*</span>padding))<span class="op">;</span></a>
-<a class="sourceLine" id="cb153-36" data-line-number="36"></a>
-<a class="sourceLine" id="cb153-37" data-line-number="37"><span class="co">// create X axis</span></a>
-<a class="sourceLine" id="cb153-38" data-line-number="38"><span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;g&quot;</span>)</a>
-<a class="sourceLine" id="cb153-39" data-line-number="39">    .<span class="at">attr</span>(<span class="st">&quot;id&quot;</span><span class="op">,</span> <span class="st">&quot;xaxis&quot;</span>)</a>
-<a class="sourceLine" id="cb153-40" data-line-number="40">    .<span class="at">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span> <span class="st">&quot;translate(0,&quot;</span> <span class="op">+</span> (h <span class="op">-</span> padding) <span class="op">+</span> <span class="st">&quot;)&quot;</span>)</a>
-<a class="sourceLine" id="cb153-41" data-line-number="41">    .<span class="at">call</span>(xAxis)<span class="op">;</span></a>
-<a class="sourceLine" id="cb153-42" data-line-number="42"></a>
-<a class="sourceLine" id="cb153-43" data-line-number="43"><span class="co">// create Y axis</span></a>
-<a class="sourceLine" id="cb153-44" data-line-number="44"><span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;g&quot;</span>)</a>
-<a class="sourceLine" id="cb153-45" data-line-number="45">    .<span class="at">attr</span>(<span class="st">&quot;id&quot;</span><span class="op">,</span> <span class="st">&quot;yaxis&quot;</span>)</a>
-<a class="sourceLine" id="cb153-46" data-line-number="46">    .<span class="at">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span> <span class="st">&quot;translate(&quot;</span> <span class="op">+</span> padding <span class="op">+</span> <span class="st">&quot;,0)&quot;</span>)</a>
-<a class="sourceLine" id="cb153-47" data-line-number="47">    .<span class="at">call</span>(yAxis)<span class="op">;</span></a>
-<a class="sourceLine" id="cb153-48" data-line-number="48">    </a>
-<a class="sourceLine" id="cb153-49" data-line-number="49"><span class="co">// create axis labels</span></a>
-<a class="sourceLine" id="cb153-50" data-line-number="50"><span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</a>
-<a class="sourceLine" id="cb153-51" data-line-number="51">  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> w <span class="op">-</span> <span class="dv">2</span><span class="op">*</span>padding)</a>
-<a class="sourceLine" id="cb153-52" data-line-number="52">  .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> h <span class="op">-</span> padding)</a>
-<a class="sourceLine" id="cb153-53" data-line-number="53">  .<span class="at">text</span>(<span class="st">&quot;displacement&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb153-54" data-line-number="54">  </a>
-<a class="sourceLine" id="cb153-55" data-line-number="55"><span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</a>
-<a class="sourceLine" id="cb153-56" data-line-number="56">  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> padding / <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb153-57" data-line-number="57">  .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> padding)</a>
-<a class="sourceLine" id="cb153-58" data-line-number="58">  .<span class="at">attr</span>(<span class="st">&quot;text-anchor&quot;</span><span class="op">,</span> <span class="st">&quot;middle&quot;</span>)</a>
-<a class="sourceLine" id="cb153-59" data-line-number="59">  .<span class="at">text</span>(<span class="st">&quot;mpg&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb153-60" data-line-number="60">  </a>
-<a class="sourceLine" id="cb153-61" data-line-number="61"><span class="kw">var</span> rowConverter <span class="op">=</span> <span class="kw">function</span> (d) <span class="op">{</span></a>
-<a class="sourceLine" id="cb153-62" data-line-number="62">  <span class="cf">return</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb153-63" data-line-number="63">    <span class="dt">disp</span><span class="op">:</span> <span class="op">+</span><span class="va">d</span>.<span class="at">disp</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb153-64" data-line-number="64">    <span class="dt">mpg</span><span class="op">:</span> <span class="op">+</span><span class="va">d</span>.<span class="at">mpg</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb153-65" data-line-number="65">    <span class="dt">carname</span><span class="op">:</span> <span class="va">d</span>.<span class="at">carname</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb153-66" data-line-number="66">    <span class="dt">cylcolor</span><span class="op">:</span> <span class="va">d</span>.<span class="at">cylcolor</span></a>
-<a class="sourceLine" id="cb153-67" data-line-number="67">    <span class="op">}</span></a>
-<a class="sourceLine" id="cb153-68" data-line-number="68"><span class="op">};</span>  </a>
-<a class="sourceLine" id="cb153-69" data-line-number="69">  </a>
-<a class="sourceLine" id="cb153-70" data-line-number="70"><span class="va">d3</span>.<span class="at">csv</span>(<span class="st">&quot;data/mtcars.csv&quot;</span><span class="op">,</span> rowConverter)</a>
-<a class="sourceLine" id="cb153-71" data-line-number="71">  .<span class="at">then</span>(<span class="kw">function</span>(data) <span class="op">{</span></a>
-<a class="sourceLine" id="cb153-72" data-line-number="72">  </a>
-<a class="sourceLine" id="cb153-73" data-line-number="73">   <span class="va">xScale</span>.<span class="at">domain</span>([<span class="va">d3</span>.<span class="at">min</span>(<span class="va">data</span>.<span class="at">map</span>(d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">disp</span>))<span class="op">,</span> <span class="va">d3</span>.<span class="at">max</span>(<span class="va">data</span>.<span class="at">map</span>(d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">disp</span>))])<span class="op">;</span></a>
-<a class="sourceLine" id="cb153-74" data-line-number="74">   </a>
-<a class="sourceLine" id="cb153-75" data-line-number="75">   <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;#xaxis&quot;</span>).<span class="at">call</span>(xAxis)<span class="op">;</span></a>
-<a class="sourceLine" id="cb153-76" data-line-number="76"></a>
-<a class="sourceLine" id="cb153-77" data-line-number="77">   <span class="va">yScale</span>.<span class="at">domain</span>([<span class="va">d3</span>.<span class="at">min</span>(<span class="va">data</span>.<span class="at">map</span>(d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">mpg</span>))<span class="op">,</span> <span class="va">d3</span>.<span class="at">max</span>(<span class="va">data</span>.<span class="at">map</span>(d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">mpg</span>))])<span class="op">;</span></a>
-<a class="sourceLine" id="cb153-78" data-line-number="78">   </a>
-<a class="sourceLine" id="cb153-79" data-line-number="79">   <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;#yaxis&quot;</span>).<span class="at">call</span>(yAxis)<span class="op">;</span></a>
-<a class="sourceLine" id="cb153-80" data-line-number="80"></a>
-<a class="sourceLine" id="cb153-81" data-line-number="81">    <span class="co">//Create circles</span></a>
-<a class="sourceLine" id="cb153-82" data-line-number="82">  <span class="kw">var</span> allCircles <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</a>
-<a class="sourceLine" id="cb153-83" data-line-number="83">     .<span class="at">data</span>(data)</a>
-<a class="sourceLine" id="cb153-84" data-line-number="84">     .<span class="at">enter</span>()</a>
-<a class="sourceLine" id="cb153-85" data-line-number="85">     .<span class="at">append</span>(<span class="st">&quot;circle&quot;</span>)</a>
-<a class="sourceLine" id="cb153-86" data-line-number="86">     .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="at">xScale</span>(<span class="va">d</span>.<span class="at">disp</span>))</a>
-<a class="sourceLine" id="cb153-87" data-line-number="87">     .<span class="at">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="at">yScale</span>(<span class="va">d</span>.<span class="at">mpg</span>))</a>
-<a class="sourceLine" id="cb153-88" data-line-number="88">     .<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;4&quot;</span>)</a>
-<a class="sourceLine" id="cb153-89" data-line-number="89">     .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">cylcolor</span>)</a>
-<a class="sourceLine" id="cb153-90" data-line-number="90">     .<span class="at">attr</span>(<span class="st">&quot;fill-opacity&quot;</span><span class="op">,</span> <span class="st">&quot;.5&quot;</span>)</a>
-<a class="sourceLine" id="cb153-91" data-line-number="91">     .<span class="at">on</span>(<span class="st">&quot;mouseover&quot;</span><span class="op">,</span> <span class="kw">function</span> (d) <span class="op">{</span>   <span class="co">// IDVW2, p. 270</span></a>
-<a class="sourceLine" id="cb153-92" data-line-number="92">       <span class="kw">var</span> xPos <span class="op">=</span> <span class="op">+</span><span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span>) <span class="op">+</span> <span class="dv">10</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb153-93" data-line-number="93">       <span class="kw">var</span> yPos <span class="op">=</span> <span class="op">+</span><span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">attr</span>(<span class="st">&quot;cy&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb153-94" data-line-number="94">       <span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">style</span>(<span class="st">&quot;cursor&quot;</span><span class="op">,</span> <span class="st">&quot;pointer&quot;</span>)<span class="op">;</span> </a>
-<a class="sourceLine" id="cb153-95" data-line-number="95">       <span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</a>
-<a class="sourceLine" id="cb153-96" data-line-number="96">         .<span class="at">attr</span>(<span class="st">&quot;id&quot;</span><span class="op">,</span> <span class="st">&quot;tooltip&quot;</span>)</a>
-<a class="sourceLine" id="cb153-97" data-line-number="97">         .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> xPos)</a>
-<a class="sourceLine" id="cb153-98" data-line-number="98">         .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> yPos)</a>
-<a class="sourceLine" id="cb153-99" data-line-number="99">         .<span class="at">attr</span>(<span class="st">&quot;font-size&quot;</span><span class="op">,</span> <span class="st">&quot;11px&quot;</span>)</a>
-<a class="sourceLine" id="cb153-100" data-line-number="100">         .<span class="at">attr</span>(<span class="st">&quot;alignment-baseline&quot;</span><span class="op">,</span> <span class="st">&quot;middle&quot;</span>)</a>
-<a class="sourceLine" id="cb153-101" data-line-number="101">         .<span class="at">text</span>(<span class="va">d</span>.<span class="at">carname</span>)<span class="op">;</span>  <span class="co">// not a function (already in one)</span></a>
-<a class="sourceLine" id="cb153-102" data-line-number="102">     <span class="op">}</span>)</a>
-<a class="sourceLine" id="cb153-103" data-line-number="103">     .<span class="at">on</span>(<span class="st">&quot;mouseout&quot;</span><span class="op">,</span> <span class="kw">function</span> () <span class="op">{</span></a>
-<a class="sourceLine" id="cb153-104" data-line-number="104">       <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;#tooltip&quot;</span>).<span class="at">remove</span>()<span class="op">;</span></a>
-<a class="sourceLine" id="cb153-105" data-line-number="105">     <span class="op">}</span>)</a>
-<a class="sourceLine" id="cb153-106" data-line-number="106">     .<span class="at">transition</span>()</a>
-<a class="sourceLine" id="cb153-107" data-line-number="107">     .<span class="at">duration</span>(<span class="dv">100</span>)</a>
-<a class="sourceLine" id="cb153-108" data-line-number="108">     .<span class="at">on</span>(<span class="st">&quot;end&quot;</span><span class="op">,</span> grow)<span class="op">;</span></a>
+<a class="sourceLine" id="cb153-8" data-line-number="8">  .<span class="at">range</span>([padding<span class="op">,</span> w <span class="op">-</span> padding])<span class="op">;</span></a>
+<a class="sourceLine" id="cb153-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb153-10" data-line-number="10"><span class="kw">var</span> yScale <span class="op">=</span> <span class="va">d3</span>.<span class="at">scaleLinear</span>()</a>
+<a class="sourceLine" id="cb153-11" data-line-number="11">  .<span class="at">range</span>([h <span class="op">-</span> padding<span class="op">,</span> <span class="dv">0</span>])<span class="op">;</span></a>
+<a class="sourceLine" id="cb153-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb153-13" data-line-number="13"><span class="co">// define X axis</span></a>
+<a class="sourceLine" id="cb153-14" data-line-number="14"><span class="kw">var</span> xAxis <span class="op">=</span> <span class="va">d3</span>.<span class="at">axisBottom</span>()</a>
+<a class="sourceLine" id="cb153-15" data-line-number="15">  .<span class="at">scale</span>(xScale)</a>
+<a class="sourceLine" id="cb153-16" data-line-number="16">  .<span class="at">ticks</span>(<span class="dv">5</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb153-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb153-18" data-line-number="18"><span class="co">// define Y axis</span></a>
+<a class="sourceLine" id="cb153-19" data-line-number="19"><span class="kw">var</span> yAxis <span class="op">=</span> <span class="va">d3</span>.<span class="at">axisLeft</span>()</a>
+<a class="sourceLine" id="cb153-20" data-line-number="20">  .<span class="at">scale</span>(yScale)</a>
+<a class="sourceLine" id="cb153-21" data-line-number="21">  .<span class="at">ticks</span>(<span class="dv">5</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb153-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb153-23" data-line-number="23"><span class="co">// create SVG element</span></a>
+<a class="sourceLine" id="cb153-24" data-line-number="24"><span class="kw">var</span> svg <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;div#cars&quot;</span>)</a>
+<a class="sourceLine" id="cb153-25" data-line-number="25">  .<span class="at">append</span>(<span class="st">&quot;svg&quot;</span>)</a>
+<a class="sourceLine" id="cb153-26" data-line-number="26">  .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> w)</a>
+<a class="sourceLine" id="cb153-27" data-line-number="27">  .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> h)<span class="op">;</span></a>
+<a class="sourceLine" id="cb153-28" data-line-number="28"></a>
+<a class="sourceLine" id="cb153-29" data-line-number="29"><span class="co">// create text element</span></a>
+<a class="sourceLine" id="cb153-30" data-line-number="30"><span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</a>
+<a class="sourceLine" id="cb153-31" data-line-number="31">  .<span class="at">attr</span>(<span class="st">&quot;id&quot;</span><span class="op">,</span> <span class="st">&quot;nm&quot;</span>)</a>
+<a class="sourceLine" id="cb153-32" data-line-number="32">  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="dv">2</span> <span class="op">*</span> padding)</a>
+<a class="sourceLine" id="cb153-33" data-line-number="33">  .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> h <span class="op">-</span> (<span class="dv">2</span> <span class="op">*</span> padding))<span class="op">;</span></a>
+<a class="sourceLine" id="cb153-34" data-line-number="34"></a>
+<a class="sourceLine" id="cb153-35" data-line-number="35"><span class="co">// create X axis</span></a>
+<a class="sourceLine" id="cb153-36" data-line-number="36"><span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;g&quot;</span>)</a>
+<a class="sourceLine" id="cb153-37" data-line-number="37">  .<span class="at">attr</span>(<span class="st">&quot;id&quot;</span><span class="op">,</span> <span class="st">&quot;xaxis&quot;</span>)</a>
+<a class="sourceLine" id="cb153-38" data-line-number="38">  .<span class="at">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span> <span class="st">&quot;translate(0,&quot;</span> <span class="op">+</span> (h <span class="op">-</span> padding) <span class="op">+</span> <span class="st">&quot;)&quot;</span>)</a>
+<a class="sourceLine" id="cb153-39" data-line-number="39">  .<span class="at">call</span>(xAxis)<span class="op">;</span></a>
+<a class="sourceLine" id="cb153-40" data-line-number="40"></a>
+<a class="sourceLine" id="cb153-41" data-line-number="41"><span class="co">// create Y axis</span></a>
+<a class="sourceLine" id="cb153-42" data-line-number="42"><span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;g&quot;</span>)</a>
+<a class="sourceLine" id="cb153-43" data-line-number="43">  .<span class="at">attr</span>(<span class="st">&quot;id&quot;</span><span class="op">,</span> <span class="st">&quot;yaxis&quot;</span>)</a>
+<a class="sourceLine" id="cb153-44" data-line-number="44">  .<span class="at">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span> <span class="st">&quot;translate(&quot;</span> <span class="op">+</span> padding <span class="op">+</span> <span class="st">&quot;,0)&quot;</span>)</a>
+<a class="sourceLine" id="cb153-45" data-line-number="45">  .<span class="at">call</span>(yAxis)<span class="op">;</span></a>
+<a class="sourceLine" id="cb153-46" data-line-number="46"></a>
+<a class="sourceLine" id="cb153-47" data-line-number="47"><span class="co">// create axis labels</span></a>
+<a class="sourceLine" id="cb153-48" data-line-number="48"><span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</a>
+<a class="sourceLine" id="cb153-49" data-line-number="49">  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> w / <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb153-50" data-line-number="50">  .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> h <span class="op">-</span> padding / <span class="dv">2</span> <span class="op">+</span> <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb153-51" data-line-number="51">  .<span class="at">attr</span>(<span class="st">&quot;text-anchor&quot;</span><span class="op">,</span> <span class="st">&quot;middle&quot;</span>)</a>
+<a class="sourceLine" id="cb153-52" data-line-number="52">  .<span class="at">text</span>(<span class="st">&quot;displacement&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb153-53" data-line-number="53"></a>
+<a class="sourceLine" id="cb153-54" data-line-number="54"><span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</a>
+<a class="sourceLine" id="cb153-55" data-line-number="55">  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> padding / <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb153-56" data-line-number="56">  .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> h / <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb153-57" data-line-number="57">  .<span class="at">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span> <span class="vs">`rotate(-90, </span><span class="sc">${</span>padding/<span class="dv">3</span><span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>h/<span class="dv">2</span><span class="sc">}</span><span class="vs">)`</span>)</a>
+<a class="sourceLine" id="cb153-58" data-line-number="58">  .<span class="at">text</span>(<span class="st">&quot;mpg&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb153-59" data-line-number="59"></a>
+<a class="sourceLine" id="cb153-60" data-line-number="60"><span class="kw">var</span> rowConverter <span class="op">=</span> <span class="kw">function</span>(d) <span class="op">{</span></a>
+<a class="sourceLine" id="cb153-61" data-line-number="61">  <span class="cf">return</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb153-62" data-line-number="62">    <span class="dt">disp</span><span class="op">:</span> <span class="op">+</span><span class="va">d</span>.<span class="at">disp</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb153-63" data-line-number="63">    <span class="dt">mpg</span><span class="op">:</span> <span class="op">+</span><span class="va">d</span>.<span class="at">mpg</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb153-64" data-line-number="64">    <span class="dt">carname</span><span class="op">:</span> <span class="va">d</span>.<span class="at">carname</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb153-65" data-line-number="65">    <span class="dt">cylcolor</span><span class="op">:</span> <span class="va">d</span>.<span class="at">cylcolor</span></a>
+<a class="sourceLine" id="cb153-66" data-line-number="66">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb153-67" data-line-number="67"><span class="op">};</span></a>
+<a class="sourceLine" id="cb153-68" data-line-number="68"><span class="va">d3</span>.<span class="at">csv</span>(<span class="st">&quot;data/mtcars.csv&quot;</span><span class="op">,</span> rowConverter)</a>
+<a class="sourceLine" id="cb153-69" data-line-number="69">  .<span class="at">then</span>(<span class="kw">function</span>(data) <span class="op">{</span></a>
+<a class="sourceLine" id="cb153-70" data-line-number="70">    <span class="va">xScale</span>.<span class="at">domain</span>([<span class="va">d3</span>.<span class="at">min</span>(<span class="va">data</span>.<span class="at">map</span>(d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">disp</span>))<span class="op">,</span> <span class="va">d3</span>.<span class="at">max</span>(<span class="va">data</span>.<span class="at">map</span>(d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">disp</span>))])<span class="op">;</span></a>
+<a class="sourceLine" id="cb153-71" data-line-number="71">    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;#xaxis&quot;</span>).<span class="at">call</span>(xAxis)<span class="op">;</span></a>
+<a class="sourceLine" id="cb153-72" data-line-number="72">    <span class="va">yScale</span>.<span class="at">domain</span>([<span class="va">d3</span>.<span class="at">min</span>(<span class="va">data</span>.<span class="at">map</span>(d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">mpg</span>))<span class="op">,</span> <span class="va">d3</span>.<span class="at">max</span>(<span class="va">data</span>.<span class="at">map</span>(d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">mpg</span>))])<span class="op">;</span></a>
+<a class="sourceLine" id="cb153-73" data-line-number="73">    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;#yaxis&quot;</span>).<span class="at">call</span>(yAxis)<span class="op">;</span></a>
+<a class="sourceLine" id="cb153-74" data-line-number="74"></a>
+<a class="sourceLine" id="cb153-75" data-line-number="75">    <span class="co">//Create circles</span></a>
+<a class="sourceLine" id="cb153-76" data-line-number="76">    <span class="kw">var</span> allCircles <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</a>
+<a class="sourceLine" id="cb153-77" data-line-number="77">      .<span class="at">data</span>(data)</a>
+<a class="sourceLine" id="cb153-78" data-line-number="78">      .<span class="at">enter</span>()</a>
+<a class="sourceLine" id="cb153-79" data-line-number="79">      .<span class="at">append</span>(<span class="st">&quot;circle&quot;</span>)</a>
+<a class="sourceLine" id="cb153-80" data-line-number="80">      .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="at">xScale</span>(<span class="va">d</span>.<span class="at">disp</span>))</a>
+<a class="sourceLine" id="cb153-81" data-line-number="81">      .<span class="at">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="at">yScale</span>(<span class="va">d</span>.<span class="at">mpg</span>))</a>
+<a class="sourceLine" id="cb153-82" data-line-number="82">      .<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;4&quot;</span>)</a>
+<a class="sourceLine" id="cb153-83" data-line-number="83">      .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">cylcolor</span>)</a>
+<a class="sourceLine" id="cb153-84" data-line-number="84">      .<span class="at">attr</span>(<span class="st">&quot;fill-opacity&quot;</span><span class="op">,</span> <span class="st">&quot;.5&quot;</span>)</a>
+<a class="sourceLine" id="cb153-85" data-line-number="85">      .<span class="at">on</span>(<span class="st">&quot;mouseover&quot;</span><span class="op">,</span> <span class="kw">function</span>(d) <span class="op">{</span> <span class="co">// IDVW2, p. 270</span></a>
+<a class="sourceLine" id="cb153-86" data-line-number="86">        <span class="kw">var</span> xPos <span class="op">=</span> <span class="op">+</span><span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span>) <span class="op">+</span> <span class="dv">10</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb153-87" data-line-number="87">        <span class="kw">var</span> yPos <span class="op">=</span> <span class="op">+</span><span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">attr</span>(<span class="st">&quot;cy&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb153-88" data-line-number="88">        <span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">style</span>(<span class="st">&quot;cursor&quot;</span><span class="op">,</span> <span class="st">&quot;pointer&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb153-89" data-line-number="89">        <span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</a>
+<a class="sourceLine" id="cb153-90" data-line-number="90">          .<span class="at">attr</span>(<span class="st">&quot;id&quot;</span><span class="op">,</span> <span class="st">&quot;tooltip&quot;</span>)</a>
+<a class="sourceLine" id="cb153-91" data-line-number="91">          .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> xPos)</a>
+<a class="sourceLine" id="cb153-92" data-line-number="92">          .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> yPos)</a>
+<a class="sourceLine" id="cb153-93" data-line-number="93">          .<span class="at">attr</span>(<span class="st">&quot;font-size&quot;</span><span class="op">,</span> <span class="st">&quot;11px&quot;</span>)</a>
+<a class="sourceLine" id="cb153-94" data-line-number="94">          .<span class="at">attr</span>(<span class="st">&quot;alignment-baseline&quot;</span><span class="op">,</span> <span class="st">&quot;middle&quot;</span>)</a>
+<a class="sourceLine" id="cb153-95" data-line-number="95">          .<span class="at">text</span>(<span class="va">d</span>.<span class="at">carname</span>)<span class="op">;</span> <span class="co">// not a function (already in one)</span></a>
+<a class="sourceLine" id="cb153-96" data-line-number="96">      <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb153-97" data-line-number="97">      .<span class="at">on</span>(<span class="st">&quot;mouseout&quot;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb153-98" data-line-number="98">        <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;#tooltip&quot;</span>).<span class="at">remove</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb153-99" data-line-number="99">      <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb153-100" data-line-number="100">      .<span class="at">transition</span>()</a>
+<a class="sourceLine" id="cb153-101" data-line-number="101">      .<span class="at">duration</span>(<span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb153-102" data-line-number="102">      .<span class="at">on</span>(<span class="st">&quot;end&quot;</span><span class="op">,</span> grow)<span class="op">;</span></a>
+<a class="sourceLine" id="cb153-103" data-line-number="103">  <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb153-104" data-line-number="104">  .<span class="at">catch</span>(<span class="kw">function</span>(error) <span class="op">{</span></a>
+<a class="sourceLine" id="cb153-105" data-line-number="105">    <span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</a>
+<a class="sourceLine" id="cb153-106" data-line-number="106">      .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> w/<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb153-107" data-line-number="107">      .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> h/<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb153-108" data-line-number="108">      .<span class="at">text</span>(<span class="st">&quot;Error loading data.&quot;</span>)<span class="op">;</span></a>
 <a class="sourceLine" id="cb153-109" data-line-number="109">  <span class="op">}</span>)<span class="op">;</span></a>
 <a class="sourceLine" id="cb153-110" data-line-number="110"></a>
 <a class="sourceLine" id="cb153-111" data-line-number="111"><span class="co">// grow() is based on: https://blockbuilder.org/nbremer/f749e822f33e422f2b5a7d541e5691cb</span></a>
-<a class="sourceLine" id="cb153-112" data-line-number="112"></a>
-<a class="sourceLine" id="cb153-113" data-line-number="113"><span class="kw">function</span> <span class="at">grow</span>() <span class="op">{</span></a>
-<a class="sourceLine" id="cb153-114" data-line-number="114">    <span class="co">//Let the fill opacity of each circle vary randomly</span></a>
-<a class="sourceLine" id="cb153-115" data-line-number="115">    <span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>)</a>
-<a class="sourceLine" id="cb153-116" data-line-number="116">        .<span class="at">transition</span>().<span class="at">duration</span>(<span class="dv">2000</span><span class="op">*</span><span class="va">Math</span>.<span class="at">random</span>())</a>
-<a class="sourceLine" id="cb153-117" data-line-number="117">        .<span class="at">attr</span>(<span class="st">&quot;fill-opacity&quot;</span><span class="op">,</span> <span class="fl">.25</span> <span class="op">+</span> <span class="fl">.75</span><span class="op">*</span><span class="va">Math</span>.<span class="at">random</span>())</a>
-<a class="sourceLine" id="cb153-118" data-line-number="118">        .<span class="at">on</span>(<span class="st">&quot;end&quot;</span><span class="op">,</span> grow)<span class="op">;</span></a>
-<a class="sourceLine" id="cb153-119" data-line-number="119"><span class="op">};</span></a></code></pre></div>
+<a class="sourceLine" id="cb153-112" data-line-number="112"><span class="kw">function</span> <span class="at">grow</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb153-113" data-line-number="113">  <span class="co">//Let the fill opacity of each circle vary randomly</span></a>
+<a class="sourceLine" id="cb153-114" data-line-number="114">  <span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>)</a>
+<a class="sourceLine" id="cb153-115" data-line-number="115">    .<span class="at">transition</span>().<span class="at">duration</span>(<span class="dv">2000</span> <span class="op">*</span> <span class="va">Math</span>.<span class="at">random</span>())</a>
+<a class="sourceLine" id="cb153-116" data-line-number="116">    .<span class="at">attr</span>(<span class="st">&quot;fill-opacity&quot;</span><span class="op">,</span> <span class="fl">.25</span> <span class="op">+</span> <span class="fl">.75</span> <span class="op">*</span> <span class="va">Math</span>.<span class="at">random</span>())</a>
+<a class="sourceLine" id="cb153-117" data-line-number="117">    .<span class="at">on</span>(<span class="st">&quot;end&quot;</span><span class="op">,</span> grow)<span class="op">;</span></a>
+<a class="sourceLine" id="cb153-118" data-line-number="118"><span class="op">};</span></a></code></pre></div>
 <script type="text/javascript">
 // width and height
 var w = 600;
@@ -494,117 +492,116 @@ var padding = 50;
 
 // create scale functions
 var xScale = d3.scaleLinear()
-                     .domain([0, 1])
-                     .range([padding, w - padding]);
+  .range([padding, w - padding]);
 
 var yScale = d3.scaleLinear()
-                     .domain([0, 1])
-                     .range([h - padding, padding]);
+  .range([h - padding, 0]);
 
 // define X axis
 var xAxis = d3.axisBottom()
-                  .scale(xScale)
-                  .ticks(5);
+  .scale(xScale)
+  .ticks(5);
 
 // define Y axis
 var yAxis = d3.axisLeft()
-                  .scale(yScale)
-                  .ticks(5);
+  .scale(yScale)
+  .ticks(5);
 
 // create SVG element
 var svg = d3.select("div#cars")
-            .append("svg")
-            .attr("width", w)
-            .attr("height", h);
+  .append("svg")
+  .attr("width", w)
+  .attr("height", h);
 
 // create text element
 svg.append("text")
   .attr("id", "nm")
-  .attr("x", 2*padding)
-  .attr("y", h - (2*padding));
+  .attr("x", 2 * padding)
+  .attr("y", h - (2 * padding));
 
 // create X axis
 svg.append("g")
-    .attr("id", "xaxis")
-    .attr("transform", "translate(0," + (h - padding) + ")")
-    .call(xAxis);
+  .attr("id", "xaxis")
+  .attr("transform", "translate(0," + (h - padding) + ")")
+  .call(xAxis);
 
 // create Y axis
 svg.append("g")
-    .attr("id", "yaxis")
-    .attr("transform", "translate(" + padding + ",0)")
-    .call(yAxis);
-    
+  .attr("id", "yaxis")
+  .attr("transform", "translate(" + padding + ",0)")
+  .call(yAxis);
+
 // create axis labels
 svg.append("text")
-  .attr("x", w - 2*padding)
-  .attr("y", h - padding)
-  .text("displacement");
-  
-svg.append("text")
-  .attr("x", padding / 2)
-  .attr("y", padding)
+  .attr("x", w / 2)
+  .attr("y", h - padding / 2 + 10)
   .attr("text-anchor", "middle")
+  .text("displacement");
+
+svg.append("text")
+  .attr("x", padding / 3)
+  .attr("y", h / 2)
+  .attr("transform", `rotate(-90, ${padding/3}, ${h/2})`)
   .text("mpg");
-  
-var rowConverter = function (d) {
+
+var rowConverter = function(d) {
   return {
     disp: +d.disp,
     mpg: +d.mpg,
     carname: d.carname,
     cylcolor: d.cylcolor
-    }
-};  
-  
+  }
+};
 d3.csv("data/mtcars.csv", rowConverter)
   .then(function(data) {
-  
-   xScale.domain([d3.min(data.map(d => d.disp)), d3.max(data.map(d => d.disp))]);
-   
-   d3.select("#xaxis").call(xAxis);
-
-   yScale.domain([d3.min(data.map(d => d.mpg)), d3.max(data.map(d => d.mpg))]);
-   
-   d3.select("#yaxis").call(yAxis);
+    xScale.domain([d3.min(data.map(d => d.disp)), d3.max(data.map(d => d.disp))]);
+    d3.select("#xaxis").call(xAxis);
+    yScale.domain([d3.min(data.map(d => d.mpg)), d3.max(data.map(d => d.mpg))]);
+    d3.select("#yaxis").call(yAxis);
 
     //Create circles
-  var allCircles = svg.selectAll("circle")
-     .data(data)
-     .enter()
-     .append("circle")
-     .attr("cx", d => xScale(d.disp))
-     .attr("cy", d => yScale(d.mpg))
-     .attr("r", "4")
-     .attr("fill", d => d.cylcolor)
-     .attr("fill-opacity", ".5")
-     .on("mouseover", function (d) {   // IDVW2, p. 270
-       var xPos = +d3.select(this).attr("cx") + 10;
-       var yPos = +d3.select(this).attr("cy");
-       d3.select(this).style("cursor", "pointer"); 
-       svg.append("text")
-         .attr("id", "tooltip")
-         .attr("x", xPos)
-         .attr("y", yPos)
-         .attr("font-size", "11px")
-         .attr("alignment-baseline", "middle")
-         .text(d.carname);  // not a function (already in one)
-     })
-     .on("mouseout", function () {
-       d3.select("#tooltip").remove();
-     })
-     .transition()
-     .duration(100)
-     .on("end", grow);
+    var allCircles = svg.selectAll("circle")
+      .data(data)
+      .enter()
+      .append("circle")
+      .attr("cx", d => xScale(d.disp))
+      .attr("cy", d => yScale(d.mpg))
+      .attr("r", "4")
+      .attr("fill", d => d.cylcolor)
+      .attr("fill-opacity", ".5")
+      .on("mouseover", function(d) { // IDVW2, p. 270
+        var xPos = +d3.select(this).attr("cx") + 10;
+        var yPos = +d3.select(this).attr("cy");
+        d3.select(this).style("cursor", "pointer");
+        svg.append("text")
+          .attr("id", "tooltip")
+          .attr("x", xPos)
+          .attr("y", yPos)
+          .attr("font-size", "11px")
+          .attr("alignment-baseline", "middle")
+          .text(d.carname); // not a function (already in one)
+      })
+      .on("mouseout", function() {
+        d3.select("#tooltip").remove();
+      })
+      .transition()
+      .duration(100)
+      .on("end", grow);
+  })
+  .catch(function(error) {
+    svg.append("text")
+      .attr("x", w/2)
+      .attr("y", h/2)
+      .text("Error loading data.");
   });
 
 // grow() is based on: https://blockbuilder.org/nbremer/f749e822f33e422f2b5a7d541e5691cb
-
 function grow() {
-    //Let the fill opacity of each circle vary randomly
-    d3.select(this)
-        .transition().duration(2000*Math.random())
-        .attr("fill-opacity", .25 + .75*Math.random())
-        .on("end", grow);
+  //Let the fill opacity of each circle vary randomly
+  d3.select(this)
+    .transition().duration(2000 * Math.random())
+    .attr("fill-opacity", .25 + .75 * Math.random())
+    .on("end", grow);
 };
 </script>
 
