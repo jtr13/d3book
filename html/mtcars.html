@@ -60,23 +60,15 @@ svg.append("g")
 	.call(yAxis);
 
 var rowConverter = function (d) {
-if (!isNaN(d.graduation_rate) && !isNaN(d.attendance_rate)) {
   return {grad: +d.graduation_rate,
     attend: +d.attendance_rate,
     name: d.school_name};
-  }
 };
 
-d3.csv("https://data.cityofnewyork.us/api/views/uq7m-95z8/rows.csv", rowConverter)
+d3.csv("html/mtcars.html")
   .then(function(data) {
-
-   yScale.domain([d3.min(data.map(d => d.grad)), d3.max(data.map(d => d.grad))]);
-   d3.select("#yaxis").call(yAxis);
-
-   xScale.domain([d3.min(data.map(d => d.attend).filter(d => d > 0)), d3.max(data.map(d => d.attend))]);
-   d3.select("#xaxis").call(xAxis);
-
-   console.log(xScale.domain())
+   console.log(data)
+  });
 
 	//Create circles
 var allCircles = svg.selectAll("circle")

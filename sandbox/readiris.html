@@ -18,11 +18,9 @@ var padding = 40;
 
 //Create scale functions
 var xScale = d3.scaleLinear()
-					 .domain([0, 1])
 					 .range([padding, w - padding / 2]);
 
 var yScale = d3.scaleLinear()
-					 .domain([0, 1])
 					 .range([h - padding, padding / 2]);
 
 //Define X axis
@@ -43,7 +41,7 @@ var svg = d3.select("div#reading-files")
 
 // create text element
 svg.append("text")
-  .attr("id", "nm")
+  .attr("id", "message")
   .attr("x", 2*padding)
   .attr("y", h - (2*padding));
 
@@ -59,39 +57,32 @@ svg.append("g")
 	.attr("transform", "translate(" + padding + ",0)")
 	.call(yAxis);
 
-var rowConverter = function (d) {
-if (!isNaN(d.graduation_rate) && !isNaN(d.attendance_rate)) {
-  return {grad: +d.graduation_rate,
-    attend: +d.attendance_rate,
-    name: d.school_name};
-  }
-};
+var rowConverter = d => ({
+      SepalLength: +d["Sepal.Length"],
+      SepalWidth: +d["Sepal.Width"]
+});
 
-d3.csv("https://data.cityofnewyork.us/api/views/uq7m-95z8/rows.csv", rowConverter)
+d3.csv("iris.csv", rowConverter)
   .then(function(data) {
 
-   yScale.domain([d3.min(data.map(d => d.grad)), d3.max(data.map(d => d.grad))]);
-   d3.select("#yaxis").call(yAxis);
-
-   xScale.domain([d3.min(data.map(d => d.attend).filter(d => d > 0)), d3.max(data.map(d => d.attend))]);
+   xScale.domain([d3.min(data.map(d => d.SepalLength)), d3.max(data.map(d => d.SepalLength))]);
    d3.select("#xaxis").call(xAxis);
 
-   console.log(xScale.domain())
+   yScale.domain([d3.min(data.map(d => d.SepalWidth)), d3.max(data.map(d => d.SepalWidth))]);
+   d3.select("#yaxis").call(yAxis);
 
 	//Create circles
 var allCircles = svg.selectAll("circle")
    .data(data)
    .enter()
    .append("circle")
-   .attr("cx", d => xScale(d.attend))
-   .attr("cy", d => yScale(d.grad))
-   .attr("r", 2.5)
-   .on("mouseover", function ()
-     { var school = d3.select(this).datum().name;
-     svg.select("text#nm").text(school)});
-   })
-.catch(function(error){
-   svg.select("text#nm").text("Error loading data.");
+   .attr("cx", d => xScale(d.SepalLength))
+   .attr("cy", d => yScale(d.SepalWidth))
+   .attr("r", "3")
+   .attr("fill", "blue")
+  })
+.catch(function(error)  {
+  svg.select("text#message").text("Error loading data.")
 });
 
 		</script>
