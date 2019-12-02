@@ -25,11 +25,6 @@ rmd_files: [
 # from: https://github.com/hadley/r4ds/blob/master/_bookdown.yml
 before_chapter_script: "_common.R"
 
-
-  # margins
-  # transitions
-  # interactivity
   # paths
   # layouts
-  # case study:
 

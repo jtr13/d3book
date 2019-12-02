@@ -1,4 +1,4 @@
-# Reading files 
+# Reading files <i class="fa fa-file-text-o"></i>
 
 As you've surely noticed by this point, many things in JavaScript operate on an *asynchronous* basis. Code is not executed linearly from beginning to end but rather in response to various triggers. For example, event listeners behave asynchronously: code will execute only if a mouse click event occurs.
 
@@ -94,11 +94,11 @@ copytodocs <- mtcars %>%
 write.csv(copytodocs, file="docs/data/mtcars.csv", row.names = FALSE)
 ```
 
-<div id="cars"></div>
-
 <center>
 <h4>mtcars</h4>
 </center>
+
+<div id="cars"></div>
 
 ```{js}
 // width and height
