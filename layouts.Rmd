@@ -1,0 +1,7 @@
+# Layouts <i class="fa fa-bar-chart"></i>
+
+*IDVW2*, Chapter 13 Layouts (`d3.stack()` only, pp. 264-270)
+
+## Lecture slides <i class="fa fa-television"></i>
+
+[layouts.pdf](pdfs/layouts.pdf){target="_blank"}

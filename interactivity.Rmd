@@ -1,6 +1,10 @@
 # Interactivity <i class="fas fa-mouse-pointer"></i>
 
-Read *IDVW2*, Chapter 10: Interactivity
+Read: *IDVW2*, Chapter 10 Interactivity
+
+## Lecture slides <i class="fa fa-television"></i>
+
+[interactivity.pdf](pdfs/interactivity.pdf){target="_blank"}
 
 ## Binding event listeners
 

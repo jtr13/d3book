@@ -1,5 +1,11 @@
 # Line charts <i class="fa fa-line-chart"></i>
 
+Read: *IDVW2*, Chapter 11 Using Paths
+
+## Lecture slides <i class="fa fa-television"></i>
+
+[line_charts.pdf](pdfs/line_charts.pdf){target="_blank"}
+
 ## SVG `<line>` element
 
 (Use for two points only.)
@@ -55,14 +61,14 @@ ex. [SVG-edit](https://svg-edit.github.io/svgedit/releases/svg-edit-2.8.1/svg-ed
 Save plots as SVG files:
 
 ``` r
-> svg("xsquared.svg")
-> plot(1:10, (1:10)^2, axes=F)
-> dev.off()
+svg("xsquared.svg")
+plot(1:10, (1:10)^2, axes=F)
+dev.off()
 
-> library(svglite)
-> svglite("xsquared2.svg")
-> plot(1:10, (1:10)^2, axes=F)
-> dev.off()
+library(svglite)
+svglite("xsquared2.svg")
+plot(1:10, (1:10)^2, axes=F)
+dev.off()
 ```
 
 Set graphics device to svg in code
@@ -100,20 +106,20 @@ Format that we need:
 Expects data in an array of 2-dimensional arrays, that is, an array of (x,y) pairs:
 
 ``` js
-> var dataset = [ [0, 60], [1, 43], [2, 43], [3, 56], [4, 45], [5, 62], [6, 49] ];
+var dataset = [ [0, 60], [1, 43], [2, 43], [3, 56], [4, 45], [5, 62], [6, 49] ];
 
-> var mylinegen = d3.line()
+var mylinegen = d3.line()
 ```
 Test it in the Console:
 
 ``` js
-> mylinegen(dataset);
+mylinegen(dataset);
 ```
 
 Add an ordinal scale for x:
 
 ``` js
-> var xScale = d3.scaleBand()
+var xScale = d3.scaleBand()
     .domain(d3.range(dataset.length))
     .range([0, 500])
 ```    
@@ -121,7 +127,7 @@ Add an ordinal scale for x:
 ... and a linear scale for y:
 
 ``` js    
-> var yScale = d3.scaleLinear()
+var yScale = d3.scaleLinear()
     .domain([d3.min(dataset, d => d[1]) - 20,
              d3.max(dataset, d => d[1]) + 20])
     .range([400, 0]);         
@@ -141,15 +147,15 @@ mylinegen
 Test again:
 
 ``` js
-> mylinegen(dataset);
+mylinegen(dataset);
 ```
 
 Now let's add a `<path>` element with that `d` attribute: (this step is just for learning purposes...)
 
 ``` js
-> var mypath = mylinegen(dataset);
+var mypath = mylinegen(dataset);
 
-> d3.select("svg").append("path").attr("d", mypath)
+d3.select("svg").append("path").attr("d", mypath)
     .attr("fill", "none").attr("stroke", "red")
     .attr("stroke-width", "5");
 ```
@@ -159,7 +165,7 @@ Now let's add a `<path>` element with that `d` attribute: (this step is just for
 Now let's do it the direct way: bind the *datum* and calculate the path in one step:
 
 ``` js
-> d3.select("svg").append("path")
+d3.select("svg").append("path")
     .datum(dataset)
     .attr("d", mylinegen)
     .attr("fill", "none")
