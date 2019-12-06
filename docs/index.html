@@ -387,10 +387,12 @@ Adapted from <a href="https://bl.ocks.org/mbostock/929623" target="_blank">Build
 <h3><span class="header-section-number">0.1.2</span> This book in the Console</h3>
 <p>If you’re not reading the <code>.pdf</code> version, you can open DevTools on this very page. This is very convenient because not only to you not have to leave this book to practice D3, you can copy code blocks and paste them in the Console. In addition to opening DevTools (see above), close the side bar by clicking on the <i class="fa fa-align-justify"></i> icon above to give yourself more screen space.</p>
 <p>Let’s try it out.</p>
+<div id="svg1">
 <svg id="demo" width="300" height="200">
 <rect x='0' y='0' width='300' height ='200' fill = 'lightblue'></rect>
 <text x='10' y='190' style = 'font-size: 80%;'>svg#demo</text>
 </svg>
+</div>
 <p>Scroll so that both the blue rectangle above and the code chunk below are visible on your screen. Toggle the sidebar, open the Console, and then move the mouse onto the code block so the <i class="fa fa-copy"></i> icon appears. Click on it to copy the code, paste it in the Console, and then press return.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg#demo&quot;</span>)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2">  .<span class="at">append</span>(<span class="st">&quot;circle&quot;</span>)</a>

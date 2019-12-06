@@ -110,12 +110,14 @@ If you're not reading the `.pdf` version, you can open DevTools on this very pag
 Let's try it out. 
 
 ```{r, echo=FALSE, eval=!HTML}
-webshot::webshot("https://jtr13.github.io/d3book/interactivity.html", selector = "#demo")
+webshot::webshot("https://jtr13.github.io/d3book/index.html#this-book-in-the-console", selector = "#svg1")
 ```
 
+<div id="svg1">
 ```{r, echo=FALSE, results='asis'}
 makesvg("demo")
 ```
+</div>
 
 Scroll so that both the blue rectangle above and the code chunk below are visible on your screen. Toggle the sidebar, open the Console, and then move the mouse onto the code block so the <i class="fa fa-copy"></i> icon appears. Click on it to copy the code, paste it in the Console, and then press return.
 

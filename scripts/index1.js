@@ -8,9 +8,14 @@
 var width = 750;
     height = 150;
 
+var startnodes = [];
+for (i = 0; i < 20; i++) {
+  startnodes[i] = {};
+};
+
 var force = d3.layout.force()
     .size([width, height])
-    .nodes([{}]) // initialize with a single node
+    .nodes(startnodes)
     .linkDistance(30)
     .charge(-60)
     .on("tick", tick);

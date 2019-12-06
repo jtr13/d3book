@@ -1,3 +1,6 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
 \documentclass[openany]{book}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
@@ -6,30 +9,31 @@
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
 \else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-  \else
-    \usepackage{fontspec}
-  \fi
+  \usepackage{unicode-math}
   \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 \fi
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
 \IfFileExists{microtype.sty}{%
-\usepackage{microtype}
+\usepackage[]{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
 \usepackage{hyperref}
-\hypersetup{unicode=true,
+\hypersetup{
             pdftitle={D3 for R Users},
             pdfauthor={Joyce Robbins},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
-\usepackage{natbib}
-\bibliographystyle{apalike}
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -71,11 +75,9 @@
 \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
-\usepackage{graphicx}
-% grffile has become a legacy package: https://ctan.org/pkg/grffile
-\IfFileExists{grffile.sty}{%
-\usepackage{grffile}
-}{}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
+\usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -84,12 +86,6 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -104,33 +100,40 @@
 \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
 
-%%% Use protect on footnotes to avoid problems with footnotes in titles
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\usepackage{booktabs}
+% https://github.com/rstudio/rmarkdown/issues/337
 \let\rmarkdownfootnote\footnote%
 \def\footnote{\protect\rmarkdownfootnote}
 
-%%% Change title format to be more compact
+% https://github.com/rstudio/rmarkdown/pull/252
 \usepackage{titling}
-
-% Create subtitle command for use in maketitle
-\providecommand{\subtitle}[1]{
-  \posttitle{
-    \begin{center}\large#1\end{center}
-    }
-}
-
 \setlength{\droptitle}{-2em}
 
-  \title{D3 for R Users}
-    \pretitle{\vspace{\droptitle}\centering\huge}
-  \posttitle{\par}
-    \author{Joyce Robbins}
-    \preauthor{\centering\large\emph}
-  \postauthor{\par}
-      \predate{\centering\large\emph}
-  \postdate{\par}
-    \date{2019-12-02}
+\pretitle{\vspace{\droptitle}\centering\huge}
+\posttitle{\par}
 
-\usepackage{booktabs}
+\preauthor{\centering\large\emph}
+\postauthor{\par}
+
+\predate{\centering\large\emph}
+\postdate{\par}
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+
+\title{D3 for R Users}
+\author{Joyce Robbins}
+\date{2019-12-05}
 
 \begin{document}
 \maketitle
@@ -139,26 +142,87 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\hypertarget{welcome}{%
-\chapter*{Welcome}\label{welcome}}
-\addcontentsline{toc}{chapter}{Welcome}
+\hypertarget{welcome-to-d3}{%
+\chapter*{Welcome to D3}\label{welcome-to-d3}}
+\addcontentsline{toc}{chapter}{Welcome to D3}
 
 \hypertarget{container}{}
 
-\includegraphics[width=5in]{images/networkgraph}
+\begin{center}\includegraphics[width=5in]{images/networkgraph} \end{center}
 
-This guide serves as a companion text to Scott Murray's \href{https://www.amazon.com/Interactive-Data-Visualization-Web-Introduction/dp/1491921285/}{\emph{Interactive Data Visualization for the Web, 2nd edition}}--a required text for GR5702. Be sure to get the second edition, which is a comprehensive update to D3 version 4. The first edition uses D3 version 3, which is not compatible. (To add to the complication, the current version of D3 is v5. However, since differences between v4 and v5 are minimal, unless otherwise indicated in this guide, the code in \emph{IDVW2} will work with either.)
+This guide serves as a companion text to Scott Murray's \href{https://www.amazon.com/Interactive-Data-Visualization-Web-Introduction/dp/1491921285/}{\emph{Interactive Data Visualization for the Web, 2nd edition}}--henceforth \emph{IDVW2}--a required text for GR5702. Be sure to get the second edition, which is a comprehensive update to D3 version 4. The first edition uses D3 version 3, which is not compatible. (The current version of D3 is actually v5. However, since differences between v4 and v5 are minimal, unless otherwise indicated in this guide, the code in \emph{IDVW2} will work with either.)
 
 We rely on the text heavily but also deviate from it in several ways. \emph{IDVW2} is written for graphics designers not data science students so the pain points are somewhat different.
 
-In terms of content, we will use certain ES6 conventions not covered in \emph{IDVW2} that make coding easier (and more like R!). We use different examples, though you are strongly encouraged to study \href{https://github.com/alignedleft/d3-book/releases}{Murray's code examples} in addition to reading the text. Particularly through the first half, we don't follow the text in order, so always refer to this guide first which will direct you to the pages of the text that you should read.
+D3 is a JavaScript library, not a standalone language, so any time we refer to D3 we really mean D3/JavaScript, though it is not necessary to know JavaScript well before beginning; we will learn as we go. Most of the JavaScript we use is covered in \emph{IDVW2}, though we also use some newer JavaScript options from ES5 and ES6, such as \texttt{.map()}, \texttt{.filter()}, arrow functions and template literals, that make coding easier (and more like R!)\footnote{Ok, they're not actually that new, but it takes a while for new JavaScript to catch on, mainly due to concern with maintaining compatibility with older browsers. Since D3 itself is not compatible with very old browsers, and since we can't focus on everything at once, we are not going to concern ourselves with browser compatibility. If you are interested in this, \href{https://caniuse.com}{caniuse.com} is very helpful for looking up what works where.} We use different examples, though you are strongly encouraged to study \href{https://github.com/alignedleft/d3-book/releases}{Murray's code examples} in addition to reading the text. Particularly through the first half, we don't follow the text in order, so always refer to this guide first which will direct you to the pages of the text that you should read.
 
 This is very much a work-in-progress so please \href{https://github.com/jtr13/d3book/issues}{submit issues} on GitHub to provide feedback and edit or add text by submitting pull requests. (Click the icon at the top of each page to get started. More \href{https://edav.info/contribute.html\#step-2-click-the-edit-button}{detailed instructions} are available on edav.info. If you would just like to view the source code, click the icon.)
+
+\hypertarget{workflow}{%
+\section{Workflow}\label{workflow}}
+
+A big hurdle to learning a new language is just getting setup. Often authors forget to mention what your programming environment should look like, what should be open on the screen. I will try not to do that and be as clear as possible so you know where you should be entering the code in the pages that follow. This task is somewhat complicated by the fact that we will be using a variety of workflow options. This section will serve as a reference guide; future sections will link back here as appropriate.
+
+All of our workflows require Google Chrome, so if you don't have it already, \href{https://www.google.com/chrome/}{download and install it}.
+
+\hypertarget{javascript-console}{%
+\subsection{JavaScript Console}\label{javascript-console}}
+
+With this workflow we will open a web page--either online or local--in Chrome and \href{https://developers.google.com/web/tools/chrome-devtools/console/javascript}{run JavaScript in the Console}. To view the Console, open Chrome DevTools by clicking \emph{View, Developer, JavaScript Console} if you have a menu bar in Chrome, using a keyboard shortcut (Mac: option+command+j; Windows, Linux, Chrome OS: control+shift+J), or employing another one of the \href{https://developers.google.com/web/tools/chrome-devtools/open}{many options} for doing so. The Console is one piece of a suite of tools available in the browser.
+
+With the DevTools open, your screen will look like this:
+
+\begin{center}\includegraphics[width=14.79in]{images/console} \end{center}
+
+The next chapter, \href{jump.html}{Jump in the deep end}, employs this workflow.
+
+\hypertarget{this-book-in-the-console}{%
+\subsection{This book in the Console}\label{this-book-in-the-console}}
+
+If you're not reading the \texttt{.pdf} version, you can open DevTools on this very page. This is very convenient because not only to you not have to leave this book to practice D3, you can copy code blocks and paste them in the Console. In addition to opening DevTools (see above), close the side bar by clicking on the icon above to give yourself more screen space.
+
+Let's try it out.
+
+\begin{center}\includegraphics{d3book_files/figure-latex/unnamed-chunk-6-1} \end{center}
+
+svg\#demo
+
+Scroll so that both the blue rectangle above and the code chunk below are visible on your screen. Toggle the sidebar, open the Console, and then move the mouse onto the code block so the icon appears. Click on it to copy the code, paste it in the Console, and then press return.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg#demo"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{append}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,} \StringTok{"-25"}\NormalTok{)              }
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cy"}\OperatorTok{,} \StringTok{"100"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"r"}\OperatorTok{,} \StringTok{"20"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"red"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{transition}\NormalTok{()}
+\NormalTok{  .}\AttributeTok{duration}\NormalTok{(}\DecValTok{3000}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,} \StringTok{"325"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{remove}\NormalTok{()}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+Pretty neat.
+
+\hypertarget{text-editor}{%
+\subsection{Text editor}\label{text-editor}}
+
+This is a very basic local setup in which the same \texttt{.html} is open both in a text editor (if you don't want to stray too far from home, use RStudio) and in a web browser (we will use Chrome), each on one half of your screen. The workflow is: make changes to the file in the text editor, save the changes and then refresh the page in the browser to see the updates. Keyboard shortcuts for saving and refreshing (on the Mac, command-s and command-r respectively) are very helpful.
+
+Let's try an example:
+
+Download a copy of \texttt{shapes.html} by opening \href{https://raw.githubusercontent.com/jtr13/d3book/master/code/shapes.html}{this page} and clicking \emph{File, Save Page As\ldots{}} Open the file in a text editor of your choice on one half of your screen. On the other half of your screen open the same file in Chrome. As you make changes to the \texttt{.html} file, save the file and then refresh the browser to see the effects.
+
+Your screen should look like this:
+
+\begin{center}\includegraphics[width=0.8\linewidth]{images/editor_chrome} \end{center}
 
 \hypertarget{jump}{%
 \chapter{Jump in the deep end }\label{jump}}
 
-Let's skip the explanations and start coding in D3 right now. Why? So you can see the benefits and know what you're working toward when you get stuck in the weeds. Then we'll go back and start learning step by step.
+Let's skip the explanations and start coding in D3 right now. Why? So you can see the benefits and know what you're working toward when you get stuck in the weeds. Then we'll go back and start learning step by step. In this chapter we will work in the JavaScript Console (\href{index.html\#javascript-console}{help}).
 
 \hypertarget{get-ready}{%
 \section{Get ready }\label{get-ready}}
@@ -166,9 +230,9 @@ Let's skip the explanations and start coding in D3 right now. Why? So you can se
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  If you don't have it already, download the \href{https://www.google.com/chrome/}{Chrome browser}.
+  If you don't have it, \href{https://www.google.com/chrome/}{install the Chrome browser}.
 \item
-  Download a copy of \texttt{shapes.html}: open the following page and then click \emph{File, Save Page As\ldots{}}: \href{https://raw.githubusercontent.com/jtr13/d3book/master/code/shapes.html}{\texttt{shapes.html}}. (Or download a zip of the whole repo. Clicking \href{https://github.com/jtr13/d3book/archive/master.zip}{here} will start the download. Or fork and clone the \href{https://github.com/jtr13/d3book}{repo}).
+  Download a copy of \texttt{shapes.html} by opening the following page and then saving with \emph{File, Save Page As\ldots{}}: \href{https://raw.githubusercontent.com/jtr13/d3book/master/code/shapes.html}{\texttt{shapes.html}}. (Or download a zip of the whole repo. Clicking \href{https://github.com/jtr13/d3book/archive/master.zip}{here} will start the download. Or fork and clone the \href{https://github.com/jtr13/d3book}{repo}).
 \item
   If Chrome is your default browser, open \texttt{shapes.html} by double clicking it. Otherwise, open it with \emph{File, Open File\ldots{}} in Chrome.
 \end{enumerate}
@@ -179,7 +243,7 @@ Let's skip the explanations and start coding in D3 right now. Why? So you can se
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  In Chrome, click \emph{View, Developer, Developer Tools,} then the Elements tab.
+  Open Chrome DevTools (\href{index.html\#javascript-console}{help}).
 \item
   Hover the mouse over various elements in the \texttt{\textless{}body\textgreater{}\ ...\ \textless{}/body\textgreater{}} section. Observe the highlighted sections in the rendered web page on the left of the screen. Click on the mini black triangles to the left of the \texttt{\textless{}body\textgreater{}} and \texttt{\textless{}svg\textgreater{}} tags if needed to open these sections of the DOM tree. Your screen should look like this:
 \end{enumerate}
@@ -495,7 +559,7 @@ Rendered:
 
 `
 
-\includegraphics[width=0.5\linewidth]{images/shapessvg}
+\begin{center}\includegraphics[width=0.5\linewidth]{images/shapessvg} \end{center}
 
 There are very few SVG tags that you'll need to know, and once we get going with D3, you will not have to code any SVG manually. It is worth doing a little to become familiar with the format and in particular to get used to the new location of the origin.
 
@@ -572,11 +636,7 @@ Of note:
 \hypertarget{exercise-shapes}{%
 \section{Exercise : shapes}\label{exercise-shapes}}
 
-Download a fresh copy of \texttt{shapes.html}. (Reminder: open the following page and then click \emph{File, Save Page As\ldots{}}: \href{https://raw.githubusercontent.com/jtr13/d3book/master/code/shapes.html}{\texttt{shapes.html}}). Open the file in a text editor of your choice on one half of your screen. If you don't want to think about it, just use RStudio since it's already installed and provides syntax highlighting for \texttt{.html}. On the other half of your screen open the same file in Chrome. Developer Tools should not be open; we will not be using the Console. As you make changes to the \texttt{.html} file, save the file and then refresh the browser to see the effects. Keyboard shortcuts to save and refresh are helpful here.
-
-Your screen should look like this:
-
-\begin{center}\includegraphics[width=0.8\linewidth]{images/editor_chrome} \end{center}
+Download a copy of \texttt{shapes.html} by opening \href{https://raw.githubusercontent.com/jtr13/d3book/master/code/shapes.html}{this page} and clicking \emph{File, Save Page As\ldots{}} Set yourself up to work locally in a text editor \href{index.html\#text-editor}{help}. (Developer Tools should not be open; we will not be using the Console.)
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1082,7 +1142,7 @@ Download and open a fresh copy of \href{https://raw.githubusercontent.com/jtr13/
 \hypertarget{update-enter-and-exit}{%
 \chapter{Update, Enter, and Exit }\label{update-enter-and-exit}}
 
-\emph{IDVW2}, Chapter 9, pp.~178-184; Chapter 12, pp.~231-249
+Read: \emph{IDVW2}, Chapter 9, pp.~178-184; Chapter 12, pp.~231-249
 
 \hypertarget{lecture-slides}{%
 \section{Lecture slides }\label{lecture-slides}}
@@ -1240,7 +1300,7 @@ What do you need to do to act on \emph{all} of the circles?
 
 We'll start with nothing--not even an SVG--and add elements with the data / enter / append sequence.
 
-Open Developer Tools and copy and paste the code below in the Console. (Click above to close the table of contents on the left so you'll have more screen space.)
+Work in the Console on this page (\href{index.html\#this-book-console}{help}).
 
 The SVG will be added here:
 
@@ -2176,12 +2236,17 @@ Practice changing the data and seeing what happens.
 \hypertarget{interactivity}{%
 \chapter{Interactivity }\label{interactivity}}
 
-Read \emph{IDVW2}, Chapter 10: Interactivity
+Read: \emph{IDVW2}, Chapter 10 Interactivity
+
+\hypertarget{lecture-slides-4}{%
+\section{Lecture slides }\label{lecture-slides-4}}
+
+\href{pdfs/interactivity.pdf}{interactivity.pdf}
 
 \hypertarget{binding-event-listeners}{%
 \section{Binding event listeners}\label{binding-event-listeners}}
 
-\includegraphics{d3book_files/figure-latex/unnamed-chunk-28-1.png}
+\begin{center}\includegraphics{d3book_files/figure-latex/unnamed-chunk-31-1} \end{center}
 
 Open Developer Tools and try this code in the Console:
 
@@ -2325,7 +2390,7 @@ Here the circle click behavior depends on the value of the radio button: if the 
 
 A global variable is used to keep track of the radio button value. The event listener on the circle conditions the behavior on the value of this global variable.
 
-\includegraphics{d3book_files/figure-latex/unnamed-chunk-30-1.png}
+\begin{center}\includegraphics{d3book_files/figure-latex/unnamed-chunk-33-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2358,7 +2423,7 @@ A global variable is used to keep track of the radio button value. The event lis
 
 In this example, the event listeners on the squares are turned on or off depending on the value of the radio button. Event listeners can be removed by setting the behavior to \texttt{null}.
 
-\includegraphics{d3book_files/figure-latex/unnamed-chunk-33-1.png}
+\begin{center}\includegraphics{d3book_files/figure-latex/unnamed-chunk-36-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2840,9 +2905,8 @@ A few reputable block authors, in terms of quality of D3 code, are:
 \hypertarget{example-2}{%
 \section{Example}\label{example-2}}
 
-mtcars
-
 \hypertarget{cars}{}
+mtcars
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2853,120 +2917,495 @@ mtcars
 
 \CommentTok{// create scale functions}
 \KeywordTok{var}\NormalTok{ xScale }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{scaleLinear}\NormalTok{()}
-\NormalTok{                     .}\AttributeTok{domain}\NormalTok{([}\DecValTok{0}\OperatorTok{,} \DecValTok{1}\NormalTok{])}
-\NormalTok{                     .}\AttributeTok{range}\NormalTok{([padding}\OperatorTok{,}\NormalTok{ w }\OperatorTok{-}\NormalTok{ padding])}\OperatorTok{;}
+\NormalTok{  .}\AttributeTok{range}\NormalTok{([padding}\OperatorTok{,}\NormalTok{ w }\OperatorTok{-}\NormalTok{ padding])}\OperatorTok{;}
 
 \KeywordTok{var}\NormalTok{ yScale }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{scaleLinear}\NormalTok{()}
-\NormalTok{                     .}\AttributeTok{domain}\NormalTok{([}\DecValTok{0}\OperatorTok{,} \DecValTok{1}\NormalTok{])}
-\NormalTok{                     .}\AttributeTok{range}\NormalTok{([h }\OperatorTok{-}\NormalTok{ padding}\OperatorTok{,}\NormalTok{ padding])}\OperatorTok{;}
+\NormalTok{  .}\AttributeTok{range}\NormalTok{([h }\OperatorTok{-}\NormalTok{ padding}\OperatorTok{,} \DecValTok{0}\NormalTok{])}\OperatorTok{;}
 
 \CommentTok{// define X axis}
 \KeywordTok{var}\NormalTok{ xAxis }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{axisBottom}\NormalTok{()}
-\NormalTok{                  .}\AttributeTok{scale}\NormalTok{(xScale)}
-\NormalTok{                  .}\AttributeTok{ticks}\NormalTok{(}\DecValTok{5}\NormalTok{)}\OperatorTok{;}
+\NormalTok{  .}\AttributeTok{scale}\NormalTok{(xScale)}
+\NormalTok{  .}\AttributeTok{ticks}\NormalTok{(}\DecValTok{5}\NormalTok{)}\OperatorTok{;}
 
 \CommentTok{// define Y axis}
 \KeywordTok{var}\NormalTok{ yAxis }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{axisLeft}\NormalTok{()}
-\NormalTok{                  .}\AttributeTok{scale}\NormalTok{(yScale)}
-\NormalTok{                  .}\AttributeTok{ticks}\NormalTok{(}\DecValTok{5}\NormalTok{)}\OperatorTok{;}
+\NormalTok{  .}\AttributeTok{scale}\NormalTok{(yScale)}
+\NormalTok{  .}\AttributeTok{ticks}\NormalTok{(}\DecValTok{5}\NormalTok{)}\OperatorTok{;}
 
 \CommentTok{// create SVG element}
 \KeywordTok{var}\NormalTok{ svg }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"div#cars"}\NormalTok{)}
-\NormalTok{            .}\AttributeTok{append}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}
-\NormalTok{            .}\AttributeTok{attr}\NormalTok{(}\StringTok{"width"}\OperatorTok{,}\NormalTok{ w)}
-\NormalTok{            .}\AttributeTok{attr}\NormalTok{(}\StringTok{"height"}\OperatorTok{,}\NormalTok{ h)}\OperatorTok{;}
+\NormalTok{  .}\AttributeTok{append}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"width"}\OperatorTok{,}\NormalTok{ w)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"height"}\OperatorTok{,}\NormalTok{ h)}\OperatorTok{;}
 
 \CommentTok{// create text element}
 \VariableTok{svg}\NormalTok{.}\AttributeTok{append}\NormalTok{(}\StringTok{"text"}\NormalTok{)}
 \NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"id"}\OperatorTok{,} \StringTok{"nm"}\NormalTok{)}
-\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"x"}\OperatorTok{,} \DecValTok{2}\OperatorTok{*}\NormalTok{padding)}
-\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"y"}\OperatorTok{,}\NormalTok{ h }\OperatorTok{-}\NormalTok{ (}\DecValTok{2}\OperatorTok{*}\NormalTok{padding))}\OperatorTok{;}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"x"}\OperatorTok{,} \DecValTok{2} \OperatorTok{*}\NormalTok{ padding)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"y"}\OperatorTok{,}\NormalTok{ h }\OperatorTok{-}\NormalTok{ (}\DecValTok{2} \OperatorTok{*}\NormalTok{ padding))}\OperatorTok{;}
 
 \CommentTok{// create X axis}
 \VariableTok{svg}\NormalTok{.}\AttributeTok{append}\NormalTok{(}\StringTok{"g"}\NormalTok{)}
-\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"id"}\OperatorTok{,} \StringTok{"xaxis"}\NormalTok{)}
-\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"transform"}\OperatorTok{,} \StringTok{"translate(0,"} \OperatorTok{+}\NormalTok{ (h }\OperatorTok{-}\NormalTok{ padding) }\OperatorTok{+} \StringTok{")"}\NormalTok{)}
-\NormalTok{    .}\AttributeTok{call}\NormalTok{(xAxis)}\OperatorTok{;}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"id"}\OperatorTok{,} \StringTok{"xaxis"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"transform"}\OperatorTok{,} \StringTok{"translate(0,"} \OperatorTok{+}\NormalTok{ (h }\OperatorTok{-}\NormalTok{ padding) }\OperatorTok{+} \StringTok{")"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{call}\NormalTok{(xAxis)}\OperatorTok{;}
 
 \CommentTok{// create Y axis}
 \VariableTok{svg}\NormalTok{.}\AttributeTok{append}\NormalTok{(}\StringTok{"g"}\NormalTok{)}
-\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"id"}\OperatorTok{,} \StringTok{"yaxis"}\NormalTok{)}
-\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"transform"}\OperatorTok{,} \StringTok{"translate("} \OperatorTok{+}\NormalTok{ padding }\OperatorTok{+} \StringTok{",0)"}\NormalTok{)}
-\NormalTok{    .}\AttributeTok{call}\NormalTok{(yAxis)}\OperatorTok{;}
-    
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"id"}\OperatorTok{,} \StringTok{"yaxis"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"transform"}\OperatorTok{,} \StringTok{"translate("} \OperatorTok{+}\NormalTok{ padding }\OperatorTok{+} \StringTok{",0)"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{call}\NormalTok{(yAxis)}\OperatorTok{;}
+
 \CommentTok{// create axis labels}
 \VariableTok{svg}\NormalTok{.}\AttributeTok{append}\NormalTok{(}\StringTok{"text"}\NormalTok{)}
-\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"x"}\OperatorTok{,}\NormalTok{ w }\OperatorTok{-} \DecValTok{2}\OperatorTok{*}\NormalTok{padding)}
-\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"y"}\OperatorTok{,}\NormalTok{ h }\OperatorTok{-}\NormalTok{ padding)}
-\NormalTok{  .}\AttributeTok{text}\NormalTok{(}\StringTok{"displacement"}\NormalTok{)}\OperatorTok{;}
-  
-\VariableTok{svg}\NormalTok{.}\AttributeTok{append}\NormalTok{(}\StringTok{"text"}\NormalTok{)}
-\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"x"}\OperatorTok{,}\NormalTok{ padding / }\DecValTok{2}\NormalTok{)}
-\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"y"}\OperatorTok{,}\NormalTok{ padding)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"x"}\OperatorTok{,}\NormalTok{ w / }\DecValTok{2}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"y"}\OperatorTok{,}\NormalTok{ h }\OperatorTok{-}\NormalTok{ padding / }\DecValTok{2} \OperatorTok{+} \DecValTok{10}\NormalTok{)}
 \NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"text-anchor"}\OperatorTok{,} \StringTok{"middle"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{text}\NormalTok{(}\StringTok{"displacement"}\NormalTok{)}\OperatorTok{;}
+
+\VariableTok{svg}\NormalTok{.}\AttributeTok{append}\NormalTok{(}\StringTok{"text"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"x"}\OperatorTok{,}\NormalTok{ padding / }\DecValTok{3}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"y"}\OperatorTok{,}\NormalTok{ h / }\DecValTok{2}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"transform"}\OperatorTok{,} \VerbatimStringTok{`rotate(-90, }\SpecialCharTok{$\{}\NormalTok{padding/}\DecValTok{3}\SpecialCharTok{\}}\VerbatimStringTok{, }\SpecialCharTok{$\{}\NormalTok{h/}\DecValTok{2}\SpecialCharTok{\}}\VerbatimStringTok{)`}\NormalTok{)}
 \NormalTok{  .}\AttributeTok{text}\NormalTok{(}\StringTok{"mpg"}\NormalTok{)}\OperatorTok{;}
-  
-\KeywordTok{var}\NormalTok{ rowConverter }\OperatorTok{=} \KeywordTok{function}\NormalTok{ (d) }\OperatorTok{\{}
+
+\KeywordTok{var}\NormalTok{ rowConverter }\OperatorTok{=} \KeywordTok{function}\NormalTok{(d) }\OperatorTok{\{}
   \ControlFlowTok{return} \OperatorTok{\{}
     \DataTypeTok{disp}\OperatorTok{:} \OperatorTok{+}\VariableTok{d}\NormalTok{.}\AttributeTok{disp}\OperatorTok{,}
     \DataTypeTok{mpg}\OperatorTok{:} \OperatorTok{+}\VariableTok{d}\NormalTok{.}\AttributeTok{mpg}\OperatorTok{,}
     \DataTypeTok{carname}\OperatorTok{:} \VariableTok{d}\NormalTok{.}\AttributeTok{carname}\OperatorTok{,}
     \DataTypeTok{cylcolor}\OperatorTok{:} \VariableTok{d}\NormalTok{.}\AttributeTok{cylcolor}
-    \OperatorTok{\}}
-\OperatorTok{\};}  
-  
+  \OperatorTok{\}}
+\OperatorTok{\};}
 \VariableTok{d3}\NormalTok{.}\AttributeTok{csv}\NormalTok{(}\StringTok{"data/mtcars.csv"}\OperatorTok{,}\NormalTok{ rowConverter)}
 \NormalTok{  .}\AttributeTok{then}\NormalTok{(}\KeywordTok{function}\NormalTok{(data) }\OperatorTok{\{}
-  
-   \VariableTok{xScale}\NormalTok{.}\AttributeTok{domain}\NormalTok{([}\VariableTok{d3}\NormalTok{.}\AttributeTok{min}\NormalTok{(}\VariableTok{data}\NormalTok{.}\AttributeTok{map}\NormalTok{(d }\OperatorTok{=>} \VariableTok{d}\NormalTok{.}\AttributeTok{disp}\NormalTok{))}\OperatorTok{,} \VariableTok{d3}\NormalTok{.}\AttributeTok{max}\NormalTok{(}\VariableTok{data}\NormalTok{.}\AttributeTok{map}\NormalTok{(d }\OperatorTok{=>} \VariableTok{d}\NormalTok{.}\AttributeTok{disp}\NormalTok{))])}\OperatorTok{;}
-   
-   \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"#xaxis"}\NormalTok{).}\AttributeTok{call}\NormalTok{(xAxis)}\OperatorTok{;}
-
-   \VariableTok{yScale}\NormalTok{.}\AttributeTok{domain}\NormalTok{([}\VariableTok{d3}\NormalTok{.}\AttributeTok{min}\NormalTok{(}\VariableTok{data}\NormalTok{.}\AttributeTok{map}\NormalTok{(d }\OperatorTok{=>} \VariableTok{d}\NormalTok{.}\AttributeTok{mpg}\NormalTok{))}\OperatorTok{,} \VariableTok{d3}\NormalTok{.}\AttributeTok{max}\NormalTok{(}\VariableTok{data}\NormalTok{.}\AttributeTok{map}\NormalTok{(d }\OperatorTok{=>} \VariableTok{d}\NormalTok{.}\AttributeTok{mpg}\NormalTok{))])}\OperatorTok{;}
-   
-   \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"#yaxis"}\NormalTok{).}\AttributeTok{call}\NormalTok{(yAxis)}\OperatorTok{;}
+    \VariableTok{xScale}\NormalTok{.}\AttributeTok{domain}\NormalTok{([}\VariableTok{d3}\NormalTok{.}\AttributeTok{min}\NormalTok{(}\VariableTok{data}\NormalTok{.}\AttributeTok{map}\NormalTok{(d }\OperatorTok{=>} \VariableTok{d}\NormalTok{.}\AttributeTok{disp}\NormalTok{))}\OperatorTok{,} \VariableTok{d3}\NormalTok{.}\AttributeTok{max}\NormalTok{(}\VariableTok{data}\NormalTok{.}\AttributeTok{map}\NormalTok{(d }\OperatorTok{=>} \VariableTok{d}\NormalTok{.}\AttributeTok{disp}\NormalTok{))])}\OperatorTok{;}
+    \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"#xaxis"}\NormalTok{).}\AttributeTok{call}\NormalTok{(xAxis)}\OperatorTok{;}
+    \VariableTok{yScale}\NormalTok{.}\AttributeTok{domain}\NormalTok{([}\VariableTok{d3}\NormalTok{.}\AttributeTok{min}\NormalTok{(}\VariableTok{data}\NormalTok{.}\AttributeTok{map}\NormalTok{(d }\OperatorTok{=>} \VariableTok{d}\NormalTok{.}\AttributeTok{mpg}\NormalTok{))}\OperatorTok{,} \VariableTok{d3}\NormalTok{.}\AttributeTok{max}\NormalTok{(}\VariableTok{data}\NormalTok{.}\AttributeTok{map}\NormalTok{(d }\OperatorTok{=>} \VariableTok{d}\NormalTok{.}\AttributeTok{mpg}\NormalTok{))])}\OperatorTok{;}
+    \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"#yaxis"}\NormalTok{).}\AttributeTok{call}\NormalTok{(yAxis)}\OperatorTok{;}
 
     \CommentTok{//Create circles}
-  \KeywordTok{var}\NormalTok{ allCircles }\OperatorTok{=} \VariableTok{svg}\NormalTok{.}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
-\NormalTok{     .}\AttributeTok{data}\NormalTok{(data)}
-\NormalTok{     .}\AttributeTok{enter}\NormalTok{()}
-\NormalTok{     .}\AttributeTok{append}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
-\NormalTok{     .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>} \AttributeTok{xScale}\NormalTok{(}\VariableTok{d}\NormalTok{.}\AttributeTok{disp}\NormalTok{))}
-\NormalTok{     .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cy"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>} \AttributeTok{yScale}\NormalTok{(}\VariableTok{d}\NormalTok{.}\AttributeTok{mpg}\NormalTok{))}
-\NormalTok{     .}\AttributeTok{attr}\NormalTok{(}\StringTok{"r"}\OperatorTok{,} \StringTok{"4"}\NormalTok{)}
-\NormalTok{     .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>} \VariableTok{d}\NormalTok{.}\AttributeTok{cylcolor}\NormalTok{)}
-\NormalTok{     .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill-opacity"}\OperatorTok{,} \StringTok{".5"}\NormalTok{)}
-\NormalTok{     .}\AttributeTok{on}\NormalTok{(}\StringTok{"mouseover"}\OperatorTok{,} \KeywordTok{function}\NormalTok{ (d) }\OperatorTok{\{}   \CommentTok{// IDVW2, p. 270}
-       \KeywordTok{var}\NormalTok{ xPos }\OperatorTok{=} \OperatorTok{+}\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\NormalTok{) }\OperatorTok{+} \DecValTok{10}\OperatorTok{;}
-       \KeywordTok{var}\NormalTok{ yPos }\OperatorTok{=} \OperatorTok{+}\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"cy"}\NormalTok{)}\OperatorTok{;}
-       \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{).}\AttributeTok{style}\NormalTok{(}\StringTok{"cursor"}\OperatorTok{,} \StringTok{"pointer"}\NormalTok{)}\OperatorTok{;} 
-       \VariableTok{svg}\NormalTok{.}\AttributeTok{append}\NormalTok{(}\StringTok{"text"}\NormalTok{)}
-\NormalTok{         .}\AttributeTok{attr}\NormalTok{(}\StringTok{"id"}\OperatorTok{,} \StringTok{"tooltip"}\NormalTok{)}
-\NormalTok{         .}\AttributeTok{attr}\NormalTok{(}\StringTok{"x"}\OperatorTok{,}\NormalTok{ xPos)}
-\NormalTok{         .}\AttributeTok{attr}\NormalTok{(}\StringTok{"y"}\OperatorTok{,}\NormalTok{ yPos)}
-\NormalTok{         .}\AttributeTok{attr}\NormalTok{(}\StringTok{"font-size"}\OperatorTok{,} \StringTok{"11px"}\NormalTok{)}
-\NormalTok{         .}\AttributeTok{attr}\NormalTok{(}\StringTok{"alignment-baseline"}\OperatorTok{,} \StringTok{"middle"}\NormalTok{)}
-\NormalTok{         .}\AttributeTok{text}\NormalTok{(}\VariableTok{d}\NormalTok{.}\AttributeTok{carname}\NormalTok{)}\OperatorTok{;}  \CommentTok{// not a function (already in one)}
-     \OperatorTok{\}}\NormalTok{)}
-\NormalTok{     .}\AttributeTok{on}\NormalTok{(}\StringTok{"mouseout"}\OperatorTok{,} \KeywordTok{function}\NormalTok{ () }\OperatorTok{\{}
-       \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"#tooltip"}\NormalTok{).}\AttributeTok{remove}\NormalTok{()}\OperatorTok{;}
-     \OperatorTok{\}}\NormalTok{)}
-\NormalTok{     .}\AttributeTok{transition}\NormalTok{()}
-\NormalTok{     .}\AttributeTok{duration}\NormalTok{(}\DecValTok{100}\NormalTok{)}
-\NormalTok{     .}\AttributeTok{on}\NormalTok{(}\StringTok{"end"}\OperatorTok{,}\NormalTok{ grow)}\OperatorTok{;}
+    \KeywordTok{var}\NormalTok{ allCircles }\OperatorTok{=} \VariableTok{svg}\NormalTok{.}\AttributeTok{selectAll}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{data}\NormalTok{(data)}
+\NormalTok{      .}\AttributeTok{enter}\NormalTok{()}
+\NormalTok{      .}\AttributeTok{append}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>} \AttributeTok{xScale}\NormalTok{(}\VariableTok{d}\NormalTok{.}\AttributeTok{disp}\NormalTok{))}
+\NormalTok{      .}\AttributeTok{attr}\NormalTok{(}\StringTok{"cy"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>} \AttributeTok{yScale}\NormalTok{(}\VariableTok{d}\NormalTok{.}\AttributeTok{mpg}\NormalTok{))}
+\NormalTok{      .}\AttributeTok{attr}\NormalTok{(}\StringTok{"r"}\OperatorTok{,} \StringTok{"4"}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>} \VariableTok{d}\NormalTok{.}\AttributeTok{cylcolor}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill-opacity"}\OperatorTok{,} \StringTok{".5"}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{on}\NormalTok{(}\StringTok{"mouseover"}\OperatorTok{,} \KeywordTok{function}\NormalTok{(d) }\OperatorTok{\{} \CommentTok{// IDVW2, p. 270}
+        \KeywordTok{var}\NormalTok{ xPos }\OperatorTok{=} \OperatorTok{+}\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"cx"}\NormalTok{) }\OperatorTok{+} \DecValTok{10}\OperatorTok{;}
+        \KeywordTok{var}\NormalTok{ yPos }\OperatorTok{=} \OperatorTok{+}\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"cy"}\NormalTok{)}\OperatorTok{;}
+        \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{).}\AttributeTok{style}\NormalTok{(}\StringTok{"cursor"}\OperatorTok{,} \StringTok{"pointer"}\NormalTok{)}\OperatorTok{;}
+        \VariableTok{svg}\NormalTok{.}\AttributeTok{append}\NormalTok{(}\StringTok{"text"}\NormalTok{)}
+\NormalTok{          .}\AttributeTok{attr}\NormalTok{(}\StringTok{"id"}\OperatorTok{,} \StringTok{"tooltip"}\NormalTok{)}
+\NormalTok{          .}\AttributeTok{attr}\NormalTok{(}\StringTok{"x"}\OperatorTok{,}\NormalTok{ xPos)}
+\NormalTok{          .}\AttributeTok{attr}\NormalTok{(}\StringTok{"y"}\OperatorTok{,}\NormalTok{ yPos)}
+\NormalTok{          .}\AttributeTok{attr}\NormalTok{(}\StringTok{"font-size"}\OperatorTok{,} \StringTok{"11px"}\NormalTok{)}
+\NormalTok{          .}\AttributeTok{attr}\NormalTok{(}\StringTok{"alignment-baseline"}\OperatorTok{,} \StringTok{"middle"}\NormalTok{)}
+\NormalTok{          .}\AttributeTok{text}\NormalTok{(}\VariableTok{d}\NormalTok{.}\AttributeTok{carname}\NormalTok{)}\OperatorTok{;} \CommentTok{// not a function (already in one)}
+      \OperatorTok{\}}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{on}\NormalTok{(}\StringTok{"mouseout"}\OperatorTok{,} \KeywordTok{function}\NormalTok{() }\OperatorTok{\{}
+        \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"#tooltip"}\NormalTok{).}\AttributeTok{remove}\NormalTok{()}\OperatorTok{;}
+      \OperatorTok{\}}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{transition}\NormalTok{()}
+\NormalTok{      .}\AttributeTok{duration}\NormalTok{(}\DecValTok{100}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{on}\NormalTok{(}\StringTok{"end"}\OperatorTok{,}\NormalTok{ grow)}\OperatorTok{;}
+  \OperatorTok{\}}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{catch}\NormalTok{(}\KeywordTok{function}\NormalTok{(error) }\OperatorTok{\{}
+    \VariableTok{svg}\NormalTok{.}\AttributeTok{append}\NormalTok{(}\StringTok{"text"}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{attr}\NormalTok{(}\StringTok{"x"}\OperatorTok{,}\NormalTok{ w/}\DecValTok{2}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{attr}\NormalTok{(}\StringTok{"y"}\OperatorTok{,}\NormalTok{ h/}\DecValTok{2}\NormalTok{)}
+\NormalTok{      .}\AttributeTok{text}\NormalTok{(}\StringTok{"Error loading data."}\NormalTok{)}\OperatorTok{;}
   \OperatorTok{\}}\NormalTok{)}\OperatorTok{;}
 
 \CommentTok{// grow() is based on: https://blockbuilder.org/nbremer/f749e822f33e422f2b5a7d541e5691cb}
-
 \KeywordTok{function} \AttributeTok{grow}\NormalTok{() }\OperatorTok{\{}
-    \CommentTok{//Let the fill opacity of each circle vary randomly}
-    \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{)}
-\NormalTok{        .}\AttributeTok{transition}\NormalTok{().}\AttributeTok{duration}\NormalTok{(}\DecValTok{2000}\OperatorTok{*}\VariableTok{Math}\NormalTok{.}\AttributeTok{random}\NormalTok{())}
-\NormalTok{        .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill-opacity"}\OperatorTok{,} \FloatTok{.25} \OperatorTok{+} \FloatTok{.75}\OperatorTok{*}\VariableTok{Math}\NormalTok{.}\AttributeTok{random}\NormalTok{())}
-\NormalTok{        .}\AttributeTok{on}\NormalTok{(}\StringTok{"end"}\OperatorTok{,}\NormalTok{ grow)}\OperatorTok{;}
+  \CommentTok{//Let the fill opacity of each circle vary randomly}
+  \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{transition}\NormalTok{().}\AttributeTok{duration}\NormalTok{(}\DecValTok{2000} \OperatorTok{*} \VariableTok{Math}\NormalTok{.}\AttributeTok{random}\NormalTok{())}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill-opacity"}\OperatorTok{,} \FloatTok{.25} \OperatorTok{+} \FloatTok{.75} \OperatorTok{*} \VariableTok{Math}\NormalTok{.}\AttributeTok{random}\NormalTok{())}
+\NormalTok{    .}\AttributeTok{on}\NormalTok{(}\StringTok{"end"}\OperatorTok{,}\NormalTok{ grow)}\OperatorTok{;}
 \OperatorTok{\};}
 \end{Highlighting}
 \end{Shaded}
+
+\hypertarget{d3-in-projects}{%
+\chapter{D3 in projects }\label{d3-in-projects}}
+
+\hypertarget{lecture-slides-5}{%
+\section{Lecture slides }\label{lecture-slides-5}}
+
+\href{pdfs/D3_final_project.pdf}{D3\_final\_project}
+
+\hypertarget{line-charts}{%
+\chapter{Line charts }\label{line-charts}}
+
+Read: \emph{IDVW2}, Chapter 11 Using Paths
+
+\hypertarget{lecture-slides-6}{%
+\section{Lecture slides }\label{lecture-slides-6}}
+
+\href{pdfs/line_charts.pdf}{line\_charts.pdf}
+
+\hypertarget{svg-line-element}{%
+\section{\texorpdfstring{SVG \texttt{\textless{}line\textgreater{}} element}{SVG \textless{}line\textgreater{} element}}\label{svg-line-element}}
+
+(Use for two points only.)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{<line}\OtherTok{ x1=}\StringTok{"0"}\OtherTok{ y1=}\StringTok{"80"}\OtherTok{ x2=}\StringTok{"100"}\OtherTok{ y2=}\StringTok{"20"}\OtherTok{ stroke=}\StringTok{"black"} \KeywordTok{/>}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{ x1 }\OperatorTok{=} \DecValTok{0}\OperatorTok{;}
+\KeywordTok{var}\NormalTok{ y1 }\OperatorTok{=} \DecValTok{80}\OperatorTok{;}
+\KeywordTok{var}\NormalTok{ x2 }\OperatorTok{=} \DecValTok{100}\OperatorTok{;}
+\KeywordTok{var}\NormalTok{ y2 }\OperatorTok{=} \DecValTok{20}\OperatorTok{;}
+
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{append}\NormalTok{(}\StringTok{"line"}\NormalTok{)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"x1"}\OperatorTok{,}\NormalTok{ x1)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"x2"}\OperatorTok{,}\NormalTok{ x2)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"y1"}\OperatorTok{,}\NormalTok{ y1)}
+\NormalTok{  .}\AttributeTok{attr}\NormalTok{(}\StringTok{"y2"}\OperatorTok{,}\NormalTok{ y2)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{svg-path-element}{%
+\section{\texorpdfstring{SVG \texttt{\textless{}path\textgreater{}} element}{SVG \textless{}path\textgreater{} element}}\label{svg-path-element}}
+
+(Use if you have more than two points.)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{<svg}\OtherTok{ width} \OtherTok{=} \StringTok{"500"}\OtherTok{ height} \OtherTok{=} \StringTok{"400"}\KeywordTok{>}
+  \KeywordTok{<path}\OtherTok{ d=}\StringTok{"M 50 400 L 100 300 L 150 300 L 200 33 L 250 175}
+\StringTok{     L 300 275 L 350 250 L 400 125"}\OtherTok{ fill=}\StringTok{"none"}
+\OtherTok{      stroke=}\StringTok{"red"}\OtherTok{ stroke-width=}\StringTok{"5"}\KeywordTok{>}
+  \KeywordTok{</path>}
+\KeywordTok{</svg>}
+\end{Highlighting}
+\end{Shaded}
+
+\texttt{d} attribute:
+
+M = move to
+
+L = line to
+
+More options: \url{https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d}
+
+\hypertarget{svg-editors}{%
+\section{SVG editors}\label{svg-editors}}
+
+(a digression)
+
+ex. \href{https://svg-edit.github.io/svgedit/releases/svg-edit-2.8.1/svg-editor.html}{SVG-edit}
+
+\hypertarget{save-plots-as-svg-files-in-r}{%
+\subsection*{Save plots as SVG files in R}\label{save-plots-as-svg-files-in-r}}
+\addcontentsline{toc}{subsection}{Save plots as SVG files in R}
+
+Save plots as SVG files:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{svg}\NormalTok{(}\StringTok{"xsquared.svg"}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{, (}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{)}\OperatorTok{^}\DecValTok{2}\NormalTok{, }\DataTypeTok{axes=}\NormalTok{F)}
+\KeywordTok{dev.off}\NormalTok{()}
+
+\KeywordTok{library}\NormalTok{(svglite)}
+\KeywordTok{svglite}\NormalTok{(}\StringTok{"xsquared2.svg"}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{, (}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{)}\OperatorTok{^}\DecValTok{2}\NormalTok{, }\DataTypeTok{axes=}\NormalTok{F)}
+\KeywordTok{dev.off}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+Set graphics device to svg in code
+chunk options:
+
+\texttt{\{r\ dev="svglite"\}}
+
+\hypertarget{back-to-line-charts}{%
+\section{Back to line charts}\label{back-to-line-charts}}
+
+Format that we have:
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+Day & High Temp\tabularnewline
+\midrule
+\endhead
+April 1 & 60\tabularnewline
+April 2 & 43\tabularnewline
+April 3 & 43\tabularnewline
+April 4 & 56\tabularnewline
+April 5 & 45\tabularnewline
+April 6 & 62\tabularnewline
+April 7 & 49\tabularnewline
+\bottomrule
+\end{longtable}
+
+Format that we need:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{<path}\OtherTok{ class=}\StringTok{"line"}\OtherTok{ fill=}\StringTok{"none"}\OtherTok{ d=}\StringTok{"M0,116.66666666666669C27.777777777777786,155.5131766381766,55.55555555555557, 194.35968660968655,83.33333333333333,215.83333333333331C111.11111111111109,237.30698005698008,138.88888888888889,}
+\StringTok{241.40776353276354,166.66666666666666,215.83333333333331C194.44444444444443,190.2589031339031,222.22222222222223,}
+\StringTok{135.00925925925924,250,140C277.77777777777777,144.99074074074076,305.55555555555554,210.22186609686608,333.3333333333333,}
+\StringTok{204.16666666666666C361.1111111111111,198.11146723646723,388.8888888888889,120.76994301994304,416.6666666666667,}
+\StringTok{105.00000000000003C444.44444444444446,89.23005698005701,472.22222222222223,135.03169515669518,500,180.83333333333334"}\KeywordTok{></path>}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{step-1-create-a-line-generator}{%
+\subsection{Step 1: Create a line generator}\label{step-1-create-a-line-generator}}
+
+Expects data in an array of 2-dimensional arrays, that is, an array of (x,y) pairs:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{ dataset }\OperatorTok{=}\NormalTok{ [ [}\DecValTok{0}\OperatorTok{,} \DecValTok{60}\NormalTok{]}\OperatorTok{,}\NormalTok{ [}\DecValTok{1}\OperatorTok{,} \DecValTok{43}\NormalTok{]}\OperatorTok{,}\NormalTok{ [}\DecValTok{2}\OperatorTok{,} \DecValTok{43}\NormalTok{]}\OperatorTok{,}\NormalTok{ [}\DecValTok{3}\OperatorTok{,} \DecValTok{56}\NormalTok{]}\OperatorTok{,}\NormalTok{ [}\DecValTok{4}\OperatorTok{,} \DecValTok{45}\NormalTok{]}\OperatorTok{,}\NormalTok{ [}\DecValTok{5}\OperatorTok{,} \DecValTok{62}\NormalTok{]}\OperatorTok{,}\NormalTok{ [}\DecValTok{6}\OperatorTok{,} \DecValTok{49}\NormalTok{] ]}\OperatorTok{;}
+
+\KeywordTok{var}\NormalTok{ mylinegen }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{line}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+Test it in the Console:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\AttributeTok{mylinegen}\NormalTok{(dataset)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+Add an ordinal scale for x:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{ xScale }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{scaleBand}\NormalTok{()}
+\NormalTok{    .}\AttributeTok{domain}\NormalTok{(}\VariableTok{d3}\NormalTok{.}\AttributeTok{range}\NormalTok{(}\VariableTok{dataset}\NormalTok{.}\AttributeTok{length}\NormalTok{))}
+\NormalTok{    .}\AttributeTok{range}\NormalTok{([}\DecValTok{0}\OperatorTok{,} \DecValTok{500}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\ldots{} and a linear scale for y:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{ yScale }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{scaleLinear}\NormalTok{()}
+\NormalTok{    .}\AttributeTok{domain}\NormalTok{([}\VariableTok{d3}\NormalTok{.}\AttributeTok{min}\NormalTok{(dataset}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>}\NormalTok{ d[}\DecValTok{1}\NormalTok{]) }\OperatorTok{-} \DecValTok{20}\OperatorTok{,}
+             \VariableTok{d3}\NormalTok{.}\AttributeTok{max}\NormalTok{(dataset}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>}\NormalTok{ d[}\DecValTok{1}\NormalTok{]) }\OperatorTok{+} \DecValTok{20}\NormalTok{])}
+\NormalTok{    .}\AttributeTok{range}\NormalTok{([}\DecValTok{400}\OperatorTok{,} \DecValTok{0}\NormalTok{])}\OperatorTok{;}         
+\end{Highlighting}
+\end{Shaded}
+
+*Why \texttt{d{[}1{]}} instead of \texttt{d}? (See p.~122)
+
+Add accessor functions \texttt{.x()} and \texttt{.y()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mylinegen}
+\NormalTok{    .}\AttributeTok{x}\NormalTok{(d }\OperatorTok{=>} \AttributeTok{xScale}\NormalTok{(d[}\DecValTok{0}\NormalTok{]))}
+\NormalTok{    .}\AttributeTok{y}\NormalTok{(d }\OperatorTok{=>} \AttributeTok{yScale}\NormalTok{(d[}\DecValTok{1}\NormalTok{]))}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+Test again:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\AttributeTok{mylinegen}\NormalTok{(dataset)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+Now let's add a \texttt{\textless{}path\textgreater{}} element with that \texttt{d} attribute: (this step is just for learning purposes\ldots{})
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var}\NormalTok{ mypath }\OperatorTok{=} \AttributeTok{mylinegen}\NormalTok{(dataset)}\OperatorTok{;}
+
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{).}\AttributeTok{append}\NormalTok{(}\StringTok{"path"}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"d"}\OperatorTok{,}\NormalTok{ mypath)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"none"}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"stroke"}\OperatorTok{,} \StringTok{"red"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"stroke-width"}\OperatorTok{,} \StringTok{"5"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{step-2-put-the-line-generator-to-work}{%
+\subsection{Step 2: Put the line generator to work}\label{step-2-put-the-line-generator-to-work}}
+
+Now let's do it the direct way: bind the \emph{datum} and calculate the path in one step:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{).}\AttributeTok{append}\NormalTok{(}\StringTok{"path"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{datum}\NormalTok{(dataset)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"d"}\OperatorTok{,}\NormalTok{ mylinegen)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"none"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"stroke"}\OperatorTok{,} \StringTok{"teal"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"stroke-width"}\OperatorTok{,} \StringTok{"5"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+Finally, we'll add a class and style definitions:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{<style>}
+  \FunctionTok{.linestyle}\NormalTok{ \{}
+\NormalTok{    fill: }\DecValTok{none}\NormalTok{;}
+\NormalTok{    stroke: }\DecValTok{teal}\NormalTok{;}
+\NormalTok{    stroke-width: }\DecValTok{5px}\NormalTok{;}
+\NormalTok{  \}}
+\KeywordTok{</style>}
+\end{Highlighting}
+\end{Shaded}
+
+The \texttt{append("path")} line becomes:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{svg}\NormalTok{.}\AttributeTok{append}\NormalTok{(}\StringTok{"path"}\NormalTok{)}
+\NormalTok{    .}\AttributeTok{datum}\NormalTok{(dataset)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"d"}\OperatorTok{,}\NormalTok{ mylinegen)}
+\NormalTok{    .}\AttributeTok{attr}\NormalTok{(}\StringTok{"class"}\OperatorTok{,} \StringTok{"linestyle"}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+Putting it all together, we have:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{<!DOCTYPE }\NormalTok{html}\DataTypeTok{>}
+\KeywordTok{<html}\OtherTok{ lang=}\StringTok{"en"}\KeywordTok{>}
+  \KeywordTok{<head>}
+    \KeywordTok{<meta}\OtherTok{ charset=}\StringTok{"utf-8"}\KeywordTok{>}
+    \KeywordTok{<title>}\NormalTok{Line generator}\KeywordTok{</title>}
+    \KeywordTok{<script}\OtherTok{ src=}\StringTok{"https://d3js.org/d3.v5.min.js"}\KeywordTok{></script>}
+    \KeywordTok{<style}\OtherTok{ type} \OtherTok{=}\StringTok{"text/css"}\KeywordTok{>}
+      \FunctionTok{.linestyle}\NormalTok{ \{}
+\NormalTok{        fill: }\DecValTok{none}\NormalTok{;}
+\NormalTok{        stroke: }\DecValTok{teal}\NormalTok{;}
+\NormalTok{        stroke-width: }\DecValTok{5px}\NormalTok{;}
+\NormalTok{      \}}
+    \KeywordTok{</style>}
+  \KeywordTok{</head>}
+  \KeywordTok{<body>}
+    \KeywordTok{<script>}
+      \KeywordTok{var}\NormalTok{ w }\OperatorTok{=} \DecValTok{500}\OperatorTok{;}
+      \KeywordTok{var}\NormalTok{ h }\OperatorTok{=} \DecValTok{400}\OperatorTok{;}
+      \KeywordTok{var}\NormalTok{ svg }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"body"}\NormalTok{).}\AttributeTok{append}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}
+\NormalTok{          .}\AttributeTok{attr}\NormalTok{(}\StringTok{"width"}\OperatorTok{,}\NormalTok{ w).}\AttributeTok{attr}\NormalTok{(}\StringTok{"height"}\OperatorTok{,}\NormalTok{ h)}\OperatorTok{;}
+      \KeywordTok{var}\NormalTok{ dataset }\OperatorTok{=}\NormalTok{ [ [}\DecValTok{0}\OperatorTok{,} \DecValTok{60}\NormalTok{]}\OperatorTok{,}\NormalTok{ [}\DecValTok{1}\OperatorTok{,} \DecValTok{43}\NormalTok{]}\OperatorTok{,}\NormalTok{ [}\DecValTok{2}\OperatorTok{,} \DecValTok{43}\NormalTok{]}\OperatorTok{,}\NormalTok{ [}\DecValTok{3}\OperatorTok{,} \DecValTok{56}\NormalTok{]}\OperatorTok{,}
+\NormalTok{          [}\DecValTok{4}\OperatorTok{,} \DecValTok{45}\NormalTok{]}\OperatorTok{,}\NormalTok{ [}\DecValTok{5}\OperatorTok{,} \DecValTok{62}\NormalTok{]}\OperatorTok{,}\NormalTok{ [}\DecValTok{6}\OperatorTok{,} \DecValTok{49}\NormalTok{] ]}\OperatorTok{;}
+      \KeywordTok{var}\NormalTok{ xScale }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{scaleBand}\NormalTok{()}
+\NormalTok{        .}\AttributeTok{domain}\NormalTok{(}\VariableTok{d3}\NormalTok{.}\AttributeTok{range}\NormalTok{(}\VariableTok{dataset}\NormalTok{.}\AttributeTok{length}\NormalTok{))}
+\NormalTok{        .}\AttributeTok{range}\NormalTok{([}\DecValTok{0}\OperatorTok{,}\NormalTok{ w])}\OperatorTok{;}
+      \KeywordTok{var}\NormalTok{ yScale }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{scaleLinear}\NormalTok{()}
+\NormalTok{        .}\AttributeTok{domain}\NormalTok{([}\VariableTok{d3}\NormalTok{.}\AttributeTok{min}\NormalTok{(dataset}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>}\NormalTok{ d[}\DecValTok{1}\NormalTok{]) }\OperatorTok{-} \DecValTok{20}\OperatorTok{,}
+                 \VariableTok{d3}\NormalTok{.}\AttributeTok{max}\NormalTok{(dataset}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>}\NormalTok{ d[}\DecValTok{1}\NormalTok{]) }\OperatorTok{+} \DecValTok{20}\NormalTok{])}
+\NormalTok{        .}\AttributeTok{range}\NormalTok{([h}\OperatorTok{,} \DecValTok{0}\NormalTok{])}\OperatorTok{;}
+      \KeywordTok{var}\NormalTok{ mylinegen }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{line}\NormalTok{()}
+\NormalTok{        .}\AttributeTok{x}\NormalTok{(d }\OperatorTok{=>} \AttributeTok{xScale}\NormalTok{(d[}\DecValTok{0}\NormalTok{]))}
+\NormalTok{        .}\AttributeTok{y}\NormalTok{(d }\OperatorTok{=>} \AttributeTok{yScale}\NormalTok{(d[}\DecValTok{1}\NormalTok{]))}\OperatorTok{;}
+      \VariableTok{svg}\NormalTok{.}\AttributeTok{append}\NormalTok{(}\StringTok{"path"}\NormalTok{)}
+\NormalTok{         .}\AttributeTok{datum}\NormalTok{(dataset)}
+\NormalTok{         .}\AttributeTok{attr}\NormalTok{(}\StringTok{"d"}\OperatorTok{,}\NormalTok{ mylinegen)}
+\NormalTok{         .}\AttributeTok{attr}\NormalTok{(}\StringTok{"class"}\OperatorTok{,} \StringTok{"linestyle"}\NormalTok{)}\OperatorTok{;}
+    \KeywordTok{</script>}
+
+  \KeywordTok{</body>}
+\KeywordTok{</html>}
+\end{Highlighting}
+\end{Shaded}
+
+And another example with axes:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DataTypeTok{<!DOCTYPE }\NormalTok{html}\DataTypeTok{>}
+\KeywordTok{<html}\OtherTok{ lang=}\StringTok{"en"}\KeywordTok{>}
+    \KeywordTok{<head>}
+        \KeywordTok{<meta}\OtherTok{ charset=}\StringTok{"utf-8"}\KeywordTok{>}
+        \KeywordTok{<title></title>}
+        \KeywordTok{<script}\OtherTok{ src=}\StringTok{"https://d3js.org/d3.v4.min.js"}\KeywordTok{></script>}
+        \KeywordTok{<style}\OtherTok{ type} \OtherTok{=}\StringTok{"text/css"}\KeywordTok{>}
+      \FunctionTok{.line}\NormalTok{ \{}
+\NormalTok{        fill: }\DecValTok{none}\NormalTok{;}
+\NormalTok{        stroke: }\DecValTok{red}\NormalTok{;}
+\NormalTok{        stroke-width: }\DecValTok{1.5px}\NormalTok{;}
+\NormalTok{      \}}
+        \KeywordTok{</style>}
+    \KeywordTok{</head>}
+    \KeywordTok{<body>}
+    \KeywordTok{<svg}\OtherTok{ width=}\StringTok{"600"}\OtherTok{ height=}\StringTok{"400"}\KeywordTok{></svg>}
+    \KeywordTok{<script>}
+      \KeywordTok{var}\NormalTok{ svg }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}
+      \KeywordTok{var}\NormalTok{ margin }\OperatorTok{=} \OperatorTok{\{}\DataTypeTok{top}\OperatorTok{:} \DecValTok{20}\OperatorTok{,} \DataTypeTok{right}\OperatorTok{:} \DecValTok{50}\OperatorTok{,} \DataTypeTok{bottom}\OperatorTok{:} \DecValTok{30}\OperatorTok{,} \DataTypeTok{left}\OperatorTok{:} \DecValTok{50}\OperatorTok{\}}
+      \KeywordTok{var}\NormalTok{ width }\OperatorTok{=}  \OperatorTok{+}\VariableTok{svg}\NormalTok{.}\AttributeTok{attr}\NormalTok{(}\StringTok{"width"}\NormalTok{) }\OperatorTok{-} \VariableTok{margin}\NormalTok{.}\AttributeTok{left} \OperatorTok{-} \VariableTok{margin}\NormalTok{.}\AttributeTok{right}
+      \KeywordTok{var}\NormalTok{ height }\OperatorTok{=} \OperatorTok{+}\VariableTok{svg}\NormalTok{.}\AttributeTok{attr}\NormalTok{(}\StringTok{"height"}\NormalTok{) }\OperatorTok{-} \VariableTok{margin}\NormalTok{.}\AttributeTok{top} \OperatorTok{-} \VariableTok{margin}\NormalTok{.}\AttributeTok{bottom}
+      \KeywordTok{var}\NormalTok{ g }\OperatorTok{=} \VariableTok{svg}\NormalTok{.}\AttributeTok{append}\NormalTok{(}\StringTok{"g"}\NormalTok{).}\AttributeTok{attr}\NormalTok{(}\StringTok{"transform"}\OperatorTok{,} \VerbatimStringTok{`translate(}\SpecialCharTok{$\{}\VariableTok{margin}\NormalTok{.}\AttributeTok{left}\SpecialCharTok{\}}\VerbatimStringTok{, }\SpecialCharTok{$\{}\VariableTok{margin}\NormalTok{.}\AttributeTok{top}\SpecialCharTok{\}}\VerbatimStringTok{)`}\NormalTok{)}\OperatorTok{;}
+      \KeywordTok{var}\NormalTok{ parseTime }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{timeParse}\NormalTok{(}\StringTok{"%d-%b-%y"}\NormalTok{)}\OperatorTok{;}
+      \KeywordTok{var}\NormalTok{ xScale }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{scaleTime}\NormalTok{().}\AttributeTok{range}\NormalTok{([}\DecValTok{0}\OperatorTok{,}\NormalTok{ width])}\OperatorTok{;}
+      \KeywordTok{var}\NormalTok{ yScale }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{scaleLinear}\NormalTok{()}
+\NormalTok{        .}\AttributeTok{domain}\NormalTok{([}\DecValTok{20}\OperatorTok{,} \DecValTok{80}\NormalTok{])}
+\NormalTok{        .}\AttributeTok{range}\NormalTok{([height}\OperatorTok{,} \DecValTok{0}\NormalTok{])}\OperatorTok{;}
+      \KeywordTok{var}\NormalTok{ line }\OperatorTok{=} \VariableTok{d3}\NormalTok{.}\AttributeTok{line}\NormalTok{()}
+\NormalTok{        .}\AttributeTok{x}\NormalTok{(d }\OperatorTok{=>} \AttributeTok{xScale}\NormalTok{(}\VariableTok{d}\NormalTok{.}\AttributeTok{date}\NormalTok{))}
+\NormalTok{        .}\AttributeTok{y}\NormalTok{(d }\OperatorTok{=>} \AttributeTok{yScale}\NormalTok{(}\VariableTok{d}\NormalTok{.}\AttributeTok{high}\NormalTok{))}\OperatorTok{;}
+      \KeywordTok{var}\NormalTok{ data }\OperatorTok{=} 
+\NormalTok{      [}\OperatorTok{\{}\StringTok{"date"}\OperatorTok{:}\StringTok{"1-Apr-18"}\OperatorTok{,}\StringTok{"high"}\OperatorTok{:}\DecValTok{60}\OperatorTok{\},}
+      \OperatorTok{\{}\StringTok{"date"}\OperatorTok{:}\StringTok{"2-Apr-18"}\OperatorTok{,}\StringTok{"high"}\OperatorTok{:}\DecValTok{43}\OperatorTok{\},}
+      \OperatorTok{\{}\StringTok{"date"}\OperatorTok{:}\StringTok{"3-Apr-18"}\OperatorTok{,}\StringTok{"high"}\OperatorTok{:}\DecValTok{43}\OperatorTok{\},}
+      \OperatorTok{\{}\StringTok{"date"}\OperatorTok{:}\StringTok{"4-Apr-18"}\OperatorTok{,}\StringTok{"high"}\OperatorTok{:}\DecValTok{56}\OperatorTok{\},}
+      \OperatorTok{\{}\StringTok{"date"}\OperatorTok{:}\StringTok{"5-Apr-18"}\OperatorTok{,}\StringTok{"high"}\OperatorTok{:}\DecValTok{45}\OperatorTok{\},}
+      \OperatorTok{\{}\StringTok{"date"}\OperatorTok{:}\StringTok{"6-Apr-18"}\OperatorTok{,}\StringTok{"high"}\OperatorTok{:}\DecValTok{62}\OperatorTok{\},}
+      \OperatorTok{\{}\StringTok{"date"}\OperatorTok{:}\StringTok{"7-Apr-18"}\OperatorTok{,}\StringTok{"high"}\OperatorTok{:}\DecValTok{49}\OperatorTok{\}}\NormalTok{]}\OperatorTok{;}
+      \VariableTok{data}\NormalTok{.}\AttributeTok{forEach}\NormalTok{(}\KeywordTok{function}\NormalTok{(d) }\OperatorTok{\{}
+            \VariableTok{d}\NormalTok{.}\AttributeTok{date} \OperatorTok{=} \AttributeTok{parseTime}\NormalTok{(}\VariableTok{d}\NormalTok{.}\AttributeTok{date}\NormalTok{)}\OperatorTok{;}
+      \OperatorTok{\}}\NormalTok{)}\OperatorTok{;}
+     
+\NormalTok{      xScale}
+\NormalTok{        .}\AttributeTok{domain}\NormalTok{(}\VariableTok{d3}\NormalTok{.}\AttributeTok{extent}\NormalTok{(data}\OperatorTok{,}\NormalTok{ d }\OperatorTok{=>} \VariableTok{d}\NormalTok{.}\AttributeTok{date}\NormalTok{))}\OperatorTok{;}
+        
+      \VariableTok{g}\NormalTok{.}\AttributeTok{append}\NormalTok{(}\StringTok{"g"}\NormalTok{)}
+\NormalTok{          .}\AttributeTok{attr}\NormalTok{(}\StringTok{"transform"}\OperatorTok{,} \VerbatimStringTok{`translate(0, }\SpecialCharTok{$\{}\NormalTok{height}\SpecialCharTok{\}}\VerbatimStringTok{)`}\NormalTok{)}
+\NormalTok{          .}\AttributeTok{call}\NormalTok{(}\VariableTok{d3}\NormalTok{.}\AttributeTok{axisBottom}\NormalTok{(xScale).}\AttributeTok{ticks}\NormalTok{(}\DecValTok{7}\NormalTok{))}\OperatorTok{;}
+      \VariableTok{g}\NormalTok{.}\AttributeTok{append}\NormalTok{(}\StringTok{"g"}\NormalTok{)}
+\NormalTok{          .}\AttributeTok{call}\NormalTok{(}\VariableTok{d3}\NormalTok{.}\AttributeTok{axisLeft}\NormalTok{(yScale))}
+      \VariableTok{g}\NormalTok{.}\AttributeTok{append}\NormalTok{(}\StringTok{"path"}\NormalTok{)}
+\NormalTok{          .}\AttributeTok{datum}\NormalTok{(data)}
+\NormalTok{          .}\AttributeTok{attr}\NormalTok{(}\StringTok{"class"}\OperatorTok{,} \StringTok{"line"}\NormalTok{)}
+\NormalTok{          .}\AttributeTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,} \StringTok{"none"}\NormalTok{)}
+\NormalTok{          .}\AttributeTok{attr}\NormalTok{(}\StringTok{"d"}\OperatorTok{,}\NormalTok{ line)}\OperatorTok{;}
+    \KeywordTok{</script>}
+    \KeywordTok{</body>}
+\KeywordTok{</html>}
+\end{Highlighting}
+\end{Shaded}
+
+(Also uses: \texttt{d3.timeParse()} and JavaScript \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach}{\texttt{Array.foreach()}} )
+
+\hypertarget{additional-resources}{%
+\section{Additional Resources}\label{additional-resources}}
+
+\href{https://medium.com/@ecb2198/multiple-time-series-in-d3-5562b981236c}{Multiple Time Series in D3} by Eric Boxer (EDAV 2018)
+
+\hypertarget{layouts}{%
+\chapter{Layouts }\label{layouts}}
+
+\emph{IDVW2}, Chapter 13 Layouts (\texttt{d3.stack()} only, pp.~264-270)
+
+\hypertarget{lecture-slides-7}{%
+\section{Lecture slides }\label{lecture-slides-7}}
+
+\href{pdfs/layouts.pdf}{layouts.pdf}
 
 \hypertarget{debugging-tips}{%
 \chapter{Debugging Tips }\label{debugging-tips}}
@@ -3032,6 +3471,5 @@ via GIPHY
 Edit \href{https://github.com/jtr13/d3book/edit/master/_bookdown.yml}{\texttt{bookdown.yml}}
 
 \bibliography{book.bib,packages.bib}
-
 
 \end{document}

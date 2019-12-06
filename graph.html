@@ -1,0 +1,41 @@
+<!-- for testing only, not used in bookdown book -->
+
+<style>
+rect {
+	pointer-events: all;
+	}
+
+	.node {
+	fill: blue;
+	}
+
+	.cursor {
+	fill: none;
+	stroke: brown;
+	pointer-events: none;
+	}
+
+	.link {
+	stroke: red;
+}
+
+.svg-container {
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	padding-bottom: 20%;  <!-- changed this to be the same as y/x aspect ratio, not explained-->
+	vertical-align: top;
+	overflow: hidden;
+}
+.svg-content {
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+</style>
+
+<div id="container" class="svg-container">
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="scripts/index1.js"></script>
+</div>
