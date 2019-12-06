@@ -24,7 +24,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2019-12-05" />
+<meta name="date" content="2019-12-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -322,7 +322,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">D3 for R Users</h1>
 <p class="author"><em>Joyce Robbins</em></p>
-<p class="date"><em>2019-12-05</em></p>
+<p class="date"><em>2019-12-06</em></p>
 </div>
 <div id="welcome-to-d3" class="section level1 unnumbered">
 <h1>Welcome to D3</h1>
@@ -380,19 +380,17 @@ Adapted from <a href="https://bl.ocks.org/mbostock/929623" target="_blank">Build
 <h3><span class="header-section-number">0.1.1</span> JavaScript Console</h3>
 <p>With this workflow we will open a web page–either online or local–in Chrome and <a href="https://developers.google.com/web/tools/chrome-devtools/console/javascript" target="_blank">run JavaScript in the Console</a>. To view the Console, open Chrome DevTools by clicking <em>View, Developer, JavaScript Console</em> if you have a menu bar in Chrome, using a keyboard shortcut (Mac: option+command+j; Windows, Linux, Chrome OS: control+shift+J), or employing another one of the <a href="https://developers.google.com/web/tools/chrome-devtools/open" target="_blank">many options</a> for doing so. The Console is one piece of a suite of tools available in the browser.</p>
 <p>With the DevTools open, your screen will look like this:</p>
-<p><img src="images/console.png" width="532" style="display: block; margin: auto;" /></p>
+<p><img src="images/console.png" width="100%" /></p>
 <p>The next chapter, <a href="jump.html">Jump in the deep end</a>, employs this workflow.</p>
 </div>
 <div id="this-book-in-the-console" class="section level3">
 <h3><span class="header-section-number">0.1.2</span> This book in the Console</h3>
 <p>If you’re not reading the <code>.pdf</code> version, you can open DevTools on this very page. This is very convenient because not only to you not have to leave this book to practice D3, you can copy code blocks and paste them in the Console. In addition to opening DevTools (see above), close the side bar by clicking on the <i class="fa fa-align-justify"></i> icon above to give yourself more screen space.</p>
 <p>Let’s try it out.</p>
-<div id="svg1">
 <svg id="demo" width="300" height="200">
 <rect x='0' y='0' width='300' height ='200' fill = 'lightblue'></rect>
 <text x='10' y='190' style = 'font-size: 80%;'>svg#demo</text>
 </svg>
-</div>
 <p>Scroll so that both the blue rectangle above and the code chunk below are visible on your screen. Toggle the sidebar, open the Console, and then move the mouse onto the code block so the <i class="fa fa-copy"></i> icon appears. Click on it to copy the code, paste it in the Console, and then press return.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg#demo&quot;</span>)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2">  .<span class="at">append</span>(<span class="st">&quot;circle&quot;</span>)</a>

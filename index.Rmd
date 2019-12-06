@@ -65,7 +65,7 @@ rect {
 
 
 ```{r, eval=!HTML, echo=FALSE}
-knitr::include_graphics("images/networkgraph.png")
+knitr::include_graphics("images/pdfbook/buildyourowngraph.png")
 ```
 
 ```{asis, echo=HTML}
@@ -109,15 +109,14 @@ If you're not reading the `.pdf` version, you can open DevTools on this very pag
 
 Let's try it out. 
 
-```{r, echo=FALSE, eval=!HTML}
-webshot::webshot("https://jtr13.github.io/d3book/index.html#this-book-in-the-console", selector = "#svg1")
-```
-
-<div id="svg1">
-```{r, echo=FALSE, results='asis'}
+```{r, echo=FALSE, results='asis', eval=HTML}
 makesvg("demo")
 ```
-</div>
+
+```{r, echo=FALSE, eval=!HTML, out.width='33%'}
+knitr::include_graphics("images/pdfbook/svg1.png")
+```
+
 
 Scroll so that both the blue rectangle above and the code chunk below are visible on your screen. Toggle the sidebar, open the Console, and then move the mouse onto the code block so the <i class="fa fa-copy"></i> icon appears. Click on it to copy the code, paste it in the Console, and then press return.
 

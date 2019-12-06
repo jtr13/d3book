@@ -8,7 +8,7 @@ Read: *IDVW2*, Chapter 10 Interactivity
 
 ## Binding event listeners
 
-```{r, echo=FALSE, eval=!HTML}
+```{r, echo=FALSE, eval=!HTML, out.width='33%'}
 webshot::webshot("https://jtr13.github.io/d3book/interactivity.html", selector = "svg")
 ```
 
@@ -141,7 +141,7 @@ Here the circle click behavior depends on the value of the radio button: if the 
 
 A global variable is used to keep track of the radio button value. The event listener on the circle conditions the behavior on the value of this global variable.
 
-```{r, echo=FALSE, eval=!HTML}
+```{r, echo=FALSE, eval=!HTML, out.width='33%'}
 webshot::webshot("https://jtr13.github.io/d3book/interactivity.html#global-variable-example", selector = "#rad")
 ```
 
@@ -191,7 +191,7 @@ d3.select("svg#radio").select("circle")
 
 In this example, the event listeners on the squares are turned on or off depending on the value of the radio button. Event listeners can be removed by setting the behavior to `null`.
 
-```{r, echo=FALSE, eval=!knitr::is_html_output()}
+```{r, echo=FALSE, eval=!HTML, out.width='33%'}
 webshot::webshot("https://jtr13.github.io/d3book/interactivity.html#turn-off-event-listener", selector = "#rad2")
 ```
 

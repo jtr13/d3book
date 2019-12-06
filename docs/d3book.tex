@@ -133,7 +133,7 @@
 
 \title{D3 for R Users}
 \author{Joyce Robbins}
-\date{2019-12-05}
+\date{2019-12-06}
 
 \begin{document}
 \maketitle
@@ -148,7 +148,7 @@
 
 \hypertarget{container}{}
 
-\begin{center}\includegraphics[width=5in]{images/networkgraph} \end{center}
+\includegraphics[width=1\linewidth]{images/pdfbook/buildyourowngraph}
 
 This guide serves as a companion text to Scott Murray's \href{https://www.amazon.com/Interactive-Data-Visualization-Web-Introduction/dp/1491921285/}{\emph{Interactive Data Visualization for the Web, 2nd edition}}--henceforth \emph{IDVW2}--a required text for GR5702. Be sure to get the second edition, which is a comprehensive update to D3 version 4. The first edition uses D3 version 3, which is not compatible. (The current version of D3 is actually v5. However, since differences between v4 and v5 are minimal, unless otherwise indicated in this guide, the code in \emph{IDVW2} will work with either.)
 
@@ -172,7 +172,7 @@ With this workflow we will open a web page--either online or local--in Chrome an
 
 With the DevTools open, your screen will look like this:
 
-\begin{center}\includegraphics[width=14.79in]{images/console} \end{center}
+\includegraphics[width=1\linewidth]{images/console}
 
 The next chapter, \href{jump.html}{Jump in the deep end}, employs this workflow.
 
@@ -183,9 +183,7 @@ If you're not reading the \texttt{.pdf} version, you can open DevTools on this v
 
 Let's try it out.
 
-\begin{center}\includegraphics{d3book_files/figure-latex/unnamed-chunk-6-1} \end{center}
-
-svg\#demo
+\includegraphics[width=0.33\linewidth]{images/pdfbook/svg1}
 
 Scroll so that both the blue rectangle above and the code chunk below are visible on your screen. Toggle the sidebar, open the Console, and then move the mouse onto the code block so the icon appears. Click on it to copy the code, paste it in the Console, and then press return.
 
@@ -559,7 +557,7 @@ Rendered:
 
 `
 
-\begin{center}\includegraphics[width=0.5\linewidth]{images/shapessvg} \end{center}
+\includegraphics[width=0.5\linewidth]{images/shapessvg}
 
 There are very few SVG tags that you'll need to know, and once we get going with D3, you will not have to code any SVG manually. It is worth doing a little to become familiar with the format and in particular to get used to the new location of the origin.
 
@@ -2246,7 +2244,7 @@ Read: \emph{IDVW2}, Chapter 10 Interactivity
 \hypertarget{binding-event-listeners}{%
 \section{Binding event listeners}\label{binding-event-listeners}}
 
-\begin{center}\includegraphics{d3book_files/figure-latex/unnamed-chunk-31-1} \end{center}
+\includegraphics[width=0.33\linewidth]{d3book_files/figure-latex/unnamed-chunk-31-1}
 
 Open Developer Tools and try this code in the Console:
 
@@ -2390,7 +2388,7 @@ Here the circle click behavior depends on the value of the radio button: if the 
 
 A global variable is used to keep track of the radio button value. The event listener on the circle conditions the behavior on the value of this global variable.
 
-\begin{center}\includegraphics{d3book_files/figure-latex/unnamed-chunk-33-1} \end{center}
+\includegraphics[width=0.33\linewidth]{d3book_files/figure-latex/unnamed-chunk-33-1}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2423,7 +2421,7 @@ A global variable is used to keep track of the radio button value. The event lis
 
 In this example, the event listeners on the squares are turned on or off depending on the value of the radio button. Event listeners can be removed by setting the behavior to \texttt{null}.
 
-\begin{center}\includegraphics{d3book_files/figure-latex/unnamed-chunk-36-1} \end{center}
+\includegraphics[width=0.33\linewidth]{d3book_files/figure-latex/unnamed-chunk-36-1}
 
 \begin{Shaded}
 \begin{Highlighting}[]
