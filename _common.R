@@ -13,6 +13,7 @@ makesvg <- function(name = "svg", width = 300, height = 200) {
 
 knitr::opts_chunk$set(
   echo = TRUE,
+  fig.align = 'center',
   comment="## R output ## ",
   message=FALSE,
   warning=FALSE

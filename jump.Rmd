@@ -1,21 +1,20 @@
 # Jump in the deep end <i class="fas fa-swimmer"></i> {#jump} 
 
 
-Let's skip the explanations and start coding in D3 right now. Why? So you can see the benefits and know what you're working toward when you get stuck in the weeds.  Then we'll go back and start learning step by step. 
+Let's skip the explanations and start coding in D3 right now. Why? So you can see the benefits and know what you're working toward when you get stuck in the weeds.  Then we'll go back and start learning step by step. In this chapter we will work in the JavaScript Console ([help](index.html#javascript-console)).
 
 
 ## Get ready <i class="fas fa-forward"></i>
 
-1. If you don't have it already, download the [Chrome browser](https://www.google.com/chrome/){target="_blank"}.
+1. If you don't have it, [install the Chrome browser](https://www.google.com/chrome/){target="_blank"}.
 
-
-2. Download a copy of `shapes.html`:  open the following page and then click *File, Save Page As...*: [`shapes.html`](https://raw.githubusercontent.com/jtr13/d3book/master/code/shapes.html){target="_blank"}. (Or download a zip of the whole repo. Clicking [here](https://github.com/jtr13/d3book/archive/master.zip){target="_blank"} will start the download. Or fork and clone the  [repo](https://github.com/jtr13/d3book){target="_blank"}).
+2. Download a copy of `shapes.html` by opening the following page and then saving with *File, Save Page As...*: [`shapes.html`](https://raw.githubusercontent.com/jtr13/d3book/master/code/shapes.html){target="_blank"}. (Or download a zip of the whole repo. Clicking [here](https://github.com/jtr13/d3book/archive/master.zip){target="_blank"} will start the download. Or fork and clone the  [repo](https://github.com/jtr13/d3book){target="_blank"}).
 
 3. If Chrome is your default browser, open `shapes.html` by double clicking it. Otherwise, open it with *File, Open File...* in Chrome.
 
 ## Elements tab <i class="far fa-folder"></i>
 
-1. In Chrome, click *View, Developer, Developer Tools,* then the Elements tab. 
+1. Open Chrome DevTools ([help](index.html#javascript-console)).
 
 2. Hover the mouse over various elements in the `<body> ... </body>` section.  Observe the highlighted sections in the rendered web page on the left of the screen. Click on the mini black triangles to the left of the `<body>` and `<svg>` tags if needed to open these sections of the DOM tree. Your screen should look like this:
 

@@ -128,7 +128,7 @@ svg.selectAll("circle")
 
 We'll start with nothing--not even an SVG--and add elements with the data / enter / append sequence.
 
-Open Developer Tools and copy and paste the code below in the Console. (Click <i class="fa fa-align-justify"></i> above to close the table of contents on the left so you'll have more screen space.)
+Work in the Console on this page ([help](index.html#this-book-console)).
 
 The SVG will be added here:
 

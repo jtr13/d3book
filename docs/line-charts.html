@@ -24,7 +24,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2019-12-04" />
+<meta name="date" content="2019-12-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -138,7 +138,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">D3 for R Users</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to D3</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#workflow"><i class="fa fa-check"></i><b>0.1</b> Workflow</a><ul>
+<li class="chapter" data-level="0.1.1" data-path="index.html"><a href="index.html#javascript-console"><i class="fa fa-check"></i><b>0.1.1</b> JavaScript Console</a></li>
+<li class="chapter" data-level="0.1.2" data-path="index.html"><a href="index.html#this-book-in-the-console"><i class="fa fa-check"></i><b>0.1.2</b> This book in the Console</a></li>
+<li class="chapter" data-level="0.1.3" data-path="index.html"><a href="index.html#text-editor"><i class="fa fa-check"></i><b>0.1.3</b> Text editor</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="jump.html"><a href="jump.html"><i class="fa fa-check"></i><b>1</b> Jump in the deep end <i class="fas fa-swimmer"></i></a><ul>
 <li class="chapter" data-level="1.1" data-path="jump.html"><a href="jump.html#get-ready"><i class="fa fa-check"></i><b>1.1</b> Get ready <i class="fas fa-forward"></i></a></li>
 <li class="chapter" data-level="1.2" data-path="jump.html"><a href="jump.html#elements-tab"><i class="fa fa-check"></i><b>1.2</b> Elements tab <i class="far fa-folder"></i></a></li>
@@ -323,28 +329,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="svg-line-element" class="section level2">
 <h2><span class="header-section-number">12.2</span> SVG <code>&lt;line&gt;</code> element</h2>
 <p>(Use for two points only.)</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb154-1" data-line-number="1"><span class="kw">&lt;line</span><span class="ot"> x1=</span><span class="st">&quot;0&quot;</span><span class="ot"> y1=</span><span class="st">&quot;80&quot;</span><span class="ot"> x2=</span><span class="st">&quot;100&quot;</span><span class="ot"> y2=</span><span class="st">&quot;20&quot;</span><span class="ot"> stroke=</span><span class="st">&quot;black&quot;</span> <span class="kw">/&gt;</span></a></code></pre></div>
-<div class="sourceCode" id="cb155"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb155-1" data-line-number="1"><span class="kw">var</span> x1 <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb155-2" data-line-number="2"><span class="kw">var</span> y1 <span class="op">=</span> <span class="dv">80</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb155-3" data-line-number="3"><span class="kw">var</span> x2 <span class="op">=</span> <span class="dv">100</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb155-4" data-line-number="4"><span class="kw">var</span> y2 <span class="op">=</span> <span class="dv">20</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb155-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb155-6" data-line-number="6"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</a>
-<a class="sourceLine" id="cb155-7" data-line-number="7">  .<span class="at">append</span>(<span class="st">&quot;line&quot;</span>)</a>
-<a class="sourceLine" id="cb155-8" data-line-number="8">  .<span class="at">attr</span>(<span class="st">&quot;x1&quot;</span><span class="op">,</span> x1)</a>
-<a class="sourceLine" id="cb155-9" data-line-number="9">  .<span class="at">attr</span>(<span class="st">&quot;x2&quot;</span><span class="op">,</span> x2)</a>
-<a class="sourceLine" id="cb155-10" data-line-number="10">  .<span class="at">attr</span>(<span class="st">&quot;y1&quot;</span><span class="op">,</span> y1)</a>
-<a class="sourceLine" id="cb155-11" data-line-number="11">  .<span class="at">attr</span>(<span class="st">&quot;y2&quot;</span><span class="op">,</span> y2)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb155-1" data-line-number="1"><span class="kw">&lt;line</span><span class="ot"> x1=</span><span class="st">&quot;0&quot;</span><span class="ot"> y1=</span><span class="st">&quot;80&quot;</span><span class="ot"> x2=</span><span class="st">&quot;100&quot;</span><span class="ot"> y2=</span><span class="st">&quot;20&quot;</span><span class="ot"> stroke=</span><span class="st">&quot;black&quot;</span> <span class="kw">/&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb156-1" data-line-number="1"><span class="kw">var</span> x1 <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb156-2" data-line-number="2"><span class="kw">var</span> y1 <span class="op">=</span> <span class="dv">80</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb156-3" data-line-number="3"><span class="kw">var</span> x2 <span class="op">=</span> <span class="dv">100</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb156-4" data-line-number="4"><span class="kw">var</span> y2 <span class="op">=</span> <span class="dv">20</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb156-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb156-6" data-line-number="6"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</a>
+<a class="sourceLine" id="cb156-7" data-line-number="7">  .<span class="at">append</span>(<span class="st">&quot;line&quot;</span>)</a>
+<a class="sourceLine" id="cb156-8" data-line-number="8">  .<span class="at">attr</span>(<span class="st">&quot;x1&quot;</span><span class="op">,</span> x1)</a>
+<a class="sourceLine" id="cb156-9" data-line-number="9">  .<span class="at">attr</span>(<span class="st">&quot;x2&quot;</span><span class="op">,</span> x2)</a>
+<a class="sourceLine" id="cb156-10" data-line-number="10">  .<span class="at">attr</span>(<span class="st">&quot;y1&quot;</span><span class="op">,</span> y1)</a>
+<a class="sourceLine" id="cb156-11" data-line-number="11">  .<span class="at">attr</span>(<span class="st">&quot;y2&quot;</span><span class="op">,</span> y2)<span class="op">;</span></a></code></pre></div>
 </div>
 <div id="svg-path-element" class="section level2">
 <h2><span class="header-section-number">12.3</span> SVG <code>&lt;path&gt;</code> element</h2>
 <p>(Use if you have more than two points.)</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb156-1" data-line-number="1"><span class="kw">&lt;svg</span><span class="ot"> width</span> <span class="ot">=</span> <span class="st">&quot;500&quot;</span><span class="ot"> height</span> <span class="ot">=</span> <span class="st">&quot;400&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb156-2" data-line-number="2">  <span class="kw">&lt;path</span><span class="ot"> d=</span><span class="st">&quot;M 50 400 L 100 300 L 150 300 L 200 33 L 250 175</span></a>
-<a class="sourceLine" id="cb156-3" data-line-number="3"><span class="st">     L 300 275 L 350 250 L 400 125&quot;</span><span class="ot"> fill=</span><span class="st">&quot;none&quot;</span></a>
-<a class="sourceLine" id="cb156-4" data-line-number="4"><span class="ot">      stroke=</span><span class="st">&quot;red&quot;</span><span class="ot"> stroke-width=</span><span class="st">&quot;5&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb156-5" data-line-number="5">  <span class="kw">&lt;/path&gt;</span></a>
-<a class="sourceLine" id="cb156-6" data-line-number="6"><span class="kw">&lt;/svg&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb157-1" data-line-number="1"><span class="kw">&lt;svg</span><span class="ot"> width</span> <span class="ot">=</span> <span class="st">&quot;500&quot;</span><span class="ot"> height</span> <span class="ot">=</span> <span class="st">&quot;400&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb157-2" data-line-number="2">  <span class="kw">&lt;path</span><span class="ot"> d=</span><span class="st">&quot;M 50 400 L 100 300 L 150 300 L 200 33 L 250 175</span></a>
+<a class="sourceLine" id="cb157-3" data-line-number="3"><span class="st">     L 300 275 L 350 250 L 400 125&quot;</span><span class="ot"> fill=</span><span class="st">&quot;none&quot;</span></a>
+<a class="sourceLine" id="cb157-4" data-line-number="4"><span class="ot">      stroke=</span><span class="st">&quot;red&quot;</span><span class="ot"> stroke-width=</span><span class="st">&quot;5&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb157-5" data-line-number="5">  <span class="kw">&lt;/path&gt;</span></a>
+<a class="sourceLine" id="cb157-6" data-line-number="6"><span class="kw">&lt;/svg&gt;</span></a></code></pre></div>
 <p><code>d</code> attribute:</p>
 <p>M = move to</p>
 <p>L = line to</p>
@@ -357,14 +363,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="save-plots-as-svg-files-in-r" class="section level3 unnumbered">
 <h3>Save plots as SVG files in R</h3>
 <p>Save plots as SVG files:</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb157-1" data-line-number="1"><span class="kw">svg</span>(<span class="st">&quot;xsquared.svg&quot;</span>)</a>
-<a class="sourceLine" id="cb157-2" data-line-number="2"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, (<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)<span class="op">^</span><span class="dv">2</span>, <span class="dt">axes=</span>F)</a>
-<a class="sourceLine" id="cb157-3" data-line-number="3"><span class="kw">dev.off</span>()</a>
-<a class="sourceLine" id="cb157-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb157-5" data-line-number="5"><span class="kw">library</span>(svglite)</a>
-<a class="sourceLine" id="cb157-6" data-line-number="6"><span class="kw">svglite</span>(<span class="st">&quot;xsquared2.svg&quot;</span>)</a>
-<a class="sourceLine" id="cb157-7" data-line-number="7"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, (<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)<span class="op">^</span><span class="dv">2</span>, <span class="dt">axes=</span>F)</a>
-<a class="sourceLine" id="cb157-8" data-line-number="8"><span class="kw">dev.off</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" data-line-number="1"><span class="kw">svg</span>(<span class="st">&quot;xsquared.svg&quot;</span>)</a>
+<a class="sourceLine" id="cb158-2" data-line-number="2"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, (<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)<span class="op">^</span><span class="dv">2</span>, <span class="dt">axes=</span>F)</a>
+<a class="sourceLine" id="cb158-3" data-line-number="3"><span class="kw">dev.off</span>()</a>
+<a class="sourceLine" id="cb158-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb158-5" data-line-number="5"><span class="kw">library</span>(svglite)</a>
+<a class="sourceLine" id="cb158-6" data-line-number="6"><span class="kw">svglite</span>(<span class="st">&quot;xsquared2.svg&quot;</span>)</a>
+<a class="sourceLine" id="cb158-7" data-line-number="7"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, (<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)<span class="op">^</span><span class="dv">2</span>, <span class="dt">axes=</span>F)</a>
+<a class="sourceLine" id="cb158-8" data-line-number="8"><span class="kw">dev.off</span>()</a></code></pre></div>
 <p>Set graphics device to svg in code
 chunk options:</p>
 <p><code>{r dev=&quot;svglite&quot;}</code></p>
@@ -412,164 +418,164 @@ chunk options:</p>
 </tbody>
 </table>
 <p>Format that we need:</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb158-1" data-line-number="1"><span class="kw">&lt;path</span><span class="ot"> class=</span><span class="st">&quot;line&quot;</span><span class="ot"> fill=</span><span class="st">&quot;none&quot;</span><span class="ot"> d=</span><span class="st">&quot;M0,116.66666666666669C27.777777777777786,155.5131766381766,55.55555555555557, 194.35968660968655,83.33333333333333,215.83333333333331C111.11111111111109,237.30698005698008,138.88888888888889,</span></a>
-<a class="sourceLine" id="cb158-2" data-line-number="2"><span class="st">241.40776353276354,166.66666666666666,215.83333333333331C194.44444444444443,190.2589031339031,222.22222222222223,</span></a>
-<a class="sourceLine" id="cb158-3" data-line-number="3"><span class="st">135.00925925925924,250,140C277.77777777777777,144.99074074074076,305.55555555555554,210.22186609686608,333.3333333333333,</span></a>
-<a class="sourceLine" id="cb158-4" data-line-number="4"><span class="st">204.16666666666666C361.1111111111111,198.11146723646723,388.8888888888889,120.76994301994304,416.6666666666667,</span></a>
-<a class="sourceLine" id="cb158-5" data-line-number="5"><span class="st">105.00000000000003C444.44444444444446,89.23005698005701,472.22222222222223,135.03169515669518,500,180.83333333333334&quot;</span><span class="kw">&gt;&lt;/path&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb159-1" data-line-number="1"><span class="kw">&lt;path</span><span class="ot"> class=</span><span class="st">&quot;line&quot;</span><span class="ot"> fill=</span><span class="st">&quot;none&quot;</span><span class="ot"> d=</span><span class="st">&quot;M0,116.66666666666669C27.777777777777786,155.5131766381766,55.55555555555557, 194.35968660968655,83.33333333333333,215.83333333333331C111.11111111111109,237.30698005698008,138.88888888888889,</span></a>
+<a class="sourceLine" id="cb159-2" data-line-number="2"><span class="st">241.40776353276354,166.66666666666666,215.83333333333331C194.44444444444443,190.2589031339031,222.22222222222223,</span></a>
+<a class="sourceLine" id="cb159-3" data-line-number="3"><span class="st">135.00925925925924,250,140C277.77777777777777,144.99074074074076,305.55555555555554,210.22186609686608,333.3333333333333,</span></a>
+<a class="sourceLine" id="cb159-4" data-line-number="4"><span class="st">204.16666666666666C361.1111111111111,198.11146723646723,388.8888888888889,120.76994301994304,416.6666666666667,</span></a>
+<a class="sourceLine" id="cb159-5" data-line-number="5"><span class="st">105.00000000000003C444.44444444444446,89.23005698005701,472.22222222222223,135.03169515669518,500,180.83333333333334&quot;</span><span class="kw">&gt;&lt;/path&gt;</span></a></code></pre></div>
 <div id="step-1-create-a-line-generator" class="section level3">
 <h3><span class="header-section-number">12.5.1</span> Step 1: Create a line generator</h3>
 <p>Expects data in an array of 2-dimensional arrays, that is, an array of (x,y) pairs:</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb159-1" data-line-number="1"><span class="kw">var</span> dataset <span class="op">=</span> [ [<span class="dv">0</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">43</span>]<span class="op">,</span> [<span class="dv">2</span><span class="op">,</span> <span class="dv">43</span>]<span class="op">,</span> [<span class="dv">3</span><span class="op">,</span> <span class="dv">56</span>]<span class="op">,</span> [<span class="dv">4</span><span class="op">,</span> <span class="dv">45</span>]<span class="op">,</span> [<span class="dv">5</span><span class="op">,</span> <span class="dv">62</span>]<span class="op">,</span> [<span class="dv">6</span><span class="op">,</span> <span class="dv">49</span>] ]<span class="op">;</span></a>
-<a class="sourceLine" id="cb159-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb159-3" data-line-number="3"><span class="kw">var</span> mylinegen <span class="op">=</span> <span class="va">d3</span>.<span class="at">line</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb160-1" data-line-number="1"><span class="kw">var</span> dataset <span class="op">=</span> [ [<span class="dv">0</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">43</span>]<span class="op">,</span> [<span class="dv">2</span><span class="op">,</span> <span class="dv">43</span>]<span class="op">,</span> [<span class="dv">3</span><span class="op">,</span> <span class="dv">56</span>]<span class="op">,</span> [<span class="dv">4</span><span class="op">,</span> <span class="dv">45</span>]<span class="op">,</span> [<span class="dv">5</span><span class="op">,</span> <span class="dv">62</span>]<span class="op">,</span> [<span class="dv">6</span><span class="op">,</span> <span class="dv">49</span>] ]<span class="op">;</span></a>
+<a class="sourceLine" id="cb160-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb160-3" data-line-number="3"><span class="kw">var</span> mylinegen <span class="op">=</span> <span class="va">d3</span>.<span class="at">line</span>()</a></code></pre></div>
 <p>Test it in the Console:</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb160-1" data-line-number="1"><span class="at">mylinegen</span>(dataset)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb161-1" data-line-number="1"><span class="at">mylinegen</span>(dataset)<span class="op">;</span></a></code></pre></div>
 <p>Add an ordinal scale for x:</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb161-1" data-line-number="1"><span class="kw">var</span> xScale <span class="op">=</span> <span class="va">d3</span>.<span class="at">scaleBand</span>()</a>
-<a class="sourceLine" id="cb161-2" data-line-number="2">    .<span class="at">domain</span>(<span class="va">d3</span>.<span class="at">range</span>(<span class="va">dataset</span>.<span class="at">length</span>))</a>
-<a class="sourceLine" id="cb161-3" data-line-number="3">    .<span class="at">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">500</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb162-1" data-line-number="1"><span class="kw">var</span> xScale <span class="op">=</span> <span class="va">d3</span>.<span class="at">scaleBand</span>()</a>
+<a class="sourceLine" id="cb162-2" data-line-number="2">    .<span class="at">domain</span>(<span class="va">d3</span>.<span class="at">range</span>(<span class="va">dataset</span>.<span class="at">length</span>))</a>
+<a class="sourceLine" id="cb162-3" data-line-number="3">    .<span class="at">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">500</span>])</a></code></pre></div>
 <p>… and a linear scale for y:</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb162-1" data-line-number="1"><span class="kw">var</span> yScale <span class="op">=</span> <span class="va">d3</span>.<span class="at">scaleLinear</span>()</a>
-<a class="sourceLine" id="cb162-2" data-line-number="2">    .<span class="at">domain</span>([<span class="va">d3</span>.<span class="at">min</span>(dataset<span class="op">,</span> d <span class="op">=&gt;</span> d[<span class="dv">1</span>]) <span class="op">-</span> <span class="dv">20</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb162-3" data-line-number="3">             <span class="va">d3</span>.<span class="at">max</span>(dataset<span class="op">,</span> d <span class="op">=&gt;</span> d[<span class="dv">1</span>]) <span class="op">+</span> <span class="dv">20</span>])</a>
-<a class="sourceLine" id="cb162-4" data-line-number="4">    .<span class="at">range</span>([<span class="dv">400</span><span class="op">,</span> <span class="dv">0</span>])<span class="op">;</span>         </a></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb163-1" data-line-number="1"><span class="kw">var</span> yScale <span class="op">=</span> <span class="va">d3</span>.<span class="at">scaleLinear</span>()</a>
+<a class="sourceLine" id="cb163-2" data-line-number="2">    .<span class="at">domain</span>([<span class="va">d3</span>.<span class="at">min</span>(dataset<span class="op">,</span> d <span class="op">=&gt;</span> d[<span class="dv">1</span>]) <span class="op">-</span> <span class="dv">20</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb163-3" data-line-number="3">             <span class="va">d3</span>.<span class="at">max</span>(dataset<span class="op">,</span> d <span class="op">=&gt;</span> d[<span class="dv">1</span>]) <span class="op">+</span> <span class="dv">20</span>])</a>
+<a class="sourceLine" id="cb163-4" data-line-number="4">    .<span class="at">range</span>([<span class="dv">400</span><span class="op">,</span> <span class="dv">0</span>])<span class="op">;</span>         </a></code></pre></div>
 <p>*Why <code>d[1]</code> instead of <code>d</code>? (See p. 122)</p>
 <p>Add accessor functions <code>.x()</code> and <code>.y()</code>:</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb163-1" data-line-number="1">mylinegen</a>
-<a class="sourceLine" id="cb163-2" data-line-number="2">    .<span class="at">x</span>(d <span class="op">=&gt;</span> <span class="at">xScale</span>(d[<span class="dv">0</span>]))</a>
-<a class="sourceLine" id="cb163-3" data-line-number="3">    .<span class="at">y</span>(d <span class="op">=&gt;</span> <span class="at">yScale</span>(d[<span class="dv">1</span>]))<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb164-1" data-line-number="1">mylinegen</a>
+<a class="sourceLine" id="cb164-2" data-line-number="2">    .<span class="at">x</span>(d <span class="op">=&gt;</span> <span class="at">xScale</span>(d[<span class="dv">0</span>]))</a>
+<a class="sourceLine" id="cb164-3" data-line-number="3">    .<span class="at">y</span>(d <span class="op">=&gt;</span> <span class="at">yScale</span>(d[<span class="dv">1</span>]))<span class="op">;</span></a></code></pre></div>
 <p>Test again:</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb164-1" data-line-number="1"><span class="at">mylinegen</span>(dataset)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb165-1" data-line-number="1"><span class="at">mylinegen</span>(dataset)<span class="op">;</span></a></code></pre></div>
 <p>Now let’s add a <code>&lt;path&gt;</code> element with that <code>d</code> attribute: (this step is just for learning purposes…)</p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb165-1" data-line-number="1"><span class="kw">var</span> mypath <span class="op">=</span> <span class="at">mylinegen</span>(dataset)<span class="op">;</span></a>
-<a class="sourceLine" id="cb165-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb165-3" data-line-number="3"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">append</span>(<span class="st">&quot;path&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;d&quot;</span><span class="op">,</span> mypath)</a>
-<a class="sourceLine" id="cb165-4" data-line-number="4">    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;none&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;stroke&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)</a>
-<a class="sourceLine" id="cb165-5" data-line-number="5">    .<span class="at">attr</span>(<span class="st">&quot;stroke-width&quot;</span><span class="op">,</span> <span class="st">&quot;5&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb166-1" data-line-number="1"><span class="kw">var</span> mypath <span class="op">=</span> <span class="at">mylinegen</span>(dataset)<span class="op">;</span></a>
+<a class="sourceLine" id="cb166-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb166-3" data-line-number="3"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">append</span>(<span class="st">&quot;path&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;d&quot;</span><span class="op">,</span> mypath)</a>
+<a class="sourceLine" id="cb166-4" data-line-number="4">    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;none&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;stroke&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)</a>
+<a class="sourceLine" id="cb166-5" data-line-number="5">    .<span class="at">attr</span>(<span class="st">&quot;stroke-width&quot;</span><span class="op">,</span> <span class="st">&quot;5&quot;</span>)<span class="op">;</span></a></code></pre></div>
 </div>
 <div id="step-2-put-the-line-generator-to-work" class="section level3">
 <h3><span class="header-section-number">12.5.2</span> Step 2: Put the line generator to work</h3>
 <p>Now let’s do it the direct way: bind the <em>datum</em> and calculate the path in one step:</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb166-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">append</span>(<span class="st">&quot;path&quot;</span>)</a>
-<a class="sourceLine" id="cb166-2" data-line-number="2">    .<span class="at">datum</span>(dataset)</a>
-<a class="sourceLine" id="cb166-3" data-line-number="3">    .<span class="at">attr</span>(<span class="st">&quot;d&quot;</span><span class="op">,</span> mylinegen)</a>
-<a class="sourceLine" id="cb166-4" data-line-number="4">    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;none&quot;</span>)</a>
-<a class="sourceLine" id="cb166-5" data-line-number="5">    .<span class="at">attr</span>(<span class="st">&quot;stroke&quot;</span><span class="op">,</span> <span class="st">&quot;teal&quot;</span>)</a>
-<a class="sourceLine" id="cb166-6" data-line-number="6">    .<span class="at">attr</span>(<span class="st">&quot;stroke-width&quot;</span><span class="op">,</span> <span class="st">&quot;5&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb167-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">append</span>(<span class="st">&quot;path&quot;</span>)</a>
+<a class="sourceLine" id="cb167-2" data-line-number="2">    .<span class="at">datum</span>(dataset)</a>
+<a class="sourceLine" id="cb167-3" data-line-number="3">    .<span class="at">attr</span>(<span class="st">&quot;d&quot;</span><span class="op">,</span> mylinegen)</a>
+<a class="sourceLine" id="cb167-4" data-line-number="4">    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;none&quot;</span>)</a>
+<a class="sourceLine" id="cb167-5" data-line-number="5">    .<span class="at">attr</span>(<span class="st">&quot;stroke&quot;</span><span class="op">,</span> <span class="st">&quot;teal&quot;</span>)</a>
+<a class="sourceLine" id="cb167-6" data-line-number="6">    .<span class="at">attr</span>(<span class="st">&quot;stroke-width&quot;</span><span class="op">,</span> <span class="st">&quot;5&quot;</span>)<span class="op">;</span></a></code></pre></div>
 <p>Finally, we’ll add a class and style definitions:</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb167-1" data-line-number="1"><span class="kw">&lt;style&gt;</span></a>
-<a class="sourceLine" id="cb167-2" data-line-number="2">  <span class="fu">.linestyle</span> {</a>
-<a class="sourceLine" id="cb167-3" data-line-number="3">    fill: <span class="dv">none</span>;</a>
-<a class="sourceLine" id="cb167-4" data-line-number="4">    stroke: <span class="dv">teal</span>;</a>
-<a class="sourceLine" id="cb167-5" data-line-number="5">    stroke-width: <span class="dv">5px</span>;</a>
-<a class="sourceLine" id="cb167-6" data-line-number="6">  }</a>
-<a class="sourceLine" id="cb167-7" data-line-number="7"><span class="kw">&lt;/style&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb168-1" data-line-number="1"><span class="kw">&lt;style&gt;</span></a>
+<a class="sourceLine" id="cb168-2" data-line-number="2">  <span class="fu">.linestyle</span> {</a>
+<a class="sourceLine" id="cb168-3" data-line-number="3">    fill: <span class="dv">none</span>;</a>
+<a class="sourceLine" id="cb168-4" data-line-number="4">    stroke: <span class="dv">teal</span>;</a>
+<a class="sourceLine" id="cb168-5" data-line-number="5">    stroke-width: <span class="dv">5px</span>;</a>
+<a class="sourceLine" id="cb168-6" data-line-number="6">  }</a>
+<a class="sourceLine" id="cb168-7" data-line-number="7"><span class="kw">&lt;/style&gt;</span></a></code></pre></div>
 <p>The <code>append(&quot;path&quot;)</code> line becomes:</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb168-1" data-line-number="1"><span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;path&quot;</span>)</a>
-<a class="sourceLine" id="cb168-2" data-line-number="2">    .<span class="at">datum</span>(dataset)</a>
-<a class="sourceLine" id="cb168-3" data-line-number="3">    .<span class="at">attr</span>(<span class="st">&quot;d&quot;</span><span class="op">,</span> mylinegen)</a>
-<a class="sourceLine" id="cb168-4" data-line-number="4">    .<span class="at">attr</span>(<span class="st">&quot;class&quot;</span><span class="op">,</span> <span class="st">&quot;linestyle&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb169-1" data-line-number="1"><span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;path&quot;</span>)</a>
+<a class="sourceLine" id="cb169-2" data-line-number="2">    .<span class="at">datum</span>(dataset)</a>
+<a class="sourceLine" id="cb169-3" data-line-number="3">    .<span class="at">attr</span>(<span class="st">&quot;d&quot;</span><span class="op">,</span> mylinegen)</a>
+<a class="sourceLine" id="cb169-4" data-line-number="4">    .<span class="at">attr</span>(<span class="st">&quot;class&quot;</span><span class="op">,</span> <span class="st">&quot;linestyle&quot;</span>)<span class="op">;</span></a></code></pre></div>
 <p>Putting it all together, we have:</p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb169-1" data-line-number="1"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></a>
-<a class="sourceLine" id="cb169-2" data-line-number="2"><span class="kw">&lt;html</span><span class="ot"> lang=</span><span class="st">&quot;en&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb169-3" data-line-number="3">  <span class="kw">&lt;head&gt;</span></a>
-<a class="sourceLine" id="cb169-4" data-line-number="4">    <span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;utf-8&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb169-5" data-line-number="5">    <span class="kw">&lt;title&gt;</span>Line generator<span class="kw">&lt;/title&gt;</span></a>
-<a class="sourceLine" id="cb169-6" data-line-number="6">    <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;https://d3js.org/d3.v5.min.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a>
-<a class="sourceLine" id="cb169-7" data-line-number="7">    <span class="kw">&lt;style</span><span class="ot"> type</span> <span class="ot">=</span><span class="st">&quot;text/css&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb169-8" data-line-number="8">      <span class="fu">.linestyle</span> {</a>
-<a class="sourceLine" id="cb169-9" data-line-number="9">        fill: <span class="dv">none</span>;</a>
-<a class="sourceLine" id="cb169-10" data-line-number="10">        stroke: <span class="dv">teal</span>;</a>
-<a class="sourceLine" id="cb169-11" data-line-number="11">        stroke-width: <span class="dv">5px</span>;</a>
-<a class="sourceLine" id="cb169-12" data-line-number="12">      }</a>
-<a class="sourceLine" id="cb169-13" data-line-number="13">    <span class="kw">&lt;/style&gt;</span></a>
-<a class="sourceLine" id="cb169-14" data-line-number="14">  <span class="kw">&lt;/head&gt;</span></a>
-<a class="sourceLine" id="cb169-15" data-line-number="15">  <span class="kw">&lt;body&gt;</span></a>
-<a class="sourceLine" id="cb169-16" data-line-number="16">    <span class="kw">&lt;script&gt;</span></a>
-<a class="sourceLine" id="cb169-17" data-line-number="17">      <span class="kw">var</span> w <span class="op">=</span> <span class="dv">500</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb169-18" data-line-number="18">      <span class="kw">var</span> h <span class="op">=</span> <span class="dv">400</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb169-19" data-line-number="19">      <span class="kw">var</span> svg <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;body&quot;</span>).<span class="at">append</span>(<span class="st">&quot;svg&quot;</span>)</a>
-<a class="sourceLine" id="cb169-20" data-line-number="20">          .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> w).<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> h)<span class="op">;</span></a>
-<a class="sourceLine" id="cb169-21" data-line-number="21">      <span class="kw">var</span> dataset <span class="op">=</span> [ [<span class="dv">0</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">43</span>]<span class="op">,</span> [<span class="dv">2</span><span class="op">,</span> <span class="dv">43</span>]<span class="op">,</span> [<span class="dv">3</span><span class="op">,</span> <span class="dv">56</span>]<span class="op">,</span></a>
-<a class="sourceLine" id="cb169-22" data-line-number="22">          [<span class="dv">4</span><span class="op">,</span> <span class="dv">45</span>]<span class="op">,</span> [<span class="dv">5</span><span class="op">,</span> <span class="dv">62</span>]<span class="op">,</span> [<span class="dv">6</span><span class="op">,</span> <span class="dv">49</span>] ]<span class="op">;</span></a>
-<a class="sourceLine" id="cb169-23" data-line-number="23">      <span class="kw">var</span> xScale <span class="op">=</span> <span class="va">d3</span>.<span class="at">scaleBand</span>()</a>
-<a class="sourceLine" id="cb169-24" data-line-number="24">        .<span class="at">domain</span>(<span class="va">d3</span>.<span class="at">range</span>(<span class="va">dataset</span>.<span class="at">length</span>))</a>
-<a class="sourceLine" id="cb169-25" data-line-number="25">        .<span class="at">range</span>([<span class="dv">0</span><span class="op">,</span> w])<span class="op">;</span></a>
-<a class="sourceLine" id="cb169-26" data-line-number="26">      <span class="kw">var</span> yScale <span class="op">=</span> <span class="va">d3</span>.<span class="at">scaleLinear</span>()</a>
-<a class="sourceLine" id="cb169-27" data-line-number="27">        .<span class="at">domain</span>([<span class="va">d3</span>.<span class="at">min</span>(dataset<span class="op">,</span> d <span class="op">=&gt;</span> d[<span class="dv">1</span>]) <span class="op">-</span> <span class="dv">20</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb169-28" data-line-number="28">                 <span class="va">d3</span>.<span class="at">max</span>(dataset<span class="op">,</span> d <span class="op">=&gt;</span> d[<span class="dv">1</span>]) <span class="op">+</span> <span class="dv">20</span>])</a>
-<a class="sourceLine" id="cb169-29" data-line-number="29">        .<span class="at">range</span>([h<span class="op">,</span> <span class="dv">0</span>])<span class="op">;</span></a>
-<a class="sourceLine" id="cb169-30" data-line-number="30">      <span class="kw">var</span> mylinegen <span class="op">=</span> <span class="va">d3</span>.<span class="at">line</span>()</a>
-<a class="sourceLine" id="cb169-31" data-line-number="31">        .<span class="at">x</span>(d <span class="op">=&gt;</span> <span class="at">xScale</span>(d[<span class="dv">0</span>]))</a>
-<a class="sourceLine" id="cb169-32" data-line-number="32">        .<span class="at">y</span>(d <span class="op">=&gt;</span> <span class="at">yScale</span>(d[<span class="dv">1</span>]))<span class="op">;</span></a>
-<a class="sourceLine" id="cb169-33" data-line-number="33">      <span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;path&quot;</span>)</a>
-<a class="sourceLine" id="cb169-34" data-line-number="34">         .<span class="at">datum</span>(dataset)</a>
-<a class="sourceLine" id="cb169-35" data-line-number="35">         .<span class="at">attr</span>(<span class="st">&quot;d&quot;</span><span class="op">,</span> mylinegen)</a>
-<a class="sourceLine" id="cb169-36" data-line-number="36">         .<span class="at">attr</span>(<span class="st">&quot;class&quot;</span><span class="op">,</span> <span class="st">&quot;linestyle&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb169-37" data-line-number="37">    <span class="kw">&lt;/script&gt;</span></a>
-<a class="sourceLine" id="cb169-38" data-line-number="38"></a>
-<a class="sourceLine" id="cb169-39" data-line-number="39">  <span class="kw">&lt;/body&gt;</span></a>
-<a class="sourceLine" id="cb169-40" data-line-number="40"><span class="kw">&lt;/html&gt;</span></a></code></pre></div>
-<p>And another example with axes:</p>
 <div class="sourceCode" id="cb170"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb170-1" data-line-number="1"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></a>
 <a class="sourceLine" id="cb170-2" data-line-number="2"><span class="kw">&lt;html</span><span class="ot"> lang=</span><span class="st">&quot;en&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb170-3" data-line-number="3">    <span class="kw">&lt;head&gt;</span></a>
-<a class="sourceLine" id="cb170-4" data-line-number="4">        <span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;utf-8&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb170-5" data-line-number="5">        <span class="kw">&lt;title&gt;&lt;/title&gt;</span></a>
-<a class="sourceLine" id="cb170-6" data-line-number="6">        <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;https://d3js.org/d3.v4.min.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a>
-<a class="sourceLine" id="cb170-7" data-line-number="7">        <span class="kw">&lt;style</span><span class="ot"> type</span> <span class="ot">=</span><span class="st">&quot;text/css&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb170-8" data-line-number="8">      <span class="fu">.line</span> {</a>
+<a class="sourceLine" id="cb170-3" data-line-number="3">  <span class="kw">&lt;head&gt;</span></a>
+<a class="sourceLine" id="cb170-4" data-line-number="4">    <span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;utf-8&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb170-5" data-line-number="5">    <span class="kw">&lt;title&gt;</span>Line generator<span class="kw">&lt;/title&gt;</span></a>
+<a class="sourceLine" id="cb170-6" data-line-number="6">    <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;https://d3js.org/d3.v5.min.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a>
+<a class="sourceLine" id="cb170-7" data-line-number="7">    <span class="kw">&lt;style</span><span class="ot"> type</span> <span class="ot">=</span><span class="st">&quot;text/css&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb170-8" data-line-number="8">      <span class="fu">.linestyle</span> {</a>
 <a class="sourceLine" id="cb170-9" data-line-number="9">        fill: <span class="dv">none</span>;</a>
-<a class="sourceLine" id="cb170-10" data-line-number="10">        stroke: <span class="dv">red</span>;</a>
-<a class="sourceLine" id="cb170-11" data-line-number="11">        stroke-width: <span class="dv">1.5px</span>;</a>
+<a class="sourceLine" id="cb170-10" data-line-number="10">        stroke: <span class="dv">teal</span>;</a>
+<a class="sourceLine" id="cb170-11" data-line-number="11">        stroke-width: <span class="dv">5px</span>;</a>
 <a class="sourceLine" id="cb170-12" data-line-number="12">      }</a>
-<a class="sourceLine" id="cb170-13" data-line-number="13">        <span class="kw">&lt;/style&gt;</span></a>
-<a class="sourceLine" id="cb170-14" data-line-number="14">    <span class="kw">&lt;/head&gt;</span></a>
-<a class="sourceLine" id="cb170-15" data-line-number="15">    <span class="kw">&lt;body&gt;</span></a>
-<a class="sourceLine" id="cb170-16" data-line-number="16">    <span class="kw">&lt;svg</span><span class="ot"> width=</span><span class="st">&quot;600&quot;</span><span class="ot"> height=</span><span class="st">&quot;400&quot;</span><span class="kw">&gt;&lt;/svg&gt;</span></a>
-<a class="sourceLine" id="cb170-17" data-line-number="17">    <span class="kw">&lt;script&gt;</span></a>
-<a class="sourceLine" id="cb170-18" data-line-number="18">      <span class="kw">var</span> svg <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</a>
-<a class="sourceLine" id="cb170-19" data-line-number="19">      <span class="kw">var</span> margin <span class="op">=</span> <span class="op">{</span><span class="dt">top</span><span class="op">:</span> <span class="dv">20</span><span class="op">,</span> <span class="dt">right</span><span class="op">:</span> <span class="dv">50</span><span class="op">,</span> <span class="dt">bottom</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span> <span class="dt">left</span><span class="op">:</span> <span class="dv">50</span><span class="op">}</span></a>
-<a class="sourceLine" id="cb170-20" data-line-number="20">      <span class="kw">var</span> width <span class="op">=</span>  <span class="op">+</span><span class="va">svg</span>.<span class="at">attr</span>(<span class="st">&quot;width&quot;</span>) <span class="op">-</span> <span class="va">margin</span>.<span class="at">left</span> <span class="op">-</span> <span class="va">margin</span>.<span class="at">right</span></a>
-<a class="sourceLine" id="cb170-21" data-line-number="21">      <span class="kw">var</span> height <span class="op">=</span> <span class="op">+</span><span class="va">svg</span>.<span class="at">attr</span>(<span class="st">&quot;height&quot;</span>) <span class="op">-</span> <span class="va">margin</span>.<span class="at">top</span> <span class="op">-</span> <span class="va">margin</span>.<span class="at">bottom</span></a>
-<a class="sourceLine" id="cb170-22" data-line-number="22">      <span class="kw">var</span> g <span class="op">=</span> <span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;g&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span> <span class="vs">`translate(</span><span class="sc">${</span><span class="va">margin</span>.<span class="at">left</span><span class="sc">}</span><span class="vs">, </span><span class="sc">${</span><span class="va">margin</span>.<span class="at">top</span><span class="sc">}</span><span class="vs">)`</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb170-23" data-line-number="23">      <span class="kw">var</span> parseTime <span class="op">=</span> <span class="va">d3</span>.<span class="at">timeParse</span>(<span class="st">&quot;%d-%b-%y&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb170-24" data-line-number="24">      <span class="kw">var</span> xScale <span class="op">=</span> <span class="va">d3</span>.<span class="at">scaleTime</span>().<span class="at">range</span>([<span class="dv">0</span><span class="op">,</span> width])<span class="op">;</span></a>
-<a class="sourceLine" id="cb170-25" data-line-number="25">      <span class="kw">var</span> yScale <span class="op">=</span> <span class="va">d3</span>.<span class="at">scaleLinear</span>()</a>
-<a class="sourceLine" id="cb170-26" data-line-number="26">        .<span class="at">domain</span>([<span class="dv">20</span><span class="op">,</span> <span class="dv">80</span>])</a>
-<a class="sourceLine" id="cb170-27" data-line-number="27">        .<span class="at">range</span>([height<span class="op">,</span> <span class="dv">0</span>])<span class="op">;</span></a>
-<a class="sourceLine" id="cb170-28" data-line-number="28">      <span class="kw">var</span> line <span class="op">=</span> <span class="va">d3</span>.<span class="at">line</span>()</a>
-<a class="sourceLine" id="cb170-29" data-line-number="29">        .<span class="at">x</span>(d <span class="op">=&gt;</span> <span class="at">xScale</span>(<span class="va">d</span>.<span class="at">date</span>))</a>
-<a class="sourceLine" id="cb170-30" data-line-number="30">        .<span class="at">y</span>(d <span class="op">=&gt;</span> <span class="at">yScale</span>(<span class="va">d</span>.<span class="at">high</span>))<span class="op">;</span></a>
-<a class="sourceLine" id="cb170-31" data-line-number="31">      <span class="kw">var</span> data <span class="op">=</span> </a>
-<a class="sourceLine" id="cb170-32" data-line-number="32">      [<span class="op">{</span><span class="st">&quot;date&quot;</span><span class="op">:</span><span class="st">&quot;1-Apr-18&quot;</span><span class="op">,</span><span class="st">&quot;high&quot;</span><span class="op">:</span><span class="dv">60</span><span class="op">},</span></a>
-<a class="sourceLine" id="cb170-33" data-line-number="33">      <span class="op">{</span><span class="st">&quot;date&quot;</span><span class="op">:</span><span class="st">&quot;2-Apr-18&quot;</span><span class="op">,</span><span class="st">&quot;high&quot;</span><span class="op">:</span><span class="dv">43</span><span class="op">},</span></a>
-<a class="sourceLine" id="cb170-34" data-line-number="34">      <span class="op">{</span><span class="st">&quot;date&quot;</span><span class="op">:</span><span class="st">&quot;3-Apr-18&quot;</span><span class="op">,</span><span class="st">&quot;high&quot;</span><span class="op">:</span><span class="dv">43</span><span class="op">},</span></a>
-<a class="sourceLine" id="cb170-35" data-line-number="35">      <span class="op">{</span><span class="st">&quot;date&quot;</span><span class="op">:</span><span class="st">&quot;4-Apr-18&quot;</span><span class="op">,</span><span class="st">&quot;high&quot;</span><span class="op">:</span><span class="dv">56</span><span class="op">},</span></a>
-<a class="sourceLine" id="cb170-36" data-line-number="36">      <span class="op">{</span><span class="st">&quot;date&quot;</span><span class="op">:</span><span class="st">&quot;5-Apr-18&quot;</span><span class="op">,</span><span class="st">&quot;high&quot;</span><span class="op">:</span><span class="dv">45</span><span class="op">},</span></a>
-<a class="sourceLine" id="cb170-37" data-line-number="37">      <span class="op">{</span><span class="st">&quot;date&quot;</span><span class="op">:</span><span class="st">&quot;6-Apr-18&quot;</span><span class="op">,</span><span class="st">&quot;high&quot;</span><span class="op">:</span><span class="dv">62</span><span class="op">},</span></a>
-<a class="sourceLine" id="cb170-38" data-line-number="38">      <span class="op">{</span><span class="st">&quot;date&quot;</span><span class="op">:</span><span class="st">&quot;7-Apr-18&quot;</span><span class="op">,</span><span class="st">&quot;high&quot;</span><span class="op">:</span><span class="dv">49</span><span class="op">}</span>]<span class="op">;</span></a>
-<a class="sourceLine" id="cb170-39" data-line-number="39">      <span class="va">data</span>.<span class="at">forEach</span>(<span class="kw">function</span>(d) <span class="op">{</span></a>
-<a class="sourceLine" id="cb170-40" data-line-number="40">            <span class="va">d</span>.<span class="at">date</span> <span class="op">=</span> <span class="at">parseTime</span>(<span class="va">d</span>.<span class="at">date</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb170-41" data-line-number="41">      <span class="op">}</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb170-42" data-line-number="42">     </a>
-<a class="sourceLine" id="cb170-43" data-line-number="43">      xScale</a>
-<a class="sourceLine" id="cb170-44" data-line-number="44">        .<span class="at">domain</span>(<span class="va">d3</span>.<span class="at">extent</span>(data<span class="op">,</span> d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">date</span>))<span class="op">;</span></a>
-<a class="sourceLine" id="cb170-45" data-line-number="45">        </a>
-<a class="sourceLine" id="cb170-46" data-line-number="46">      <span class="va">g</span>.<span class="at">append</span>(<span class="st">&quot;g&quot;</span>)</a>
-<a class="sourceLine" id="cb170-47" data-line-number="47">          .<span class="at">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span> <span class="vs">`translate(0, </span><span class="sc">${</span>height<span class="sc">}</span><span class="vs">)`</span>)</a>
-<a class="sourceLine" id="cb170-48" data-line-number="48">          .<span class="at">call</span>(<span class="va">d3</span>.<span class="at">axisBottom</span>(xScale).<span class="at">ticks</span>(<span class="dv">7</span>))<span class="op">;</span></a>
-<a class="sourceLine" id="cb170-49" data-line-number="49">      <span class="va">g</span>.<span class="at">append</span>(<span class="st">&quot;g&quot;</span>)</a>
-<a class="sourceLine" id="cb170-50" data-line-number="50">          .<span class="at">call</span>(<span class="va">d3</span>.<span class="at">axisLeft</span>(yScale))</a>
-<a class="sourceLine" id="cb170-51" data-line-number="51">      <span class="va">g</span>.<span class="at">append</span>(<span class="st">&quot;path&quot;</span>)</a>
-<a class="sourceLine" id="cb170-52" data-line-number="52">          .<span class="at">datum</span>(data)</a>
-<a class="sourceLine" id="cb170-53" data-line-number="53">          .<span class="at">attr</span>(<span class="st">&quot;class&quot;</span><span class="op">,</span> <span class="st">&quot;line&quot;</span>)</a>
-<a class="sourceLine" id="cb170-54" data-line-number="54">          .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;none&quot;</span>)</a>
-<a class="sourceLine" id="cb170-55" data-line-number="55">          .<span class="at">attr</span>(<span class="st">&quot;d&quot;</span><span class="op">,</span> line)<span class="op">;</span></a>
-<a class="sourceLine" id="cb170-56" data-line-number="56">    <span class="kw">&lt;/script&gt;</span></a>
-<a class="sourceLine" id="cb170-57" data-line-number="57">    <span class="kw">&lt;/body&gt;</span></a>
-<a class="sourceLine" id="cb170-58" data-line-number="58"><span class="kw">&lt;/html&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb170-13" data-line-number="13">    <span class="kw">&lt;/style&gt;</span></a>
+<a class="sourceLine" id="cb170-14" data-line-number="14">  <span class="kw">&lt;/head&gt;</span></a>
+<a class="sourceLine" id="cb170-15" data-line-number="15">  <span class="kw">&lt;body&gt;</span></a>
+<a class="sourceLine" id="cb170-16" data-line-number="16">    <span class="kw">&lt;script&gt;</span></a>
+<a class="sourceLine" id="cb170-17" data-line-number="17">      <span class="kw">var</span> w <span class="op">=</span> <span class="dv">500</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb170-18" data-line-number="18">      <span class="kw">var</span> h <span class="op">=</span> <span class="dv">400</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb170-19" data-line-number="19">      <span class="kw">var</span> svg <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;body&quot;</span>).<span class="at">append</span>(<span class="st">&quot;svg&quot;</span>)</a>
+<a class="sourceLine" id="cb170-20" data-line-number="20">          .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> w).<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> h)<span class="op">;</span></a>
+<a class="sourceLine" id="cb170-21" data-line-number="21">      <span class="kw">var</span> dataset <span class="op">=</span> [ [<span class="dv">0</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">43</span>]<span class="op">,</span> [<span class="dv">2</span><span class="op">,</span> <span class="dv">43</span>]<span class="op">,</span> [<span class="dv">3</span><span class="op">,</span> <span class="dv">56</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb170-22" data-line-number="22">          [<span class="dv">4</span><span class="op">,</span> <span class="dv">45</span>]<span class="op">,</span> [<span class="dv">5</span><span class="op">,</span> <span class="dv">62</span>]<span class="op">,</span> [<span class="dv">6</span><span class="op">,</span> <span class="dv">49</span>] ]<span class="op">;</span></a>
+<a class="sourceLine" id="cb170-23" data-line-number="23">      <span class="kw">var</span> xScale <span class="op">=</span> <span class="va">d3</span>.<span class="at">scaleBand</span>()</a>
+<a class="sourceLine" id="cb170-24" data-line-number="24">        .<span class="at">domain</span>(<span class="va">d3</span>.<span class="at">range</span>(<span class="va">dataset</span>.<span class="at">length</span>))</a>
+<a class="sourceLine" id="cb170-25" data-line-number="25">        .<span class="at">range</span>([<span class="dv">0</span><span class="op">,</span> w])<span class="op">;</span></a>
+<a class="sourceLine" id="cb170-26" data-line-number="26">      <span class="kw">var</span> yScale <span class="op">=</span> <span class="va">d3</span>.<span class="at">scaleLinear</span>()</a>
+<a class="sourceLine" id="cb170-27" data-line-number="27">        .<span class="at">domain</span>([<span class="va">d3</span>.<span class="at">min</span>(dataset<span class="op">,</span> d <span class="op">=&gt;</span> d[<span class="dv">1</span>]) <span class="op">-</span> <span class="dv">20</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb170-28" data-line-number="28">                 <span class="va">d3</span>.<span class="at">max</span>(dataset<span class="op">,</span> d <span class="op">=&gt;</span> d[<span class="dv">1</span>]) <span class="op">+</span> <span class="dv">20</span>])</a>
+<a class="sourceLine" id="cb170-29" data-line-number="29">        .<span class="at">range</span>([h<span class="op">,</span> <span class="dv">0</span>])<span class="op">;</span></a>
+<a class="sourceLine" id="cb170-30" data-line-number="30">      <span class="kw">var</span> mylinegen <span class="op">=</span> <span class="va">d3</span>.<span class="at">line</span>()</a>
+<a class="sourceLine" id="cb170-31" data-line-number="31">        .<span class="at">x</span>(d <span class="op">=&gt;</span> <span class="at">xScale</span>(d[<span class="dv">0</span>]))</a>
+<a class="sourceLine" id="cb170-32" data-line-number="32">        .<span class="at">y</span>(d <span class="op">=&gt;</span> <span class="at">yScale</span>(d[<span class="dv">1</span>]))<span class="op">;</span></a>
+<a class="sourceLine" id="cb170-33" data-line-number="33">      <span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;path&quot;</span>)</a>
+<a class="sourceLine" id="cb170-34" data-line-number="34">         .<span class="at">datum</span>(dataset)</a>
+<a class="sourceLine" id="cb170-35" data-line-number="35">         .<span class="at">attr</span>(<span class="st">&quot;d&quot;</span><span class="op">,</span> mylinegen)</a>
+<a class="sourceLine" id="cb170-36" data-line-number="36">         .<span class="at">attr</span>(<span class="st">&quot;class&quot;</span><span class="op">,</span> <span class="st">&quot;linestyle&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb170-37" data-line-number="37">    <span class="kw">&lt;/script&gt;</span></a>
+<a class="sourceLine" id="cb170-38" data-line-number="38"></a>
+<a class="sourceLine" id="cb170-39" data-line-number="39">  <span class="kw">&lt;/body&gt;</span></a>
+<a class="sourceLine" id="cb170-40" data-line-number="40"><span class="kw">&lt;/html&gt;</span></a></code></pre></div>
+<p>And another example with axes:</p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb171-1" data-line-number="1"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></a>
+<a class="sourceLine" id="cb171-2" data-line-number="2"><span class="kw">&lt;html</span><span class="ot"> lang=</span><span class="st">&quot;en&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb171-3" data-line-number="3">    <span class="kw">&lt;head&gt;</span></a>
+<a class="sourceLine" id="cb171-4" data-line-number="4">        <span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;utf-8&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb171-5" data-line-number="5">        <span class="kw">&lt;title&gt;&lt;/title&gt;</span></a>
+<a class="sourceLine" id="cb171-6" data-line-number="6">        <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;https://d3js.org/d3.v4.min.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a>
+<a class="sourceLine" id="cb171-7" data-line-number="7">        <span class="kw">&lt;style</span><span class="ot"> type</span> <span class="ot">=</span><span class="st">&quot;text/css&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb171-8" data-line-number="8">      <span class="fu">.line</span> {</a>
+<a class="sourceLine" id="cb171-9" data-line-number="9">        fill: <span class="dv">none</span>;</a>
+<a class="sourceLine" id="cb171-10" data-line-number="10">        stroke: <span class="dv">red</span>;</a>
+<a class="sourceLine" id="cb171-11" data-line-number="11">        stroke-width: <span class="dv">1.5px</span>;</a>
+<a class="sourceLine" id="cb171-12" data-line-number="12">      }</a>
+<a class="sourceLine" id="cb171-13" data-line-number="13">        <span class="kw">&lt;/style&gt;</span></a>
+<a class="sourceLine" id="cb171-14" data-line-number="14">    <span class="kw">&lt;/head&gt;</span></a>
+<a class="sourceLine" id="cb171-15" data-line-number="15">    <span class="kw">&lt;body&gt;</span></a>
+<a class="sourceLine" id="cb171-16" data-line-number="16">    <span class="kw">&lt;svg</span><span class="ot"> width=</span><span class="st">&quot;600&quot;</span><span class="ot"> height=</span><span class="st">&quot;400&quot;</span><span class="kw">&gt;&lt;/svg&gt;</span></a>
+<a class="sourceLine" id="cb171-17" data-line-number="17">    <span class="kw">&lt;script&gt;</span></a>
+<a class="sourceLine" id="cb171-18" data-line-number="18">      <span class="kw">var</span> svg <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</a>
+<a class="sourceLine" id="cb171-19" data-line-number="19">      <span class="kw">var</span> margin <span class="op">=</span> <span class="op">{</span><span class="dt">top</span><span class="op">:</span> <span class="dv">20</span><span class="op">,</span> <span class="dt">right</span><span class="op">:</span> <span class="dv">50</span><span class="op">,</span> <span class="dt">bottom</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span> <span class="dt">left</span><span class="op">:</span> <span class="dv">50</span><span class="op">}</span></a>
+<a class="sourceLine" id="cb171-20" data-line-number="20">      <span class="kw">var</span> width <span class="op">=</span>  <span class="op">+</span><span class="va">svg</span>.<span class="at">attr</span>(<span class="st">&quot;width&quot;</span>) <span class="op">-</span> <span class="va">margin</span>.<span class="at">left</span> <span class="op">-</span> <span class="va">margin</span>.<span class="at">right</span></a>
+<a class="sourceLine" id="cb171-21" data-line-number="21">      <span class="kw">var</span> height <span class="op">=</span> <span class="op">+</span><span class="va">svg</span>.<span class="at">attr</span>(<span class="st">&quot;height&quot;</span>) <span class="op">-</span> <span class="va">margin</span>.<span class="at">top</span> <span class="op">-</span> <span class="va">margin</span>.<span class="at">bottom</span></a>
+<a class="sourceLine" id="cb171-22" data-line-number="22">      <span class="kw">var</span> g <span class="op">=</span> <span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;g&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span> <span class="vs">`translate(</span><span class="sc">${</span><span class="va">margin</span>.<span class="at">left</span><span class="sc">}</span><span class="vs">, </span><span class="sc">${</span><span class="va">margin</span>.<span class="at">top</span><span class="sc">}</span><span class="vs">)`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb171-23" data-line-number="23">      <span class="kw">var</span> parseTime <span class="op">=</span> <span class="va">d3</span>.<span class="at">timeParse</span>(<span class="st">&quot;%d-%b-%y&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb171-24" data-line-number="24">      <span class="kw">var</span> xScale <span class="op">=</span> <span class="va">d3</span>.<span class="at">scaleTime</span>().<span class="at">range</span>([<span class="dv">0</span><span class="op">,</span> width])<span class="op">;</span></a>
+<a class="sourceLine" id="cb171-25" data-line-number="25">      <span class="kw">var</span> yScale <span class="op">=</span> <span class="va">d3</span>.<span class="at">scaleLinear</span>()</a>
+<a class="sourceLine" id="cb171-26" data-line-number="26">        .<span class="at">domain</span>([<span class="dv">20</span><span class="op">,</span> <span class="dv">80</span>])</a>
+<a class="sourceLine" id="cb171-27" data-line-number="27">        .<span class="at">range</span>([height<span class="op">,</span> <span class="dv">0</span>])<span class="op">;</span></a>
+<a class="sourceLine" id="cb171-28" data-line-number="28">      <span class="kw">var</span> line <span class="op">=</span> <span class="va">d3</span>.<span class="at">line</span>()</a>
+<a class="sourceLine" id="cb171-29" data-line-number="29">        .<span class="at">x</span>(d <span class="op">=&gt;</span> <span class="at">xScale</span>(<span class="va">d</span>.<span class="at">date</span>))</a>
+<a class="sourceLine" id="cb171-30" data-line-number="30">        .<span class="at">y</span>(d <span class="op">=&gt;</span> <span class="at">yScale</span>(<span class="va">d</span>.<span class="at">high</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb171-31" data-line-number="31">      <span class="kw">var</span> data <span class="op">=</span> </a>
+<a class="sourceLine" id="cb171-32" data-line-number="32">      [<span class="op">{</span><span class="st">&quot;date&quot;</span><span class="op">:</span><span class="st">&quot;1-Apr-18&quot;</span><span class="op">,</span><span class="st">&quot;high&quot;</span><span class="op">:</span><span class="dv">60</span><span class="op">},</span></a>
+<a class="sourceLine" id="cb171-33" data-line-number="33">      <span class="op">{</span><span class="st">&quot;date&quot;</span><span class="op">:</span><span class="st">&quot;2-Apr-18&quot;</span><span class="op">,</span><span class="st">&quot;high&quot;</span><span class="op">:</span><span class="dv">43</span><span class="op">},</span></a>
+<a class="sourceLine" id="cb171-34" data-line-number="34">      <span class="op">{</span><span class="st">&quot;date&quot;</span><span class="op">:</span><span class="st">&quot;3-Apr-18&quot;</span><span class="op">,</span><span class="st">&quot;high&quot;</span><span class="op">:</span><span class="dv">43</span><span class="op">},</span></a>
+<a class="sourceLine" id="cb171-35" data-line-number="35">      <span class="op">{</span><span class="st">&quot;date&quot;</span><span class="op">:</span><span class="st">&quot;4-Apr-18&quot;</span><span class="op">,</span><span class="st">&quot;high&quot;</span><span class="op">:</span><span class="dv">56</span><span class="op">},</span></a>
+<a class="sourceLine" id="cb171-36" data-line-number="36">      <span class="op">{</span><span class="st">&quot;date&quot;</span><span class="op">:</span><span class="st">&quot;5-Apr-18&quot;</span><span class="op">,</span><span class="st">&quot;high&quot;</span><span class="op">:</span><span class="dv">45</span><span class="op">},</span></a>
+<a class="sourceLine" id="cb171-37" data-line-number="37">      <span class="op">{</span><span class="st">&quot;date&quot;</span><span class="op">:</span><span class="st">&quot;6-Apr-18&quot;</span><span class="op">,</span><span class="st">&quot;high&quot;</span><span class="op">:</span><span class="dv">62</span><span class="op">},</span></a>
+<a class="sourceLine" id="cb171-38" data-line-number="38">      <span class="op">{</span><span class="st">&quot;date&quot;</span><span class="op">:</span><span class="st">&quot;7-Apr-18&quot;</span><span class="op">,</span><span class="st">&quot;high&quot;</span><span class="op">:</span><span class="dv">49</span><span class="op">}</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb171-39" data-line-number="39">      <span class="va">data</span>.<span class="at">forEach</span>(<span class="kw">function</span>(d) <span class="op">{</span></a>
+<a class="sourceLine" id="cb171-40" data-line-number="40">            <span class="va">d</span>.<span class="at">date</span> <span class="op">=</span> <span class="at">parseTime</span>(<span class="va">d</span>.<span class="at">date</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb171-41" data-line-number="41">      <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb171-42" data-line-number="42">     </a>
+<a class="sourceLine" id="cb171-43" data-line-number="43">      xScale</a>
+<a class="sourceLine" id="cb171-44" data-line-number="44">        .<span class="at">domain</span>(<span class="va">d3</span>.<span class="at">extent</span>(data<span class="op">,</span> d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">date</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb171-45" data-line-number="45">        </a>
+<a class="sourceLine" id="cb171-46" data-line-number="46">      <span class="va">g</span>.<span class="at">append</span>(<span class="st">&quot;g&quot;</span>)</a>
+<a class="sourceLine" id="cb171-47" data-line-number="47">          .<span class="at">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span> <span class="vs">`translate(0, </span><span class="sc">${</span>height<span class="sc">}</span><span class="vs">)`</span>)</a>
+<a class="sourceLine" id="cb171-48" data-line-number="48">          .<span class="at">call</span>(<span class="va">d3</span>.<span class="at">axisBottom</span>(xScale).<span class="at">ticks</span>(<span class="dv">7</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb171-49" data-line-number="49">      <span class="va">g</span>.<span class="at">append</span>(<span class="st">&quot;g&quot;</span>)</a>
+<a class="sourceLine" id="cb171-50" data-line-number="50">          .<span class="at">call</span>(<span class="va">d3</span>.<span class="at">axisLeft</span>(yScale))</a>
+<a class="sourceLine" id="cb171-51" data-line-number="51">      <span class="va">g</span>.<span class="at">append</span>(<span class="st">&quot;path&quot;</span>)</a>
+<a class="sourceLine" id="cb171-52" data-line-number="52">          .<span class="at">datum</span>(data)</a>
+<a class="sourceLine" id="cb171-53" data-line-number="53">          .<span class="at">attr</span>(<span class="st">&quot;class&quot;</span><span class="op">,</span> <span class="st">&quot;line&quot;</span>)</a>
+<a class="sourceLine" id="cb171-54" data-line-number="54">          .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;none&quot;</span>)</a>
+<a class="sourceLine" id="cb171-55" data-line-number="55">          .<span class="at">attr</span>(<span class="st">&quot;d&quot;</span><span class="op">,</span> line)<span class="op">;</span></a>
+<a class="sourceLine" id="cb171-56" data-line-number="56">    <span class="kw">&lt;/script&gt;</span></a>
+<a class="sourceLine" id="cb171-57" data-line-number="57">    <span class="kw">&lt;/body&gt;</span></a>
+<a class="sourceLine" id="cb171-58" data-line-number="58"><span class="kw">&lt;/html&gt;</span></a></code></pre></div>
 <p>(Also uses: <code>d3.timeParse()</code> and JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach"><code>Array.foreach()</code></a> )</p>
 </div>
 </div>
