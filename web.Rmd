@@ -138,7 +138,7 @@ We will learn JavaScript on an as-needed basis. In terms of data, we will begin 
 
 In the [Just Enough JS](just-enough-js.html) chapter, we cover more complex data structures and some methods for data manipulation. 
 
-[javascript.info](javascript.info){target="_blank"} is an excellent resource for expanding your knowledge beyond the basics.
+[javascript.info](https://javascript.info){target="_blank"} is an excellent resource for expanding your knowledge beyond the basics.
 
 ## D3 <i class="far fa-chart-bar"></i>
 
