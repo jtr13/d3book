@@ -380,7 +380,7 @@ Set x-coordinate of each circle to data value with a JavaScript function:
 d3.select("svg").selectAll("circle").attr("cx", function(d) {return d;});
 ```
 
-We'll bind a new set of data to the circles, this time storying the dataset in a variable:
+We'll bind a new set of data to the circles, this time storing the dataset in a variable:
 
 ``` js
 var dataset = [50, 80, 110, 140, 170, 200];
