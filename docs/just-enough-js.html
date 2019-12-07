@@ -24,7 +24,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2019-12-06" />
+<meta name="date" content="2019-12-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -410,14 +410,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="sorting" class="section level2">
 <h2><span class="header-section-number">5.4</span> Sorting</h2>
-<p>Sorting in JavaScript sorts by character and modifies the original array:</p>
+<p>Sorting in JavaScript sorts by character and modifies the original array<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>:</p>
 <div class="sourceCode" id="cb109"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb109-1" data-line-number="1"><span class="kw">var</span> x <span class="op">=</span> [<span class="dv">3</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">12</span><span class="op">,</span> <span class="dv">7</span>]<span class="op">;</span>     <span class="co">// try me</span></a>
 <a class="sourceLine" id="cb109-2" data-line-number="2"><span class="va">x</span>.<span class="at">sort</span>()<span class="op">;</span></a></code></pre></div>
 <div class="sourceCode" id="cb110"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb110-1" data-line-number="1">x<span class="op">;</span>     <span class="co">// try me</span></a></code></pre></div>
-<p>If we don’t want to modify the original array we can make a copy. If we want to sort by number, not character, we can pass the comparator function <code>d3.ascending</code> to <code>.sort()</code>:</p>
+<p>If we want to sort by number, not character, we can pass the comparator function <code>d3.ascending</code> to <code>.sort()</code>:</p>
 <div class="sourceCode" id="cb111"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb111-1" data-line-number="1"><span class="kw">var</span> x <span class="op">=</span> [<span class="dv">3</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">12</span><span class="op">,</span> <span class="dv">7</span>]<span class="op">;</span>     <span class="co">// try me</span></a>
-<a class="sourceLine" id="cb111-2" data-line-number="2"><span class="kw">var</span> y <span class="op">=</span> <span class="va">x</span>.<span class="at">slice</span>()<span class="op">;</span></a>
-<a class="sourceLine" id="cb111-3" data-line-number="3"><span class="va">y</span>.<span class="at">sort</span>(<span class="va">d3</span>.<span class="at">ascending</span>)<span class="op">;</span></a></code></pre></div>
+<a class="sourceLine" id="cb111-2" data-line-number="2"><span class="va">x</span>.<span class="at">sort</span>(<span class="va">d3</span>.<span class="at">ascending</span>)<span class="op">;</span></a></code></pre></div>
 </div>
 <div id="d3-statistics" class="section level2">
 <h2><span class="header-section-number">5.5</span> D3 statistics</h2>
@@ -495,8 +494,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 <p>Thus for a single quantile we have:</p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb112-1" data-line-number="1"><span class="kw">var</span> x <span class="op">=</span> [<span class="dv">12</span><span class="op">,</span> <span class="dv">34</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">43</span><span class="op">,</span> <span class="dv">90</span><span class="op">,</span> <span class="dv">72</span>]<span class="op">;</span>      <span class="co">// try me</span></a>
-<a class="sourceLine" id="cb112-2" data-line-number="2"><span class="kw">var</span> y <span class="op">=</span> x<span class="op">;</span></a>
-<a class="sourceLine" id="cb112-3" data-line-number="3"><span class="va">d3</span>.<span class="at">quantile</span>(<span class="va">y</span>.<span class="at">sort</span>(<span class="va">d3</span>.<span class="at">ascending</span>)<span class="op">,</span> <span class="fl">.25</span>)<span class="op">;</span></a></code></pre></div>
+<a class="sourceLine" id="cb112-2" data-line-number="2"><span class="va">d3</span>.<span class="at">quantile</span>(<span class="va">x</span>.<span class="at">sort</span>(<span class="va">d3</span>.<span class="at">ascending</span>)<span class="op">,</span> <span class="fl">.25</span>)<span class="op">;</span></a></code></pre></div>
 <p><a href="https://github.com/d3/d3/blob/master/API.md#statistics" class="uri">https://github.com/d3/d3/blob/master/API.md#statistics</a></p>
 </div>
 <div id="d3-.map" class="section level2">
@@ -529,6 +527,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb121-2" data-line-number="2"><span class="va">dataset</span>.<span class="at">map</span>(d <span class="op">=&gt;</span> <span class="va">d3</span>.<span class="at">sum</span>(d))<span class="op">;</span></a></code></pre></div>
 
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p>If you don’t wish for that to happen, you’ll need to make a <a href="https://medium.com/javascript-in-plain-english/how-to-deep-copy-objects-and-arrays-in-javascript-7c911359b089" target="_blank">deep copy</a>.<a href="just-enough-js.html#fnref2" class="footnote-back">↩</a></p></li>
+</ol>
 </div>
             </section>
 
