@@ -423,7 +423,7 @@ circ.attr("cx", d => d);
 
 circ.attr("cx", d => d/2);
 
-circ.attr("r", d => d/4).attr("r", "10");
+circ.attr("cx", d => d/4).attr("r", "10");
 ```
 
 Note that if we bind a new set of data to the DOM elements, the original set will be overwritten:
