@@ -5,3 +5,63 @@
 ## Lecture slides <i class="fa fa-television"></i>
 
 [layouts.pdf](pdfs/layouts.pdf){target="_blank"}
+
+
+DRAFT
+
+We are using series -- the results of stack(dataset) -- here.
+
+
+Starting with: 
+
+
+
+var dataset = [
+ { apples: 5, oranges: 10, grapes: 22 },
+ { apples: 4, oranges: 12, grapes: 28 },
+ { apples: 2, oranges: 19, grapes: 32 },
+ { apples: 7, oranges: 23, grapes: 35 },
+ { apples: 23, oranges: 17, grapes: 43 }
+]; 
+
+
+We create a stack generator stack with 
+
+
+var stack = d3.stack()
+ .keys( [ "apples", "oranges", "grapes" ])
+ .order(d3.stackOrderDescending); 
+And then pass our dataset to it and get a nested array:
+
+
+var series = stack(dataset);
+Series contains some other stuff, but the relevant part of it is:
+
+
+
+[ [ [32, 37], [40, 44], [51, 53], [58, 65], [60, 83] ],   // apples
+  [ [22, 32], [28, 40], [32, 51], [35, 58], [43, 60] ],   // oranges
+  [ [0, 22],  [0, 28],  [0, 32],  [0, 35],  [0, 43] ] ]   // grapes
+
+
+In the first data bind, each of these three arrays (series[0], series[1], and series[2]) is bound to a group (<g>).
+
+
+
+In the second data bind, the one that you referenced, each of the pairs within one array is bound to a rectangle. So the first rectangle in the apples series (series[0]) gets [32, 37]. Those values refer to the unscaled y coordinates of the bottom and top of the apples rectangle in the first stacked bar. They are five apart since the data value for apples is 5. The rectangle starts at 32 since it is in the same stack as oranges (10) and grapes (22).  (Note that the value of d3.stack is in doing these calculations for us.)
+
+
+
+If we define a yScale:
+
+
+var yScale = d3.scaleLinear().domain([0, 100]).range([400, 0]);
+
+
+For that first apple rectangle with data  [32, 37] we have:
+
+
+
+yScale(d[0]) = yScale(32) = 272
+
+yScale(d[1] - d[0]) = yScale(5) = 
