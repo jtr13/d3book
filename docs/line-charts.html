@@ -24,7 +24,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2019-12-08" />
+<meta name="date" content="2019-12-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -417,12 +417,8 @@ chunk options:</p>
 </tr>
 </tbody>
 </table>
-<p>Format that we need:</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb159-1" data-line-number="1"><span class="kw">&lt;path</span><span class="ot"> class=</span><span class="st">&quot;line&quot;</span><span class="ot"> fill=</span><span class="st">&quot;none&quot;</span><span class="ot"> d=</span><span class="st">&quot;M0,116.66666666666669C27.777777777777786,155.5131766381766,55.55555555555557, 194.35968660968655,83.33333333333333,215.83333333333331C111.11111111111109,237.30698005698008,138.88888888888889,</span></a>
-<a class="sourceLine" id="cb159-2" data-line-number="2"><span class="st">241.40776353276354,166.66666666666666,215.83333333333331C194.44444444444443,190.2589031339031,222.22222222222223,</span></a>
-<a class="sourceLine" id="cb159-3" data-line-number="3"><span class="st">135.00925925925924,250,140C277.77777777777777,144.99074074074076,305.55555555555554,210.22186609686608,333.3333333333333,</span></a>
-<a class="sourceLine" id="cb159-4" data-line-number="4"><span class="st">204.16666666666666C361.1111111111111,198.11146723646723,388.8888888888889,120.76994301994304,416.6666666666667,</span></a>
-<a class="sourceLine" id="cb159-5" data-line-number="5"><span class="st">105.00000000000003C444.44444444444446,89.23005698005701,472.22222222222223,135.03169515669518,500,180.83333333333334&quot;</span><span class="kw">&gt;&lt;/path&gt;</span></a></code></pre></div>
+<p>Format that we need looks something like this:</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb159-1" data-line-number="1"><span class="kw">&lt;path</span><span class="ot"> class=</span><span class="st">&quot;line&quot;</span><span class="ot"> fill=</span><span class="st">&quot;none&quot;</span><span class="ot"> d=</span><span class="st">&quot;M0,149.15254237288136L71.42857142857143,264.40677966101697L142.85714285714286,264.40677966101697L214.28571428571428,176.27118644067798L285.7142857142857,250.84745762711864L357.14285714285717,135.59322033898303L428.57142857142856,223.72881355932205&quot;</span><span class="kw">&gt;&lt;/path&gt;</span></a></code></pre></div>
 <div id="step-1-create-a-line-generator" class="section level3">
 <h3><span class="header-section-number">12.5.1</span> Step 1: Create a line generator</h3>
 <p>Expects data in an array of 2-dimensional arrays, that is, an array of (x,y) pairs:</p>
