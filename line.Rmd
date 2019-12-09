@@ -239,69 +239,19 @@ Putting it all together, we have:
 </html>
 ```
 
+<style>
+    .go {
+                transition: transform 300ms cubic-bezier(0.2, 0, 0.2, 1)
+            }
+</style>            
 
-And another example with axes:
+### Ex. Connect the dots
+<div class="go">
+<a href="https://bl.ocks.org/jtr13/cecefce61040db70c408c052ce6ceb9c">
+  <img src="https://gist.githubusercontent.com/jtr13/cecefce61040db70c408c052ce6ceb9c/raw/991eb3f919618147d68482cb2a814462f27b1d23/thumbnail.png" alt="Connect the dots" style="width:300px;height:200px;border:0">
+</a>
+</div>
 
-``` html
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		<script src="https://d3js.org/d3.v4.min.js"></script>
-		<style type ="text/css">
-      .line {
-        fill: none;
-        stroke: red;
-        stroke-width: 1.5px;
-      }
-		</style>
-	</head>
-	<body>
-    <svg width="600" height="400"></svg>
-    <script>
-      var svg = d3.select("svg")
-      var margin = {top: 20, right: 50, bottom: 30, left: 50}
-      var width =  +svg.attr("width") - margin.left - margin.right
-      var height = +svg.attr("height") - margin.top - margin.bottom
-      var g = svg.append("g").attr("transform", `translate(${margin.left}, ${margin.top})`);
-      var parseTime = d3.timeParse("%d-%b-%y");
-      var xScale = d3.scaleTime().range([0, width]);
-      var yScale = d3.scaleLinear()
-        .domain([20, 80])
-        .range([height, 0]);
-      var line = d3.line()
-        .x(d => xScale(d.date))
-        .y(d => yScale(d.high));
-      var data = 
-      [{"date":"1-Apr-18","high":60},
-      {"date":"2-Apr-18","high":43},
-      {"date":"3-Apr-18","high":43},
-      {"date":"4-Apr-18","high":56},
-      {"date":"5-Apr-18","high":45},
-      {"date":"6-Apr-18","high":62},
-      {"date":"7-Apr-18","high":49}];
-      data.forEach(function(d) {
-            d.date = parseTime(d.date);
-      });
-     
-      xScale
-        .domain(d3.extent(data, d => d.date));
-        
-      g.append("g")
-          .attr("transform", `translate(0, ${height})`)
-          .call(d3.axisBottom(xScale).ticks(7));
-      g.append("g")
-          .call(d3.axisLeft(yScale))
-      g.append("path")
-          .datum(data)
-          .attr("class", "line")
-          .attr("fill", "none")
-          .attr("d", line);
-    </script>
-	</body>
-</html>
-```
 
 (Also uses: `d3.timeParse()` and JavaScript [`Array.foreach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) )
 
