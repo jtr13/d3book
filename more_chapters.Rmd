@@ -7,3 +7,10 @@
 ## Maintainer links
 
 Edit [`bookdown.yml`](https://github.com/jtr13/d3book/edit/master/_bookdown.yml){target="_blank"}
+
+This is a test:
+
+```{r}
+plot(rnorm(1000))
+```
+
