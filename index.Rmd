@@ -11,6 +11,8 @@ biblio-style: apalike
 link-citations: yes
 ---
 
+# Welcome to D3 {-}
+
 ```{r include=FALSE}
 # automatically create a bib database for R packages
 #knitr::write_bib(c(
@@ -20,8 +22,6 @@ link-citations: yes
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 klippy::klippy(c("js", "r"))
 ```
-
-# Welcome to D3 {-}
 
 <style>
 rect {
