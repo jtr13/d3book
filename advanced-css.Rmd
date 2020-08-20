@@ -1,0 +1,9 @@
+# More advanced CSS
+
+**This is a draft, not in _bookdown.yml**
+
+## Pseudoclasses
+
+### :focus
+
+Mainly used for tabbing. Clicking *may* focus a button but [not always](https://zellwk.com/blog/inconsistent-button-behavior/). A box shadow such as `box-shadow: 0 0 0 3px lightskyblue;` is a [good choice](https://zellwk.com/blog/style-hover-focus-active-states/#styling-focus-states)
