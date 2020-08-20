@@ -1,9 +1,31 @@
-# More advanced CSS
+# Appendix: advanced CSS
 
-**This is a draft, not in _bookdown.yml**
+**Work-in-progress*
 
-## Pseudoclasses
+## Buttons
+
+### .active 
+
+This is a *class* not a pseudoclass, indicates which button(s) are pressed.
+
+### :active
+
+A pseudoclass. Clicking is the main way to trigger an `:active` state. 
 
 ### :focus
 
-Mainly used for tabbing. Clicking *may* focus a button but [not always](https://zellwk.com/blog/inconsistent-button-behavior/). A box shadow such as `box-shadow: 0 0 0 3px lightskyblue;` is a [good choice](https://zellwk.com/blog/style-hover-focus-active-states/#styling-focus-states)
+A pseudoclass. Mainly used for tabbing. Clicking *may* focus a button but [not always](https://zellwk.com/blog/inconsistent-button-behavior/). A box shadow such as `box-shadow: 0 0 0 3px lightskyblue;` is a [good choice](https://zellwk.com/blog/style-hover-focus-active-states/#styling-focus-states)
+
+### :hover
+
+As expected, can have separate hover behavior for `.active` buttons. 
+
+Example: 
+
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="jtr13" data-slug-hash="wvGovGy" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Button .active vs :active">
+  <span>See the Pen <a href="https://codepen.io/jtr13/pen/wvGovGy">
+  Button .active vs :active</a> by Joyce Robbins (<a href="https://codepen.io/jtr13">@jtr13</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
