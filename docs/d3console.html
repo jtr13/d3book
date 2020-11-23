@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 D3 in the Console  | D3 for R Users</title>
   <meta name="description" content="3 D3 in the Console  | D3 for R Users" />
-  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 D3 in the Console  | D3 for R Users" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2020-08-20" />
+<meta name="date" content="2020-11-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="web.html"/>
 <link rel="next" href="update-enter-and-exit.html"/>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +51,9 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <script src="libs/clipboard-1.7.1/clipboard.min.js"></script>
@@ -60,25 +64,26 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -87,9 +92,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -138,14 +143,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">D3 for R Users</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to D3</a><ul>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#workflow"><i class="fa fa-check"></i><b>0.1</b> Workflow</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to D3</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#workflow"><i class="fa fa-check"></i><b>0.1</b> Workflow</a>
+<ul>
 <li class="chapter" data-level="0.1.1" data-path="index.html"><a href="index.html#javascript-console"><i class="fa fa-check"></i><b>0.1.1</b> JavaScript Console</a></li>
 <li class="chapter" data-level="0.1.2" data-path="index.html"><a href="index.html#this-book-in-the-console"><i class="fa fa-check"></i><b>0.1.2</b> This book in the Console</a></li>
 <li class="chapter" data-level="0.1.3" data-path="index.html"><a href="index.html#text-editor"><i class="fa fa-check"></i><b>0.1.3</b> Text editor</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="jump.html"><a href="jump.html"><i class="fa fa-check"></i><b>1</b> Jump in the deep end <i class="fas fa-swimmer"></i></a><ul>
+<li class="chapter" data-level="1" data-path="jump.html"><a href="jump.html"><i class="fa fa-check"></i><b>1</b> Jump in the deep end <i class="fas fa-swimmer"></i></a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="jump.html"><a href="jump.html#get-ready"><i class="fa fa-check"></i><b>1.1</b> Get ready <i class="fas fa-forward"></i></a></li>
 <li class="chapter" data-level="1.2" data-path="jump.html"><a href="jump.html#elements-tab"><i class="fa fa-check"></i><b>1.2</b> Elements tab <i class="far fa-folder"></i></a></li>
 <li class="chapter" data-level="1.3" data-path="jump.html"><a href="jump.html#console-tab"><i class="fa fa-check"></i><b>1.3</b> Console tab <i class="far fa-folder"></i></a></li>
@@ -153,9 +161,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.5" data-path="jump.html"><a href="jump.html#add-transitions"><i class="fa fa-check"></i><b>1.5</b> Add transitions <i class="far fa-paper-plane"></i></a></li>
 <li class="chapter" data-level="1.6" data-path="jump.html"><a href="jump.html#add-interactivity"><i class="fa fa-check"></i><b>1.6</b> Add interactivity <i class="fas fa-mouse-pointer"></i></a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="web.html"><a href="web.html"><i class="fa fa-check"></i><b>2</b> Web tech <i class="fas fa-server"></i></a><ul>
+<li class="chapter" data-level="2" data-path="web.html"><a href="web.html"><i class="fa fa-check"></i><b>2</b> Web tech <i class="fas fa-server"></i></a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="web.html"><a href="web.html#html"><i class="fa fa-check"></i><b>2.1</b> HTML <i class="fab fa-html5"></i></a></li>
-<li class="chapter" data-level="2.2" data-path="web.html"><a href="web.html#css"><i class="fa fa-check"></i><b>2.2</b> CSS <i class="fab fa-css3"></i></a><ul>
+<li class="chapter" data-level="2.2" data-path="web.html"><a href="web.html#css"><i class="fa fa-check"></i><b>2.2</b> CSS <i class="fab fa-css3"></i></a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="web.html"><a href="web.html#internal-style-sheet"><i class="fa fa-check"></i><b>2.2.1</b> Internal style sheet</a></li>
 <li class="chapter" data-level="2.2.2" data-path="web.html"><a href="web.html#external-style-sheets"><i class="fa fa-check"></i><b>2.2.2</b> External style sheets</a></li>
 <li class="chapter" data-level="2.2.3" data-path="web.html"><a href="web.html#inline-styling"><i class="fa fa-check"></i><b>2.2.3</b> Inline styling</a></li>
@@ -166,24 +176,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.6" data-path="web.html"><a href="web.html#html-tree"><i class="fa fa-check"></i><b>2.6</b> HTML tree <i class="fas fa-tree"></i></a></li>
 <li class="chapter" data-level="2.7" data-path="web.html"><a href="web.html#exercise-shapes"><i class="fa fa-check"></i><b>2.7</b> Exercise <i class="fas fa-dumbbell"></i>: shapes</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="d3console.html"><a href="d3console.html"><i class="fa fa-check"></i><b>3</b> D3 in the Console <i class="far fa-folder"></i></a><ul>
-<li class="chapter" data-level="3.1" data-path="d3console.html"><a href="d3console.html#selections"><i class="fa fa-check"></i><b>3.1</b> Selections <i class="fas fa-clipboard-list"></i></a><ul>
+<li class="chapter" data-level="3" data-path="d3console.html"><a href="d3console.html"><i class="fa fa-check"></i><b>3</b> D3 in the Console <i class="far fa-folder"></i></a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="d3console.html"><a href="d3console.html#selections"><i class="fa fa-check"></i><b>3.1</b> Selections <i class="fas fa-clipboard-list"></i></a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="d3console.html"><a href="d3console.html#select-by-tag"><i class="fa fa-check"></i><b>3.1.1</b> Select by tag</a></li>
 <li class="chapter" data-level="3.1.2" data-path="d3console.html"><a href="d3console.html#select-by-class"><i class="fa fa-check"></i><b>3.1.2</b> Select by class</a></li>
 <li class="chapter" data-level="3.1.3" data-path="d3console.html"><a href="d3console.html#select-by-id"><i class="fa fa-check"></i><b>3.1.3</b> Select by ID</a></li>
 <li class="chapter" data-level="3.1.4" data-path="d3console.html"><a href="d3console.html#store-selections"><i class="fa fa-check"></i><b>3.1.4</b> Store selections</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="d3console.html"><a href="d3console.html#modify-existing-elements"><i class="fa fa-check"></i><b>3.2</b> Modify existing elements <i class="fas fa-exchange-alt"></i></a><ul>
+<li class="chapter" data-level="3.2" data-path="d3console.html"><a href="d3console.html#modify-existing-elements"><i class="fa fa-check"></i><b>3.2</b> Modify existing elements <i class="fas fa-exchange-alt"></i></a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="d3console.html"><a href="d3console.html#modify-attributes"><i class="fa fa-check"></i><b>3.2.1</b> Modify attributes</a></li>
 <li class="chapter" data-level="3.2.2" data-path="d3console.html"><a href="d3console.html#modify-styles"><i class="fa fa-check"></i><b>3.2.2</b> Modify styles</a></li>
 <li class="chapter" data-level="3.2.3" data-path="d3console.html"><a href="d3console.html#modify-text"><i class="fa fa-check"></i><b>3.2.3</b> Modify text</a></li>
 <li class="chapter" data-level="3.2.4" data-path="d3console.html"><a href="d3console.html#move-svg-text"><i class="fa fa-check"></i><b>3.2.4</b> Move SVG text</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="d3console.html"><a href="d3console.html#add-elements"><i class="fa fa-check"></i><b>3.3</b> Add elements <i class="far fa-plus-square"></i></a><ul>
+<li class="chapter" data-level="3.3" data-path="d3console.html"><a href="d3console.html#add-elements"><i class="fa fa-check"></i><b>3.3</b> Add elements <i class="far fa-plus-square"></i></a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="d3console.html"><a href="d3console.html#html-1"><i class="fa fa-check"></i><b>3.3.1</b> HTML</a></li>
 <li class="chapter" data-level="3.3.2" data-path="d3console.html"><a href="d3console.html#svg-1"><i class="fa fa-check"></i><b>3.3.2</b> SVG</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="d3console.html"><a href="d3console.html#remove-elements"><i class="fa fa-check"></i><b>3.4</b> Remove elements <i class="far fa-minus-square"></i></a><ul>
+<li class="chapter" data-level="3.4" data-path="d3console.html"><a href="d3console.html#remove-elements"><i class="fa fa-check"></i><b>3.4</b> Remove elements <i class="far fa-minus-square"></i></a>
+<ul>
 <li class="chapter" data-level="3.4.1" data-path="d3console.html"><a href="d3console.html#html-2"><i class="fa fa-check"></i><b>3.4.1</b> HTML</a></li>
 <li class="chapter" data-level="3.4.2" data-path="d3console.html"><a href="d3console.html#svg-2"><i class="fa fa-check"></i><b>3.4.2</b> SVG</a></li>
 </ul></li>
@@ -192,11 +207,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.7" data-path="d3console.html"><a href="d3console.html#bind-data-finally"><i class="fa fa-check"></i><b>3.7</b> Bind data… <em>finally!</em> <i class="fas fa-table"></i></a></li>
 <li class="chapter" data-level="3.8" data-path="d3console.html"><a href="d3console.html#exercise-data-bind"><i class="fa fa-check"></i><b>3.8</b> Exercise <i class="fas fa-dumbbell"></i>: data bind</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html"><i class="fa fa-check"></i><b>4</b> Update, Enter, and Exit <i class="fa fa-refresh"></i></a><ul>
+<li class="chapter" data-level="4" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html"><i class="fa fa-check"></i><b>4</b> Update, Enter, and Exit <i class="fa fa-refresh"></i></a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#lecture-slides"><i class="fa fa-check"></i><b>4.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="4.2" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#remove-some-elements"><i class="fa fa-check"></i><b>4.2</b> Remove some elements <i class="far fa-minus-square"></i></a></li>
 <li class="chapter" data-level="4.3" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#add-some-elements"><i class="fa fa-check"></i><b>4.3</b> Add some elements <i class="far fa-plus-square"></i></a></li>
-<li class="chapter" data-level="4.4" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#data-enter-append"><i class="fa fa-check"></i><b>4.4</b> Data / enter / append <i class="fa fa-table"></i></a><ul>
+<li class="chapter" data-level="4.4" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#data-enter-append"><i class="fa fa-check"></i><b>4.4</b> Data / enter / append <i class="fa fa-table"></i></a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#labels"><i class="fa fa-check"></i><b>4.4.1</b> Labels</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#exercise-horizontal-bar-chart"><i class="fa fa-check"></i><b>4.5</b> Exercise <i class="fas fa-dumbbell"></i>: horizontal bar chart</a></li>
@@ -207,10 +224,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.10" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#exercise-functions"><i class="fa fa-check"></i><b>4.10</b> Exercise: <i class="fas fa-dumbbell"></i>: functions</a></li>
 <li class="chapter" data-level="4.11" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#exercise-vertical-bar-chart"><i class="fa fa-check"></i><b>4.11</b> Exercise <i class="fas fa-dumbbell"></i>: vertical bar chart</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="just-enough-js.html"><a href="just-enough-js.html"><i class="fa fa-check"></i><b>5</b> Just Enough JS <i class="fab fa-js-square"></i></a><ul>
+<li class="chapter" data-level="5" data-path="just-enough-js.html"><a href="just-enough-js.html"><i class="fa fa-check"></i><b>5</b> Just Enough JS <i class="fab fa-js-square"></i></a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="just-enough-js.html"><a href="just-enough-js.html#arrays-of-arrays"><i class="fa fa-check"></i><b>5.1</b> Arrays of arrays</a></li>
 <li class="chapter" data-level="5.2" data-path="just-enough-js.html"><a href="just-enough-js.html#arrays-of-objects"><i class="fa fa-check"></i><b>5.2</b> Arrays of objects</a></li>
-<li class="chapter" data-level="5.3" data-path="just-enough-js.html"><a href="just-enough-js.html#map"><i class="fa fa-check"></i><b>5.3</b> <code>.map()</code></a><ul>
+<li class="chapter" data-level="5.3" data-path="just-enough-js.html"><a href="just-enough-js.html#map"><i class="fa fa-check"></i><b>5.3</b> <code>.map()</code></a>
+<ul>
 <li class="chapter" data-level="5.3.1" data-path="just-enough-js.html"><a href="just-enough-js.html#simple-arrays"><i class="fa fa-check"></i><b>5.3.1</b> Simple arrays</a></li>
 <li class="chapter" data-level="5.3.2" data-path="just-enough-js.html"><a href="just-enough-js.html#arrays-of-arrays-1"><i class="fa fa-check"></i><b>5.3.2</b> Arrays of arrays</a></li>
 <li class="chapter" data-level="5.3.3" data-path="just-enough-js.html"><a href="just-enough-js.html#create-arrays-of-objects"><i class="fa fa-check"></i><b>5.3.3</b> Create arrays of objects</a></li>
@@ -219,76 +238,93 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.5" data-path="just-enough-js.html"><a href="just-enough-js.html#d3-statistics"><i class="fa fa-check"></i><b>5.5</b> D3 statistics</a></li>
 <li class="chapter" data-level="5.6" data-path="just-enough-js.html"><a href="just-enough-js.html#d3-.map"><i class="fa fa-check"></i><b>5.6</b> D3 + <code>.map()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="scales-and-axes.html"><a href="scales-and-axes.html"><i class="fa fa-check"></i><b>6</b> Scales and Axes <i class="fa fa-arrows"></i></a><ul>
-<li class="chapter" data-level="6.1" data-path="scales-and-axes.html"><a href="scales-and-axes.html#scales"><i class="fa fa-check"></i><b>6.1</b> Scales</a><ul>
+<li class="chapter" data-level="6" data-path="scales-and-axes.html"><a href="scales-and-axes.html"><i class="fa fa-check"></i><b>6</b> Scales and Axes <i class="fa fa-arrows"></i></a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="scales-and-axes.html"><a href="scales-and-axes.html#scales"><i class="fa fa-check"></i><b>6.1</b> Scales</a>
+<ul>
 <li class="chapter" data-level="6.1.1" data-path="scales-and-axes.html"><a href="scales-and-axes.html#lecture-slides-1"><i class="fa fa-check"></i><b>6.1.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="6.1.2" data-path="scales-and-axes.html"><a href="scales-and-axes.html#practice"><i class="fa fa-check"></i><b>6.1.2</b> Practice</a></li>
 <li class="chapter" data-level="6.1.3" data-path="scales-and-axes.html"><a href="scales-and-axes.html#examples"><i class="fa fa-check"></i><b>6.1.3</b> Examples</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="scales-and-axes.html"><a href="scales-and-axes.html#margins"><i class="fa fa-check"></i><b>6.2</b> Margins</a><ul>
+<li class="chapter" data-level="6.2" data-path="scales-and-axes.html"><a href="scales-and-axes.html#margins"><i class="fa fa-check"></i><b>6.2</b> Margins</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="scales-and-axes.html"><a href="scales-and-axes.html#lecture-slides-2"><i class="fa fa-check"></i><b>6.2.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="6.2.2" data-path="scales-and-axes.html"><a href="scales-and-axes.html#example"><i class="fa fa-check"></i><b>6.2.2</b> Example</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="scales-and-axes.html"><a href="scales-and-axes.html#axes"><i class="fa fa-check"></i><b>6.3</b> Axes</a><ul>
+<li class="chapter" data-level="6.3" data-path="scales-and-axes.html"><a href="scales-and-axes.html#axes"><i class="fa fa-check"></i><b>6.3</b> Axes</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="scales-and-axes.html"><a href="scales-and-axes.html#lecture-slides-3"><i class="fa fa-check"></i><b>6.3.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="6.3.2" data-path="scales-and-axes.html"><a href="scales-and-axes.html#example-1"><i class="fa fa-check"></i><b>6.3.2</b> Example</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="interactivity.html"><a href="interactivity.html"><i class="fa fa-check"></i><b>7</b> Interactivity <i class="fas fa-mouse-pointer"></i></a><ul>
+<li class="chapter" data-level="7" data-path="interactivity.html"><a href="interactivity.html"><i class="fa fa-check"></i><b>7</b> Interactivity <i class="fas fa-mouse-pointer"></i></a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="interactivity.html"><a href="interactivity.html#lecture-slides-4"><i class="fa fa-check"></i><b>7.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="7.2" data-path="interactivity.html"><a href="interactivity.html#binding-event-listeners"><i class="fa fa-check"></i><b>7.2</b> Binding event listeners</a></li>
-<li class="chapter" data-level="7.3" data-path="interactivity.html"><a href="interactivity.html#what-is-this"><i class="fa fa-check"></i><b>7.3</b> What is <em>this</em>?</a><ul>
+<li class="chapter" data-level="7.3" data-path="interactivity.html"><a href="interactivity.html#what-is-this"><i class="fa fa-check"></i><b>7.3</b> What is <em>this</em>?</a>
+<ul>
 <li class="chapter" data-level="7.3.1" data-path="interactivity.html"><a href="interactivity.html#location-on-svg"><i class="fa fa-check"></i><b>7.3.1</b> Location on SVG</a></li>
 <li class="chapter" data-level="7.3.2" data-path="interactivity.html"><a href="interactivity.html#attribute-of-an-element"><i class="fa fa-check"></i><b>7.3.2</b> Attribute of an element</a></li>
 <li class="chapter" data-level="7.3.3" data-path="interactivity.html"><a href="interactivity.html#value-of-radio-button"><i class="fa fa-check"></i><b>7.3.3</b> Value of radio button</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="interactivity.html"><a href="interactivity.html#add-remove-buttons"><i class="fa fa-check"></i><b>7.4</b> Add / remove “buttons”</a></li>
 <li class="chapter" data-level="7.5" data-path="interactivity.html"><a href="interactivity.html#putting-it-all-together"><i class="fa fa-check"></i><b>7.5</b> Putting it all together</a></li>
-<li class="chapter" data-level="7.6" data-path="interactivity.html"><a href="interactivity.html#dependent-event-listeners"><i class="fa fa-check"></i><b>7.6</b> Dependent event listeners</a><ul>
+<li class="chapter" data-level="7.6" data-path="interactivity.html"><a href="interactivity.html#dependent-event-listeners"><i class="fa fa-check"></i><b>7.6</b> Dependent event listeners</a>
+<ul>
 <li class="chapter" data-level="7.6.1" data-path="interactivity.html"><a href="interactivity.html#global-variable-example"><i class="fa fa-check"></i><b>7.6.1</b> Global variable example</a></li>
 <li class="chapter" data-level="7.6.2" data-path="interactivity.html"><a href="interactivity.html#turn-off-event-listener"><i class="fa fa-check"></i><b>7.6.2</b> Turn off event listener</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="transitions.html"><a href="transitions.html"><i class="fa fa-check"></i><b>8</b> Transitions <i class="far fa-paper-plane"></i></a><ul>
+<li class="chapter" data-level="8" data-path="transitions.html"><a href="transitions.html"><i class="fa fa-check"></i><b>8</b> Transitions <i class="far fa-paper-plane"></i></a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="transitions.html"><a href="transitions.html#examples-1"><i class="fa fa-check"></i><b>8.1</b> Examples</a></li>
 <li class="chapter" data-level="8.2" data-path="transitions.html"><a href="transitions.html#do-this"><i class="fa fa-check"></i><b>8.2</b> Do this</a></li>
 <li class="chapter" data-level="8.3" data-path="transitions.html"><a href="transitions.html#not-this"><i class="fa fa-check"></i><b>8.3</b> Not this</a></li>
 <li class="chapter" data-level="8.4" data-path="transitions.html"><a href="transitions.html#strategy"><i class="fa fa-check"></i><b>8.4</b> Strategy</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="object.html"><a href="object.html"><i class="fa fa-check"></i><b>9</b> Object Constancy <i class="fa fa-object-ungroup"></i></a><ul>
+<li class="chapter" data-level="9" data-path="object.html"><a href="object.html"><i class="fa fa-check"></i><b>9</b> Object Constancy <i class="fa fa-object-ungroup"></i></a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="object.html"><a href="object.html#no-object-constancy"><i class="fa fa-check"></i><b>9.1</b> No object constancy</a></li>
-<li class="chapter" data-level="9.2" data-path="object.html"><a href="object.html#object-constancy"><i class="fa fa-check"></i><b>9.2</b> Object constancy</a><ul>
+<li class="chapter" data-level="9.2" data-path="object.html"><a href="object.html#object-constancy"><i class="fa fa-check"></i><b>9.2</b> Object constancy</a>
+<ul>
 <li class="chapter" data-level="9.2.1" data-path="object.html"><a href="object.html#practice-joining-data-by-key"><i class="fa fa-check"></i><b>9.2.1</b> Practice joining data by key</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="reading-files.html"><a href="reading-files.html"><i class="fa fa-check"></i><b>10</b> Reading files <i class="fa fa-file-text-o"></i></a><ul>
+<li class="chapter" data-level="10" data-path="reading-files.html"><a href="reading-files.html"><i class="fa fa-check"></i><b>10</b> Reading files <i class="fa fa-file-text-o"></i></a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="reading-files.html"><a href="reading-files.html#promises"><i class="fa fa-check"></i><b>10.1</b> Promises</a></li>
 <li class="chapter" data-level="10.2" data-path="reading-files.html"><a href="reading-files.html#local-server"><i class="fa fa-check"></i><b>10.2</b> Local server</a></li>
 <li class="chapter" data-level="10.3" data-path="reading-files.html"><a href="reading-files.html#other-local-options"><i class="fa fa-check"></i><b>10.3</b> Other local options</a></li>
 <li class="chapter" data-level="10.4" data-path="reading-files.html"><a href="reading-files.html#hosting-online"><i class="fa fa-check"></i><b>10.4</b> Hosting online</a></li>
 <li class="chapter" data-level="10.5" data-path="reading-files.html"><a href="reading-files.html#example-2"><i class="fa fa-check"></i><b>10.5</b> Example</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="d3-in-projects.html"><a href="d3-in-projects.html"><i class="fa fa-check"></i><b>11</b> D3 in projects <i class="fa fa-book"></i></a><ul>
+<li class="chapter" data-level="11" data-path="d3-in-projects.html"><a href="d3-in-projects.html"><i class="fa fa-check"></i><b>11</b> D3 in projects <i class="fa fa-book"></i></a>
+<ul>
 <li class="chapter" data-level="11.1" data-path="d3-in-projects.html"><a href="d3-in-projects.html#lecture-slides-5"><i class="fa fa-check"></i><b>11.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="line-charts.html"><a href="line-charts.html"><i class="fa fa-check"></i><b>12</b> Line charts <i class="fa fa-line-chart"></i></a><ul>
+<li class="chapter" data-level="12" data-path="line-charts.html"><a href="line-charts.html"><i class="fa fa-check"></i><b>12</b> Line charts <i class="fa fa-line-chart"></i></a>
+<ul>
 <li class="chapter" data-level="12.1" data-path="line-charts.html"><a href="line-charts.html#lecture-slides-6"><i class="fa fa-check"></i><b>12.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="12.2" data-path="line-charts.html"><a href="line-charts.html#svg-line-element"><i class="fa fa-check"></i><b>12.2</b> SVG <code>&lt;line&gt;</code> element</a></li>
 <li class="chapter" data-level="12.3" data-path="line-charts.html"><a href="line-charts.html#svg-path-element"><i class="fa fa-check"></i><b>12.3</b> SVG <code>&lt;path&gt;</code> element</a></li>
-<li class="chapter" data-level="12.4" data-path="line-charts.html"><a href="line-charts.html#svg-editors"><i class="fa fa-check"></i><b>12.4</b> SVG editors</a><ul>
+<li class="chapter" data-level="12.4" data-path="line-charts.html"><a href="line-charts.html#svg-editors"><i class="fa fa-check"></i><b>12.4</b> SVG editors</a>
+<ul>
 <li class="chapter" data-level="" data-path="line-charts.html"><a href="line-charts.html#save-plots-as-svg-files-in-r"><i class="fa fa-check"></i>Save plots as SVG files in R</a></li>
 </ul></li>
-<li class="chapter" data-level="12.5" data-path="line-charts.html"><a href="line-charts.html#back-to-line-charts"><i class="fa fa-check"></i><b>12.5</b> Back to line charts</a><ul>
+<li class="chapter" data-level="12.5" data-path="line-charts.html"><a href="line-charts.html#back-to-line-charts"><i class="fa fa-check"></i><b>12.5</b> Back to line charts</a>
+<ul>
 <li class="chapter" data-level="12.5.1" data-path="line-charts.html"><a href="line-charts.html#step-1-create-a-line-generator"><i class="fa fa-check"></i><b>12.5.1</b> Step 1: Create a line generator</a></li>
 <li class="chapter" data-level="12.5.2" data-path="line-charts.html"><a href="line-charts.html#step-2-put-the-line-generator-to-work"><i class="fa fa-check"></i><b>12.5.2</b> Step 2: Put the line generator to work</a></li>
 </ul></li>
 <li class="chapter" data-level="12.6" data-path="line-charts.html"><a href="line-charts.html#additional-resources"><i class="fa fa-check"></i><b>12.6</b> Additional Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="layouts.html"><a href="layouts.html"><i class="fa fa-check"></i><b>13</b> Layouts <i class="fa fa-bar-chart"></i></a><ul>
+<li class="chapter" data-level="13" data-path="layouts.html"><a href="layouts.html"><i class="fa fa-check"></i><b>13</b> Layouts <i class="fa fa-bar-chart"></i></a>
+<ul>
 <li class="chapter" data-level="13.1" data-path="layouts.html"><a href="layouts.html#lecture-slides-7"><i class="fa fa-check"></i><b>13.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="debugging-tips.html"><a href="debugging-tips.html"><i class="fa fa-check"></i><b>14</b> Debugging Tips <i class="fa fa-bug"></i></a></li>
-<li class="chapter" data-level="15" data-path="your-solutions-here.html"><a href="your-solutions-here.html"><i class="fa fa-check"></i><b>15</b> Your solutions here <i class="fa fa-check-square-o"></i></a><ul>
+<li class="chapter" data-level="15" data-path="your-solutions-here.html"><a href="your-solutions-here.html"><i class="fa fa-check"></i><b>15</b> Your solutions here <i class="fa fa-check-square-o"></i></a>
+<ul>
 <li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#web-tech-shapes"><i class="fa fa-check"></i>Web tech: shapes</a></li>
 <li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#d3-in-the-console-green-circles"><i class="fa fa-check"></i>D3 in the Console: green circles</a></li>
 <li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#d3-in-the-console-blue-circles"><i class="fa fa-check"></i>D3 in the Console: blue circles</a></li>
@@ -296,11 +332,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#update-enter-and-exit-horizontal-bar-chart"><i class="fa fa-check"></i>Update, Enter, and Exit: horizontal bar chart</a></li>
 <li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#update-enter-and-exit-merge"><i class="fa fa-check"></i>Update, Enter, and Exit: merge</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="more-chapters-coming-soon.html"><a href="more-chapters-coming-soon.html"><i class="fa fa-check"></i><b>16</b> More chapters coming soon <i class="fas fa-screwdriver"></i></a><ul>
+<li class="chapter" data-level="16" data-path="more-chapters-coming-soon.html"><a href="more-chapters-coming-soon.html"><i class="fa fa-check"></i><b>16</b> More chapters coming soon <i class="fas fa-screwdriver"></i></a>
+<ul>
 <li class="chapter" data-level="16.1" data-path="more-chapters-coming-soon.html"><a href="more-chapters-coming-soon.html#maintainer-links"><i class="fa fa-check"></i><b>16.1</b> Maintainer links</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html"><i class="fa fa-check"></i><b>17</b> Appendix: advanced CSS</a><ul>
-<li class="chapter" data-level="17.1" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html#buttons"><i class="fa fa-check"></i><b>17.1</b> Buttons</a><ul>
+<li class="chapter" data-level="17" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html"><i class="fa fa-check"></i><b>17</b> Appendix: advanced CSS</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html#buttons"><i class="fa fa-check"></i><b>17.1</b> Buttons</a>
+<ul>
 <li class="chapter" data-level="17.1.1" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html#active"><i class="fa fa-check"></i><b>17.1.1</b> <code>.active</code></a></li>
 <li class="chapter" data-level="17.1.2" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html#active-1"><i class="fa fa-check"></i><b>17.1.2</b> <code>:active</code></a></li>
 <li class="chapter" data-level="17.1.3" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html#focus"><i class="fa fa-check"></i><b>17.1.3</b> <code>:focus</code></a></li>
@@ -328,81 +367,81 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="d3console" class="section level1">
+<div id="d3console" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> D3 in the Console <i class="far fa-folder"></i></h1>
 <p>Read <em>IDVW2</em>, Chapter 6: Drawing with Data. Skip pp. 89-96 as we will not be drawing bar charts with the <code>div</code>approach.</p>
 <script src="https://d3js.org/d3.v5.js"></script>
-<div id="selections" class="section level2">
+<div id="selections" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Selections <i class="fas fa-clipboard-list"></i></h2>
-<div id="select-by-tag" class="section level3">
+<div id="select-by-tag" class="section level3" number="3.1.1">
 <h3><span class="header-section-number">3.1.1</span> Select by tag</h3>
 <p>The ability to select elements on a page is key to being able to manipulate them. <code>d3.select()</code> will select the first match; <code>d3.selectAll()</code> will select all matches.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb18-1"><a href="d3console.html#cb18-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>selects the first circle in the order in which circles appear in the <code>&lt;svg&gt;</code> grouping. If there were more than one circle we could select them all with:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb19-1"><a href="d3console.html#cb19-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>We can select HTML elements by tag in the same way:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;body&quot;</span>).<span class="at">select</span>(<span class="st">&quot;h1&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;body&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;h1&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb20-1"><a href="d3console.html#cb20-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;body&quot;</span>)<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;h1&quot;</span>)<span class="op">;</span></span>
+<span id="cb20-2"><a href="d3console.html#cb20-2"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;body&quot;</span>)<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;h1&quot;</span>)<span class="op">;</span></span></code></pre></div>
 </div>
-<div id="select-by-class" class="section level3">
+<div id="select-by-class" class="section level3" number="3.1.2">
 <h3><span class="header-section-number">3.1.2</span> Select by class</h3>
 <p>Classes are selected by adding a “.” before the class name:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;circle.apple&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb21-1"><a href="d3console.html#cb21-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle.apple&quot;</span>)</span></code></pre></div>
 <p>This provides one method of selecting a certain collection of elements of the same type.</p>
 </div>
-<div id="select-by-id" class="section level3">
+<div id="select-by-id" class="section level3" number="3.1.3">
 <h3><span class="header-section-number">3.1.3</span> Select by ID</h3>
 <p>IDs differ from classes in that they are unique identifies. IDs are selected by adding a “#” before the ID:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">select</span>(<span class="st">&quot;circle#henry&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb22-1"><a href="d3console.html#cb22-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;circle#henry&quot;</span>)<span class="op">;</span></span></code></pre></div>
 </div>
-<div id="store-selections" class="section level3">
+<div id="store-selections" class="section level3" number="3.1.4">
 <h3><span class="header-section-number">3.1.4</span> Store selections</h3>
 <p>It is often helpful to store selections for later use. Here we store the svg selection in <code>mysvg</code>:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw">var</span> mysvg <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb23-1"><a href="d3console.html#cb23-1"></a><span class="kw">var</span> mysvg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <blockquote>
 <p><i class="far fa-lightbulb"></i> <em>The JavaScript community is moving toward using <code>let</code> and <code>const</code> instead of <code>var</code>; we, however, will stick with <code>var</code> to be consistent with </em>IDVW2<em>. Of course you’re welcome to use <code>const</code> and <code>let</code> instead, and if so, may find these articles helpful: <a href="https://madhatted.com/2016/1/25/let-it-be" target="_blank">Let It Be - How to declare JavaScript variables</a> and <a href="https://mathiasbynens.be/notes/es6-const" target="_blank">ES2015 const is not about immutability</a>.</em></p>
 </blockquote>
 <p>Store circle selection in a variable:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">var</span> svg <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb24-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb24-3" data-line-number="3"><span class="kw">var</span> circ <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb24-1"><a href="d3console.html#cb24-1"></a><span class="kw">var</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">;</span></span>
+<span id="cb24-2"><a href="d3console.html#cb24-2"></a></span>
+<span id="cb24-3"><a href="d3console.html#cb24-3"></a><span class="kw">var</span> circ <span class="op">=</span> svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">;</span></span></code></pre></div>
 </div>
 </div>
-<div id="modify-existing-elements" class="section level2">
+<div id="modify-existing-elements" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Modify existing elements <i class="fas fa-exchange-alt"></i></h2>
 <p>Try out the code in this section with a downloaded copy of <a href="https://raw.githubusercontent.com/jtr13/d3book/master/code/five_green_circles.html" target="_blank">five_green_circles.html</a> opened in Chrome and the Console visible.</p>
-<div id="modify-attributes" class="section level3">
+<div id="modify-attributes" class="section level3" number="3.2.1">
 <h3><span class="header-section-number">3.2.1</span> Modify attributes</h3>
 <p><a href="https://github.com/d3/d3-selection/blob/v1.4.0/README.md#selection_attr">link to get or set attribute API</a></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;r&quot;</span>)<span class="op">;</span>           <span class="co">// see radius</span></a>
-<a class="sourceLine" id="cb25-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb25-3" data-line-number="3"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;10&quot;</span>)<span class="op">;</span>     <span class="co">// set radius to 10</span></a></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb25-1"><a href="d3console.html#cb25-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span>)<span class="op">;</span>           <span class="co">// see radius</span></span>
+<span id="cb25-2"><a href="d3console.html#cb25-2"></a></span>
+<span id="cb25-3"><a href="d3console.html#cb25-3"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;10&quot;</span>)<span class="op">;</span>     <span class="co">// set radius to 10</span></span></code></pre></div>
 </div>
-<div id="modify-styles" class="section level3">
+<div id="modify-styles" class="section level3" number="3.2.2">
 <h3><span class="header-section-number">3.2.2</span> Modify styles</h3>
 <p><a href="https://github.com/d3/d3-selection/blob/v1.4.0/README.md#selection_style">link to get or set style API</a></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;h1&quot;</span>).<span class="at">style</span>(<span class="st">&quot;color&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb26-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb26-3" data-line-number="3"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;h1&quot;</span>).<span class="at">style</span>(<span class="st">&quot;color&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb26-1"><a href="d3console.html#cb26-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;h1&quot;</span>)<span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;color&quot;</span>)<span class="op">;</span></span>
+<span id="cb26-2"><a href="d3console.html#cb26-2"></a></span>
+<span id="cb26-3"><a href="d3console.html#cb26-3"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;h1&quot;</span>)<span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;color&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <blockquote>
 <p><i class="far fa-lightbulb"></i> <em>It is often difficult to remember whether to use <code>.attr()</code> or <code>.style()</code> In general, properties such as position on the SVG, class, and ID are </em>attributes<em>, while decorative properties such as color, font, font size, etc. are </em>styles<em>. However, in some cases, you can use either. For example, the following both make the circle blue:</em></p>
 </blockquote>
-<div class="sourceCode" id="cb27"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb27-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb27-3" data-line-number="3"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">style</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)<span class="op">;</span></a></code></pre></div>
-<p><em>The first will add a <code>fill=&quot;blue&quot;</code> attribute to the <code>&lt;circle&gt;</code> tag, while the latter will add <code>style=&quot;fill: blue;&quot;</code>. All is well and good until you find yourself with both in the same tag, in which case the <code>style</code> property will take precedence. The bottom line: don’t mix the two options because it can cause problems.</em></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb27-1"><a href="d3console.html#cb27-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)<span class="op">;</span></span>
+<span id="cb27-2"><a href="d3console.html#cb27-2"></a></span>
+<span id="cb27-3"><a href="d3console.html#cb27-3"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<p><em>The first will add a <code>fill="blue"</code> attribute to the <code>&lt;circle&gt;</code> tag, while the latter will add <code>style="fill: blue;"</code>. All is well and good until you find yourself with both in the same tag, in which case the <code>style</code> property will take precedence. The bottom line: don’t mix the two options because it can cause problems.</em></p>
 <blockquote>
-<p><i class="far fa-lightbulb"></i> <em>To further complicate matters, <code>.style()</code> is just shorthand for <code>.attr(&quot;style&quot;, &quot;...&quot;)</code> so the following are in fact equivalent:</em></p>
+<p><i class="far fa-lightbulb"></i> <em>To further complicate matters, <code>.style()</code> is just shorthand for <code>.attr("style", "...")</code> so the following are in fact equivalent:</em></p>
 </blockquote>
-<div class="sourceCode" id="cb28"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">style</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb28-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb28-3" data-line-number="3"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;style&quot;</span><span class="op">,</span> <span class="st">&quot;fill: blue;&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb28-1"><a href="d3console.html#cb28-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)<span class="op">;</span></span>
+<span id="cb28-2"><a href="d3console.html#cb28-2"></a></span>
+<span id="cb28-3"><a href="d3console.html#cb28-3"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;style&quot;</span><span class="op">,</span> <span class="st">&quot;fill: blue;&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p><em>In other words, style is an attribute!</em> <i class="far fa-grimace"></i></p>
 </div>
-<div id="modify-text" class="section level3">
+<div id="modify-text" class="section level3" number="3.2.3">
 <h3><span class="header-section-number">3.2.3</span> Modify text</h3>
 <p>This section is interactive. Hover over code as directed to observe effects.</p>
-<div id="html-text" class="section level4 unnumbered">
+<div id="html-text" class="section level4 unnumbered" number="">
 <h4>HTML text</h4>
 <style>
 .fancy {
@@ -411,7 +450,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   font-size: 30px;
 }
 </style>
-<div class="sourceCode" id="cb29"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="kw">&lt;p</span><span class="ot"> id=</span><span class="st">&quot;typo&quot;</span><span class="ot"> class=</span><span class="st">&quot;fancy&quot;</span><span class="kw">&gt;</span>Manhatten<span class="kw">&lt;/p&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb29-1"><a href="d3console.html#cb29-1"></a><span class="kw">&lt;p</span><span class="ot"> id=</span><span class="st">&quot;typo&quot;</span><span class="ot"> class=</span><span class="st">&quot;fancy&quot;</span><span class="kw">&gt;</span>Manhatten<span class="kw">&lt;/p&gt;</span></span></code></pre></div>
 <div>
 <p id="typo" class="fancy">
 Manhatten
@@ -419,7 +458,7 @@ Manhatten
 </div>
 <p>Hover to execute this code (and fix the typo):</p>
 <div id="fixtypo">
-<div class="sourceCode" id="cb30"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;#typo&quot;</span>).<span class="at">text</span>(<span class="st">&quot;Manhattan&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb30-1"><a href="d3console.html#cb30-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;#typo&quot;</span>)<span class="op">.</span><span class="fu">text</span>(<span class="st">&quot;Manhattan&quot;</span>)<span class="op">;</span></span></code></pre></div>
 </div>
 <script>
 d3.select("#fixtypo")
@@ -431,13 +470,13 @@ d3.select("#typo").text("Manhatten")
 });
 </script>
 </div>
-<div id="svg-text" class="section level4 unnumbered">
+<div id="svg-text" class="section level4 unnumbered" number="">
 <h4>SVG text</h4>
-<div class="sourceCode" id="cb31"><pre class="sourceCode svg"><code class="sourceCode xml"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="kw">&lt;svg</span><span class="ot"> width=</span><span class="st">&quot;500&quot;</span><span class="ot"> height=</span><span class="st">&quot;100&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb31-2" data-line-number="2">  <span class="kw">&lt;rect</span><span class="ot"> width=</span><span class="st">&quot;500&quot;</span><span class="ot"> height=</span><span class="st">&quot;100&quot;</span><span class="ot"> fill=</span><span class="st">&quot;#326EA4&quot;</span><span class="kw">&gt;&lt;/rect&gt;</span></a>
-<a class="sourceLine" id="cb31-3" data-line-number="3">  <span class="kw">&lt;text</span><span class="ot"> id=</span><span class="st">&quot;svgtypo&quot;</span><span class="ot"> x=</span><span class="st">&quot;50&quot;</span><span class="ot"> y=</span><span class="st">&quot;70&quot;</span><span class="ot"> fill=</span><span class="st">&quot;white&quot;</span><span class="ot"> font-weight=</span><span class="st">&quot;bold&quot;</span><span class="ot"> font-size=</span><span class="st">&quot;40px&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb31-4" data-line-number="4">     Web scrapping is fun.<span class="kw">&lt;/text&gt;</span></a>
-<a class="sourceLine" id="cb31-5" data-line-number="5"><span class="kw">&lt;/svg&gt;</span>  </a></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode svg"><code class="sourceCode xml"><span id="cb31-1"><a href="d3console.html#cb31-1"></a><span class="kw">&lt;svg</span><span class="ot"> width=</span><span class="st">&quot;500&quot;</span><span class="ot"> height=</span><span class="st">&quot;100&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb31-2"><a href="d3console.html#cb31-2"></a>  <span class="kw">&lt;rect</span><span class="ot"> width=</span><span class="st">&quot;500&quot;</span><span class="ot"> height=</span><span class="st">&quot;100&quot;</span><span class="ot"> fill=</span><span class="st">&quot;#326EA4&quot;</span><span class="kw">&gt;&lt;/rect&gt;</span></span>
+<span id="cb31-3"><a href="d3console.html#cb31-3"></a>  <span class="kw">&lt;text</span><span class="ot"> id=</span><span class="st">&quot;svgtypo&quot;</span><span class="ot"> x=</span><span class="st">&quot;50&quot;</span><span class="ot"> y=</span><span class="st">&quot;70&quot;</span><span class="ot"> fill=</span><span class="st">&quot;white&quot;</span><span class="ot"> font-weight=</span><span class="st">&quot;bold&quot;</span><span class="ot"> font-size=</span><span class="st">&quot;40px&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb31-4"><a href="d3console.html#cb31-4"></a>     Web scrapping is fun.<span class="kw">&lt;/text&gt;</span></span>
+<span id="cb31-5"><a href="d3console.html#cb31-5"></a><span class="kw">&lt;/svg&gt;</span>  </span></code></pre></div>
 <p>Hover on this SVG to execute the code below it (and fix the typo):</p>
 <svg width="500" height="100">
 <rect width="500" height="100" fill="#326EA4"></rect>
@@ -446,7 +485,7 @@ d3.select("#typo").text("Manhatten")
 Web scrapping is fun.</text>
 </svg>
 <div id="fixsvgtypo">
-<div class="sourceCode" id="cb32"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;#svgtypo&quot;</span>).<span class="at">text</span>(<span class="st">&quot;Web scraping is fun.&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb32-1"><a href="d3console.html#cb32-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;#svgtypo&quot;</span>)<span class="op">.</span><span class="fu">text</span>(<span class="st">&quot;Web scraping is fun.&quot;</span>)<span class="op">;</span></span></code></pre></div>
 </div>
 <script>
 d3.select("#fixsvgtypo")
@@ -460,18 +499,18 @@ d3.select("#svgtypo").text("Web scrapping is fun.")
 <blockquote>
 <p><i class="far fa-lightbulb"></i> <em>The SVG <code>&lt;text&gt;</code> tag can be tricky. It differs from HTML text tags (<code>&lt;p&gt;, &lt;h1&gt;, &lt;h2&gt;,</code> etc.) in that it has <code>x</code> and <code>y</code> attributes that allow you to position text on an SVG canvas. Unlike HTML, the fill attribute controls the color of the text. Compare:</em></p>
 </blockquote>
-<div class="sourceCode" id="cb33"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;p&quot;</span>).<span class="at">style</span>(<span class="st">&quot;color&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span>   <span class="co">// HTML</span></a>
-<a class="sourceLine" id="cb33-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb33-3" data-line-number="3"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;text&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span>  <span class="co">// SVG</span></a></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb33-1"><a href="d3console.html#cb33-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;p&quot;</span>)<span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;color&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span>   <span class="co">// HTML</span></span>
+<span id="cb33-2"><a href="d3console.html#cb33-2"></a></span>
+<span id="cb33-3"><a href="d3console.html#cb33-3"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;text&quot;</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span>  <span class="co">// SVG</span></span></code></pre></div>
 </div>
 </div>
-<div id="move-svg-text" class="section level3">
+<div id="move-svg-text" class="section level3" number="3.2.4">
 <h3><span class="header-section-number">3.2.4</span> Move SVG text</h3>
-<div class="sourceCode" id="cb34"><pre class="sourceCode svg"><code class="sourceCode xml"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="kw">&lt;svg</span><span class="ot"> width=</span><span class="st">&quot;600&quot;</span><span class="ot"> height=</span><span class="st">&quot;100&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb34-2" data-line-number="2">  <span class="kw">&lt;rect</span><span class="ot"> width=</span><span class="st">&quot;600&quot;</span><span class="ot"> height=</span><span class="st">&quot;100&quot;</span><span class="ot"> fill=</span><span class="st">&quot;#326EA4&quot;</span><span class="kw">&gt;&lt;/rect&gt;</span></a>
-<a class="sourceLine" id="cb34-3" data-line-number="3">  <span class="kw">&lt;text</span><span class="ot"> id=</span><span class="st">&quot;moveleft&quot;</span><span class="ot"> x=</span><span class="st">&quot;200&quot;</span><span class="ot"> y=</span><span class="st">&quot;70&quot;</span><span class="ot"> fill=</span><span class="st">&quot;white&quot;</span><span class="ot"> font-weight=</span><span class="st">&quot;bold&quot;</span><span class="ot"> font-size=</span><span class="st">&quot;40px&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb34-4" data-line-number="4">      I want to move left.<span class="kw">&lt;/text&gt;</span></a>
-<a class="sourceLine" id="cb34-5" data-line-number="5"><span class="kw">&lt;/svg&gt;</span>  </a></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode svg"><code class="sourceCode xml"><span id="cb34-1"><a href="d3console.html#cb34-1"></a><span class="kw">&lt;svg</span><span class="ot"> width=</span><span class="st">&quot;600&quot;</span><span class="ot"> height=</span><span class="st">&quot;100&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb34-2"><a href="d3console.html#cb34-2"></a>  <span class="kw">&lt;rect</span><span class="ot"> width=</span><span class="st">&quot;600&quot;</span><span class="ot"> height=</span><span class="st">&quot;100&quot;</span><span class="ot"> fill=</span><span class="st">&quot;#326EA4&quot;</span><span class="kw">&gt;&lt;/rect&gt;</span></span>
+<span id="cb34-3"><a href="d3console.html#cb34-3"></a>  <span class="kw">&lt;text</span><span class="ot"> id=</span><span class="st">&quot;moveleft&quot;</span><span class="ot"> x=</span><span class="st">&quot;200&quot;</span><span class="ot"> y=</span><span class="st">&quot;70&quot;</span><span class="ot"> fill=</span><span class="st">&quot;white&quot;</span><span class="ot"> font-weight=</span><span class="st">&quot;bold&quot;</span><span class="ot"> font-size=</span><span class="st">&quot;40px&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb34-4"><a href="d3console.html#cb34-4"></a>      I want to move left.<span class="kw">&lt;/text&gt;</span></span>
+<span id="cb34-5"><a href="d3console.html#cb34-5"></a><span class="kw">&lt;/svg&gt;</span>  </span></code></pre></div>
 <p>Hover on this SVG to execute the code below it:</p>
 <svg width="600" height="100">
 <rect width="600" height="100" fill= "#326EA4"></rect>
@@ -479,7 +518,7 @@ d3.select("#svgtypo").text("Web scrapping is fun.")
 font-weight="bold" font-size="40px">I want to move left.</text>
 </svg>
 <div id="move">
-<div class="sourceCode" id="cb35"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;#moveleft&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;20&quot;</span>).<span class="at">text</span>(<span class="st">&quot;Thanks, now I&#39;m happy!&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb35-1"><a href="d3console.html#cb35-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;#moveleft&quot;</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;20&quot;</span>)<span class="op">.</span><span class="fu">text</span>(<span class="st">&quot;Thanks, now I&#39;m happy!&quot;</span>)<span class="op">;</span></span></code></pre></div>
 </div>
 <script>
 d3.select("#move")
@@ -492,55 +531,55 @@ d3.select("#moveleft").attr("x", "200").text("I want to move left.")
 </script>
 </div>
 </div>
-<div id="add-elements" class="section level2">
+<div id="add-elements" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Add elements <i class="far fa-plus-square"></i></h2>
-<div id="html-1" class="section level3">
+<div id="html-1" class="section level3" number="3.3.1">
 <h3><span class="header-section-number">3.3.1</span> HTML</h3>
 <p>Continue trying out code with <code>five_green_circles.html</code> open in Chrome.</p>
 <p>The following adds a <code>&lt;p&gt;</code> tag but doesn’t change how the page looks, since there’s no text associated with it.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;body&quot;</span>).<span class="at">append</span>(<span class="st">&quot;p&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb36-1"><a href="d3console.html#cb36-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;body&quot;</span>)<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;p&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>To add text, use <code>.text()</code>:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;body&quot;</span>).<span class="at">append</span>(<span class="st">&quot;p&quot;</span>).<span class="at">text</span>(<span class="st">&quot;This is a complete sentence.&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb37-1"><a href="d3console.html#cb37-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;body&quot;</span>)<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;p&quot;</span>)<span class="op">.</span><span class="fu">text</span>(<span class="st">&quot;This is a complete sentence.&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <blockquote>
 <p><i class="far fa-lightbulb"></i> <em>To debug adding an element, go to the Elements tab to see what was added and where. If an element is in the wrong place in the HTML tree, it will not be visible.</em></p>
 </blockquote>
 </div>
-<div id="svg-1" class="section level3">
+<div id="svg-1" class="section level3" number="3.3.2">
 <h3><span class="header-section-number">3.3.2</span> SVG</h3>
 <p>Likewise, here we add a <code>&lt;circle&gt;</code> to the <code>&lt;svg&gt;</code>, but we can’t see it since it has no attributes.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">append</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb38-1"><a href="d3console.html#cb38-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>Adding attributes will create visible circles:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">append</span>(<span class="st">&quot;rect&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;0&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> <span class="st">&quot;0&quot;</span>)</a>
-<a class="sourceLine" id="cb39-2" data-line-number="2">    .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;500&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;400&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightblue&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb39-3" data-line-number="3">    </a>
-<a class="sourceLine" id="cb39-4" data-line-number="4"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">append</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;200&quot;</span>)</a>
-<a class="sourceLine" id="cb39-5" data-line-number="5">    .<span class="at">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> <span class="st">&quot;100&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;orange&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb39-6" data-line-number="6">    </a>
-<a class="sourceLine" id="cb39-7" data-line-number="7"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">append</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;300&quot;</span>)</a>
-<a class="sourceLine" id="cb39-8" data-line-number="8">    .<span class="at">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> <span class="st">&quot;150&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span>  </a></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb39-1"><a href="d3console.html#cb39-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;0&quot;</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> <span class="st">&quot;0&quot;</span>)</span>
+<span id="cb39-2"><a href="d3console.html#cb39-2"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;500&quot;</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;400&quot;</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightblue&quot;</span>)<span class="op">;</span></span>
+<span id="cb39-3"><a href="d3console.html#cb39-3"></a>    </span>
+<span id="cb39-4"><a href="d3console.html#cb39-4"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;200&quot;</span>)</span>
+<span id="cb39-5"><a href="d3console.html#cb39-5"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> <span class="st">&quot;100&quot;</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;orange&quot;</span>)<span class="op">;</span></span>
+<span id="cb39-6"><a href="d3console.html#cb39-6"></a>    </span>
+<span id="cb39-7"><a href="d3console.html#cb39-7"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;300&quot;</span>)</span>
+<span id="cb39-8"><a href="d3console.html#cb39-8"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> <span class="st">&quot;150&quot;</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span>  </span></code></pre></div>
 <p>We can use a saved selection to assist in creating a new element:</p>
 <p>(<em>IDVW2</em>, pp. 97-98)</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb40-1" data-line-number="1">mysvg <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb40-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb40-3" data-line-number="3"><span class="va">mysvg</span>.<span class="at">append</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;250&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> <span class="st">&quot;250&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;50&quot;</span>)</a>
-<a class="sourceLine" id="cb40-4" data-line-number="4">  .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb40-1"><a href="d3console.html#cb40-1"></a>mysvg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">;</span></span>
+<span id="cb40-2"><a href="d3console.html#cb40-2"></a></span>
+<span id="cb40-3"><a href="d3console.html#cb40-3"></a>mysvg<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;250&quot;</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> <span class="st">&quot;250&quot;</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;50&quot;</span>)</span>
+<span id="cb40-4"><a href="d3console.html#cb40-4"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span></span></code></pre></div>
 </div>
 </div>
-<div id="remove-elements" class="section level2">
+<div id="remove-elements" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Remove elements <i class="far fa-minus-square"></i></h2>
 <p>These methods will remove matching elements in order, starting with the first find in the document.</p>
-<div id="html-2" class="section level3">
+<div id="html-2" class="section level3" number="3.4.1">
 <h3><span class="header-section-number">3.4.1</span> HTML</h3>
-<div class="sourceCode" id="cb41"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;p&quot;</span>).<span class="at">remove</span>()<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb41-1"><a href="d3console.html#cb41-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;p&quot;</span>)<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span></code></pre></div>
 </div>
-<div id="svg-2" class="section level3">
+<div id="svg-2" class="section level3" number="3.4.2">
 <h3><span class="header-section-number">3.4.2</span> SVG</h3>
-<div class="sourceCode" id="cb42"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">remove</span>()<span class="op">;</span></a>
-<a class="sourceLine" id="cb42-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb42-3" data-line-number="3"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">remove</span>()<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb42-1"><a href="d3console.html#cb42-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb42-2"><a href="d3console.html#cb42-2"></a></span>
+<span id="cb42-3"><a href="d3console.html#cb42-3"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span></code></pre></div>
 </div>
 </div>
-<div id="exercise-green-circles" class="section level2">
+<div id="exercise-green-circles" class="section level2" number="3.5">
 <h2><span class="header-section-number">3.5</span> Exercise <i class="fas fa-dumbbell"></i>: green circles</h2>
 <p>Download and open a fresh copy of <a href="https://raw.githubusercontent.com/jtr13/d3book/master/code/five_green_circles.html" target="_blank">five_green_circles.html</a> in Chrome. Open Developer Tools open and do the following in the Console with D3:</p>
 <ol style="list-style-type: decimal">
@@ -551,7 +590,7 @@ d3.select("#moveleft").attr("x", "200").text("I want to move left.")
 </ol>
 <p><a href="your-solutions-here.html#d3-in-the-console-green-circles"></a></p>
 </div>
-<div id="exercise-blue-circles" class="section level2">
+<div id="exercise-blue-circles" class="section level2" number="3.6">
 <h2><span class="header-section-number">3.6</span> Exercise <i class="fas fa-dumbbell"></i> <i class="fas fa-dumbbell"></i>: blue circles</h2>
 <p>Download and open a fresh copy of <a href="https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html" target="_blank">six_blue_circles.html</a> in Chrome. Open Developer Tools and execute Steps 1-4 one at a time in the Console. After Step 4, refresh the page to go back to Step 1 if so desired. (You do not need to create a loop as in the visual.)</p>
 <blockquote>
@@ -578,49 +617,49 @@ d3.select("#moveleft").attr("x", "200").text("I want to move left.")
 </table>
 <p><a href="your-solutions-here.html#d3-in-the-console-blue-circles"></a></p>
 </div>
-<div id="bind-data-finally" class="section level2">
+<div id="bind-data-finally" class="section level2" number="3.7">
 <h2><span class="header-section-number">3.7</span> Bind data… <em>finally!</em> <i class="fas fa-table"></i></h2>
 <p>(<em>IDVW2</em>, pp. 98-108)</p>
 <p>To follow along with the code in this section, download and open <a href="https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html" target="_blank">six_blue_circles.html</a>.</p>
 <p>Bind data:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">data</span>([<span class="dv">90</span><span class="op">,</span> <span class="dv">230</span><span class="op">,</span> <span class="dv">140</span><span class="op">,</span> <span class="dv">75</span><span class="op">,</span> <span class="dv">180</span><span class="op">,</span> <span class="dv">25</span>])<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb43-1"><a href="d3console.html#cb43-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">.</span><span class="fu">data</span>([<span class="dv">90</span><span class="op">,</span> <span class="dv">230</span><span class="op">,</span> <span class="dv">140</span><span class="op">,</span> <span class="dv">75</span><span class="op">,</span> <span class="dv">180</span><span class="op">,</span> <span class="dv">25</span>])<span class="op">;</span></span></code></pre></div>
 <p>Check data binding:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb44-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">data</span>()<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb44-1"><a href="d3console.html#cb44-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">.</span><span class="fu">data</span>()<span class="op">;</span></span></code></pre></div>
 <p>Set x-coordinate of each circle to data value using arrow function:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> d)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb45-1"><a href="d3console.html#cb45-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)<span class="op">;</span></span></code></pre></div>
 <p>Set x-coordinate of each circle to data value with a JavaScript function:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb46-1" data-line-number="1"><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="kw">function</span>(d) <span class="op">{</span><span class="cf">return</span> d<span class="op">;}</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb46-1"><a href="d3console.html#cb46-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="kw">function</span>(d) {<span class="cf">return</span> d<span class="op">;</span>})<span class="op">;</span></span></code></pre></div>
 <p>We’ll bind a new set of data to the circles, this time storing the dataset in a variable:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb47-1" data-line-number="1"><span class="kw">var</span> dataset <span class="op">=</span> [<span class="dv">50</span><span class="op">,</span> <span class="dv">80</span><span class="op">,</span> <span class="dv">110</span><span class="op">,</span> <span class="dv">140</span><span class="op">,</span> <span class="dv">170</span><span class="op">,</span> <span class="dv">200</span>]<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb47-1"><a href="d3console.html#cb47-1"></a><span class="kw">var</span> dataset <span class="op">=</span> [<span class="dv">50</span><span class="op">,</span> <span class="dv">80</span><span class="op">,</span> <span class="dv">110</span><span class="op">,</span> <span class="dv">140</span><span class="op">,</span> <span class="dv">170</span><span class="op">,</span> <span class="dv">200</span>]<span class="op">;</span></span></code></pre></div>
 <p>We’ll also store a selection of all circles before binding the data:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="kw">var</span> circ <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb48-1"><a href="d3console.html#cb48-1"></a><span class="kw">var</span> circ <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>And now, the data bind:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb49-1" data-line-number="1"><span class="va">circ</span>.<span class="at">data</span>(dataset)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb49-1"><a href="d3console.html#cb49-1"></a>circ<span class="op">.</span><span class="fu">data</span>(dataset)<span class="op">;</span></span></code></pre></div>
 <p>Nothing appears to have happened; the circles remain the same and there is no evidence of any changes looking at the circles in the DOM (see Elements tab).</p>
 <p>We can check that the data are indeed bound with:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb50-1" data-line-number="1"><span class="va">circ</span>.<span class="at">data</span>()<span class="op">;</span>  <span class="co">// now we see data</span></a></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb50-1"><a href="d3console.html#cb50-1"></a>circ<span class="op">.</span><span class="fu">data</span>()<span class="op">;</span>  <span class="co">// now we see data</span></span></code></pre></div>
 <p>Modify elements w/ stored selections, bound data:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb51-1" data-line-number="1"><span class="va">circ</span>.<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="kw">function</span>(d) <span class="op">{</span><span class="cf">return</span> d<span class="op">;}</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb51-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb51-3" data-line-number="3"><span class="va">circ</span>.<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="kw">function</span>(d) <span class="op">{</span><span class="cf">return</span> d/<span class="dv">2</span><span class="op">;}</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb51-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb51-5" data-line-number="5"><span class="va">circ</span>.<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="kw">function</span>(d) <span class="op">{</span><span class="cf">return</span> d/<span class="dv">4</span><span class="op">;}</span>).<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;10&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb51-1"><a href="d3console.html#cb51-1"></a>circ<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="kw">function</span>(d) {<span class="cf">return</span> d<span class="op">;</span>})<span class="op">;</span></span>
+<span id="cb51-2"><a href="d3console.html#cb51-2"></a></span>
+<span id="cb51-3"><a href="d3console.html#cb51-3"></a>circ<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="kw">function</span>(d) {<span class="cf">return</span> d<span class="op">/</span><span class="dv">2</span><span class="op">;</span>})<span class="op">;</span></span>
+<span id="cb51-4"><a href="d3console.html#cb51-4"></a></span>
+<span id="cb51-5"><a href="d3console.html#cb51-5"></a>circ<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="kw">function</span>(d) {<span class="cf">return</span> d<span class="op">/</span><span class="dv">4</span><span class="op">;</span>})<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;10&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>Same as above, using arrow functions:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="va">circ</span>.<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> d)<span class="op">;</span></a>
-<a class="sourceLine" id="cb52-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb52-3" data-line-number="3"><span class="va">circ</span>.<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> d/<span class="dv">2</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb52-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb52-5" data-line-number="5"><span class="va">circ</span>.<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> d/<span class="dv">4</span>).<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;10&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb52-1"><a href="d3console.html#cb52-1"></a>circ<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)<span class="op">;</span></span>
+<span id="cb52-2"><a href="d3console.html#cb52-2"></a></span>
+<span id="cb52-3"><a href="d3console.html#cb52-3"></a>circ<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">/</span><span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb52-4"><a href="d3console.html#cb52-4"></a></span>
+<span id="cb52-5"><a href="d3console.html#cb52-5"></a>circ<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">/</span><span class="dv">4</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;10&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>Note that if we bind a new set of data to the DOM elements, the original set will be overwritten:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb53-1" data-line-number="1"><span class="kw">var</span> newdata <span class="op">=</span> [<span class="dv">145</span><span class="op">,</span> <span class="dv">29</span><span class="op">,</span> <span class="dv">53</span><span class="op">,</span> <span class="dv">196</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">12</span>]<span class="op">;</span></a>
-<a class="sourceLine" id="cb53-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb53-3" data-line-number="3"><span class="va">circ</span>.<span class="at">data</span>(newdata)<span class="op">;</span></a>
-<a class="sourceLine" id="cb53-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb53-5" data-line-number="5"><span class="va">circ</span>.<span class="at">transition</span>()</a>
-<a class="sourceLine" id="cb53-6" data-line-number="6">    .<span class="at">duration</span>(<span class="dv">2000</span>)</a>
-<a class="sourceLine" id="cb53-7" data-line-number="7">    .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="dv">2</span><span class="op">*</span>d)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb53-1"><a href="d3console.html#cb53-1"></a><span class="kw">var</span> newdata <span class="op">=</span> [<span class="dv">145</span><span class="op">,</span> <span class="dv">29</span><span class="op">,</span> <span class="dv">53</span><span class="op">,</span> <span class="dv">196</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">12</span>]<span class="op">;</span></span>
+<span id="cb53-2"><a href="d3console.html#cb53-2"></a></span>
+<span id="cb53-3"><a href="d3console.html#cb53-3"></a>circ<span class="op">.</span><span class="fu">data</span>(newdata)<span class="op">;</span></span>
+<span id="cb53-4"><a href="d3console.html#cb53-4"></a></span>
+<span id="cb53-5"><a href="d3console.html#cb53-5"></a>circ<span class="op">.</span><span class="fu">transition</span>()</span>
+<span id="cb53-6"><a href="d3console.html#cb53-6"></a>    <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb53-7"><a href="d3console.html#cb53-7"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="dv">2</span><span class="op">*</span>d)<span class="op">;</span></span></code></pre></div>
 </div>
-<div id="exercise-data-bind" class="section level2">
+<div id="exercise-data-bind" class="section level2" number="3.8">
 <h2><span class="header-section-number">3.8</span> Exercise <i class="fas fa-dumbbell"></i>: data bind</h2>
 <p>Download and open a fresh copy of <a href="https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html" target="_blank">six_blue_circles.html</a> in Chrome and practice binding data to the circles and modifying the circles based on the data as in the examples above.</p>
 

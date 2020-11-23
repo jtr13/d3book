@@ -471,14 +471,6 @@ changedata([401, 23, 173]);
 
 VOILA! We have created the D3 General Update Pattern!
 
-More examples from Mike Bostock (creator of D3):
-
-[General Update Pattern, I](https://bl.ocks.org/mbostock/3808218)
-
-[General Update Pattern, II](https://bl.ocks.org/mbostock/3808221)
-
-[General Update Pattern, III](https://bl.ocks.org/mbostock/3808234)
-
 It is covered in *IDVW* in the "Other Kinds of Data Updates" section on pp. 178-186 in Chapter 9. (The earlier part of Chapter 9 deals with data updates in which the number of DOM elements remains the same.)
 
 **Note that the General Update Pattern changed with D3 Version 4 so avoid examples from Version 3.**
@@ -491,7 +483,7 @@ Also available here: [general_update_pattern.html](code/general_update_pattern.h
   <head>
     <meta charset="utf-8">
     <title>EDAV5_1</title>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
   </head>
 
   <body>

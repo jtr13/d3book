@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>10 Reading files  | D3 for R Users</title>
   <meta name="description" content="10 Reading files  | D3 for R Users" />
-  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="10 Reading files  | D3 for R Users" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2020-08-20" />
+<meta name="date" content="2020-11-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="object.html"/>
 <link rel="next" href="d3-in-projects.html"/>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +51,9 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <script src="libs/clipboard-1.7.1/clipboard.min.js"></script>
@@ -60,25 +64,26 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -87,9 +92,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -138,14 +143,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">D3 for R Users</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to D3</a><ul>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#workflow"><i class="fa fa-check"></i><b>0.1</b> Workflow</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to D3</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#workflow"><i class="fa fa-check"></i><b>0.1</b> Workflow</a>
+<ul>
 <li class="chapter" data-level="0.1.1" data-path="index.html"><a href="index.html#javascript-console"><i class="fa fa-check"></i><b>0.1.1</b> JavaScript Console</a></li>
 <li class="chapter" data-level="0.1.2" data-path="index.html"><a href="index.html#this-book-in-the-console"><i class="fa fa-check"></i><b>0.1.2</b> This book in the Console</a></li>
 <li class="chapter" data-level="0.1.3" data-path="index.html"><a href="index.html#text-editor"><i class="fa fa-check"></i><b>0.1.3</b> Text editor</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="jump.html"><a href="jump.html"><i class="fa fa-check"></i><b>1</b> Jump in the deep end <i class="fas fa-swimmer"></i></a><ul>
+<li class="chapter" data-level="1" data-path="jump.html"><a href="jump.html"><i class="fa fa-check"></i><b>1</b> Jump in the deep end <i class="fas fa-swimmer"></i></a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="jump.html"><a href="jump.html#get-ready"><i class="fa fa-check"></i><b>1.1</b> Get ready <i class="fas fa-forward"></i></a></li>
 <li class="chapter" data-level="1.2" data-path="jump.html"><a href="jump.html#elements-tab"><i class="fa fa-check"></i><b>1.2</b> Elements tab <i class="far fa-folder"></i></a></li>
 <li class="chapter" data-level="1.3" data-path="jump.html"><a href="jump.html#console-tab"><i class="fa fa-check"></i><b>1.3</b> Console tab <i class="far fa-folder"></i></a></li>
@@ -153,9 +161,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.5" data-path="jump.html"><a href="jump.html#add-transitions"><i class="fa fa-check"></i><b>1.5</b> Add transitions <i class="far fa-paper-plane"></i></a></li>
 <li class="chapter" data-level="1.6" data-path="jump.html"><a href="jump.html#add-interactivity"><i class="fa fa-check"></i><b>1.6</b> Add interactivity <i class="fas fa-mouse-pointer"></i></a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="web.html"><a href="web.html"><i class="fa fa-check"></i><b>2</b> Web tech <i class="fas fa-server"></i></a><ul>
+<li class="chapter" data-level="2" data-path="web.html"><a href="web.html"><i class="fa fa-check"></i><b>2</b> Web tech <i class="fas fa-server"></i></a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="web.html"><a href="web.html#html"><i class="fa fa-check"></i><b>2.1</b> HTML <i class="fab fa-html5"></i></a></li>
-<li class="chapter" data-level="2.2" data-path="web.html"><a href="web.html#css"><i class="fa fa-check"></i><b>2.2</b> CSS <i class="fab fa-css3"></i></a><ul>
+<li class="chapter" data-level="2.2" data-path="web.html"><a href="web.html#css"><i class="fa fa-check"></i><b>2.2</b> CSS <i class="fab fa-css3"></i></a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="web.html"><a href="web.html#internal-style-sheet"><i class="fa fa-check"></i><b>2.2.1</b> Internal style sheet</a></li>
 <li class="chapter" data-level="2.2.2" data-path="web.html"><a href="web.html#external-style-sheets"><i class="fa fa-check"></i><b>2.2.2</b> External style sheets</a></li>
 <li class="chapter" data-level="2.2.3" data-path="web.html"><a href="web.html#inline-styling"><i class="fa fa-check"></i><b>2.2.3</b> Inline styling</a></li>
@@ -166,24 +176,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.6" data-path="web.html"><a href="web.html#html-tree"><i class="fa fa-check"></i><b>2.6</b> HTML tree <i class="fas fa-tree"></i></a></li>
 <li class="chapter" data-level="2.7" data-path="web.html"><a href="web.html#exercise-shapes"><i class="fa fa-check"></i><b>2.7</b> Exercise <i class="fas fa-dumbbell"></i>: shapes</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="d3console.html"><a href="d3console.html"><i class="fa fa-check"></i><b>3</b> D3 in the Console <i class="far fa-folder"></i></a><ul>
-<li class="chapter" data-level="3.1" data-path="d3console.html"><a href="d3console.html#selections"><i class="fa fa-check"></i><b>3.1</b> Selections <i class="fas fa-clipboard-list"></i></a><ul>
+<li class="chapter" data-level="3" data-path="d3console.html"><a href="d3console.html"><i class="fa fa-check"></i><b>3</b> D3 in the Console <i class="far fa-folder"></i></a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="d3console.html"><a href="d3console.html#selections"><i class="fa fa-check"></i><b>3.1</b> Selections <i class="fas fa-clipboard-list"></i></a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="d3console.html"><a href="d3console.html#select-by-tag"><i class="fa fa-check"></i><b>3.1.1</b> Select by tag</a></li>
 <li class="chapter" data-level="3.1.2" data-path="d3console.html"><a href="d3console.html#select-by-class"><i class="fa fa-check"></i><b>3.1.2</b> Select by class</a></li>
 <li class="chapter" data-level="3.1.3" data-path="d3console.html"><a href="d3console.html#select-by-id"><i class="fa fa-check"></i><b>3.1.3</b> Select by ID</a></li>
 <li class="chapter" data-level="3.1.4" data-path="d3console.html"><a href="d3console.html#store-selections"><i class="fa fa-check"></i><b>3.1.4</b> Store selections</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="d3console.html"><a href="d3console.html#modify-existing-elements"><i class="fa fa-check"></i><b>3.2</b> Modify existing elements <i class="fas fa-exchange-alt"></i></a><ul>
+<li class="chapter" data-level="3.2" data-path="d3console.html"><a href="d3console.html#modify-existing-elements"><i class="fa fa-check"></i><b>3.2</b> Modify existing elements <i class="fas fa-exchange-alt"></i></a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="d3console.html"><a href="d3console.html#modify-attributes"><i class="fa fa-check"></i><b>3.2.1</b> Modify attributes</a></li>
 <li class="chapter" data-level="3.2.2" data-path="d3console.html"><a href="d3console.html#modify-styles"><i class="fa fa-check"></i><b>3.2.2</b> Modify styles</a></li>
 <li class="chapter" data-level="3.2.3" data-path="d3console.html"><a href="d3console.html#modify-text"><i class="fa fa-check"></i><b>3.2.3</b> Modify text</a></li>
 <li class="chapter" data-level="3.2.4" data-path="d3console.html"><a href="d3console.html#move-svg-text"><i class="fa fa-check"></i><b>3.2.4</b> Move SVG text</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="d3console.html"><a href="d3console.html#add-elements"><i class="fa fa-check"></i><b>3.3</b> Add elements <i class="far fa-plus-square"></i></a><ul>
+<li class="chapter" data-level="3.3" data-path="d3console.html"><a href="d3console.html#add-elements"><i class="fa fa-check"></i><b>3.3</b> Add elements <i class="far fa-plus-square"></i></a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="d3console.html"><a href="d3console.html#html-1"><i class="fa fa-check"></i><b>3.3.1</b> HTML</a></li>
 <li class="chapter" data-level="3.3.2" data-path="d3console.html"><a href="d3console.html#svg-1"><i class="fa fa-check"></i><b>3.3.2</b> SVG</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="d3console.html"><a href="d3console.html#remove-elements"><i class="fa fa-check"></i><b>3.4</b> Remove elements <i class="far fa-minus-square"></i></a><ul>
+<li class="chapter" data-level="3.4" data-path="d3console.html"><a href="d3console.html#remove-elements"><i class="fa fa-check"></i><b>3.4</b> Remove elements <i class="far fa-minus-square"></i></a>
+<ul>
 <li class="chapter" data-level="3.4.1" data-path="d3console.html"><a href="d3console.html#html-2"><i class="fa fa-check"></i><b>3.4.1</b> HTML</a></li>
 <li class="chapter" data-level="3.4.2" data-path="d3console.html"><a href="d3console.html#svg-2"><i class="fa fa-check"></i><b>3.4.2</b> SVG</a></li>
 </ul></li>
@@ -192,11 +207,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.7" data-path="d3console.html"><a href="d3console.html#bind-data-finally"><i class="fa fa-check"></i><b>3.7</b> Bind data… <em>finally!</em> <i class="fas fa-table"></i></a></li>
 <li class="chapter" data-level="3.8" data-path="d3console.html"><a href="d3console.html#exercise-data-bind"><i class="fa fa-check"></i><b>3.8</b> Exercise <i class="fas fa-dumbbell"></i>: data bind</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html"><i class="fa fa-check"></i><b>4</b> Update, Enter, and Exit <i class="fa fa-refresh"></i></a><ul>
+<li class="chapter" data-level="4" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html"><i class="fa fa-check"></i><b>4</b> Update, Enter, and Exit <i class="fa fa-refresh"></i></a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#lecture-slides"><i class="fa fa-check"></i><b>4.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="4.2" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#remove-some-elements"><i class="fa fa-check"></i><b>4.2</b> Remove some elements <i class="far fa-minus-square"></i></a></li>
 <li class="chapter" data-level="4.3" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#add-some-elements"><i class="fa fa-check"></i><b>4.3</b> Add some elements <i class="far fa-plus-square"></i></a></li>
-<li class="chapter" data-level="4.4" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#data-enter-append"><i class="fa fa-check"></i><b>4.4</b> Data / enter / append <i class="fa fa-table"></i></a><ul>
+<li class="chapter" data-level="4.4" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#data-enter-append"><i class="fa fa-check"></i><b>4.4</b> Data / enter / append <i class="fa fa-table"></i></a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#labels"><i class="fa fa-check"></i><b>4.4.1</b> Labels</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#exercise-horizontal-bar-chart"><i class="fa fa-check"></i><b>4.5</b> Exercise <i class="fas fa-dumbbell"></i>: horizontal bar chart</a></li>
@@ -207,10 +224,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.10" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#exercise-functions"><i class="fa fa-check"></i><b>4.10</b> Exercise: <i class="fas fa-dumbbell"></i>: functions</a></li>
 <li class="chapter" data-level="4.11" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#exercise-vertical-bar-chart"><i class="fa fa-check"></i><b>4.11</b> Exercise <i class="fas fa-dumbbell"></i>: vertical bar chart</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="just-enough-js.html"><a href="just-enough-js.html"><i class="fa fa-check"></i><b>5</b> Just Enough JS <i class="fab fa-js-square"></i></a><ul>
+<li class="chapter" data-level="5" data-path="just-enough-js.html"><a href="just-enough-js.html"><i class="fa fa-check"></i><b>5</b> Just Enough JS <i class="fab fa-js-square"></i></a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="just-enough-js.html"><a href="just-enough-js.html#arrays-of-arrays"><i class="fa fa-check"></i><b>5.1</b> Arrays of arrays</a></li>
 <li class="chapter" data-level="5.2" data-path="just-enough-js.html"><a href="just-enough-js.html#arrays-of-objects"><i class="fa fa-check"></i><b>5.2</b> Arrays of objects</a></li>
-<li class="chapter" data-level="5.3" data-path="just-enough-js.html"><a href="just-enough-js.html#map"><i class="fa fa-check"></i><b>5.3</b> <code>.map()</code></a><ul>
+<li class="chapter" data-level="5.3" data-path="just-enough-js.html"><a href="just-enough-js.html#map"><i class="fa fa-check"></i><b>5.3</b> <code>.map()</code></a>
+<ul>
 <li class="chapter" data-level="5.3.1" data-path="just-enough-js.html"><a href="just-enough-js.html#simple-arrays"><i class="fa fa-check"></i><b>5.3.1</b> Simple arrays</a></li>
 <li class="chapter" data-level="5.3.2" data-path="just-enough-js.html"><a href="just-enough-js.html#arrays-of-arrays-1"><i class="fa fa-check"></i><b>5.3.2</b> Arrays of arrays</a></li>
 <li class="chapter" data-level="5.3.3" data-path="just-enough-js.html"><a href="just-enough-js.html#create-arrays-of-objects"><i class="fa fa-check"></i><b>5.3.3</b> Create arrays of objects</a></li>
@@ -219,76 +238,93 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.5" data-path="just-enough-js.html"><a href="just-enough-js.html#d3-statistics"><i class="fa fa-check"></i><b>5.5</b> D3 statistics</a></li>
 <li class="chapter" data-level="5.6" data-path="just-enough-js.html"><a href="just-enough-js.html#d3-.map"><i class="fa fa-check"></i><b>5.6</b> D3 + <code>.map()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="scales-and-axes.html"><a href="scales-and-axes.html"><i class="fa fa-check"></i><b>6</b> Scales and Axes <i class="fa fa-arrows"></i></a><ul>
-<li class="chapter" data-level="6.1" data-path="scales-and-axes.html"><a href="scales-and-axes.html#scales"><i class="fa fa-check"></i><b>6.1</b> Scales</a><ul>
+<li class="chapter" data-level="6" data-path="scales-and-axes.html"><a href="scales-and-axes.html"><i class="fa fa-check"></i><b>6</b> Scales and Axes <i class="fa fa-arrows"></i></a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="scales-and-axes.html"><a href="scales-and-axes.html#scales"><i class="fa fa-check"></i><b>6.1</b> Scales</a>
+<ul>
 <li class="chapter" data-level="6.1.1" data-path="scales-and-axes.html"><a href="scales-and-axes.html#lecture-slides-1"><i class="fa fa-check"></i><b>6.1.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="6.1.2" data-path="scales-and-axes.html"><a href="scales-and-axes.html#practice"><i class="fa fa-check"></i><b>6.1.2</b> Practice</a></li>
 <li class="chapter" data-level="6.1.3" data-path="scales-and-axes.html"><a href="scales-and-axes.html#examples"><i class="fa fa-check"></i><b>6.1.3</b> Examples</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="scales-and-axes.html"><a href="scales-and-axes.html#margins"><i class="fa fa-check"></i><b>6.2</b> Margins</a><ul>
+<li class="chapter" data-level="6.2" data-path="scales-and-axes.html"><a href="scales-and-axes.html#margins"><i class="fa fa-check"></i><b>6.2</b> Margins</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="scales-and-axes.html"><a href="scales-and-axes.html#lecture-slides-2"><i class="fa fa-check"></i><b>6.2.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="6.2.2" data-path="scales-and-axes.html"><a href="scales-and-axes.html#example"><i class="fa fa-check"></i><b>6.2.2</b> Example</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="scales-and-axes.html"><a href="scales-and-axes.html#axes"><i class="fa fa-check"></i><b>6.3</b> Axes</a><ul>
+<li class="chapter" data-level="6.3" data-path="scales-and-axes.html"><a href="scales-and-axes.html#axes"><i class="fa fa-check"></i><b>6.3</b> Axes</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="scales-and-axes.html"><a href="scales-and-axes.html#lecture-slides-3"><i class="fa fa-check"></i><b>6.3.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="6.3.2" data-path="scales-and-axes.html"><a href="scales-and-axes.html#example-1"><i class="fa fa-check"></i><b>6.3.2</b> Example</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="interactivity.html"><a href="interactivity.html"><i class="fa fa-check"></i><b>7</b> Interactivity <i class="fas fa-mouse-pointer"></i></a><ul>
+<li class="chapter" data-level="7" data-path="interactivity.html"><a href="interactivity.html"><i class="fa fa-check"></i><b>7</b> Interactivity <i class="fas fa-mouse-pointer"></i></a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="interactivity.html"><a href="interactivity.html#lecture-slides-4"><i class="fa fa-check"></i><b>7.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="7.2" data-path="interactivity.html"><a href="interactivity.html#binding-event-listeners"><i class="fa fa-check"></i><b>7.2</b> Binding event listeners</a></li>
-<li class="chapter" data-level="7.3" data-path="interactivity.html"><a href="interactivity.html#what-is-this"><i class="fa fa-check"></i><b>7.3</b> What is <em>this</em>?</a><ul>
+<li class="chapter" data-level="7.3" data-path="interactivity.html"><a href="interactivity.html#what-is-this"><i class="fa fa-check"></i><b>7.3</b> What is <em>this</em>?</a>
+<ul>
 <li class="chapter" data-level="7.3.1" data-path="interactivity.html"><a href="interactivity.html#location-on-svg"><i class="fa fa-check"></i><b>7.3.1</b> Location on SVG</a></li>
 <li class="chapter" data-level="7.3.2" data-path="interactivity.html"><a href="interactivity.html#attribute-of-an-element"><i class="fa fa-check"></i><b>7.3.2</b> Attribute of an element</a></li>
 <li class="chapter" data-level="7.3.3" data-path="interactivity.html"><a href="interactivity.html#value-of-radio-button"><i class="fa fa-check"></i><b>7.3.3</b> Value of radio button</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="interactivity.html"><a href="interactivity.html#add-remove-buttons"><i class="fa fa-check"></i><b>7.4</b> Add / remove “buttons”</a></li>
 <li class="chapter" data-level="7.5" data-path="interactivity.html"><a href="interactivity.html#putting-it-all-together"><i class="fa fa-check"></i><b>7.5</b> Putting it all together</a></li>
-<li class="chapter" data-level="7.6" data-path="interactivity.html"><a href="interactivity.html#dependent-event-listeners"><i class="fa fa-check"></i><b>7.6</b> Dependent event listeners</a><ul>
+<li class="chapter" data-level="7.6" data-path="interactivity.html"><a href="interactivity.html#dependent-event-listeners"><i class="fa fa-check"></i><b>7.6</b> Dependent event listeners</a>
+<ul>
 <li class="chapter" data-level="7.6.1" data-path="interactivity.html"><a href="interactivity.html#global-variable-example"><i class="fa fa-check"></i><b>7.6.1</b> Global variable example</a></li>
 <li class="chapter" data-level="7.6.2" data-path="interactivity.html"><a href="interactivity.html#turn-off-event-listener"><i class="fa fa-check"></i><b>7.6.2</b> Turn off event listener</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="transitions.html"><a href="transitions.html"><i class="fa fa-check"></i><b>8</b> Transitions <i class="far fa-paper-plane"></i></a><ul>
+<li class="chapter" data-level="8" data-path="transitions.html"><a href="transitions.html"><i class="fa fa-check"></i><b>8</b> Transitions <i class="far fa-paper-plane"></i></a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="transitions.html"><a href="transitions.html#examples-1"><i class="fa fa-check"></i><b>8.1</b> Examples</a></li>
 <li class="chapter" data-level="8.2" data-path="transitions.html"><a href="transitions.html#do-this"><i class="fa fa-check"></i><b>8.2</b> Do this</a></li>
 <li class="chapter" data-level="8.3" data-path="transitions.html"><a href="transitions.html#not-this"><i class="fa fa-check"></i><b>8.3</b> Not this</a></li>
 <li class="chapter" data-level="8.4" data-path="transitions.html"><a href="transitions.html#strategy"><i class="fa fa-check"></i><b>8.4</b> Strategy</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="object.html"><a href="object.html"><i class="fa fa-check"></i><b>9</b> Object Constancy <i class="fa fa-object-ungroup"></i></a><ul>
+<li class="chapter" data-level="9" data-path="object.html"><a href="object.html"><i class="fa fa-check"></i><b>9</b> Object Constancy <i class="fa fa-object-ungroup"></i></a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="object.html"><a href="object.html#no-object-constancy"><i class="fa fa-check"></i><b>9.1</b> No object constancy</a></li>
-<li class="chapter" data-level="9.2" data-path="object.html"><a href="object.html#object-constancy"><i class="fa fa-check"></i><b>9.2</b> Object constancy</a><ul>
+<li class="chapter" data-level="9.2" data-path="object.html"><a href="object.html#object-constancy"><i class="fa fa-check"></i><b>9.2</b> Object constancy</a>
+<ul>
 <li class="chapter" data-level="9.2.1" data-path="object.html"><a href="object.html#practice-joining-data-by-key"><i class="fa fa-check"></i><b>9.2.1</b> Practice joining data by key</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="reading-files.html"><a href="reading-files.html"><i class="fa fa-check"></i><b>10</b> Reading files <i class="fa fa-file-text-o"></i></a><ul>
+<li class="chapter" data-level="10" data-path="reading-files.html"><a href="reading-files.html"><i class="fa fa-check"></i><b>10</b> Reading files <i class="fa fa-file-text-o"></i></a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="reading-files.html"><a href="reading-files.html#promises"><i class="fa fa-check"></i><b>10.1</b> Promises</a></li>
 <li class="chapter" data-level="10.2" data-path="reading-files.html"><a href="reading-files.html#local-server"><i class="fa fa-check"></i><b>10.2</b> Local server</a></li>
 <li class="chapter" data-level="10.3" data-path="reading-files.html"><a href="reading-files.html#other-local-options"><i class="fa fa-check"></i><b>10.3</b> Other local options</a></li>
 <li class="chapter" data-level="10.4" data-path="reading-files.html"><a href="reading-files.html#hosting-online"><i class="fa fa-check"></i><b>10.4</b> Hosting online</a></li>
 <li class="chapter" data-level="10.5" data-path="reading-files.html"><a href="reading-files.html#example-2"><i class="fa fa-check"></i><b>10.5</b> Example</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="d3-in-projects.html"><a href="d3-in-projects.html"><i class="fa fa-check"></i><b>11</b> D3 in projects <i class="fa fa-book"></i></a><ul>
+<li class="chapter" data-level="11" data-path="d3-in-projects.html"><a href="d3-in-projects.html"><i class="fa fa-check"></i><b>11</b> D3 in projects <i class="fa fa-book"></i></a>
+<ul>
 <li class="chapter" data-level="11.1" data-path="d3-in-projects.html"><a href="d3-in-projects.html#lecture-slides-5"><i class="fa fa-check"></i><b>11.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="line-charts.html"><a href="line-charts.html"><i class="fa fa-check"></i><b>12</b> Line charts <i class="fa fa-line-chart"></i></a><ul>
+<li class="chapter" data-level="12" data-path="line-charts.html"><a href="line-charts.html"><i class="fa fa-check"></i><b>12</b> Line charts <i class="fa fa-line-chart"></i></a>
+<ul>
 <li class="chapter" data-level="12.1" data-path="line-charts.html"><a href="line-charts.html#lecture-slides-6"><i class="fa fa-check"></i><b>12.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="12.2" data-path="line-charts.html"><a href="line-charts.html#svg-line-element"><i class="fa fa-check"></i><b>12.2</b> SVG <code>&lt;line&gt;</code> element</a></li>
 <li class="chapter" data-level="12.3" data-path="line-charts.html"><a href="line-charts.html#svg-path-element"><i class="fa fa-check"></i><b>12.3</b> SVG <code>&lt;path&gt;</code> element</a></li>
-<li class="chapter" data-level="12.4" data-path="line-charts.html"><a href="line-charts.html#svg-editors"><i class="fa fa-check"></i><b>12.4</b> SVG editors</a><ul>
+<li class="chapter" data-level="12.4" data-path="line-charts.html"><a href="line-charts.html#svg-editors"><i class="fa fa-check"></i><b>12.4</b> SVG editors</a>
+<ul>
 <li class="chapter" data-level="" data-path="line-charts.html"><a href="line-charts.html#save-plots-as-svg-files-in-r"><i class="fa fa-check"></i>Save plots as SVG files in R</a></li>
 </ul></li>
-<li class="chapter" data-level="12.5" data-path="line-charts.html"><a href="line-charts.html#back-to-line-charts"><i class="fa fa-check"></i><b>12.5</b> Back to line charts</a><ul>
+<li class="chapter" data-level="12.5" data-path="line-charts.html"><a href="line-charts.html#back-to-line-charts"><i class="fa fa-check"></i><b>12.5</b> Back to line charts</a>
+<ul>
 <li class="chapter" data-level="12.5.1" data-path="line-charts.html"><a href="line-charts.html#step-1-create-a-line-generator"><i class="fa fa-check"></i><b>12.5.1</b> Step 1: Create a line generator</a></li>
 <li class="chapter" data-level="12.5.2" data-path="line-charts.html"><a href="line-charts.html#step-2-put-the-line-generator-to-work"><i class="fa fa-check"></i><b>12.5.2</b> Step 2: Put the line generator to work</a></li>
 </ul></li>
 <li class="chapter" data-level="12.6" data-path="line-charts.html"><a href="line-charts.html#additional-resources"><i class="fa fa-check"></i><b>12.6</b> Additional Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="layouts.html"><a href="layouts.html"><i class="fa fa-check"></i><b>13</b> Layouts <i class="fa fa-bar-chart"></i></a><ul>
+<li class="chapter" data-level="13" data-path="layouts.html"><a href="layouts.html"><i class="fa fa-check"></i><b>13</b> Layouts <i class="fa fa-bar-chart"></i></a>
+<ul>
 <li class="chapter" data-level="13.1" data-path="layouts.html"><a href="layouts.html#lecture-slides-7"><i class="fa fa-check"></i><b>13.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="debugging-tips.html"><a href="debugging-tips.html"><i class="fa fa-check"></i><b>14</b> Debugging Tips <i class="fa fa-bug"></i></a></li>
-<li class="chapter" data-level="15" data-path="your-solutions-here.html"><a href="your-solutions-here.html"><i class="fa fa-check"></i><b>15</b> Your solutions here <i class="fa fa-check-square-o"></i></a><ul>
+<li class="chapter" data-level="15" data-path="your-solutions-here.html"><a href="your-solutions-here.html"><i class="fa fa-check"></i><b>15</b> Your solutions here <i class="fa fa-check-square-o"></i></a>
+<ul>
 <li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#web-tech-shapes"><i class="fa fa-check"></i>Web tech: shapes</a></li>
 <li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#d3-in-the-console-green-circles"><i class="fa fa-check"></i>D3 in the Console: green circles</a></li>
 <li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#d3-in-the-console-blue-circles"><i class="fa fa-check"></i>D3 in the Console: blue circles</a></li>
@@ -296,11 +332,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#update-enter-and-exit-horizontal-bar-chart"><i class="fa fa-check"></i>Update, Enter, and Exit: horizontal bar chart</a></li>
 <li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#update-enter-and-exit-merge"><i class="fa fa-check"></i>Update, Enter, and Exit: merge</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="more-chapters-coming-soon.html"><a href="more-chapters-coming-soon.html"><i class="fa fa-check"></i><b>16</b> More chapters coming soon <i class="fas fa-screwdriver"></i></a><ul>
+<li class="chapter" data-level="16" data-path="more-chapters-coming-soon.html"><a href="more-chapters-coming-soon.html"><i class="fa fa-check"></i><b>16</b> More chapters coming soon <i class="fas fa-screwdriver"></i></a>
+<ul>
 <li class="chapter" data-level="16.1" data-path="more-chapters-coming-soon.html"><a href="more-chapters-coming-soon.html#maintainer-links"><i class="fa fa-check"></i><b>16.1</b> Maintainer links</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html"><i class="fa fa-check"></i><b>17</b> Appendix: advanced CSS</a><ul>
-<li class="chapter" data-level="17.1" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html#buttons"><i class="fa fa-check"></i><b>17.1</b> Buttons</a><ul>
+<li class="chapter" data-level="17" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html"><i class="fa fa-check"></i><b>17</b> Appendix: advanced CSS</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html#buttons"><i class="fa fa-check"></i><b>17.1</b> Buttons</a>
+<ul>
 <li class="chapter" data-level="17.1.1" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html#active"><i class="fa fa-check"></i><b>17.1.1</b> <code>.active</code></a></li>
 <li class="chapter" data-level="17.1.2" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html#active-1"><i class="fa fa-check"></i><b>17.1.2</b> <code>:active</code></a></li>
 <li class="chapter" data-level="17.1.3" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html#focus"><i class="fa fa-check"></i><b>17.1.3</b> <code>:focus</code></a></li>
@@ -328,61 +367,61 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="reading-files" class="section level1">
+<div id="reading-files" class="section level1" number="10">
 <h1><span class="header-section-number">10</span> Reading files <i class="fa fa-file-text-o"></i></h1>
 <p>As you’ve surely noticed by this point, many things in JavaScript operate on an <em>asynchronous</em> basis. Code is not executed linearly from beginning to end but rather in response to various triggers. For example, event listeners behave asynchronously: code will execute only if a mouse click event occurs.</p>
 <p>The benefit to reading files asynchronously is that we don’t have to wait to while a file loads for other things to happen. It would be very frustrating to navigate to a new web page and have to wait for all the scripts to finish before we could do anything on the page.</p>
-<div id="promises" class="section level2">
+<div id="promises" class="section level2" number="10.1">
 <h2><span class="header-section-number">10.1</span> Promises</h2>
 <p>Loading data is one area where <a href="https://github.com/d3/d3/blob/master/CHANGES.md" target="_blank">D3 v5 introduces major changes from D3 v4</a>. While v4 uses <a href="https://javascript.info/callbacks" target="_blank">callbacks</a>, v5 switches to <a href="https://javascript.info/promise-basics" target="_blank">promises</a>, as <a href="https://hiddentao.com/archives/2014/04/21/why-promises-are-more-flexible-than-callbacks" target="_blank">promises facilitate cleaner and more flexile code than callbacks</a>.</p>
 <p>The concept is simple. We want to control what code needs to wait until data loaded to be executed and what doesn’t. We can do that with the following structure:</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb151-1" data-line-number="1"><span class="kw">var</span> rowConverter <span class="op">=</span> <span class="kw">function</span> (d) <span class="op">{</span></a>
-<a class="sourceLine" id="cb151-2" data-line-number="2">  <span class="cf">return</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb151-3" data-line-number="3">    <span class="dt">disp</span><span class="op">:</span> <span class="op">+</span><span class="va">d</span>.<span class="at">disp</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb151-4" data-line-number="4">    <span class="dt">mpg</span><span class="op">:</span> <span class="op">+</span><span class="va">d</span>.<span class="at">mpg</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb151-5" data-line-number="5">    <span class="dt">carname</span><span class="op">:</span> <span class="va">d</span>.<span class="at">carname</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb151-6" data-line-number="6">    <span class="dt">cylcolor</span><span class="op">:</span> <span class="va">d</span>.<span class="at">cylcolor</span></a>
-<a class="sourceLine" id="cb151-7" data-line-number="7">    <span class="op">}</span></a>
-<a class="sourceLine" id="cb151-8" data-line-number="8"><span class="op">};</span>  </a>
-<a class="sourceLine" id="cb151-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb151-10" data-line-number="10"><span class="va">d3</span>.<span class="at">csv</span>(<span class="st">&quot;data/mtcars.csv&quot;</span><span class="op">,</span> rowConverter)</a>
-<a class="sourceLine" id="cb151-11" data-line-number="11">  .<span class="at">then</span>(<span class="kw">function</span>(data) <span class="op">{</span></a>
-<a class="sourceLine" id="cb151-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb151-13" data-line-number="13"><span class="co">// stuff that requires the loaded data</span></a>
-<a class="sourceLine" id="cb151-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb151-15" data-line-number="15">  <span class="op">}</span>)</a>
-<a class="sourceLine" id="cb151-16" data-line-number="16">  .<span class="at">catch</span>(<span class="kw">function</span>(error) <span class="op">{</span></a>
-<a class="sourceLine" id="cb151-17" data-line-number="17">  </a>
-<a class="sourceLine" id="cb151-18" data-line-number="18"><span class="co">// error handling  </span></a>
-<a class="sourceLine" id="cb151-19" data-line-number="19">  </a>
-<a class="sourceLine" id="cb151-20" data-line-number="20">  <span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb151-1"><a href="reading-files.html#cb151-1"></a><span class="kw">var</span> rowConverter <span class="op">=</span> <span class="kw">function</span> (d) {</span>
+<span id="cb151-2"><a href="reading-files.html#cb151-2"></a>  <span class="cf">return</span> {</span>
+<span id="cb151-3"><a href="reading-files.html#cb151-3"></a>    <span class="dt">disp</span><span class="op">:</span> <span class="op">+</span>d<span class="op">.</span><span class="at">disp</span><span class="op">,</span></span>
+<span id="cb151-4"><a href="reading-files.html#cb151-4"></a>    <span class="dt">mpg</span><span class="op">:</span> <span class="op">+</span>d<span class="op">.</span><span class="at">mpg</span><span class="op">,</span></span>
+<span id="cb151-5"><a href="reading-files.html#cb151-5"></a>    <span class="dt">carname</span><span class="op">:</span> d<span class="op">.</span><span class="at">carname</span><span class="op">,</span></span>
+<span id="cb151-6"><a href="reading-files.html#cb151-6"></a>    <span class="dt">cylcolor</span><span class="op">:</span> d<span class="op">.</span><span class="at">cylcolor</span></span>
+<span id="cb151-7"><a href="reading-files.html#cb151-7"></a>    }</span>
+<span id="cb151-8"><a href="reading-files.html#cb151-8"></a>}<span class="op">;</span>  </span>
+<span id="cb151-9"><a href="reading-files.html#cb151-9"></a></span>
+<span id="cb151-10"><a href="reading-files.html#cb151-10"></a>d3<span class="op">.</span><span class="fu">csv</span>(<span class="st">&quot;data/mtcars.csv&quot;</span><span class="op">,</span> rowConverter)</span>
+<span id="cb151-11"><a href="reading-files.html#cb151-11"></a>  <span class="op">.</span><span class="fu">then</span>(<span class="kw">function</span>(data) {</span>
+<span id="cb151-12"><a href="reading-files.html#cb151-12"></a></span>
+<span id="cb151-13"><a href="reading-files.html#cb151-13"></a><span class="co">// stuff that requires the loaded data</span></span>
+<span id="cb151-14"><a href="reading-files.html#cb151-14"></a></span>
+<span id="cb151-15"><a href="reading-files.html#cb151-15"></a>  })</span>
+<span id="cb151-16"><a href="reading-files.html#cb151-16"></a>  <span class="op">.</span><span class="fu">catch</span>(<span class="kw">function</span>(error) {</span>
+<span id="cb151-17"><a href="reading-files.html#cb151-17"></a>  </span>
+<span id="cb151-18"><a href="reading-files.html#cb151-18"></a><span class="co">// error handling  </span></span>
+<span id="cb151-19"><a href="reading-files.html#cb151-19"></a>  </span>
+<span id="cb151-20"><a href="reading-files.html#cb151-20"></a>  })<span class="op">;</span></span></code></pre></div>
 <p>The row converter function is used to select variables and change data types (“+” converts to floating point). <code>d3.csv()</code> returns a promise. If the promise is resolved, the <code>.then()</code> function will execute; if the promise is rejected, the <code>.catch()</code> function will execute.</p>
 <blockquote>
 <p><i class="fa fa-exclamation-triangle"></i> <em>Forget the mindset that you read files and store them file in variables for later use. It doesn’t work that way here. The data is read in and acted on immediately. If most of the code requires loaded data, then most of the code will appear in the <code>.then()</code> method.</em></p>
 </blockquote>
 <p>A simple example of loading data in <strong>v5</strong> can be found in <a href="https://blockbuilder.org/tiktaktok/c2e02e2916c226ef44ed233cb46db40c" target="_blank">this block</a>. In contrast to the example above, an anonymous row converter function (with arrow functions) is used instead of calling a separate row converter function. Note as well that it’s not necessary to include all variables in the row converter as this author has done. To test, fork the block and delete all the variables that aren’t used, so that the row converter (line 56) becomes:</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb152-1" data-line-number="1">d <span class="op">=&gt;</span> (<span class="op">{</span></a>
-<a class="sourceLine" id="cb152-2" data-line-number="2">            <span class="dt">HighwayMpg</span><span class="op">:</span> <span class="at">parseInt</span>(<span class="va">d</span>.<span class="at">HighwayMpg</span>)<span class="op">,</span></a>
-<a class="sourceLine" id="cb152-3" data-line-number="3">            <span class="dt">Horsepower</span><span class="op">:</span> <span class="at">parseInt</span>(<span class="va">d</span>.<span class="at">Horsepower</span>)<span class="op">,</span></a>
-<a class="sourceLine" id="cb152-4" data-line-number="4">        <span class="op">}</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb152-1"><a href="reading-files.html#cb152-1"></a>d <span class="kw">=&gt;</span> ({</span>
+<span id="cb152-2"><a href="reading-files.html#cb152-2"></a>            <span class="dt">HighwayMpg</span><span class="op">:</span> <span class="pp">parseInt</span>(d<span class="op">.</span><span class="at">HighwayMpg</span>)<span class="op">,</span></span>
+<span id="cb152-3"><a href="reading-files.html#cb152-3"></a>            <span class="dt">Horsepower</span><span class="op">:</span> <span class="pp">parseInt</span>(d<span class="op">.</span><span class="at">Horsepower</span>)<span class="op">,</span></span>
+<span id="cb152-4"><a href="reading-files.html#cb152-4"></a>        })</span></code></pre></div>
 <p>You will see that the code still works.</p>
 <p>For more about <code>d3.csv()</code>, see the <a href="https://github.com/d3/d3-fetch/blob/v1.1.2/README.md#csv" target="_blank"><code>d3.fetch</code> API</a>.</p>
 </div>
-<div id="local-server" class="section level2">
+<div id="local-server" class="section level2" number="10.2">
 <h2><span class="header-section-number">10.2</span> Local server</h2>
 <p>For security reasons, Chrome does not let you read local files. To be able to do so, you can run a local server. One option is <a href="https://www.npmjs.com/package/http-server" target="_blank">http-server</a>. Follow the instructions to install <code>http-server</code>, navigate in Terminal to the directory with your html file, and then enter <code>http-server</code>. You should get a message like this:</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb153-1" data-line-number="1"><span class="ex">Starting</span> up http-server, serving ./</a>
-<a class="sourceLine" id="cb153-2" data-line-number="2"><span class="ex">Available</span> on:</a>
-<a class="sourceLine" id="cb153-3" data-line-number="3">  <span class="ex">http</span>://127.0.0.1:8080</a>
-<a class="sourceLine" id="cb153-4" data-line-number="4">  <span class="ex">http</span>://192.168.1.54:8080</a>
-<a class="sourceLine" id="cb153-5" data-line-number="5"><span class="ex">Hit</span> CTRL-C to stop the server</a></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb153-1"><a href="reading-files.html#cb153-1"></a><span class="ex">Starting</span> up http-server, serving ./</span>
+<span id="cb153-2"><a href="reading-files.html#cb153-2"></a><span class="ex">Available</span> on:</span>
+<span id="cb153-3"><a href="reading-files.html#cb153-3"></a>  <span class="ex">http</span>://127.0.0.1:8080</span>
+<span id="cb153-4"><a href="reading-files.html#cb153-4"></a>  <span class="ex">http</span>://192.168.1.54:8080</span>
+<span id="cb153-5"><a href="reading-files.html#cb153-5"></a><span class="ex">Hit</span> CTRL-C to stop the server</span></code></pre></div>
 <p>Copy and paste the URL in the browser and you should see your page with data loaded. As indicated, Control-c will stop the server.</p>
 </div>
-<div id="other-local-options" class="section level2">
+<div id="other-local-options" class="section level2" number="10.3">
 <h2><span class="header-section-number">10.3</span> Other local options</h2>
 <p>A simple way to avoid this issue is to upload data files to GitHub and read them from there. There are other workarounds, including opening Chrome from the command line with the <code>--allow-file-access-from-files</code> flag.</p>
 </div>
-<div id="hosting-online" class="section level2">
+<div id="hosting-online" class="section level2" number="10.4">
 <h2><span class="header-section-number">10.4</span> Hosting online</h2>
 <p><a href="https://blockbuilder.org/">blockbuilder.org</a> offers a convenient option, with good documentation, for sharing D3 examples online. You can also <a href="https://blockbuilder.org/search" target="_blank">search blockbuilder</a> for examples. Remember to pay attention to the version of D3 in use; some authors are including v5 in the block titles but this practice is not widespread. Remember as well that not all examples are good examples, both in terms of the graph choices and the quality of the code.</p>
 <p>A few reputable block authors, in terms of quality of D3 code, are:</p>
@@ -392,7 +431,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="https://bl.ocks.org/d3noob" target="_blank">Malcolm Maclean</a> (author of <a href="https://leanpub.com/d3-t-and-t-v5" target="_blank">D3 Tips and Tricks, v5.x</a>, lots of simple v5 examples with v5 in title)</p>
 <p><a href="https://bl.ocks.org/timelyportfolio" target="_blank">Kent Russell</a> (creator of interactive <code>parcoords</code> package in R)</p>
 </div>
-<div id="example-2" class="section level2">
+<div id="example-2" class="section level2" number="10.5">
 <h2><span class="header-section-number">10.5</span> Example</h2>
 <div id="cars" style="width: 600px">
 <center>
@@ -401,124 +440,124 @@ mtcars
 </h4>
 </center>
 </div>
-<div class="sourceCode" id="cb154"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb154-1" data-line-number="1"><span class="co">// width and height</span></a>
-<a class="sourceLine" id="cb154-2" data-line-number="2"><span class="kw">var</span> w <span class="op">=</span> <span class="dv">600</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb154-3" data-line-number="3"><span class="kw">var</span> h <span class="op">=</span> <span class="dv">300</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb154-4" data-line-number="4"><span class="kw">var</span> padding <span class="op">=</span> <span class="dv">50</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb154-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb154-6" data-line-number="6"><span class="co">// create scale functions</span></a>
-<a class="sourceLine" id="cb154-7" data-line-number="7"><span class="kw">var</span> xScale <span class="op">=</span> <span class="va">d3</span>.<span class="at">scaleLinear</span>()</a>
-<a class="sourceLine" id="cb154-8" data-line-number="8">  .<span class="at">range</span>([padding<span class="op">,</span> w <span class="op">-</span> padding])<span class="op">;</span></a>
-<a class="sourceLine" id="cb154-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb154-10" data-line-number="10"><span class="kw">var</span> yScale <span class="op">=</span> <span class="va">d3</span>.<span class="at">scaleLinear</span>()</a>
-<a class="sourceLine" id="cb154-11" data-line-number="11">  .<span class="at">range</span>([h <span class="op">-</span> padding<span class="op">,</span> <span class="dv">0</span>])<span class="op">;</span></a>
-<a class="sourceLine" id="cb154-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb154-13" data-line-number="13"><span class="co">// define X axis</span></a>
-<a class="sourceLine" id="cb154-14" data-line-number="14"><span class="kw">var</span> xAxis <span class="op">=</span> <span class="va">d3</span>.<span class="at">axisBottom</span>()</a>
-<a class="sourceLine" id="cb154-15" data-line-number="15">  .<span class="at">scale</span>(xScale)</a>
-<a class="sourceLine" id="cb154-16" data-line-number="16">  .<span class="at">ticks</span>(<span class="dv">5</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb154-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb154-18" data-line-number="18"><span class="co">// define Y axis</span></a>
-<a class="sourceLine" id="cb154-19" data-line-number="19"><span class="kw">var</span> yAxis <span class="op">=</span> <span class="va">d3</span>.<span class="at">axisLeft</span>()</a>
-<a class="sourceLine" id="cb154-20" data-line-number="20">  .<span class="at">scale</span>(yScale)</a>
-<a class="sourceLine" id="cb154-21" data-line-number="21">  .<span class="at">ticks</span>(<span class="dv">5</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb154-22" data-line-number="22"></a>
-<a class="sourceLine" id="cb154-23" data-line-number="23"><span class="co">// create SVG element</span></a>
-<a class="sourceLine" id="cb154-24" data-line-number="24"><span class="kw">var</span> svg <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;div#cars&quot;</span>)</a>
-<a class="sourceLine" id="cb154-25" data-line-number="25">  .<span class="at">append</span>(<span class="st">&quot;svg&quot;</span>)</a>
-<a class="sourceLine" id="cb154-26" data-line-number="26">  .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> w)</a>
-<a class="sourceLine" id="cb154-27" data-line-number="27">  .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> h)<span class="op">;</span></a>
-<a class="sourceLine" id="cb154-28" data-line-number="28"></a>
-<a class="sourceLine" id="cb154-29" data-line-number="29"><span class="co">// create text element</span></a>
-<a class="sourceLine" id="cb154-30" data-line-number="30"><span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</a>
-<a class="sourceLine" id="cb154-31" data-line-number="31">  .<span class="at">attr</span>(<span class="st">&quot;id&quot;</span><span class="op">,</span> <span class="st">&quot;nm&quot;</span>)</a>
-<a class="sourceLine" id="cb154-32" data-line-number="32">  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="dv">2</span> <span class="op">*</span> padding)</a>
-<a class="sourceLine" id="cb154-33" data-line-number="33">  .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> h <span class="op">-</span> (<span class="dv">2</span> <span class="op">*</span> padding))<span class="op">;</span></a>
-<a class="sourceLine" id="cb154-34" data-line-number="34"></a>
-<a class="sourceLine" id="cb154-35" data-line-number="35"><span class="co">// create X axis</span></a>
-<a class="sourceLine" id="cb154-36" data-line-number="36"><span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;g&quot;</span>)</a>
-<a class="sourceLine" id="cb154-37" data-line-number="37">  .<span class="at">attr</span>(<span class="st">&quot;id&quot;</span><span class="op">,</span> <span class="st">&quot;xaxis&quot;</span>)</a>
-<a class="sourceLine" id="cb154-38" data-line-number="38">  .<span class="at">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span> <span class="st">&quot;translate(0,&quot;</span> <span class="op">+</span> (h <span class="op">-</span> padding) <span class="op">+</span> <span class="st">&quot;)&quot;</span>)</a>
-<a class="sourceLine" id="cb154-39" data-line-number="39">  .<span class="at">call</span>(xAxis)<span class="op">;</span></a>
-<a class="sourceLine" id="cb154-40" data-line-number="40"></a>
-<a class="sourceLine" id="cb154-41" data-line-number="41"><span class="co">// create Y axis</span></a>
-<a class="sourceLine" id="cb154-42" data-line-number="42"><span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;g&quot;</span>)</a>
-<a class="sourceLine" id="cb154-43" data-line-number="43">  .<span class="at">attr</span>(<span class="st">&quot;id&quot;</span><span class="op">,</span> <span class="st">&quot;yaxis&quot;</span>)</a>
-<a class="sourceLine" id="cb154-44" data-line-number="44">  .<span class="at">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span> <span class="st">&quot;translate(&quot;</span> <span class="op">+</span> padding <span class="op">+</span> <span class="st">&quot;,0)&quot;</span>)</a>
-<a class="sourceLine" id="cb154-45" data-line-number="45">  .<span class="at">call</span>(yAxis)<span class="op">;</span></a>
-<a class="sourceLine" id="cb154-46" data-line-number="46"></a>
-<a class="sourceLine" id="cb154-47" data-line-number="47"><span class="co">// create axis labels</span></a>
-<a class="sourceLine" id="cb154-48" data-line-number="48"><span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</a>
-<a class="sourceLine" id="cb154-49" data-line-number="49">  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> w / <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb154-50" data-line-number="50">  .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> h <span class="op">-</span> padding / <span class="dv">2</span> <span class="op">+</span> <span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb154-51" data-line-number="51">  .<span class="at">attr</span>(<span class="st">&quot;text-anchor&quot;</span><span class="op">,</span> <span class="st">&quot;middle&quot;</span>)</a>
-<a class="sourceLine" id="cb154-52" data-line-number="52">  .<span class="at">text</span>(<span class="st">&quot;displacement&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb154-53" data-line-number="53"></a>
-<a class="sourceLine" id="cb154-54" data-line-number="54"><span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</a>
-<a class="sourceLine" id="cb154-55" data-line-number="55">  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> padding / <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb154-56" data-line-number="56">  .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> h / <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb154-57" data-line-number="57">  .<span class="at">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span> <span class="vs">`rotate(-90, </span><span class="sc">${</span>padding/<span class="dv">3</span><span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>h/<span class="dv">2</span><span class="sc">}</span><span class="vs">)`</span>)</a>
-<a class="sourceLine" id="cb154-58" data-line-number="58">  .<span class="at">text</span>(<span class="st">&quot;mpg&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb154-59" data-line-number="59"></a>
-<a class="sourceLine" id="cb154-60" data-line-number="60"><span class="kw">var</span> rowConverter <span class="op">=</span> <span class="kw">function</span>(d) <span class="op">{</span></a>
-<a class="sourceLine" id="cb154-61" data-line-number="61">  <span class="cf">return</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb154-62" data-line-number="62">    <span class="dt">disp</span><span class="op">:</span> <span class="op">+</span><span class="va">d</span>.<span class="at">disp</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb154-63" data-line-number="63">    <span class="dt">mpg</span><span class="op">:</span> <span class="op">+</span><span class="va">d</span>.<span class="at">mpg</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb154-64" data-line-number="64">    <span class="dt">carname</span><span class="op">:</span> <span class="va">d</span>.<span class="at">carname</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb154-65" data-line-number="65">    <span class="dt">cylcolor</span><span class="op">:</span> <span class="va">d</span>.<span class="at">cylcolor</span></a>
-<a class="sourceLine" id="cb154-66" data-line-number="66">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb154-67" data-line-number="67"><span class="op">};</span></a>
-<a class="sourceLine" id="cb154-68" data-line-number="68"><span class="va">d3</span>.<span class="at">csv</span>(<span class="st">&quot;data/mtcars.csv&quot;</span><span class="op">,</span> rowConverter)</a>
-<a class="sourceLine" id="cb154-69" data-line-number="69">  .<span class="at">then</span>(<span class="kw">function</span>(data) <span class="op">{</span></a>
-<a class="sourceLine" id="cb154-70" data-line-number="70">    <span class="va">xScale</span>.<span class="at">domain</span>([<span class="va">d3</span>.<span class="at">min</span>(<span class="va">data</span>.<span class="at">map</span>(d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">disp</span>))<span class="op">,</span> <span class="va">d3</span>.<span class="at">max</span>(<span class="va">data</span>.<span class="at">map</span>(d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">disp</span>))])<span class="op">;</span></a>
-<a class="sourceLine" id="cb154-71" data-line-number="71">    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;#xaxis&quot;</span>).<span class="at">call</span>(xAxis)<span class="op">;</span></a>
-<a class="sourceLine" id="cb154-72" data-line-number="72">    <span class="va">yScale</span>.<span class="at">domain</span>([<span class="va">d3</span>.<span class="at">min</span>(<span class="va">data</span>.<span class="at">map</span>(d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">mpg</span>))<span class="op">,</span> <span class="va">d3</span>.<span class="at">max</span>(<span class="va">data</span>.<span class="at">map</span>(d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">mpg</span>))])<span class="op">;</span></a>
-<a class="sourceLine" id="cb154-73" data-line-number="73">    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;#yaxis&quot;</span>).<span class="at">call</span>(yAxis)<span class="op">;</span></a>
-<a class="sourceLine" id="cb154-74" data-line-number="74"></a>
-<a class="sourceLine" id="cb154-75" data-line-number="75">    <span class="co">//Create circles</span></a>
-<a class="sourceLine" id="cb154-76" data-line-number="76">    <span class="kw">var</span> allCircles <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</a>
-<a class="sourceLine" id="cb154-77" data-line-number="77">      .<span class="at">data</span>(data)</a>
-<a class="sourceLine" id="cb154-78" data-line-number="78">      .<span class="at">enter</span>()</a>
-<a class="sourceLine" id="cb154-79" data-line-number="79">      .<span class="at">append</span>(<span class="st">&quot;circle&quot;</span>)</a>
-<a class="sourceLine" id="cb154-80" data-line-number="80">      .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="at">xScale</span>(<span class="va">d</span>.<span class="at">disp</span>))</a>
-<a class="sourceLine" id="cb154-81" data-line-number="81">      .<span class="at">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="at">yScale</span>(<span class="va">d</span>.<span class="at">mpg</span>))</a>
-<a class="sourceLine" id="cb154-82" data-line-number="82">      .<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;4&quot;</span>)</a>
-<a class="sourceLine" id="cb154-83" data-line-number="83">      .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> d <span class="op">=&gt;</span> <span class="va">d</span>.<span class="at">cylcolor</span>)</a>
-<a class="sourceLine" id="cb154-84" data-line-number="84">      .<span class="at">attr</span>(<span class="st">&quot;fill-opacity&quot;</span><span class="op">,</span> <span class="st">&quot;.5&quot;</span>)</a>
-<a class="sourceLine" id="cb154-85" data-line-number="85">      .<span class="at">on</span>(<span class="st">&quot;mouseover&quot;</span><span class="op">,</span> <span class="kw">function</span>(d) <span class="op">{</span> <span class="co">// IDVW2, p. 270</span></a>
-<a class="sourceLine" id="cb154-86" data-line-number="86">        <span class="kw">var</span> xPos <span class="op">=</span> <span class="op">+</span><span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span>) <span class="op">+</span> <span class="dv">10</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb154-87" data-line-number="87">        <span class="kw">var</span> yPos <span class="op">=</span> <span class="op">+</span><span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">attr</span>(<span class="st">&quot;cy&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb154-88" data-line-number="88">        <span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">style</span>(<span class="st">&quot;cursor&quot;</span><span class="op">,</span> <span class="st">&quot;pointer&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb154-89" data-line-number="89">        <span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</a>
-<a class="sourceLine" id="cb154-90" data-line-number="90">          .<span class="at">attr</span>(<span class="st">&quot;id&quot;</span><span class="op">,</span> <span class="st">&quot;tooltip&quot;</span>)</a>
-<a class="sourceLine" id="cb154-91" data-line-number="91">          .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> xPos)</a>
-<a class="sourceLine" id="cb154-92" data-line-number="92">          .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> yPos)</a>
-<a class="sourceLine" id="cb154-93" data-line-number="93">          .<span class="at">attr</span>(<span class="st">&quot;font-size&quot;</span><span class="op">,</span> <span class="st">&quot;11px&quot;</span>)</a>
-<a class="sourceLine" id="cb154-94" data-line-number="94">          .<span class="at">attr</span>(<span class="st">&quot;alignment-baseline&quot;</span><span class="op">,</span> <span class="st">&quot;middle&quot;</span>)</a>
-<a class="sourceLine" id="cb154-95" data-line-number="95">          .<span class="at">text</span>(<span class="va">d</span>.<span class="at">carname</span>)<span class="op">;</span> <span class="co">// not a function (already in one)</span></a>
-<a class="sourceLine" id="cb154-96" data-line-number="96">      <span class="op">}</span>)</a>
-<a class="sourceLine" id="cb154-97" data-line-number="97">      .<span class="at">on</span>(<span class="st">&quot;mouseout&quot;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></a>
-<a class="sourceLine" id="cb154-98" data-line-number="98">        <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;#tooltip&quot;</span>).<span class="at">remove</span>()<span class="op">;</span></a>
-<a class="sourceLine" id="cb154-99" data-line-number="99">      <span class="op">}</span>)</a>
-<a class="sourceLine" id="cb154-100" data-line-number="100">      .<span class="at">transition</span>()</a>
-<a class="sourceLine" id="cb154-101" data-line-number="101">      .<span class="at">duration</span>(<span class="dv">100</span>)</a>
-<a class="sourceLine" id="cb154-102" data-line-number="102">      .<span class="at">on</span>(<span class="st">&quot;end&quot;</span><span class="op">,</span> grow)<span class="op">;</span></a>
-<a class="sourceLine" id="cb154-103" data-line-number="103">  <span class="op">}</span>)</a>
-<a class="sourceLine" id="cb154-104" data-line-number="104">  .<span class="at">catch</span>(<span class="kw">function</span>(error) <span class="op">{</span></a>
-<a class="sourceLine" id="cb154-105" data-line-number="105">    <span class="va">svg</span>.<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</a>
-<a class="sourceLine" id="cb154-106" data-line-number="106">      .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> w/<span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb154-107" data-line-number="107">      .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> h/<span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb154-108" data-line-number="108">      .<span class="at">text</span>(<span class="st">&quot;Error loading data.&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb154-109" data-line-number="109">  <span class="op">}</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb154-110" data-line-number="110"></a>
-<a class="sourceLine" id="cb154-111" data-line-number="111"><span class="co">// grow() is based on: https://blockbuilder.org/nbremer/f749e822f33e422f2b5a7d541e5691cb</span></a>
-<a class="sourceLine" id="cb154-112" data-line-number="112"><span class="kw">function</span> <span class="at">grow</span>() <span class="op">{</span></a>
-<a class="sourceLine" id="cb154-113" data-line-number="113">  <span class="co">//Let the fill opacity of each circle vary randomly</span></a>
-<a class="sourceLine" id="cb154-114" data-line-number="114">  <span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>)</a>
-<a class="sourceLine" id="cb154-115" data-line-number="115">    .<span class="at">transition</span>().<span class="at">duration</span>(<span class="dv">2000</span> <span class="op">*</span> <span class="va">Math</span>.<span class="at">random</span>())</a>
-<a class="sourceLine" id="cb154-116" data-line-number="116">    .<span class="at">attr</span>(<span class="st">&quot;fill-opacity&quot;</span><span class="op">,</span> <span class="fl">.25</span> <span class="op">+</span> <span class="fl">.75</span> <span class="op">*</span> <span class="va">Math</span>.<span class="at">random</span>())</a>
-<a class="sourceLine" id="cb154-117" data-line-number="117">    .<span class="at">on</span>(<span class="st">&quot;end&quot;</span><span class="op">,</span> grow)<span class="op">;</span></a>
-<a class="sourceLine" id="cb154-118" data-line-number="118"><span class="op">};</span></a></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb154-1"><a href="reading-files.html#cb154-1"></a><span class="co">// width and height</span></span>
+<span id="cb154-2"><a href="reading-files.html#cb154-2"></a><span class="kw">var</span> w <span class="op">=</span> <span class="dv">600</span><span class="op">;</span></span>
+<span id="cb154-3"><a href="reading-files.html#cb154-3"></a><span class="kw">var</span> h <span class="op">=</span> <span class="dv">300</span><span class="op">;</span></span>
+<span id="cb154-4"><a href="reading-files.html#cb154-4"></a><span class="kw">var</span> padding <span class="op">=</span> <span class="dv">50</span><span class="op">;</span></span>
+<span id="cb154-5"><a href="reading-files.html#cb154-5"></a></span>
+<span id="cb154-6"><a href="reading-files.html#cb154-6"></a><span class="co">// create scale functions</span></span>
+<span id="cb154-7"><a href="reading-files.html#cb154-7"></a><span class="kw">var</span> xScale <span class="op">=</span> d3<span class="op">.</span><span class="fu">scaleLinear</span>()</span>
+<span id="cb154-8"><a href="reading-files.html#cb154-8"></a>  <span class="op">.</span><span class="fu">range</span>([padding<span class="op">,</span> w <span class="op">-</span> padding])<span class="op">;</span></span>
+<span id="cb154-9"><a href="reading-files.html#cb154-9"></a></span>
+<span id="cb154-10"><a href="reading-files.html#cb154-10"></a><span class="kw">var</span> yScale <span class="op">=</span> d3<span class="op">.</span><span class="fu">scaleLinear</span>()</span>
+<span id="cb154-11"><a href="reading-files.html#cb154-11"></a>  <span class="op">.</span><span class="fu">range</span>([h <span class="op">-</span> padding<span class="op">,</span> <span class="dv">0</span>])<span class="op">;</span></span>
+<span id="cb154-12"><a href="reading-files.html#cb154-12"></a></span>
+<span id="cb154-13"><a href="reading-files.html#cb154-13"></a><span class="co">// define X axis</span></span>
+<span id="cb154-14"><a href="reading-files.html#cb154-14"></a><span class="kw">var</span> xAxis <span class="op">=</span> d3<span class="op">.</span><span class="fu">axisBottom</span>()</span>
+<span id="cb154-15"><a href="reading-files.html#cb154-15"></a>  <span class="op">.</span><span class="fu">scale</span>(xScale)</span>
+<span id="cb154-16"><a href="reading-files.html#cb154-16"></a>  <span class="op">.</span><span class="fu">ticks</span>(<span class="dv">5</span>)<span class="op">;</span></span>
+<span id="cb154-17"><a href="reading-files.html#cb154-17"></a></span>
+<span id="cb154-18"><a href="reading-files.html#cb154-18"></a><span class="co">// define Y axis</span></span>
+<span id="cb154-19"><a href="reading-files.html#cb154-19"></a><span class="kw">var</span> yAxis <span class="op">=</span> d3<span class="op">.</span><span class="fu">axisLeft</span>()</span>
+<span id="cb154-20"><a href="reading-files.html#cb154-20"></a>  <span class="op">.</span><span class="fu">scale</span>(yScale)</span>
+<span id="cb154-21"><a href="reading-files.html#cb154-21"></a>  <span class="op">.</span><span class="fu">ticks</span>(<span class="dv">5</span>)<span class="op">;</span></span>
+<span id="cb154-22"><a href="reading-files.html#cb154-22"></a></span>
+<span id="cb154-23"><a href="reading-files.html#cb154-23"></a><span class="co">// create SVG element</span></span>
+<span id="cb154-24"><a href="reading-files.html#cb154-24"></a><span class="kw">var</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;div#cars&quot;</span>)</span>
+<span id="cb154-25"><a href="reading-files.html#cb154-25"></a>  <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;svg&quot;</span>)</span>
+<span id="cb154-26"><a href="reading-files.html#cb154-26"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> w)</span>
+<span id="cb154-27"><a href="reading-files.html#cb154-27"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> h)<span class="op">;</span></span>
+<span id="cb154-28"><a href="reading-files.html#cb154-28"></a></span>
+<span id="cb154-29"><a href="reading-files.html#cb154-29"></a><span class="co">// create text element</span></span>
+<span id="cb154-30"><a href="reading-files.html#cb154-30"></a>svg<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;text&quot;</span>)</span>
+<span id="cb154-31"><a href="reading-files.html#cb154-31"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;id&quot;</span><span class="op">,</span> <span class="st">&quot;nm&quot;</span>)</span>
+<span id="cb154-32"><a href="reading-files.html#cb154-32"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="dv">2</span> <span class="op">*</span> padding)</span>
+<span id="cb154-33"><a href="reading-files.html#cb154-33"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> h <span class="op">-</span> (<span class="dv">2</span> <span class="op">*</span> padding))<span class="op">;</span></span>
+<span id="cb154-34"><a href="reading-files.html#cb154-34"></a></span>
+<span id="cb154-35"><a href="reading-files.html#cb154-35"></a><span class="co">// create X axis</span></span>
+<span id="cb154-36"><a href="reading-files.html#cb154-36"></a>svg<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;g&quot;</span>)</span>
+<span id="cb154-37"><a href="reading-files.html#cb154-37"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;id&quot;</span><span class="op">,</span> <span class="st">&quot;xaxis&quot;</span>)</span>
+<span id="cb154-38"><a href="reading-files.html#cb154-38"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span> <span class="st">&quot;translate(0,&quot;</span> <span class="op">+</span> (h <span class="op">-</span> padding) <span class="op">+</span> <span class="st">&quot;)&quot;</span>)</span>
+<span id="cb154-39"><a href="reading-files.html#cb154-39"></a>  <span class="op">.</span><span class="fu">call</span>(xAxis)<span class="op">;</span></span>
+<span id="cb154-40"><a href="reading-files.html#cb154-40"></a></span>
+<span id="cb154-41"><a href="reading-files.html#cb154-41"></a><span class="co">// create Y axis</span></span>
+<span id="cb154-42"><a href="reading-files.html#cb154-42"></a>svg<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;g&quot;</span>)</span>
+<span id="cb154-43"><a href="reading-files.html#cb154-43"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;id&quot;</span><span class="op">,</span> <span class="st">&quot;yaxis&quot;</span>)</span>
+<span id="cb154-44"><a href="reading-files.html#cb154-44"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span> <span class="st">&quot;translate(&quot;</span> <span class="op">+</span> padding <span class="op">+</span> <span class="st">&quot;,0)&quot;</span>)</span>
+<span id="cb154-45"><a href="reading-files.html#cb154-45"></a>  <span class="op">.</span><span class="fu">call</span>(yAxis)<span class="op">;</span></span>
+<span id="cb154-46"><a href="reading-files.html#cb154-46"></a></span>
+<span id="cb154-47"><a href="reading-files.html#cb154-47"></a><span class="co">// create axis labels</span></span>
+<span id="cb154-48"><a href="reading-files.html#cb154-48"></a>svg<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;text&quot;</span>)</span>
+<span id="cb154-49"><a href="reading-files.html#cb154-49"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> w <span class="op">/</span> <span class="dv">2</span>)</span>
+<span id="cb154-50"><a href="reading-files.html#cb154-50"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> h <span class="op">-</span> padding <span class="op">/</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">10</span>)</span>
+<span id="cb154-51"><a href="reading-files.html#cb154-51"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;text-anchor&quot;</span><span class="op">,</span> <span class="st">&quot;middle&quot;</span>)</span>
+<span id="cb154-52"><a href="reading-files.html#cb154-52"></a>  <span class="op">.</span><span class="fu">text</span>(<span class="st">&quot;displacement&quot;</span>)<span class="op">;</span></span>
+<span id="cb154-53"><a href="reading-files.html#cb154-53"></a></span>
+<span id="cb154-54"><a href="reading-files.html#cb154-54"></a>svg<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;text&quot;</span>)</span>
+<span id="cb154-55"><a href="reading-files.html#cb154-55"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> padding <span class="op">/</span> <span class="dv">3</span>)</span>
+<span id="cb154-56"><a href="reading-files.html#cb154-56"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> h <span class="op">/</span> <span class="dv">2</span>)</span>
+<span id="cb154-57"><a href="reading-files.html#cb154-57"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span> <span class="vs">`rotate(-90, </span><span class="sc">${</span>padding<span class="op">/</span><span class="dv">3</span><span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>h<span class="op">/</span><span class="dv">2</span><span class="sc">}</span><span class="vs">)`</span>)</span>
+<span id="cb154-58"><a href="reading-files.html#cb154-58"></a>  <span class="op">.</span><span class="fu">text</span>(<span class="st">&quot;mpg&quot;</span>)<span class="op">;</span></span>
+<span id="cb154-59"><a href="reading-files.html#cb154-59"></a></span>
+<span id="cb154-60"><a href="reading-files.html#cb154-60"></a><span class="kw">var</span> rowConverter <span class="op">=</span> <span class="kw">function</span>(d) {</span>
+<span id="cb154-61"><a href="reading-files.html#cb154-61"></a>  <span class="cf">return</span> {</span>
+<span id="cb154-62"><a href="reading-files.html#cb154-62"></a>    <span class="dt">disp</span><span class="op">:</span> <span class="op">+</span>d<span class="op">.</span><span class="at">disp</span><span class="op">,</span></span>
+<span id="cb154-63"><a href="reading-files.html#cb154-63"></a>    <span class="dt">mpg</span><span class="op">:</span> <span class="op">+</span>d<span class="op">.</span><span class="at">mpg</span><span class="op">,</span></span>
+<span id="cb154-64"><a href="reading-files.html#cb154-64"></a>    <span class="dt">carname</span><span class="op">:</span> d<span class="op">.</span><span class="at">carname</span><span class="op">,</span></span>
+<span id="cb154-65"><a href="reading-files.html#cb154-65"></a>    <span class="dt">cylcolor</span><span class="op">:</span> d<span class="op">.</span><span class="at">cylcolor</span></span>
+<span id="cb154-66"><a href="reading-files.html#cb154-66"></a>  }</span>
+<span id="cb154-67"><a href="reading-files.html#cb154-67"></a>}<span class="op">;</span></span>
+<span id="cb154-68"><a href="reading-files.html#cb154-68"></a>d3<span class="op">.</span><span class="fu">csv</span>(<span class="st">&quot;data/mtcars.csv&quot;</span><span class="op">,</span> rowConverter)</span>
+<span id="cb154-69"><a href="reading-files.html#cb154-69"></a>  <span class="op">.</span><span class="fu">then</span>(<span class="kw">function</span>(data) {</span>
+<span id="cb154-70"><a href="reading-files.html#cb154-70"></a>    xScale<span class="op">.</span><span class="fu">domain</span>([d3<span class="op">.</span><span class="fu">min</span>(data<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">disp</span>))<span class="op">,</span> d3<span class="op">.</span><span class="fu">max</span>(data<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">disp</span>))])<span class="op">;</span></span>
+<span id="cb154-71"><a href="reading-files.html#cb154-71"></a>    d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;#xaxis&quot;</span>)<span class="op">.</span><span class="fu">call</span>(xAxis)<span class="op">;</span></span>
+<span id="cb154-72"><a href="reading-files.html#cb154-72"></a>    yScale<span class="op">.</span><span class="fu">domain</span>([d3<span class="op">.</span><span class="fu">min</span>(data<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">mpg</span>))<span class="op">,</span> d3<span class="op">.</span><span class="fu">max</span>(data<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">mpg</span>))])<span class="op">;</span></span>
+<span id="cb154-73"><a href="reading-files.html#cb154-73"></a>    d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;#yaxis&quot;</span>)<span class="op">.</span><span class="fu">call</span>(yAxis)<span class="op">;</span></span>
+<span id="cb154-74"><a href="reading-files.html#cb154-74"></a></span>
+<span id="cb154-75"><a href="reading-files.html#cb154-75"></a>    <span class="co">//Create circles</span></span>
+<span id="cb154-76"><a href="reading-files.html#cb154-76"></a>    <span class="kw">var</span> allCircles <span class="op">=</span> svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb154-77"><a href="reading-files.html#cb154-77"></a>      <span class="op">.</span><span class="fu">data</span>(data)</span>
+<span id="cb154-78"><a href="reading-files.html#cb154-78"></a>      <span class="op">.</span><span class="fu">enter</span>()</span>
+<span id="cb154-79"><a href="reading-files.html#cb154-79"></a>      <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb154-80"><a href="reading-files.html#cb154-80"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> xScale(d<span class="op">.</span><span class="at">disp</span>))</span>
+<span id="cb154-81"><a href="reading-files.html#cb154-81"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> yScale(d<span class="op">.</span><span class="at">mpg</span>))</span>
+<span id="cb154-82"><a href="reading-files.html#cb154-82"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;4&quot;</span>)</span>
+<span id="cb154-83"><a href="reading-files.html#cb154-83"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">cylcolor</span>)</span>
+<span id="cb154-84"><a href="reading-files.html#cb154-84"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill-opacity&quot;</span><span class="op">,</span> <span class="st">&quot;.5&quot;</span>)</span>
+<span id="cb154-85"><a href="reading-files.html#cb154-85"></a>      <span class="op">.</span><span class="fu">on</span>(<span class="st">&quot;mouseover&quot;</span><span class="op">,</span> <span class="kw">function</span>(d) { <span class="co">// IDVW2, p. 270</span></span>
+<span id="cb154-86"><a href="reading-files.html#cb154-86"></a>        <span class="kw">var</span> xPos <span class="op">=</span> <span class="op">+</span>d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span>) <span class="op">+</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb154-87"><a href="reading-files.html#cb154-87"></a>        <span class="kw">var</span> yPos <span class="op">=</span> <span class="op">+</span>d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cy&quot;</span>)<span class="op">;</span></span>
+<span id="cb154-88"><a href="reading-files.html#cb154-88"></a>        d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)<span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;cursor&quot;</span><span class="op">,</span> <span class="st">&quot;pointer&quot;</span>)<span class="op">;</span></span>
+<span id="cb154-89"><a href="reading-files.html#cb154-89"></a>        svg<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;text&quot;</span>)</span>
+<span id="cb154-90"><a href="reading-files.html#cb154-90"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;id&quot;</span><span class="op">,</span> <span class="st">&quot;tooltip&quot;</span>)</span>
+<span id="cb154-91"><a href="reading-files.html#cb154-91"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> xPos)</span>
+<span id="cb154-92"><a href="reading-files.html#cb154-92"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> yPos)</span>
+<span id="cb154-93"><a href="reading-files.html#cb154-93"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;font-size&quot;</span><span class="op">,</span> <span class="st">&quot;11px&quot;</span>)</span>
+<span id="cb154-94"><a href="reading-files.html#cb154-94"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;alignment-baseline&quot;</span><span class="op">,</span> <span class="st">&quot;middle&quot;</span>)</span>
+<span id="cb154-95"><a href="reading-files.html#cb154-95"></a>          <span class="op">.</span><span class="fu">text</span>(d<span class="op">.</span><span class="at">carname</span>)<span class="op">;</span> <span class="co">// not a function (already in one)</span></span>
+<span id="cb154-96"><a href="reading-files.html#cb154-96"></a>      })</span>
+<span id="cb154-97"><a href="reading-files.html#cb154-97"></a>      <span class="op">.</span><span class="fu">on</span>(<span class="st">&quot;mouseout&quot;</span><span class="op">,</span> <span class="kw">function</span>() {</span>
+<span id="cb154-98"><a href="reading-files.html#cb154-98"></a>        d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;#tooltip&quot;</span>)<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb154-99"><a href="reading-files.html#cb154-99"></a>      })</span>
+<span id="cb154-100"><a href="reading-files.html#cb154-100"></a>      <span class="op">.</span><span class="fu">transition</span>()</span>
+<span id="cb154-101"><a href="reading-files.html#cb154-101"></a>      <span class="op">.</span><span class="fu">duration</span>(<span class="dv">100</span>)</span>
+<span id="cb154-102"><a href="reading-files.html#cb154-102"></a>      <span class="op">.</span><span class="fu">on</span>(<span class="st">&quot;end&quot;</span><span class="op">,</span> grow)<span class="op">;</span></span>
+<span id="cb154-103"><a href="reading-files.html#cb154-103"></a>  })</span>
+<span id="cb154-104"><a href="reading-files.html#cb154-104"></a>  <span class="op">.</span><span class="fu">catch</span>(<span class="kw">function</span>(error) {</span>
+<span id="cb154-105"><a href="reading-files.html#cb154-105"></a>    svg<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;text&quot;</span>)</span>
+<span id="cb154-106"><a href="reading-files.html#cb154-106"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> w<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb154-107"><a href="reading-files.html#cb154-107"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> h<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb154-108"><a href="reading-files.html#cb154-108"></a>      <span class="op">.</span><span class="fu">text</span>(<span class="st">&quot;Error loading data.&quot;</span>)<span class="op">;</span></span>
+<span id="cb154-109"><a href="reading-files.html#cb154-109"></a>  })<span class="op">;</span></span>
+<span id="cb154-110"><a href="reading-files.html#cb154-110"></a></span>
+<span id="cb154-111"><a href="reading-files.html#cb154-111"></a><span class="co">// grow() is based on: https://blockbuilder.org/nbremer/f749e822f33e422f2b5a7d541e5691cb</span></span>
+<span id="cb154-112"><a href="reading-files.html#cb154-112"></a><span class="kw">function</span> <span class="fu">grow</span>() {</span>
+<span id="cb154-113"><a href="reading-files.html#cb154-113"></a>  <span class="co">//Let the fill opacity of each circle vary randomly</span></span>
+<span id="cb154-114"><a href="reading-files.html#cb154-114"></a>  d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)</span>
+<span id="cb154-115"><a href="reading-files.html#cb154-115"></a>    <span class="op">.</span><span class="fu">transition</span>()<span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">random</span>())</span>
+<span id="cb154-116"><a href="reading-files.html#cb154-116"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill-opacity&quot;</span><span class="op">,</span> <span class="fl">.25</span> <span class="op">+</span> <span class="fl">.75</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">random</span>())</span>
+<span id="cb154-117"><a href="reading-files.html#cb154-117"></a>    <span class="op">.</span><span class="fu">on</span>(<span class="st">&quot;end&quot;</span><span class="op">,</span> grow)<span class="op">;</span></span>
+<span id="cb154-118"><a href="reading-files.html#cb154-118"></a>}<span class="op">;</span></span></code></pre></div>
 <script type="text/javascript">
 // width and height
 var w = 600;
