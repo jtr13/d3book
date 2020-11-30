@@ -386,34 +386,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We’ll start with six circles and remove some.</p>
 <p>Download and open a fresh copy of <a href="https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html" target="_blank">six_blue_circles.html</a> in Chrome.</p>
 <p>Let’s bind four data values to the six circles:</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb54-1"><a href="update-enter-and-exit.html#cb54-1"></a><span class="kw">var</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">;</span></span>
-<span id="cb54-2"><a href="update-enter-and-exit.html#cb54-2"></a></span>
-<span id="cb54-3"><a href="update-enter-and-exit.html#cb54-3"></a>svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb54-4"><a href="update-enter-and-exit.html#cb54-4"></a>    <span class="op">.</span><span class="fu">data</span>([<span class="dv">123</span><span class="op">,</span> <span class="dv">52</span><span class="op">,</span> <span class="dv">232</span><span class="op">,</span> <span class="dv">90</span>])<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb55-1"><a href="update-enter-and-exit.html#cb55-1"></a><span class="kw">var</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">;</span></span>
+<span id="cb55-2"><a href="update-enter-and-exit.html#cb55-2"></a></span>
+<span id="cb55-3"><a href="update-enter-and-exit.html#cb55-3"></a>svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb55-4"><a href="update-enter-and-exit.html#cb55-4"></a>    <span class="op">.</span><span class="fu">data</span>([<span class="dv">123</span><span class="op">,</span> <span class="dv">52</span><span class="op">,</span> <span class="dv">232</span><span class="op">,</span> <span class="dv">90</span>])<span class="op">;</span></span></code></pre></div>
 <p>Click the black triangle to view the <code>_enter</code>, <code>_exit</code>, and <code>_groups</code> fields.</p>
 <p>We can store the selection in a variable:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb55-1"><a href="update-enter-and-exit.html#cb55-1"></a><span class="kw">var</span> circ <span class="op">=</span> svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb55-2"><a href="update-enter-and-exit.html#cb55-2"></a>    <span class="op">.</span><span class="fu">data</span>([<span class="dv">123</span><span class="op">,</span> <span class="dv">52</span><span class="op">,</span> <span class="dv">232</span><span class="op">,</span> <span class="dv">90</span>])<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb56-1"><a href="update-enter-and-exit.html#cb56-1"></a><span class="kw">var</span> circ <span class="op">=</span> svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb56-2"><a href="update-enter-and-exit.html#cb56-2"></a>    <span class="op">.</span><span class="fu">data</span>([<span class="dv">123</span><span class="op">,</span> <span class="dv">52</span><span class="op">,</span> <span class="dv">232</span><span class="op">,</span> <span class="dv">90</span>])<span class="op">;</span></span></code></pre></div>
 <p>Let’s look at the exit selection:</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb56-1"><a href="update-enter-and-exit.html#cb56-1"></a>circ<span class="op">.</span><span class="fu">exit</span>()<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb57-1"><a href="update-enter-and-exit.html#cb57-1"></a>circ<span class="op">.</span><span class="fu">exit</span>()<span class="op">;</span></span></code></pre></div>
 <p>Try this:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb57-1"><a href="update-enter-and-exit.html#cb57-1"></a>circ<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb58-1"><a href="update-enter-and-exit.html#cb58-1"></a>circ<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>What happened and why?</p>
 <p>Now try this:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb58-1"><a href="update-enter-and-exit.html#cb58-1"></a>circ<span class="op">.</span><span class="fu">exit</span>()<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;purple&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb59-1"><a href="update-enter-and-exit.html#cb59-1"></a>circ<span class="op">.</span><span class="fu">exit</span>()<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;purple&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>What happened and why?</p>
 <p>What do you think this will do? Try it.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb59-1"><a href="update-enter-and-exit.html#cb59-1"></a>circ<span class="op">.</span><span class="fu">exit</span>()<span class="op">.</span><span class="fu">transition</span>()<span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb60-1"><a href="update-enter-and-exit.html#cb60-1"></a>circ<span class="op">.</span><span class="fu">exit</span>()<span class="op">.</span><span class="fu">transition</span>()<span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span></code></pre></div>
 <p>Create a new variable <code>circ2</code> and compare it to <code>circ</code>:</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb60-1"><a href="update-enter-and-exit.html#cb60-1"></a><span class="kw">var</span> circ2 <span class="op">=</span> d3<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">;</span></span>
-<span id="cb60-2"><a href="update-enter-and-exit.html#cb60-2"></a></span>
-<span id="cb60-3"><a href="update-enter-and-exit.html#cb60-3"></a>circ<span class="op">.</span><span class="fu">data</span>()<span class="op">;</span></span>
-<span id="cb60-4"><a href="update-enter-and-exit.html#cb60-4"></a></span>
-<span id="cb60-5"><a href="update-enter-and-exit.html#cb60-5"></a>circ2<span class="op">.</span><span class="fu">data</span>()<span class="op">;</span></span>
-<span id="cb60-6"><a href="update-enter-and-exit.html#cb60-6"></a></span>
-<span id="cb60-7"><a href="update-enter-and-exit.html#cb60-7"></a>circ<span class="op">.</span><span class="fu">exit</span>()<span class="op">;</span></span>
-<span id="cb60-8"><a href="update-enter-and-exit.html#cb60-8"></a></span>
-<span id="cb60-9"><a href="update-enter-and-exit.html#cb60-9"></a>circ2<span class="op">.</span><span class="fu">exit</span>()<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb61-1"><a href="update-enter-and-exit.html#cb61-1"></a><span class="kw">var</span> circ2 <span class="op">=</span> d3<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">;</span></span>
+<span id="cb61-2"><a href="update-enter-and-exit.html#cb61-2"></a></span>
+<span id="cb61-3"><a href="update-enter-and-exit.html#cb61-3"></a>circ<span class="op">.</span><span class="fu">data</span>()<span class="op">;</span></span>
+<span id="cb61-4"><a href="update-enter-and-exit.html#cb61-4"></a></span>
+<span id="cb61-5"><a href="update-enter-and-exit.html#cb61-5"></a>circ2<span class="op">.</span><span class="fu">data</span>()<span class="op">;</span></span>
+<span id="cb61-6"><a href="update-enter-and-exit.html#cb61-6"></a></span>
+<span id="cb61-7"><a href="update-enter-and-exit.html#cb61-7"></a>circ<span class="op">.</span><span class="fu">exit</span>()<span class="op">;</span></span>
+<span id="cb61-8"><a href="update-enter-and-exit.html#cb61-8"></a></span>
+<span id="cb61-9"><a href="update-enter-and-exit.html#cb61-9"></a>circ2<span class="op">.</span><span class="fu">exit</span>()<span class="op">;</span></span></code></pre></div>
 <p>What’s going on?</p>
 </div>
 <div id="add-some-elements" class="section level2" number="4.3">
@@ -421,28 +421,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><em>a.k.a. more data values than DOM elements</em></p>
 <p>We’ll start with six circles and add some.</p>
 <p>Let’s bind new data to the circles:</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb61-1"><a href="update-enter-and-exit.html#cb61-1"></a><span class="kw">var</span> circ <span class="op">=</span> svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb61-2"><a href="update-enter-and-exit.html#cb61-2"></a>      <span class="op">.</span><span class="fu">data</span>([<span class="dv">123</span><span class="op">,</span> <span class="dv">52</span><span class="op">,</span> <span class="dv">232</span><span class="op">,</span> <span class="dv">90</span><span class="op">,</span> <span class="dv">34</span><span class="op">,</span> <span class="dv">12</span><span class="op">,</span> <span class="dv">189</span><span class="op">,</span> <span class="dv">110</span>])<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb62-1"><a href="update-enter-and-exit.html#cb62-1"></a><span class="kw">var</span> circ <span class="op">=</span> svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb62-2"><a href="update-enter-and-exit.html#cb62-2"></a>      <span class="op">.</span><span class="fu">data</span>([<span class="dv">123</span><span class="op">,</span> <span class="dv">52</span><span class="op">,</span> <span class="dv">232</span><span class="op">,</span> <span class="dv">90</span><span class="op">,</span> <span class="dv">34</span><span class="op">,</span> <span class="dv">12</span><span class="op">,</span> <span class="dv">189</span><span class="op">,</span> <span class="dv">110</span>])<span class="op">;</span></span></code></pre></div>
 <p>And look at the enter selection:</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb62-1"><a href="update-enter-and-exit.html#cb62-1"></a>circ<span class="op">.</span><span class="fu">enter</span>()<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb63-1"><a href="update-enter-and-exit.html#cb63-1"></a>circ<span class="op">.</span><span class="fu">enter</span>()<span class="op">;</span></span></code></pre></div>
 <p>How many placeholders are in the enter selection?</p>
 <p>Let’s add circles for each of these placeholders:</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb63-1"><a href="update-enter-and-exit.html#cb63-1"></a>circ<span class="op">.</span><span class="fu">enter</span>()</span>
-<span id="cb63-2"><a href="update-enter-and-exit.html#cb63-2"></a>    <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb63-3"><a href="update-enter-and-exit.html#cb63-3"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;100&quot;</span>)</span>
-<span id="cb63-4"><a href="update-enter-and-exit.html#cb63-4"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i <span class="op">*</span> <span class="dv">50</span> <span class="op">+</span> <span class="dv">25</span>)</span>
-<span id="cb63-5"><a href="update-enter-and-exit.html#cb63-5"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;20&quot;</span>)</span>
-<span id="cb63-6"><a href="update-enter-and-exit.html#cb63-6"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb64-1"><a href="update-enter-and-exit.html#cb64-1"></a>circ<span class="op">.</span><span class="fu">enter</span>()</span>
+<span id="cb64-2"><a href="update-enter-and-exit.html#cb64-2"></a>    <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb64-3"><a href="update-enter-and-exit.html#cb64-3"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;100&quot;</span>)</span>
+<span id="cb64-4"><a href="update-enter-and-exit.html#cb64-4"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i <span class="op">*</span> <span class="dv">50</span> <span class="op">+</span> <span class="dv">25</span>)</span>
+<span id="cb64-5"><a href="update-enter-and-exit.html#cb64-5"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;20&quot;</span>)</span>
+<span id="cb64-6"><a href="update-enter-and-exit.html#cb64-6"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>Try this:</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb64-1"><a href="update-enter-and-exit.html#cb64-1"></a>circ<span class="op">.</span><span class="fu">transition</span>()</span>
-<span id="cb64-2"><a href="update-enter-and-exit.html#cb64-2"></a>  <span class="op">.</span><span class="fu">duration</span>(<span class="dv">3000</span>)</span>
-<span id="cb64-3"><a href="update-enter-and-exit.html#cb64-3"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;400&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb65-1"><a href="update-enter-and-exit.html#cb65-1"></a>circ<span class="op">.</span><span class="fu">transition</span>()</span>
+<span id="cb65-2"><a href="update-enter-and-exit.html#cb65-2"></a>  <span class="op">.</span><span class="fu">duration</span>(<span class="dv">3000</span>)</span>
+<span id="cb65-3"><a href="update-enter-and-exit.html#cb65-3"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;400&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>What do you need to do to act on <em>all</em> of the circles?</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb65-1"><a href="update-enter-and-exit.html#cb65-1"></a>svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb65-2"><a href="update-enter-and-exit.html#cb65-2"></a>  <span class="op">.</span><span class="fu">transition</span>()</span>
-<span id="cb65-3"><a href="update-enter-and-exit.html#cb65-3"></a>  <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb65-4"><a href="update-enter-and-exit.html#cb65-4"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> (i <span class="op">*</span> <span class="dv">50</span>) <span class="op">+</span> <span class="dv">25</span>)</span>
-<span id="cb65-5"><a href="update-enter-and-exit.html#cb65-5"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;200&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb66-1"><a href="update-enter-and-exit.html#cb66-1"></a>svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb66-2"><a href="update-enter-and-exit.html#cb66-2"></a>  <span class="op">.</span><span class="fu">transition</span>()</span>
+<span id="cb66-3"><a href="update-enter-and-exit.html#cb66-3"></a>  <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb66-4"><a href="update-enter-and-exit.html#cb66-4"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> (i <span class="op">*</span> <span class="dv">50</span>) <span class="op">+</span> <span class="dv">25</span>)</span>
+<span id="cb66-5"><a href="update-enter-and-exit.html#cb66-5"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;200&quot;</span>)<span class="op">;</span></span></code></pre></div>
 </div>
 <div id="data-enter-append" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> Data / enter / append <i class="fa fa-table"></i></h2>
@@ -453,34 +453,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="dea">
 
 </div>
-<div class="sourceCode" id="cb66"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb66-1"><a href="update-enter-and-exit.html#cb66-1"></a><span class="kw">var</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;div#dea&quot;</span>)</span>
-<span id="cb66-2"><a href="update-enter-and-exit.html#cb66-2"></a>  <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;svg&quot;</span>)</span>
-<span id="cb66-3"><a href="update-enter-and-exit.html#cb66-3"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;400&quot;</span>)</span>
-<span id="cb66-4"><a href="update-enter-and-exit.html#cb66-4"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;250&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb67-1"><a href="update-enter-and-exit.html#cb67-1"></a><span class="kw">var</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;div#dea&quot;</span>)</span>
+<span id="cb67-2"><a href="update-enter-and-exit.html#cb67-2"></a>  <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;svg&quot;</span>)</span>
+<span id="cb67-3"><a href="update-enter-and-exit.html#cb67-3"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;400&quot;</span>)</span>
+<span id="cb67-4"><a href="update-enter-and-exit.html#cb67-4"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;250&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>Create an array of values:</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb67-1"><a href="update-enter-and-exit.html#cb67-1"></a><span class="kw">var</span> specialdata <span class="op">=</span> [<span class="dv">75</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">200</span>]<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb68-1"><a href="update-enter-and-exit.html#cb68-1"></a><span class="kw">var</span> specialdata <span class="op">=</span> [<span class="dv">75</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">200</span>]<span class="op">;</span></span></code></pre></div>
 <p>Add rectangles:</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb68-1"><a href="update-enter-and-exit.html#cb68-1"></a>  svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb68-2"><a href="update-enter-and-exit.html#cb68-2"></a>    <span class="op">.</span><span class="fu">data</span>(specialdata)</span>
-<span id="cb68-3"><a href="update-enter-and-exit.html#cb68-3"></a>    <span class="op">.</span><span class="fu">enter</span>()</span>
-<span id="cb68-4"><a href="update-enter-and-exit.html#cb68-4"></a>    <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb68-5"><a href="update-enter-and-exit.html#cb68-5"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
-<span id="cb68-6"><a href="update-enter-and-exit.html#cb68-6"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
-<span id="cb68-7"><a href="update-enter-and-exit.html#cb68-7"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;50&quot;</span>)</span>
-<span id="cb68-8"><a href="update-enter-and-exit.html#cb68-8"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)</span>
-<span id="cb68-9"><a href="update-enter-and-exit.html#cb68-9"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;pink&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb69-1"><a href="update-enter-and-exit.html#cb69-1"></a>  svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb69-2"><a href="update-enter-and-exit.html#cb69-2"></a>    <span class="op">.</span><span class="fu">data</span>(specialdata)</span>
+<span id="cb69-3"><a href="update-enter-and-exit.html#cb69-3"></a>    <span class="op">.</span><span class="fu">enter</span>()</span>
+<span id="cb69-4"><a href="update-enter-and-exit.html#cb69-4"></a>    <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb69-5"><a href="update-enter-and-exit.html#cb69-5"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
+<span id="cb69-6"><a href="update-enter-and-exit.html#cb69-6"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
+<span id="cb69-7"><a href="update-enter-and-exit.html#cb69-7"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;50&quot;</span>)</span>
+<span id="cb69-8"><a href="update-enter-and-exit.html#cb69-8"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)</span>
+<span id="cb69-9"><a href="update-enter-and-exit.html#cb69-9"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;pink&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <div id="labels" class="section level3" number="4.4.1">
 <h3><span class="header-section-number">4.4.1</span> Labels</h3>
 <p>Note that we can also label the rectangles with the data value:</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb69-1"><a href="update-enter-and-exit.html#cb69-1"></a>  svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;text&quot;</span>)</span>
-<span id="cb69-2"><a href="update-enter-and-exit.html#cb69-2"></a>      <span class="op">.</span><span class="fu">data</span>(specialdata)</span>
-<span id="cb69-3"><a href="update-enter-and-exit.html#cb69-3"></a>      <span class="op">.</span><span class="fu">enter</span>()</span>
-<span id="cb69-4"><a href="update-enter-and-exit.html#cb69-4"></a>      <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;text&quot;</span>)</span>
-<span id="cb69-5"><a href="update-enter-and-exit.html#cb69-5"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d <span class="op">+</span> <span class="dv">25</span>)</span>
-<span id="cb69-6"><a href="update-enter-and-exit.html#cb69-6"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d <span class="op">+</span> <span class="dv">25</span>)</span>
-<span id="cb69-7"><a href="update-enter-and-exit.html#cb69-7"></a>      <span class="op">.</span><span class="fu">text</span>(d <span class="kw">=&gt;</span> d)</span>
-<span id="cb69-8"><a href="update-enter-and-exit.html#cb69-8"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb69-9"><a href="update-enter-and-exit.html#cb69-9"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;text-anchor&quot;</span><span class="op">,</span> <span class="st">&quot;middle&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb70-1"><a href="update-enter-and-exit.html#cb70-1"></a>  svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;text&quot;</span>)</span>
+<span id="cb70-2"><a href="update-enter-and-exit.html#cb70-2"></a>      <span class="op">.</span><span class="fu">data</span>(specialdata)</span>
+<span id="cb70-3"><a href="update-enter-and-exit.html#cb70-3"></a>      <span class="op">.</span><span class="fu">enter</span>()</span>
+<span id="cb70-4"><a href="update-enter-and-exit.html#cb70-4"></a>      <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;text&quot;</span>)</span>
+<span id="cb70-5"><a href="update-enter-and-exit.html#cb70-5"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d <span class="op">+</span> <span class="dv">25</span>)</span>
+<span id="cb70-6"><a href="update-enter-and-exit.html#cb70-6"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d <span class="op">+</span> <span class="dv">25</span>)</span>
+<span id="cb70-7"><a href="update-enter-and-exit.html#cb70-7"></a>      <span class="op">.</span><span class="fu">text</span>(d <span class="kw">=&gt;</span> d)</span>
+<span id="cb70-8"><a href="update-enter-and-exit.html#cb70-8"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb70-9"><a href="update-enter-and-exit.html#cb70-9"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;text-anchor&quot;</span><span class="op">,</span> <span class="st">&quot;middle&quot;</span>)<span class="op">;</span></span></code></pre></div>
 </div>
 </div>
 <div id="exercise-horizontal-bar-chart" class="section level2" number="4.5">
@@ -492,45 +492,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><i class="far fa-lightbulb"></i> <em>If you create a new file in RStudio, choose “Text File” and use the <code>.html</code> file extension when you save it. Do not choose “R HTML”.</em></p>
 </blockquote>
 <p>Add a script that adds an svg element and horizontal bars of the lengths (in pixels) specified in <code>bardata</code>. Create the bars with the data / enter / append sequence.</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb70-1"><a href="update-enter-and-exit.html#cb70-1"></a>    <span class="kw">var</span> bardata <span class="op">=</span> [<span class="dv">300</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">225</span><span class="op">,</span> <span class="dv">75</span><span class="op">,</span> <span class="dv">275</span>]<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb71-1"><a href="update-enter-and-exit.html#cb71-1"></a>    <span class="kw">var</span> bardata <span class="op">=</span> [<span class="dv">300</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">225</span><span class="op">,</span> <span class="dv">75</span><span class="op">,</span> <span class="dv">275</span>]<span class="op">;</span></span></code></pre></div>
 </div>
 <div id="merge-selections" class="section level2" number="4.6">
 <h2><span class="header-section-number">4.6</span> Merge selections <i class="fa fa-code-fork"></i></h2>
 <p>a.k.a. combining update and enter selections with <code>.merge()</code></p>
 <p>Open <a href="code/six_blue_circles.html" target="_blank">six_blue_circles.html</a> in Chrome. (You do not need to download it first.)</p>
 <p>Run the following code in the Console:</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb71-1"><a href="update-enter-and-exit.html#cb71-1"></a><span class="kw">var</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">;</span></span>
-<span id="cb71-2"><a href="update-enter-and-exit.html#cb71-2"></a><span class="kw">var</span> circ <span class="op">=</span> svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb71-3"><a href="update-enter-and-exit.html#cb71-3"></a>  <span class="op">.</span><span class="fu">data</span>([<span class="dv">123</span><span class="op">,</span> <span class="dv">52</span><span class="op">,</span> <span class="dv">232</span><span class="op">,</span> <span class="dv">90</span><span class="op">,</span> <span class="dv">34</span><span class="op">,</span> <span class="dv">12</span><span class="op">,</span> <span class="dv">189</span><span class="op">,</span> <span class="dv">110</span>])<span class="op">;</span></span>
-<span id="cb71-4"><a href="update-enter-and-exit.html#cb71-4"></a>  </span>
-<span id="cb71-5"><a href="update-enter-and-exit.html#cb71-5"></a><span class="kw">var</span> allcirc <span class="op">=</span> circ<span class="op">.</span><span class="fu">enter</span>()  <span class="co">// 2 placeholders</span></span>
-<span id="cb71-6"><a href="update-enter-and-exit.html#cb71-6"></a>        <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;circle&quot;</span>)  <span class="co">// placeholders -&gt; circles</span></span>
-<span id="cb71-7"><a href="update-enter-and-exit.html#cb71-7"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;100&quot;</span>)  <span class="co">// acts on enter selection only</span></span>
-<span id="cb71-8"><a href="update-enter-and-exit.html#cb71-8"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> (i <span class="op">-</span> <span class="dv">5</span>) <span class="op">*</span> <span class="dv">50</span>)</span>
-<span id="cb71-9"><a href="update-enter-and-exit.html#cb71-9"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;20&quot;</span>)</span>
-<span id="cb71-10"><a href="update-enter-and-exit.html#cb71-10"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb72-1"><a href="update-enter-and-exit.html#cb72-1"></a><span class="kw">var</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">;</span></span>
+<span id="cb72-2"><a href="update-enter-and-exit.html#cb72-2"></a><span class="kw">var</span> circ <span class="op">=</span> svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb72-3"><a href="update-enter-and-exit.html#cb72-3"></a>  <span class="op">.</span><span class="fu">data</span>([<span class="dv">123</span><span class="op">,</span> <span class="dv">52</span><span class="op">,</span> <span class="dv">232</span><span class="op">,</span> <span class="dv">90</span><span class="op">,</span> <span class="dv">34</span><span class="op">,</span> <span class="dv">12</span><span class="op">,</span> <span class="dv">189</span><span class="op">,</span> <span class="dv">110</span>])<span class="op">;</span></span>
+<span id="cb72-4"><a href="update-enter-and-exit.html#cb72-4"></a>  </span>
+<span id="cb72-5"><a href="update-enter-and-exit.html#cb72-5"></a><span class="kw">var</span> allcirc <span class="op">=</span> circ<span class="op">.</span><span class="fu">enter</span>()  <span class="co">// 2 placeholders</span></span>
+<span id="cb72-6"><a href="update-enter-and-exit.html#cb72-6"></a>        <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;circle&quot;</span>)  <span class="co">// placeholders -&gt; circles</span></span>
+<span id="cb72-7"><a href="update-enter-and-exit.html#cb72-7"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;100&quot;</span>)  <span class="co">// acts on enter selection only</span></span>
+<span id="cb72-8"><a href="update-enter-and-exit.html#cb72-8"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> (i <span class="op">-</span> <span class="dv">5</span>) <span class="op">*</span> <span class="dv">50</span>)</span>
+<span id="cb72-9"><a href="update-enter-and-exit.html#cb72-9"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;20&quot;</span>)</span>
+<span id="cb72-10"><a href="update-enter-and-exit.html#cb72-10"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>Now try to predict what the following code will do. Were you right?</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb72-1"><a href="update-enter-and-exit.html#cb72-1"></a>allcirc<span class="op">.</span><span class="fu">transition</span>() </span>
-<span id="cb72-2"><a href="update-enter-and-exit.html#cb72-2"></a>        <span class="op">.</span><span class="fu">duration</span>(<span class="dv">3000</span>)</span>
-<span id="cb72-3"><a href="update-enter-and-exit.html#cb72-3"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;400&quot;</span>)</span>
-<span id="cb72-4"><a href="update-enter-and-exit.html#cb72-4"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;purple&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb73-1"><a href="update-enter-and-exit.html#cb73-1"></a>allcirc<span class="op">.</span><span class="fu">transition</span>() </span>
+<span id="cb73-2"><a href="update-enter-and-exit.html#cb73-2"></a>        <span class="op">.</span><span class="fu">duration</span>(<span class="dv">3000</span>)</span>
+<span id="cb73-3"><a href="update-enter-and-exit.html#cb73-3"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;400&quot;</span>)</span>
+<span id="cb73-4"><a href="update-enter-and-exit.html#cb73-4"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;purple&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>Refresh the page and then copy and paste the following into the Console and run.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb73-1"><a href="update-enter-and-exit.html#cb73-1"></a><span class="kw">var</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">;</span></span>
-<span id="cb73-2"><a href="update-enter-and-exit.html#cb73-2"></a><span class="kw">var</span> circ <span class="op">=</span> svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb73-3"><a href="update-enter-and-exit.html#cb73-3"></a>  <span class="op">.</span><span class="fu">data</span>([<span class="dv">123</span><span class="op">,</span> <span class="dv">52</span><span class="op">,</span> <span class="dv">232</span><span class="op">,</span> <span class="dv">90</span><span class="op">,</span> <span class="dv">34</span><span class="op">,</span> <span class="dv">12</span><span class="op">,</span> <span class="dv">189</span><span class="op">,</span> <span class="dv">110</span>])<span class="op">;</span> <span class="co">// update selection</span></span>
-<span id="cb73-4"><a href="update-enter-and-exit.html#cb73-4"></a>  </span>
-<span id="cb73-5"><a href="update-enter-and-exit.html#cb73-5"></a><span class="kw">var</span> allcirc <span class="op">=</span> circ<span class="op">.</span><span class="fu">enter</span>()  <span class="co">// 2 placeholders</span></span>
-<span id="cb73-6"><a href="update-enter-and-exit.html#cb73-6"></a>        <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;circle&quot;</span>)  <span class="co">// placeholders -&gt; circles</span></span>
-<span id="cb73-7"><a href="update-enter-and-exit.html#cb73-7"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;100&quot;</span>)  <span class="co">// acts on enter selection only</span></span>
-<span id="cb73-8"><a href="update-enter-and-exit.html#cb73-8"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> (i <span class="op">-</span> <span class="dv">5</span>) <span class="op">*</span> <span class="dv">50</span>)</span>
-<span id="cb73-9"><a href="update-enter-and-exit.html#cb73-9"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;20&quot;</span>)</span>
-<span id="cb73-10"><a href="update-enter-and-exit.html#cb73-10"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)</span>
-<span id="cb73-11"><a href="update-enter-and-exit.html#cb73-11"></a>          <span class="op">.</span><span class="fu">merge</span>(circ)<span class="op">;</span>  <span class="co">// combines enter and update selections</span></span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb74-1"><a href="update-enter-and-exit.html#cb74-1"></a><span class="kw">var</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">;</span></span>
+<span id="cb74-2"><a href="update-enter-and-exit.html#cb74-2"></a><span class="kw">var</span> circ <span class="op">=</span> svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb74-3"><a href="update-enter-and-exit.html#cb74-3"></a>  <span class="op">.</span><span class="fu">data</span>([<span class="dv">123</span><span class="op">,</span> <span class="dv">52</span><span class="op">,</span> <span class="dv">232</span><span class="op">,</span> <span class="dv">90</span><span class="op">,</span> <span class="dv">34</span><span class="op">,</span> <span class="dv">12</span><span class="op">,</span> <span class="dv">189</span><span class="op">,</span> <span class="dv">110</span>])<span class="op">;</span> <span class="co">// update selection</span></span>
+<span id="cb74-4"><a href="update-enter-and-exit.html#cb74-4"></a>  </span>
+<span id="cb74-5"><a href="update-enter-and-exit.html#cb74-5"></a><span class="kw">var</span> allcirc <span class="op">=</span> circ<span class="op">.</span><span class="fu">enter</span>()  <span class="co">// 2 placeholders</span></span>
+<span id="cb74-6"><a href="update-enter-and-exit.html#cb74-6"></a>        <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;circle&quot;</span>)  <span class="co">// placeholders -&gt; circles</span></span>
+<span id="cb74-7"><a href="update-enter-and-exit.html#cb74-7"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;100&quot;</span>)  <span class="co">// acts on enter selection only</span></span>
+<span id="cb74-8"><a href="update-enter-and-exit.html#cb74-8"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> (i <span class="op">-</span> <span class="dv">5</span>) <span class="op">*</span> <span class="dv">50</span>)</span>
+<span id="cb74-9"><a href="update-enter-and-exit.html#cb74-9"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;20&quot;</span>)</span>
+<span id="cb74-10"><a href="update-enter-and-exit.html#cb74-10"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb74-11"><a href="update-enter-and-exit.html#cb74-11"></a>          <span class="op">.</span><span class="fu">merge</span>(circ)<span class="op">;</span>  <span class="co">// combines enter and update selections</span></span></code></pre></div>
 <p>And now, the following code (same as before). What changed? Why?</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb74-1"><a href="update-enter-and-exit.html#cb74-1"></a>allcirc<span class="op">.</span><span class="fu">transition</span>() </span>
-<span id="cb74-2"><a href="update-enter-and-exit.html#cb74-2"></a>        <span class="op">.</span><span class="fu">duration</span>(<span class="dv">3000</span>)</span>
-<span id="cb74-3"><a href="update-enter-and-exit.html#cb74-3"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;400&quot;</span>)</span>
-<span id="cb74-4"><a href="update-enter-and-exit.html#cb74-4"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;purple&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb75-1"><a href="update-enter-and-exit.html#cb75-1"></a>allcirc<span class="op">.</span><span class="fu">transition</span>() </span>
+<span id="cb75-2"><a href="update-enter-and-exit.html#cb75-2"></a>        <span class="op">.</span><span class="fu">duration</span>(<span class="dv">3000</span>)</span>
+<span id="cb75-3"><a href="update-enter-and-exit.html#cb75-3"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;400&quot;</span>)</span>
+<span id="cb75-4"><a href="update-enter-and-exit.html#cb75-4"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;purple&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>Note the pattern:</p>
 <p>Store the data bind in X.</p>
 <p>Y = X.enter().append() <em>attributes</em> .merge(X)</p>
@@ -553,45 +553,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">4.8</span> Groups <i class="fa fa-object-group"></i></h2>
 <p>Open <a href="code/six_blue_circles.html" target="_blank">six_blue_circles.html</a> in Chrome. (You do not need to download it first.)</p>
 <p>Run this code in the Console:</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb75-1"><a href="update-enter-and-exit.html#cb75-1"></a><span class="kw">var</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">;</span></span>
-<span id="cb75-2"><a href="update-enter-and-exit.html#cb75-2"></a></span>
-<span id="cb75-3"><a href="update-enter-and-exit.html#cb75-3"></a><span class="kw">var</span> specialdata <span class="op">=</span> [<span class="dv">100</span><span class="op">,</span> <span class="dv">250</span><span class="op">,</span> <span class="dv">300</span>]<span class="op">;</span></span>
-<span id="cb75-4"><a href="update-enter-and-exit.html#cb75-4"></a></span>
-<span id="cb75-5"><a href="update-enter-and-exit.html#cb75-5"></a><span class="kw">var</span> bars <span class="op">=</span> svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb75-6"><a href="update-enter-and-exit.html#cb75-6"></a>      <span class="op">.</span><span class="fu">data</span>(specialdata)</span>
-<span id="cb75-7"><a href="update-enter-and-exit.html#cb75-7"></a>      <span class="op">.</span><span class="fu">enter</span>()</span>
-<span id="cb75-8"><a href="update-enter-and-exit.html#cb75-8"></a>      <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb75-9"><a href="update-enter-and-exit.html#cb75-9"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
-<span id="cb75-10"><a href="update-enter-and-exit.html#cb75-10"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
-<span id="cb75-11"><a href="update-enter-and-exit.html#cb75-11"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;50&quot;</span>)</span>
-<span id="cb75-12"><a href="update-enter-and-exit.html#cb75-12"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)</span>
-<span id="cb75-13"><a href="update-enter-and-exit.html#cb75-13"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span></span></code></pre></div>
-<p>What’s going on?</p>
-<p>Refresh the page, and try the following instead:</p>
 <div class="sourceCode" id="cb76"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb76-1"><a href="update-enter-and-exit.html#cb76-1"></a><span class="kw">var</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">;</span></span>
 <span id="cb76-2"><a href="update-enter-and-exit.html#cb76-2"></a></span>
 <span id="cb76-3"><a href="update-enter-and-exit.html#cb76-3"></a><span class="kw">var</span> specialdata <span class="op">=</span> [<span class="dv">100</span><span class="op">,</span> <span class="dv">250</span><span class="op">,</span> <span class="dv">300</span>]<span class="op">;</span></span>
 <span id="cb76-4"><a href="update-enter-and-exit.html#cb76-4"></a></span>
-<span id="cb76-5"><a href="update-enter-and-exit.html#cb76-5"></a><span class="kw">var</span> bars <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;g&quot;</span>)</span>
-<span id="cb76-6"><a href="update-enter-and-exit.html#cb76-6"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;id&quot;</span><span class="op">,</span> <span class="st">&quot;rects&quot;</span>)</span>
-<span id="cb76-7"><a href="update-enter-and-exit.html#cb76-7"></a>      <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb76-8"><a href="update-enter-and-exit.html#cb76-8"></a>      <span class="op">.</span><span class="fu">data</span>(specialdata)</span>
-<span id="cb76-9"><a href="update-enter-and-exit.html#cb76-9"></a>      <span class="op">.</span><span class="fu">enter</span>()</span>
-<span id="cb76-10"><a href="update-enter-and-exit.html#cb76-10"></a>      <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb76-11"><a href="update-enter-and-exit.html#cb76-11"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
-<span id="cb76-12"><a href="update-enter-and-exit.html#cb76-12"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
-<span id="cb76-13"><a href="update-enter-and-exit.html#cb76-13"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;50&quot;</span>)</span>
-<span id="cb76-14"><a href="update-enter-and-exit.html#cb76-14"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)</span>
-<span id="cb76-15"><a href="update-enter-and-exit.html#cb76-15"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<span id="cb76-5"><a href="update-enter-and-exit.html#cb76-5"></a><span class="kw">var</span> bars <span class="op">=</span> svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb76-6"><a href="update-enter-and-exit.html#cb76-6"></a>      <span class="op">.</span><span class="fu">data</span>(specialdata)</span>
+<span id="cb76-7"><a href="update-enter-and-exit.html#cb76-7"></a>      <span class="op">.</span><span class="fu">enter</span>()</span>
+<span id="cb76-8"><a href="update-enter-and-exit.html#cb76-8"></a>      <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb76-9"><a href="update-enter-and-exit.html#cb76-9"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
+<span id="cb76-10"><a href="update-enter-and-exit.html#cb76-10"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
+<span id="cb76-11"><a href="update-enter-and-exit.html#cb76-11"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;50&quot;</span>)</span>
+<span id="cb76-12"><a href="update-enter-and-exit.html#cb76-12"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)</span>
+<span id="cb76-13"><a href="update-enter-and-exit.html#cb76-13"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<p>What’s going on?</p>
+<p>Refresh the page, and try the following instead:</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb77-1"><a href="update-enter-and-exit.html#cb77-1"></a><span class="kw">var</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">;</span></span>
+<span id="cb77-2"><a href="update-enter-and-exit.html#cb77-2"></a></span>
+<span id="cb77-3"><a href="update-enter-and-exit.html#cb77-3"></a><span class="kw">var</span> specialdata <span class="op">=</span> [<span class="dv">100</span><span class="op">,</span> <span class="dv">250</span><span class="op">,</span> <span class="dv">300</span>]<span class="op">;</span></span>
+<span id="cb77-4"><a href="update-enter-and-exit.html#cb77-4"></a></span>
+<span id="cb77-5"><a href="update-enter-and-exit.html#cb77-5"></a><span class="kw">var</span> bars <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;g&quot;</span>)</span>
+<span id="cb77-6"><a href="update-enter-and-exit.html#cb77-6"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;id&quot;</span><span class="op">,</span> <span class="st">&quot;rects&quot;</span>)</span>
+<span id="cb77-7"><a href="update-enter-and-exit.html#cb77-7"></a>      <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb77-8"><a href="update-enter-and-exit.html#cb77-8"></a>      <span class="op">.</span><span class="fu">data</span>(specialdata)</span>
+<span id="cb77-9"><a href="update-enter-and-exit.html#cb77-9"></a>      <span class="op">.</span><span class="fu">enter</span>()</span>
+<span id="cb77-10"><a href="update-enter-and-exit.html#cb77-10"></a>      <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb77-11"><a href="update-enter-and-exit.html#cb77-11"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
+<span id="cb77-12"><a href="update-enter-and-exit.html#cb77-12"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
+<span id="cb77-13"><a href="update-enter-and-exit.html#cb77-13"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;50&quot;</span>)</span>
+<span id="cb77-14"><a href="update-enter-and-exit.html#cb77-14"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)</span>
+<span id="cb77-15"><a href="update-enter-and-exit.html#cb77-15"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>Compare:</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb77-1"><a href="update-enter-and-exit.html#cb77-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
-<span id="cb77-2"><a href="update-enter-and-exit.html#cb77-2"></a>  <span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;g#rects&quot;</span>)</span>
-<span id="cb77-3"><a href="update-enter-and-exit.html#cb77-3"></a>  <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb77-4"><a href="update-enter-and-exit.html#cb77-4"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;purple&quot;</span>)<span class="op">;</span></span></code></pre></div>
-<p>and</p>
 <div class="sourceCode" id="cb78"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb78-1"><a href="update-enter-and-exit.html#cb78-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
-<span id="cb78-2"><a href="update-enter-and-exit.html#cb78-2"></a>  <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb78-3"><a href="update-enter-and-exit.html#cb78-3"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;purple&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<span id="cb78-2"><a href="update-enter-and-exit.html#cb78-2"></a>  <span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;g#rects&quot;</span>)</span>
+<span id="cb78-3"><a href="update-enter-and-exit.html#cb78-3"></a>  <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb78-4"><a href="update-enter-and-exit.html#cb78-4"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;purple&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<p>and</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb79-1"><a href="update-enter-and-exit.html#cb79-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
+<span id="cb79-2"><a href="update-enter-and-exit.html#cb79-2"></a>  <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb79-3"><a href="update-enter-and-exit.html#cb79-3"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;purple&quot;</span>)<span class="op">;</span></span></code></pre></div>
 </div>
 <div id="general-update-pattern" class="section level2" number="4.9">
 <h2><span class="header-section-number">4.9</span> General Update Pattern</h2>
@@ -617,147 +617,147 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       .attr("fill", "lightgreen");
 </script>
 <p>Create a function in the Console:</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb79-1"><a href="update-enter-and-exit.html#cb79-1"></a><span class="kw">function</span> <span class="fu">changedata</span>(data) {</span>
-<span id="cb79-2"><a href="update-enter-and-exit.html#cb79-2"></a>  d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg#gup&quot;</span>)</span>
-<span id="cb79-3"><a href="update-enter-and-exit.html#cb79-3"></a>    <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb79-4"><a href="update-enter-and-exit.html#cb79-4"></a>    <span class="op">.</span><span class="fu">data</span>(data)</span>
-<span id="cb79-5"><a href="update-enter-and-exit.html#cb79-5"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)<span class="op">;</span></span>
-<span id="cb79-6"><a href="update-enter-and-exit.html#cb79-6"></a>    }</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb80-1"><a href="update-enter-and-exit.html#cb80-1"></a><span class="kw">function</span> <span class="fu">changedata</span>(data) {</span>
+<span id="cb80-2"><a href="update-enter-and-exit.html#cb80-2"></a>  d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg#gup&quot;</span>)</span>
+<span id="cb80-3"><a href="update-enter-and-exit.html#cb80-3"></a>    <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb80-4"><a href="update-enter-and-exit.html#cb80-4"></a>    <span class="op">.</span><span class="fu">data</span>(data)</span>
+<span id="cb80-5"><a href="update-enter-and-exit.html#cb80-5"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)<span class="op">;</span></span>
+<span id="cb80-6"><a href="update-enter-and-exit.html#cb80-6"></a>    }</span></code></pre></div>
 <p>Test it out:</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb80-1"><a href="update-enter-and-exit.html#cb80-1"></a>changedata([<span class="dv">258</span><span class="op">,</span> <span class="dv">373</span><span class="op">,</span> <span class="dv">278</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">72</span><span class="op">,</span> <span class="dv">96</span>])<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb81-1"><a href="update-enter-and-exit.html#cb81-1"></a>changedata([<span class="dv">258</span><span class="op">,</span> <span class="dv">373</span><span class="op">,</span> <span class="dv">278</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">72</span><span class="op">,</span> <span class="dv">96</span>])<span class="op">;</span></span></code></pre></div>
 <p>What happens if there are too many data values?</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb81-1"><a href="update-enter-and-exit.html#cb81-1"></a>changedata([<span class="dv">196</span><span class="op">,</span> <span class="dv">360</span><span class="op">,</span> <span class="dv">283</span><span class="op">,</span> <span class="dv">390</span><span class="op">,</span> <span class="dv">46</span><span class="op">,</span> <span class="dv">56</span><span class="op">,</span> <span class="dv">152</span>])<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb82-1"><a href="update-enter-and-exit.html#cb82-1"></a>changedata([<span class="dv">196</span><span class="op">,</span> <span class="dv">360</span><span class="op">,</span> <span class="dv">283</span><span class="op">,</span> <span class="dv">390</span><span class="op">,</span> <span class="dv">46</span><span class="op">,</span> <span class="dv">56</span><span class="op">,</span> <span class="dv">152</span>])<span class="op">;</span></span></code></pre></div>
 <p>Let’s use the enter selection to add new bars in this case:</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb82-1"><a href="update-enter-and-exit.html#cb82-1"></a><span class="kw">function</span> <span class="fu">changedata</span>(data) {</span>
-<span id="cb82-2"><a href="update-enter-and-exit.html#cb82-2"></a>  <span class="kw">var</span> bars <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg#gup&quot;</span>) </span>
-<span id="cb82-3"><a href="update-enter-and-exit.html#cb82-3"></a>    <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb82-4"><a href="update-enter-and-exit.html#cb82-4"></a>    <span class="op">.</span><span class="fu">data</span>(data)<span class="op">;</span>    <span class="co">// bars is the update selection</span></span>
-<span id="cb82-5"><a href="update-enter-and-exit.html#cb82-5"></a>    </span>
-<span id="cb82-6"><a href="update-enter-and-exit.html#cb82-6"></a>  bars<span class="op">.</span><span class="fu">enter</span>()</span>
-<span id="cb82-7"><a href="update-enter-and-exit.html#cb82-7"></a>    <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb82-8"><a href="update-enter-and-exit.html#cb82-8"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)  <span class="co">// until merge, acts on</span></span>
-<span id="cb82-9"><a href="update-enter-and-exit.html#cb82-9"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i <span class="op">*</span> <span class="dv">50</span>) <span class="co">// enter selection only</span></span>
-<span id="cb82-10"><a href="update-enter-and-exit.html#cb82-10"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;35&quot;</span>)  </span>
-<span id="cb82-11"><a href="update-enter-and-exit.html#cb82-11"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightgreen&quot;</span>)</span>
-<span id="cb82-12"><a href="update-enter-and-exit.html#cb82-12"></a>    <span class="op">.</span><span class="fu">merge</span>(bars) <span class="co">// merge in the update selection</span></span>
-<span id="cb82-13"><a href="update-enter-and-exit.html#cb82-13"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)<span class="op">;</span> <span class="co">// acts on all bars</span></span>
-<span id="cb82-14"><a href="update-enter-and-exit.html#cb82-14"></a>  }</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb83-1"><a href="update-enter-and-exit.html#cb83-1"></a><span class="kw">function</span> <span class="fu">changedata</span>(data) {</span>
+<span id="cb83-2"><a href="update-enter-and-exit.html#cb83-2"></a>  <span class="kw">var</span> bars <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg#gup&quot;</span>) </span>
+<span id="cb83-3"><a href="update-enter-and-exit.html#cb83-3"></a>    <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb83-4"><a href="update-enter-and-exit.html#cb83-4"></a>    <span class="op">.</span><span class="fu">data</span>(data)<span class="op">;</span>    <span class="co">// bars is the update selection</span></span>
+<span id="cb83-5"><a href="update-enter-and-exit.html#cb83-5"></a>    </span>
+<span id="cb83-6"><a href="update-enter-and-exit.html#cb83-6"></a>  bars<span class="op">.</span><span class="fu">enter</span>()</span>
+<span id="cb83-7"><a href="update-enter-and-exit.html#cb83-7"></a>    <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb83-8"><a href="update-enter-and-exit.html#cb83-8"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)  <span class="co">// until merge, acts on</span></span>
+<span id="cb83-9"><a href="update-enter-and-exit.html#cb83-9"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i <span class="op">*</span> <span class="dv">50</span>) <span class="co">// enter selection only</span></span>
+<span id="cb83-10"><a href="update-enter-and-exit.html#cb83-10"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;35&quot;</span>)  </span>
+<span id="cb83-11"><a href="update-enter-and-exit.html#cb83-11"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightgreen&quot;</span>)</span>
+<span id="cb83-12"><a href="update-enter-and-exit.html#cb83-12"></a>    <span class="op">.</span><span class="fu">merge</span>(bars) <span class="co">// merge in the update selection</span></span>
+<span id="cb83-13"><a href="update-enter-and-exit.html#cb83-13"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)<span class="op">;</span> <span class="co">// acts on all bars</span></span>
+<span id="cb83-14"><a href="update-enter-and-exit.html#cb83-14"></a>  }</span></code></pre></div>
 <p>What happens if we have more bars than data values?</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb83-1"><a href="update-enter-and-exit.html#cb83-1"></a>changedata([<span class="dv">325</span><span class="op">,</span> <span class="dv">116</span><span class="op">,</span> <span class="dv">25</span>])<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb84-1"><a href="update-enter-and-exit.html#cb84-1"></a>changedata([<span class="dv">325</span><span class="op">,</span> <span class="dv">116</span><span class="op">,</span> <span class="dv">25</span>])<span class="op">;</span></span></code></pre></div>
 <p>Let’s add to the function to remove the extra bars in this case:</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb84-1"><a href="update-enter-and-exit.html#cb84-1"></a><span class="kw">function</span> <span class="fu">changedata</span>(data) {</span>
-<span id="cb84-2"><a href="update-enter-and-exit.html#cb84-2"></a>  <span class="kw">var</span> bars <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg#gup&quot;</span>) </span>
-<span id="cb84-3"><a href="update-enter-and-exit.html#cb84-3"></a>    <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb84-4"><a href="update-enter-and-exit.html#cb84-4"></a>    <span class="op">.</span><span class="fu">data</span>(data)<span class="op">;</span>    <span class="co">// bars is the update selection</span></span>
-<span id="cb84-5"><a href="update-enter-and-exit.html#cb84-5"></a>    </span>
-<span id="cb84-6"><a href="update-enter-and-exit.html#cb84-6"></a>  bars<span class="op">.</span><span class="fu">enter</span>()</span>
-<span id="cb84-7"><a href="update-enter-and-exit.html#cb84-7"></a>    <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb84-8"><a href="update-enter-and-exit.html#cb84-8"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)  <span class="co">// until merge, acts on</span></span>
-<span id="cb84-9"><a href="update-enter-and-exit.html#cb84-9"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i <span class="op">*</span> <span class="dv">50</span>) <span class="co">// enter selection only</span></span>
-<span id="cb84-10"><a href="update-enter-and-exit.html#cb84-10"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;35&quot;</span>)  </span>
-<span id="cb84-11"><a href="update-enter-and-exit.html#cb84-11"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightgreen&quot;</span>)</span>
-<span id="cb84-12"><a href="update-enter-and-exit.html#cb84-12"></a>    <span class="op">.</span><span class="fu">merge</span>(bars) <span class="co">// merge in the update selection</span></span>
-<span id="cb84-13"><a href="update-enter-and-exit.html#cb84-13"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)<span class="op">;</span> <span class="co">// acts on all bars</span></span>
-<span id="cb84-14"><a href="update-enter-and-exit.html#cb84-14"></a>      </span>
-<span id="cb84-15"><a href="update-enter-and-exit.html#cb84-15"></a>  bars<span class="op">.</span><span class="fu">exit</span>()</span>
-<span id="cb84-16"><a href="update-enter-and-exit.html#cb84-16"></a>    <span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
-<span id="cb84-17"><a href="update-enter-and-exit.html#cb84-17"></a>  }</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb85-1"><a href="update-enter-and-exit.html#cb85-1"></a><span class="kw">function</span> <span class="fu">changedata</span>(data) {</span>
+<span id="cb85-2"><a href="update-enter-and-exit.html#cb85-2"></a>  <span class="kw">var</span> bars <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg#gup&quot;</span>) </span>
+<span id="cb85-3"><a href="update-enter-and-exit.html#cb85-3"></a>    <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb85-4"><a href="update-enter-and-exit.html#cb85-4"></a>    <span class="op">.</span><span class="fu">data</span>(data)<span class="op">;</span>    <span class="co">// bars is the update selection</span></span>
+<span id="cb85-5"><a href="update-enter-and-exit.html#cb85-5"></a>    </span>
+<span id="cb85-6"><a href="update-enter-and-exit.html#cb85-6"></a>  bars<span class="op">.</span><span class="fu">enter</span>()</span>
+<span id="cb85-7"><a href="update-enter-and-exit.html#cb85-7"></a>    <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb85-8"><a href="update-enter-and-exit.html#cb85-8"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)  <span class="co">// until merge, acts on</span></span>
+<span id="cb85-9"><a href="update-enter-and-exit.html#cb85-9"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i <span class="op">*</span> <span class="dv">50</span>) <span class="co">// enter selection only</span></span>
+<span id="cb85-10"><a href="update-enter-and-exit.html#cb85-10"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;35&quot;</span>)  </span>
+<span id="cb85-11"><a href="update-enter-and-exit.html#cb85-11"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightgreen&quot;</span>)</span>
+<span id="cb85-12"><a href="update-enter-and-exit.html#cb85-12"></a>    <span class="op">.</span><span class="fu">merge</span>(bars) <span class="co">// merge in the update selection</span></span>
+<span id="cb85-13"><a href="update-enter-and-exit.html#cb85-13"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)<span class="op">;</span> <span class="co">// acts on all bars</span></span>
+<span id="cb85-14"><a href="update-enter-and-exit.html#cb85-14"></a>      </span>
+<span id="cb85-15"><a href="update-enter-and-exit.html#cb85-15"></a>  bars<span class="op">.</span><span class="fu">exit</span>()</span>
+<span id="cb85-16"><a href="update-enter-and-exit.html#cb85-16"></a>    <span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb85-17"><a href="update-enter-and-exit.html#cb85-17"></a>  }</span></code></pre></div>
 <p>Try:</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb85-1"><a href="update-enter-and-exit.html#cb85-1"></a>changedata([<span class="dv">271</span><span class="op">,</span> <span class="dv">49</span><span class="op">,</span> <span class="dv">389</span>])<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb86-1"><a href="update-enter-and-exit.html#cb86-1"></a>changedata([<span class="dv">271</span><span class="op">,</span> <span class="dv">49</span><span class="op">,</span> <span class="dv">389</span>])<span class="op">;</span></span></code></pre></div>
 <p>A fancy exit:</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb86-1"><a href="update-enter-and-exit.html#cb86-1"></a><span class="kw">function</span> <span class="fu">changedata</span>(data) {</span>
-<span id="cb86-2"><a href="update-enter-and-exit.html#cb86-2"></a>  <span class="kw">var</span> bars <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg#gup&quot;</span>) </span>
-<span id="cb86-3"><a href="update-enter-and-exit.html#cb86-3"></a>    <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb86-4"><a href="update-enter-and-exit.html#cb86-4"></a>    <span class="op">.</span><span class="fu">data</span>(data)<span class="op">;</span>    <span class="co">// bars is the update selection</span></span>
-<span id="cb86-5"><a href="update-enter-and-exit.html#cb86-5"></a>    </span>
-<span id="cb86-6"><a href="update-enter-and-exit.html#cb86-6"></a>  bars<span class="op">.</span><span class="fu">enter</span>()</span>
-<span id="cb86-7"><a href="update-enter-and-exit.html#cb86-7"></a>    <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb86-8"><a href="update-enter-and-exit.html#cb86-8"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)  <span class="co">// until merge, acts on</span></span>
-<span id="cb86-9"><a href="update-enter-and-exit.html#cb86-9"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i <span class="op">*</span> <span class="dv">50</span>) <span class="co">// enter selection only</span></span>
-<span id="cb86-10"><a href="update-enter-and-exit.html#cb86-10"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;35&quot;</span>)  </span>
-<span id="cb86-11"><a href="update-enter-and-exit.html#cb86-11"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightgreen&quot;</span>)</span>
-<span id="cb86-12"><a href="update-enter-and-exit.html#cb86-12"></a>    <span class="op">.</span><span class="fu">merge</span>(bars) <span class="co">// merge in the update selection</span></span>
-<span id="cb86-13"><a href="update-enter-and-exit.html#cb86-13"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)<span class="op">;</span> <span class="co">// acts on all bars</span></span>
-<span id="cb86-14"><a href="update-enter-and-exit.html#cb86-14"></a>      </span>
-<span id="cb86-15"><a href="update-enter-and-exit.html#cb86-15"></a>  bars<span class="op">.</span><span class="fu">exit</span>()</span>
-<span id="cb86-16"><a href="update-enter-and-exit.html#cb86-16"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)</span>
-<span id="cb86-17"><a href="update-enter-and-exit.html#cb86-17"></a>    <span class="op">.</span><span class="fu">transition</span>()</span>
-<span id="cb86-18"><a href="update-enter-and-exit.html#cb86-18"></a>    <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb86-19"><a href="update-enter-and-exit.html#cb86-19"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;0&quot;</span>)</span>
-<span id="cb86-20"><a href="update-enter-and-exit.html#cb86-20"></a>    <span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
-<span id="cb86-21"><a href="update-enter-and-exit.html#cb86-21"></a>  }</span></code></pre></div>
-<div class="sourceCode" id="cb87"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb87-1"><a href="update-enter-and-exit.html#cb87-1"></a>changedata([<span class="dv">234</span><span class="op">,</span> <span class="dv">129</span><span class="op">,</span> <span class="dv">432</span><span class="op">,</span> <span class="dv">286</span><span class="op">,</span> <span class="dv">49</span><span class="op">,</span> <span class="dv">372</span>])<span class="op">;</span></span>
-<span id="cb87-2"><a href="update-enter-and-exit.html#cb87-2"></a></span>
-<span id="cb87-3"><a href="update-enter-and-exit.html#cb87-3"></a>changedata([<span class="dv">401</span><span class="op">,</span> <span class="dv">23</span><span class="op">,</span> <span class="dv">173</span>])<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb87-1"><a href="update-enter-and-exit.html#cb87-1"></a><span class="kw">function</span> <span class="fu">changedata</span>(data) {</span>
+<span id="cb87-2"><a href="update-enter-and-exit.html#cb87-2"></a>  <span class="kw">var</span> bars <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg#gup&quot;</span>) </span>
+<span id="cb87-3"><a href="update-enter-and-exit.html#cb87-3"></a>    <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb87-4"><a href="update-enter-and-exit.html#cb87-4"></a>    <span class="op">.</span><span class="fu">data</span>(data)<span class="op">;</span>    <span class="co">// bars is the update selection</span></span>
+<span id="cb87-5"><a href="update-enter-and-exit.html#cb87-5"></a>    </span>
+<span id="cb87-6"><a href="update-enter-and-exit.html#cb87-6"></a>  bars<span class="op">.</span><span class="fu">enter</span>()</span>
+<span id="cb87-7"><a href="update-enter-and-exit.html#cb87-7"></a>    <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb87-8"><a href="update-enter-and-exit.html#cb87-8"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)  <span class="co">// until merge, acts on</span></span>
+<span id="cb87-9"><a href="update-enter-and-exit.html#cb87-9"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i <span class="op">*</span> <span class="dv">50</span>) <span class="co">// enter selection only</span></span>
+<span id="cb87-10"><a href="update-enter-and-exit.html#cb87-10"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;35&quot;</span>)  </span>
+<span id="cb87-11"><a href="update-enter-and-exit.html#cb87-11"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightgreen&quot;</span>)</span>
+<span id="cb87-12"><a href="update-enter-and-exit.html#cb87-12"></a>    <span class="op">.</span><span class="fu">merge</span>(bars) <span class="co">// merge in the update selection</span></span>
+<span id="cb87-13"><a href="update-enter-and-exit.html#cb87-13"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)<span class="op">;</span> <span class="co">// acts on all bars</span></span>
+<span id="cb87-14"><a href="update-enter-and-exit.html#cb87-14"></a>      </span>
+<span id="cb87-15"><a href="update-enter-and-exit.html#cb87-15"></a>  bars<span class="op">.</span><span class="fu">exit</span>()</span>
+<span id="cb87-16"><a href="update-enter-and-exit.html#cb87-16"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb87-17"><a href="update-enter-and-exit.html#cb87-17"></a>    <span class="op">.</span><span class="fu">transition</span>()</span>
+<span id="cb87-18"><a href="update-enter-and-exit.html#cb87-18"></a>    <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb87-19"><a href="update-enter-and-exit.html#cb87-19"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;0&quot;</span>)</span>
+<span id="cb87-20"><a href="update-enter-and-exit.html#cb87-20"></a>    <span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb87-21"><a href="update-enter-and-exit.html#cb87-21"></a>  }</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb88-1"><a href="update-enter-and-exit.html#cb88-1"></a>changedata([<span class="dv">234</span><span class="op">,</span> <span class="dv">129</span><span class="op">,</span> <span class="dv">432</span><span class="op">,</span> <span class="dv">286</span><span class="op">,</span> <span class="dv">49</span><span class="op">,</span> <span class="dv">372</span>])<span class="op">;</span></span>
+<span id="cb88-2"><a href="update-enter-and-exit.html#cb88-2"></a></span>
+<span id="cb88-3"><a href="update-enter-and-exit.html#cb88-3"></a>changedata([<span class="dv">401</span><span class="op">,</span> <span class="dv">23</span><span class="op">,</span> <span class="dv">173</span>])<span class="op">;</span></span></code></pre></div>
 <p>VOILA! We have created the D3 General Update Pattern!</p>
 <p>It is covered in <em>IDVW</em> in the “Other Kinds of Data Updates” section on pp. 178-186 in Chapter 9. (The earlier part of Chapter 9 deals with data updates in which the number of DOM elements remains the same.)</p>
 <p><strong>Note that the General Update Pattern changed with D3 Version 4 so avoid examples from Version 3.</strong></p>
 <p>Also available here: <a href="code/general_update_pattern.html" target="_blank">general_update_pattern.html</a></p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb88-1"><a href="update-enter-and-exit.html#cb88-1"></a><span class="op">&lt;!</span>DOCTYPE html<span class="op">&gt;</span></span>
-<span id="cb88-2"><a href="update-enter-and-exit.html#cb88-2"></a><span class="op">&lt;</span>html lang<span class="op">=</span><span class="st">&quot;en&quot;</span><span class="op">&gt;</span></span>
-<span id="cb88-3"><a href="update-enter-and-exit.html#cb88-3"></a>  <span class="op">&lt;</span>head<span class="op">&gt;</span></span>
-<span id="cb88-4"><a href="update-enter-and-exit.html#cb88-4"></a>    <span class="op">&lt;</span>meta charset<span class="op">=</span><span class="st">&quot;utf-8&quot;</span><span class="op">&gt;</span></span>
-<span id="cb88-5"><a href="update-enter-and-exit.html#cb88-5"></a>    <span class="op">&lt;</span>title<span class="op">&gt;</span>EDAV5_1<span class="op">&lt;/</span>title<span class="op">&gt;</span></span>
-<span id="cb88-6"><a href="update-enter-and-exit.html#cb88-6"></a>    <span class="op">&lt;</span>script src<span class="op">=</span><span class="st">&quot;https://d3js.org/d3.v6.min.js&quot;</span><span class="op">&gt;&lt;/</span>script<span class="op">&gt;</span></span>
-<span id="cb88-7"><a href="update-enter-and-exit.html#cb88-7"></a>  <span class="op">&lt;/</span>head<span class="op">&gt;</span></span>
-<span id="cb88-8"><a href="update-enter-and-exit.html#cb88-8"></a></span>
-<span id="cb88-9"><a href="update-enter-and-exit.html#cb88-9"></a>  <span class="op">&lt;</span>body<span class="op">&gt;</span></span>
-<span id="cb88-10"><a href="update-enter-and-exit.html#cb88-10"></a></span>
-<span id="cb88-11"><a href="update-enter-and-exit.html#cb88-11"></a>    <span class="op">&lt;</span>script id<span class="op">=</span><span class="st">&quot;s1&quot;</span><span class="op">&gt;</span></span>
-<span id="cb88-12"><a href="update-enter-and-exit.html#cb88-12"></a></span>
-<span id="cb88-13"><a href="update-enter-and-exit.html#cb88-13"></a><span class="co">// Create svg and initial bars</span></span>
-<span id="cb88-14"><a href="update-enter-and-exit.html#cb88-14"></a></span>
-<span id="cb88-15"><a href="update-enter-and-exit.html#cb88-15"></a><span class="kw">var</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;body&quot;</span>)</span>
-<span id="cb88-16"><a href="update-enter-and-exit.html#cb88-16"></a>  <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;svg&quot;</span>)</span>
-<span id="cb88-17"><a href="update-enter-and-exit.html#cb88-17"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;500&quot;</span>)</span>
-<span id="cb88-18"><a href="update-enter-and-exit.html#cb88-18"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;400&quot;</span>)<span class="op">;</span></span>
-<span id="cb88-19"><a href="update-enter-and-exit.html#cb88-19"></a></span>
-<span id="cb88-20"><a href="update-enter-and-exit.html#cb88-20"></a><span class="kw">var</span> bardata <span class="op">=</span> [<span class="dv">300</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">225</span><span class="op">,</span> <span class="dv">75</span><span class="op">,</span> <span class="dv">275</span>]<span class="op">;</span></span>
-<span id="cb88-21"><a href="update-enter-and-exit.html#cb88-21"></a></span>
-<span id="cb88-22"><a href="update-enter-and-exit.html#cb88-22"></a><span class="kw">var</span> bars <span class="op">=</span> svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb88-23"><a href="update-enter-and-exit.html#cb88-23"></a>  <span class="op">.</span><span class="fu">data</span>(bardata)<span class="op">;</span></span>
-<span id="cb88-24"><a href="update-enter-and-exit.html#cb88-24"></a></span>
-<span id="cb88-25"><a href="update-enter-and-exit.html#cb88-25"></a>bars<span class="op">.</span><span class="fu">enter</span>()<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb88-26"><a href="update-enter-and-exit.html#cb88-26"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)</span>
-<span id="cb88-27"><a href="update-enter-and-exit.html#cb88-27"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i<span class="op">*</span><span class="dv">50</span>)</span>
-<span id="cb88-28"><a href="update-enter-and-exit.html#cb88-28"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
-<span id="cb88-29"><a href="update-enter-and-exit.html#cb88-29"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;35&quot;</span>)</span>
-<span id="cb88-30"><a href="update-enter-and-exit.html#cb88-30"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightgreen&quot;</span>)<span class="op">;</span></span>
-<span id="cb88-31"><a href="update-enter-and-exit.html#cb88-31"></a></span>
-<span id="cb88-32"><a href="update-enter-and-exit.html#cb88-32"></a><span class="co">// General Update Pattern</span></span>
-<span id="cb88-33"><a href="update-enter-and-exit.html#cb88-33"></a></span>
-<span id="cb88-34"><a href="update-enter-and-exit.html#cb88-34"></a><span class="kw">function</span> <span class="fu">update</span>(data) {</span>
-<span id="cb88-35"><a href="update-enter-and-exit.html#cb88-35"></a></span>
-<span id="cb88-36"><a href="update-enter-and-exit.html#cb88-36"></a>  <span class="kw">var</span> bars <span class="op">=</span> svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)    <span class="co">// data join</span></span>
-<span id="cb88-37"><a href="update-enter-and-exit.html#cb88-37"></a>    <span class="op">.</span><span class="fu">data</span>(data)<span class="op">;</span></span>
-<span id="cb88-38"><a href="update-enter-and-exit.html#cb88-38"></a></span>
-<span id="cb88-39"><a href="update-enter-and-exit.html#cb88-39"></a>    bars<span class="op">.</span><span class="fu">enter</span>()</span>
-<span id="cb88-40"><a href="update-enter-and-exit.html#cb88-40"></a>      <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)    <span class="co">// add new elements</span></span>
-<span id="cb88-41"><a href="update-enter-and-exit.html#cb88-41"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)</span>
-<span id="cb88-42"><a href="update-enter-and-exit.html#cb88-42"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i<span class="op">*</span><span class="dv">50</span>)</span>
-<span id="cb88-43"><a href="update-enter-and-exit.html#cb88-43"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
-<span id="cb88-44"><a href="update-enter-and-exit.html#cb88-44"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;35&quot;</span>)</span>
-<span id="cb88-45"><a href="update-enter-and-exit.html#cb88-45"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;yellow&quot;</span>)</span>
-<span id="cb88-46"><a href="update-enter-and-exit.html#cb88-46"></a>      <span class="op">.</span><span class="fu">merge</span>(bars)    <span class="co">// merge</span></span>
-<span id="cb88-47"><a href="update-enter-and-exit.html#cb88-47"></a>        <span class="op">.</span><span class="fu">transition</span>()</span>
-<span id="cb88-48"><a href="update-enter-and-exit.html#cb88-48"></a>        <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb88-49"><a href="update-enter-and-exit.html#cb88-49"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
-<span id="cb88-50"><a href="update-enter-and-exit.html#cb88-50"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;orange&quot;</span>)<span class="op">;</span></span>
-<span id="cb88-51"><a href="update-enter-and-exit.html#cb88-51"></a></span>
-<span id="cb88-52"><a href="update-enter-and-exit.html#cb88-52"></a>    bars<span class="op">.</span><span class="fu">exit</span>()<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span>    <span class="co">// remove extra elements</span></span>
-<span id="cb88-53"><a href="update-enter-and-exit.html#cb88-53"></a>    }</span>
-<span id="cb88-54"><a href="update-enter-and-exit.html#cb88-54"></a></span>
-<span id="cb88-55"><a href="update-enter-and-exit.html#cb88-55"></a>    <span class="op">&lt;/</span>script<span class="op">&gt;</span></span>
-<span id="cb88-56"><a href="update-enter-and-exit.html#cb88-56"></a></span>
-<span id="cb88-57"><a href="update-enter-and-exit.html#cb88-57"></a>  <span class="op">&lt;/</span>body<span class="op">&gt;</span></span>
-<span id="cb88-58"><a href="update-enter-and-exit.html#cb88-58"></a></span>
-<span id="cb88-59"><a href="update-enter-and-exit.html#cb88-59"></a><span class="op">&lt;/</span>html<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb89-1"><a href="update-enter-and-exit.html#cb89-1"></a><span class="op">&lt;!</span>DOCTYPE html<span class="op">&gt;</span></span>
+<span id="cb89-2"><a href="update-enter-and-exit.html#cb89-2"></a><span class="op">&lt;</span>html lang<span class="op">=</span><span class="st">&quot;en&quot;</span><span class="op">&gt;</span></span>
+<span id="cb89-3"><a href="update-enter-and-exit.html#cb89-3"></a>  <span class="op">&lt;</span>head<span class="op">&gt;</span></span>
+<span id="cb89-4"><a href="update-enter-and-exit.html#cb89-4"></a>    <span class="op">&lt;</span>meta charset<span class="op">=</span><span class="st">&quot;utf-8&quot;</span><span class="op">&gt;</span></span>
+<span id="cb89-5"><a href="update-enter-and-exit.html#cb89-5"></a>    <span class="op">&lt;</span>title<span class="op">&gt;</span>EDAV5_1<span class="op">&lt;/</span>title<span class="op">&gt;</span></span>
+<span id="cb89-6"><a href="update-enter-and-exit.html#cb89-6"></a>    <span class="op">&lt;</span>script src<span class="op">=</span><span class="st">&quot;https://d3js.org/d3.v6.min.js&quot;</span><span class="op">&gt;&lt;/</span>script<span class="op">&gt;</span></span>
+<span id="cb89-7"><a href="update-enter-and-exit.html#cb89-7"></a>  <span class="op">&lt;/</span>head<span class="op">&gt;</span></span>
+<span id="cb89-8"><a href="update-enter-and-exit.html#cb89-8"></a></span>
+<span id="cb89-9"><a href="update-enter-and-exit.html#cb89-9"></a>  <span class="op">&lt;</span>body<span class="op">&gt;</span></span>
+<span id="cb89-10"><a href="update-enter-and-exit.html#cb89-10"></a></span>
+<span id="cb89-11"><a href="update-enter-and-exit.html#cb89-11"></a>    <span class="op">&lt;</span>script id<span class="op">=</span><span class="st">&quot;s1&quot;</span><span class="op">&gt;</span></span>
+<span id="cb89-12"><a href="update-enter-and-exit.html#cb89-12"></a></span>
+<span id="cb89-13"><a href="update-enter-and-exit.html#cb89-13"></a><span class="co">// Create svg and initial bars</span></span>
+<span id="cb89-14"><a href="update-enter-and-exit.html#cb89-14"></a></span>
+<span id="cb89-15"><a href="update-enter-and-exit.html#cb89-15"></a><span class="kw">var</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;body&quot;</span>)</span>
+<span id="cb89-16"><a href="update-enter-and-exit.html#cb89-16"></a>  <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;svg&quot;</span>)</span>
+<span id="cb89-17"><a href="update-enter-and-exit.html#cb89-17"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;500&quot;</span>)</span>
+<span id="cb89-18"><a href="update-enter-and-exit.html#cb89-18"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;400&quot;</span>)<span class="op">;</span></span>
+<span id="cb89-19"><a href="update-enter-and-exit.html#cb89-19"></a></span>
+<span id="cb89-20"><a href="update-enter-and-exit.html#cb89-20"></a><span class="kw">var</span> bardata <span class="op">=</span> [<span class="dv">300</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">225</span><span class="op">,</span> <span class="dv">75</span><span class="op">,</span> <span class="dv">275</span>]<span class="op">;</span></span>
+<span id="cb89-21"><a href="update-enter-and-exit.html#cb89-21"></a></span>
+<span id="cb89-22"><a href="update-enter-and-exit.html#cb89-22"></a><span class="kw">var</span> bars <span class="op">=</span> svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb89-23"><a href="update-enter-and-exit.html#cb89-23"></a>  <span class="op">.</span><span class="fu">data</span>(bardata)<span class="op">;</span></span>
+<span id="cb89-24"><a href="update-enter-and-exit.html#cb89-24"></a></span>
+<span id="cb89-25"><a href="update-enter-and-exit.html#cb89-25"></a>bars<span class="op">.</span><span class="fu">enter</span>()<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb89-26"><a href="update-enter-and-exit.html#cb89-26"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)</span>
+<span id="cb89-27"><a href="update-enter-and-exit.html#cb89-27"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i<span class="op">*</span><span class="dv">50</span>)</span>
+<span id="cb89-28"><a href="update-enter-and-exit.html#cb89-28"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
+<span id="cb89-29"><a href="update-enter-and-exit.html#cb89-29"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;35&quot;</span>)</span>
+<span id="cb89-30"><a href="update-enter-and-exit.html#cb89-30"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightgreen&quot;</span>)<span class="op">;</span></span>
+<span id="cb89-31"><a href="update-enter-and-exit.html#cb89-31"></a></span>
+<span id="cb89-32"><a href="update-enter-and-exit.html#cb89-32"></a><span class="co">// General Update Pattern</span></span>
+<span id="cb89-33"><a href="update-enter-and-exit.html#cb89-33"></a></span>
+<span id="cb89-34"><a href="update-enter-and-exit.html#cb89-34"></a><span class="kw">function</span> <span class="fu">update</span>(data) {</span>
+<span id="cb89-35"><a href="update-enter-and-exit.html#cb89-35"></a></span>
+<span id="cb89-36"><a href="update-enter-and-exit.html#cb89-36"></a>  <span class="kw">var</span> bars <span class="op">=</span> svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)    <span class="co">// data join</span></span>
+<span id="cb89-37"><a href="update-enter-and-exit.html#cb89-37"></a>    <span class="op">.</span><span class="fu">data</span>(data)<span class="op">;</span></span>
+<span id="cb89-38"><a href="update-enter-and-exit.html#cb89-38"></a></span>
+<span id="cb89-39"><a href="update-enter-and-exit.html#cb89-39"></a>    bars<span class="op">.</span><span class="fu">enter</span>()</span>
+<span id="cb89-40"><a href="update-enter-and-exit.html#cb89-40"></a>      <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)    <span class="co">// add new elements</span></span>
+<span id="cb89-41"><a href="update-enter-and-exit.html#cb89-41"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)</span>
+<span id="cb89-42"><a href="update-enter-and-exit.html#cb89-42"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i<span class="op">*</span><span class="dv">50</span>)</span>
+<span id="cb89-43"><a href="update-enter-and-exit.html#cb89-43"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
+<span id="cb89-44"><a href="update-enter-and-exit.html#cb89-44"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;35&quot;</span>)</span>
+<span id="cb89-45"><a href="update-enter-and-exit.html#cb89-45"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;yellow&quot;</span>)</span>
+<span id="cb89-46"><a href="update-enter-and-exit.html#cb89-46"></a>      <span class="op">.</span><span class="fu">merge</span>(bars)    <span class="co">// merge</span></span>
+<span id="cb89-47"><a href="update-enter-and-exit.html#cb89-47"></a>        <span class="op">.</span><span class="fu">transition</span>()</span>
+<span id="cb89-48"><a href="update-enter-and-exit.html#cb89-48"></a>        <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb89-49"><a href="update-enter-and-exit.html#cb89-49"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
+<span id="cb89-50"><a href="update-enter-and-exit.html#cb89-50"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;orange&quot;</span>)<span class="op">;</span></span>
+<span id="cb89-51"><a href="update-enter-and-exit.html#cb89-51"></a></span>
+<span id="cb89-52"><a href="update-enter-and-exit.html#cb89-52"></a>    bars<span class="op">.</span><span class="fu">exit</span>()<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span>    <span class="co">// remove extra elements</span></span>
+<span id="cb89-53"><a href="update-enter-and-exit.html#cb89-53"></a>    }</span>
+<span id="cb89-54"><a href="update-enter-and-exit.html#cb89-54"></a></span>
+<span id="cb89-55"><a href="update-enter-and-exit.html#cb89-55"></a>    <span class="op">&lt;/</span>script<span class="op">&gt;</span></span>
+<span id="cb89-56"><a href="update-enter-and-exit.html#cb89-56"></a></span>
+<span id="cb89-57"><a href="update-enter-and-exit.html#cb89-57"></a>  <span class="op">&lt;/</span>body<span class="op">&gt;</span></span>
+<span id="cb89-58"><a href="update-enter-and-exit.html#cb89-58"></a></span>
+<span id="cb89-59"><a href="update-enter-and-exit.html#cb89-59"></a><span class="op">&lt;/</span>html<span class="op">&gt;</span></span></code></pre></div>
 </div>
 <div id="exercise-functions" class="section level2" number="4.10">
 <h2><span class="header-section-number">4.10</span> Exercise: <i class="fas fa-dumbbell"></i>: functions</h2>
 <p>Open <a href="code/general_update_pattern.html" target="_blank">general_update_pattern.html</a> and practice running the <code>update()</code> function with different datasets in the Console.</p>
 <p>For example:</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb89-1"><a href="update-enter-and-exit.html#cb89-1"></a>update([<span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">300</span>])<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb90-1"><a href="update-enter-and-exit.html#cb90-1"></a>update([<span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">300</span>])<span class="op">;</span></span></code></pre></div>
 </div>
 <div id="exercise-vertical-bar-chart" class="section level2" number="4.11">
 <h2><span class="header-section-number">4.11</span> Exercise <i class="fas fa-dumbbell"></i>: vertical bar chart</h2>
