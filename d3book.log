@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.11.1)  30 NOV 2020 12:25
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.11.1)  30 NOV 2020 14:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -845,13 +845,13 @@ Chapter 2.
 [15
 
 ] [16]
-Overfull \hbox (43.5pt too wide) in paragraph at lines 517--517
+Overfull \hbox (43.5pt too wide) in paragraph at lines 528--528
 []\TU/lmtt/m/n/10 <span style="color: white; background-color: fuchsia; font-fa
 mily: impact;[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 517--517
+Overfull \hbox (12.0pt too wide) in paragraph at lines 528--528
 []      \TU/lmtt/m/n/10 font-size: 24px; border-style: solid; border-color: lim
 egreen;[] 
  []
@@ -860,12 +860,12 @@ egreen;[]
 File: images/shapessvg.png Graphic file (type bmp)
 <images/shapessvg.png>
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 573--574
+Underfull \hbox (badness 10000) in paragraph at lines 584--585
 \TU/lmtt/m/it/10 iris$Sepal.Width, pch = 16, col = iris$Species, las = 1,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 573--574
+Underfull \hbox (badness 10000) in paragraph at lines 584--585
 \TU/lmtt/m/it/10 xlab = "Sepal.Length", ylab = "Sepal.Width") \TU/lmr/m/it/10 a
 nd think:
  []
@@ -877,28 +877,28 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [19] [20]
 
-Package hyperref Warning: Suppressing empty link on input line 645.
+Package hyperref Warning: Suppressing empty link on input line 656.
 
 [21]
 Chapter 3.
 [22
 
 ]
-Overfull \hbox (6.92001pt too wide) in paragraph at lines 735--736
+Overfull \hbox (6.92001pt too wide) in paragraph at lines 746--747
 \TU/lmr/m/n/10 Try out the code in this section with a downloaded copy of []fiv
 e_green_circles.html[]
  []
 
 [23] [24] [25] [26]
 
-Package hyperref Warning: Suppressing empty link on input line 987.
+Package hyperref Warning: Suppressing empty link on input line 998.
 
 [27]
 
-Package hyperref Warning: Suppressing empty link on input line 1010.
+Package hyperref Warning: Suppressing empty link on input line 1021.
 
 
-Underfull \hbox (badness 3168) in paragraph at lines 1017--1018
+Underfull \hbox (badness 3168) in paragraph at lines 1028--1029
 []\TU/lmr/m/n/10 To follow along with the code in this section, download and op
 en
  []
@@ -913,7 +913,7 @@ Chapter 5.
 
 ]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1810.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1821.
 [44] [45] [46] [47] [48]
 Chapter 6.
 [49
@@ -943,7 +943,7 @@ Chapter 12.
 [70
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 3019--3020
+Underfull \hbox (badness 10000) in paragraph at lines 3030--3031
 []\TU/lmr/m/n/10 More options: []$[][][][][] [] [] [] [][][][][][][][][] [] [][
 ][][][][][] [] [][][] [] [][] [][] [][] [] [][][][] [] [][][] [] [][][] []
  []
@@ -972,10 +972,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ] [81]
 Chapter 17.
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 3406.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 3417.
 
-Package natbib Warning: Citation `jtr13' on page 82 undefined on input line 342
-9.
+Package natbib Warning: Citation `jtr13' on page 82 undefined on input line 344
+0.
 
 (./d3book.bbl [82
 

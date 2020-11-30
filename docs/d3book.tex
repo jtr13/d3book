@@ -130,7 +130,7 @@
 
 \includegraphics[width=1\linewidth]{images/pdfbook/buildyourowngraph}
 
-This guide serves as a companion text to Scott Murray's \href{https://www.amazon.com/Interactive-Data-Visualization-Web-Introduction/dp/1491921285/}{\emph{Interactive Data Visualization for the Web, 2nd edition}}--henceforth \emph{IDVW2}--a required text for GR5702. Be sure to get the second edition, which is a comprehensive update to D3 version 4. The first edition uses D3 version 3, which is not compatible. (The current version of D3 is actually v5. However, since differences between v4 and v5 are minimal, unless otherwise indicated in this guide, the code in \emph{IDVW2} will work with either.)
+This guide serves as a companion text to Scott Murray's \href{https://www.amazon.com/Interactive-Data-Visualization-Web-Introduction/dp/1491921285/}{\emph{Interactive Data Visualization for the Web, 2nd edition}}--henceforth \emph{IDVW2}--a required text for GR5702. Be sure to get the second edition, which is a comprehensive update to D3 version 4. The first edition uses D3 version 3, which is not compatible. (The current version of D3 is actually v6. However, since differences between v4 and v5/v6 are minimal, unless otherwise indicated in this guide, the code in \emph{IDVW2} will work with either.)
 
 We rely on the text heavily but also deviate from it in several ways. \emph{IDVW2} is written for graphics designers not data science students so the pain points are somewhat different.
 
@@ -411,6 +411,17 @@ Let's skip the explanations and start coding in D3 right now. Why? So you can se
 \end{Shaded}
 \item
   Try another click event. What's happening?
+
+  \textbf{v6}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{d3}\OperatorTok{.}\FunctionTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}\OperatorTok{.}\FunctionTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,} \KeywordTok{function}\NormalTok{(}\BuiltInTok{event}\NormalTok{)}
+\NormalTok{  \{d3}\OperatorTok{.}\FunctionTok{select}\NormalTok{(}\StringTok{"text"}\NormalTok{)}\OperatorTok{.}\FunctionTok{text}\NormalTok{(}\VerbatimStringTok{\textasciigrave{}(}\SpecialCharTok{$\{}\NormalTok{d3}\OperatorTok{.}\FunctionTok{pointer}\NormalTok{(}\BuiltInTok{event}\NormalTok{)}\SpecialCharTok{\}}\VerbatimStringTok{)\textasciigrave{}}\NormalTok{)\})}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+  \textbf{v5}
 
 \begin{Shaded}
 \begin{Highlighting}[]
