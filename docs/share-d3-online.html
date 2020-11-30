@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>16 More chapters coming soon  | D3 for R Users</title>
-  <meta name="description" content="16 More chapters coming soon  | D3 for R Users" />
+  <title>11 Share D3 online  | D3 for R Users</title>
+  <meta name="description" content="11 Share D3 online  | D3 for R Users" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="16 More chapters coming soon  | D3 for R Users" />
+  <meta property="og:title" content="11 Share D3 online  | D3 for R Users" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="16 More chapters coming soon  | D3 for R Users" />
+  <meta name="twitter:title" content="11 Share D3 online  | D3 for R Users" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="your-solutions-here.html"/>
-<link rel="next" href="appendix-advanced-css.html"/>
+<link rel="prev" href="reading-files.html"/>
+<link rel="next" href="line-charts.html"/>
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -373,21 +373,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="more-chapters-coming-soon" class="section level1" number="16">
-<h1><span class="header-section-number">16</span> More chapters coming soon <i class="fas fa-screwdriver"></i></h1>
-<center>
-<iframe src="https://giphy.com/embed/EIiJp9cQ3GeEU" width="240" height="240" frameBorder="0" class="giphy-embed" allowFullScreen>
-</iframe>
-<p>
-<a href="https://giphy.com/gifs/please-construction-patient-EIiJp9cQ3GeEU">via GIPHY</a>
-</p>
-</center>
-<div id="maintainer-links" class="section level2" number="16.1">
-<h2><span class="header-section-number">16.1</span> Maintainer links</h2>
-<p>Edit <a href="https://github.com/jtr13/d3book/edit/master/_bookdown.yml" target="_blank"><code>bookdown.yml</code></a></p>
-<p>This is a test:</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="more-chapters-coming-soon.html#cb175-1"></a><span class="kw">plot</span>(<span class="kw">rnorm</span>(<span class="dv">1000</span>))</span></code></pre></div>
-<p><img src="d3book_files/figure-html/unnamed-chunk-50-1.png" width="100%" /></p>
+<div id="share-d3-online" class="section level1" number="11">
+<h1><span class="header-section-number">11</span> Share D3 online <i class="fa share-square"></i></h1>
+<p>There are a number of ways you can share your D3 code online. Even if you’re not sharing, there are advantages to an online setup, for example, not having to set up a local server as described in the chapter on <a href="reading-files.html">reading files</a>.</p>
+<div id="vizhub" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> VizHub</h2>
+<p>My top recommendation is to use <a href="http://www.vizhub.com" target="_blank">vizhub.com</a>, created by Curran Kelleher, to host d3 visualizations online. Watch the video on the home page, “How to Use VizHub” for a quick how-to tutorial. Note however that it’s using ES6 imports to import D3 modules separately, such as <code>import { select } from 'd3';</code> as demoed in the video is completely optional; it is sufficient to link to the full D3 library in the <code>&lt;head&gt;</code> section of <code>index.html</code> as we’ve been doing:</p>
+<pre><code>&lt;script src=&quot;https://d3js.org/d3.v6.js&quot;&gt;&lt;/script&gt;</code></pre>
+<p>As such you will not have <code>index.js</code> and generated <code>bundle.js</code> files as in the example.</p>
+<p>When browsing examples, remember that different versions of D3 are not compatible, so be sure to look at v6 examples, or know what you need to update from v4 and v5 examples. In addition, as with all code sharing sites, remember that not all examples are good examples. Examples by Curran Kelleher, the creator of VizHub, are good models to follow.</p>
+</div>
+<div id="bookdown" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> bookdown</h2>
+<p>Including D3 code directly in a bookdown book hosted online (such as GitHub Pages) has the advantage that everyone is in one document. On the downside the book must be knit to view the html which happens quickly without R code but is still an extra step.</p>
+<p>There are a few workflow options:</p>
+<div id="everything-in-the-.rmd" class="section level3" number="11.2.1">
+<h3><span class="header-section-number">11.2.1</span> Everything in the .Rmd</h3>
+<p>Include a link to the D3 library and then all of your code between script tags, and then your D3 between a second set of script tags:</p>
+<pre><code>&lt;script src=&quot;https://d3js.org/d3.v6.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+...
+&lt;/script&gt;</code></pre>
+<p>(You don’t need <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, and <code>&lt;body&gt;</code> tags.)</p>
+</div>
+<div id="put-d3-in-a-separate-.js-file" class="section level3" number="11.2.2">
+<h3><span class="header-section-number">11.2.2</span> Put D3 in a separate .js file</h3>
+<p>In your Rmd file include the link to the D3 library as well as a link to a file with your D3 code:</p>
+<pre><code>&lt;script src=&quot;https://d3js.org/d3.v6.js&quot;&gt;&lt;/script&gt;
+&lt;div id=&quot;mysvg&quot;&gt;&lt;/div&gt;
+&lt;script src=&quot;myjs.js&quot;&gt;&lt;/script&gt;</code></pre>
+<p>You can then create an identical <code>.html</code> file for testing purposes only. This has the advantage of not having to render the full bookdown book each time you would like to observe changes to your D3 code.</p>
+</div>
+<div id="put-d3-in-a-separate-.js-file-1" class="section level3" number="11.2.3">
+<h3><span class="header-section-number">11.2.3</span> Put D3 in a separate .js file</h3>
+<p>Create your entire visualization in a separate <code>.html</code> file and then include in your <code>.Rmd</code> file with <code>&lt;iframe&gt;</code>:</p>
+<pre><code>&lt;iframe src=&quot;mybarchart.html&quot; width=&quot;400&quot; height=&quot;300&quot;&gt;&lt;/iframe&gt;</code></pre>
+</div>
+</div>
+<div id="observable" class="section level2" number="11.3">
+<h2><span class="header-section-number">11.3</span> Observable</h2>
+<p>Observable, created by D3 author Mike Bostock, is the official D3 web tool for creating and sharing D3 code. It is a powerful, popular tool–all new D3 code examples are now presented in Observable–but program flow is different than it is for stand-alone JavaScript. If you’re interested in learning more, see the collection of <a href="https://observablehq.com/tutorials" target="_blank">Observable Tutorials</a>.</p>
+</div>
+<div id="blockbuilder-2015-2020" class="section level2" number="11.4">
+<h2><span class="header-section-number">11.4</span> Blockbuilder 2015-2020</h2>
+<p>As an aside, <a href="https://blockbuilder.org/">blockbuilder.org</a> was a very popular service for sharing D3 code online, but by the end of 2020, will <a href="https://bl.ocks.org/enjalot/1ef61f8c72ddccc99707d36a85f0eba7">no longer allow users to create new blocks, and going forward will serve as an archive of previously created ones</a>. If you use it for this purpose, remember to pay attention to the version of D3 in use; some authors have included the version number in the block titles but this practice is not widespread. Remember as well that not all examples are good examples, both in terms of the graph choices and the quality of the code.</p>
+<p>A few reputable block authors, in terms of quality of D3 code, are:</p>
+<p><a href="https://bl.ocks.org/mbostock" target="_&quot;blank&quot;">Mike Bostock</a> (creator of D3)</p>
+<p><a href="https://bl.ocks.org/enjalot" target="_blank">Ian Johnson</a> (creator of blockbuilder.org)</p>
+<p><a href="https://bl.ocks.org/curran" target="_blank">Curran Kelleher</a> (data viz consultant / educator)</p>
+<p><a href="https://bl.ocks.org/d3noob" target="_blank">Malcolm Maclean</a> (author of <a href="https://leanpub.com/d3-t-and-t-v5" target="_blank">D3 Tips and Tricks, v5.x</a>, lots of simple v5 examples with v5 in title)</p>
+<p><a href="https://bl.ocks.org/timelyportfolio" target="_blank">Kent Russell</a> (creator of interactive <code>parcoords</code> package in R)</p>
 
 </div>
 </div>
@@ -396,8 +431,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="your-solutions-here.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="appendix-advanced-css.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="reading-files.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="line-charts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -428,7 +463,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jtr13/d3book/edit/master/more_chapters.Rmd",
+"link": "https://github.com/jtr13/d3book/edit/master/online.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -436,7 +471,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/jtr13/d3book/blob/master/more_chapters.Rmd",
+"link": "https://github.com/jtr13/d3book/blob/master/online.Rmd",
 "text": null
 },
 "download": ["d3book.pdf"],

@@ -113,7 +113,7 @@
 
 \title{D3 for R Users}
 \author{Joyce Robbins}
-\date{2020-11-23}
+\date{2020-11-30}
 
 \begin{document}
 \maketitle
@@ -162,6 +162,10 @@ The next chapter, \href{jump.html}{Jump in the deep end}, employs this workflow.
 If you're not reading the \texttt{.pdf} version, you can open DevTools on this very page. This is very convenient because not only to you not have to leave this book to practice D3, you can copy code blocks and paste them in the Console. In addition to opening DevTools (see above), close the side bar by clicking on the icon above to give yourself more screen space.
 
 Let's try it out.
+
+\begin{quote}
+\emph{Open the JavaScript Console}
+\end{quote}
 
 \includegraphics[width=0.33\linewidth]{images/pdfbook/svg1}
 
@@ -2868,7 +2872,78 @@ A simple way to avoid this issue is to upload data files to GitHub and read them
 \hypertarget{hosting-online}{%
 \section{Hosting online}\label{hosting-online}}
 
-\href{https://blockbuilder.org/}{blockbuilder.org} offers a convenient option, with good documentation, for sharing D3 examples online. You can also \href{https://blockbuilder.org/search}{search blockbuilder} for examples. Remember to pay attention to the version of D3 in use; some authors are including v5 in the block titles but this practice is not widespread. Remember as well that not all examples are good examples, both in terms of the graph choices and the quality of the code.
+An alternative to the options above are to avoid the issue by hosting your code online. Options for doing so are covering in the chapter on \href{share-d3-online.html}{sharing D3 online}.
+
+\hypertarget{share-d3-online}{%
+\chapter{\texorpdfstring{Share D3 online }{Share D3 online }}\label{share-d3-online}}
+
+There are a number of ways you can share your D3 code online. Even if you're not sharing, there are advantages to an online setup, for example, not having to set up a local server as described in the chapter on \href{reading-files.html}{reading files}.
+
+\hypertarget{vizhub}{%
+\section{VizHub}\label{vizhub}}
+
+My top recommendation is to use \href{http://www.vizhub.com}{vizhub.com}, created by Curran Kelleher, to host d3 visualizations online. Watch the video on the home page, ``How to Use VizHub'' for a quick how-to tutorial. Note however that it's using ES6 imports to import D3 modules separately, such as \texttt{import\ \{\ select\ \}\ from\ \textquotesingle{}d3\textquotesingle{};} as demoed in the video is completely optional; it is sufficient to link to the full D3 library in the \texttt{\textless{}head\textgreater{}} section of \texttt{index.html} as we've been doing:
+
+\begin{verbatim}
+<script src="https://d3js.org/d3.v6.js"></script>
+\end{verbatim}
+
+As such you will not have \texttt{index.js} and generated \texttt{bundle.js} files as in the example.
+
+When browsing examples, remember that different versions of D3 are not compatible, so be sure to look at v6 examples, or know what you need to update from v4 and v5 examples. In addition, as with all code sharing sites, remember that not all examples are good examples. Examples by Curran Kelleher, the creator of VizHub, are good models to follow.
+
+\hypertarget{bookdown}{%
+\section{bookdown}\label{bookdown}}
+
+Including D3 code directly in a bookdown book hosted online (such as GitHub Pages) has the advantage that everyone is in one document. On the downside the book must be knit to view the html which happens quickly without R code but is still an extra step.
+
+There are a few workflow options:
+
+\hypertarget{everything-in-the-.rmd}{%
+\subsection{Everything in the .Rmd}\label{everything-in-the-.rmd}}
+
+Include a link to the D3 library and then all of your code between script tags, and then your D3 between a second set of script tags:
+
+\begin{verbatim}
+<script src="https://d3js.org/d3.v6.js"></script>
+<script>
+...
+</script>
+\end{verbatim}
+
+(You don't need \texttt{\textless{}html\textgreater{}}, \texttt{\textless{}head\textgreater{}}, and \texttt{\textless{}body\textgreater{}} tags.)
+
+\hypertarget{put-d3-in-a-separate-.js-file}{%
+\subsection{Put D3 in a separate .js file}\label{put-d3-in-a-separate-.js-file}}
+
+In your Rmd file include the link to the D3 library as well as a link to a file with your D3 code:
+
+\begin{verbatim}
+<script src="https://d3js.org/d3.v6.js"></script>
+<div id="mysvg"></div>
+<script src="myjs.js"></script>
+\end{verbatim}
+
+You can then create an identical \texttt{.html} file for testing purposes only. This has the advantage of not having to render the full bookdown book each time you would like to observe changes to your D3 code.
+
+\hypertarget{put-d3-in-a-separate-.js-file-1}{%
+\subsection{Put D3 in a separate .js file}\label{put-d3-in-a-separate-.js-file-1}}
+
+Create your entire visualization in a separate \texttt{.html} file and then include in your \texttt{.Rmd} file with \texttt{\textless{}iframe\textgreater{}}:
+
+\begin{verbatim}
+<iframe src="mybarchart.html" width="400" height="300"></iframe>
+\end{verbatim}
+
+\hypertarget{observable}{%
+\section{Observable}\label{observable}}
+
+Observable, created by D3 author Mike Bostock, is the official D3 web tool for creating and sharing D3 code. It is a powerful, popular tool--all new D3 code examples are now presented in Observable--but program flow is different than it is for stand-alone JavaScript. If you're interested in learning more, see the collection of \href{https://observablehq.com/tutorials}{Observable Tutorials}.
+
+\hypertarget{blockbuilder-2015-2020}{%
+\section{Blockbuilder 2015-2020}\label{blockbuilder-2015-2020}}
+
+As an aside, \href{https://blockbuilder.org/}{blockbuilder.org} was a very popular service for sharing D3 code online, but by the end of 2020, will \href{https://bl.ocks.org/enjalot/1ef61f8c72ddccc99707d36a85f0eba7}{no longer allow users to create new blocks, and going forward will serve as an archive of previously created ones}. If you use it for this purpose, remember to pay attention to the version of D3 in use; some authors have included the version number in the block titles but this practice is not widespread. Remember as well that not all examples are good examples, both in terms of the graph choices and the quality of the code.
 
 A few reputable block authors, in terms of quality of D3 code, are:
 
@@ -2882,150 +2957,13 @@ A few reputable block authors, in terms of quality of D3 code, are:
 
 \href{https://bl.ocks.org/timelyportfolio}{Kent Russell} (creator of interactive \texttt{parcoords} package in R)
 
-\hypertarget{example-2}{%
-\section{Example}\label{example-2}}
-
-\hypertarget{cars}{}
-mtcars
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{// width and height}
-\KeywordTok{var}\NormalTok{ w }\OperatorTok{=} \DecValTok{600}\OperatorTok{;}
-\KeywordTok{var}\NormalTok{ h }\OperatorTok{=} \DecValTok{300}\OperatorTok{;}
-\KeywordTok{var}\NormalTok{ padding }\OperatorTok{=} \DecValTok{50}\OperatorTok{;}
-
-\CommentTok{// create scale functions}
-\KeywordTok{var}\NormalTok{ xScale }\OperatorTok{=}\NormalTok{ d3}\OperatorTok{.}\FunctionTok{scaleLinear}\NormalTok{()}
-  \OperatorTok{.}\FunctionTok{range}\NormalTok{([padding}\OperatorTok{,}\NormalTok{ w }\OperatorTok{{-}}\NormalTok{ padding])}\OperatorTok{;}
-
-\KeywordTok{var}\NormalTok{ yScale }\OperatorTok{=}\NormalTok{ d3}\OperatorTok{.}\FunctionTok{scaleLinear}\NormalTok{()}
-  \OperatorTok{.}\FunctionTok{range}\NormalTok{([h }\OperatorTok{{-}}\NormalTok{ padding}\OperatorTok{,} \DecValTok{0}\NormalTok{])}\OperatorTok{;}
-
-\CommentTok{// define X axis}
-\KeywordTok{var}\NormalTok{ xAxis }\OperatorTok{=}\NormalTok{ d3}\OperatorTok{.}\FunctionTok{axisBottom}\NormalTok{()}
-  \OperatorTok{.}\FunctionTok{scale}\NormalTok{(xScale)}
-  \OperatorTok{.}\FunctionTok{ticks}\NormalTok{(}\DecValTok{5}\NormalTok{)}\OperatorTok{;}
-
-\CommentTok{// define Y axis}
-\KeywordTok{var}\NormalTok{ yAxis }\OperatorTok{=}\NormalTok{ d3}\OperatorTok{.}\FunctionTok{axisLeft}\NormalTok{()}
-  \OperatorTok{.}\FunctionTok{scale}\NormalTok{(yScale)}
-  \OperatorTok{.}\FunctionTok{ticks}\NormalTok{(}\DecValTok{5}\NormalTok{)}\OperatorTok{;}
-
-\CommentTok{// create SVG element}
-\KeywordTok{var}\NormalTok{ svg }\OperatorTok{=}\NormalTok{ d3}\OperatorTok{.}\FunctionTok{select}\NormalTok{(}\StringTok{"div\#cars"}\NormalTok{)}
-  \OperatorTok{.}\FunctionTok{append}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}
-  \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"width"}\OperatorTok{,}\NormalTok{ w)}
-  \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"height"}\OperatorTok{,}\NormalTok{ h)}\OperatorTok{;}
-
-\CommentTok{// create text element}
-\NormalTok{svg}\OperatorTok{.}\FunctionTok{append}\NormalTok{(}\StringTok{"text"}\NormalTok{)}
-  \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"id"}\OperatorTok{,} \StringTok{"nm"}\NormalTok{)}
-  \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"x"}\OperatorTok{,} \DecValTok{2} \OperatorTok{*}\NormalTok{ padding)}
-  \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"y"}\OperatorTok{,}\NormalTok{ h }\OperatorTok{{-}}\NormalTok{ (}\DecValTok{2} \OperatorTok{*}\NormalTok{ padding))}\OperatorTok{;}
-
-\CommentTok{// create X axis}
-\NormalTok{svg}\OperatorTok{.}\FunctionTok{append}\NormalTok{(}\StringTok{"g"}\NormalTok{)}
-  \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"id"}\OperatorTok{,} \StringTok{"xaxis"}\NormalTok{)}
-  \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"transform"}\OperatorTok{,} \StringTok{"translate(0,"} \OperatorTok{+}\NormalTok{ (h }\OperatorTok{{-}}\NormalTok{ padding) }\OperatorTok{+} \StringTok{")"}\NormalTok{)}
-  \OperatorTok{.}\FunctionTok{call}\NormalTok{(xAxis)}\OperatorTok{;}
-
-\CommentTok{// create Y axis}
-\NormalTok{svg}\OperatorTok{.}\FunctionTok{append}\NormalTok{(}\StringTok{"g"}\NormalTok{)}
-  \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"id"}\OperatorTok{,} \StringTok{"yaxis"}\NormalTok{)}
-  \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"transform"}\OperatorTok{,} \StringTok{"translate("} \OperatorTok{+}\NormalTok{ padding }\OperatorTok{+} \StringTok{",0)"}\NormalTok{)}
-  \OperatorTok{.}\FunctionTok{call}\NormalTok{(yAxis)}\OperatorTok{;}
-
-\CommentTok{// create axis labels}
-\NormalTok{svg}\OperatorTok{.}\FunctionTok{append}\NormalTok{(}\StringTok{"text"}\NormalTok{)}
-  \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"x"}\OperatorTok{,}\NormalTok{ w }\OperatorTok{/} \DecValTok{2}\NormalTok{)}
-  \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"y"}\OperatorTok{,}\NormalTok{ h }\OperatorTok{{-}}\NormalTok{ padding }\OperatorTok{/} \DecValTok{2} \OperatorTok{+} \DecValTok{10}\NormalTok{)}
-  \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"text{-}anchor"}\OperatorTok{,} \StringTok{"middle"}\NormalTok{)}
-  \OperatorTok{.}\FunctionTok{text}\NormalTok{(}\StringTok{"displacement"}\NormalTok{)}\OperatorTok{;}
-
-\NormalTok{svg}\OperatorTok{.}\FunctionTok{append}\NormalTok{(}\StringTok{"text"}\NormalTok{)}
-  \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"x"}\OperatorTok{,}\NormalTok{ padding }\OperatorTok{/} \DecValTok{3}\NormalTok{)}
-  \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"y"}\OperatorTok{,}\NormalTok{ h }\OperatorTok{/} \DecValTok{2}\NormalTok{)}
-  \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"transform"}\OperatorTok{,} \VerbatimStringTok{\textasciigrave{}rotate({-}90, }\SpecialCharTok{$\{}\NormalTok{padding}\OperatorTok{/}\DecValTok{3}\SpecialCharTok{\}}\VerbatimStringTok{, }\SpecialCharTok{$\{}\NormalTok{h}\OperatorTok{/}\DecValTok{2}\SpecialCharTok{\}}\VerbatimStringTok{)\textasciigrave{}}\NormalTok{)}
-  \OperatorTok{.}\FunctionTok{text}\NormalTok{(}\StringTok{"mpg"}\NormalTok{)}\OperatorTok{;}
-
-\KeywordTok{var}\NormalTok{ rowConverter }\OperatorTok{=} \KeywordTok{function}\NormalTok{(d) \{}
-  \ControlFlowTok{return}\NormalTok{ \{}
-    \DataTypeTok{disp}\OperatorTok{:} \OperatorTok{+}\NormalTok{d}\OperatorTok{.}\AttributeTok{disp}\OperatorTok{,}
-    \DataTypeTok{mpg}\OperatorTok{:} \OperatorTok{+}\NormalTok{d}\OperatorTok{.}\AttributeTok{mpg}\OperatorTok{,}
-    \DataTypeTok{carname}\OperatorTok{:}\NormalTok{ d}\OperatorTok{.}\AttributeTok{carname}\OperatorTok{,}
-    \DataTypeTok{cylcolor}\OperatorTok{:}\NormalTok{ d}\OperatorTok{.}\AttributeTok{cylcolor}
-\NormalTok{  \}}
-\NormalTok{\}}\OperatorTok{;}
-\NormalTok{d3}\OperatorTok{.}\FunctionTok{csv}\NormalTok{(}\StringTok{"data/mtcars.csv"}\OperatorTok{,}\NormalTok{ rowConverter)}
-  \OperatorTok{.}\FunctionTok{then}\NormalTok{(}\KeywordTok{function}\NormalTok{(data) \{}
-\NormalTok{    xScale}\OperatorTok{.}\FunctionTok{domain}\NormalTok{([d3}\OperatorTok{.}\FunctionTok{min}\NormalTok{(data}\OperatorTok{.}\FunctionTok{map}\NormalTok{(d }\KeywordTok{=\textgreater{}}\NormalTok{ d}\OperatorTok{.}\AttributeTok{disp}\NormalTok{))}\OperatorTok{,}\NormalTok{ d3}\OperatorTok{.}\FunctionTok{max}\NormalTok{(data}\OperatorTok{.}\FunctionTok{map}\NormalTok{(d }\KeywordTok{=\textgreater{}}\NormalTok{ d}\OperatorTok{.}\AttributeTok{disp}\NormalTok{))])}\OperatorTok{;}
-\NormalTok{    d3}\OperatorTok{.}\FunctionTok{select}\NormalTok{(}\StringTok{"\#xaxis"}\NormalTok{)}\OperatorTok{.}\FunctionTok{call}\NormalTok{(xAxis)}\OperatorTok{;}
-\NormalTok{    yScale}\OperatorTok{.}\FunctionTok{domain}\NormalTok{([d3}\OperatorTok{.}\FunctionTok{min}\NormalTok{(data}\OperatorTok{.}\FunctionTok{map}\NormalTok{(d }\KeywordTok{=\textgreater{}}\NormalTok{ d}\OperatorTok{.}\AttributeTok{mpg}\NormalTok{))}\OperatorTok{,}\NormalTok{ d3}\OperatorTok{.}\FunctionTok{max}\NormalTok{(data}\OperatorTok{.}\FunctionTok{map}\NormalTok{(d }\KeywordTok{=\textgreater{}}\NormalTok{ d}\OperatorTok{.}\AttributeTok{mpg}\NormalTok{))])}\OperatorTok{;}
-\NormalTok{    d3}\OperatorTok{.}\FunctionTok{select}\NormalTok{(}\StringTok{"\#yaxis"}\NormalTok{)}\OperatorTok{.}\FunctionTok{call}\NormalTok{(yAxis)}\OperatorTok{;}
-
-    \CommentTok{//Create circles}
-    \KeywordTok{var}\NormalTok{ allCircles }\OperatorTok{=}\NormalTok{ svg}\OperatorTok{.}\FunctionTok{selectAll}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
-      \OperatorTok{.}\FunctionTok{data}\NormalTok{(data)}
-      \OperatorTok{.}\FunctionTok{enter}\NormalTok{()}
-      \OperatorTok{.}\FunctionTok{append}\NormalTok{(}\StringTok{"circle"}\NormalTok{)}
-      \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"cx"}\OperatorTok{,}\NormalTok{ d }\KeywordTok{=\textgreater{}}\NormalTok{ xScale(d}\OperatorTok{.}\AttributeTok{disp}\NormalTok{))}
-      \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"cy"}\OperatorTok{,}\NormalTok{ d }\KeywordTok{=\textgreater{}}\NormalTok{ yScale(d}\OperatorTok{.}\AttributeTok{mpg}\NormalTok{))}
-      \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"r"}\OperatorTok{,} \StringTok{"4"}\NormalTok{)}
-      \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"fill"}\OperatorTok{,}\NormalTok{ d }\KeywordTok{=\textgreater{}}\NormalTok{ d}\OperatorTok{.}\AttributeTok{cylcolor}\NormalTok{)}
-      \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"fill{-}opacity"}\OperatorTok{,} \StringTok{".5"}\NormalTok{)}
-      \OperatorTok{.}\FunctionTok{on}\NormalTok{(}\StringTok{"mouseover"}\OperatorTok{,} \KeywordTok{function}\NormalTok{(d) \{ }\CommentTok{// IDVW2, p. 270}
-        \KeywordTok{var}\NormalTok{ xPos }\OperatorTok{=} \OperatorTok{+}\NormalTok{d3}\OperatorTok{.}\FunctionTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{)}\OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"cx"}\NormalTok{) }\OperatorTok{+} \DecValTok{10}\OperatorTok{;}
-        \KeywordTok{var}\NormalTok{ yPos }\OperatorTok{=} \OperatorTok{+}\NormalTok{d3}\OperatorTok{.}\FunctionTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{)}\OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"cy"}\NormalTok{)}\OperatorTok{;}
-\NormalTok{        d3}\OperatorTok{.}\FunctionTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{)}\OperatorTok{.}\FunctionTok{style}\NormalTok{(}\StringTok{"cursor"}\OperatorTok{,} \StringTok{"pointer"}\NormalTok{)}\OperatorTok{;}
-\NormalTok{        svg}\OperatorTok{.}\FunctionTok{append}\NormalTok{(}\StringTok{"text"}\NormalTok{)}
-          \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"id"}\OperatorTok{,} \StringTok{"tooltip"}\NormalTok{)}
-          \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"x"}\OperatorTok{,}\NormalTok{ xPos)}
-          \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"y"}\OperatorTok{,}\NormalTok{ yPos)}
-          \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"font{-}size"}\OperatorTok{,} \StringTok{"11px"}\NormalTok{)}
-          \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"alignment{-}baseline"}\OperatorTok{,} \StringTok{"middle"}\NormalTok{)}
-          \OperatorTok{.}\FunctionTok{text}\NormalTok{(d}\OperatorTok{.}\AttributeTok{carname}\NormalTok{)}\OperatorTok{;} \CommentTok{// not a function (already in one)}
-\NormalTok{      \})}
-      \OperatorTok{.}\FunctionTok{on}\NormalTok{(}\StringTok{"mouseout"}\OperatorTok{,} \KeywordTok{function}\NormalTok{() \{}
-\NormalTok{        d3}\OperatorTok{.}\FunctionTok{select}\NormalTok{(}\StringTok{"\#tooltip"}\NormalTok{)}\OperatorTok{.}\FunctionTok{remove}\NormalTok{()}\OperatorTok{;}
-\NormalTok{      \})}
-      \OperatorTok{.}\FunctionTok{transition}\NormalTok{()}
-      \OperatorTok{.}\FunctionTok{duration}\NormalTok{(}\DecValTok{100}\NormalTok{)}
-      \OperatorTok{.}\FunctionTok{on}\NormalTok{(}\StringTok{"end"}\OperatorTok{,}\NormalTok{ grow)}\OperatorTok{;}
-\NormalTok{  \})}
-  \OperatorTok{.}\FunctionTok{catch}\NormalTok{(}\KeywordTok{function}\NormalTok{(error) \{}
-\NormalTok{    svg}\OperatorTok{.}\FunctionTok{append}\NormalTok{(}\StringTok{"text"}\NormalTok{)}
-      \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"x"}\OperatorTok{,}\NormalTok{ w}\OperatorTok{/}\DecValTok{2}\NormalTok{)}
-      \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"y"}\OperatorTok{,}\NormalTok{ h}\OperatorTok{/}\DecValTok{2}\NormalTok{)}
-      \OperatorTok{.}\FunctionTok{text}\NormalTok{(}\StringTok{"Error loading data."}\NormalTok{)}\OperatorTok{;}
-\NormalTok{  \})}\OperatorTok{;}
-
-\CommentTok{// grow() is based on: https://blockbuilder.org/nbremer/f749e822f33e422f2b5a7d541e5691cb}
-\KeywordTok{function} \FunctionTok{grow}\NormalTok{() \{}
-  \CommentTok{//Let the fill opacity of each circle vary randomly}
-\NormalTok{  d3}\OperatorTok{.}\FunctionTok{select}\NormalTok{(}\KeywordTok{this}\NormalTok{)}
-    \OperatorTok{.}\FunctionTok{transition}\NormalTok{()}\OperatorTok{.}\FunctionTok{duration}\NormalTok{(}\DecValTok{2000} \OperatorTok{*} \BuiltInTok{Math}\OperatorTok{.}\FunctionTok{random}\NormalTok{())}
-    \OperatorTok{.}\FunctionTok{attr}\NormalTok{(}\StringTok{"fill{-}opacity"}\OperatorTok{,} \FloatTok{.25} \OperatorTok{+} \FloatTok{.75} \OperatorTok{*} \BuiltInTok{Math}\OperatorTok{.}\FunctionTok{random}\NormalTok{())}
-    \OperatorTok{.}\FunctionTok{on}\NormalTok{(}\StringTok{"end"}\OperatorTok{,}\NormalTok{ grow)}\OperatorTok{;}
-\NormalTok{\}}\OperatorTok{;}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{d3-in-projects}{%
-\chapter{\texorpdfstring{D3 in projects }{D3 in projects }}\label{d3-in-projects}}
-
-\hypertarget{lecture-slides-5}{%
-\section{\texorpdfstring{Lecture slides }{Lecture slides }}\label{lecture-slides-5}}
-
-\href{pdfs/D3_final_project.pdf}{D3\_final\_project}
-
 \hypertarget{line-charts}{%
 \chapter{\texorpdfstring{Line charts }{Line charts }}\label{line-charts}}
 
 Read: \emph{IDVW2}, Chapter 11 Using Paths
 
-\hypertarget{lecture-slides-6}{%
-\section{\texorpdfstring{Lecture slides }{Lecture slides }}\label{lecture-slides-6}}
+\hypertarget{lecture-slides-5}{%
+\section{\texorpdfstring{Lecture slides }{Lecture slides }}\label{lecture-slides-5}}
 
 \href{pdfs/line_charts.pdf}{line\_charts.pdf}
 
@@ -3378,8 +3316,8 @@ And another example with axes:
 
 \emph{IDVW2}, Chapter 13 Layouts (\texttt{d3.stack()} only, pp.~264-270)
 
-\hypertarget{lecture-slides-7}{%
-\section{\texorpdfstring{Lecture slides }{Lecture slides }}\label{lecture-slides-7}}
+\hypertarget{lecture-slides-6}{%
+\section{\texorpdfstring{Lecture slides }{Lecture slides }}\label{lecture-slides-6}}
 
 \href{pdfs/layouts.pdf}{layouts.pdf}
 
@@ -3484,8 +3422,8 @@ A pseudoclass. Mainly used for tabbing. Clicking \emph{may} focus a button but \
 
 As expected, can have separate hover behavior for \texttt{.active} buttons.
 
-\hypertarget{example-3}{%
-\subsection{Example}\label{example-3}}
+\hypertarget{example-2}{%
+\subsection{Example}\label{example-2}}
 
 {See the Pen
 Button .active vs :active by Joyce Robbins (\citet{jtr13})
