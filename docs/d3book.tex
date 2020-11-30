@@ -449,7 +449,7 @@ In the \texttt{\textless{}head\textgreater{}} section we use \texttt{\textless{}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\OperatorTok{\textless{}}\NormalTok{script src}\OperatorTok{=}\StringTok{"https://d3js.org/d3.v5.js"}\OperatorTok{\textgreater{}\textless{}/}\NormalTok{script}\OperatorTok{\textgreater{}}
+\OperatorTok{\textless{}}\NormalTok{script src}\OperatorTok{=}\StringTok{"https://d3js.org/d3.v6.js"}\OperatorTok{\textgreater{}\textless{}/}\NormalTok{script}\OperatorTok{\textgreater{}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1299,6 +1299,10 @@ We'll start with nothing--not even an SVG--and add elements with the data / ente
 
 Work in the Console on this page (\href{index.html\#this-book-console}{help}).
 
+\begin{quote}
+\emph{Open the JavaScript Console}
+\end{quote}
+
 The SVG will be added here:
 
 \hypertarget{dea}{}
@@ -1773,6 +1777,10 @@ objects, arrays, arrays of objects, functions (and other things)
 \hypertarget{arrays-of-arrays}{%
 \section{Arrays of arrays}\label{arrays-of-arrays}}
 
+\begin{verbatim}
+> <i class="fa fa-hand-o-right"></i> *Open the JavaScript Console* <i class="fa fa-terminal"></i>
+\end{verbatim}
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{// try me in the Console }
@@ -2129,6 +2137,10 @@ See: \emph{IDVW2}, Chapter 7: Scales
 
 Practice creating an ordinal scale in the Console:
 
+\begin{quote}
+\emph{Open the JavaScript Console}
+\end{quote}
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{var}\NormalTok{ ordscale }\OperatorTok{=}\NormalTok{ d3}\OperatorTok{.}\FunctionTok{scaleBand}\NormalTok{()}
@@ -2269,6 +2281,20 @@ Examples from \href{jump.html\#interactivity}{the first chapter}:
 \end{Highlighting}
 \end{Shaded}
 
+\textbf{v6}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{d3}\OperatorTok{.}\FunctionTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}
+  \OperatorTok{.}\FunctionTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,} \KeywordTok{function}\NormalTok{(}\BuiltInTok{event}\NormalTok{) \{}
+\NormalTok{    d3}\OperatorTok{.}\FunctionTok{select}\NormalTok{(}\StringTok{"text"}\NormalTok{)}
+      \OperatorTok{.}\FunctionTok{text}\NormalTok{(}\VerbatimStringTok{\textasciigrave{}(}\SpecialCharTok{$\{}\NormalTok{d3}\OperatorTok{.}\FunctionTok{pointer}\NormalTok{(}\BuiltInTok{event}\NormalTok{)}\OperatorTok{.}\FunctionTok{map}\NormalTok{(}\BuiltInTok{Math}\OperatorTok{.}\FunctionTok{round}\NormalTok{)}\SpecialCharTok{\}}\VerbatimStringTok{)\textasciigrave{}}\NormalTok{)}
+\NormalTok{      \})}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{v5}
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{d3}\OperatorTok{.}\FunctionTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}
@@ -2299,8 +2325,22 @@ We can separate the function and the event listener:
 
 Try this in the Console:
 
+\textbf{v6}
+
 \begin{Shaded}
 \begin{Highlighting}[]
+\NormalTok{d3}\OperatorTok{.}\FunctionTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}
+  \OperatorTok{.}\FunctionTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,} \KeywordTok{function}\NormalTok{ (}\BuiltInTok{event}\NormalTok{) \{}
+    \BuiltInTok{console}\OperatorTok{.}\FunctionTok{log}\NormalTok{(d3}\OperatorTok{.}\FunctionTok{pointer}\NormalTok{(}\BuiltInTok{event}\NormalTok{)}\OperatorTok{.}\FunctionTok{map}\NormalTok{(}\BuiltInTok{Math}\OperatorTok{.}\FunctionTok{round}\NormalTok{))}\OperatorTok{;}
+\NormalTok{    \})}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{v5}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{// won\textquotesingle{}t work on this page}
 \NormalTok{d3}\OperatorTok{.}\FunctionTok{select}\NormalTok{(}\StringTok{"svg"}\NormalTok{)}
   \OperatorTok{.}\FunctionTok{on}\NormalTok{(}\StringTok{"click"}\OperatorTok{,} \KeywordTok{function}\NormalTok{ () \{}
     \BuiltInTok{console}\OperatorTok{.}\FunctionTok{log}\NormalTok{(d3}\OperatorTok{.}\FunctionTok{mouse}\NormalTok{(}\KeywordTok{this}\NormalTok{))}\OperatorTok{;}
@@ -2311,6 +2351,10 @@ Try this in the Console:
 \hypertarget{location-on-svg}{%
 \subsection{Location on SVG}\label{location-on-svg}}
 
+\textbf{v6}
+\texttt{d3.pointer(event)}
+
+\textbf{v5}
 \texttt{d3.mouse(this)}
 
 \hypertarget{attribute-of-an-element}{%
@@ -3437,7 +3481,7 @@ As expected, can have separate hover behavior for \texttt{.active} buttons.
 \subsection{Example}\label{example-2}}
 
 {See the Pen
-Button .active vs :active by Joyce Robbins (\citet{jtr13})
+Button .active vs :active by Joyce Robbins (https://codepen.io/jtr13)
 on CodePen.}
 
   \bibliography{book.bib,packages.bib}

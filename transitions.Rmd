@@ -1,5 +1,7 @@
 # Transitions <i class="far fa-paper-plane"></i>
 
+<script src="https://d3js.org/d3.v6.js"></script>
+
 Read *IDVW2*, Chapter 9: transitions section (pp. 158-178)
 
 <svg width="300" height="200">

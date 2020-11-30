@@ -2,6 +2,8 @@
 
 Read: *IDVW2*, Chapter 10 Interactivity
 
+<script src="https://d3js.org/d3.v6.js"></script>
+
 ## Lecture slides <i class="fa fa-television"></i>
 
 [interactivity.pdf](pdfs/interactivity.pdf){target="_blank"}
@@ -49,6 +51,18 @@ d3.select("line")
       });
 ```
 
+**v6**
+
+``` js
+d3.select("svg")
+  .on("click", function(event) {
+    d3.select("text")
+      .text(`(${d3.pointer(event).map(Math.round)})`)
+      });
+```
+
+**v5**
+
 ``` js
 d3.select("svg")
   .on("click", function() {
@@ -74,7 +88,20 @@ d3.select("circle")
 
 Try this in the Console:  
 
+**v6**
+
 ``` js
+d3.select("svg")
+  .on("click", function (event) {
+    console.log(d3.pointer(event).map(Math.round));
+    });
+``` 
+
+
+**v5**
+
+``` js
+// won't work on this page
 d3.select("svg")
   .on("click", function () {
     console.log(d3.mouse(this));
@@ -83,6 +110,10 @@ d3.select("svg")
 
 ### Location on SVG
 
+**v6**
+`d3.pointer(event)` 
+
+**v5**
 `d3.mouse(this)`
 
 ### Attribute of an element
