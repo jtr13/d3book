@@ -2,8 +2,7 @@
 <html>
 <head>
 	<title>test</title>
-	<meta name="generator" content="BBEdit 13.0" />
-	<script src="https://d3js.org/d3.v5.min.js"></script>
+	<script src="https://d3js.org/d3.v6.js"></script>
 </head>
 <body>
   <h4>Click the circle.</h4>
@@ -21,7 +20,7 @@
       .on("click", function() {
 					action = d3.select(this).node().value;
 			  });
-			  
+
 		// circle click behavior depends on value of "action"
 		d3.select("svg#radio")
 		  .select("circle")
@@ -33,7 +32,7 @@
 		      var cx_new = +d3.select(this).attr("cx") + 50;
 		      if (cx_new > 280) cx_new = 280;
 		      }
-		      
+
 		    d3.select(this)
 		      .transition()
 		      .duration(500)

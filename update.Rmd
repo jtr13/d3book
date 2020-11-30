@@ -1,5 +1,7 @@
 # Update, Enter, and Exit <i class="fa fa-refresh"></i>
 
+<script src="https://d3js.org/d3.v6.js"></script>
+
 Read: *IDVW2*, Chapter 9, pp. 178-184; Chapter 12, pp. 231-249
 
 ## Lecture slides <i class="fa fa-television"></i>
@@ -129,6 +131,8 @@ svg.selectAll("circle")
 We'll start with nothing--not even an SVG--and add elements with the data / enter / append sequence.
 
 Work in the Console on this page ([help](index.html#this-book-console)).
+
+> <i class="fa fa-hand-o-right"></i> *Open the JavaScript Console* <i class="fa fa-terminal"></i>
 
 The SVG will be added here:
 
