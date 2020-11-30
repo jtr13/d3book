@@ -8,9 +8,9 @@ bookdown::gitbook:
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     download: ["pdf"]
-  includes:
-    in_header:
-      d3library.html
+# includes:
+#   in_header:
+#     d3library.html
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex

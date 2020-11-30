@@ -1,5 +1,0 @@
-# D3 in projects <i class="fa fa-book"></i>
-
-## Lecture slides <i class="fa fa-television"></i>
-
-[D3_final_project](pdfs/D3_final_project.pdf){target="_blank"}

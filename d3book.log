@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.11.1)  23 NOV 2020 17:21
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.11.1)  30 NOV 2020 12:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -830,7 +830,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: images/pdfbook/svg1.png Graphic file (type bmp)
 <images/pdfbook/svg1.png>
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 172.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 176.
 [8]
 File: images/editor_chrome.png Graphic file (type bmp)
 <images/editor_chrome.png>
@@ -845,13 +845,13 @@ Chapter 2.
 [15
 
 ] [16]
-Overfull \hbox (43.5pt too wide) in paragraph at lines 513--513
+Overfull \hbox (43.5pt too wide) in paragraph at lines 517--517
 []\TU/lmtt/m/n/10 <span style="color: white; background-color: fuchsia; font-fa
 mily: impact;[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 513--513
+Overfull \hbox (12.0pt too wide) in paragraph at lines 517--517
 []      \TU/lmtt/m/n/10 font-size: 24px; border-style: solid; border-color: lim
 egreen;[] 
  []
@@ -860,12 +860,12 @@ egreen;[]
 File: images/shapessvg.png Graphic file (type bmp)
 <images/shapessvg.png>
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 569--570
+Underfull \hbox (badness 10000) in paragraph at lines 573--574
 \TU/lmtt/m/it/10 iris$Sepal.Width, pch = 16, col = iris$Species, las = 1,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 569--570
+Underfull \hbox (badness 10000) in paragraph at lines 573--574
 \TU/lmtt/m/it/10 xlab = "Sepal.Length", ylab = "Sepal.Width") \TU/lmr/m/it/10 a
 nd think:
  []
@@ -877,28 +877,28 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [19] [20]
 
-Package hyperref Warning: Suppressing empty link on input line 641.
+Package hyperref Warning: Suppressing empty link on input line 645.
 
 [21]
 Chapter 3.
 [22
 
 ]
-Overfull \hbox (6.92001pt too wide) in paragraph at lines 731--732
+Overfull \hbox (6.92001pt too wide) in paragraph at lines 735--736
 \TU/lmr/m/n/10 Try out the code in this section with a downloaded copy of []fiv
 e_green_circles.html[]
  []
 
 [23] [24] [25] [26]
 
-Package hyperref Warning: Suppressing empty link on input line 983.
+Package hyperref Warning: Suppressing empty link on input line 987.
 
 [27]
 
-Package hyperref Warning: Suppressing empty link on input line 1006.
+Package hyperref Warning: Suppressing empty link on input line 1010.
 
 
-Underfull \hbox (badness 3168) in paragraph at lines 1013--1014
+Underfull \hbox (badness 3168) in paragraph at lines 1017--1018
 []\TU/lmr/m/n/10 To follow along with the code in this section, download and op
 en
  []
@@ -913,7 +913,7 @@ Chapter 5.
 
 ]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1806.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1810.
 [44] [45] [46] [47] [48]
 Chapter 6.
 [49
@@ -935,42 +935,30 @@ Chapter 10.
 [64
 
 ] [65] [66]
-Underfull \vbox (badness 10000) detected at line 3012
- []
-
-
-Underfull \vbox (badness 10000) detected at line 3012
- []
-
-[67]
-Overfull \vbox (1.34999pt too high) detected at line 3012
- []
-
-[68] [69]
 Chapter 11.
+[67
+
+] [68] [69]
+Chapter 12.
 [70
 
 ]
-Chapter 12.
-[71
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 3081--3082
+Underfull \hbox (badness 10000) in paragraph at lines 3019--3020
 []\TU/lmr/m/n/10 More options: []$[][][][][] [] [] [] [][][][][][][][][] [] [][
 ][][][][][] [] [][][] [] [][] [][] [][] [] [][][][] [] [][][] [] [][][] []
  []
 
-[72] [73] [74] [75] [76] [77]
+[71] [72] [73] [74] [75] [76]
 Chapter 13.
-[78
+[77
 
 ]
 Chapter 14.
-[79
+[78
 
 ]
 Chapter 15.
-[80
+[79
 
 ]
 Chapter 16.
@@ -979,17 +967,17 @@ File: d3book_files/figure-latex/unnamed-chunk-50-1.pdf Graphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[81
+[80
 
-] [82]
+] [81]
 Chapter 17.
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 3468.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 3406.
 
-Package natbib Warning: Citation `jtr13' on page 83 undefined on input line 349
-1.
+Package natbib Warning: Citation `jtr13' on page 82 undefined on input line 342
+9.
 
-(./d3book.bbl [83
+(./d3book.bbl [82
 
 ]
 
@@ -999,19 +987,19 @@ Package natbib Warning: Empty `thebibliography' environment on input line 3.
 
 Package natbib Warning: There were undefined citations.
 
-[84
+[83
 
 ] (./d3book.aux)
 Package rerunfilecheck Info: File `d3book.out' has not changed.
-(rerunfilecheck)             Checksum: 02F0D57CE20593B89FF2C7CAD1C21B2E;11619.
+(rerunfilecheck)             Checksum: C793396F5FEDBCFA63036C98A697D540;11855.
  ) 
 Here is how much of TeX's memory you used:
- 17243 strings out of 479426
- 301473 string characters out of 5879575
- 771022 words of memory out of 5000000
- 36350 multiletter control sequences out of 15000+600000
+ 17248 strings out of 479426
+ 301587 string characters out of 5879575
+ 761760 words of memory out of 5000000
+ 36355 multiletter control sequences out of 15000+600000
  541619 words of font info for 92 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  94i,8n,118p,1326b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on d3book.pdf (84 pages).
+Output written on d3book.pdf (83 pages).

@@ -24,7 +24,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2020-11-23" />
+<meta name="date" content="2020-11-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -60,7 +60,6 @@
 <link href="libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
 <link href="libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
 <script src="libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
-<script src="d3.js"></script>
 
 
 <style type="text/css">
@@ -296,15 +295,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2" data-path="reading-files.html"><a href="reading-files.html#local-server"><i class="fa fa-check"></i><b>10.2</b> Local server</a></li>
 <li class="chapter" data-level="10.3" data-path="reading-files.html"><a href="reading-files.html#other-local-options"><i class="fa fa-check"></i><b>10.3</b> Other local options</a></li>
 <li class="chapter" data-level="10.4" data-path="reading-files.html"><a href="reading-files.html#hosting-online"><i class="fa fa-check"></i><b>10.4</b> Hosting online</a></li>
-<li class="chapter" data-level="10.5" data-path="reading-files.html"><a href="reading-files.html#example-2"><i class="fa fa-check"></i><b>10.5</b> Example</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="d3-in-projects.html"><a href="d3-in-projects.html"><i class="fa fa-check"></i><b>11</b> D3 in projects <i class="fa fa-book"></i></a>
+<li class="chapter" data-level="11" data-path="share-d3-online.html"><a href="share-d3-online.html"><i class="fa fa-check"></i><b>11</b> Share D3 online <i class="fa share-square"></i></a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="d3-in-projects.html"><a href="d3-in-projects.html#lecture-slides-5"><i class="fa fa-check"></i><b>11.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
+<li class="chapter" data-level="11.1" data-path="share-d3-online.html"><a href="share-d3-online.html#vizhub"><i class="fa fa-check"></i><b>11.1</b> VizHub</a></li>
+<li class="chapter" data-level="11.2" data-path="share-d3-online.html"><a href="share-d3-online.html#bookdown"><i class="fa fa-check"></i><b>11.2</b> bookdown</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="share-d3-online.html"><a href="share-d3-online.html#everything-in-the-.rmd"><i class="fa fa-check"></i><b>11.2.1</b> Everything in the .Rmd</a></li>
+<li class="chapter" data-level="11.2.2" data-path="share-d3-online.html"><a href="share-d3-online.html#put-d3-in-a-separate-.js-file"><i class="fa fa-check"></i><b>11.2.2</b> Put D3 in a separate .js file</a></li>
+<li class="chapter" data-level="11.2.3" data-path="share-d3-online.html"><a href="share-d3-online.html#put-d3-in-a-separate-.js-file-1"><i class="fa fa-check"></i><b>11.2.3</b> Put D3 in a separate .js file</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="share-d3-online.html"><a href="share-d3-online.html#observable"><i class="fa fa-check"></i><b>11.3</b> Observable</a></li>
+<li class="chapter" data-level="11.4" data-path="share-d3-online.html"><a href="share-d3-online.html#blockbuilder-2015-2020"><i class="fa fa-check"></i><b>11.4</b> Blockbuilder 2015-2020</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="line-charts.html"><a href="line-charts.html"><i class="fa fa-check"></i><b>12</b> Line charts <i class="fa fa-line-chart"></i></a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="line-charts.html"><a href="line-charts.html#lecture-slides-6"><i class="fa fa-check"></i><b>12.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
+<li class="chapter" data-level="12.1" data-path="line-charts.html"><a href="line-charts.html#lecture-slides-5"><i class="fa fa-check"></i><b>12.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="12.2" data-path="line-charts.html"><a href="line-charts.html#svg-line-element"><i class="fa fa-check"></i><b>12.2</b> SVG <code>&lt;line&gt;</code> element</a></li>
 <li class="chapter" data-level="12.3" data-path="line-charts.html"><a href="line-charts.html#svg-path-element"><i class="fa fa-check"></i><b>12.3</b> SVG <code>&lt;path&gt;</code> element</a></li>
 <li class="chapter" data-level="12.4" data-path="line-charts.html"><a href="line-charts.html#svg-editors"><i class="fa fa-check"></i><b>12.4</b> SVG editors</a>
@@ -320,7 +326,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="13" data-path="layouts.html"><a href="layouts.html"><i class="fa fa-check"></i><b>13</b> Layouts <i class="fa fa-bar-chart"></i></a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="layouts.html"><a href="layouts.html#lecture-slides-7"><i class="fa fa-check"></i><b>13.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
+<li class="chapter" data-level="13.1" data-path="layouts.html"><a href="layouts.html#lecture-slides-6"><i class="fa fa-check"></i><b>13.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="debugging-tips.html"><a href="debugging-tips.html"><i class="fa fa-check"></i><b>14</b> Debugging Tips <i class="fa fa-bug"></i></a></li>
 <li class="chapter" data-level="15" data-path="your-solutions-here.html"><a href="your-solutions-here.html"><i class="fa fa-check"></i><b>15</b> Your solutions here <i class="fa fa-check-square-o"></i></a>
@@ -344,7 +350,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="17.1.2" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html#active-1"><i class="fa fa-check"></i><b>17.1.2</b> <code>:active</code></a></li>
 <li class="chapter" data-level="17.1.3" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html#focus"><i class="fa fa-check"></i><b>17.1.3</b> <code>:focus</code></a></li>
 <li class="chapter" data-level="17.1.4" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html#hover"><i class="fa fa-check"></i><b>17.1.4</b> <code>:hover</code></a></li>
-<li class="chapter" data-level="17.1.5" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html#example-3"><i class="fa fa-check"></i><b>17.1.5</b> Example</a></li>
+<li class="chapter" data-level="17.1.5" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html#example-2"><i class="fa fa-check"></i><b>17.1.5</b> Example</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
