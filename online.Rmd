@@ -4,7 +4,7 @@ There are a number of ways you can share your D3 code online. Even if you're not
 
 ## VizHub
 
-My top recommendation is to use [vizhub.com](http://www.vizhub.com){target="_blank"}, created by Curran Kelleher, to host d3 visualizations online. Watch the video on the home page, "How to Use VizHub" for a quick how-to tutorial. Note however that it's using ES6 imports to import D3 modules separately, such as `import { select } from 'd3';` as demoed in the video is completely optional; it is sufficient to link to the full D3 library in the `<head>` section of `index.html` as we've been doing:
+My top recommendation is to use [vizhub.com](http://www.vizhub.com){target="_blank"}, created by Curran Kelleher, to host d3 visualizations online. Watch the video on the home page, "How to Use VizHub" for a quick how-to tutorial. Note however that using ES6 imports to import D3 modules separately, such as `import { select } from 'd3';` as demoed in the video is completely optional; it is sufficient to link to the full D3 library in the `<head>` section of `index.html` as we've been doing:
 
 ```
 <script src="https://d3js.org/d3.v6.js"></script>
