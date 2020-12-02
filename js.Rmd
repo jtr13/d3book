@@ -163,6 +163,13 @@ var x = [3, 1, 5, 12, 7];     // try me
 x.sort(d3.ascending);
 ```
 
+`d3.sort()` will produce the same results:
+
+``` js
+var y = [3, 1, 5, 12, 7];     // try me
+d3.sort(y);
+```
+
 ## D3 statistics
 
 [link to API](https://github.com/d3/d3-array/blob/v1.2.4/README.md#statistics){target="_blank"}
