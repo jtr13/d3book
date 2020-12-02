@@ -24,7 +24,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2020-11-30" />
+<meta name="date" content="2020-12-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -387,80 +387,80 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="examples-1" class="section level2" number="8.1">
 <h2><span class="header-section-number">8.1</span> Examples</h2>
 <p>Open Developer Tools and try in the Console:</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb138-1"><a href="transitions.html#cb138-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
+<span id="cb138-2"><a href="transitions.html#cb138-2"></a>  <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb138-3"><a href="transitions.html#cb138-3"></a>  <span class="op">.</span><span class="fu">transition</span>()</span>
+<span id="cb138-4"><a href="transitions.html#cb138-4"></a>  <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb138-5"><a href="transitions.html#cb138-5"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;275&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <div class="sourceCode" id="cb139"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb139-1"><a href="transitions.html#cb139-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
 <span id="cb139-2"><a href="transitions.html#cb139-2"></a>  <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
 <span id="cb139-3"><a href="transitions.html#cb139-3"></a>  <span class="op">.</span><span class="fu">transition</span>()</span>
 <span id="cb139-4"><a href="transitions.html#cb139-4"></a>  <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb139-5"><a href="transitions.html#cb139-5"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;275&quot;</span>)<span class="op">;</span></span></code></pre></div>
-<div class="sourceCode" id="cb140"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb140-1"><a href="transitions.html#cb140-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
-<span id="cb140-2"><a href="transitions.html#cb140-2"></a>  <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb140-3"><a href="transitions.html#cb140-3"></a>  <span class="op">.</span><span class="fu">transition</span>()</span>
-<span id="cb140-4"><a href="transitions.html#cb140-4"></a>  <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb140-5"><a href="transitions.html#cb140-5"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)</span>
-<span id="cb140-6"><a href="transitions.html#cb140-6"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;green&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<span id="cb139-5"><a href="transitions.html#cb139-5"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)</span>
+<span id="cb139-6"><a href="transitions.html#cb139-6"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;green&quot;</span>)<span class="op">;</span></span></code></pre></div>
 </div>
 <div id="do-this" class="section level2" number="8.2">
 <h2><span class="header-section-number">8.2</span> Do this</h2>
 <p>Run simultaneous transitions on <em>different</em> selections:</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb141-1"><a href="transitions.html#cb141-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle#henry&quot;</span>)<span class="op">.</span><span class="fu">transition</span>()</span>
-<span id="cb141-2"><a href="transitions.html#cb141-2"></a>    <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;275&quot;</span>)<span class="op">;</span></span>
-<span id="cb141-3"><a href="transitions.html#cb141-3"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle.apple&quot;</span>)<span class="op">.</span><span class="fu">transition</span>()</span>
-<span id="cb141-4"><a href="transitions.html#cb141-4"></a>    <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb140-1"><a href="transitions.html#cb140-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle#henry&quot;</span>)<span class="op">.</span><span class="fu">transition</span>()</span>
+<span id="cb140-2"><a href="transitions.html#cb140-2"></a>    <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;275&quot;</span>)<span class="op">;</span></span>
+<span id="cb140-3"><a href="transitions.html#cb140-3"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle.apple&quot;</span>)<span class="op">.</span><span class="fu">transition</span>()</span>
+<span id="cb140-4"><a href="transitions.html#cb140-4"></a>    <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>Run sequential transitions on the same selection in one chain:</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb142-1"><a href="transitions.html#cb142-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb142-2"><a href="transitions.html#cb142-2"></a>  <span class="op">.</span><span class="fu">transition</span>()<span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;275&quot;</span>)</span>
-<span id="cb142-3"><a href="transitions.html#cb142-3"></a>  <span class="op">.</span><span class="fu">transition</span>()<span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb141-1"><a href="transitions.html#cb141-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb141-2"><a href="transitions.html#cb141-2"></a>  <span class="op">.</span><span class="fu">transition</span>()<span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;275&quot;</span>)</span>
+<span id="cb141-3"><a href="transitions.html#cb141-3"></a>  <span class="op">.</span><span class="fu">transition</span>()<span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>Transition from <em>something</em> to <em>something</em>:</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb143-1"><a href="transitions.html#cb143-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb143-2"><a href="transitions.html#cb143-2"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;200&quot;</span>)</span>
-<span id="cb143-3"><a href="transitions.html#cb143-3"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> <span class="st">&quot;100&quot;</span>)</span>
-<span id="cb143-4"><a href="transitions.html#cb143-4"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;5&quot;</span>)</span>
-<span id="cb143-5"><a href="transitions.html#cb143-5"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightblue&quot;</span>)</span>
-<span id="cb143-6"><a href="transitions.html#cb143-6"></a>    <span class="op">.</span><span class="fu">transition</span>()</span>
-<span id="cb143-7"><a href="transitions.html#cb143-7"></a>    <span class="op">.</span><span class="fu">duration</span>(<span class="dv">4000</span>)</span>
-<span id="cb143-8"><a href="transitions.html#cb143-8"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)</span>
-<span id="cb143-9"><a href="transitions.html#cb143-9"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb142-1"><a href="transitions.html#cb142-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb142-2"><a href="transitions.html#cb142-2"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;200&quot;</span>)</span>
+<span id="cb142-3"><a href="transitions.html#cb142-3"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> <span class="st">&quot;100&quot;</span>)</span>
+<span id="cb142-4"><a href="transitions.html#cb142-4"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;5&quot;</span>)</span>
+<span id="cb142-5"><a href="transitions.html#cb142-5"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightblue&quot;</span>)</span>
+<span id="cb142-6"><a href="transitions.html#cb142-6"></a>    <span class="op">.</span><span class="fu">transition</span>()</span>
+<span id="cb142-7"><a href="transitions.html#cb142-7"></a>    <span class="op">.</span><span class="fu">duration</span>(<span class="dv">4000</span>)</span>
+<span id="cb142-8"><a href="transitions.html#cb142-8"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)</span>
+<span id="cb142-9"><a href="transitions.html#cb142-9"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)<span class="op">;</span></span></code></pre></div>
 </div>
 <div id="not-this" class="section level2" number="8.3">
 <h2><span class="header-section-number">8.3</span> Not this</h2>
 <p>DO NOT run two transitions on the same selection at the same time (see p. 172).</p>
 <p>(What works in the Console <em>will not work</em> in a script.)</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb144-1"><a href="transitions.html#cb144-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">.</span><span class="fu">transition</span>()</span>
-<span id="cb144-2"><a href="transitions.html#cb144-2"></a>    <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;250&quot;</span>)<span class="op">;</span></span>
-<span id="cb144-3"><a href="transitions.html#cb144-3"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">.</span><span class="fu">transition</span>()</span>
-<span id="cb144-4"><a href="transitions.html#cb144-4"></a>    <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;75&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb143-1"><a href="transitions.html#cb143-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">.</span><span class="fu">transition</span>()</span>
+<span id="cb143-2"><a href="transitions.html#cb143-2"></a>    <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;250&quot;</span>)<span class="op">;</span></span>
+<span id="cb143-3"><a href="transitions.html#cb143-3"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">.</span><span class="fu">transition</span>()</span>
+<span id="cb143-4"><a href="transitions.html#cb143-4"></a>    <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;75&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>DO NOT transition from <em>nothing</em> to something:</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb145-1"><a href="transitions.html#cb145-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb145-2"><a href="transitions.html#cb145-2"></a>    <span class="op">.</span><span class="fu">transition</span>()</span>
-<span id="cb145-3"><a href="transitions.html#cb145-3"></a>    <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb145-4"><a href="transitions.html#cb145-4"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;200&quot;</span>)</span>
-<span id="cb145-5"><a href="transitions.html#cb145-5"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> <span class="st">&quot;100&quot;</span>)</span>
-<span id="cb145-6"><a href="transitions.html#cb145-6"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)</span>
-<span id="cb145-7"><a href="transitions.html#cb145-7"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb144-1"><a href="transitions.html#cb144-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb144-2"><a href="transitions.html#cb144-2"></a>    <span class="op">.</span><span class="fu">transition</span>()</span>
+<span id="cb144-3"><a href="transitions.html#cb144-3"></a>    <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb144-4"><a href="transitions.html#cb144-4"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;200&quot;</span>)</span>
+<span id="cb144-5"><a href="transitions.html#cb144-5"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> <span class="st">&quot;100&quot;</span>)</span>
+<span id="cb144-6"><a href="transitions.html#cb144-6"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)</span>
+<span id="cb144-7"><a href="transitions.html#cb144-7"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>DO NOT store a selection with a transition (it’s no longer a selection with the transition):</p>
 <p>Try this:</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb146-1"><a href="transitions.html#cb146-1"></a><span class="kw">var</span> circ <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
-<span id="cb146-2"><a href="transitions.html#cb146-2"></a>  <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb146-3"><a href="transitions.html#cb146-3"></a>  <span class="op">.</span><span class="fu">data</span>([<span class="dv">50</span><span class="op">,</span> <span class="dv">95</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">250</span>])</span>
-<span id="cb146-4"><a href="transitions.html#cb146-4"></a>  <span class="op">.</span><span class="fu">enter</span>()</span>
-<span id="cb146-5"><a href="transitions.html#cb146-5"></a>  <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb146-6"><a href="transitions.html#cb146-6"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
-<span id="cb146-7"><a href="transitions.html#cb146-7"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> <span class="st">&quot;100&quot;</span>)</span>
-<span id="cb146-8"><a href="transitions.html#cb146-8"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb146-9"><a href="transitions.html#cb146-9"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;0&quot;</span>)</span>
-<span id="cb146-10"><a href="transitions.html#cb146-10"></a>    <span class="op">.</span><span class="fu">transition</span>()</span>
-<span id="cb146-11"><a href="transitions.html#cb146-11"></a>    <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb146-12"><a href="transitions.html#cb146-12"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb145-1"><a href="transitions.html#cb145-1"></a><span class="kw">var</span> circ <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
+<span id="cb145-2"><a href="transitions.html#cb145-2"></a>  <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb145-3"><a href="transitions.html#cb145-3"></a>  <span class="op">.</span><span class="fu">data</span>([<span class="dv">50</span><span class="op">,</span> <span class="dv">95</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">250</span>])</span>
+<span id="cb145-4"><a href="transitions.html#cb145-4"></a>  <span class="op">.</span><span class="fu">enter</span>()</span>
+<span id="cb145-5"><a href="transitions.html#cb145-5"></a>  <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb145-6"><a href="transitions.html#cb145-6"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
+<span id="cb145-7"><a href="transitions.html#cb145-7"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> <span class="st">&quot;100&quot;</span>)</span>
+<span id="cb145-8"><a href="transitions.html#cb145-8"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb145-9"><a href="transitions.html#cb145-9"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;0&quot;</span>)</span>
+<span id="cb145-10"><a href="transitions.html#cb145-10"></a>    <span class="op">.</span><span class="fu">transition</span>()</span>
+<span id="cb145-11"><a href="transitions.html#cb145-11"></a>    <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb145-12"><a href="transitions.html#cb145-12"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;25&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>And then this:</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb147-1"><a href="transitions.html#cb147-1"></a>circ<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;green&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb146-1"><a href="transitions.html#cb146-1"></a>circ<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;green&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>DO NOT put a transition before a merge:</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb148-1"><a href="transitions.html#cb148-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
-<span id="cb148-2"><a href="transitions.html#cb148-2"></a>  <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb148-3"><a href="transitions.html#cb148-3"></a>  <span class="op">.</span><span class="fu">transition</span>()</span>
-<span id="cb148-4"><a href="transitions.html#cb148-4"></a>  <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb148-5"><a href="transitions.html#cb148-5"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;300&quot;</span>)</span>
-<span id="cb148-6"><a href="transitions.html#cb148-6"></a>  <span class="op">.</span><span class="fu">merge</span>(<span class="st">&quot;oldcirc&quot;</span>)</span>
-<span id="cb148-7"><a href="transitions.html#cb148-7"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;green&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb147-1"><a href="transitions.html#cb147-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
+<span id="cb147-2"><a href="transitions.html#cb147-2"></a>  <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb147-3"><a href="transitions.html#cb147-3"></a>  <span class="op">.</span><span class="fu">transition</span>()</span>
+<span id="cb147-4"><a href="transitions.html#cb147-4"></a>  <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb147-5"><a href="transitions.html#cb147-5"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;300&quot;</span>)</span>
+<span id="cb147-6"><a href="transitions.html#cb147-6"></a>  <span class="op">.</span><span class="fu">merge</span>(<span class="st">&quot;oldcirc&quot;</span>)</span>
+<span id="cb147-7"><a href="transitions.html#cb147-7"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;green&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>BE AWARE that not everything transitions (for example, text doesn’t.)</p>
 </div>
 <div id="strategy" class="section level2" number="8.4">
@@ -474,22 +474,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Fill color for all bars transitions to blue.</p></li>
 </ol>
 <p>Add code:</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb149-1"><a href="transitions.html#cb149-1"></a></span>
-<span id="cb149-2"><a href="transitions.html#cb149-2"></a><span class="kw">var</span> bars <span class="op">=</span> d3<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;svg&quot;</span>)</span>
-<span id="cb149-3"><a href="transitions.html#cb149-3"></a>  <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb149-4"><a href="transitions.html#cb149-4"></a>  <span class="op">.</span><span class="fu">data</span>(dataset)<span class="op">;</span></span>
-<span id="cb149-5"><a href="transitions.html#cb149-5"></a>  </span>
-<span id="cb149-6"><a href="transitions.html#cb149-6"></a>bars<span class="op">.</span><span class="fu">enter</span>()                  <span class="co">// 1. new bars</span></span>
-<span id="cb149-7"><a href="transitions.html#cb149-7"></a>  <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb149-8"><a href="transitions.html#cb149-8"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;orange&quot;</span>)</span>
-<span id="cb149-9"><a href="transitions.html#cb149-9"></a>  <span class="op">.</span><span class="fu">merge</span>(bars)                <span class="co">// 2. all bars in location</span></span>
-<span id="cb149-10"><a href="transitions.html#cb149-10"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="op">...</span>)</span>
-<span id="cb149-11"><a href="transitions.html#cb149-11"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> <span class="op">...</span>)</span>
-<span id="cb149-12"><a href="transitions.html#cb149-12"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="op">...</span>)</span>
-<span id="cb149-13"><a href="transitions.html#cb149-13"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="op">...</span>)</span>
-<span id="cb149-14"><a href="transitions.html#cb149-14"></a>  <span class="op">.</span><span class="fu">transition</span>()</span>
-<span id="cb149-15"><a href="transitions.html#cb149-15"></a>  <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb149-16"><a href="transitions.html#cb149-16"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)<span class="op">;</span>   <span class="co">// 3. all transition to blue</span></span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb148-1"><a href="transitions.html#cb148-1"></a></span>
+<span id="cb148-2"><a href="transitions.html#cb148-2"></a><span class="kw">var</span> bars <span class="op">=</span> d3<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;svg&quot;</span>)</span>
+<span id="cb148-3"><a href="transitions.html#cb148-3"></a>  <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb148-4"><a href="transitions.html#cb148-4"></a>  <span class="op">.</span><span class="fu">data</span>(dataset)<span class="op">;</span></span>
+<span id="cb148-5"><a href="transitions.html#cb148-5"></a>  </span>
+<span id="cb148-6"><a href="transitions.html#cb148-6"></a>bars<span class="op">.</span><span class="fu">enter</span>()                  <span class="co">// 1. new bars</span></span>
+<span id="cb148-7"><a href="transitions.html#cb148-7"></a>  <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb148-8"><a href="transitions.html#cb148-8"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;orange&quot;</span>)</span>
+<span id="cb148-9"><a href="transitions.html#cb148-9"></a>  <span class="op">.</span><span class="fu">merge</span>(bars)                <span class="co">// 2. all bars in location</span></span>
+<span id="cb148-10"><a href="transitions.html#cb148-10"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="op">...</span>)</span>
+<span id="cb148-11"><a href="transitions.html#cb148-11"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> <span class="op">...</span>)</span>
+<span id="cb148-12"><a href="transitions.html#cb148-12"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="op">...</span>)</span>
+<span id="cb148-13"><a href="transitions.html#cb148-13"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="op">...</span>)</span>
+<span id="cb148-14"><a href="transitions.html#cb148-14"></a>  <span class="op">.</span><span class="fu">transition</span>()</span>
+<span id="cb148-15"><a href="transitions.html#cb148-15"></a>  <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb148-16"><a href="transitions.html#cb148-16"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)<span class="op">;</span>   <span class="co">// 3. all transition to blue</span></span></code></pre></div>
 <p><strong>Example 2</strong></p>
 <p>Plan</p>
 <ol style="list-style-type: decimal">
@@ -497,24 +497,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Once it reaches its spot, it turns purple.</p></li>
 </ol>
 <p>(Try this one.)</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb150-1"><a href="transitions.html#cb150-1"></a><span class="kw">var</span> bars <span class="op">=</span> d3<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;svg&quot;</span>)</span>
-<span id="cb150-2"><a href="transitions.html#cb150-2"></a>  <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;g&quot;</span>)</span>
-<span id="cb150-3"><a href="transitions.html#cb150-3"></a>  <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb150-4"><a href="transitions.html#cb150-4"></a>  <span class="op">.</span><span class="fu">data</span>([<span class="dv">125</span>])<span class="op">;</span></span>
-<span id="cb150-5"><a href="transitions.html#cb150-5"></a>  </span>
-<span id="cb150-6"><a href="transitions.html#cb150-6"></a>bars<span class="op">.</span><span class="fu">enter</span>()                 </span>
-<span id="cb150-7"><a href="transitions.html#cb150-7"></a>  <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb150-8"><a href="transitions.html#cb150-8"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;325&quot;</span>)</span>
-<span id="cb150-9"><a href="transitions.html#cb150-9"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="dv">200</span> <span class="op">-</span> d )</span>
-<span id="cb150-10"><a href="transitions.html#cb150-10"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)</span>
-<span id="cb150-11"><a href="transitions.html#cb150-11"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
-<span id="cb150-12"><a href="transitions.html#cb150-12"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb150-13"><a href="transitions.html#cb150-13"></a>  <span class="op">.</span><span class="fu">transition</span>()</span>
-<span id="cb150-14"><a href="transitions.html#cb150-14"></a>  <span class="op">.</span><span class="fu">duration</span>(<span class="dv">3000</span>)</span>
-<span id="cb150-15"><a href="transitions.html#cb150-15"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;50&quot;</span>)   <span class="co">// transition only affect &quot;x&quot;</span></span>
-<span id="cb150-16"><a href="transitions.html#cb150-16"></a>  <span class="op">.</span><span class="fu">transition</span>(<span class="dv">2000</span>)</span>
-<span id="cb150-17"><a href="transitions.html#cb150-17"></a>  <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb150-18"><a href="transitions.html#cb150-18"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;purple&quot;</span>)<span class="op">;</span>  <span class="co">// 2nd transition</span></span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb149-1"><a href="transitions.html#cb149-1"></a><span class="kw">var</span> bars <span class="op">=</span> d3<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;svg&quot;</span>)</span>
+<span id="cb149-2"><a href="transitions.html#cb149-2"></a>  <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;g&quot;</span>)</span>
+<span id="cb149-3"><a href="transitions.html#cb149-3"></a>  <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb149-4"><a href="transitions.html#cb149-4"></a>  <span class="op">.</span><span class="fu">data</span>([<span class="dv">125</span>])<span class="op">;</span></span>
+<span id="cb149-5"><a href="transitions.html#cb149-5"></a>  </span>
+<span id="cb149-6"><a href="transitions.html#cb149-6"></a>bars<span class="op">.</span><span class="fu">enter</span>()                 </span>
+<span id="cb149-7"><a href="transitions.html#cb149-7"></a>  <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb149-8"><a href="transitions.html#cb149-8"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;325&quot;</span>)</span>
+<span id="cb149-9"><a href="transitions.html#cb149-9"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="dv">200</span> <span class="op">-</span> d )</span>
+<span id="cb149-10"><a href="transitions.html#cb149-10"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)</span>
+<span id="cb149-11"><a href="transitions.html#cb149-11"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
+<span id="cb149-12"><a href="transitions.html#cb149-12"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb149-13"><a href="transitions.html#cb149-13"></a>  <span class="op">.</span><span class="fu">transition</span>()</span>
+<span id="cb149-14"><a href="transitions.html#cb149-14"></a>  <span class="op">.</span><span class="fu">duration</span>(<span class="dv">3000</span>)</span>
+<span id="cb149-15"><a href="transitions.html#cb149-15"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;50&quot;</span>)   <span class="co">// transition only affect &quot;x&quot;</span></span>
+<span id="cb149-16"><a href="transitions.html#cb149-16"></a>  <span class="op">.</span><span class="fu">transition</span>(<span class="dv">2000</span>)</span>
+<span id="cb149-17"><a href="transitions.html#cb149-17"></a>  <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb149-18"><a href="transitions.html#cb149-18"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;purple&quot;</span>)<span class="op">;</span>  <span class="co">// 2nd transition</span></span></code></pre></div>
 <p>Further reading: <a href="https://bost.ocks.org/mike/transition/" target="_blank">Working with Transitions</a>.</p>
 
 </div>

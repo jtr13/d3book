@@ -24,7 +24,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2020-11-30" />
+<meta name="date" content="2020-12-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -378,7 +378,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>There are a number of ways you can share your D3 code online. Even if you’re not sharing, there are advantages to an online setup, for example, not having to set up a local server as described in the chapter on <a href="reading-files.html">reading files</a>.</p>
 <div id="vizhub" class="section level2" number="11.1">
 <h2><span class="header-section-number">11.1</span> VizHub</h2>
-<p>My top recommendation is to use <a href="http://www.vizhub.com" target="_blank">vizhub.com</a>, created by Curran Kelleher, to host d3 visualizations online. Watch the video on the home page, “How to Use VizHub” for a quick how-to tutorial. Note however that it’s using ES6 imports to import D3 modules separately, such as <code>import { select } from 'd3';</code> as demoed in the video is completely optional; it is sufficient to link to the full D3 library in the <code>&lt;head&gt;</code> section of <code>index.html</code> as we’ve been doing:</p>
+<p>My top recommendation is to use <a href="http://www.vizhub.com" target="_blank">vizhub.com</a>, created by Curran Kelleher, to host d3 visualizations online. Watch the video on the home page, “How to Use VizHub” for a quick how-to tutorial. Note however that using ES6 imports to import D3 modules separately, such as <code>import { select } from 'd3';</code> as demoed in the video is completely optional; it is sufficient to link to the full D3 library in the <code>&lt;head&gt;</code> section of <code>index.html</code> as we’ve been doing:</p>
 <pre><code>&lt;script src=&quot;https://d3js.org/d3.v6.js&quot;&gt;&lt;/script&gt;</code></pre>
 <p>As such you will not have <code>index.js</code> and generated <code>bundle.js</code> files as in the example.</p>
 <p>When browsing examples, remember that different versions of D3 are not compatible, so be sure to look at v6 examples, or know what you need to update from v4 and v5 examples. In addition, as with all code sharing sites, remember that not all examples are good examples. Examples by Curran Kelleher, the creator of VizHub, are good models to follow.</p>
