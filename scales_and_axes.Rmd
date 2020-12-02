@@ -84,7 +84,9 @@ See: *IDVW2*, Chapter 8: Axes
 
 ### Example
 
-Full example: vertical bar chart with axes: [axes.html](code/axes.html){target="_blank"}
+Full example: vertical bar chart with axes (open in browser): [axes.html](code/axes.html){target="_blank"}
+
+To download and open locally: [axes.html] (https://raw.githubusercontent.com/jtr13/d3book/master/code/axes.html){target="_blank"}
 
 Practice changing the data and seeing what happens.
 
