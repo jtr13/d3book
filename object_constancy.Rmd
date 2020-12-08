@@ -1,6 +1,9 @@
 # Object Constancy <i class="fa fa-object-ungroup"></i> {#object}
 
 ## No object constancy
+
+<script src="https://d3js.org/d3.v6.js"></script>
+
 <table>
 <tr><td>
 <div id="chart"></div>
