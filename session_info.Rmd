@@ -1,6 +1,0 @@
-```{r}
-options(width = 100)
-devtools::session_info()
-```
-
-
