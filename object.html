@@ -461,24 +461,27 @@ Remove bar (left)
 <span id="cb153-2"><a href="object.html#cb153-2"></a>  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="va">d</span>.<span class="at">x</span>)</span>
 <span id="cb153-3"><a href="object.html#cb153-3"></a>  .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="va">d</span>.<span class="at">y</span>)<span class="op">;</span></span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
-<li>And another one:
-(Refresh first)</li>
+<li>And another one:</li>
 </ol>
 <div class="sourceCode" id="cb154"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb154-1"><a href="object.html#cb154-1"></a><span class="kw">var</span> svg <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;#key&quot;</span>).<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">;</span></span>
 <span id="cb154-2"><a href="object.html#cb154-2"></a></span>
 <span id="cb154-3"><a href="object.html#cb154-3"></a><span class="kw">var</span> dataset <span class="op">=</span> [<span class="op">{</span><span class="dt">key</span><span class="op">:</span> <span class="dv">23</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="dv">300</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">150</span><span class="op">},</span></span>
-<span id="cb154-4"><a href="object.html#cb154-4"></a>              <span class="op">{</span><span class="dt">key</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="dv">450</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">270</span><span class="op">}</span>]<span class="op">;</span></span>
-<span id="cb154-5"><a href="object.html#cb154-5"></a>              </span>
-<span id="cb154-6"><a href="object.html#cb154-6"></a><span class="kw">var</span> databind <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;text&quot;</span>)</span>
-<span id="cb154-7"><a href="object.html#cb154-7"></a>  .<span class="at">data</span>(dataset<span class="op">,</span> d <span class="kw">=&gt;</span> <span class="va">d</span>.<span class="at">key</span>)</span>
-<span id="cb154-8"><a href="object.html#cb154-8"></a></span>
-<span id="cb154-9"><a href="object.html#cb154-9"></a><span class="va">databind</span>.<span class="at">exit</span>().<span class="at">remove</span>()<span class="op">;</span></span></code></pre></div>
-<p>Then:</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb155-1"><a href="object.html#cb155-1"></a><span class="va">databind</span>.<span class="at">enter</span>().<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</span>
-<span id="cb155-2"><a href="object.html#cb155-2"></a>  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="va">d</span>.<span class="at">x</span>)</span>
-<span id="cb155-3"><a href="object.html#cb155-3"></a>  .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="va">d</span>.<span class="at">y</span>)</span>
-<span id="cb155-4"><a href="object.html#cb155-4"></a>  .<span class="at">text</span>(d <span class="kw">=&gt;</span> <span class="vs">`key: </span><span class="sc">${</span><span class="va">d</span>.<span class="at">key</span><span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span></code></pre></div>
-<ol start="3" style="list-style-type: decimal">
+<span id="cb154-4"><a href="object.html#cb154-4"></a>              <span class="op">{</span><span class="dt">key</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="dv">450</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">270</span><span class="op">},</span></span>
+<span id="cb154-5"><a href="object.html#cb154-5"></a>          <span class="op">{</span><span class="dt">key</span><span class="op">:</span> <span class="dv">16</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="dv">200</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">250</span><span class="op">}</span>]<span class="op">;</span></span>
+<span id="cb154-6"><a href="object.html#cb154-6"></a>              </span>
+<span id="cb154-7"><a href="object.html#cb154-7"></a><span class="kw">var</span> databind <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;text&quot;</span>)</span>
+<span id="cb154-8"><a href="object.html#cb154-8"></a>  .<span class="at">data</span>(dataset<span class="op">,</span> d <span class="kw">=&gt;</span> <span class="va">d</span>.<span class="at">key</span>)<span class="op">;</span></span>
+<span id="cb154-9"><a href="object.html#cb154-9"></a>  </span>
+<span id="cb154-10"><a href="object.html#cb154-10"></a>databind  </span>
+<span id="cb154-11"><a href="object.html#cb154-11"></a>  .<span class="at">enter</span>()</span>
+<span id="cb154-12"><a href="object.html#cb154-12"></a>  .<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</span>
+<span id="cb154-13"><a href="object.html#cb154-13"></a>  .<span class="at">merge</span>(databind)</span>
+<span id="cb154-14"><a href="object.html#cb154-14"></a>  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="va">d</span>.<span class="at">x</span>)</span>
+<span id="cb154-15"><a href="object.html#cb154-15"></a>  .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="va">d</span>.<span class="at">y</span>)</span>
+<span id="cb154-16"><a href="object.html#cb154-16"></a>  .<span class="at">text</span>(d <span class="kw">=&gt;</span> <span class="vs">`key: </span><span class="sc">${</span><span class="va">d</span>.<span class="at">key</span><span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span>  </span>
+<span id="cb154-17"><a href="object.html#cb154-17"></a>  </span>
+<span id="cb154-18"><a href="object.html#cb154-18"></a><span class="va">databind</span>.<span class="at">exit</span>().<span class="at">remove</span>()<span class="op">;</span></span></code></pre></div>
+<ol start="4" style="list-style-type: decimal">
 <li>Experiment with other data binds.</li>
 </ol>
 
