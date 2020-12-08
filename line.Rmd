@@ -1,5 +1,7 @@
 # Line charts <i class="fa fa-line-chart"></i>
 
+<script src="https://d3js.org/d3.v6.js"></script>
+
 Read: *IDVW2*, Chapter 11 Using Paths
 
 ## Lecture slides <i class="fa fa-television"></i>
@@ -198,7 +200,7 @@ Putting it all together, we have:
   <head>
     <meta charset="utf-8">
     <title>Line generator</title>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3.v6.js"></script>
     <style type ="text/css">
       .linestyle {
         fill: none;
@@ -244,7 +246,7 @@ And another example with axes:
 	<head>
 		<meta charset="utf-8">
 		<title></title>
-		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<script src="https://d3js.org/d3.v6.js"></script>
 		<style type ="text/css">
       .line {
         fill: none;

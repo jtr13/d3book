@@ -3,6 +3,8 @@
 ## Scales
 
 ### Lecture slides <i class="fa fa-television"></i>
+
+<script src="https://d3js.org/d3.v6.js"></script>
  
 [Scales](pdfs/scales.pdf){target="_blank"}
 
@@ -11,8 +13,6 @@
 See: *IDVW2*, Chapter 7: Scales
 
 Practice creating an ordinal scale in the Console:
-
-<script src="https://d3js.org/d3.v6.js"></script>
 
 > <i class="fa fa-hand-o-right"></i> *Open the JavaScript Console* <i class="fa fa-terminal"></i>
 
