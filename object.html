@@ -447,7 +447,7 @@ Remove bar (left)
 <ol start="2" style="list-style-type: decimal">
 <li>Bind a new dataset by key:</li>
 </ol>
-<div class="sourceCode" id="cb152"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb152-1"><a href="object.html#cb152-1"></a><span class="kw">var</span> svg <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">;</span></span>
+<div class="sourceCode" id="cb152"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb152-1"><a href="object.html#cb152-1"></a><span class="kw">var</span> svg <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg#key&quot;</span>)<span class="op">;</span></span>
 <span id="cb152-2"><a href="object.html#cb152-2"></a></span>
 <span id="cb152-3"><a href="object.html#cb152-3"></a><span class="kw">var</span> dataset <span class="op">=</span> [<span class="op">{</span><span class="dt">key</span><span class="op">:</span> <span class="dv">12</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="dv">100</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">200</span><span class="op">},</span></span>
 <span id="cb152-4"><a href="object.html#cb152-4"></a>              <span class="op">{</span><span class="dt">key</span><span class="op">:</span> <span class="dv">16</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="dv">250</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">300</span><span class="op">}</span>]<span class="op">;</span></span>
@@ -464,13 +464,15 @@ Remove bar (left)
 <li>And another one:
 (Refresh first)</li>
 </ol>
-<div class="sourceCode" id="cb154"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb154-1"><a href="object.html#cb154-1"></a><span class="kw">var</span> dataset <span class="op">=</span> [<span class="op">{</span><span class="dt">key</span><span class="op">:</span> <span class="dv">23</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="dv">300</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">150</span><span class="op">},</span></span>
-<span id="cb154-2"><a href="object.html#cb154-2"></a>              <span class="op">{</span><span class="dt">key</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="dv">450</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">270</span><span class="op">}</span>]<span class="op">;</span></span>
-<span id="cb154-3"><a href="object.html#cb154-3"></a>              </span>
-<span id="cb154-4"><a href="object.html#cb154-4"></a><span class="kw">var</span> databind <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;text&quot;</span>)</span>
-<span id="cb154-5"><a href="object.html#cb154-5"></a>  .<span class="at">data</span>(dataset<span class="op">,</span> d <span class="kw">=&gt;</span> <span class="va">d</span>.<span class="at">key</span>)</span>
-<span id="cb154-6"><a href="object.html#cb154-6"></a></span>
-<span id="cb154-7"><a href="object.html#cb154-7"></a><span class="va">databind</span>.<span class="at">exit</span>().<span class="at">remove</span>()<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb154-1"><a href="object.html#cb154-1"></a><span class="kw">var</span> svg <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg#key&quot;</span>)<span class="op">;</span></span>
+<span id="cb154-2"><a href="object.html#cb154-2"></a></span>
+<span id="cb154-3"><a href="object.html#cb154-3"></a><span class="kw">var</span> dataset <span class="op">=</span> [<span class="op">{</span><span class="dt">key</span><span class="op">:</span> <span class="dv">23</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="dv">300</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">150</span><span class="op">},</span></span>
+<span id="cb154-4"><a href="object.html#cb154-4"></a>              <span class="op">{</span><span class="dt">key</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="dv">450</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">270</span><span class="op">}</span>]<span class="op">;</span></span>
+<span id="cb154-5"><a href="object.html#cb154-5"></a>              </span>
+<span id="cb154-6"><a href="object.html#cb154-6"></a><span class="kw">var</span> databind <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;text&quot;</span>)</span>
+<span id="cb154-7"><a href="object.html#cb154-7"></a>  .<span class="at">data</span>(dataset<span class="op">,</span> d <span class="kw">=&gt;</span> <span class="va">d</span>.<span class="at">key</span>)</span>
+<span id="cb154-8"><a href="object.html#cb154-8"></a></span>
+<span id="cb154-9"><a href="object.html#cb154-9"></a><span class="va">databind</span>.<span class="at">exit</span>().<span class="at">remove</span>()<span class="op">;</span></span></code></pre></div>
 <p>Then:</p>
 <div class="sourceCode" id="cb155"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb155-1"><a href="object.html#cb155-1"></a><span class="va">databind</span>.<span class="at">enter</span>().<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</span>
 <span id="cb155-2"><a href="object.html#cb155-2"></a>  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="va">d</span>.<span class="at">x</span>)</span>
