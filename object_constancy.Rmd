@@ -103,29 +103,29 @@ svg.selectAll("text")
 ```
 
 3. And another one:
-(Refresh first)
 
 ``` js
 var svg = d3.select("#key").select("svg");
 
 var dataset = [{key: 23, x: 300, y: 150},
-              {key: 5, x: 450, y: 270}];
+              {key: 5, x: 450, y: 270},
+	      {key: 16, x: 200, y: 250}];
               
 var databind = svg.selectAll("text")
-  .data(dataset, d => d.key)
-
+  .data(dataset, d => d.key);
+  
+databind  
+  .enter()
+  .append("text")
+  .merge(databind)
+  .attr("x", d => d.x)
+  .attr("y", d => d.y)
+  .text(d => `key: ${d.key}`);  
+  
 databind.exit().remove();
 ```
 
-Then:
-``` js
-databind.enter().append("text")
-  .attr("x", d => d.x)
-  .attr("y", d => d.y)
-  .text(d => `key: ${d.key}`);
-```
-
-3. Experiment with other data binds.
+4. Experiment with other data binds.
 
 
 
