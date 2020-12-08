@@ -83,7 +83,7 @@ svg.selectAll("text")
 2. Bind a new dataset by key:
 
 ``` js
-var svg = d3.select("svg");
+var svg = d3.select("svg#key");
 
 var dataset = [{key: 12, x: 100, y: 200},
               {key: 16, x: 250, y: 300}];
@@ -106,6 +106,8 @@ svg.selectAll("text")
 (Refresh first)
 
 ``` js
+var svg = d3.select("svg#key");
+
 var dataset = [{key: 23, x: 300, y: 150},
               {key: 5, x: 450, y: 270}];
               
