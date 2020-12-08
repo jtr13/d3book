@@ -49,13 +49,36 @@ Slides: [object_constancy.pdf](pdfs/object_constancy.pdf){target="_blank"}
 
 ### Practice joining data by key
 
-Download and open [keys.html](code/keys.html)
-
-(or open [this online version](https://jtr13.github.io/D3/DataBindwithKeys.html)) in a new tab.
+<div id="key"></div>
 
 Try the following:
 
-1.
+1. Create an svg with four text elements:
+
+``` js
+
+var dataset = [{key: 12, x: 163, y: 200},
+               {key: 14, x: 206, y: 304},
+               {key: 16, x: 452, y: 152},
+               {key: 18, x: 321, y: 254}];
+
+var svg = d3.select("#key").append("svg")
+		.attr("width", "600").attr("height", "400");
+
+svg.append("rect").attr("width", "600")
+		    .attr("height", "400").attr("fill", "aliceblue");
+
+svg.selectAll("text")
+		.data(dataset, d => d.key)
+		.enter()
+		.append("text")
+		.attr("x", d => d.x)
+		.attr("y", d => d.y)
+		.text(d => `key: ${d.key}`);
+```
+		
+
+2. Bind a new dataset by key:
 
 ``` js
 var svg = d3.select("svg");
@@ -77,9 +100,8 @@ svg.selectAll("text")
   .attr("y", d => d.y);
 ```
 
-2. 
-
-(Refresh)
+3. And another one:
+(Refresh first)
 
 ``` js
 var dataset = [{key: 23, x: 300, y: 150},
