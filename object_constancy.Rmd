@@ -108,8 +108,8 @@ svg.selectAll("text")
 var svg = d3.select("#key").select("svg");
 
 var dataset = [{key: 23, x: 300, y: 150},
-              {key: 5, x: 450, y: 270},
-	      {key: 16, x: 200, y: 250}];
+               {key: 5, x: 450, y: 270},
+	       {key: 16, x: 200, y: 250}];
               
 var databind = svg.selectAll("text")
   .data(dataset, d => d.key);
