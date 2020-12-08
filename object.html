@@ -354,8 +354,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>
 <strong>Transitions</strong>
 </p>
-<input type="radio" name="duration" class="noc" value="0" checked="true"> Off</input>
-<input type="radio" name="duration" class = "noc" value="1500"> On</input>
+<input type="radio" name="duration" class="noc" value="0" checked> Off</input>
+<input type="radio" name="duration" class = "noc" value="750"> On</input>
 <p>
 </p>
 <p id="add" class="noc">
@@ -380,13 +380,39 @@ Remove bar (left)
 </div>
 <div id="object-constancy" class="section level2">
 <h2><span class="header-section-number">9.2</span> Object constancy</h2>
-<p>Slides:</p>
-<p><a href="pdfs/object_constancy.pdf" target="_blank">object_constancy.pdf</a></p>
-<p>Example: <a href="code/object_constancy.html" target="_blank">object_constancy.html</a></p>
+<table>
+<tr>
+<td>
+<div id="chart2">
+
+</div>
+</td>
+<td>
+<p>
+<strong>Transitions</strong>
+</p>
+<input type="radio" name="duration2" class="oc" value="0" checked="true"> Off</input>
+<input type="radio" name="duration2" class = "oc" value="750"> On</input>
+<p>
+</p>
+<p id="add" class="oc">
+Add an element
+</p>
+<p id="remove_right" class="oc">
+Remove bar (right)
+</p>
+<p id="remove_left" class="oc">
+Remove bar (left)
+</p>
+</td>
+</tr>
+</table>
+<script src="scripts/obj_const.js"></script>
 <p><strong>Of note:</strong></p>
 <ul>
 <li>Bars now smoothly transition off to the left and right</li>
 </ul>
+<p>Slides: <a href="pdfs/object_constancy.pdf" target="_blank">object_constancy.pdf</a></p>
 <div id="practice-joining-data-by-key" class="section level3">
 <h3><span class="header-section-number">9.2.1</span> Practice joining data by key</h3>
 <p>Download and open <a href="code/keys.html">keys.html</a></p>

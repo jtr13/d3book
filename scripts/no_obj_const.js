@@ -1,7 +1,7 @@
 // Create svg and initial bars
 
   var dur = 0;
-   
+
   d3.selectAll("input.noc")
     .on("click", function() {
 					dur = +d3.select(this).node().value;
@@ -44,7 +44,7 @@
       .scale(yScale);
 
   var bars = svg.append("g")
-      .attr("id", "plot")              
+      .attr("id", "plot")
       .attr("transform", `translate (${margin.left}, ${margin.top})`)
     .selectAll("rect")
       .data(bardata);
@@ -73,10 +73,13 @@
     xScale.domain(d3.range(data.length));
 
     yScale.domain([0, d3.max(data)]);
-    
+
+    var svg = d3.select("#chart").select("svg");
+
     var bars = svg.select("#plot")
       .selectAll("rect")
         .data(data);
+    console.log(bars.data());
 
     bars.enter().append("rect")
         .attr("x", w)
@@ -85,7 +88,7 @@
         .attr("height", d => innerHeight - yScale(d))
         .attr("fill", "blue")
       .merge(bars)
-      .transition() 
+      .transition()
         .duration(dur)
         .ease(d3.easeLinear)
         .attr("x", (d, i) => xScale(i))
@@ -94,7 +97,7 @@
         .attr("height", d => innerHeight - yScale(d))
 
     bars.exit().remove();
-    
+
     svg.select(".xAxis")
       .transition()
         .duration(dur)
@@ -118,6 +121,7 @@
       if (paraID == "add") {
           var newvalue = Math.floor(Math.random()*400);
           bardata.push(newvalue);
+          console.log(bardata);
 
       } else if (paraID == "remove_left") {
           bardata.shift();
