@@ -51,6 +51,8 @@ Slides: [object_constancy.pdf](pdfs/object_constancy.pdf){target="_blank"}
 
 <div id="key"></div>
 
+> <i class="fa fa-hand-o-right"></i> *Open the JavaScript Console* <i class="fa fa-terminal"></i>
+
 Try the following:
 
 1. Create an svg with four text elements:
