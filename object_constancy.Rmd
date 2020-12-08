@@ -9,8 +9,8 @@
 <div id="chart"></div>
 </td><td>
 <p>**Transitions**</p>
-<input type="radio" name="duration" class="noc" value="0" checked="true">&nbsp;Off</input>
-<input type="radio" name="duration" class = "noc" value="1500">&nbsp;On</input>
+<input type="radio" name="duration" class="noc" value="0" checked>&nbsp;Off</input>
+<input type="radio" name="duration" class = "noc" value="750">&nbsp;On</input>
 <p></p>
 <p id="add" class="noc">Add an element</p>
 <p id="remove_right" class="noc">Remove bar (right)</p>
@@ -26,16 +26,26 @@
 * When "Remove bar (right) is clicked, the bar on the right immediately disappears, and then the remaining bars transition to their new places to the right.
 
 ## Object constancy
-
-Slides: 
-
-[object_constancy.pdf](pdfs/object_constancy.pdf){target="_blank"}
-
-Example: [object_constancy.html](code/object_constancy.html){target="_blank"}
+<table>
+<tr><td>
+<div id="chart2"></div>
+</td><td>
+<p>**Transitions**</p>
+<input type="radio" name="duration2" class="oc" value="0" checked="true">&nbsp;Off</input>
+<input type="radio" name="duration2" class = "oc" value="750">&nbsp;On</input>
+<p></p>
+<p id="add" class="oc">Add an element</p>
+<p id="remove_right" class="oc">Remove bar (right)</p>
+<p id="remove_left" class="oc">Remove bar (left)</p>
+</td></tr></table>
+<script src="scripts/obj_const.js"></script>
 
 **Of note:** 
 
 * Bars now smoothly transition off to the left and right
+
+Slides: [object_constancy.pdf](pdfs/object_constancy.pdf){target="_blank"}
+
 
 ### Practice joining data by key
 
