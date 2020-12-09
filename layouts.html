@@ -336,10 +336,134 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="layouts" class="section level1">
 <h1><span class="header-section-number">13</span> Layouts <i class="fa fa-bar-chart"></i></h1>
+<script src="https://d3js.org/d3.v6.js"></script>
 <p><em>IDVW2</em>, Chapter 13 Layouts (<code>d3.stack()</code> only, pp. 264-270)</p>
 <div id="lecture-slides-6" class="section level2">
 <h2><span class="header-section-number">13.1</span> Lecture slides <i class="fa fa-television"></i></h2>
 <p><a href="pdfs/layouts.pdf" target="_blank">layouts.pdf</a></p>
+<div id="stacked">
+
+</div>
+<script>
+
+    //Width and height
+    var w = 500;
+    var h = 300;
+
+    //Original data
+    var dataset = [
+        { apples: 5, oranges: 10, grapes: 22 },
+        { apples: 4, oranges: 12, grapes: 28 },
+        { apples: 2, oranges: 19, grapes: 32 },
+        { apples: 7, oranges: 23, grapes: 35 },
+        { apples: 23, oranges: 17, grapes: 43 }
+    ];
+
+    //Set up stack method
+    var stack = d3.stack()
+        .keys([ "apples", "oranges", "grapes" ])
+        .order(d3.stackOrderDescending);  
+
+    //Data, stacked
+    var series = stack(dataset);
+
+    //Set up scales
+    var xScale = d3.scaleBand()
+        .domain(d3.range(dataset.length))
+        .range([0, w])
+        .paddingInner(0.05);
+        
+    var yScale = d3.scaleLinear()
+        .domain([0, d3.max(dataset, d => d.apples + d.oranges + d.grapes)])
+        .range([h, 0]); 
+                
+    //Easy colors accessible via a 10-step ordinal scale
+    var colors = d3.scaleOrdinal(d3.schemeCategory10);
+        
+    //Create SVG element
+    var svg = d3.select("#stacked")
+        .append("svg")
+        .attr("width", w)
+        .attr("height", h);
+    
+// Add a group for each row of data
+    var groups = svg.selectAll("g")
+        .data(series)
+                .enter()
+                .append("g")
+                .style("fill", (d, i) => colors(i));
+    
+// Add a rect for each data value
+    var rects = groups.selectAll("rect")
+        .data(d => d)
+        .enter()
+        .append("rect")
+        .attr("x", (d, i) => xScale(i))
+        .attr("y", d => yScale(d[1]))
+        .attr("height", d => yScale(d[0]) - yScale(d[1]))
+        .attr("width", xScale.bandwidth());
+                        
+</script>
+<div class="sourceCode" id="cb178"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb178-1"><a href="layouts.html#cb178-1"></a><span class="op">&lt;</span>script<span class="op">&gt;</span></span>
+<span id="cb178-2"><a href="layouts.html#cb178-2"></a></span>
+<span id="cb178-3"><a href="layouts.html#cb178-3"></a>    <span class="co">//Width and height</span></span>
+<span id="cb178-4"><a href="layouts.html#cb178-4"></a>    <span class="kw">var</span> w <span class="op">=</span> <span class="dv">500</span><span class="op">;</span></span>
+<span id="cb178-5"><a href="layouts.html#cb178-5"></a>    <span class="kw">var</span> h <span class="op">=</span> <span class="dv">300</span><span class="op">;</span></span>
+<span id="cb178-6"><a href="layouts.html#cb178-6"></a></span>
+<span id="cb178-7"><a href="layouts.html#cb178-7"></a>    <span class="co">//Original data</span></span>
+<span id="cb178-8"><a href="layouts.html#cb178-8"></a>    <span class="kw">var</span> dataset <span class="op">=</span> [</span>
+<span id="cb178-9"><a href="layouts.html#cb178-9"></a>        <span class="op">{</span> <span class="dt">apples</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span> <span class="dt">oranges</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span> <span class="dt">grapes</span><span class="op">:</span> <span class="dv">22</span> <span class="op">},</span></span>
+<span id="cb178-10"><a href="layouts.html#cb178-10"></a>        <span class="op">{</span> <span class="dt">apples</span><span class="op">:</span> <span class="dv">4</span><span class="op">,</span> <span class="dt">oranges</span><span class="op">:</span> <span class="dv">12</span><span class="op">,</span> <span class="dt">grapes</span><span class="op">:</span> <span class="dv">28</span> <span class="op">},</span></span>
+<span id="cb178-11"><a href="layouts.html#cb178-11"></a>        <span class="op">{</span> <span class="dt">apples</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">oranges</span><span class="op">:</span> <span class="dv">19</span><span class="op">,</span> <span class="dt">grapes</span><span class="op">:</span> <span class="dv">32</span> <span class="op">},</span></span>
+<span id="cb178-12"><a href="layouts.html#cb178-12"></a>        <span class="op">{</span> <span class="dt">apples</span><span class="op">:</span> <span class="dv">7</span><span class="op">,</span> <span class="dt">oranges</span><span class="op">:</span> <span class="dv">23</span><span class="op">,</span> <span class="dt">grapes</span><span class="op">:</span> <span class="dv">35</span> <span class="op">},</span></span>
+<span id="cb178-13"><a href="layouts.html#cb178-13"></a>        <span class="op">{</span> <span class="dt">apples</span><span class="op">:</span> <span class="dv">23</span><span class="op">,</span> <span class="dt">oranges</span><span class="op">:</span> <span class="dv">17</span><span class="op">,</span> <span class="dt">grapes</span><span class="op">:</span> <span class="dv">43</span> <span class="op">}</span></span>
+<span id="cb178-14"><a href="layouts.html#cb178-14"></a>    ]<span class="op">;</span></span>
+<span id="cb178-15"><a href="layouts.html#cb178-15"></a></span>
+<span id="cb178-16"><a href="layouts.html#cb178-16"></a>    <span class="co">//Set up stack method</span></span>
+<span id="cb178-17"><a href="layouts.html#cb178-17"></a>    <span class="kw">var</span> stack <span class="op">=</span> <span class="va">d3</span>.<span class="at">stack</span>()</span>
+<span id="cb178-18"><a href="layouts.html#cb178-18"></a>        .<span class="at">keys</span>([ <span class="st">&quot;apples&quot;</span><span class="op">,</span> <span class="st">&quot;oranges&quot;</span><span class="op">,</span> <span class="st">&quot;grapes&quot;</span> ])</span>
+<span id="cb178-19"><a href="layouts.html#cb178-19"></a>        .<span class="at">order</span>(<span class="va">d3</span>.<span class="at">stackOrderDescending</span>)<span class="op">;</span>  </span>
+<span id="cb178-20"><a href="layouts.html#cb178-20"></a></span>
+<span id="cb178-21"><a href="layouts.html#cb178-21"></a>    <span class="co">//Data, stacked</span></span>
+<span id="cb178-22"><a href="layouts.html#cb178-22"></a>    <span class="kw">var</span> series <span class="op">=</span> <span class="at">stack</span>(dataset)<span class="op">;</span></span>
+<span id="cb178-23"><a href="layouts.html#cb178-23"></a></span>
+<span id="cb178-24"><a href="layouts.html#cb178-24"></a>    <span class="co">//Set up scales</span></span>
+<span id="cb178-25"><a href="layouts.html#cb178-25"></a>    <span class="kw">var</span> xScale <span class="op">=</span> <span class="va">d3</span>.<span class="at">scaleBand</span>()</span>
+<span id="cb178-26"><a href="layouts.html#cb178-26"></a>        .<span class="at">domain</span>(<span class="va">d3</span>.<span class="at">range</span>(<span class="va">dataset</span>.<span class="at">length</span>))</span>
+<span id="cb178-27"><a href="layouts.html#cb178-27"></a>        .<span class="at">range</span>([<span class="dv">0</span><span class="op">,</span> w])</span>
+<span id="cb178-28"><a href="layouts.html#cb178-28"></a>        .<span class="at">paddingInner</span>(<span class="fl">0.05</span>)<span class="op">;</span></span>
+<span id="cb178-29"><a href="layouts.html#cb178-29"></a>        </span>
+<span id="cb178-30"><a href="layouts.html#cb178-30"></a>    <span class="kw">var</span> yScale <span class="op">=</span> <span class="va">d3</span>.<span class="at">scaleLinear</span>()</span>
+<span id="cb178-31"><a href="layouts.html#cb178-31"></a>        .<span class="at">domain</span>([<span class="dv">0</span><span class="op">,</span> <span class="va">d3</span>.<span class="at">max</span>(dataset<span class="op">,</span> d <span class="kw">=&gt;</span> <span class="va">d</span>.<span class="at">apples</span> <span class="op">+</span> <span class="va">d</span>.<span class="at">oranges</span> <span class="op">+</span> <span class="va">d</span>.<span class="at">grapes</span>)])</span>
+<span id="cb178-32"><a href="layouts.html#cb178-32"></a>        .<span class="at">range</span>([h<span class="op">,</span> <span class="dv">0</span>])<span class="op">;</span> </span>
+<span id="cb178-33"><a href="layouts.html#cb178-33"></a>                </span>
+<span id="cb178-34"><a href="layouts.html#cb178-34"></a>    <span class="co">//Easy colors accessible via a 10-step ordinal scale</span></span>
+<span id="cb178-35"><a href="layouts.html#cb178-35"></a>    <span class="kw">var</span> colors <span class="op">=</span> <span class="va">d3</span>.<span class="at">scaleOrdinal</span>(<span class="va">d3</span>.<span class="at">schemeCategory10</span>)<span class="op">;</span></span>
+<span id="cb178-36"><a href="layouts.html#cb178-36"></a>        </span>
+<span id="cb178-37"><a href="layouts.html#cb178-37"></a>    <span class="co">//Create SVG element</span></span>
+<span id="cb178-38"><a href="layouts.html#cb178-38"></a>    <span class="kw">var</span> svg <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;#stacked&quot;</span>)</span>
+<span id="cb178-39"><a href="layouts.html#cb178-39"></a>        .<span class="at">append</span>(<span class="st">&quot;svg&quot;</span>)</span>
+<span id="cb178-40"><a href="layouts.html#cb178-40"></a>        .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> w)</span>
+<span id="cb178-41"><a href="layouts.html#cb178-41"></a>        .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> h)<span class="op">;</span></span>
+<span id="cb178-42"><a href="layouts.html#cb178-42"></a>    </span>
+<span id="cb178-43"><a href="layouts.html#cb178-43"></a><span class="co">// Add a group for each row of data</span></span>
+<span id="cb178-44"><a href="layouts.html#cb178-44"></a>    <span class="kw">var</span> groups <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;g&quot;</span>)</span>
+<span id="cb178-45"><a href="layouts.html#cb178-45"></a>        .<span class="at">data</span>(series)</span>
+<span id="cb178-46"><a href="layouts.html#cb178-46"></a>                .<span class="at">enter</span>()</span>
+<span id="cb178-47"><a href="layouts.html#cb178-47"></a>                .<span class="at">append</span>(<span class="st">&quot;g&quot;</span>)</span>
+<span id="cb178-48"><a href="layouts.html#cb178-48"></a>                .<span class="at">style</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> <span class="at">colors</span>(i))<span class="op">;</span></span>
+<span id="cb178-49"><a href="layouts.html#cb178-49"></a>    </span>
+<span id="cb178-50"><a href="layouts.html#cb178-50"></a><span class="co">// Add a rect for each data value</span></span>
+<span id="cb178-51"><a href="layouts.html#cb178-51"></a>    <span class="kw">var</span> rects <span class="op">=</span> <span class="va">groups</span>.<span class="at">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb178-52"><a href="layouts.html#cb178-52"></a>        .<span class="at">data</span>(d <span class="kw">=&gt;</span> d)</span>
+<span id="cb178-53"><a href="layouts.html#cb178-53"></a>        .<span class="at">enter</span>()</span>
+<span id="cb178-54"><a href="layouts.html#cb178-54"></a>        .<span class="at">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb178-55"><a href="layouts.html#cb178-55"></a>        .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> <span class="at">xScale</span>(i))</span>
+<span id="cb178-56"><a href="layouts.html#cb178-56"></a>        .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="at">yScale</span>(d[<span class="dv">1</span>]))</span>
+<span id="cb178-57"><a href="layouts.html#cb178-57"></a>        .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="at">yScale</span>(d[<span class="dv">0</span>]) <span class="op">-</span> <span class="at">yScale</span>(d[<span class="dv">1</span>]))</span>
+<span id="cb178-58"><a href="layouts.html#cb178-58"></a>        .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="va">xScale</span>.<span class="at">bandwidth</span>())<span class="op">;</span></span>
+<span id="cb178-59"><a href="layouts.html#cb178-59"></a>                        </span>
+<span id="cb178-60"><a href="layouts.html#cb178-60"></a>&lt;/script<span class="op">&gt;</span></span></code></pre></div>
 
 </div>
 </div>
