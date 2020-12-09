@@ -285,11 +285,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.1" data-path="line-charts.html"><a href="line-charts.html#lecture-slides-5"><i class="fa fa-check"></i><b>12.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="12.2" data-path="line-charts.html"><a href="line-charts.html#svg-line-element"><i class="fa fa-check"></i><b>12.2</b> SVG <code>&lt;line&gt;</code> element</a></li>
 <li class="chapter" data-level="12.3" data-path="line-charts.html"><a href="line-charts.html#svg-path-element"><i class="fa fa-check"></i><b>12.3</b> SVG <code>&lt;path&gt;</code> element</a></li>
-<li class="chapter" data-level="12.4" data-path="line-charts.html"><a href="line-charts.html#data-for-line-chart"><i class="fa fa-check"></i><b>12.4</b> Data for line chart</a><ul>
-<li class="chapter" data-level="12.4.1" data-path="line-charts.html"><a href="line-charts.html#step-1-create-a-line-generator"><i class="fa fa-check"></i><b>12.4.1</b> Step 1: Create a line generator</a></li>
-<li class="chapter" data-level="12.4.2" data-path="line-charts.html"><a href="line-charts.html#step-2-put-the-line-generator-to-work"><i class="fa fa-check"></i><b>12.4.2</b> Step 2: Put the line generator to work</a></li>
-</ul></li>
-<li class="chapter" data-level="12.5" data-path="line-charts.html"><a href="line-charts.html#additional-resources"><i class="fa fa-check"></i><b>12.5</b> Additional Resources</a></li>
+<li class="chapter" data-level="12.4" data-path="line-charts.html"><a href="line-charts.html#data-for-line-chart"><i class="fa fa-check"></i><b>12.4</b> Data for line chart</a></li>
+<li class="chapter" data-level="12.5" data-path="line-charts.html"><a href="line-charts.html#create-a-line-generator"><i class="fa fa-check"></i><b>12.5</b> Create a line generator</a></li>
+<li class="chapter" data-level="12.6" data-path="line-charts.html"><a href="line-charts.html#put-the-line-generator-to-work"><i class="fa fa-check"></i><b>12.6</b> Put the line generator to work</a></li>
+<li class="chapter" data-level="12.7" data-path="line-charts.html"><a href="line-charts.html#additional-resources"><i class="fa fa-check"></i><b>12.7</b> Additional Resources</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="layouts.html"><a href="layouts.html"><i class="fa fa-check"></i><b>13</b> Layouts <i class="fa fa-bar-chart"></i></a><ul>
 <li class="chapter" data-level="13.1" data-path="layouts.html"><a href="layouts.html#lecture-slides-6"><i class="fa fa-check"></i><b>13.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
@@ -416,8 +415,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 <p>Format that we need looks something like this:</p>
 <div class="sourceCode" id="cb165"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb165-1"><a href="line-charts.html#cb165-1"></a><span class="kw">&lt;path</span><span class="ot"> class=</span><span class="st">&quot;line&quot;</span><span class="ot"> fill=</span><span class="st">&quot;none&quot;</span><span class="ot"> d=</span><span class="st">&quot;M0,149.15254237288136L71.42857142857143,264.40677966101697L142.85714285714286,264.40677966101697L214.28571428571428,176.27118644067798L285.7142857142857,250.84745762711864L357.14285714285717,135.59322033898303L428.57142857142856,223.72881355932205&quot;</span><span class="kw">&gt;&lt;/path&gt;</span></span></code></pre></div>
-<div id="step-1-create-a-line-generator" class="section level3">
-<h3><span class="header-section-number">12.4.1</span> Step 1: Create a line generator</h3>
+</div>
+<div id="create-a-line-generator" class="section level2">
+<h2><span class="header-section-number">12.5</span> Create a line generator</h2>
 <p>Expects data in an array of 2-dimensional arrays, that is, an array of (x,y) pairs:</p>
 <div class="sourceCode" id="cb166"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb166-1"><a href="line-charts.html#cb166-1"></a><span class="kw">var</span> dataset <span class="op">=</span> [ [<span class="dv">0</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">43</span>]<span class="op">,</span> [<span class="dv">2</span><span class="op">,</span> <span class="dv">43</span>]<span class="op">,</span> [<span class="dv">3</span><span class="op">,</span> <span class="dv">56</span>]<span class="op">,</span> [<span class="dv">4</span><span class="op">,</span> <span class="dv">45</span>]<span class="op">,</span> [<span class="dv">5</span><span class="op">,</span> <span class="dv">62</span>]<span class="op">,</span> [<span class="dv">6</span><span class="op">,</span> <span class="dv">49</span>] ]<span class="op">;</span></span>
 <span id="cb166-2"><a href="line-charts.html#cb166-2"></a></span>
@@ -447,8 +447,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb172-4"><a href="line-charts.html#cb172-4"></a>    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;none&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;stroke&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)</span>
 <span id="cb172-5"><a href="line-charts.html#cb172-5"></a>    .<span class="at">attr</span>(<span class="st">&quot;stroke-width&quot;</span><span class="op">,</span> <span class="st">&quot;5&quot;</span>)<span class="op">;</span></span></code></pre></div>
 </div>
-<div id="step-2-put-the-line-generator-to-work" class="section level3">
-<h3><span class="header-section-number">12.4.2</span> Step 2: Put the line generator to work</h3>
+<div id="put-the-line-generator-to-work" class="section level2">
+<h2><span class="header-section-number">12.6</span> Put the line generator to work</h2>
 <p>Now let’s do it the direct way: bind the <em>datum</em> and calculate the path in one step:</p>
 <div class="sourceCode" id="cb173"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb173-1"><a href="line-charts.html#cb173-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">append</span>(<span class="st">&quot;path&quot;</span>)</span>
 <span id="cb173-2"><a href="line-charts.html#cb173-2"></a>    .<span class="at">datum</span>(dataset)</span>
@@ -571,9 +571,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb177-58"><a href="line-charts.html#cb177-58"></a><span class="kw">&lt;/html&gt;</span></span></code></pre></div>
 <p>(Also uses: <code>d3.timeParse()</code> and JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach"><code>Array.foreach()</code></a> )</p>
 </div>
-</div>
 <div id="additional-resources" class="section level2">
-<h2><span class="header-section-number">12.5</span> Additional Resources</h2>
+<h2><span class="header-section-number">12.7</span> Additional Resources</h2>
 <p><a href="https://medium.com/@ecb2198/multiple-time-series-in-d3-5562b981236c">Multiple Time Series in D3</a> by Eric Boxer (EDAV 2018)</p>
 
 </div>
