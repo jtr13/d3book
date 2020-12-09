@@ -72,7 +72,7 @@ Format that we need looks something like this:
 <path class="line" fill="none" d="M0,149.15254237288136L71.42857142857143,264.40677966101697L142.85714285714286,264.40677966101697L214.28571428571428,176.27118644067798L285.7142857142857,250.84745762711864L357.14285714285717,135.59322033898303L428.57142857142856,223.72881355932205"></path>
 ```
 
-### Step 1: Create a line generator
+## Create a line generator
 
 Expects data in an array of 2-dimensional arrays, that is, an array of (x,y) pairs:
 
@@ -131,7 +131,7 @@ d3.select("svg").append("path").attr("d", mypath)
     .attr("stroke-width", "5");
 ```
 
-### Step 2: Put the line generator to work
+## Put the line generator to work
 
 Now let's do it the direct way: bind the *datum* and calculate the path in one step:
 
