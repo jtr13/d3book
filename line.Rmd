@@ -52,34 +52,7 @@ L = line to
 More options: [https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d)
 
 
-## SVG editors
-
-(a digression)
-
-ex. [SVG-edit](https://svg-edit.github.io/svgedit/releases/svg-edit-2.8.1/svg-editor.html)
-
-### Save plots as SVG files in R {-}
-
-Save plots as SVG files:
-
-``` r
-svg("xsquared.svg")
-plot(1:10, (1:10)^2, axes=F)
-dev.off()
-
-library(svglite)
-svglite("xsquared2.svg")
-plot(1:10, (1:10)^2, axes=F)
-dev.off()
-```
-
-Set graphics device to svg in code
-chunk options:
-
-`r ''````{r dev="svglite"}
-```
-
-## Back to line charts
+## Data for line chart
 
 Format that we have:
 
