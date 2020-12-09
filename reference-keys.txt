@@ -113,8 +113,7 @@ line-charts
 lecture-slides-5
 svg-line-element
 svg-path-element
-svg-editors
-back-to-line-charts
+data-for-line-chart
 step-1-create-a-line-generator
 step-2-put-the-line-generator-to-work
 additional-resources
