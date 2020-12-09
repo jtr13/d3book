@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+		<meta charset="utf-8">
+		<title><!-- IMPORTANT: add a title here --></title>
+		<script src="https://d3js.org/d3.v6.js"></script>
+	</head>
+
+	<body>
+		<script>
+			var width = 600
+			var height = 400
+		    var bardata = [300, 100, 150, 225, 75, 275];
+			var svg = d3.select("body").append("svg").attr("width",width).attr("height",height)
+				
+			var bars = svg.selectAll("rect").data(bardata)
+			bars = bars.enter().append("rect").merge(bars).attr("x",30).attr("y",(d,i)=>30*i+25)
+			bars.transition().duration(2000).attr("width",d=>d).attr("height",25).attr("fill","pink")
+			bars.exit().transition().delay(2000).duration(2000).attr("width",0).remove()
+	
+			
+		</script>
+	</body>
+
+</html>
