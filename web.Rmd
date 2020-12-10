@@ -200,5 +200,5 @@ Download a copy of `shapes.html` by opening [this page](https://raw.githubuserco
 
 7. Adjust additional elements as desired.
 
-[](#web-tech-shapes)
-
+[Solution](solutions/webtech_shapes.html){target="_blank"}
+*Contributed by Tracy Liu*

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Shapes</title>
+		<script src="https://d3js.org/d3.v6.js"></script>  <!-- link to D3 library -->
+
+		<style type="text/css">
+			h1 {color:red;}		/* CSS styling */
+			p {color:blue;}
+			circle {fill:aqua} /* 2. Add styling to the internal style sheet to style circles. */
+			.paragraph {color:palevioletred} /* 6. Use the internal style sheet to style paragraphs of the class you created in 5. */
+		</style>
+
+	</head>
+
+	<body>
+		<h1>h1 header</h1>
+		<h2>h2 header</h2>
+		<h3 style="font-family: Palatino;">h3 header</h3>
+		<p>paragraph</p>
+
+		<svg width="500" height="300">  <!-- some SVG -->
+			<rect x="20" y="20" width="460" height="260" fill="lightblue"></rect>
+			<!-- 4. Add an ID attribute to one of the circles. -->
+			<circle id = "circle1" cx="50" cy="75" r="20" fill="blue"></circle>
+			<!-- 1. Add an additional circle to the svg. -->
+			<circle cx="100" cy="200" r="25" ></circle>
+			<ellipse cx="175" cy="100" rx="45" ry="30" fill="green"></ellipse>
+			<text x="150" y="200">(150, 200)</text>
+			<line x1="250" y1="150" x2="300" y2="200" stroke="red" stroke-width="5"></line>
+
+		</svg>
+
+		<!-- 3. Add two additional paragraphs use the <p> tag. -->
+		<!-- 5. Add a class attribute to two of the <p> tags. -->
+		<p class = "paragraph">another paragraph1</p>
+		<p class = "paragraph">another paragraph2</p>
+		<script>
+		    // JavaScript / D3 will go here
+		</script>
+
+	</body>
+
+</html>
+
