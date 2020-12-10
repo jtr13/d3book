@@ -1,11 +1,10 @@
 book_filename: "d3book"
-output_dir: docs
 delete_merged_file: true
 view: https://github.com/jtr13/d3book/blob/master/%s
 edit: https://github.com/jtr13/d3book/edit/master/%s
 rmd_files: [
   "index.Rmd", # Welcome to D3 {-}
-  "jump.Rmd", # Jump in the deep end <i class="fas fa-swimmer"></i> {#jump} 
+  "jump.Rmd", # Jump in the deep end <i class="fas fa-swimmer"></i> {#jump}
   "web.Rmd", # Web tech <i class="fas fa-server"></i> {#web}
   "console.Rmd", # D3 in the Console <i class="far fa-folder"></i> {#d3console}
   "update.Rmd", # Update, Enter, and Exit <i class="fa fa-refresh"></i>
@@ -15,14 +14,14 @@ rmd_files: [
   "transitions.Rmd", # Transitions <i class="far fa-paper-plane"></i>
   "object_constancy.Rmd", # Object Constancy <i class="fa fa-object-ungroup"></i> {#object}
   "read.Rmd", # Reading files <i class="fa fa-file-text-o"></i>
-  "projects.Rmd", # D3 in projects <i class="fa fa-book"></i>
+  "online.Rmd", # Share D3 online <i class="fa share-square"></i>
   "line.Rmd", # Line charts <i class="fa fa-line-chart"></i>
   "layouts.Rmd", # Layouts <i class="fa fa-bar-chart"></i>
   "debugging.Rmd", # Debugging Tips <i class="fa fa-bug"></i>
   "solutions.Rmd", # Your solutions here <i class="fa fa-check-square-o"></i>
   "more_chapters.Rmd", # More chapters coming soon <i class="fas fa-screwdriver"></i>
-  "advanced-css.Rmd"
+  "advanced-css.Rmd" # Appendix: advanced CSS
   ]
 before_chapter_script: "_common.R"
 
-# Part and chapter title comments added by jtr::comment_bookdown_yml()
+# Comments added by jtr::add_title_comments()

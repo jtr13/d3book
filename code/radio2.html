@@ -2,8 +2,7 @@
 <html>
 <head>
 	<title>test</title>
-	<meta name="generator" content="BBEdit 13.0" />
-	<script src="https://d3js.org/d3.v5.min.js"></script>
+	<script src="https://d3js.org/d3.v6.min.js"></script>
 </head>
 <body>
   <h4>Click a square.</h4>
@@ -23,12 +22,12 @@
           .transition().duration(500).ease(d3.easeBounce)
           .attr('y', '75')
     };
-  
+
     // initial setup: add event listener to red square
     d3.select("svg")
       .select("rect#red")
       .on("click", jump);
-        
+
     // switch event listeners if radio button is clicked
     d3.selectAll("input").on("click", function () {
       if (d3.select(this).node().value == "blue") {
@@ -39,7 +38,7 @@
         d3.select("svg").select("rect#blue").on("click", null);
         }
     });
-   
+
   </script>
 </body>
 </html>

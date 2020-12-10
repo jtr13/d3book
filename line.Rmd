@@ -1,5 +1,7 @@
 # Line charts <i class="fa fa-line-chart"></i>
 
+<script src="https://d3js.org/d3.v6.js"></script>
+
 Read: *IDVW2*, Chapter 11 Using Paths
 
 ## Lecture slides <i class="fa fa-television"></i>
@@ -50,34 +52,7 @@ L = line to
 More options: [https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d)
 
 
-## SVG editors
-
-(a digression)
-
-ex. [SVG-edit](https://svg-edit.github.io/svgedit/releases/svg-edit-2.8.1/svg-editor.html)
-
-### Save plots as SVG files in R {-}
-
-Save plots as SVG files:
-
-``` r
-svg("xsquared.svg")
-plot(1:10, (1:10)^2, axes=F)
-dev.off()
-
-library(svglite)
-svglite("xsquared2.svg")
-plot(1:10, (1:10)^2, axes=F)
-dev.off()
-```
-
-Set graphics device to svg in code
-chunk options:
-
-`r ''````{r dev="svglite"}
-```
-
-## Back to line charts
+## Data for line chart
 
 Format that we have:
 
@@ -97,7 +72,7 @@ Format that we need looks something like this:
 <path class="line" fill="none" d="M0,149.15254237288136L71.42857142857143,264.40677966101697L142.85714285714286,264.40677966101697L214.28571428571428,176.27118644067798L285.7142857142857,250.84745762711864L357.14285714285717,135.59322033898303L428.57142857142856,223.72881355932205"></path>
 ```
 
-### Step 1: Create a line generator
+## Create a line generator
 
 Expects data in an array of 2-dimensional arrays, that is, an array of (x,y) pairs:
 
@@ -156,7 +131,7 @@ d3.select("svg").append("path").attr("d", mypath)
     .attr("stroke-width", "5");
 ```
 
-### Step 2: Put the line generator to work
+## Put the line generator to work
 
 Now let's do it the direct way: bind the *datum* and calculate the path in one step:
 
@@ -198,7 +173,7 @@ Putting it all together, we have:
   <head>
     <meta charset="utf-8">
     <title>Line generator</title>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3.v6.js"></script>
     <style type ="text/css">
       .linestyle {
         fill: none;
@@ -244,7 +219,7 @@ And another example with axes:
 	<head>
 		<meta charset="utf-8">
 		<title></title>
-		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<script src="https://d3js.org/d3.v6.js"></script>
 		<style type ="text/css">
       .line {
         fill: none;

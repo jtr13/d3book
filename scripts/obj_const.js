@@ -1,7 +1,7 @@
 // Create svg and initial bars
 
   var dur2 = 0;
-   
+
   d3.selectAll("input.oc")
     .on("click", function() {
 					dur2 = +d3.select(this).node().value;
@@ -63,7 +63,7 @@
 
 // General Update Pattern
 
-  function update(data, exitpos2) {
+  function update2(data, exitpos2) {
 
     xScale2.domain(d3.range(data.length));
 
@@ -112,12 +112,13 @@
         .on("click", function () {
 
       var paraID2 = d3.select(this).attr("id");
+      console.log(paraID2);
 
-      if (paraID2 == "add2") {
+      if (paraID2 == "add") {
           var newvalue = Math.floor(Math.random()*400);
           var newkey = bardata2[bardata2.length-1].key + 1;
           bardata2.push({key: newkey, value: newvalue } );
-      } else if (paraID2 == "remove_left2") {
+      } else if (paraID2 == "remove_left") {
           bardata2.shift();
           var exitpos2 = -xScale2.bandwidth();
       } else {
@@ -125,7 +126,7 @@
           var exitpos2 = w;
       };
 
-      update(bardata2, exitpos2);
+      update2(bardata2, exitpos2);
 
     });
 

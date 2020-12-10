@@ -1,0 +1,220 @@
+# Share D3 online <i class="fa share-square"></i>
+
+There are a number of ways you can share your D3 code online. Even if you're not sharing, there are advantages to an online setup, for example, not having to set up a local server as described in the chapter on [reading files](reading-files.html).
+
+## VizHub
+
+My top recommendation is to use [vizhub.com](http://www.vizhub.com){target="_blank"}, created by Curran Kelleher, to host d3 visualizations online. Watch the video on the home page, "How to Use VizHub" for a quick how-to tutorial. Note however that using ES6 imports to import D3 modules separately, such as `import { select } from 'd3';` as demoed in the video is completely optional; it is sufficient to link to the full D3 library in the `<head>` section of `index.html` as we've been doing:
+
+```
+<script src="https://d3js.org/d3.v6.js"></script>
+```   
+   
+As such you will not have `index.js` and generated `bundle.js` files as in the example.
+
+When browsing examples, remember that different versions of D3 are not compatible, so be sure to look at v6 examples, or know what you need to update from v4 and v5 examples. In addition, as with all code sharing sites, remember that not all examples are good examples. Examples by Curran Kelleher, the creator of VizHub, are good models to follow.
+
+## bookdown
+
+Including D3 code directly in a bookdown book hosted online (such as GitHub Pages) has the advantage that everyone is in one document. On the downside the book must be knit to view the html which happens quickly without R code but is still an extra step.
+
+There are a few workflow options:
+
+### Everything in the .Rmd
+
+Include a link to the D3 library and then all of your code between script tags, and then your D3 between a second set of script tags:
+
+```
+<script src="https://d3js.org/d3.v6.js"></script>
+<script>
+...
+</script>
+```
+
+(You don't need `<html>`, `<head>`, and `<body>` tags.)
+
+### Put D3 in a separate .js file
+
+In your Rmd file include the link to the D3 library as well as a link to a file with your D3 code:
+
+```
+<script src="https://d3js.org/d3.v6.js"></script>
+<div id="mysvg"></div>
+<script src="myjs.js"></script>
+```
+
+You can then create an identical `.html` file for testing purposes only. This has the advantage of not having to render the full bookdown book each time you would like to observe changes to your D3 code.
+
+### Put D3 in a separate .js file
+
+Create your entire visualization in a separate `.html` file and then include in your `.Rmd` file with `<iframe>`:
+
+```
+<iframe src="mybarchart.html" width="400" height="300"></iframe>
+```
+
+## Observable 
+
+Observable, created by D3 author Mike Bostock, is the official D3 web tool for creating and sharing D3 code. It is a powerful, popular tool--all new D3 code examples are now presented in Observable--but program flow is different than it is for stand-alone JavaScript. If you're interested in learning more, see the collection of [Observable Tutorials](https://observablehq.com/tutorials){target="_blank"}.
+
+## Blockbuilder 2015-2020
+
+As an aside, [blockbuilder.org](https://blockbuilder.org/) was a very popular service for sharing D3 code online, but by the end of 2020, will [no longer allow users to create new blocks, and going forward will serve as an archive of previously created ones](https://bl.ocks.org/enjalot/1ef61f8c72ddccc99707d36a85f0eba7). If you use it for this purpose, remember to pay attention to the version of D3 in use; some authors have included the version number in the block titles but this practice is not widespread. Remember as well that not all examples are good examples, both in terms of the graph choices and the quality of the code.
+
+A few reputable block authors, in terms of quality of D3 code, are:
+
+[Mike Bostock](https://bl.ocks.org/mbostock){target=_"blank"} (creator of D3)
+
+[Ian Johnson](https://bl.ocks.org/enjalot){target="_blank"} (creator of blockbuilder.org)
+
+[Curran Kelleher](https://bl.ocks.org/curran){target="_blank"} (data viz consultant / educator)
+
+[Malcolm Maclean](https://bl.ocks.org/d3noob){target="_blank"} (author of [D3 Tips and Tricks, v5.x](https://leanpub.com/d3-t-and-t-v5){target="_blank"}, lots of simple v5 examples with v5 in title)
+
+[Kent Russell](https://bl.ocks.org/timelyportfolio){target="_blank"} (creator of interactive `parcoords` package in R)
+
+
+```{r, echo=FALSE, eval=FALSE}
+library(dplyr)
+copytodocs <- mtcars %>% 
+  tibble::rownames_to_column("carname") %>% 
+  mutate(cylcolor = factor(cyl, labels = c("green", "red", "blue")))
+write.csv(copytodocs, file="docs/data/mtcars.csv", row.names = FALSE)
+```
+
+
+
+
+```{r, eval=FALSE, echo=FALSE}
+
+## Example
+
+<div id = "cars" style="width: 600px">
+<center>
+<h4>mtcars</h4>
+</center>
+</div>
+
+# {js}
+// width and height
+var w = 600;
+var h = 300;
+var padding = 50;
+
+// create scale functions
+var xScale = d3.scaleLinear()
+  .range([padding, w - padding]);
+
+var yScale = d3.scaleLinear()
+  .range([h - padding, 0]);
+
+// define X axis
+var xAxis = d3.axisBottom()
+  .scale(xScale)
+  .ticks(5);
+
+// define Y axis
+var yAxis = d3.axisLeft()
+  .scale(yScale)
+  .ticks(5);
+
+// create SVG element
+var svg = d3.select("div#cars")
+  .append("svg")
+  .attr("width", w)
+  .attr("height", h);
+
+// create text element
+svg.append("text")
+  .attr("id", "nm")
+  .attr("x", 2 * padding)
+  .attr("y", h - (2 * padding));
+
+// create X axis
+svg.append("g")
+  .attr("id", "xaxis")
+  .attr("transform", "translate(0," + (h - padding) + ")")
+  .call(xAxis);
+
+// create Y axis
+svg.append("g")
+  .attr("id", "yaxis")
+  .attr("transform", "translate(" + padding + ",0)")
+  .call(yAxis);
+
+// create axis labels
+svg.append("text")
+  .attr("x", w / 2)
+  .attr("y", h - padding / 2 + 10)
+  .attr("text-anchor", "middle")
+  .text("displacement");
+
+svg.append("text")
+  .attr("x", padding / 3)
+  .attr("y", h / 2)
+  .attr("transform", `rotate(-90, ${padding/3}, ${h/2})`)
+  .text("mpg");
+
+var rowConverter = function(d) {
+  return {
+    disp: +d.disp,
+    mpg: +d.mpg,
+    carname: d.carname,
+    cylcolor: d.cylcolor
+  }
+};
+d3.csv("https://raw.githubusercontent.com/jtr13/d3book/master/docs/data/mtcars.csv", rowConverter)
+  .then(function(data) {
+    xScale.domain([d3.min(data.map(d => d.disp)), d3.max(data.map(d => d.disp))]);
+    d3.select("#xaxis").call(xAxis);
+    yScale.domain([d3.min(data.map(d => d.mpg)), d3.max(data.map(d => d.mpg))]);
+    d3.select("#yaxis").call(yAxis);
+
+    //Create circles
+    var allCircles = svg.selectAll("circle")
+      .data(data)
+      .enter()
+      .append("circle")
+      .attr("cx", d => xScale(d.disp))
+      .attr("cy", d => yScale(d.mpg))
+      .attr("r", "4")
+      .attr("fill", d => d.cylcolor)
+      .attr("fill-opacity", ".5")
+      .on("mouseover", function(d) { // IDVW2, p. 270
+        var xPos = +d3.select(this).attr("cx") + 10;
+        var yPos = +d3.select(this).attr("cy");
+        d3.select(this).style("cursor", "pointer");
+        svg.append("text")
+          .attr("id", "tooltip")
+          .attr("x", xPos)
+          .attr("y", yPos)
+          .attr("font-size", "11px")
+          .attr("alignment-baseline", "middle")
+          .text(d.carname); // not a function (already in one)
+      })
+      .on("mouseout", function() {
+        d3.select("#tooltip").remove();
+      })
+      .transition()
+      .duration(100)
+      .on("end", grow);
+  })
+  .catch(function(error) {
+    svg.append("text")
+      .attr("x", w/2)
+      .attr("y", h/2)
+      .text("Error loading data.");
+  });
+
+// grow() is based on: https://blockbuilder.org/nbremer/f749e822f33e422f2b5a7d541e5691cb
+function grow() {
+  //Let the fill opacity of each circle vary randomly
+  d3.select(this)
+    .transition().duration(2000 * Math.random())
+    .attr("fill-opacity", .25 + .75 * Math.random())
+    .on("end", grow);
+};
+```
+
+
+

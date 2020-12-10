@@ -3,6 +3,8 @@
 ## Scales
 
 ### Lecture slides <i class="fa fa-television"></i>
+
+<script src="https://d3js.org/d3.v6.js"></script>
  
 [Scales](pdfs/scales.pdf){target="_blank"}
 
@@ -12,7 +14,7 @@ See: *IDVW2*, Chapter 7: Scales
 
 Practice creating an ordinal scale in the Console:
 
-<script src="https://d3js.org/d3.v5.js"></script>
+> <i class="fa fa-hand-o-right"></i> *Open the JavaScript Console* <i class="fa fa-terminal"></i>
 
 ``` js
 var ordscale = d3.scaleBand()
@@ -82,7 +84,9 @@ See: *IDVW2*, Chapter 8: Axes
 
 ### Example
 
-Full example: vertical bar chart with axes: [axes.html](code/axes.html){target="_blank"}
+Full example: vertical bar chart with axes (open in browser): [axes.html](code/axes.html){target="_blank"}
+
+To download and open locally: [axes.html] (https://raw.githubusercontent.com/jtr13/d3book/master/code/axes.html){target="_blank"}
 
 Practice changing the data and seeing what happens.
 

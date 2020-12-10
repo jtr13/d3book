@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8">
     <title>Object Constancy</title>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3.v6.js"></script>
   </head>
 
   <body>
 
   <h2>Object constancy</h2>
 
-      <p id="add">Add an element</p>
+    <p id="add">Add bar</p>
 
     <p id="remove_left">Remove bar (left)</p>
 
@@ -22,8 +22,7 @@
 
   var w = 500;
   var h = 400;
-  var margin = {top: 25, right: 0, bottom: 25,
-      left: 25};
+  var margin = {top: 25, right: 0, bottom: 25, left: 25};
   var innerWidth = w - margin.left - margin.right;
   var innerHeight = h - margin.top - margin.bottom;
   var dur = 500;
@@ -41,7 +40,7 @@
       .attr("fill", "lightblue");
 
   var bardata = [300, 100, 150, 220, 70, 270]
-      .map((value, key) => ({key, value})); 
+      .map((value, key) => ({key, value}));
   var xScale = d3.scaleBand()
       .domain(d3.range(bardata.length))
       .range([0, innerWidth])
@@ -61,12 +60,12 @@
       .attr("id", "plot")
       .attr("transform", `translate (${margin.left}, ${margin.top})`)
     .selectAll("rect")
-      .data(bardata, d => d.key);               
+      .data(bardata, d => d.key);
 
   bars.enter().append("rect")
       .attr("class", "bar")
       .attr("x", (d, i) => xScale(i))
-      .attr("y", d => yScale(d.value))  
+      .attr("y", d => yScale(d.value))
       .attr("width", xScale.bandwidth())
       .attr("height", d => innerHeight - yScale(d.value))
       .attr("fill","blue");
@@ -91,7 +90,7 @@
 
     var bars = svg.select("#plot")
          .selectAll("rect")
-        .data(data, d => d.key);    
+        .data(data, d => d.key);
 
     bars.enter().append("rect")
         .attr("x", w)
@@ -104,12 +103,12 @@
         .duration(dur)
         .ease(d3.easeLinear)
         .attr("x", (d, i) => xScale(i))
-        .attr("y", d => yScale(d.value)) 
+        .attr("y", d => yScale(d.value))
         .attr("width", xScale.bandwidth())
         .attr("height", d => innerHeight - yScale(d.value))
 
     bars.exit()
-      .transition()                                        
+      .transition()
         .duration(dur)
         .attr("x", exitpos)
         .remove();
@@ -136,7 +135,7 @@
       if (paraID == "add") {
           var newvalue = Math.floor(Math.random()*400);
           var newkey = bardata[bardata.length-1].key + 1;
-          bardata.push({key: newkey, value: newvalue } ); 
+          bardata.push({key: newkey, value: newvalue } );
       } else if (paraID == "remove_left") {
           bardata.shift();
           var exitpos = -xScale.bandwidth();
@@ -148,7 +147,6 @@
       update(bardata, exitpos);
 
     });
-
 
     </script>
 

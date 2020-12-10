@@ -1,10 +1,15 @@
 # Just Enough JS <i class="fab fa-js-square"></i>
 
+<script src="https://d3js.org/d3.v6.js"></script>
+
 Basics: *IDVW*, pp. 36-52
 
 objects, arrays, arrays of objects, functions (and other things)
 
 ## Arrays of arrays
+
+> <i class="fa fa-hand-o-right"></i> *Open the JavaScript Console* <i class="fa fa-terminal"></i>
+
 
 ``` js
 // try me in the Console 
@@ -156,6 +161,13 @@ If we want to sort by number, not character, we can pass the comparator function
 ``` js
 var x = [3, 1, 5, 12, 7];     // try me
 x.sort(d3.ascending);
+```
+
+`d3.sort()` will produce the same results:
+
+``` js
+var y = [3, 1, 5, 12, 7];     // try me
+d3.sort(y);
 ```
 
 ## D3 statistics

@@ -3,3 +3,7 @@
 .Rproj.user
 ondeckcode/
 webshot.png
+docs/
+_bookdown_files/
+_book/
+temp.html
