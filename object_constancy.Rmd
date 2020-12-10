@@ -12,7 +12,7 @@
 <input type="radio" name="duration" class="noc" value="0" checked>&nbsp;Off</input>
 <input type="radio" name="duration" class = "noc" value="750">&nbsp;On</input>
 <p></p>
-<p id="add" class="noc">Add an element</p>
+<p id="add" class="noc">Add bar</p>
 <p id="remove_right" class="noc">Remove bar (right)</p>
 <p id="remove_left" class="noc">Remove bar (left)</p>
 </td></tr></table>
@@ -36,17 +36,17 @@ Standalone version: [no_object_constancy.html](code/no_object_constancy.html)
 <input type="radio" name="duration2" class="oc" value="0" checked="true">&nbsp;Off</input>
 <input type="radio" name="duration2" class = "oc" value="750">&nbsp;On</input>
 <p></p>
-<p id="add" class="oc">Add an element</p>
+<p id="add" class="oc">Add bar</p>
 <p id="remove_right" class="oc">Remove bar (right)</p>
 <p id="remove_left" class="oc">Remove bar (left)</p>
 </td></tr></table>
 <script src="scripts/obj_const.js"></script>
 
-Standalone version: [object_constancy.html](code/object_constancy.html)
-
 **Of note:** 
 
 * Bars now smoothly transition off to the left and right
+
+Standalone version: [object_constancy.html](code/object_constancy.html)
 
 Slides: [object_constancy.pdf](pdfs/object_constancy.pdf){target="_blank"}
 
