@@ -25,6 +25,8 @@
 
 * When "Remove bar (right) is clicked, the bar on the right immediately disappears, and then the remaining bars transition to their new places to the right.
 
+Standalone version: [no_object_constancy.html](code/no_object_constancy.html)
+
 ## Object constancy
 <table>
 <tr><td>
@@ -39,6 +41,8 @@
 <p id="remove_left" class="oc">Remove bar (left)</p>
 </td></tr></table>
 <script src="scripts/obj_const.js"></script>
+
+Standalone version: [object_constancy.html](code/object_constancy.html)
 
 **Of note:** 
 
