@@ -190,7 +190,7 @@ Download a copy of `shapes.html` by opening [this page](https://raw.githubuserco
 
 2. Add styling to the internal style sheet to style circles.
 
-3. Add two additional paragraphs use the `<p>` tag.
+3. Add two additional paragraphs using the `<p>` tag.
 
 4. Add an ID attribute to one of the circles.
 
