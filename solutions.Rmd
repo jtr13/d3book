@@ -126,6 +126,49 @@ circle.transition()
 ### Update, Enter, and Exit: horizontal bar chart {-}
 <a href="https://github.com/jtr13/d3book/edit/master/solutions.Rmd" target="_blank"><i class="fa fa-edit"></i></a>
 
+For this exercise open up your text editor. We will be operating inside the `<script>` tags.
+Our goal is to create a horizonal bar chart. 
+
+The first step into doing this is creating the svg element where our graph will live in. We want to make sure to make it tall and wide enough to hold the data of the given array. We also store our data in an array.
+
+``` js
+var bardata = [300, 100, 150, 225, 75, 275];
+var svg = d3.select("body").append("svg").attr("width", "700").attr("height", "400");
+```
+
+Next we will create an enter selection object to which we will bind the data. Note that nothing will appear on the screen yet since the enter elements are not combined with DOM elements.
+
+``` js
+var bars_enter = svg.selectAll("rect")
+		    .data(bardata)
+		    .enter()
+```
+
+Next step is to bind the enter elements with the DOM elements and give them the correct attributes to form a horizonal barchart. First we will set  `x` to zero and then in order to set the y distances between the bars we will use each datapoint's index. The mapping function for the `y` coordinate is `(d, i) => i * 25 + 10` works as follows: 
+
+for i = 0  , y = 10
+
+for i = 1 , y = 35
+
+for i = 2 , y = 60
+
+And so on.
+Last, we want each rectangle's width to be equal to its data value.
+
+``` js
+bars_enter.append("rect")
+		    .attr("x", 0)
+		    .attr("y",  (d, i) => i * 25 + 10)
+		    .attr("width", d => d)
+		    .attr("height", "20")
+		    .attr("fill", "pink")
+```
+
+
+The complete solution is [Solution](solutions/horizontal_bar_chart.html)
+
+*Contributed by Kassie Papasotiriou*
+
 ### Update, Enter, and Exit: merge {-}
 
 1. Change the data to any six other values and update the lengths of the bars.
@@ -204,6 +247,69 @@ bartext.enter()
 
 *Contributed by Tracy Liu*
 
-### Update, Enter, and Exit: vertical bar {-}
 
+### Update, Enter, and Exit: functions {-}
 <a href="https://github.com/jtr13/d3book/edit/master/solutions.Rmd" target="_blank"><i class="fa fa-edit"></i></a>
+
+**Question Answers**
+
+Since there are no questions we will try out a few things and explain why the bars are behaving that way. Open up the file on Chrome and type the following in you Console:
+
+
+1.  By running the bellow code we are rebinding the new data to place holders. In this case, the inital data and the new data have the same length so no new elements will be added. We update the data, change the fill and then change the width.
+
+``` js
+update([100, 200, 300, 400, 200, 300]);
+```
+
+2. By running the bellow code, we two doms to the new data, change the color and width and since the number of data this time is less than the previous time, we also delete the extra doms.
+
+``` js
+update([200, 400]);
+```
+
+3. By running the bellow code, we bind the data, and two of the values will be in the enter selection. For those two values we create an extra two doms, fill them with yellow and adjust their width. Next we merge all elements together and to the merge selection we readjust the widths to make sure that all elements have the correct length and we turn them to orange. Note that since in this scenario we had enter elements there will be nothing in the exit selection.
+
+``` js
+update([200, 300, 200, 125]);
+```
+
+### Update, Enter, and Exit: vertical bar chart {-}
+<a href="https://github.com/jtr13/d3book/edit/master/solutions.Rmd" target="_blank"><i class="fa fa-edit"></i></a>
+
+**Question Answers**
+
+In order to change a horizontal bar chart to a vertical barchart we need to first flip the `x` and `y` coordinates. If we only make this change we will notice that our barchart is not vertical but it is flipped (meaning that all bars seem to be upside-down). This is because the coordinate system in the svg starts from the top left and not the bottom left as we are used to. 
+
+Therefore in order to bring everything "down", we need to tweak the `y` coordinate. In order to do that we can substract from the height of the svg the data value of each bar. In this way all bars will end at 400 and start `d` pixes before the end. 
+
+``` js
+bars.enter().append("rect")
+  .attr("x", (d, i) => i*50)
+  .attr("y", d => 400 - d)
+  .attr("width", "35")
+  .attr("height",d => d)
+  .attr("fill", "lightgreen");
+```
+
+In addition to that, we need to reflect those changes in the update function and add apart from updating all bar's heights we need to also update all bar's new `y` coordinate.
+
+``` js
+bars.enter()
+      .append("rect")    // add new elements
+      .attr("x", (d, i) => i*50)
+      .attr("y", d => 400 - d)
+      .attr("width", "35")
+      .attr("height",d => d)
+      .attr("fill", "yellow")
+      .merge(bars)    // merge
+        .transition()
+        .duration(2000)
+        .attr("y", d => 400 - d)
+        .attr("height",d => d)
+        .attr("fill", "orange");
+```
+
+The complete solution is [here](solutions/general_update_pattern_vertical.html)
+
+*Contributed by Kassie Papasotiriou*
