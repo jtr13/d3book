@@ -1,10 +1,9 @@
 # Your solutions here <i class="fa fa-check-square-o"></i>
 
-Add your code and submit a PR.
-
 ### Web tech: shapes {-}
 
 [Solution](solutions/webtech_shapes.html){target="_blank"}
+
 *Contributed by Tracy Liu*
 
 ### D3 in the Console: green circles {-}
@@ -23,8 +22,8 @@ d3.select("svg")
 
 ``` js
 d3.select("svg")
-    .selectAll("circle.apple")
-    .attr("fill", "red");
+  .selectAll("circle.apple")
+  .attr("fill", "red");
 ```
 
 3. Select the first circle and add an orange border (“stroke”), and stroke width (“stroke-width”) of 5.
@@ -32,78 +31,76 @@ d3.select("svg")
 ``` js
 d3.select("svg")
   .select("circle")
-  .transition()
-  .delay(2000)
-  .attr("stroke","orange")
-  .attr("stroke-width","5");
+  .attr("stroke", "orange")
+  .attr("stroke-width", "5");
 ```  
 
 4. Select all circles of “apple” class and move them to the middle of the svg.
 
 ``` js
 d3.select("svg")
-    .selectAll("circle.apple")
-    .transition()
-    .delay(2000)
-    .duration(1000)
-    .attr("cx", d3.select("svg")
-        .attr("width") / 2)
-    .transition()
-    .duration(1000)
-    .attr("cy", d3.select("svg")
-        .attr("height") / 2);
+  .selectAll("circle.apple")
+  .transition()
+  .duration(2000)
+  .attr("cx", d3.select("svg").attr("width") / 2)
+  .attr("cy", d3.select("svg").attr("height") / 2);
 ```
 
 *Contributed by Tracy Liu*
 
 ### D3 in the Console: blue circles {-}
 
+1. Move all the circles to the right. 
+
 ``` js
 var svg = d3.select("svg")
 svg.selectAll("circle")
-    .transition()
-    .duration(2000)
-    .attr("cx", 450);
+  .transition()
+  .duration(2000)
+  .attr("cx", 450);
 ```
+
+2. Move them back to the left *and* change their color.
 
 ``` js
 svg.selectAll("circle")
-    .transition()
-    .delay(2000)
-    .duration(2000)
-    .attr("cx", 50)
-    .attr("fill", "red");
+  .transition()
+  .duration(2000)
+  .attr("cx", 50)
+  .attr("fill", "red");
 ```
+
+3. In a text editor, add an id to the third circle in `six_blue_circles.html`, save the file, and then in the Console, move only that circle to the right.
 
 ``` js
 svg.select("circle#third")
-    .transition()
-    .delay(4000)
-    .duration(2000)
-    .attr("cx", "450");
+  .transition()
+  .duration(2000)
+  .attr("cx", "450");
 ```
+
+4. Move all the circles to the middle of the screen, *then* move them all to the same location.
 
 ``` js    
 svg.selectAll("circle")
-    .transition()
-    .delay(6000)
-    .duration(2000)
-    .attr("cx", 250)
-    .transition()
-    .duration(2000)
-    .attr("cy", 200);
+  .transition()
+  .duration(2000)
+  .attr("cx", 250)
+  .transition()
+  .duration(2000)
+  .attr("cy", 200);
 ```
+(Extra: return the circles to their starting positions.)
 
 ``` js    
 var circle = svg.selectAll("circle")
-    .data([100, 150, 200, 250, 300, 350]);
+  .data([100, 150, 200, 250, 300, 350]);
     
 circle.transition()
-    .delay(10000)
-    .duration(2000)
-    .attr("cx", 50)
-    .attr("cy", d => d)
-    .attr("fill", "blue");
+  .duration(2000)
+  .attr("cx", 50)
+  .attr("cy", d => d)
+  .attr("fill", "blue");
 ```
 
 *Contributed by Tracy Liu*
@@ -112,61 +109,105 @@ circle.transition()
 
 ``` js
 var bluedata = [30, 20, 40, 70, 120, 70];
+
 var circle = d3.select("svg")
-    .selectAll("circle")
-    .data(bluedata);
+  .selectAll("circle")
+  .data(bluedata);
+  
 circle.transition()
-    .duration(2000)
-    .attr("fill", "pink")
-    .attr("r", d => d / 2)
-    .attr("cx", d => 3 * d);
+  .duration(2000)
+  .attr("fill", "pink")
+  .attr("r", d => d / 2)
+  .attr("cx", d => 3 * d);
 ```
 *Contributed by Tracy Liu*
 
 ### Update, Enter, and Exit: horizontal bar chart {-}
-<a href="https://github.com/jtr13/d3book/edit/master/solutions.Rmd" target="_blank"><i class="fa fa-edit"></i></a>
+
+For this exercise open up your text editor. We will be operating inside the `<script>` tags.
+Our goal is to create a horizontal bar chart. 
+
+The first step is to create the svg element where our graph will live in. We want to make sure to make it tall and wide enough to hold the data of the given array. We also store our data in an array.
+
+``` js
+var bardata = [300, 100, 150, 225, 75, 275];
+var svg = d3.select("body")
+  .append("svg")
+    .attr("width", "700")
+    .attr("height", "400");
+```
+
+Next we will bind the data to the DOM rectangles and store the selection in a variable called `bars`. Since there are no DOM rectangles (yet), the update and exit selections will be empty. Note that nothing will appear on the screen yet since the enter elements are not combined with DOM elements.
+
+``` js
+var bars = svg.selectAll("rect")
+  .data(bardata);
+```
+
+Next step is to create DOM elements from the enter selection and give them the correct attributes to form a horizonal barchart. First we will set  `x` to zero and then in order to set the `y` distances between the bars we will use each datapoint's index. The mapping function for the `y` coordinate is `(d, i) => i * 25 + 10` works as follows: 
+
+When i = 0, y = 10, when i = 1, y = 35, when i = 2, y = 60, etc.
+
+Lastly, we want each rectangle's width to be equal to its data value.
+
+``` js
+bars.enter()
+  .append("rect")
+    .attr("x", 0)
+    .attr("y",  (d, i) => i * 25 + 10)
+    .attr("width", d => d)
+    .attr("height", "20")
+    .attr("fill", "pink");
+```
+
+
+The complete solution is [here](solutions/horizontal_bar_chart.html){target="_blank"}
+
+*Contributed by Kassie Papasotiriou*
 
 ### Update, Enter, and Exit: merge {-}
 
 1. Change the data to any six other values and update the lengths of the bars.
 
-console:
+console:  
+
 ``` js
 var bardata = [130, 210, 90, 300, 200, 50];
 svg = d3.select("svg");
 var bars = svg.selectAll("rect")
-    .data(bardata);
+  .data(bardata);
+    
 bars.transition()
-    .duration(2000)
-    .attr("width", d => d);
+  .duration(2000)
+  .attr("width", d => d);
 ```    
 
-2. Bind a new dataset, newbardata to the bars, update the bar lengths, and remove any extra bars.
-var newbardata = [250, 125, 80, 100];
+2. Bind a new dataset, `newbardata` to the bars, update the bar lengths, and remove any extra bars.
+
+`var newbardata = [250, 125, 80, 100];`
 
 console:
 
 ``` js
 var newbardata = [250, 125, 80, 100]
 bars = svg.selectAll("rect")
-    .data(newbardata)
+  .data(newbardata)
 bars.transition()
-    .duration(2000)
-    .attr("width", d => d)
+  .duration(2000)
+  .attr("width", d => d)
 bars.exit()
-    .transition()
-    .delay(2000)
-    .duration(2000)
-    .attr("width", 0)
-    .remove();
+  .transition()
+  .duration(2000)
+  .attr("width", 0)
+  .remove();
 ```    
 
 3. Bind a new dataset, `reallynewbardata`, to the bars, then add additional bars so each data value has a bar. Make the outline (stroke) of the new bars a different color.
 
-<a href="https://github.com/jtr13/d3book/edit/master/solutions.Rmd" target="_blank"><i class="fa fa-edit"></i></a>
+Click the icon to add your solution --> <a href="https://github.com/jtr13/d3book/edit/master/solutions.Rmd" target="_blank"><i class="fa fa-edit"></i></a>
 
 
-4. Use .merge() to combine the update and enter selections into one selection and then transition the height of all of the bars to half their current height.
+4. Use `.merge()` to combine the update and enter selections into one selection and then transition the height of all of the bars to half their current height.
 
 console:
 
@@ -175,7 +216,7 @@ var reallynewbardata = [300, 100, 250, 50, 200, 150, 325, 275];
 bars = svg.selectAll("rect")
     .data(reallynewbardata)
 bars.enter()
-    .append("rect")
+  .append("rect")
     .attr("x", 30)
     .attr("y", (d, i) => 50 * i)
     .attr("height", 35)
@@ -183,7 +224,7 @@ bars.enter()
     .attr("fill", "lightgreen")
     .attr("stroke", "pink")
     .attr("stroke-width", 5)
-    .merge(bars)
+  .merge(bars)
     .transition()
     .duration(2000)
     .attr("height", 35 / 2)
@@ -194,16 +235,78 @@ bars.enter()
 
 ``` js
 var bartext = svg.selectAll("text")
-    .data(reallynewbardata)
+  .data(reallynewbardata)
 bartext.enter()
-    .append("text")
-    .attr("x", d => d - 5)
-    .attr("y", (d, i) => 50 * i + 12)
-    .text(d => d);
+  .append("text")
+  .attr("x", d => d - 5)
+  .attr("y", (d, i) => 50 * i + 12)
+  .text(d => d);
 ```    
 
 *Contributed by Tracy Liu*
 
-### Update, Enter, and Exit: vertical bar {-}
 
-<a href="https://github.com/jtr13/d3book/edit/master/solutions.Rmd" target="_blank"><i class="fa fa-edit"></i></a>
+### Update, Enter, and Exit: functions {-}
+
+**Question Answers**
+
+Since there are no questions we will try out a few things and explain why the bars are behaving that way. Open up the file on Chrome and type the following in you Console:
+
+
+1.  By running the code below we are rebinding the new data to the DOM elements. In this case, the inital data and the new data have the same length so no new elements will be added and none will be removed. We update the data, change the fill and then change the width.
+
+``` js
+update([100, 200, 300, 400, 200, 300]);
+```
+
+2. By running the code below, the two data values are bound to the first two DOM elements. The color and width are changed the extra DOM elements that did not receive data values are removed.
+
+``` js
+update([200, 400]);
+```
+
+3. By running the code below (without refreshing the page from 2.), we bind the data, and two of the values will be in the enter selection. For those two values we create two more DOM elements, fill them with yellow and adjust their width. Next we merge all elements together and to the merge selection we readjust the widths to make sure that all elements have the correct length and we turn them to orange. Note that since in this scenario we had enter elements there will be nothing in the exit selection.
+
+``` js
+update([200, 300, 200, 125]);
+```
+
+### Update, Enter, and Exit: vertical bar chart {-}
+
+**Question Answers**
+
+In order to change a horizontal bar chart to a vertical barchart we need to first flip the `x` and `y` coordinates. If we only make this change we will notice that our barchart is not vertical but it is flipped (meaning that all bars seem to be upside-down). This is because the coordinate system in the svg starts from the top left and not the bottom left as we are used to. 
+
+Therefore in order to bring everything "down", we need to tweak the `y` coordinate. In order to do that we can subtract from the height of the svg the data value of each bar. In this way all bars will end at 400 and start `d` pixels before the end. 
+
+``` js
+bars.enter()
+  .append("rect")
+  .attr("x", (d, i) => i*50)
+  .attr("y", d => 400 - d)
+  .attr("width", "35")
+  .attr("height",d => d)
+  .attr("fill", "lightgreen");
+```
+
+In addition to that, we need to reflect those changes in the update function and in addition to updating all bar's heights we need to also update all bars` new `y` coordinates.
+
+``` js
+bars.enter()
+  .append("rect") // add new elements
+    .attr("x", (d, i) => i * 50)
+    .attr("y", d => 400 - d)
+    .attr("width", "35")
+    .attr("height", d => d)
+    .attr("fill", "yellow")
+  .merge(bars) // merge
+    .transition()
+    .duration(2000)
+    .attr("y", d => 400 - d)
+    .attr("height", d => d)
+    .attr("fill", "orange");
+```
+
+The complete solution is [here](solutions/general_update_pattern_vertical.html){target="_blank"}
+
+*Contributed by Kassie Papasotiriou*
