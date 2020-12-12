@@ -10,8 +10,7 @@ jobs:
   build:
     runs-on: macOS-latest
     env:
-      EMAIL: ${{ secrets.EMAIL }}               # must be a verified email
-      GH_TOKEN: ${{ secrets.GH_PAT }} # https://github.com/settings/tokens
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
