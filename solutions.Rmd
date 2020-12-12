@@ -4,7 +4,7 @@ Add your code and submit a PR.
 
 ### Web tech: shapes {-}
 
-[Solution](solutions/webtech_shapes.html)
+[Solution](solutions/webtech_shapes.html){target="_blank"}
 *Contributed by Tracy Liu*
 
 ### D3 in the Console: green circles {-}
