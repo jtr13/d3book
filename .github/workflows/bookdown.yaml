@@ -52,7 +52,7 @@ jobs:
         with:
           name: _book
           path: _book/
-# and also add secrets for a GH_PAT and EMAIL to the repository
+# add secret for EMAIL to the repository
 # gh-action from Cecilapp/GitHub-Pages-deploy
   checkout-and-deploy:
    runs-on: ubuntu-latest
