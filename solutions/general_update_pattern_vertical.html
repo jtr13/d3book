@@ -12,45 +12,46 @@
 
 // Create svg and initial bars
 
-var svg = d3.select("body")
-  .append("svg")
-    .attr("width", "500")
-    .attr("height", "400");
+    var svg = d3.select("body")
+      .append("svg")
+      .attr("width", "500")
+      .attr("height", "400");
 
-var bardata = [300, 100, 150, 225, 75, 275];
+    var bardata = [300, 100, 150, 225, 75, 275];
 
-var bars = svg.selectAll("rect")
-  .data(bardata);
+    var bars = svg.selectAll("rect")
+      .data(bardata);
 
-bars.enter().append("rect")
-  .attr("x", (d, i) => i*50)
-  .attr("y", d => 400 - d)
-  .attr("width", "35")
-  .attr("height",d => d)
-  .attr("fill", "lightgreen");
+    bars.enter()
+      .append("rect")
+        .attr("x", (d, i) => i*50)
+        .attr("y", d => 400 - d)
+        .attr("width", "35")
+        .attr("height",d => d)
+        .attr("fill", "lightgreen");
 
 // General Update Pattern
 
 function update(data) {
 
-  var bars = svg.selectAll("rect")    // data join
-    .data(data);
+   var bars = svg.selectAll("rect")    // data join
+      .data(data);
 
-    bars.enter()
-      .append("rect")    // add new elements
-      .attr("x", (d, i) => i*50)
-      .attr("y", d => 400 - d)
-      .attr("width", "35")
-      .attr("height",d => d)
-      .attr("fill", "yellow")
-      .merge(bars)    // merge
-        .transition()
-        .duration(2000)
-        .attr("y", d => 400 - d)
-        .attr("height",d => d)
-        .attr("fill", "orange");
+      bars.enter()
+        .append("rect")
+          .attr("x", (d, i) => i*50)
+          .attr("y", d => 400 - d)
+          .attr("width", "35")
+          .attr("height",d => d)
+          .attr("fill", "yellow")
+        .merge(bars)
+          .transition()
+          .duration(2000)
+          .attr("y", d => 400 - d)
+          .attr("height",d => d)
+          .attr("fill", "orange");
 
-    bars.exit().remove();    // remove extra elements
+      bars.exit().remove();
     }
 
     </script>
