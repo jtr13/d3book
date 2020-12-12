@@ -301,7 +301,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#d3-in-the-console-data-bind"><i class="fa fa-check"></i>D3 in the Console: data bind</a></li>
 <li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#update-enter-and-exit-horizontal-bar-chart"><i class="fa fa-check"></i>Update, Enter, and Exit: horizontal bar chart</a></li>
 <li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#update-enter-and-exit-merge"><i class="fa fa-check"></i>Update, Enter, and Exit: merge</a></li>
-<li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#update-enter-and-exit-vertical-bar"><i class="fa fa-check"></i>Update, Enter, and Exit: vertical bar</a></li>
+<li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#update-enter-and-exit-functions"><i class="fa fa-check"></i>Update, Enter, and Exit: functions</a></li>
+<li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#update-enter-and-exit-vertical-bar-chart"><i class="fa fa-check"></i>Update, Enter, and Exit: vertical bar chart</a></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="more-chapters-coming-soon.html"><a href="more-chapters-coming-soon.html"><i class="fa fa-check"></i><b>16</b> More chapters coming soon <i class="fas fa-screwdriver"></i></a><ul>
 <li class="chapter" data-level="16.1" data-path="more-chapters-coming-soon.html"><a href="more-chapters-coming-soon.html#maintainer-links"><i class="fa fa-check"></i><b>16.1</b> Maintainer links</a></li>
@@ -337,11 +338,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="your-solutions-here" class="section level1">
 <h1><span class="header-section-number">15</span> Your solutions here <i class="fa fa-check-square-o"></i></h1>
-<p>Add your code and submit a PR.</p>
 <div id="web-tech-shapes" class="section level3 unnumbered">
 <h3>Web tech: shapes</h3>
-<p><a href="solutions/webtech_shapes.html" target="_blank">Solution</a>
-<em>Contributed by Tracy Liu</em></p>
+<p><a href="solutions/webtech_shapes.html" target="_blank">Solution</a></p>
+<p><em>Contributed by Tracy Liu</em></p>
 </div>
 <div id="d3-in-the-console-green-circles" class="section level3 unnumbered">
 <h3>D3 in the Console: green circles</h3>
@@ -357,86 +357,112 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Select all circles of “apple” class make them red.</li>
 </ol>
 <div class="sourceCode" id="cb180"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb180-1"><a href="your-solutions-here.html#cb180-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
-<span id="cb180-2"><a href="your-solutions-here.html#cb180-2"></a>    .<span class="at">selectAll</span>(<span class="st">&quot;circle.apple&quot;</span>)</span>
-<span id="cb180-3"><a href="your-solutions-here.html#cb180-3"></a>    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<span id="cb180-2"><a href="your-solutions-here.html#cb180-2"></a>  .<span class="at">selectAll</span>(<span class="st">&quot;circle.apple&quot;</span>)</span>
+<span id="cb180-3"><a href="your-solutions-here.html#cb180-3"></a>  .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>Select the first circle and add an orange border (“stroke”), and stroke width (“stroke-width”) of 5.</li>
 </ol>
 <div class="sourceCode" id="cb181"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb181-1"><a href="your-solutions-here.html#cb181-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
 <span id="cb181-2"><a href="your-solutions-here.html#cb181-2"></a>  .<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb181-3"><a href="your-solutions-here.html#cb181-3"></a>  .<span class="at">transition</span>()</span>
-<span id="cb181-4"><a href="your-solutions-here.html#cb181-4"></a>  .<span class="at">delay</span>(<span class="dv">2000</span>)</span>
-<span id="cb181-5"><a href="your-solutions-here.html#cb181-5"></a>  .<span class="at">attr</span>(<span class="st">&quot;stroke&quot;</span><span class="op">,</span><span class="st">&quot;orange&quot;</span>)</span>
-<span id="cb181-6"><a href="your-solutions-here.html#cb181-6"></a>  .<span class="at">attr</span>(<span class="st">&quot;stroke-width&quot;</span><span class="op">,</span><span class="st">&quot;5&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<span id="cb181-3"><a href="your-solutions-here.html#cb181-3"></a>  .<span class="at">attr</span>(<span class="st">&quot;stroke&quot;</span><span class="op">,</span> <span class="st">&quot;orange&quot;</span>)</span>
+<span id="cb181-4"><a href="your-solutions-here.html#cb181-4"></a>  .<span class="at">attr</span>(<span class="st">&quot;stroke-width&quot;</span><span class="op">,</span> <span class="st">&quot;5&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>Select all circles of “apple” class and move them to the middle of the svg.</li>
 </ol>
 <div class="sourceCode" id="cb182"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb182-1"><a href="your-solutions-here.html#cb182-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
-<span id="cb182-2"><a href="your-solutions-here.html#cb182-2"></a>    .<span class="at">selectAll</span>(<span class="st">&quot;circle.apple&quot;</span>)</span>
-<span id="cb182-3"><a href="your-solutions-here.html#cb182-3"></a>    .<span class="at">transition</span>()</span>
-<span id="cb182-4"><a href="your-solutions-here.html#cb182-4"></a>    .<span class="at">delay</span>(<span class="dv">2000</span>)</span>
-<span id="cb182-5"><a href="your-solutions-here.html#cb182-5"></a>    .<span class="at">duration</span>(<span class="dv">1000</span>)</span>
-<span id="cb182-6"><a href="your-solutions-here.html#cb182-6"></a>    .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
-<span id="cb182-7"><a href="your-solutions-here.html#cb182-7"></a>        .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span>) <span class="op">/</span> <span class="dv">2</span>)</span>
-<span id="cb182-8"><a href="your-solutions-here.html#cb182-8"></a>    .<span class="at">transition</span>()</span>
-<span id="cb182-9"><a href="your-solutions-here.html#cb182-9"></a>    .<span class="at">duration</span>(<span class="dv">1000</span>)</span>
-<span id="cb182-10"><a href="your-solutions-here.html#cb182-10"></a>    .<span class="at">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
-<span id="cb182-11"><a href="your-solutions-here.html#cb182-11"></a>        .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span>) <span class="op">/</span> <span class="dv">2</span>)<span class="op">;</span></span></code></pre></div>
+<span id="cb182-2"><a href="your-solutions-here.html#cb182-2"></a>  .<span class="at">selectAll</span>(<span class="st">&quot;circle.apple&quot;</span>)</span>
+<span id="cb182-3"><a href="your-solutions-here.html#cb182-3"></a>  .<span class="at">transition</span>()</span>
+<span id="cb182-4"><a href="your-solutions-here.html#cb182-4"></a>  .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb182-5"><a href="your-solutions-here.html#cb182-5"></a>  .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;width&quot;</span>) <span class="op">/</span> <span class="dv">2</span>)</span>
+<span id="cb182-6"><a href="your-solutions-here.html#cb182-6"></a>  .<span class="at">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;height&quot;</span>) <span class="op">/</span> <span class="dv">2</span>)<span class="op">;</span></span></code></pre></div>
 <p><em>Contributed by Tracy Liu</em></p>
 </div>
 <div id="d3-in-the-console-blue-circles" class="section level3 unnumbered">
 <h3>D3 in the Console: blue circles</h3>
+<ol style="list-style-type: decimal">
+<li>Move all the circles to the right.</li>
+</ol>
 <div class="sourceCode" id="cb183"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb183-1"><a href="your-solutions-here.html#cb183-1"></a><span class="kw">var</span> svg <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
 <span id="cb183-2"><a href="your-solutions-here.html#cb183-2"></a><span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb183-3"><a href="your-solutions-here.html#cb183-3"></a>    .<span class="at">transition</span>()</span>
-<span id="cb183-4"><a href="your-solutions-here.html#cb183-4"></a>    .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb183-5"><a href="your-solutions-here.html#cb183-5"></a>    .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="dv">450</span>)<span class="op">;</span></span></code></pre></div>
+<span id="cb183-3"><a href="your-solutions-here.html#cb183-3"></a>  .<span class="at">transition</span>()</span>
+<span id="cb183-4"><a href="your-solutions-here.html#cb183-4"></a>  .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb183-5"><a href="your-solutions-here.html#cb183-5"></a>  .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="dv">450</span>)<span class="op">;</span></span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Move them back to the left <em>and</em> change their color.</li>
+</ol>
 <div class="sourceCode" id="cb184"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb184-1"><a href="your-solutions-here.html#cb184-1"></a><span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb184-2"><a href="your-solutions-here.html#cb184-2"></a>    .<span class="at">transition</span>()</span>
-<span id="cb184-3"><a href="your-solutions-here.html#cb184-3"></a>    .<span class="at">delay</span>(<span class="dv">2000</span>)</span>
-<span id="cb184-4"><a href="your-solutions-here.html#cb184-4"></a>    .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb184-5"><a href="your-solutions-here.html#cb184-5"></a>    .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="dv">50</span>)</span>
-<span id="cb184-6"><a href="your-solutions-here.html#cb184-6"></a>    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<span id="cb184-2"><a href="your-solutions-here.html#cb184-2"></a>  .<span class="at">transition</span>()</span>
+<span id="cb184-3"><a href="your-solutions-here.html#cb184-3"></a>  .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb184-4"><a href="your-solutions-here.html#cb184-4"></a>  .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="dv">50</span>)</span>
+<span id="cb184-5"><a href="your-solutions-here.html#cb184-5"></a>  .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>In a text editor, add an id to the third circle in <code>six_blue_circles.html</code>, save the file, and then in the Console, move only that circle to the right.</li>
+</ol>
 <div class="sourceCode" id="cb185"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb185-1"><a href="your-solutions-here.html#cb185-1"></a><span class="va">svg</span>.<span class="at">select</span>(<span class="st">&quot;circle#third&quot;</span>)</span>
-<span id="cb185-2"><a href="your-solutions-here.html#cb185-2"></a>    .<span class="at">transition</span>()</span>
-<span id="cb185-3"><a href="your-solutions-here.html#cb185-3"></a>    .<span class="at">delay</span>(<span class="dv">4000</span>)</span>
-<span id="cb185-4"><a href="your-solutions-here.html#cb185-4"></a>    .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb185-5"><a href="your-solutions-here.html#cb185-5"></a>    .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;450&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<span id="cb185-2"><a href="your-solutions-here.html#cb185-2"></a>  .<span class="at">transition</span>()</span>
+<span id="cb185-3"><a href="your-solutions-here.html#cb185-3"></a>  .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb185-4"><a href="your-solutions-here.html#cb185-4"></a>  .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;450&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<ol start="4" style="list-style-type: decimal">
+<li>Move all the circles to the middle of the screen, <em>then</em> move them all to the same location.</li>
+</ol>
 <div class="sourceCode" id="cb186"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb186-1"><a href="your-solutions-here.html#cb186-1"></a><span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb186-2"><a href="your-solutions-here.html#cb186-2"></a>    .<span class="at">transition</span>()</span>
-<span id="cb186-3"><a href="your-solutions-here.html#cb186-3"></a>    .<span class="at">delay</span>(<span class="dv">6000</span>)</span>
-<span id="cb186-4"><a href="your-solutions-here.html#cb186-4"></a>    .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb186-5"><a href="your-solutions-here.html#cb186-5"></a>    .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="dv">250</span>)</span>
-<span id="cb186-6"><a href="your-solutions-here.html#cb186-6"></a>    .<span class="at">transition</span>()</span>
-<span id="cb186-7"><a href="your-solutions-here.html#cb186-7"></a>    .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb186-8"><a href="your-solutions-here.html#cb186-8"></a>    .<span class="at">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> <span class="dv">200</span>)<span class="op">;</span></span></code></pre></div>
+<span id="cb186-2"><a href="your-solutions-here.html#cb186-2"></a>  .<span class="at">transition</span>()</span>
+<span id="cb186-3"><a href="your-solutions-here.html#cb186-3"></a>  .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb186-4"><a href="your-solutions-here.html#cb186-4"></a>  .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="dv">250</span>)</span>
+<span id="cb186-5"><a href="your-solutions-here.html#cb186-5"></a>  .<span class="at">transition</span>()</span>
+<span id="cb186-6"><a href="your-solutions-here.html#cb186-6"></a>  .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb186-7"><a href="your-solutions-here.html#cb186-7"></a>  .<span class="at">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> <span class="dv">200</span>)<span class="op">;</span></span></code></pre></div>
+<p>(Extra: return the circles to their starting positions.)</p>
 <div class="sourceCode" id="cb187"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb187-1"><a href="your-solutions-here.html#cb187-1"></a><span class="kw">var</span> circle <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb187-2"><a href="your-solutions-here.html#cb187-2"></a>    .<span class="at">data</span>([<span class="dv">100</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">250</span><span class="op">,</span> <span class="dv">300</span><span class="op">,</span> <span class="dv">350</span>])<span class="op">;</span></span>
+<span id="cb187-2"><a href="your-solutions-here.html#cb187-2"></a>  .<span class="at">data</span>([<span class="dv">100</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">250</span><span class="op">,</span> <span class="dv">300</span><span class="op">,</span> <span class="dv">350</span>])<span class="op">;</span></span>
 <span id="cb187-3"><a href="your-solutions-here.html#cb187-3"></a>    </span>
 <span id="cb187-4"><a href="your-solutions-here.html#cb187-4"></a><span class="va">circle</span>.<span class="at">transition</span>()</span>
-<span id="cb187-5"><a href="your-solutions-here.html#cb187-5"></a>    .<span class="at">delay</span>(<span class="dv">10000</span>)</span>
-<span id="cb187-6"><a href="your-solutions-here.html#cb187-6"></a>    .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb187-7"><a href="your-solutions-here.html#cb187-7"></a>    .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="dv">50</span>)</span>
-<span id="cb187-8"><a href="your-solutions-here.html#cb187-8"></a>    .<span class="at">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
-<span id="cb187-9"><a href="your-solutions-here.html#cb187-9"></a>    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<span id="cb187-5"><a href="your-solutions-here.html#cb187-5"></a>  .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb187-6"><a href="your-solutions-here.html#cb187-6"></a>  .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="dv">50</span>)</span>
+<span id="cb187-7"><a href="your-solutions-here.html#cb187-7"></a>  .<span class="at">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
+<span id="cb187-8"><a href="your-solutions-here.html#cb187-8"></a>  .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p><em>Contributed by Tracy Liu</em></p>
 </div>
 <div id="d3-in-the-console-data-bind" class="section level3 unnumbered">
 <h3>D3 in the Console: data bind</h3>
 <div class="sourceCode" id="cb188"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb188-1"><a href="your-solutions-here.html#cb188-1"></a><span class="kw">var</span> bluedata <span class="op">=</span> [<span class="dv">30</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">40</span><span class="op">,</span> <span class="dv">70</span><span class="op">,</span> <span class="dv">120</span><span class="op">,</span> <span class="dv">70</span>]<span class="op">;</span></span>
-<span id="cb188-2"><a href="your-solutions-here.html#cb188-2"></a><span class="kw">var</span> circle <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
-<span id="cb188-3"><a href="your-solutions-here.html#cb188-3"></a>    .<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb188-4"><a href="your-solutions-here.html#cb188-4"></a>    .<span class="at">data</span>(bluedata)<span class="op">;</span></span>
-<span id="cb188-5"><a href="your-solutions-here.html#cb188-5"></a><span class="va">circle</span>.<span class="at">transition</span>()</span>
-<span id="cb188-6"><a href="your-solutions-here.html#cb188-6"></a>    .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb188-7"><a href="your-solutions-here.html#cb188-7"></a>    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;pink&quot;</span>)</span>
-<span id="cb188-8"><a href="your-solutions-here.html#cb188-8"></a>    .<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d <span class="op">/</span> <span class="dv">2</span>)</span>
-<span id="cb188-9"><a href="your-solutions-here.html#cb188-9"></a>    .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="dv">3</span> <span class="op">*</span> d)<span class="op">;</span></span></code></pre></div>
+<span id="cb188-2"><a href="your-solutions-here.html#cb188-2"></a></span>
+<span id="cb188-3"><a href="your-solutions-here.html#cb188-3"></a><span class="kw">var</span> circle <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
+<span id="cb188-4"><a href="your-solutions-here.html#cb188-4"></a>  .<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb188-5"><a href="your-solutions-here.html#cb188-5"></a>  .<span class="at">data</span>(bluedata)<span class="op">;</span></span>
+<span id="cb188-6"><a href="your-solutions-here.html#cb188-6"></a>  </span>
+<span id="cb188-7"><a href="your-solutions-here.html#cb188-7"></a><span class="va">circle</span>.<span class="at">transition</span>()</span>
+<span id="cb188-8"><a href="your-solutions-here.html#cb188-8"></a>  .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb188-9"><a href="your-solutions-here.html#cb188-9"></a>  .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;pink&quot;</span>)</span>
+<span id="cb188-10"><a href="your-solutions-here.html#cb188-10"></a>  .<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d <span class="op">/</span> <span class="dv">2</span>)</span>
+<span id="cb188-11"><a href="your-solutions-here.html#cb188-11"></a>  .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="dv">3</span> <span class="op">*</span> d)<span class="op">;</span></span></code></pre></div>
 <p><em>Contributed by Tracy Liu</em></p>
 </div>
 <div id="update-enter-and-exit-horizontal-bar-chart" class="section level3 unnumbered">
 <h3>Update, Enter, and Exit: horizontal bar chart</h3>
-<p><a href="https://github.com/jtr13/d3book/edit/master/solutions.Rmd" target="_blank"><i class="fa fa-edit"></i></a></p>
+<p>For this exercise open up your text editor. We will be operating inside the <code>&lt;script&gt;</code> tags.
+Our goal is to create a horizontal bar chart.</p>
+<p>The first step is to create the svg element where our graph will live in. We want to make sure to make it tall and wide enough to hold the data of the given array. We also store our data in an array.</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb189-1"><a href="your-solutions-here.html#cb189-1"></a><span class="kw">var</span> bardata <span class="op">=</span> [<span class="dv">300</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">225</span><span class="op">,</span> <span class="dv">75</span><span class="op">,</span> <span class="dv">275</span>]<span class="op">;</span></span>
+<span id="cb189-2"><a href="your-solutions-here.html#cb189-2"></a><span class="kw">var</span> svg <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;body&quot;</span>)</span>
+<span id="cb189-3"><a href="your-solutions-here.html#cb189-3"></a>  .<span class="at">append</span>(<span class="st">&quot;svg&quot;</span>)</span>
+<span id="cb189-4"><a href="your-solutions-here.html#cb189-4"></a>    .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;700&quot;</span>)</span>
+<span id="cb189-5"><a href="your-solutions-here.html#cb189-5"></a>    .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;400&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<p>Next we will bind the data to the DOM rectangles and store the selection in a variable called <code>bars</code>. Since there are no DOM rectangles (yet), the update and exit selections will be empty. Note that nothing will appear on the screen yet since the enter elements are not combined with DOM elements.</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb190-1"><a href="your-solutions-here.html#cb190-1"></a><span class="kw">var</span> bars <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb190-2"><a href="your-solutions-here.html#cb190-2"></a>  .<span class="at">data</span>(bardata)<span class="op">;</span></span></code></pre></div>
+<p>Next step is to create DOM elements from the enter selection and give them the correct attributes to form a horizonal barchart. First we will set <code>x</code> to zero and then in order to set the <code>y</code> distances between the bars we will use each datapoint’s index. The mapping function for the <code>y</code> coordinate is <code>(d, i) =&gt; i * 25 + 10</code> works as follows:</p>
+<p>When i = 0, y = 10, when i = 1, y = 35, when i = 2, y = 60, etc.</p>
+<p>Lastly, we want each rectangle’s width to be equal to its data value.</p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb191-1"><a href="your-solutions-here.html#cb191-1"></a><span class="va">bars</span>.<span class="at">enter</span>()</span>
+<span id="cb191-2"><a href="your-solutions-here.html#cb191-2"></a>  .<span class="at">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb191-3"><a href="your-solutions-here.html#cb191-3"></a>    .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="dv">0</span>)</span>
+<span id="cb191-4"><a href="your-solutions-here.html#cb191-4"></a>    .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span>  (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i <span class="op">*</span> <span class="dv">25</span> <span class="op">+</span> <span class="dv">10</span>)</span>
+<span id="cb191-5"><a href="your-solutions-here.html#cb191-5"></a>    .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
+<span id="cb191-6"><a href="your-solutions-here.html#cb191-6"></a>    .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;20&quot;</span>)</span>
+<span id="cb191-7"><a href="your-solutions-here.html#cb191-7"></a>    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;pink&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<p>The complete solution is <a href="solutions/horizontal_bar_chart.html" target="_blank">here</a></p>
+<p><em>Contributed by Kassie Papasotiriou</em></p>
 </div>
 <div id="update-enter-and-exit-merge" class="section level3 unnumbered">
 <h3>Update, Enter, and Exit: merge</h3>
@@ -444,70 +470,112 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Change the data to any six other values and update the lengths of the bars.</li>
 </ol>
 <p>console:</p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb189-1"><a href="your-solutions-here.html#cb189-1"></a><span class="kw">var</span> bardata <span class="op">=</span> [<span class="dv">130</span><span class="op">,</span> <span class="dv">210</span><span class="op">,</span> <span class="dv">90</span><span class="op">,</span> <span class="dv">300</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">50</span>]<span class="op">;</span></span>
-<span id="cb189-2"><a href="your-solutions-here.html#cb189-2"></a>svg <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">;</span></span>
-<span id="cb189-3"><a href="your-solutions-here.html#cb189-3"></a><span class="kw">var</span> bars <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb189-4"><a href="your-solutions-here.html#cb189-4"></a>    .<span class="at">data</span>(bardata)<span class="op">;</span></span>
-<span id="cb189-5"><a href="your-solutions-here.html#cb189-5"></a><span class="va">bars</span>.<span class="at">transition</span>()</span>
-<span id="cb189-6"><a href="your-solutions-here.html#cb189-6"></a>    .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb189-7"><a href="your-solutions-here.html#cb189-7"></a>    .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb192-1"><a href="your-solutions-here.html#cb192-1"></a><span class="kw">var</span> bardata <span class="op">=</span> [<span class="dv">130</span><span class="op">,</span> <span class="dv">210</span><span class="op">,</span> <span class="dv">90</span><span class="op">,</span> <span class="dv">300</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">50</span>]<span class="op">;</span></span>
+<span id="cb192-2"><a href="your-solutions-here.html#cb192-2"></a>svg <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">;</span></span>
+<span id="cb192-3"><a href="your-solutions-here.html#cb192-3"></a><span class="kw">var</span> bars <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb192-4"><a href="your-solutions-here.html#cb192-4"></a>  .<span class="at">data</span>(bardata)<span class="op">;</span></span>
+<span id="cb192-5"><a href="your-solutions-here.html#cb192-5"></a>    </span>
+<span id="cb192-6"><a href="your-solutions-here.html#cb192-6"></a><span class="va">bars</span>.<span class="at">transition</span>()</span>
+<span id="cb192-7"><a href="your-solutions-here.html#cb192-7"></a>  .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb192-8"><a href="your-solutions-here.html#cb192-8"></a>  .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)<span class="op">;</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
-<li>Bind a new dataset, newbardata to the bars, update the bar lengths, and remove any extra bars.
-var newbardata = [250, 125, 80, 100];</li>
+<li>Bind a new dataset, <code>newbardata</code> to the bars, update the bar lengths, and remove any extra bars.</li>
 </ol>
+<p><code>var newbardata = [250, 125, 80, 100];</code></p>
 <p>console:</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb190-1"><a href="your-solutions-here.html#cb190-1"></a><span class="kw">var</span> newbardata <span class="op">=</span> [<span class="dv">250</span><span class="op">,</span> <span class="dv">125</span><span class="op">,</span> <span class="dv">80</span><span class="op">,</span> <span class="dv">100</span>]</span>
-<span id="cb190-2"><a href="your-solutions-here.html#cb190-2"></a>bars <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb190-3"><a href="your-solutions-here.html#cb190-3"></a>    .<span class="at">data</span>(newbardata)</span>
-<span id="cb190-4"><a href="your-solutions-here.html#cb190-4"></a><span class="va">bars</span>.<span class="at">transition</span>()</span>
-<span id="cb190-5"><a href="your-solutions-here.html#cb190-5"></a>    .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb190-6"><a href="your-solutions-here.html#cb190-6"></a>    .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
-<span id="cb190-7"><a href="your-solutions-here.html#cb190-7"></a><span class="va">bars</span>.<span class="at">exit</span>()</span>
-<span id="cb190-8"><a href="your-solutions-here.html#cb190-8"></a>    .<span class="at">transition</span>()</span>
-<span id="cb190-9"><a href="your-solutions-here.html#cb190-9"></a>    .<span class="at">delay</span>(<span class="dv">2000</span>)</span>
-<span id="cb190-10"><a href="your-solutions-here.html#cb190-10"></a>    .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb190-11"><a href="your-solutions-here.html#cb190-11"></a>    .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="dv">0</span>)</span>
-<span id="cb190-12"><a href="your-solutions-here.html#cb190-12"></a>    .<span class="at">remove</span>()<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb193-1"><a href="your-solutions-here.html#cb193-1"></a><span class="kw">var</span> newbardata <span class="op">=</span> [<span class="dv">250</span><span class="op">,</span> <span class="dv">125</span><span class="op">,</span> <span class="dv">80</span><span class="op">,</span> <span class="dv">100</span>]</span>
+<span id="cb193-2"><a href="your-solutions-here.html#cb193-2"></a>bars <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb193-3"><a href="your-solutions-here.html#cb193-3"></a>  .<span class="at">data</span>(newbardata)</span>
+<span id="cb193-4"><a href="your-solutions-here.html#cb193-4"></a><span class="va">bars</span>.<span class="at">transition</span>()</span>
+<span id="cb193-5"><a href="your-solutions-here.html#cb193-5"></a>  .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb193-6"><a href="your-solutions-here.html#cb193-6"></a>  .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
+<span id="cb193-7"><a href="your-solutions-here.html#cb193-7"></a><span class="va">bars</span>.<span class="at">exit</span>()</span>
+<span id="cb193-8"><a href="your-solutions-here.html#cb193-8"></a>  .<span class="at">transition</span>()</span>
+<span id="cb193-9"><a href="your-solutions-here.html#cb193-9"></a>  .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb193-10"><a href="your-solutions-here.html#cb193-10"></a>  .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="dv">0</span>)</span>
+<span id="cb193-11"><a href="your-solutions-here.html#cb193-11"></a>  .<span class="at">remove</span>()<span class="op">;</span></span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>Bind a new dataset, <code>reallynewbardata</code>, to the bars, then add additional bars so each data value has a bar. Make the outline (stroke) of the new bars a different color.</li>
 </ol>
-<p><a href="https://github.com/jtr13/d3book/edit/master/solutions.Rmd" target="_blank"><i class="fa fa-edit"></i></a></p>
+<p>Click the icon to add your solution –&gt; <a href="https://github.com/jtr13/d3book/edit/master/solutions.Rmd" target="_blank"><i class="fa fa-edit"></i></a></p>
 <ol start="4" style="list-style-type: decimal">
-<li>Use .merge() to combine the update and enter selections into one selection and then transition the height of all of the bars to half their current height.</li>
+<li>Use <code>.merge()</code> to combine the update and enter selections into one selection and then transition the height of all of the bars to half their current height.</li>
 </ol>
 <p>console:</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb191-1"><a href="your-solutions-here.html#cb191-1"></a><span class="kw">var</span> reallynewbardata <span class="op">=</span> [<span class="dv">300</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">250</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">325</span><span class="op">,</span> <span class="dv">275</span>]<span class="op">;</span></span>
-<span id="cb191-2"><a href="your-solutions-here.html#cb191-2"></a>bars <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb191-3"><a href="your-solutions-here.html#cb191-3"></a>    .<span class="at">data</span>(reallynewbardata)</span>
-<span id="cb191-4"><a href="your-solutions-here.html#cb191-4"></a><span class="va">bars</span>.<span class="at">enter</span>()</span>
-<span id="cb191-5"><a href="your-solutions-here.html#cb191-5"></a>    .<span class="at">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb191-6"><a href="your-solutions-here.html#cb191-6"></a>    .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="dv">30</span>)</span>
-<span id="cb191-7"><a href="your-solutions-here.html#cb191-7"></a>    .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> <span class="dv">50</span> <span class="op">*</span> i)</span>
-<span id="cb191-8"><a href="your-solutions-here.html#cb191-8"></a>    .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="dv">35</span>)</span>
-<span id="cb191-9"><a href="your-solutions-here.html#cb191-9"></a>    .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
-<span id="cb191-10"><a href="your-solutions-here.html#cb191-10"></a>    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightgreen&quot;</span>)</span>
-<span id="cb191-11"><a href="your-solutions-here.html#cb191-11"></a>    .<span class="at">attr</span>(<span class="st">&quot;stroke&quot;</span><span class="op">,</span> <span class="st">&quot;pink&quot;</span>)</span>
-<span id="cb191-12"><a href="your-solutions-here.html#cb191-12"></a>    .<span class="at">attr</span>(<span class="st">&quot;stroke-width&quot;</span><span class="op">,</span> <span class="dv">5</span>)</span>
-<span id="cb191-13"><a href="your-solutions-here.html#cb191-13"></a>    .<span class="at">merge</span>(bars)</span>
-<span id="cb191-14"><a href="your-solutions-here.html#cb191-14"></a>    .<span class="at">transition</span>()</span>
-<span id="cb191-15"><a href="your-solutions-here.html#cb191-15"></a>    .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb191-16"><a href="your-solutions-here.html#cb191-16"></a>    .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="dv">35</span> <span class="op">/</span> <span class="dv">2</span>)</span>
-<span id="cb191-17"><a href="your-solutions-here.html#cb191-17"></a>    .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb194-1"><a href="your-solutions-here.html#cb194-1"></a><span class="kw">var</span> reallynewbardata <span class="op">=</span> [<span class="dv">300</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">250</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">325</span><span class="op">,</span> <span class="dv">275</span>]<span class="op">;</span></span>
+<span id="cb194-2"><a href="your-solutions-here.html#cb194-2"></a>bars <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb194-3"><a href="your-solutions-here.html#cb194-3"></a>    .<span class="at">data</span>(reallynewbardata)</span>
+<span id="cb194-4"><a href="your-solutions-here.html#cb194-4"></a><span class="va">bars</span>.<span class="at">enter</span>()</span>
+<span id="cb194-5"><a href="your-solutions-here.html#cb194-5"></a>  .<span class="at">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb194-6"><a href="your-solutions-here.html#cb194-6"></a>    .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="dv">30</span>)</span>
+<span id="cb194-7"><a href="your-solutions-here.html#cb194-7"></a>    .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> <span class="dv">50</span> <span class="op">*</span> i)</span>
+<span id="cb194-8"><a href="your-solutions-here.html#cb194-8"></a>    .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="dv">35</span>)</span>
+<span id="cb194-9"><a href="your-solutions-here.html#cb194-9"></a>    .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
+<span id="cb194-10"><a href="your-solutions-here.html#cb194-10"></a>    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightgreen&quot;</span>)</span>
+<span id="cb194-11"><a href="your-solutions-here.html#cb194-11"></a>    .<span class="at">attr</span>(<span class="st">&quot;stroke&quot;</span><span class="op">,</span> <span class="st">&quot;pink&quot;</span>)</span>
+<span id="cb194-12"><a href="your-solutions-here.html#cb194-12"></a>    .<span class="at">attr</span>(<span class="st">&quot;stroke-width&quot;</span><span class="op">,</span> <span class="dv">5</span>)</span>
+<span id="cb194-13"><a href="your-solutions-here.html#cb194-13"></a>  .<span class="at">merge</span>(bars)</span>
+<span id="cb194-14"><a href="your-solutions-here.html#cb194-14"></a>    .<span class="at">transition</span>()</span>
+<span id="cb194-15"><a href="your-solutions-here.html#cb194-15"></a>    .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb194-16"><a href="your-solutions-here.html#cb194-16"></a>    .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="dv">35</span> <span class="op">/</span> <span class="dv">2</span>)</span>
+<span id="cb194-17"><a href="your-solutions-here.html#cb194-17"></a>    .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)<span class="op">;</span></span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
 <li>Add text labels inside the bars at the right end with the length of the bar in pixels.</li>
 </ol>
-<div class="sourceCode" id="cb192"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb192-1"><a href="your-solutions-here.html#cb192-1"></a><span class="kw">var</span> bartext <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;text&quot;</span>)</span>
-<span id="cb192-2"><a href="your-solutions-here.html#cb192-2"></a>    .<span class="at">data</span>(reallynewbardata)</span>
-<span id="cb192-3"><a href="your-solutions-here.html#cb192-3"></a><span class="va">bartext</span>.<span class="at">enter</span>()</span>
-<span id="cb192-4"><a href="your-solutions-here.html#cb192-4"></a>    .<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</span>
-<span id="cb192-5"><a href="your-solutions-here.html#cb192-5"></a>    .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d <span class="op">-</span> <span class="dv">5</span>)</span>
-<span id="cb192-6"><a href="your-solutions-here.html#cb192-6"></a>    .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> <span class="dv">50</span> <span class="op">*</span> i <span class="op">+</span> <span class="dv">12</span>)</span>
-<span id="cb192-7"><a href="your-solutions-here.html#cb192-7"></a>    .<span class="at">text</span>(d <span class="kw">=&gt;</span> d)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb195-1"><a href="your-solutions-here.html#cb195-1"></a><span class="kw">var</span> bartext <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;text&quot;</span>)</span>
+<span id="cb195-2"><a href="your-solutions-here.html#cb195-2"></a>  .<span class="at">data</span>(reallynewbardata)</span>
+<span id="cb195-3"><a href="your-solutions-here.html#cb195-3"></a><span class="va">bartext</span>.<span class="at">enter</span>()</span>
+<span id="cb195-4"><a href="your-solutions-here.html#cb195-4"></a>  .<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</span>
+<span id="cb195-5"><a href="your-solutions-here.html#cb195-5"></a>  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d <span class="op">-</span> <span class="dv">5</span>)</span>
+<span id="cb195-6"><a href="your-solutions-here.html#cb195-6"></a>  .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> <span class="dv">50</span> <span class="op">*</span> i <span class="op">+</span> <span class="dv">12</span>)</span>
+<span id="cb195-7"><a href="your-solutions-here.html#cb195-7"></a>  .<span class="at">text</span>(d <span class="kw">=&gt;</span> d)<span class="op">;</span></span></code></pre></div>
 <p><em>Contributed by Tracy Liu</em></p>
 </div>
-<div id="update-enter-and-exit-vertical-bar" class="section level3 unnumbered">
-<h3>Update, Enter, and Exit: vertical bar</h3>
-<p><a href="https://github.com/jtr13/d3book/edit/master/solutions.Rmd" target="_blank"><i class="fa fa-edit"></i></a></p>
+<div id="update-enter-and-exit-functions" class="section level3 unnumbered">
+<h3>Update, Enter, and Exit: functions</h3>
+<p><strong>Question Answers</strong></p>
+<p>Since there are no questions we will try out a few things and explain why the bars are behaving that way. Open up the file on Chrome and type the following in you Console:</p>
+<ol style="list-style-type: decimal">
+<li>By running the code below we are rebinding the new data to the DOM elements. In this case, the inital data and the new data have the same length so no new elements will be added and none will be removed. We update the data, change the fill and then change the width.</li>
+</ol>
+<div class="sourceCode" id="cb196"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb196-1"><a href="your-solutions-here.html#cb196-1"></a><span class="at">update</span>([<span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">300</span><span class="op">,</span> <span class="dv">400</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">300</span>])<span class="op">;</span></span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>By running the code below, the two data values are bound to the first two DOM elements. The color and width are changed the extra DOM elements that did not receive data values are removed.</li>
+</ol>
+<div class="sourceCode" id="cb197"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb197-1"><a href="your-solutions-here.html#cb197-1"></a><span class="at">update</span>([<span class="dv">200</span><span class="op">,</span> <span class="dv">400</span>])<span class="op">;</span></span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>By running the code below (without refreshing the page from 2.), we bind the data, and two of the values will be in the enter selection. For those two values we create two more DOM elements, fill them with yellow and adjust their width. Next we merge all elements together and to the merge selection we readjust the widths to make sure that all elements have the correct length and we turn them to orange. Note that since in this scenario we had enter elements there will be nothing in the exit selection.</li>
+</ol>
+<div class="sourceCode" id="cb198"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb198-1"><a href="your-solutions-here.html#cb198-1"></a><span class="at">update</span>([<span class="dv">200</span><span class="op">,</span> <span class="dv">300</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">125</span>])<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="update-enter-and-exit-vertical-bar-chart" class="section level3 unnumbered">
+<h3>Update, Enter, and Exit: vertical bar chart</h3>
+<p><strong>Question Answers</strong></p>
+<p>In order to change a horizontal bar chart to a vertical barchart we need to first flip the <code>x</code> and <code>y</code> coordinates. If we only make this change we will notice that our barchart is not vertical but it is flipped (meaning that all bars seem to be upside-down). This is because the coordinate system in the svg starts from the top left and not the bottom left as we are used to.</p>
+<p>Therefore in order to bring everything “down”, we need to tweak the <code>y</code> coordinate. In order to do that we can subtract from the height of the svg the data value of each bar. In this way all bars will end at 400 and start <code>d</code> pixels before the end.</p>
+<div class="sourceCode" id="cb199"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb199-1"><a href="your-solutions-here.html#cb199-1"></a><span class="va">bars</span>.<span class="at">enter</span>()</span>
+<span id="cb199-2"><a href="your-solutions-here.html#cb199-2"></a>  .<span class="at">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb199-3"><a href="your-solutions-here.html#cb199-3"></a>  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i<span class="op">*</span><span class="dv">50</span>)</span>
+<span id="cb199-4"><a href="your-solutions-here.html#cb199-4"></a>  .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="dv">400</span> <span class="op">-</span> d)</span>
+<span id="cb199-5"><a href="your-solutions-here.html#cb199-5"></a>  .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;35&quot;</span>)</span>
+<span id="cb199-6"><a href="your-solutions-here.html#cb199-6"></a>  .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span>d <span class="kw">=&gt;</span> d)</span>
+<span id="cb199-7"><a href="your-solutions-here.html#cb199-7"></a>  .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightgreen&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<p>In addition to that, we need to reflect those changes in the update function and in addition to updating all bar’s heights we need to also update all bars<code>new</code>y` coordinates.</p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb200-1"><a href="your-solutions-here.html#cb200-1"></a><span class="va">bars</span>.<span class="at">enter</span>()</span>
+<span id="cb200-2"><a href="your-solutions-here.html#cb200-2"></a>  .<span class="at">append</span>(<span class="st">&quot;rect&quot;</span>) <span class="co">// add new elements</span></span>
+<span id="cb200-3"><a href="your-solutions-here.html#cb200-3"></a>    .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i <span class="op">*</span> <span class="dv">50</span>)</span>
+<span id="cb200-4"><a href="your-solutions-here.html#cb200-4"></a>    .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="dv">400</span> <span class="op">-</span> d)</span>
+<span id="cb200-5"><a href="your-solutions-here.html#cb200-5"></a>    .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;35&quot;</span>)</span>
+<span id="cb200-6"><a href="your-solutions-here.html#cb200-6"></a>    .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
+<span id="cb200-7"><a href="your-solutions-here.html#cb200-7"></a>    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;yellow&quot;</span>)</span>
+<span id="cb200-8"><a href="your-solutions-here.html#cb200-8"></a>  .<span class="at">merge</span>(bars) <span class="co">// merge</span></span>
+<span id="cb200-9"><a href="your-solutions-here.html#cb200-9"></a>    .<span class="at">transition</span>()</span>
+<span id="cb200-10"><a href="your-solutions-here.html#cb200-10"></a>    .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb200-11"><a href="your-solutions-here.html#cb200-11"></a>    .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="dv">400</span> <span class="op">-</span> d)</span>
+<span id="cb200-12"><a href="your-solutions-here.html#cb200-12"></a>    .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
+<span id="cb200-13"><a href="your-solutions-here.html#cb200-13"></a>    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;orange&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<p>The complete solution is <a href="solutions/general_update_pattern_vertical.html" target="_blank">here</a></p>
+<p><em>Contributed by Kassie Papasotiriou</em></p>
 
 </div>
 </div>
