@@ -24,7 +24,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2020-12-10" />
+<meta name="date" content="2020-12-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -276,7 +276,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.2" data-path="share-d3-online.html"><a href="share-d3-online.html#bookdown"><i class="fa fa-check"></i><b>11.2</b> bookdown</a><ul>
 <li class="chapter" data-level="11.2.1" data-path="share-d3-online.html"><a href="share-d3-online.html#everything-in-the-.rmd"><i class="fa fa-check"></i><b>11.2.1</b> Everything in the .Rmd</a></li>
 <li class="chapter" data-level="11.2.2" data-path="share-d3-online.html"><a href="share-d3-online.html#put-d3-in-a-separate-.js-file"><i class="fa fa-check"></i><b>11.2.2</b> Put D3 in a separate .js file</a></li>
-<li class="chapter" data-level="11.2.3" data-path="share-d3-online.html"><a href="share-d3-online.html#put-d3-in-a-separate-.js-file-1"><i class="fa fa-check"></i><b>11.2.3</b> Put D3 in a separate .js file</a></li>
+<li class="chapter" data-level="11.2.3" data-path="share-d3-online.html"><a href="share-d3-online.html#iframe"><i class="fa fa-check"></i><b>11.2.3</b> iframe</a></li>
 </ul></li>
 <li class="chapter" data-level="11.3" data-path="share-d3-online.html"><a href="share-d3-online.html#observable"><i class="fa fa-check"></i><b>11.3</b> Observable</a></li>
 <li class="chapter" data-level="11.4" data-path="share-d3-online.html"><a href="share-d3-online.html#blockbuilder-2015-2020"><i class="fa fa-check"></i><b>11.4</b> Blockbuilder 2015-2020</a></li>
@@ -364,10 +364,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>&lt;script src=&quot;https://d3js.org/d3.v6.js&quot;&gt;&lt;/script&gt;
 &lt;div id=&quot;mysvg&quot;&gt;&lt;/div&gt;
 &lt;script src=&quot;myjs.js&quot;&gt;&lt;/script&gt;</code></pre>
-<p>You can then create an identical <code>.html</code> file for testing purposes only. This has the advantage of not having to render the full bookdown book each time you would like to observe changes to your D3 code.</p>
+<p>You can then create an identical <code>.html</code> file for testing purposes only. This has the advantage of not having to render the full bookdown book each time you would like to observe changes to your D3 code. This workflow is demoed in <a href="https://www.youtube.com/watch?v=AJhWtuXg7_k">this video</a>.</p>
 </div>
-<div id="put-d3-in-a-separate-.js-file-1" class="section level3">
-<h3><span class="header-section-number">11.2.3</span> Put D3 in a separate .js file</h3>
+<div id="iframe" class="section level3">
+<h3><span class="header-section-number">11.2.3</span> iframe</h3>
 <p>Create your entire visualization in a separate <code>.html</code> file and then include in your <code>.Rmd</code> file with <code>&lt;iframe&gt;</code>:</p>
 <pre><code>&lt;iframe src=&quot;mybarchart.html&quot; width=&quot;400&quot; height=&quot;300&quot;&gt;&lt;/iframe&gt;</code></pre>
 </div>
