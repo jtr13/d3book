@@ -10,8 +10,7 @@ jobs:
   build:
     runs-on: macOS-latest
     env:
-      EMAIL: ${{ secrets.EMAIL }}               # must be a verified email
-      GH_TOKEN: ${{ secrets.GH_PAT }} # https://github.com/settings/tokens
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -53,7 +52,7 @@ jobs:
         with:
           name: _book
           path: _book/
-# and also add secrets for a GH_PAT and EMAIL to the repository
+# add secret for EMAIL to the repository
 # gh-action from Cecilapp/GitHub-Pages-deploy
   checkout-and-deploy:
    runs-on: ubuntu-latest
@@ -69,8 +68,9 @@ jobs:
          # Destination path
          path: _book/ # optional
      - name: Deploy to GitHub Pages
-       uses: Cecilapp/GitHub-Pages-deploy@master
+       uses: Cecilapp/GitHub-Pages-deploy@3.0.0
        env:
-          EMAIL: ${{ secrets.EMAIL }}               # must be a verified email
-          GH_TOKEN: ${{ secrets.GH_PAT }} # https://github.com/settings/tokens
-          BUILD_DIR: _book/                     # "_site/" by default
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       with:
+         email: ${{ secrets.EMAIL }}
+         build_dir: _book

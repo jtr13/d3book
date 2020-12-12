@@ -2,8 +2,8 @@
 
 ### Web tech: shapes {-}
 
-[Solution](solutions/webtech_shapes.html){target="_blank"}  
-  
+[Solution](solutions/webtech_shapes.html){target="_blank"}
+
 *Contributed by Tracy Liu*
 
 ### D3 in the Console: green circles {-}

@@ -43,9 +43,9 @@ In your Rmd file include the link to the D3 library as well as a link to a file 
 <script src="myjs.js"></script>
 ```
 
-You can then create an identical `.html` file for testing purposes only. This has the advantage of not having to render the full bookdown book each time you would like to observe changes to your D3 code.
+You can then create an identical `.html` file for testing purposes only. This has the advantage of not having to render the full bookdown book each time you would like to observe changes to your D3 code. This workflow is demoed in [this video](https://www.youtube.com/watch?v=AJhWtuXg7_k).
 
-### Put D3 in a separate .js file
+### iframe
 
 Create your entire visualization in a separate `.html` file and then include in your `.Rmd` file with `<iframe>`:
 
