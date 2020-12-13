@@ -134,7 +134,8 @@
 
       if (paraID == "add") {
           var newvalue = Math.floor(Math.random()*400);
-          var newkey = bardata[bardata.length-1].key + 1;
+          if (bardata.length == 0) {var newkey = 0;}
+          else {var newkey = bardata[bardata.length-1].key + 1;}
           bardata.push({key: newkey, value: newvalue } );
       } else if (paraID == "remove_left") {
           bardata.shift();
