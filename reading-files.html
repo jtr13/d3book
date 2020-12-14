@@ -51,8 +51,6 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <script src="libs/clipboard-1.7.1/clipboard.min.js"></script>
@@ -366,7 +364,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb155-20"><a href="reading-files.html#cb155-20"></a>  <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
 <p>The row converter function is used to select variables and change data types (“+” converts to floating point). <code>d3.csv()</code> returns a promise. If the promise is resolved, the <code>.then()</code> function will execute; if the promise is rejected, the <code>.catch()</code> function will execute.</p>
 <blockquote>
-<p><i class="fa fa-exclamation-triangle"></i> <em>Forget the mindset that you read files and store them file in variables for later use. It doesn’t work that way here. The data is read in and acted on immediately. If most of the code requires loaded data, then most of the code will appear in the <code>.then()</code> method.</em></p>
+<p><i class="fa fa-exclamation-triangle"></i> <em>Forget the mindset that you read files and store them in variables for later use. It doesn’t work that way here. The data is read in and acted on immediately. If most of the code requires loaded data, then most of the code will appear in the <code>.then()</code> method.</em></p>
 </blockquote>
 <p>A simple example of loading data in <strong>v5</strong> can be found in <a href="https://blockbuilder.org/tiktaktok/c2e02e2916c226ef44ed233cb46db40c" target="_blank">this block</a>. In contrast to the example above, an anonymous row converter function (with arrow functions) is used instead of calling a separate row converter function. Note as well that it’s not necessary to include all variables in the row converter as this author has done. To test, fork the block and delete all the variables that aren’t used, so that the row converter (line 56) becomes:</p>
 <div class="sourceCode" id="cb156"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb156-1"><a href="reading-files.html#cb156-1"></a>d <span class="kw">=&gt;</span> (<span class="op">{</span></span>
@@ -378,7 +376,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="local-server" class="section level2">
 <h2><span class="header-section-number">10.2</span> Local server</h2>
-<p>For security reasons, Chrome does not let you read local files. To be able to do so, you can run a local server. One option is <a href="https://www.npmjs.com/package/http-server" target="_blank">http-server</a>. Follow the instructions to install <code>http-server</code>, navigate in Terminal to the directory with your html file, and then enter <code>http-server</code>. You should get a message like this:</p>
+<p>For security reasons, Chrome does not let you read local files. To be able to do so, you can run a local server. One option is <a href="https://www.npmjs.com/package/http-server" target="_blank">http-server</a>. Follow the instructions to install <code>http-server</code>, navigate in a terminal to the directory with your html file, and then enter <code>http-server</code>. You should get a message like this:</p>
 <div class="sourceCode" id="cb157"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb157-1"><a href="reading-files.html#cb157-1"></a><span class="ex">Starting</span> up http-server, serving ./</span>
 <span id="cb157-2"><a href="reading-files.html#cb157-2"></a><span class="ex">Available</span> on:</span>
 <span id="cb157-3"><a href="reading-files.html#cb157-3"></a>  <span class="ex">http</span>://127.0.0.1:8080</span>
