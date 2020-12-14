@@ -39,7 +39,7 @@ This provides one method of selecting a certain collection of elements of the sa
 
 ### Select by ID
 
-IDs differ from classes in that they are unique identifies.  IDs are selected by adding a "#" before the ID:
+IDs differ from classes in that they are unique identifiers.  IDs are selected by adding a "#" before the ID:
 
 ``` js
 d3.select("svg").select("circle#henry");
