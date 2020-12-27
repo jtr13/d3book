@@ -1,0 +1,37 @@
+# (PART) Examples {-}
+
+# Spearman Rank Correlation Coefficient
+
+<table>
+  <td>
+    <div id="spearman">
+  </td>
+  <td>
+  Drag the circles to reorder the rankings in Groups A & B. The correlation coefficient, $\rho$, is displayed below.
+  <br>
+  <br>
+$\LARGE \rho = 1 - \frac{6 \Sigma{d_i^2}}{n(n^2 -1)} =$
+    <h4 id="rho"></h4>
+  </td>
+</table>  
+
+<script src="https://d3js.org/d3.v6.min.js"></script>
+<script src="scripts/spearman.js"></script>
+
+<style>
+  h2, h3, p, text {
+    font-family: sans-serif;
+    text-anchor: middle;
+  }
+
+  .rank {
+    fill: white;
+    font-weight: bold;
+    dominant-baseline: central;  /* https://stackoverflow.com/questions/12250403/vertical-alignment-of-text-element-in-svg */
+  }
+  
+  #rho {
+    font-family: serif;
+    font-size: 18pt;
+  }
+</style>
