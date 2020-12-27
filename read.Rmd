@@ -35,7 +35,7 @@ d3.csv("data/mtcars.csv", rowConverter)
 
 The row converter function is used to select variables and change data types ("+" converts to floating point). `d3.csv()` returns a promise. If the promise is resolved, the `.then()` function will execute; if the promise is rejected, the `.catch()` function will execute.
 
-> <i class="fa fa-exclamation-triangle"></i> *Forget the mindset that you read files and store them file in variables for later use. It doesn't work that way here. The data is read in and acted on immediately. If most of the code requires loaded data, then most of the code will appear in the `.then()` method.*
+> <i class="fa fa-exclamation-triangle"></i> *Forget the mindset that you read files and store them in variables for later use. It doesn't work that way here. The data is read in and acted on immediately. If most of the code requires loaded data, then most of the code will appear in the `.then()` method.*
 
 A simple example of loading data in **v5** can be found in [this block](https://blockbuilder.org/tiktaktok/c2e02e2916c226ef44ed233cb46db40c){target="_blank"}. In contrast to the example above, an anonymous row converter function (with arrow functions) is used instead of calling a separate row converter function. Note as well that it's not necessary to include all variables in the row converter as this author has done. To test, fork the block and delete all the variables that aren't used, so that the row converter (line 56) becomes:
 
@@ -52,7 +52,7 @@ For more about `d3.csv()`, see the [`d3.fetch` API](https://github.com/d3/d3-fet
 
 ## Local server
 
-For security reasons, Chrome does not let you read local files. To be able to do so, you can run a local server. One option is [http-server](https://www.npmjs.com/package/http-server){target="_blank"}. Follow the instructions to install `http-server`, navigate in Terminal to the directory with your html file, and then enter `http-server`. You should get a message like this:
+For security reasons, Chrome does not let you read local files. To be able to do so, you can run a local server. One option is [http-server](https://www.npmjs.com/package/http-server){target="_blank"}. Follow the instructions to install `http-server`, navigate in a terminal to the directory with your html file, and then enter `http-server`. You should get a message like this:
 
 ``` bash
 Starting up http-server, serving ./
