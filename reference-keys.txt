@@ -120,9 +120,8 @@ additional-resources
 layouts
 lecture-slides-6
 debugging-tips
+spearman-rank-correlation-coefficient
 your-solutions-here
-more-chapters-coming-soon
-maintainer-links
 appendix-advanced-css
 buttons
 active

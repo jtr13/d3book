@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>16 More chapters coming soon  | D3 for R Users</title>
-  <meta name="description" content="16 More chapters coming soon  | D3 for R Users" />
+  <title>15 Spearman Rank Correlation Coefficient | D3 for R Users</title>
+  <meta name="description" content="15 Spearman Rank Correlation Coefficient | D3 for R Users" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="16 More chapters coming soon  | D3 for R Users" />
+  <meta property="og:title" content="15 Spearman Rank Correlation Coefficient | D3 for R Users" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="16 More chapters coming soon  | D3 for R Users" />
+  <meta name="twitter:title" content="15 Spearman Rank Correlation Coefficient | D3 for R Users" />
   
   
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2020-12-14" />
+<meta name="date" content="2020-12-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="your-solutions-here.html"/>
-<link rel="next" href="appendix-advanced-css.html"/>
+<link rel="prev" href="debugging-tips.html"/>
+<link rel="next" href="your-solutions-here.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -292,7 +292,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.1" data-path="layouts.html"><a href="layouts.html#lecture-slides-6"><i class="fa fa-check"></i><b>13.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="debugging-tips.html"><a href="debugging-tips.html"><i class="fa fa-check"></i><b>14</b> Debugging Tips <i class="fa fa-bug"></i></a></li>
-<li class="chapter" data-level="15" data-path="your-solutions-here.html"><a href="your-solutions-here.html"><i class="fa fa-check"></i><b>15</b> Your solutions here <i class="fa fa-check-square-o"></i></a><ul>
+<li class="part"><span><b>I Examples</b></span></li>
+<li class="chapter" data-level="15" data-path="spearman-rank-correlation-coefficient.html"><a href="spearman-rank-correlation-coefficient.html"><i class="fa fa-check"></i><b>15</b> Spearman Rank Correlation Coefficient</a></li>
+<li class="chapter" data-level="16" data-path="your-solutions-here.html"><a href="your-solutions-here.html"><i class="fa fa-check"></i><b>16</b> Your solutions here <i class="fa fa-check-square-o"></i></a><ul>
 <li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#web-tech-shapes"><i class="fa fa-check"></i>Web tech: shapes</a></li>
 <li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#d3-in-the-console-green-circles"><i class="fa fa-check"></i>D3 in the Console: green circles</a></li>
 <li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#d3-in-the-console-blue-circles"><i class="fa fa-check"></i>D3 in the Console: blue circles</a></li>
@@ -302,9 +304,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#update-enter-and-exit-functions"><i class="fa fa-check"></i>Update, Enter, and Exit: functions</a></li>
 <li class="chapter" data-level="" data-path="your-solutions-here.html"><a href="your-solutions-here.html#update-enter-and-exit-vertical-bar-chart"><i class="fa fa-check"></i>Update, Enter, and Exit: vertical bar chart</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="more-chapters-coming-soon.html"><a href="more-chapters-coming-soon.html"><i class="fa fa-check"></i><b>16</b> More chapters coming soon <i class="fas fa-screwdriver"></i></a><ul>
-<li class="chapter" data-level="16.1" data-path="more-chapters-coming-soon.html"><a href="more-chapters-coming-soon.html#maintainer-links"><i class="fa fa-check"></i><b>16.1</b> Maintainer links</a></li>
-</ul></li>
+<li class="part"><span><b>II Appendices</b></span></li>
 <li class="chapter" data-level="17" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html"><i class="fa fa-check"></i><b>17</b> Appendix: advanced CSS</a><ul>
 <li class="chapter" data-level="17.1" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html#buttons"><i class="fa fa-check"></i><b>17.1</b> Buttons</a><ul>
 <li class="chapter" data-level="17.1.1" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html#active"><i class="fa fa-check"></i><b>17.1.1</b> <code>.active</code></a></li>
@@ -334,28 +334,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="more-chapters-coming-soon" class="section level1">
-<h1><span class="header-section-number">16</span> More chapters coming soon <i class="fas fa-screwdriver"></i></h1>
-<center>
-<iframe src="https://giphy.com/embed/EIiJp9cQ3GeEU" width="240" height="240" frameBorder="0" class="giphy-embed" allowFullScreen>
-</iframe>
-<p>
-<a href="https://giphy.com/gifs/please-construction-patient-EIiJp9cQ3GeEU">via GIPHY</a>
-</p>
-</center>
-<div id="maintainer-links" class="section level2">
-<h2><span class="header-section-number">16.1</span> Maintainer links</h2>
-<p>Edit <a href="https://github.com/jtr13/d3book/edit/master/_bookdown.yml" target="_blank"><code>_bookdown.yml</code></a></p>
+<div id="spearman-rank-correlation-coefficient" class="section level1">
+<h1><span class="header-section-number">15</span> Spearman Rank Correlation Coefficient</h1>
+<table>
+<td>
+<div id="spearman">
+</td>
+<td>
+Drag the circles to reorder the rankings in Groups A &amp; B. The correlation coefficient, <span class="math inline">\(\rho\)</span>, is displayed below.
+<br>
+<br>
+<span class="math inline">\(\LARGE \rho = 1 - \frac{6 \Sigma{d_i^2}}{n(n^2 -1)} =\)</span>
+<h4 id="rho">
+</h4>
+</td>
+</table>
+<script src="https://d3js.org/d3.v6.min.js"></script>
+<script src="scripts/spearman.js"></script>
+<style>
+  h2, h3, p, text {
+    font-family: sans-serif;
+    text-anchor: middle;
+  }
 
-</div>
+  .rank {
+    fill: white;
+    font-weight: bold;
+    dominant-baseline: central;  /* https://stackoverflow.com/questions/12250403/vertical-alignment-of-text-element-in-svg */
+  }
+  
+  #rho {
+    font-family: serif;
+    font-size: 18pt;
+  }
+</style>
+
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="your-solutions-here.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="appendix-advanced-css.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="debugging-tips.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="your-solutions-here.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -386,7 +407,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jtr13/d3book/edit/master/more_chapters.Rmd",
+"link": "https://github.com/jtr13/d3book/edit/master/spearman.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -394,7 +415,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/jtr13/d3book/blob/master/more_chapters.Rmd",
+"link": "https://github.com/jtr13/d3book/blob/master/spearman.Rmd",
 "text": null
 },
 "download": ["d3book.pdf"],
@@ -405,6 +426,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
