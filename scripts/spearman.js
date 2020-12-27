@@ -9,9 +9,11 @@
  };
 
  // Colors
-var colors = d3.scaleLinear()
-  .domain([0, numpositions])
-  .range(["blue", "crimson"]);
+
+var colors = d3.scaleSequential(d3.interpolateViridis)
+  .domain([0, numpositions]);
+
+
 
 //Width and height of svg
   var w = 400;
@@ -146,14 +148,11 @@ var yScale = d3.scaleLinear()
 
 var calculate = function() {
     var rank1 = getrank("A");
-    console.log(rank1)
     var rank2 = getrank("B");
-    console.log(rank2)
     var d = [];
     for (var i = 0; i < rank1.length; i++) {
       d.push(rank1[i] - rank2[i]);
     };
-    console.log(d);
     var d2 = d.map(d => Math.pow(d, 2));
     var f = d3.format(".2f")
     var rho = f(1 - (6*d3.sum(d2)/(Math.pow(rank1.length, 3) - rank1.length)));
