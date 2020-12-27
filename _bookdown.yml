@@ -18,9 +18,11 @@ rmd_files: [
   "line.Rmd", # Line charts <i class="fa fa-line-chart"></i>
   "layouts.Rmd", # Layouts <i class="fa fa-bar-chart"></i>
   "debugging.Rmd", # Debugging Tips <i class="fa fa-bug"></i>
+  "solutions.Rmd", # Your solutions here <i class="fa fa-check-square-o"></i>
+  # PART examples
   "spearman.Rmd",
 #  "more_chapters.Rmd", # More chapters coming soon <i class="fas fa-screwdriver"></i>
-  "solutions.Rmd", # Your solutions here <i class="fa fa-check-square-o"></i>
+  # PART appendices
   "advanced-css.Rmd" # Appendix: advanced CSS
 
   ]
