@@ -500,9 +500,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb75-3"><a href="update-enter-and-exit.html#cb75-3"></a>        .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;400&quot;</span>)</span>
 <span id="cb75-4"><a href="update-enter-and-exit.html#cb75-4"></a>        .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;purple&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>Note the pattern:</p>
-<p>Store the data bind in X.</p>
-<p>Y = X.enter().append() <em>attributes</em> .merge(X)</p>
-<p>Do more stuff with Y.</p>
+<p>Store the data bind in <code>X</code>.</p>
+<p><code>Y = X.enter().append()</code> <em>attributes</em> <code>.merge(X)</code></p>
+<p>Do more stuff with <code>Y</code>.</p>
+<p><em>Do not include transitions in a stored selection!</em></p>
 </div>
 <div id="exercise-merge" class="section level2">
 <h2><span class="header-section-number">4.7</span> Exercise <i class="fas fa-dumbbell"></i>: merge</h2>
