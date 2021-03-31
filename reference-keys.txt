@@ -120,7 +120,7 @@ additional-resources
 layouts
 lecture-slides-6
 debugging-tips
-your-solutions-here
+solutions
 spearman-rank-correlation-coefficient
 appendix-advanced-css
 buttons
