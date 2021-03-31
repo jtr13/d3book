@@ -1,4 +1,4 @@
-# Your solutions here <i class="fa fa-check-square-o"></i>
+# Solutions <i class="fa fa-check-square-o"></i>
 
 ### Web tech: shapes {-}
 
