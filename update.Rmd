@@ -258,11 +258,13 @@ allcirc.transition()
 
 Note the pattern:
 
-Store the data bind in X.
+Store the data bind in `X`.
 
-Y = X.enter().append() *attributes* .merge(X)
+`Y = X.enter().append()` *attributes* `.merge(X)`
 
-Do more stuff with Y.
+Do more stuff with `Y`.
+
+*Do not include transitions in a stored selection!*
 
 
 ## Exercise <i class="fas fa-dumbbell"></i>: merge
