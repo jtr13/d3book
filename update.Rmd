@@ -198,6 +198,8 @@ Add a script that adds an svg element and horizontal bars of the lengths (in pix
     var bardata = [300, 100, 150, 225, 75, 275];
 ```
 
+[Solution](solutions.html#update-enter-and-exit-horizontal-bar-chart)
+
 
 ## Merge selections <i class="fa fa-code-fork"></i>
 
