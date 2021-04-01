@@ -76,7 +76,6 @@ axes
 lecture-slides-3
 example-1
 interactivity
-lecture-slides-4
 binding-event-listeners
 what-is-this
 location-on-svg
@@ -110,7 +109,7 @@ iframe
 observable
 blockbuilder-2015-2020
 line-charts
-lecture-slides-5
+lecture-slides-4
 svg-line-element
 svg-path-element
 data-for-line-chart
@@ -118,7 +117,7 @@ create-a-line-generator
 put-the-line-generator-to-work
 additional-resources
 layouts
-lecture-slides-6
+lecture-slides-5
 debugging-tips
 solutions
 spearman-rank-correlation-coefficient
