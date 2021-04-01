@@ -4,10 +4,6 @@ Read: *IDVW2*, Chapter 10 Interactivity
 
 <script src="https://d3js.org/d3.v6.js"></script>
 
-## Lecture slides <i class="fa fa-television"></i>
-
-[interactivity.pdf](pdfs/interactivity.pdf){target="_blank"}
-
 ## Binding event listeners
 
 ```{r, echo=FALSE, eval=!HTML, out.width='33%'}
