@@ -24,7 +24,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2021-04-01" />
+<meta name="date" content="2021-04-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -500,7 +500,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p><br></p>
-<p>Quantiles works a bit differently in D3: <em>the value returned depends on the sort order of x.</em> Therefore it is crucial to <a href="just-enough-js.html#sorting">sort the array</a> first. Next, <code>p</code> takes a single value, not an array as in R.</p>
+<p><code>d3.quantile()</code> takes a single value for <code>p</code>, not an array as in R. (In earlier versions of D3 it was necessary to <a href="just-enough-js.html#sorting">sort the array</a> before finding quantiles, but this is no longer the case.)</p>
 <table>
 <thead>
 <tr class="header">
