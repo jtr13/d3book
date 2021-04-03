@@ -198,7 +198,7 @@ A few with different names:
 
 <br>
 
-Quantiles works a bit differently in D3: *the value returned depends on the sort order of x.* Therefore it is crucial to [sort the array](just-enough-js.html#sorting) first. Next, `p` takes a single value, not an array as in R.
+`d3.quantile()` takes a single value for `p`, not an array as in R. (In earlier versions of D3 it was necessary to [sort the array](just-enough-js.html#sorting) before finding quantiles, but this is no longer the case.)
 
 
 |R|D3|
