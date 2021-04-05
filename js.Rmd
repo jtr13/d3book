@@ -55,6 +55,7 @@ d3.select("svg#objects")
 makesvg("objects")
 ```
 
+See also: [JavaScript Array of Objects Tutorial](https://www.freecodecamp.org/news/javascript-array-of-objects-tutorial-how-to-create-update-and-loop-through-objects-using-js-array-methods/)
 
 ## `.map()`
 
