@@ -20,7 +20,7 @@ var rowConverter = function (d) {
     }
 };  
 
-d3.csv("data/mtcars.csv", rowConverter)
+d3.csv("https://raw.githubusercontent.com/jtr13/d3book/master/data/mtcars.csv", rowConverter)
   .then(function(data) {
 
 // stuff that requires the loaded data
