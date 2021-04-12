@@ -17,3 +17,6 @@
     (But don't worry if it's not perfect, we're not going to judge.)
 
 * Use a text editor that helps you identify unmatched () {} [].
+
+Have a tip? Click the <i class="fas fa-edit"></i>
+button, add the tip, and create a pull request.
