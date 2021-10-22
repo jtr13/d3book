@@ -3,6 +3,9 @@ on:
     branches:
       - main
       - master
+  schedule:
+    # run every Saturday at 8am (12 UTC)
+      - cron: '0 12 * * 6'
 
 name: bookdown
 
