@@ -150,14 +150,7 @@ y["b"];
 
 8.  Try another click event. What's happening?
 
-    **v6**
     ``` javascript
     d3.select("svg").on("click", function(event)
       {d3.select("text").text(`(${d3.pointer(event)})`)});
-    ```
-
-    **v5**
-    ``` javascript
-    d3.select("svg").on("click", function()
-      {d3.select("text").text(`(${d3.mouse(this)})`)});
     ```
