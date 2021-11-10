@@ -24,7 +24,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2021-11-06" />
+<meta name="date" content="2021-11-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -353,10 +353,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p><i class="fa fa-hand-o-right"></i> <em>Open the JavaScript Console</em> <i class="fa fa-terminal"></i></p>
 </blockquote>
-<div class="sourceCode" id="cb124"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb124-1"><a href="scales-and-axes.html#cb124-1"></a><span class="kw">var</span> ordscale <span class="op">=</span> <span class="va">d3</span>.<span class="at">scaleBand</span>()</span>
-<span id="cb124-2"><a href="scales-and-axes.html#cb124-2"></a>  .<span class="at">domain</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span>])</span>
-<span id="cb124-3"><a href="scales-and-axes.html#cb124-3"></a>  .<span class="at">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">100</span>])<span class="op">;</span></span></code></pre></div>
-<div class="sourceCode" id="cb125"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb125-1"><a href="scales-and-axes.html#cb125-1"></a><span class="at">ordscale</span>(<span class="dv">1</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb123-1"><a href="scales-and-axes.html#cb123-1"></a><span class="kw">var</span> ordscale <span class="op">=</span> <span class="va">d3</span>.<span class="at">scaleBand</span>()</span>
+<span id="cb123-2"><a href="scales-and-axes.html#cb123-2"></a>  .<span class="at">domain</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span>])</span>
+<span id="cb123-3"><a href="scales-and-axes.html#cb123-3"></a>  .<span class="at">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">100</span>])<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb124-1"><a href="scales-and-axes.html#cb124-1"></a><span class="at">ordscale</span>(<span class="dv">1</span>)<span class="op">;</span></span></code></pre></div>
 <p>Try other numbers: <code>ordscale(3);</code>, <code>ordscale(2.5);</code>, <code>ordscale(7);</code>, etc.</p>
 <p>Add inner padding and try again.</p>
 <p>See diagram here: <a href="https://github.com/d3/d3-scale#band-scales" class="uri">https://github.com/d3/d3-scale#band-scales</a></p>
@@ -387,11 +387,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">6.2.1</span> Lecture slides <i class="fa fa-television"></i></h3>
 <p><a href="pdfs/margins.pdf" target="_blank">Margins</a></p>
 <p>“Margin convention”</p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb126-1"><a href="scales-and-axes.html#cb126-1"></a>  <span class="kw">var</span> w <span class="op">=</span> <span class="dv">500</span><span class="op">;</span></span>
-<span id="cb126-2"><a href="scales-and-axes.html#cb126-2"></a>  <span class="kw">var</span> h <span class="op">=</span> <span class="dv">400</span><span class="op">;</span></span>
-<span id="cb126-3"><a href="scales-and-axes.html#cb126-3"></a>  <span class="kw">var</span> margin <span class="op">=</span> <span class="op">{</span><span class="dt">top</span><span class="op">:</span> <span class="dv">25</span><span class="op">,</span> <span class="dt">right</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">bottom</span><span class="op">:</span> <span class="dv">25</span><span class="op">,</span> <span class="dt">left</span><span class="op">:</span> <span class="dv">25</span><span class="op">};</span></span>
-<span id="cb126-4"><a href="scales-and-axes.html#cb126-4"></a>  <span class="kw">var</span> innerWidth <span class="op">=</span> w <span class="op">-</span> <span class="va">margin</span>.<span class="at">left</span> <span class="op">-</span> <span class="va">margin</span>.<span class="at">right</span><span class="op">;</span></span>
-<span id="cb126-5"><a href="scales-and-axes.html#cb126-5"></a>  <span class="kw">var</span> innerHeight <span class="op">=</span> h <span class="op">-</span> <span class="va">margin</span>.<span class="at">top</span> <span class="op">-</span> <span class="va">margin</span>.<span class="at">bottom</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb125-1"><a href="scales-and-axes.html#cb125-1"></a>  <span class="kw">var</span> w <span class="op">=</span> <span class="dv">500</span><span class="op">;</span></span>
+<span id="cb125-2"><a href="scales-and-axes.html#cb125-2"></a>  <span class="kw">var</span> h <span class="op">=</span> <span class="dv">400</span><span class="op">;</span></span>
+<span id="cb125-3"><a href="scales-and-axes.html#cb125-3"></a>  <span class="kw">var</span> margin <span class="op">=</span> <span class="op">{</span><span class="dt">top</span><span class="op">:</span> <span class="dv">25</span><span class="op">,</span> <span class="dt">right</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">bottom</span><span class="op">:</span> <span class="dv">25</span><span class="op">,</span> <span class="dt">left</span><span class="op">:</span> <span class="dv">25</span><span class="op">};</span></span>
+<span id="cb125-4"><a href="scales-and-axes.html#cb125-4"></a>  <span class="kw">var</span> innerWidth <span class="op">=</span> w <span class="op">-</span> <span class="va">margin</span>.<span class="at">left</span> <span class="op">-</span> <span class="va">margin</span>.<span class="at">right</span><span class="op">;</span></span>
+<span id="cb125-5"><a href="scales-and-axes.html#cb125-5"></a>  <span class="kw">var</span> innerHeight <span class="op">=</span> h <span class="op">-</span> <span class="va">margin</span>.<span class="at">top</span> <span class="op">-</span> <span class="va">margin</span>.<span class="at">bottom</span><span class="op">;</span></span></code></pre></div>
 </div>
 <div id="example" class="section level3">
 <h3><span class="header-section-number">6.2.2</span> Example</h3>
