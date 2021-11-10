@@ -13,7 +13,7 @@ Note that `shapes.html` has an HyperText Markup Language or `.html` extension; H
 In the `<head>` section we use `<script>` tags to link to the D3 library:
 
 ``` js
-<script src="https://d3js.org/d3.v6.js"></script>
+<script src="https://d3js.org/d3.v7.js"></script>
 ```
 
 HTML content is enclosed between opening an closing **tags** such as `<h1>` and `</h1>`.
