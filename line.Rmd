@@ -1,6 +1,6 @@
 # Line charts <i class="fa fa-line-chart"></i>
 
-<script src="https://d3js.org/d3.v6.js"></script>
+<script src="https://d3js.org/d3.v7.js"></script>
 
 Read: *IDVW2*, Chapter 11 Using Paths
 
@@ -173,7 +173,7 @@ Putting it all together, we have:
   <head>
     <meta charset="utf-8">
     <title>Line generator</title>
-    <script src="https://d3js.org/d3.v6.js"></script>
+    <script src="https://d3js.org/d3.v7.js"></script>
     <style type ="text/css">
       .linestyle {
         fill: none;
@@ -219,7 +219,7 @@ And another example with axes:
 	<head>
 		<meta charset="utf-8">
 		<title></title>
-		<script src="https://d3js.org/d3.v6.js"></script>
+		<script src="https://d3js.org/d3.v7.js"></script>
 		<style type ="text/css">
       .line {
         fill: none;

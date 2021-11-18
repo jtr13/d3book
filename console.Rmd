@@ -2,7 +2,7 @@
 
 Read *IDVW2*, Chapter 6: Drawing with Data. Skip pp. 89-96 as we will not be drawing bar charts with the `div`approach.
 
-<script src="https://d3js.org/d3.v6.js"></script>
+<script src="https://d3js.org/d3.v7.js"></script>
 
 ## Selections <i class="fas fa-clipboard-list"></i>
 

@@ -2,7 +2,7 @@
 
 Read: *IDVW2*, Chapter 10 Interactivity
 
-<script src="https://d3js.org/d3.v6.js"></script>
+<script src="https://d3js.org/d3.v7.js"></script>
 
 ## Lecture slides <i class="fa fa-television"></i>
 

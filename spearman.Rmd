@@ -15,7 +15,7 @@ $\LARGE \rho = 1 - \frac{6 \Sigma{d_i^2}}{n(n^2 -1)} =$
   </td>
 </table>  
 
-<script src="https://d3js.org/d3.v6.min.js"></script>
+<script src="https://d3js.org/d3.v7.min.js"></script>
 <script src="scripts/spearman.js"></script>
 
 <style>

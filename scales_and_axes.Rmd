@@ -4,7 +4,7 @@
 
 ### Lecture slides <i class="fa fa-television"></i>
 
-<script src="https://d3js.org/d3.v6.js"></script>
+<script src="https://d3js.org/d3.v7.js"></script>
  
 [Scales](pdfs/scales.pdf){target="_blank"}
 

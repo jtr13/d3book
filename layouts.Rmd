@@ -1,6 +1,6 @@
 # Layouts <i class="fa fa-bar-chart"></i>
 
-<script src="https://d3js.org/d3.v6.js"></script>
+<script src="https://d3js.org/d3.v7.js"></script>
 
 *IDVW2*, Chapter 13 Layouts (`d3.stack()` only, pp. 264-270)
 

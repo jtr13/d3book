@@ -1,6 +1,6 @@
 # Update, Enter, and Exit <i class="fa fa-refresh"></i>
 
-<script src="https://d3js.org/d3.v6.js"></script>
+<script src="https://d3js.org/d3.v7.js"></script>
 
 Read: *IDVW2*, Chapter 9, pp. 178-184; Chapter 12, pp. 231-249
 
@@ -491,7 +491,7 @@ Also available here: [general_update_pattern.html](code/general_update_pattern.h
   <head>
     <meta charset="utf-8">
     <title>EDAV5_1</title>
-    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
   </head>
 
   <body>
