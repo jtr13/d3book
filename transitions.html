@@ -438,48 +438,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>All bars in proper location.</p></li>
 <li><p>Fill color for all bars transitions to blue.</p></li>
 </ol>
-<p>Add code:</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb148-1"><a href="transitions.html#cb148-1"></a></span>
-<span id="cb148-2"><a href="transitions.html#cb148-2"></a><span class="kw">var</span> bars <span class="op">=</span> <span class="va">d3</span>.<span class="at">selectAll</span>(<span class="st">&quot;svg&quot;</span>)</span>
-<span id="cb148-3"><a href="transitions.html#cb148-3"></a>  .<span class="at">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb148-4"><a href="transitions.html#cb148-4"></a>  .<span class="at">data</span>(dataset)<span class="op">;</span></span>
-<span id="cb148-5"><a href="transitions.html#cb148-5"></a>  </span>
-<span id="cb148-6"><a href="transitions.html#cb148-6"></a><span class="va">bars</span>.<span class="at">enter</span>()                  <span class="co">// 1. new bars</span></span>
-<span id="cb148-7"><a href="transitions.html#cb148-7"></a>  .<span class="at">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb148-8"><a href="transitions.html#cb148-8"></a>    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;orange&quot;</span>)</span>
-<span id="cb148-9"><a href="transitions.html#cb148-9"></a>  .<span class="at">merge</span>(bars)                <span class="co">// 2. all bars in location</span></span>
-<span id="cb148-10"><a href="transitions.html#cb148-10"></a>    .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> ...)</span>
-<span id="cb148-11"><a href="transitions.html#cb148-11"></a>    .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> ...)</span>
-<span id="cb148-12"><a href="transitions.html#cb148-12"></a>    .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> ...)</span>
-<span id="cb148-13"><a href="transitions.html#cb148-13"></a>    .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> ...)</span>
-<span id="cb148-14"><a href="transitions.html#cb148-14"></a>  .<span class="at">transition</span>()</span>
-<span id="cb148-15"><a href="transitions.html#cb148-15"></a>  .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb148-16"><a href="transitions.html#cb148-16"></a>    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)<span class="op">;</span>   <span class="co">// 3. all transition to blue</span></span></code></pre></div>
-<p><strong>Example 2</strong></p>
-<p>Plan</p>
-<ol style="list-style-type: decimal">
-<li><p>A new bar appears from the right side.</p></li>
-<li><p>Once it reaches its spot, it turns purple.</p></li>
-</ol>
-<p>(Try this one.)</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb149-1"><a href="transitions.html#cb149-1"></a><span class="kw">var</span> bars <span class="op">=</span> <span class="va">d3</span>.<span class="at">selectAll</span>(<span class="st">&quot;svg&quot;</span>)</span>
-<span id="cb149-2"><a href="transitions.html#cb149-2"></a>  .<span class="at">append</span>(<span class="st">&quot;g&quot;</span>)</span>
-<span id="cb149-3"><a href="transitions.html#cb149-3"></a>  .<span class="at">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb149-4"><a href="transitions.html#cb149-4"></a>  .<span class="at">data</span>([<span class="dv">125</span>])<span class="op">;</span></span>
-<span id="cb149-5"><a href="transitions.html#cb149-5"></a>  </span>
-<span id="cb149-6"><a href="transitions.html#cb149-6"></a><span class="va">bars</span>.<span class="at">enter</span>()                 </span>
-<span id="cb149-7"><a href="transitions.html#cb149-7"></a>  .<span class="at">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb149-8"><a href="transitions.html#cb149-8"></a>    .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;325&quot;</span>)</span>
-<span id="cb149-9"><a href="transitions.html#cb149-9"></a>    .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="dv">200</span> <span class="op">-</span> d )</span>
-<span id="cb149-10"><a href="transitions.html#cb149-10"></a>    .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)</span>
-<span id="cb149-11"><a href="transitions.html#cb149-11"></a>    .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
-<span id="cb149-12"><a href="transitions.html#cb149-12"></a>    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb149-13"><a href="transitions.html#cb149-13"></a>  .<span class="at">transition</span>()</span>
-<span id="cb149-14"><a href="transitions.html#cb149-14"></a>  .<span class="at">duration</span>(<span class="dv">3000</span>)</span>
-<span id="cb149-15"><a href="transitions.html#cb149-15"></a>    .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;50&quot;</span>)   <span class="co">// transition only affect &quot;x&quot;</span></span>
-<span id="cb149-16"><a href="transitions.html#cb149-16"></a>  .<span class="at">transition</span>(<span class="dv">2000</span>)</span>
-<span id="cb149-17"><a href="transitions.html#cb149-17"></a>  .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb149-18"><a href="transitions.html#cb149-18"></a>    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;purple&quot;</span>)<span class="op">;</span>  <span class="co">// 2nd transition</span></span></code></pre></div>
+<p>Add code to <a href="code/bar_transition.html" target="_blank">bar_transition.html</a></p>
 <p>Further reading: <a href="https://bost.ocks.org/mike/transition/" target="_blank">Working with Transitions</a>.</p>
 
 </div>
