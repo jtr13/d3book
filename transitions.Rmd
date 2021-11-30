@@ -145,57 +145,6 @@ Plan what you want to happen:
 
 3. Fill color for all bars transitions to blue.
 
-Add code:
+Add code to [bar_transition.html](code/bar_transition.html){target="_blank"}
 
-
-``` js
-
-var bars = d3.selectAll("svg")
-  .selectAll("rect")
-  .data(dataset);
-  
-bars.enter()                  // 1. new bars
-  .append("rect")
-    .attr("fill", "orange")
-  .merge(bars)                // 2. all bars in location
-    .attr("x", ...)
-    .attr("y", ...)
-    .attr("width", ...)
-    .attr("height", ...)
-  .transition()
-  .duration(2000)
-    .attr("fill", "blue");   // 3. all transition to blue
-```
-
-**Example 2**
-
-Plan
-
-1. A new bar appears from the right side.
-
-2. Once it reaches its spot, it turns purple.
-  
-(Try this one.)  
-  
-``` js
-var bars = d3.selectAll("svg")
-  .append("g")
-  .selectAll("rect")
-  .data([125]);
-  
-bars.enter()                 
-  .append("rect")
-    .attr("x", "325")
-    .attr("y", d => 200 - d )
-    .attr("width", "30")
-    .attr("height", d => d)
-    .attr("fill", "blue")
-  .transition()
-  .duration(3000)
-    .attr("x", "50")   // transition only affect "x"
-  .transition(2000)
-  .duration(2000)
-    .attr("fill", "purple");  // 2nd transition
-```    
-    
 Further reading: [Working with Transitions](https://bost.ocks.org/mike/transition/){target="_blank"}.     
