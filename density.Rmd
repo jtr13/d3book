@@ -1,0 +1,27 @@
+# Population Density
+
+<style>
+  * {
+    font-family: sans-serif;
+  }
+
+  .source {
+     font-size: 9pt;
+  }
+</style> 
+
+<div style="padding-left: 100px">
+  <h3>New York City</h3>
+  <p>Each dot represents a person.</p>
+  <svg id="svg1"></svg>
+  <div id="slider" style="padding-left: 16px;">
+  <input type="range" step="10">
+  </div>
+  <svg id="svg2"></svg>
+  <p class="source">Data source: http://www.demographia.com/dm-nyc.htm</p>
+</div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="scripts/density.js"></script>
+<br>
+Standalone version: [density.html](code/density.html){target="_blank"}
