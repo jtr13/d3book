@@ -145,7 +145,7 @@ Plan what you want to happen:
 
 3. Fill color for all bars transitions to blue.
 
-Add code:
+Add code to [bar_transition.html](code/bar_transition.html){target="_blank"}
 
 
 ``` js
