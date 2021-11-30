@@ -139,12 +139,12 @@ Think carefully about what you want to happen, and then decide what goes before 
 
 Plan what you want to happen:
 
-1. New bars appear with orange fill.
+1. new bars appear on the right side with orange fill  
 
-2. All bars in proper location.
+2. new bars slide into place from the right as old bars are repositioned  
 
-3. Fill color for all bars transitions to blue.
+3. new bars transition to blue  
 
-Add code to [bar_transition.html](code/bar_transition.html){target="_blank"}
+Add code to [bar_transition.html](code/bar_transition.html){target="_blank"} to make this happen.
 
 Further reading: [Working with Transitions](https://bost.ocks.org/mike/transition/){target="_blank"}.     
