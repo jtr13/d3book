@@ -122,6 +122,7 @@ lecture-slides-6
 debugging-tips
 solutions
 spearman-rank-correlation-coefficient
+population-density
 appendix-advanced-css
 buttons
 active
