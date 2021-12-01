@@ -8,7 +8,7 @@
 
 * Use `console.log()` esp. in functions
 
-* Post Minimal Working Examples on Piazza. See:
+* Post Minimal Working Examples on Ed Discussion in Canvas. See:
 
     ["How to create a Minimal, Complete, and Verifiable example"](https://stackoverflow.com/help/mcve){target="_blank"}
 
