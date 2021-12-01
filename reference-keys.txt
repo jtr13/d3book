@@ -92,6 +92,7 @@ examples-1
 do-this
 not-this
 strategy
+exercise-bar-chart-with-transitions
 object
 no-object-constancy
 object-constancy
