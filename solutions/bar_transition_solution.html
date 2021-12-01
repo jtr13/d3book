@@ -107,11 +107,11 @@
       .attr("fill", "blue");
 
     bars.exit()
-    .transition()
-    .duration(2000)
-    .ease(d3.easeLinear)
-    .attr("x", w*1.1)
-    .remove();
+      .transition()
+      .duration(2000)
+      .ease(d3.easeLinear)
+      .attr("x", w*1.1)
+      .remove();
 
     svg.select(".xAxis")
       .transition()

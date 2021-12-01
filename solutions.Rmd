@@ -310,3 +310,10 @@ bars.enter()
 The complete solution is [here](solutions/general_update_pattern_vertical.html){target="_blank"}
 
 *Contributed by Kassie Papasotiriou*
+
+### Transitions: bar chart with transitions {-}
+
+[code for download](https://raw.githubusercontent.com/jtr13/d3book/master/solutions/bar_transition_solution.html){target="_blank"}
+
+[rendered version](solutions/bar_transition_solution.html){target="_blank"}
+

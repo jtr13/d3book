@@ -145,6 +145,19 @@ Plan what you want to happen:
 
 3. new bars transition to blue  
 
-Add code to [bar_transition.html](code/bar_transition.html){target="_blank"} to make this happen.
+## Exercise <i class="fas fa-dumbbell"></i>: Bar chart with transitions
+
+Download and make changes to [bar_transition.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/bar_transition.html){target="_blank"} in a text editor so the transitions work as shown in the video below. [rendered version](code/bar_transition.html){target="_blank"}
+
+<iframe width="300" height="169" src="https://www.youtube.com/embed/Xo9oLl9OM5w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+**Solution**
+
+[code for download](https://raw.githubusercontent.com/jtr13/d3book/master/solutions/bar_transition_solution.html){target="_blank"}
+
+[rendered version](solutions/bar_transition_solution.html){target="_blank"}
+
+
+
 
 Further reading: [Working with Transitions](https://bost.ocks.org/mike/transition/){target="_blank"}.     
