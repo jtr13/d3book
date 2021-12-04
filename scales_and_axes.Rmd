@@ -34,25 +34,26 @@ See diagram here: https://github.com/d3/d3-scale#band-scales
 
 > <i class="far fa-lightbulb"></i> *Be sure to use `d3.scaleBand()`, not `d3.scaleOrdinal()` for this use case.
 
-### Examples
+### Bar chart 
 
 #### `d3.scaleBand()` {-}
 
 *IDVW2* Chapter 9, pp. 150-153
 
-**Vertical bar chart with labels**
+Here `d3.scaleBand()` is used to create an `xScale` function to convert bar numbers to pixels. Change the `w` parameter and observe how the bars are resized to fit on the SVG.
 
-`d3.scaleBand()` used to create an `xScale` function to convert bar numbers to pixels. Change the `w` parameter and observe how the bars are resized to fit on the SVG.
+<iframe src="code/d3.scaleBand.html" width="450" height="350" frameBorder="0"></iframe>
 
-[d3.scaleBand.html](code/d3.scaleBand.html){target="_blank"}
+[Code for download](https://raw.githubusercontent.com/jtr13/d3book/master/code/d3.scaleBand.html){target="_blank"}
+
 
 #### `d3.scaleLinear()` {-}
 
-**Vertical bar chart with labels**
+In the next graph, `d3.scaleLinear()` is added to create a `yScale` function to convert bar heights to pixels. Change the data and observe how the bars are resized to fit on the SVG.
 
-`d3.scaleLinear()` is added to create a `yScale` function to convert bar heights to pixels. Change the data and observe how the bars are resized to fit on the SVG.
+<iframe src="code/d3.scaleLinear.html" width="450" height="350" frameBorder="0"></iframe>
 
-[d3.scaleLinear.html](code/d3.scaleLinear.html){target="_blank"}
+[Code for download](https://raw.githubusercontent.com/jtr13/d3book/master/code/d3.scaleLinear.html){target="_blank"}
 
 ## Margins
 
@@ -70,9 +71,11 @@ See diagram here: https://github.com/d3/d3-scale#band-scales
   var innerHeight = h - margin.top - margin.bottom;
 ```
 
-### Example
+### Bar chart with margins
 
-Full example, vertical bar chart with margins: [margins.html](code/margins.html){target="_blank"}
+<iframe src="code/margins.html" width="450" height="350" frameBorder="0"></iframe>
+
+[Code for download](https://raw.githubusercontent.com/jtr13/d3book/master/code/margins.html){target="_blank"}
 
 ## Axes 
 
@@ -82,11 +85,17 @@ See: *IDVW2*, Chapter 8: Axes
 
 [Axes](pdfs/axes.pdf){target="_blank"}
 
-### Example
+### Bar chart with axes
 
-Full example: vertical bar chart with axes (open in browser): [axes.html](code/axes.html){target="_blank"}
+<iframe src="code/axes.html" width="450" height="350" frameBorder="0"></iframe>
 
-To download and open locally: [axes.html] (https://raw.githubusercontent.com/jtr13/d3book/master/code/axes.html){target="_blank"}
+[Code for download](https://raw.githubusercontent.com/jtr13/d3book/master/code/axes.html){target="_blank"}
 
 Practice changing the data and seeing what happens.
+
+## Bar chart with categorical labels
+
+<iframe src="code/axes_cat_labels.html" width="450" height="350" frameBorder="0"></iframe>
+
+[Code for download](https://raw.githubusercontent.com/jtr13/d3book/master/code/axes_cat_labels.html){target="_blank"}
 

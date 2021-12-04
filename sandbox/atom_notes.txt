@@ -1,0 +1,21 @@
+Atom setup
+
+apm install atom-html-preview   (atom package manager)
+shift-ctrl-H to toggle
+
+
+Auto close tags
+
+Preferences
+Install
+autoclose-html-plus
+
+(getting error with autoclose: https://github.com/awaw00/autoclose/issues/81)
+
+Keyboard shortcut for Edit Lines Auto Indent
+https://www.sitepoint.com/12-favorite-atom-tips-and-shortcuts-to-improve-your-workflow/
+
+'atom-text-editor':
+    'cmd-0': 'editor:auto-indent'
+
+
