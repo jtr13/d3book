@@ -45,6 +45,8 @@ In your Rmd file include the link to the D3 library as well as a link to a file 
 
 You can then create an identical `.html` file for testing purposes only. This has the advantage of not having to render the full bookdown book each time you would like to observe changes to your D3 code. This workflow is demoed in [this video](https://www.youtube.com/watch?v=AJhWtuXg7_k).
 
+Here is an example of a [standalone html file](https://raw.githubusercontent.com/jtr13/d3book/master/code/spearman_standalone.html) that could be used to bypass the process of building your **bookdown** book while working on the D3 section. The included-in-the-.Rmd version of this visualization is available in the [Spearman Rank Correlation Coefficient chapter](https://jtr13.github.io/d3book/spearman-rank-correlation-coefficient.html). 
+
 ### iframe
 
 Create your entire visualization in a separate `.html` file and then include in your `.Rmd` file with `<iframe>`:

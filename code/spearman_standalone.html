@@ -2,9 +2,12 @@
 <head>
   <script src="https://d3js.org/d3.v7.min.js"></script>
 
+  <!-- this script isn't needed in bookdown version since bookdown loads MathJax -->
   <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
   </script>
+
+  <!-- this script enables inline Math (single $) -->
   <script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
   </script>
@@ -43,6 +46,8 @@
         <h4 id="rho"></h4>
       </td>
     </table>
+
+    <!-- Add scripts to the end of the body section. -->
 
     <script src="../scripts/spearman.js"></script>
 
