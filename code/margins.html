@@ -7,17 +7,15 @@
 
   <body>
 
-  <h2>Plot margins</h2>
-
   <script>
 
-  var w = 500;
-  var h = 400;
+  var w = 400;
+  var h = 300;
   var margin = {top: 25, right: 0, bottom: 25, left: 25};
   var innerWidth = w - margin.left - margin.right;
   var innerHeight = h - margin.top - margin.bottom;
 
-  var bardata = [300, 100, 150, 220, 70, 270];
+  var bardata = [5, 6, 10, 3, 2, 12];
 
   var xScale = d3.scaleBand()
       .domain(d3.range(bardata.length))
@@ -42,7 +40,7 @@
     .attr("y", "0")
     .attr("width", w)
     .attr("height", h)
-    .attr("fill", "pink");
+    .attr("fill", "aliceblue");
 
   // add bars as a group
 
@@ -56,7 +54,20 @@
       .attr("y", d => yScale(d))
       .attr("width", xScale.bandwidth())
       .attr("height", d => innerHeight - yScale(d))
-      .attr("fill", "blue");
+      .attr("fill", "lightgreen");
+
+    svg.append("g")
+      .attr("transform", `translate (${margin.left}, ${margin.top})`)
+      .selectAll("text")
+      .data(bardata)
+      .enter()
+      .append("text")
+      .attr("x", (d, i) => xScale(i) + .5*xScale.bandwidth())
+      .attr("y", d => yScale(d) + 25)
+      .text(d => d)
+      .attr("fill", "blue")
+      .attr("text-anchor", "middle");
+
 
     </script>
   </body>

@@ -68,13 +68,14 @@ scales-and-axes
 scales
 lecture-slides-1
 practice
-examples
+bar-chart
 margins
 lecture-slides-2
-example
+bar-chart-with-margins
 axes
 lecture-slides-3
-example-1
+bar-chart-with-axes
+bar-chart-with-categorical-labels
 interactivity
 lecture-slides-4
 binding-event-listeners
@@ -88,7 +89,7 @@ dependent-event-listeners
 global-variable-example
 turn-off-event-listener
 transitions
-examples-1
+examples
 do-this
 not-this
 strategy
@@ -130,4 +131,4 @@ active
 active-1
 focus
 hover
-example-2
+example

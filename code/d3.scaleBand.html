@@ -8,12 +8,10 @@
 
   <body>
 
-  <h2>d3.scaleBand() for x-axis</h2>
-
     <script>
 
-      var w = 300;  // change this value and see what happens
-      var h = 400;
+      var w = 400;  // change this value and see what happens
+      var h = 300;
 
       var svg = d3.select("body")
         .append("svg")
@@ -32,22 +30,11 @@
 
       bars.enter().append("rect")
           .attr("x", (d, i) => xScale(i))
-          .attr("y", d => 400 - d)
+          .attr("y", d => h - d)
           .attr("width", xScale.bandwidth())
           .attr("height", d => d)
           .attr("fill", "lightgreen");
 
-      // add labels
-
-      svg.selectAll("text")
-        .data(bardata)
-        .enter()
-        .append("text")
-        .attr("x", (d, i) => xScale(i) + .5*xScale.bandwidth())
-        .attr("y", d => 400 - d + 25)
-        .text(d => d)
-        .attr("fill", "blue")
-        .attr("text-anchor", "middle");
     </script>
 
   </body>
