@@ -1,4 +1,6 @@
-# Debugging Tips <i class="fa fa-bug"></i>
+# General Advice <i class="fa fa-bug"></i>
+
+## Debugging Tips 
 
 * Make extensive use of Elements to see what's being added to the DOM.
 
@@ -20,3 +22,9 @@
 
 Have a tip? Click the <i class="fas fa-edit"></i>
 button, add the tip, and create a pull request.
+
+## Other
+
+* Save working versions!
+
+* Pay attention to the order 

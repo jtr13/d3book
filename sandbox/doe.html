@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>NYC High Schools</title>
+		<script src="https://d3js.org/d3.v7.min.js"></script>
+		<style type="text/css">
+		text {
+			font-family: sans-serif;
+			font-size: 12px;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="reading-files"></div>
+		<script type="text/javascript">
+		//Width and height
+		var w = 600;
+		var h = 600;
+		var padding = 40;
+
+		//Create scale functions
+		var xScale = d3.scaleLinear()
+		.range([padding, w - padding / 2]);
+
+		var yScale = d3.scaleLinear()
+		.range([h - padding, padding / 2]);
+
+		//Define X axis
+		var xAxis = d3.axisBottom()
+		.scale(xScale)
+		.ticks(5);
+
+		//Define Y axis
+		var yAxis = d3.axisLeft()
+		.scale(yScale)
+		.ticks(5);
+
+		//Create SVG element
+		var svg = d3.select("div#reading-files")
+		.append("svg")
+		.attr("width", w)
+		.attr("height", h);
+
+		//Create X axis
+		svg.append("g")
+		.attr("id", "xaxis")
+		.attr("transform", "translate(0," + (h - padding) + ")")
+		.call(xAxis);
+
+		//Create Y axis
+		svg.append("g")
+		.attr("id", "yaxis")
+		.attr("transform", "translate(" + padding + ",0)")
+		.call(yAxis);
+
+		// create text element
+		svg.append("text")
+		.attr("id", "nm");
+
+		var rowConverter = function (d) {
+			if (!isNaN(d.graduation_rate) && !isNaN(d.attendance_rate)) {
+				return {
+					grad: +d.graduation_rate,
+					attend: +d.attendance_rate,
+					name: d.school_name
+				}
+			}
+		};
+
+		d3.csv("https://data.cityofnewyork.us/api/views/uq7m-95z8/rows.csv", rowConverter)
+		.then(function(data) {
+
+			yScale
+			.domain([d3.min(data.map(d => d.grad)),
+				d3.max(data.map(d => d.grad))]);
+
+				d3.select("#yaxis").call(yAxis);
+
+				xScale.domain([d3.min(data.map(d => d.attend)
+					.filter(d => d > 0)),
+					d3.max(data.map(d => d.attend))]);
+
+					d3.select("#xaxis").call(xAxis);
+
+
+					//Create circles
+					var allCircles = svg.selectAll("circle")
+					.data(data)
+					.enter()
+					.append("circle")    // add jitter to deal with overplotting
+					.attr("cx", d => xScale(+d.attend+Math.random()/200))
+					.attr("cy", d => yScale(+d.grad+Math.random()/200))
+					.attr("r", 3)
+					.attr("fill", "black")
+					.attr("fill-opacity", ".5")
+					.on("mouseover", function ()
+					{
+						var school = d3.select(this);
+						d3.selectAll("circle")
+						.attr("fill", "lightgrey");
+						school
+						.attr("fill", "lightblue")
+						.attr("r", 5)
+						.raise();
+						svg.select("text#nm")
+						.attr("x", school.attr("cx"))
+						.attr("y", school.attr("cy"))
+						.attr("fill", "blue")
+						.style("text-anchor", function (d) {
+							if (+school.attr("cx") > d3.mean(xScale.range())) {
+								return "end";
+							} else {
+								return "start";
+							}
+						})
+						.text(school.datum().name)
+						.raise();
+					})
+					.on("mouseout", function () {
+						d3.selectAll("circle")
+						.attr("fill", "black");
+						d3.select("text#nm")
+						.text("");
+						d3.select(this)
+						.attr("r", 3);
+					})
+				})
+				.catch(function(error){
+					svg.select("text#nm").text("Error loading data.");
+				});
+		</script>
+	</body>
+</html>

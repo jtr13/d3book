@@ -65,7 +65,8 @@ var rowConverter = d => ({
 d3.csv("iris.csv", rowConverter)
   .then(function(data) {
 
-   xScale.domain([d3.min(data.map(d => d.SepalLength)), d3.max(data.map(d => d.SepalLength))]);
+   xScale.domain([d3.min(data.map(d => d.SepalLength)),
+     d3.max(data.map(d => d.SepalLength))]);
    d3.select("#xaxis").call(xAxis);
 
    yScale.domain([d3.min(data.map(d => d.SepalWidth)), d3.max(data.map(d => d.SepalWidth))]);

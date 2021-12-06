@@ -8,77 +8,15 @@
 
 [layouts.pdf](pdfs/layouts.pdf){target="_blank"}
 
-<div id="stacked"></div>
-
-<script>
-
-	//Width and height
-	var w = 500;
-	var h = 300;
-
-	//Original data
-	var dataset = [
-		{ apples: 5, oranges: 10, grapes: 22 },
-		{ apples: 4, oranges: 12, grapes: 28 },
-		{ apples: 2, oranges: 19, grapes: 32 },
-		{ apples: 7, oranges: 23, grapes: 35 },
-		{ apples: 23, oranges: 17, grapes: 43 }
-	];
-
-	//Set up stack method
-	var stack = d3.stack()
-		.keys([ "apples", "oranges", "grapes" ])
-		.order(d3.stackOrderDescending);  
-
-	//Data, stacked
-	var series = stack(dataset);
-
-	//Set up scales
-	var xScale = d3.scaleBand()
-		.domain(d3.range(dataset.length))
-		.range([0, w])
-		.paddingInner(0.05);
-		
-	var yScale = d3.scaleLinear()
-		.domain([0,	d3.max(dataset, d => d.apples + d.oranges + d.grapes)])
-		.range([h, 0]); 
-				
-	//Easy colors accessible via a 10-step ordinal scale
-	var colors = d3.scaleOrdinal(d3.schemeCategory10);
-		
-	//Create SVG element
-	var svg = d3.select("#stacked")
-		.append("svg")
-		.attr("width", w)
-		.attr("height", h);
-	
-// Add a group for each row of data
-	var groups = svg.selectAll("g")
-		.data(series)
-				.enter()
-				.append("g")
-				.style("fill", (d, i) => colors(i));
-	
-// Add a rect for each data value
-	var rects = groups.selectAll("rect")
-		.data(d => d)
-		.enter()
-		.append("rect")
-		.attr("x", (d, i) => xScale(i))
-		.attr("y", d => yScale(d[1]))
-		.attr("height", d => yScale(d[0]) - yScale(d[1]))
-		.attr("width", xScale.bandwidth());
-						
-</script>
+## Set up data and stack method
+> <i class="fa fa-hand-o-right"></i> *Open the JavaScript Console* <i class="fa fa-terminal"></i>
 
 ``` js
-<script>
-
-	//Width and height
+  // try me in the Console   
 	var w = 500;
 	var h = 300;
 
-	//Original data
+	// original data
 	var dataset = [
 		{ apples: 5, oranges: 10, grapes: 22 },
 		{ apples: 4, oranges: 12, grapes: 28 },
@@ -87,15 +25,20 @@
 		{ apples: 23, oranges: 17, grapes: 43 }
 	];
 
-	//Set up stack method
+	// set up stack method
 	var stack = d3.stack()
 		.keys([ "apples", "oranges", "grapes" ])
 		.order(d3.stackOrderDescending);  
+		
+	// data, stacked
+	var series = stack(dataset);	
+```
 
-	//Data, stacked
-	var series = stack(dataset);
+Try `stack(dataset)` in the Console.
 
-	//Set up scales
+## Set up scales
+
+``` js
 	var xScale = d3.scaleBand()
 		.domain(d3.range(dataset.length))
 		.range([0, w])
@@ -105,9 +48,18 @@
 		.domain([0,	d3.max(dataset, d => d.apples + d.oranges + d.grapes)])
 		.range([h, 0]); 
 				
-	//Easy colors accessible via a 10-step ordinal scale
 	var colors = d3.scaleOrdinal(d3.schemeCategory10);
-		
+```
+
+Enter `d3.schemeCategory10` in the Console. 
+
+Now try out the `colors` function. What is the domain?
+
+See built-in color options [here](https://github.com/d3/d3-scale-chromatic){target="_blank"}. Of course you are not limited to these and can use any appropriate color scheme.
+	
+## Add groups
+	
+``` js		
 	//Create SVG element
 	var svg = d3.select("#stacked")
 		.append("svg")
@@ -120,7 +72,16 @@
 				.enter()
 				.append("g")
 				.style("fill", (d, i) => colors(i));
-	
+```
+<div id="stacked"></div>
+
+[There's a div with id "stacked" here.]
+
+Why doesn't anything show up yet? Right-click and Inspect to find out.
+
+## Add rectangles
+
+``` js
 // Add a rect for each data value
 	var rects = groups.selectAll("rect")
 		.data(d => d)
@@ -131,5 +92,10 @@
 		.attr("height", d => yScale(d[0]) - yScale(d[1]))
 		.attr("width", xScale.bandwidth());
 						
-</script>
 ```
+
+## Get the code
+
+[Code for download](https://raw.githubusercontent.com/jtr13/d3book/master/code/stackedbar.html){target="_blank"}
+
+
