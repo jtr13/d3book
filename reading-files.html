@@ -24,7 +24,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2021-12-04" />
+<meta name="date" content="2021-12-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -383,13 +383,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="local-server" class="section level2">
 <h2><span class="header-section-number">10.2</span> Local server</h2>
-<p>For security reasons, Chrome does not let you read local files. To be able to do so, you can run a local server. One option is <a href="https://www.npmjs.com/package/http-server" target="_blank">http-server</a>. Follow the instructions to install <code>http-server</code>, navigate in a terminal to the directory with your html file, and then enter <code>http-server</code>. You should get a message like this:</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb154-1"><a href="reading-files.html#cb154-1"></a><span class="ex">Starting</span> up http-server, serving ./</span>
-<span id="cb154-2"><a href="reading-files.html#cb154-2"></a><span class="ex">Available</span> on:</span>
-<span id="cb154-3"><a href="reading-files.html#cb154-3"></a>  <span class="ex">http</span>://127.0.0.1:8080</span>
-<span id="cb154-4"><a href="reading-files.html#cb154-4"></a>  <span class="ex">http</span>://192.168.1.54:8080</span>
-<span id="cb154-5"><a href="reading-files.html#cb154-5"></a><span class="ex">Hit</span> CTRL-C to stop the server</span></code></pre></div>
-<p>Copy and paste the URL in the browser and you should see your page with data loaded. As indicated, Control-c will stop the server.</p>
+<p>For security reasons, Chrome does not let you read local files. To be able to do so, you can run a local server. One option is <a href="https://www.npmjs.com/package/http-server" target="_blank">http-server</a>. Follow the instructions to install <code>http-server</code>, navigate in a terminal to the directory with your html file, and then enter <code>http-server</code>:</p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb154-1"><a href="reading-files.html#cb154-1"></a><span class="ex">joycerobbins@MacBook-Pro</span> d3-book-murray % http-server</span></code></pre></div>
+<p>You should get a message that ends with something like this:</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb155-1"><a href="reading-files.html#cb155-1"></a><span class="ex">Starting</span> up http-server, serving ./</span>
+<span id="cb155-2"><a href="reading-files.html#cb155-2"></a><span class="ex">...</span></span>
+<span id="cb155-3"><a href="reading-files.html#cb155-3"></a><span class="ex">Available</span> on:</span>
+<span id="cb155-4"><a href="reading-files.html#cb155-4"></a>  <span class="ex">http</span>://127.0.0.1:8080</span>
+<span id="cb155-5"><a href="reading-files.html#cb155-5"></a>  <span class="ex">http</span>://192.168.1.54:8080</span>
+<span id="cb155-6"><a href="reading-files.html#cb155-6"></a><span class="ex">Hit</span> CTRL-C to stop the server</span></code></pre></div>
+<p>Copy and paste one of the URLs in the browser and you should see an index of subfolders and/or files available in the folder in which you launched the local server:</p>
+<p><img src="images/index_of.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>From here you can navigate to the desired file. Take note that you cannot move up in the file structure so be sure to start the server in the highest level directory that you plan to access, or that the files you open need to access. In this particular case I am opening the code files for Scott Murray’s
+<em>Interactive Data Visualization for the Web, 2nd ed.</em> (available <a href="https://github.com/alignedleft/d3-book/releases" target="_blank">here</a>). Rather than link to the online version of D3 as we’ve been doing, each file links to a downloaded version of D3 located in the top level directory with:</p>
+<p><code>&lt;script type="text/javascript" src="../d3.js"&gt;&lt;/script&gt;</code></p>
+<p>Therefore we must launch the local server from one level higher than the folder in which the file we wish to open resides.</p>
+<p>As indicated, Control-c in the command line will stop the server.</p>
 </div>
 <div id="other-local-options" class="section level2">
 <h2><span class="header-section-number">10.3</span> Other local options</h2>
