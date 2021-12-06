@@ -121,7 +121,14 @@ put-the-line-generator-to-work
 additional-resources
 layouts
 lecture-slides-6
+set-up-data-and-stack-method
+set-up-scales
+add-groups
+add-rectangles
+get-the-code
+general-advice
 debugging-tips
+other
 solutions
 spearman-rank-correlation-coefficient
 population-density
