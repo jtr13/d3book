@@ -52,17 +52,37 @@ For more about `d3.csv()`, see the [`d3.fetch` API](https://github.com/d3/d3-fet
 
 ## Local server
 
-For security reasons, Chrome does not let you read local files. To be able to do so, you can run a local server. One option is [http-server](https://www.npmjs.com/package/http-server){target="_blank"}. Follow the instructions to install `http-server`, navigate in a terminal to the directory with your html file, and then enter `http-server`. You should get a message like this:
+For security reasons, Chrome does not let you read local files. To be able to do so, you can run a local server. One option is [http-server](https://www.npmjs.com/package/http-server){target="_blank"}. Follow the instructions to install `http-server`, navigate in a terminal to the directory with your html file, and then enter `http-server`:
+
+``` bash
+joycerobbins@MacBook-Pro d3-book-murray % http-server
+```
+
+You should get a message that ends with something like this:
 
 ``` bash
 Starting up http-server, serving ./
+...
 Available on:
   http://127.0.0.1:8080
   http://192.168.1.54:8080
 Hit CTRL-C to stop the server
 ```
 
-Copy and paste the URL in the browser and you should see your page with data loaded. As indicated, Control-c will stop the server.
+Copy and paste one of the URLs in the browser and you should see an index of subfolders and/or files available in the folder in which you launched the local server:
+
+```{r, out.width='50%', fig.align='center', echo=FALSE}
+knitr::include_graphics("images/index_of.png")
+```
+
+From here you can navigate to the desired file. Take note that you cannot move up in the file structure so be sure to start the server in the highest level directory that you plan to access, or that the files you open need to access. In this particular case I am opening the code files for Scott Murray's 
+*Interactive Data Visualization for the Web, 2nd ed.* (available [here](https://github.com/alignedleft/d3-book/releases){target="_blank"}). Rather than link to the online version of D3 as we've been doing, each file links to a downloaded version of D3 located in the top level directory with:
+
+`<script type="text/javascript" src="../d3.js"></script>`  
+
+Therefore we must launch the local server from one level higher than the folder in which the file we wish to open resides.
+
+As indicated, Control-c in the command line will stop the server.
 
 ## Other local options
 

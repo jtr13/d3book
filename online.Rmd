@@ -12,7 +12,7 @@ My top recommendation is to use [vizhub.com](https://vizhub.com/){target="_blank
    
 As such you will not have `index.js` and generated `bundle.js` files as in the example.
 
-When browsing examples, remember that different versions of D3 are not compatible, so be sure to look at v6 examples, or know what you need to update from v4 and v5 examples. In addition, as with all code sharing sites, remember that not all examples are good examples. Examples by Curran Kelleher, the creator of VizHub, are good models to follow.
+When browsing examples, remember that different versions of D3 are not compatible, so be sure to look at v6 or v7 examples, or know what you need to update from v4 or v5 examples. In addition, as with all code sharing sites, remember that not all examples are good examples. Examples by Curran Kelleher, the creator of VizHub, are good models to follow.
 
 ## bookdown
 
