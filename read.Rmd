@@ -37,7 +37,7 @@ The row converter function is used to select variables and change data types ("+
 
 > <i class="fa fa-exclamation-triangle"></i> *Forget the mindset that you read files and store them in variables for later use. It doesn't work that way here. The data is read in and acted on immediately. If most of the code requires loaded data, then most of the code will appear in the `.then()` method.*
 
-A simple example of loading data in **v5** can be found in [this block](https://blockbuilder.org/tiktaktok/c2e02e2916c226ef44ed233cb46db40c){target="_blank"}. In contrast to the example above, an anonymous row converter function (with arrow functions) is used instead of calling a separate row converter function. Note as well that it's not necessary to include all variables in the row converter as this author has done. To test, fork the block and delete all the variables that aren't used, so that the row converter (line 56) becomes:
+A simple example of loading data in **v5** can be found in [this block](https://bl.ocks.org/tiktaktok/c2e02e2916c226ef44ed233cb46db40c){target="_blank"}. In contrast to the example above, an anonymous row converter function (with arrow functions) is used instead of calling a separate row converter function. Note as well that it's not necessary to include all variables in the row converter as this author has done. For example, you could delete all the variables that aren't used, so that the row converter in the `d3.csv` line becomes:
 
 ``` js
 d => ({
