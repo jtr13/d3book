@@ -41,7 +41,7 @@
 		.domain([0,	d3.max(dataset, d => d.apples + d.oranges + d.grapes)])
 		.range([h, 0]);
 
-	//Easy colors accessible via a 10-step ordinal scale
+	// use one of the built-in d3 color scales
 	var colors = d3.scaleOrdinal(d3.schemeCategory10);
 
 	//Create SVG element
@@ -53,9 +53,9 @@
 // Add a group for each row of data
 	var groups = svg.selectAll("g")
 		.data(series)
-				.enter()
-				.append("g")
-				.style("fill", (d, i) => colors(i));
+		.enter()
+		.append("g")
+		.style("fill", (d, i) => colors(i));
 
 // Add a rect for each data value
 	var rects = groups.selectAll("rect")
