@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+		<meta charset="utf-8">
+		<title>NYC High Schools</title>
+		<script src="https://d3js.org/d3.v7.js"></script>
+		<style>
+		  text {
+		    font-family: Sans-Serif;
+		  }
+		</style>
+	</head>
+
+	<body>
+		<script>
+		var w = 600;
+		var h = 300;
+		var padding = 40;
+
+		//Create scale functions
+		var xScale = d3.scaleLinear()
+		.domain([0, 1])
+		.range([padding, w - padding / 2]);
+
+		var yScale = d3.scaleLinear()
+		.domain([0, 1])
+		.range([h - padding, padding / 2]);
+
+		// define X axis
+		var xAxis = d3.axisBottom()
+		.scale(xScale)
+		.ticks(5);
+
+		//Define Y axis
+		var yAxis = d3.axisLeft()
+		.scale(yScale)
+		.ticks(5);
+
+		var svg = d3.select("body")
+		  .append("svg")
+		  .attr("width", w)
+		  .attr("height", h);
+
+		//Create X axis
+		svg.append("g")
+		.attr("id", "xaxis")
+		.attr("transform", "translate(0," + (h - padding) + ")")
+		.call(xAxis);
+
+		//Create Y axis
+		svg.append("g")
+		.attr("id", "yaxis")
+		.attr("transform", "translate(" + padding + ",0)")
+		.call(yAxis);
+
+		svg.append("text")
+		  .attr("x", w/2)
+		  .attr("y", h/2)
+		  .attr("id", "nm");
+
+		  var rowConverter = function (d) {
+		    	if (!isNaN(d.graduation_rate) && !isNaN(d.attendance_rate)) {
+		    return {
+					grad: +d.graduation_rate,
+					attend: +d.attendance_rate,
+					name: d.school_name
+				}
+		  }
+		};
+
+		d3.csv("https://data.cityofnewyork.us/api/views/uq7m-95z8/rows.csv", rowConverter)
+		  .then(function(data) {
+
+		  xScale
+		    .domain([d3.min(data.map(d => d.attend)
+		               .filter(d => d > 0)),
+					       d3.max(data.map(d => d.attend))]);
+
+		  yScale
+			  .domain([d3.min(data.map(d => d.grad)),
+			           d3.max(data.map(d => d.grad))]);
+
+				d3.select("#yaxis").call(yAxis);
+
+				d3.select("#xaxis").call(xAxis);
+
+		  var allCircles = svg.selectAll("circle")
+					.data(data)
+					.enter()
+					.append("circle")
+					.attr("cx", d => xScale(d.attend))
+					.attr("cy", d => yScale(d.grad))
+					.attr("r", 3)
+					.attr("fill", "black")
+					.attr("fill-opacity", ".5")
+					.on("mouseover", function () {
+					  var school = d3.select(this).datum();
+					  d3.select("text#nm")
+					    .attr("fill", "red")
+					    .text(school.name);
+					});
+		})
+		.catch(function(error) {
+					svg.select("text#nm").text("Error loading data.")
+					});
+		</script>
+	</body>
+</html>
