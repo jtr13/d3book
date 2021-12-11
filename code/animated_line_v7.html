@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!-- updated to v7 from v3
+ v3 source: http://bl.ocks.org/atmccann/8966400 -->
+
+<meta charset="utf-8">
+<style>
+
+body {
+  font: 12px Helvetica;
+}
+
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+</style>
+<body>
+<script src="https://d3js.org/d3.v7.js"></script>
+<script>
+
+var margin = {top: 20, right: 50, bottom: 30, left: 50},
+    width = 630 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+var parseDate = d3.timeParse("%Y-%m-%d");
+
+var xScale = d3.scaleTime()
+    .range([0, width]);
+
+var yScale = d3.scaleLinear()
+    .range([height, 0]);
+
+var color = d3.scaleOrdinal(d3.schemeCategory10);
+
+var xAxis = d3.axisBottom()
+    .scale(xScale)
+    .ticks(5);
+
+var yAxis = d3.axisLeft()
+    .scale(yScale)
+    .tickFormat(function(d) { return d + "%";})
+    .ticks(5);
+
+var line = d3.line()
+    .x(function(d) { return xScale(d.date); })
+    .y(function(d) { return yScale(d.price); })
+    .curve(d3.curveBasis);
+
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.tsv("airbus_data.tsv").then(function(data) {
+
+  color.domain(Object.keys(data[0]).filter(function(key) {
+    return key !== "date"; }));
+
+  data.forEach(function(d) {
+    d.date = parseDate(d.date);
+  });
+
+  var companies = color.domain().map(function(name) {
+    return {
+      name: name,
+      values: data.map(function(d) {
+        return {date: d.date, price: +d[name]};
+      })
+    };
+  });
+
+
+  xScale
+    .domain(d3.extent(data, function(d) { return d.date; }));
+
+  yScale
+    .domain([
+    d3.min(companies, function(c) { return d3.min(c.values, function(v) { return v.price; }); }),
+    d3.max(companies, function(c) { return d3.max(c.values, function(v) { return v.price; }); })
+  ]);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+
+
+  svg.append("line")
+        .attr(
+        {
+            "class":"horizontalGrid",
+            "x1" : 0,
+            "x2" : width,
+            "y1" : yScale(0),
+            "y2" : yScale(0),
+            "fill" : "none",
+            "shape-rendering" : "crispEdges",
+            "stroke" : "black",
+            "stroke-width" : "1px",
+            "stroke-dasharray": ("3, 3")
+        });
+
+
+  var company = svg.selectAll(".company")
+      .data(companies)
+    .enter().append("g")
+      .attr("class", "company");
+
+
+
+  var path = svg.selectAll(".company").append("path")
+      .attr("class", "line")
+      .attr("d", function(d) { return line(d.values); })
+      .style("stroke", function(d) { if (d.name == "Airbus")
+                                        {return "rgb(000,255,000)"}
+                                      else {return "#000";}
+                                         });
+
+
+var totalLength = path.nodes().map(d => d.getTotalLength());
+
+path
+  .data(totalLength)
+  .attr("stroke-dasharray", d => d + " " + d)
+      .attr("stroke-dashoffset", d => d)
+      .transition()
+        .duration(5000)
+        .ease(d3.easeLinear)
+        .attr("stroke-dashoffset", 0);
+});
+
+</script>
