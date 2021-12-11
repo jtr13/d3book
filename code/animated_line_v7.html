@@ -9,19 +9,8 @@ body {
   font: 12px Helvetica;
 }
 
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-.x.axis path {
-  display: none;
-}
-
 .line {
   fill: none;
-  stroke: steelblue;
   stroke-width: 2px;
 }
 
@@ -30,17 +19,23 @@ body {
 <script src="https://d3js.org/d3.v7.js"></script>
 <script>
 
-var margin = {top: 20, right: 50, bottom: 30, left: 50},
-    width = 630 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+var width = 630;
+
+var height = 400
+
+var margin = {top: 20, right: 50, bottom: 30, left: 50};
+
+var innerWidth = width - margin.left - margin.right;
+
+var innerHeight = height - margin.top - margin.bottom;
 
 var parseDate = d3.timeParse("%Y-%m-%d");
 
 var xScale = d3.scaleTime()
-    .range([0, width]);
+    .range([0, innerWidth]);
 
 var yScale = d3.scaleLinear()
-    .range([height, 0]);
+    .range([innerHeight, 0]);
 
 var color = d3.scaleOrdinal(d3.schemeCategory10);
 
@@ -50,101 +45,83 @@ var xAxis = d3.axisBottom()
 
 var yAxis = d3.axisLeft()
     .scale(yScale)
-    .tickFormat(function(d) { return d + "%";})
+    .tickFormat(d => d + "%")
     .ticks(5);
 
 var line = d3.line()
-    .x(function(d) { return xScale(d.date); })
-    .y(function(d) { return yScale(d.price); })
+    .x(d => xScale(d.date))
+    .y(d => yScale(d.price))
     .curve(d3.curveBasis);
 
 
 var svg = d3.select("body").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("width", width)
+    .attr("height", height)
   .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .attr("transform", `translate( ${margin.left} , ${margin.top} )` );
 
 d3.tsv("https://raw.githubusercontent.com/jtr13/d3book/master/data/airbus_data.tsv").then(function(data) {
-
-  color.domain(Object.keys(data[0]).filter(function(key) {
-    return key !== "date"; }));
 
   data.forEach(function(d) {
     d.date = parseDate(d.date);
   });
 
-  var companies = color.domain().map(function(name) {
-    return {
-      name: name,
-      values: data.map(function(d) {
-        return {date: d.date, price: +d[name]};
-      })
-    };
-  });
+  var colnames = Object.keys(data[0])
+    .filter(key => key !== "date")
 
+  var companies = colnames.map(name => ({
+      name: name,
+      values: data.map(d => ({date: d.date, price: +d[name]}))
+      }));
+
+  var values = companies.map(d => d.values);
+
+  var minprices = values.map((d, i) => d3.min(values[i].map(d => d.price)));
+
+  var maxprices = values.map((d, i) => d3.max(values[i].map(d => d.price)));
 
   xScale
-    .domain(d3.extent(data, function(d) { return d.date; }));
+    .domain(d3.extent(data, d => d.date));
 
   yScale
-    .domain([
-    d3.min(companies, function(c) { return d3.min(c.values, function(v) { return v.price; }); }),
-    d3.max(companies, function(c) { return d3.max(c.values, function(v) { return v.price; }); })
-  ]);
+    .domain([d3.min(minprices), d3.max(maxprices)]);
 
   svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
+      .attr("transform", `translate(0, ${innerHeight})`)
       .call(xAxis);
 
   svg.append("g")
-      .attr("class", "y axis")
       .call(yAxis);
-
-
-  svg.append("line")
-        .attr(
-        {
-            "class":"horizontalGrid",
-            "x1" : 0,
-            "x2" : width,
-            "y1" : yScale(0),
-            "y2" : yScale(0),
-            "fill" : "none",
-            "shape-rendering" : "crispEdges",
-            "stroke" : "black",
-            "stroke-width" : "1px",
-            "stroke-dasharray": ("3, 3")
-        });
-
 
   var company = svg.selectAll(".company")
       .data(companies)
     .enter().append("g")
       .attr("class", "company");
 
-
-
-  var path = svg.selectAll(".company").append("path")
+  var path = svg.selectAll(".company")
+    .append("path")
       .attr("class", "line")
-      .attr("d", function(d) { return line(d.values); })
-      .style("stroke", function(d) { if (d.name == "Airbus")
-                                        {return "rgb(000,255,000)"}
-                                      else {return "#000";}
-                                         });
+      .attr("d", d => line(d.values))
+      .style("stroke", (d, i) => color(i));
 
+  var labels = svg.selectAll(".company")
+    .append("text")
+      .attr("x", innerWidth*.9)
+      .attr("y", (d, i) => innerHeight*(.8 + (i*.05)))
+      .text(d => d.name)
+      .attr("fill", (d, i) => color(i));
 
-var totalLength = path.nodes().map(d => d.getTotalLength());
+  var totalLength = path.nodes().map(d => d.getTotalLength());
 
-path
-  .data(totalLength)
-  .attr("stroke-dasharray", d => d + " " + d)
+  path
+    .data(totalLength)
+    .attr("stroke-dasharray", d => d + " " + d)
       .attr("stroke-dashoffset", d => d)
       .transition()
         .duration(5000)
         .ease(d3.easeLinear)
         .attr("stroke-dashoffset", 0);
+
 });
 
 </script>
