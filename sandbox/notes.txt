@@ -19,3 +19,8 @@ https://www.sitepoint.com/12-favorite-atom-tips-and-shortcuts-to-improve-your-wo
     'cmd-0': 'editor:auto-indent'
 
 
+animated_line_v7.html
+
+stroke-dasharray is easy to understand
+stroke-dashoffset specifies where in the sequence defined by stroke-dasharray to start. It does not simply add a gap to the beginning though it appears to do that sometimes. Best resource:https://svgwg.org/svg2-draft/painting.html#StrokeDashoffsetProperty
+
