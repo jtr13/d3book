@@ -1,5 +1,3 @@
-# (PART) Examples {-}
-
 # Spearman Rank Correlation Coefficient
 
 <style>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!-- updated to v7 from v3
+ v3 source: http://bl.ocks.org/atmccann/8966400 -->
+
+<meta charset="utf-8">
+<style>
+
+body {
+  font: 12px Helvetica;
+}
+
+.line {
+  fill: none;
+  stroke-width: 2px;
+}
+
+</style>
+<body>
+<script src="https://d3js.org/d3.v7.js"></script>
+<script>
+
+var width = 630;
+
+var height = 400
+
+var margin = {top: 20, right: 50, bottom: 30, left: 50};
+
+var innerWidth = width - margin.left - margin.right;
+
+var innerHeight = height - margin.top - margin.bottom;
+
+var parseDate = d3.timeParse("%Y-%m-%d");
+
+var xScale = d3.scaleTime()
+    .range([0, innerWidth]);
+
+var yScale = d3.scaleLinear()
+    .range([innerHeight, 0]);
+
+var color = d3.scaleOrdinal(d3.schemeCategory10);
+
+var xAxis = d3.axisBottom()
+    .scale(xScale)
+    .ticks(5);
+
+var yAxis = d3.axisLeft()
+    .scale(yScale)
+    .tickFormat(d => d + "%")
+    .ticks(5);
+
+var line = d3.line()
+    .x(d => xScale(d.date))
+    .y(d => yScale(d.price));
+
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("transform", `translate( ${margin.left} , ${margin.top} )` );
+
+d3.tsv("https://raw.githubusercontent.com/jtr13/d3book/master/data/airbus_data.tsv").then(function(data) {
+
+  data.forEach(function(d) {
+    d.date = parseDate(d.date);
+  });
+
+  var colnames = Object.keys(data[0])
+    .filter(key => key !== "date")
+
+  var companies = colnames.map(name => ({
+      name: name,
+      values: data.map(d => ({date: d.date, price: +d[name]}))
+      }));
+
+  var values = companies.map(d => d.values);
+
+  var delay = 10000/values[0].length;
+
+  var minprices = values.map((d, i) => d3.min(values[i].map(d => d.price)));
+
+  var maxprices = values.map((d, i) => d3.max(values[i].map(d => d.price)));
+
+  xScale
+    .domain(d3.extent(data, d => d.date));
+
+  yScale
+    .domain([d3.min(minprices), d3.max(maxprices)]);
+
+  svg.append("g")
+      .attr("transform", `translate(0, ${innerHeight})`)
+      .call(xAxis);
+
+  svg.append("g")
+      .call(yAxis);
+
+  var start = colnames.map(name => ({
+      name: name,
+      values: data.slice(0, 1).map(d => ({date: d.date, price: +d[name]}))
+      }));
+
+  svg
+    .selectAll("path.company")
+    .data(start)
+    .enter()
+    .append("path")
+      .attr("class", "company")
+      .attr("d", d => line(d.values))
+      .attr("fill", "none")
+      .style("stroke", (d, i) => color(i));
+
+  var labels = svg
+    .selectAll("text.company")
+    .data(start)
+    .enter()
+    .append("text")
+      .attr("class", "company")
+      .attr("fill", (d, i) => color(i))
+      .text(d => d.name);
+
+  labels
+     .data(start.map(d => d.values[0]))
+        .attr("x", d => xScale(d.date))
+        .attr("y", d => yScale(d.price));
+
+    var len = values[0].length;
+
+
+    for (let j = 1; j < len; j++) {
+
+      var companies = colnames.map(name => ({
+      name: name,
+      values: data.slice(0, j).map(d => ({date: d.date, price: +d[name]}))
+      }));
+
+      var values = companies.map(d => d.values);
+
+      var last = values.map(d => d[values[0].length-1]);
+
+      console.log(last)
+
+      d3.selectAll("path.company")
+        .data(values)
+        .transition()
+        .duration(500)
+        .ease(d3.easeLinear)
+        .delay(j*delay)
+        .attr("d", d => line(d));
+
+      d3.selectAll("text.company")
+        .data(last)
+        .transition()
+        .duration(500)
+        .ease(d3.easeLinear)
+        .delay(j*delay*.95)
+        .attr("x", d => xScale(d.date))
+        .attr("y", d => yScale(d.price));
+
+    }
+  });
+
+</script>

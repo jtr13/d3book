@@ -1,0 +1,30 @@
+# (PART) Examples {-}
+
+# Correlation Coefficient
+
+<style>
+  h2, h3, p, text {
+    font-family: sans-serif;
+    text-anchor: middle;
+  }
+</style>
+
+<div id="correlation" style="width: 600px">
+
+<h3>Correlation Coefficient</h3>
+
+<p>The correlation coefficient (r) is a measure of the linear relationship between two variables x and y. To get a sense of the connection between the appearance of points -- (x,y) pairs --  in a scatterplot and the value of r, click anywhere on the graph to add points. To remove points, click the Remove Points button and then mouseover points. The correlation coefficient is shown below.</p>
+
+<p>
+  <input type="radio" name="typeofaction" value="add" checked="true">Add points
+	<input type="radio" name="typeofaction" value="remove">Remove points
+</p>
+
+<p id="r">Click on the chart below to add points.</p>
+
+</div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="scripts/correlation.js"></script>
+
+

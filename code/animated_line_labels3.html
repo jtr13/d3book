@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!-- updated to v7 from v3
+ v3 source: http://bl.ocks.org/atmccann/8966400 -->
+
+<meta charset="utf-8">
+<style>
+
+body {
+  font: 12px Helvetica;
+}
+
+.line {
+  fill: none;
+  stroke-width: 2px;
+}
+
+</style>
+<body>
+<script src="https://d3js.org/d3.v7.js"></script>
+<script>
+
+var width = 700;
+
+var height = 400
+
+var margin = {top: 20, right: 70, bottom: 30, left: 50};
+
+var innerWidth = width - margin.left - margin.right;
+
+var innerHeight = height - margin.top - margin.bottom;
+
+var parseDate = d3.timeParse("%Y-%m-%d");
+
+var xScale = d3.scaleTime()
+    .range([0, innerWidth]);
+
+var yScale = d3.scaleLinear()
+    .range([innerHeight, 0]);
+
+var color = d3.scaleOrdinal(d3.schemeCategory10);
+
+var xAxis = d3.axisBottom()
+    .scale(xScale)
+    .ticks(5);
+
+var yAxis = d3.axisLeft()
+    .scale(yScale)
+    .ticks(5);
+
+var line = d3.line()
+    .x(d => xScale(d.date))
+    .y(d => yScale(d.cases));
+
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("transform", `translate( ${margin.left} , ${margin.top} )` );
+
+d3.csv("https://raw.githubusercontent.com/jtr13/cctest/main/nynjma_wide.csv").then(function(data) {
+
+  data.forEach(function(d) {
+    d.date = parseDate(d.date);
+  });
+
+  var colnames = Object.keys(data[0])
+    .filter(key => key !== "date")
+
+  var states = colnames.map(name => ({
+      name: name,
+      values: data.map(d => ({date: d.date, cases: +d[name]}))
+      }));
+
+  var values = states.map(d => d.values);
+
+  var delay = 10000/values[0].length;
+
+  var maxcases = values.map((d, i) => d3.max(values[i].map(d => d.cases)));
+
+  xScale
+    .domain(d3.extent(data, d => d.date));
+
+  yScale
+    .domain([0, d3.max(maxcases)]);
+
+  svg.append("g")
+      .attr("transform", `translate(0, ${innerHeight})`)
+      .call(xAxis);
+
+  svg.append("g")
+      .call(yAxis);
+
+  var start = colnames.map(name => ({
+      name: name,
+      values: data.slice(0, 1).map(d => ({date: d.date, cases: +d[name]}))
+      }));
+
+  console.log(start)
+
+  svg
+    .selectAll("path.state")
+    .data(start)
+    .enter()
+    .append("path")
+      .attr("class", "state")
+      .attr("d", d => line(d.values))
+      .attr("fill", "none")
+      .style("stroke", (d, i) => color(i));
+
+  var labels = svg
+    .selectAll("text.state")
+    .data(start)
+    .enter()
+    .append("text")
+      .attr("class", "state")
+      .attr("fill", (d, i) => color(i))
+      .text(d => d.name);
+
+  labels
+     .data(start.map(d => d.values[0]))
+        .attr("x", d => xScale(d.date))
+        .attr("y", d => yScale(d.cases));
+
+    var len = values[0].length;
+
+    for (let j = 2; j < len; j++) {
+
+      var states = colnames.map(name => ({
+      name: name,
+      values: data.slice(0, j).map(d => ({date: d.date, cases: +d[name]}))
+      }));
+
+      var values = states.map(d => d.values);
+
+      console.log(values)
+
+      var last = values.map(d => d[values[0].length-1]);
+
+      d3.selectAll("path.state")
+        .data(values)
+        .transition()
+        .duration(500)
+        .ease(d3.easeLinear)
+        .delay(j*delay)
+        .attr("d", d => line(d));
+
+      d3.selectAll("text.state")
+        .data(last)
+        .transition()
+        .duration(500)
+        .ease(d3.easeLinear)
+        .delay(j*delay*.95)
+        .attr("x", d => xScale(d.date))
+        .attr("y", d => yScale(d.cases));
+
+    }
+  });
+
+</script>
