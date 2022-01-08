@@ -130,6 +130,7 @@ general-advice
 debugging-tips
 other
 solutions
+correlation-coefficient
 spearman-rank-correlation-coefficient
 population-density
 appendix-advanced-css
