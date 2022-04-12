@@ -269,7 +269,7 @@ Do more stuff with `Y`.
 
 ## Exercise <i class="fas fa-dumbbell"></i>: merge
 
-Open the bar chart you created in the previous exercise in Chrome, or [this one](code/horiz_bar.html){target="_blank"} and work in the Console. (You don't have to download it.)
+Open the bar chart you created in the previous exercise in Chrome, or [this one](solutions/horizontal_bar_chart.html){target="_blank"} and work in the Console. (You don't have to download it.)
 
 1. Change the data to any six other values and update the lengths of the bars.
 
