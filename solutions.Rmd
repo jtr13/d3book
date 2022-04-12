@@ -223,7 +223,7 @@ bars.enter()
    .attr("stroke-width", 5);
 ```
 
-4. Use `.merge()` to combine the update and enter selections into one selection and then transition the height of all of the bars to half their current height.
+4. Use `.merge()` to combine the update and enter selections into one selection and then transition the length of all of the bars to half their current length.
 
 console:
 
@@ -243,7 +243,7 @@ bars.enter()
   .merge(bars)
     .transition()
     .duration(2000)
-    .attr("height", 35 / 2)
+    .attr("height", "35")
     .attr("width", d => d);
 ```    
 
@@ -298,10 +298,10 @@ Therefore in order to bring everything "down", we need to tweak the `y` coordina
 ``` js
 bars.enter()
   .append("rect")
-  .attr("x", (d, i) => i*50)
+  .attr("x", (d, i) => i * 50 + 50)
   .attr("y", d => 400 - d)
   .attr("width", "35")
-  .attr("height",d => d)
+  .attr("height", d => d)
   .attr("fill", "lightgreen");
 ```
 
@@ -310,7 +310,7 @@ In addition to that, we need to reflect those changes in the update function and
 ``` js
 bars.enter()
   .append("rect") // add new elements
-    .attr("x", (d, i) => i * 50)
+    .attr("x", (d, i) => i * 50 + 50)
     .attr("y", d => 400 - d)
     .attr("width", "35")
     .attr("height", d => d)
