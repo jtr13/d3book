@@ -4,11 +4,6 @@ author: "Joyce Robbins"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 always_allow_html: yes
-documentclass: book
-classoption: openany 
-bibliography: [book.bib, packages.bib]
-biblio-style: apalike
-link-citations: yes
 ---
 
 # Welcome to D3 {-}
