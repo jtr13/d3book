@@ -511,38 +511,53 @@ Our goal is to create a horizontal bar chart.</p>
 <ol start="3" style="list-style-type: decimal">
 <li>Bind a new dataset, <code>reallynewbardata</code>, to the bars, then add additional bars so each data value has a bar. Make the outline (stroke) of the new bars a different color.</li>
 </ol>
-<p>Click the icon to add your solution –&gt; <a href="https://github.com/jtr13/d3book/edit/master/solutions.Rmd" target="_blank"><i class="fa fa-edit"></i></a></p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb195-1"><a href="solutions.html#cb195-1"></a><span class="kw">var</span> reallynewbardata <span class="op">=</span> [<span class="dv">300</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">250</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">325</span><span class="op">,</span> <span class="dv">275</span>]<span class="op">;</span></span>
+<span id="cb195-2"><a href="solutions.html#cb195-2"></a>bars <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb195-3"><a href="solutions.html#cb195-3"></a>  .<span class="at">data</span>(reallynewbardata)</span>
+<span id="cb195-4"><a href="solutions.html#cb195-4"></a><span class="va">bars</span>.<span class="at">transition</span>()</span>
+<span id="cb195-5"><a href="solutions.html#cb195-5"></a>  .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb195-6"><a href="solutions.html#cb195-6"></a>  .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
+<span id="cb195-7"><a href="solutions.html#cb195-7"></a><span class="va">bars</span>.<span class="at">enter</span>()</span>
+<span id="cb195-8"><a href="solutions.html#cb195-8"></a>  .<span class="at">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb195-9"><a href="solutions.html#cb195-9"></a>  .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="dv">0</span>)</span>
+<span id="cb195-10"><a href="solutions.html#cb195-10"></a>  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="dv">30</span>)</span>
+<span id="cb195-11"><a href="solutions.html#cb195-11"></a>   .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> <span class="dv">50</span> <span class="op">*</span> i)</span>
+<span id="cb195-12"><a href="solutions.html#cb195-12"></a>   .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="dv">35</span>)</span>
+<span id="cb195-13"><a href="solutions.html#cb195-13"></a>   .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
+<span id="cb195-14"><a href="solutions.html#cb195-14"></a>   .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightgreen&quot;</span>)</span>
+<span id="cb195-15"><a href="solutions.html#cb195-15"></a>   .<span class="at">attr</span>(<span class="st">&quot;stroke&quot;</span><span class="op">,</span> <span class="st">&quot;pink&quot;</span>)</span>
+<span id="cb195-16"><a href="solutions.html#cb195-16"></a>   .<span class="at">attr</span>(<span class="st">&quot;stroke-width&quot;</span><span class="op">,</span> <span class="dv">5</span>)<span class="op">;</span></span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>Use <code>.merge()</code> to combine the update and enter selections into one selection and then transition the height of all of the bars to half their current height.</li>
 </ol>
 <p>console:</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb195-1"><a href="solutions.html#cb195-1"></a><span class="kw">var</span> reallynewbardata <span class="op">=</span> [<span class="dv">300</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">250</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">325</span><span class="op">,</span> <span class="dv">275</span>]<span class="op">;</span></span>
-<span id="cb195-2"><a href="solutions.html#cb195-2"></a>bars <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb195-3"><a href="solutions.html#cb195-3"></a>    .<span class="at">data</span>(reallynewbardata)</span>
-<span id="cb195-4"><a href="solutions.html#cb195-4"></a><span class="va">bars</span>.<span class="at">enter</span>()</span>
-<span id="cb195-5"><a href="solutions.html#cb195-5"></a>  .<span class="at">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb195-6"><a href="solutions.html#cb195-6"></a>    .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="dv">30</span>)</span>
-<span id="cb195-7"><a href="solutions.html#cb195-7"></a>    .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> <span class="dv">50</span> <span class="op">*</span> i)</span>
-<span id="cb195-8"><a href="solutions.html#cb195-8"></a>    .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="dv">35</span>)</span>
-<span id="cb195-9"><a href="solutions.html#cb195-9"></a>    .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
-<span id="cb195-10"><a href="solutions.html#cb195-10"></a>    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightgreen&quot;</span>)</span>
-<span id="cb195-11"><a href="solutions.html#cb195-11"></a>    .<span class="at">attr</span>(<span class="st">&quot;stroke&quot;</span><span class="op">,</span> <span class="st">&quot;pink&quot;</span>)</span>
-<span id="cb195-12"><a href="solutions.html#cb195-12"></a>    .<span class="at">attr</span>(<span class="st">&quot;stroke-width&quot;</span><span class="op">,</span> <span class="dv">5</span>)</span>
-<span id="cb195-13"><a href="solutions.html#cb195-13"></a>  .<span class="at">merge</span>(bars)</span>
-<span id="cb195-14"><a href="solutions.html#cb195-14"></a>    .<span class="at">transition</span>()</span>
-<span id="cb195-15"><a href="solutions.html#cb195-15"></a>    .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb195-16"><a href="solutions.html#cb195-16"></a>    .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="dv">35</span> <span class="op">/</span> <span class="dv">2</span>)</span>
-<span id="cb195-17"><a href="solutions.html#cb195-17"></a>    .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb196-1"><a href="solutions.html#cb196-1"></a><span class="kw">var</span> reallynewbardata <span class="op">=</span> [<span class="dv">300</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">250</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">325</span><span class="op">,</span> <span class="dv">275</span>]<span class="op">;</span></span>
+<span id="cb196-2"><a href="solutions.html#cb196-2"></a>bars <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb196-3"><a href="solutions.html#cb196-3"></a>    .<span class="at">data</span>(reallynewbardata)</span>
+<span id="cb196-4"><a href="solutions.html#cb196-4"></a><span class="va">bars</span>.<span class="at">enter</span>()</span>
+<span id="cb196-5"><a href="solutions.html#cb196-5"></a>  .<span class="at">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb196-6"><a href="solutions.html#cb196-6"></a>    .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="dv">30</span>)</span>
+<span id="cb196-7"><a href="solutions.html#cb196-7"></a>    .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> <span class="dv">50</span> <span class="op">*</span> i)</span>
+<span id="cb196-8"><a href="solutions.html#cb196-8"></a>    .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="dv">35</span>)</span>
+<span id="cb196-9"><a href="solutions.html#cb196-9"></a>    .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
+<span id="cb196-10"><a href="solutions.html#cb196-10"></a>    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightgreen&quot;</span>)</span>
+<span id="cb196-11"><a href="solutions.html#cb196-11"></a>    .<span class="at">attr</span>(<span class="st">&quot;stroke&quot;</span><span class="op">,</span> <span class="st">&quot;pink&quot;</span>)</span>
+<span id="cb196-12"><a href="solutions.html#cb196-12"></a>    .<span class="at">attr</span>(<span class="st">&quot;stroke-width&quot;</span><span class="op">,</span> <span class="dv">5</span>)</span>
+<span id="cb196-13"><a href="solutions.html#cb196-13"></a>  .<span class="at">merge</span>(bars)</span>
+<span id="cb196-14"><a href="solutions.html#cb196-14"></a>    .<span class="at">transition</span>()</span>
+<span id="cb196-15"><a href="solutions.html#cb196-15"></a>    .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb196-16"><a href="solutions.html#cb196-16"></a>    .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="dv">35</span> <span class="op">/</span> <span class="dv">2</span>)</span>
+<span id="cb196-17"><a href="solutions.html#cb196-17"></a>    .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)<span class="op">;</span></span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
 <li>Add text labels inside the bars at the right end with the length of the bar in pixels.</li>
 </ol>
-<div class="sourceCode" id="cb196"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb196-1"><a href="solutions.html#cb196-1"></a><span class="kw">var</span> bartext <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;text&quot;</span>)</span>
-<span id="cb196-2"><a href="solutions.html#cb196-2"></a>  .<span class="at">data</span>(reallynewbardata)</span>
-<span id="cb196-3"><a href="solutions.html#cb196-3"></a><span class="va">bartext</span>.<span class="at">enter</span>()</span>
-<span id="cb196-4"><a href="solutions.html#cb196-4"></a>  .<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</span>
-<span id="cb196-5"><a href="solutions.html#cb196-5"></a>  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d <span class="op">-</span> <span class="dv">5</span>)</span>
-<span id="cb196-6"><a href="solutions.html#cb196-6"></a>  .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> <span class="dv">50</span> <span class="op">*</span> i <span class="op">+</span> <span class="dv">12</span>)</span>
-<span id="cb196-7"><a href="solutions.html#cb196-7"></a>  .<span class="at">text</span>(d <span class="kw">=&gt;</span> d)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb197-1"><a href="solutions.html#cb197-1"></a><span class="kw">var</span> bartext <span class="op">=</span> <span class="va">svg</span>.<span class="at">selectAll</span>(<span class="st">&quot;text&quot;</span>)</span>
+<span id="cb197-2"><a href="solutions.html#cb197-2"></a>  .<span class="at">data</span>(reallynewbardata)</span>
+<span id="cb197-3"><a href="solutions.html#cb197-3"></a><span class="va">bartext</span>.<span class="at">enter</span>()</span>
+<span id="cb197-4"><a href="solutions.html#cb197-4"></a>  .<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</span>
+<span id="cb197-5"><a href="solutions.html#cb197-5"></a>  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d <span class="op">-</span> <span class="dv">5</span>)</span>
+<span id="cb197-6"><a href="solutions.html#cb197-6"></a>  .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> <span class="dv">50</span> <span class="op">*</span> i <span class="op">+</span> <span class="dv">12</span>)</span>
+<span id="cb197-7"><a href="solutions.html#cb197-7"></a>  .<span class="at">text</span>(d <span class="kw">=&gt;</span> d)<span class="op">;</span></span></code></pre></div>
 <p><em>Contributed by Tracy Liu</em></p>
 </div>
 <div id="update-enter-and-exit-functions" class="section level3 unnumbered hasAnchor">
@@ -552,42 +567,42 @@ Our goal is to create a horizontal bar chart.</p>
 <ol style="list-style-type: decimal">
 <li>By running the code below we are rebinding the new data to the DOM elements. In this case, the inital data and the new data have the same length so no new elements will be added and none will be removed. We update the data, change the fill and then change the width.</li>
 </ol>
-<div class="sourceCode" id="cb197"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb197-1"><a href="solutions.html#cb197-1"></a><span class="at">update</span>([<span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">300</span><span class="op">,</span> <span class="dv">400</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">300</span>])<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb198-1"><a href="solutions.html#cb198-1"></a><span class="at">update</span>([<span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">300</span><span class="op">,</span> <span class="dv">400</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">300</span>])<span class="op">;</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>By running the code below, the two data values are bound to the first two DOM elements. The color and width are changed the extra DOM elements that did not receive data values are removed.</li>
 </ol>
-<div class="sourceCode" id="cb198"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb198-1"><a href="solutions.html#cb198-1"></a><span class="at">update</span>([<span class="dv">200</span><span class="op">,</span> <span class="dv">400</span>])<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb199-1"><a href="solutions.html#cb199-1"></a><span class="at">update</span>([<span class="dv">200</span><span class="op">,</span> <span class="dv">400</span>])<span class="op">;</span></span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>By running the code below (without refreshing the page from 2.), we bind the data, and two of the values will be in the enter selection. For those two values we create two more DOM elements, fill them with yellow and adjust their width. Next we merge all elements together and to the merge selection we readjust the widths to make sure that all elements have the correct length and we turn them to orange. Note that since in this scenario we had enter elements there will be nothing in the exit selection.</li>
 </ol>
-<div class="sourceCode" id="cb199"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb199-1"><a href="solutions.html#cb199-1"></a><span class="at">update</span>([<span class="dv">200</span><span class="op">,</span> <span class="dv">300</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">125</span>])<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb200-1"><a href="solutions.html#cb200-1"></a><span class="at">update</span>([<span class="dv">200</span><span class="op">,</span> <span class="dv">300</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">125</span>])<span class="op">;</span></span></code></pre></div>
 </div>
 <div id="update-enter-and-exit-vertical-bar-chart" class="section level3 unnumbered hasAnchor">
 <h3>Update, Enter, and Exit: vertical bar chart<a href="solutions.html#update-enter-and-exit-vertical-bar-chart" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Question Answers</strong></p>
 <p>In order to change a horizontal bar chart to a vertical barchart we need to first flip the <code>x</code> and <code>y</code> coordinates. If we only make this change we will notice that our barchart is not vertical but it is flipped (meaning that all bars seem to be upside-down). This is because the coordinate system in the svg starts from the top left and not the bottom left as we are used to.</p>
 <p>Therefore in order to bring everything “down”, we need to tweak the <code>y</code> coordinate. In order to do that we can subtract from the height of the svg the data value of each bar. In this way all bars will end at 400 and start <code>d</code> pixels before the end.</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb200-1"><a href="solutions.html#cb200-1"></a><span class="va">bars</span>.<span class="at">enter</span>()</span>
-<span id="cb200-2"><a href="solutions.html#cb200-2"></a>  .<span class="at">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb200-3"><a href="solutions.html#cb200-3"></a>  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i<span class="op">*</span><span class="dv">50</span>)</span>
-<span id="cb200-4"><a href="solutions.html#cb200-4"></a>  .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="dv">400</span> <span class="op">-</span> d)</span>
-<span id="cb200-5"><a href="solutions.html#cb200-5"></a>  .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;35&quot;</span>)</span>
-<span id="cb200-6"><a href="solutions.html#cb200-6"></a>  .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span>d <span class="kw">=&gt;</span> d)</span>
-<span id="cb200-7"><a href="solutions.html#cb200-7"></a>  .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightgreen&quot;</span>)<span class="op">;</span></span></code></pre></div>
-<p>In addition to that, we need to reflect those changes in the update function and in addition to updating all bar’s heights we need to also update all bars<code>new</code>y` coordinates.</p>
 <div class="sourceCode" id="cb201"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb201-1"><a href="solutions.html#cb201-1"></a><span class="va">bars</span>.<span class="at">enter</span>()</span>
-<span id="cb201-2"><a href="solutions.html#cb201-2"></a>  .<span class="at">append</span>(<span class="st">&quot;rect&quot;</span>) <span class="co">// add new elements</span></span>
-<span id="cb201-3"><a href="solutions.html#cb201-3"></a>    .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i <span class="op">*</span> <span class="dv">50</span>)</span>
-<span id="cb201-4"><a href="solutions.html#cb201-4"></a>    .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="dv">400</span> <span class="op">-</span> d)</span>
-<span id="cb201-5"><a href="solutions.html#cb201-5"></a>    .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;35&quot;</span>)</span>
-<span id="cb201-6"><a href="solutions.html#cb201-6"></a>    .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
-<span id="cb201-7"><a href="solutions.html#cb201-7"></a>    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;yellow&quot;</span>)</span>
-<span id="cb201-8"><a href="solutions.html#cb201-8"></a>  .<span class="at">merge</span>(bars) <span class="co">// merge</span></span>
-<span id="cb201-9"><a href="solutions.html#cb201-9"></a>    .<span class="at">transition</span>()</span>
-<span id="cb201-10"><a href="solutions.html#cb201-10"></a>    .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb201-11"><a href="solutions.html#cb201-11"></a>    .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="dv">400</span> <span class="op">-</span> d)</span>
-<span id="cb201-12"><a href="solutions.html#cb201-12"></a>    .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
-<span id="cb201-13"><a href="solutions.html#cb201-13"></a>    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;orange&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<span id="cb201-2"><a href="solutions.html#cb201-2"></a>  .<span class="at">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb201-3"><a href="solutions.html#cb201-3"></a>  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i<span class="op">*</span><span class="dv">50</span>)</span>
+<span id="cb201-4"><a href="solutions.html#cb201-4"></a>  .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="dv">400</span> <span class="op">-</span> d)</span>
+<span id="cb201-5"><a href="solutions.html#cb201-5"></a>  .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;35&quot;</span>)</span>
+<span id="cb201-6"><a href="solutions.html#cb201-6"></a>  .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span>d <span class="kw">=&gt;</span> d)</span>
+<span id="cb201-7"><a href="solutions.html#cb201-7"></a>  .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightgreen&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<p>In addition to that, we need to reflect those changes in the update function and in addition to updating all bar’s heights we need to also update all bars<code>new</code>y` coordinates.</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb202-1"><a href="solutions.html#cb202-1"></a><span class="va">bars</span>.<span class="at">enter</span>()</span>
+<span id="cb202-2"><a href="solutions.html#cb202-2"></a>  .<span class="at">append</span>(<span class="st">&quot;rect&quot;</span>) <span class="co">// add new elements</span></span>
+<span id="cb202-3"><a href="solutions.html#cb202-3"></a>    .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i <span class="op">*</span> <span class="dv">50</span>)</span>
+<span id="cb202-4"><a href="solutions.html#cb202-4"></a>    .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="dv">400</span> <span class="op">-</span> d)</span>
+<span id="cb202-5"><a href="solutions.html#cb202-5"></a>    .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;35&quot;</span>)</span>
+<span id="cb202-6"><a href="solutions.html#cb202-6"></a>    .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
+<span id="cb202-7"><a href="solutions.html#cb202-7"></a>    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;yellow&quot;</span>)</span>
+<span id="cb202-8"><a href="solutions.html#cb202-8"></a>  .<span class="at">merge</span>(bars) <span class="co">// merge</span></span>
+<span id="cb202-9"><a href="solutions.html#cb202-9"></a>    .<span class="at">transition</span>()</span>
+<span id="cb202-10"><a href="solutions.html#cb202-10"></a>    .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb202-11"><a href="solutions.html#cb202-11"></a>    .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="dv">400</span> <span class="op">-</span> d)</span>
+<span id="cb202-12"><a href="solutions.html#cb202-12"></a>    .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
+<span id="cb202-13"><a href="solutions.html#cb202-13"></a>    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;orange&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>The complete solution is <a href="solutions/general_update_pattern_vertical.html" target="_blank">here</a></p>
 <p><em>Contributed by Kassie Papasotiriou</em></p>
 </div>
