@@ -528,7 +528,7 @@ Our goal is to create a horizontal bar chart.</p>
 <span id="cb195-15"><a href="solutions.html#cb195-15"></a>   .<span class="at">attr</span>(<span class="st">&quot;stroke&quot;</span><span class="op">,</span> <span class="st">&quot;pink&quot;</span>)</span>
 <span id="cb195-16"><a href="solutions.html#cb195-16"></a>   .<span class="at">attr</span>(<span class="st">&quot;stroke-width&quot;</span><span class="op">,</span> <span class="dv">5</span>)<span class="op">;</span></span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
-<li>Use <code>.merge()</code> to combine the update and enter selections into one selection and then transition the height of all of the bars to half their current height.</li>
+<li>Use <code>.merge()</code> to combine the update and enter selections into one selection and then transition the length of all of the bars to half their current length.</li>
 </ol>
 <p>console:</p>
 <div class="sourceCode" id="cb196"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb196-1"><a href="solutions.html#cb196-1"></a><span class="kw">var</span> reallynewbardata <span class="op">=</span> [<span class="dv">300</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">250</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">325</span><span class="op">,</span> <span class="dv">275</span>]<span class="op">;</span></span>
@@ -546,7 +546,7 @@ Our goal is to create a horizontal bar chart.</p>
 <span id="cb196-13"><a href="solutions.html#cb196-13"></a>  .<span class="at">merge</span>(bars)</span>
 <span id="cb196-14"><a href="solutions.html#cb196-14"></a>    .<span class="at">transition</span>()</span>
 <span id="cb196-15"><a href="solutions.html#cb196-15"></a>    .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb196-16"><a href="solutions.html#cb196-16"></a>    .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="dv">35</span> <span class="op">/</span> <span class="dv">2</span>)</span>
+<span id="cb196-16"><a href="solutions.html#cb196-16"></a>    .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;35&quot;</span>)</span>
 <span id="cb196-17"><a href="solutions.html#cb196-17"></a>    .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)<span class="op">;</span></span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
 <li>Add text labels inside the bars at the right end with the length of the bar in pixels.</li>
@@ -584,15 +584,15 @@ Our goal is to create a horizontal bar chart.</p>
 <p>Therefore in order to bring everything “down”, we need to tweak the <code>y</code> coordinate. In order to do that we can subtract from the height of the svg the data value of each bar. In this way all bars will end at 400 and start <code>d</code> pixels before the end.</p>
 <div class="sourceCode" id="cb201"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb201-1"><a href="solutions.html#cb201-1"></a><span class="va">bars</span>.<span class="at">enter</span>()</span>
 <span id="cb201-2"><a href="solutions.html#cb201-2"></a>  .<span class="at">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb201-3"><a href="solutions.html#cb201-3"></a>  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i<span class="op">*</span><span class="dv">50</span>)</span>
+<span id="cb201-3"><a href="solutions.html#cb201-3"></a>  .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i <span class="op">*</span> <span class="dv">50</span> <span class="op">+</span> <span class="dv">50</span>)</span>
 <span id="cb201-4"><a href="solutions.html#cb201-4"></a>  .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="dv">400</span> <span class="op">-</span> d)</span>
 <span id="cb201-5"><a href="solutions.html#cb201-5"></a>  .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;35&quot;</span>)</span>
-<span id="cb201-6"><a href="solutions.html#cb201-6"></a>  .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span>d <span class="kw">=&gt;</span> d)</span>
+<span id="cb201-6"><a href="solutions.html#cb201-6"></a>  .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
 <span id="cb201-7"><a href="solutions.html#cb201-7"></a>  .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightgreen&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>In addition to that, we need to reflect those changes in the update function and in addition to updating all bar’s heights we need to also update all bars<code>new</code>y` coordinates.</p>
 <div class="sourceCode" id="cb202"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb202-1"><a href="solutions.html#cb202-1"></a><span class="va">bars</span>.<span class="at">enter</span>()</span>
 <span id="cb202-2"><a href="solutions.html#cb202-2"></a>  .<span class="at">append</span>(<span class="st">&quot;rect&quot;</span>) <span class="co">// add new elements</span></span>
-<span id="cb202-3"><a href="solutions.html#cb202-3"></a>    .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i <span class="op">*</span> <span class="dv">50</span>)</span>
+<span id="cb202-3"><a href="solutions.html#cb202-3"></a>    .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i <span class="op">*</span> <span class="dv">50</span> <span class="op">+</span> <span class="dv">50</span>)</span>
 <span id="cb202-4"><a href="solutions.html#cb202-4"></a>    .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="dv">400</span> <span class="op">-</span> d)</span>
 <span id="cb202-5"><a href="solutions.html#cb202-5"></a>    .<span class="at">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;35&quot;</span>)</span>
 <span id="cb202-6"><a href="solutions.html#cb202-6"></a>    .<span class="at">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
