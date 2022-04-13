@@ -8,6 +8,7 @@ bookdown::gitbook:
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
   anchor_sections: TRUE
+  download: null
 # includes:
 #   in_header:
 #     d3library.html
