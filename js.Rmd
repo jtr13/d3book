@@ -170,27 +170,9 @@ Create an array of objects out of a simple array (note the parentheses around th
 [10, 20, 30].map((d, i) => ({index: i, value: d}));  // try me
 ```
 
-## Sorting
+## D3 sorting
 
-Sorting in JavaScript sorts by character and modifies the original array^[If you don't wish for that to happen, you'll need to make a [deep copy](https://medium.com/javascript-in-plain-english/how-to-deep-copy-objects-and-arrays-in-javascript-7c911359b089){target="_blank"}.]:
-
-``` js
-var x = [3, 1, 5, 12, 7];     // try me
-x.sort();
-```
-
-``` js
-x;     // try me
-```
-
-If we want to sort by number, not character, we can pass the comparator function `d3.ascending` to `.sort()`:
-
-``` js
-var x = [3, 1, 5, 12, 7];     // try me
-x.sort(d3.ascending);
-```
-
-`d3.sort()` will produce the same results:
+Use `d3.sort()` rather than plain JavaScript options.
 
 ``` js
 var y = [3, 1, 5, 12, 7];     // try me
