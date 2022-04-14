@@ -61,7 +61,7 @@ map
 simple-arrays
 arrays-of-arrays-1
 create-arrays-of-objects
-sorting
+d3-sorting
 d3-statistics
 d3-.map
 scales-and-axes
