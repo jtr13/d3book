@@ -430,7 +430,7 @@ Please select your favorite primary color:
 <div class="sourceCode" id="cb132"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb132-1"><a href="interactivity.html#cb132-1"></a><span class="va">d3</span>.<span class="at">selectAll</span>(<span class="st">&quot;input&quot;</span>)</span>
 <span id="cb132-2"><a href="interactivity.html#cb132-2"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>(event) <span class="op">{</span></span>
 <span id="cb132-3"><a href="interactivity.html#cb132-3"></a>    <span class="kw">var</span> favcolor <span class="op">=</span> <span class="va">event</span>.<span class="va">currentTarget</span>.<span class="at">value</span><span class="op">;</span></span>
-<span id="cb132-4"><a href="interactivity.html#cb132-4"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;p#color&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;color&quot;</span><span class="op">,</span> favcolor)<span class="op">;</span></span>
+<span id="cb132-4"><a href="interactivity.html#cb132-4"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;p#color&quot;</span>).<span class="at">style</span>(<span class="st">&quot;color&quot;</span><span class="op">,</span> favcolor)<span class="op">;</span></span>
 <span id="cb132-5"><a href="interactivity.html#cb132-5"></a>    <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
 </div>
 </div>
