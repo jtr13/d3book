@@ -101,7 +101,7 @@ d3.select("svg")
 d3.selectAll("input")
   .on("click", function(event) {
     var favcolor = event.currentTarget.value;
-    d3.select("p#color").attr("color", favcolor);
+    d3.select("p#color").style("color", favcolor);
     });
 ```    
 
