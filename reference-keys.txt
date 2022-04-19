@@ -79,8 +79,12 @@ bar-chart-with-categorical-labels
 interactivity
 lecture-slides-4
 binding-event-listeners
-what-is-this
-location-on-svg
+do-something-unrelated-to-the-element-that-received-the-event
+change-an-attribute-of-the-element-that-received-the-event
+do-something-with-the-data-bound-to-the-element-that-received-the-event
+do-something-with-the-svg-location-of-the-event
+do-something-with-the-value-of-a-radio-button
+separating-the-function-and-event-listener
 attribute-of-an-element
 value-of-radio-button
 add-remove-buttons
