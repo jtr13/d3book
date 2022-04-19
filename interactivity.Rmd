@@ -24,7 +24,10 @@ webshot::webshot("https://jtr13.github.io/d3book/interactivity.html", selector =
 </svg>
 ```  
 
-Open Developer Tools and try this code in the Console:
+It's helpful to think carefully about what you want to happen when an event listener is triggered and what information you need. Open Developer Tools and try these in the Console. Note that event management [changed in v6](https://observablehq.com/@d3/d3v6-migration-guide#events){target="_blank"} so code written for earlier versions of D3 will not work. 
+
+
+### Do something unrelated to the element that received the event
 
 ``` js
 d3.select("svg")
@@ -37,11 +40,7 @@ d3.select("svg")
         });
 ```
 
-## What is *this*?
-
-In the context of event handlers, "this" is the element that received the event, a.k.a. what you clicked on if it's a click event.
-
-Examples from [the first chapter](jump.html#interactivity):
+### Change an attribute of the element that received the event
 
 ``` js
 d3.select("line")
@@ -51,7 +50,35 @@ d3.select("line")
       });
 ```
 
-**v6**
+In the context of event handlers, "this" is the element that received the event, a.k.a. what you clicked on if it's a click event. An alternative ($\geq$ v6, see link above) is to pass the event and access the element with `event.currentTarget`:
+
+
+or
+
+``` js
+d3.select("line")
+  .on("click", function(event) {
+    d3.select(event.currentTarget)
+      .attr("stroke", "yellow");
+      });
+```
+
+### Do something with the data bound to the element that received the event
+
+``` js
+d3.select("circle")
+  .datum("4")
+  .on("click", function(event, d) {
+    d3.select(event.currentTarget)
+      .attr("stroke", "red")
+      .attr("stroke-width", d => d);
+      });
+```
+
+Try changing the data value bound to the circle with `d3.select("circle").datum("10")` and clicking again.
+
+
+### Do something with the svg location of the event
 
 ``` js
 d3.select("svg")
@@ -61,18 +88,26 @@ d3.select("svg")
       });
 ```
 
-**v5**
+(Up to v5, `d3.mouse(this)` was used instead of `d3.pointer(event)`.)
+
+### Do something with the value of a radio button
+
+<p id="color">Please select your favorite primary color:</p>
+<input type="radio" id="html" name="fav_color" value="red"> red
+<input type="radio" id="css" name="fav_color" value="blue"> blue
+<input type="radio" id="javascript" name="fav_color" value="yellow"> yellow
 
 ``` js
-d3.select("svg")
-  .on("click", function() {
-    d3.select("text")
-      .text(`(${d3.mouse(this).map(Math.round)})`)
-      });
-```
+d3.selectAll("input")
+  .on("click", function(event) {
+    var favcolor = event.currentTarget.value;
+    d3.select("p#color").attr("color", favcolor);
+    });
+```    
 
-We can separate the function and the event listener:
+## Separating the function and event listener
 
+Examples
 
 ``` js
 function goyellow() {
@@ -88,33 +123,12 @@ d3.select("circle")
 
 Try this in the Console:  
 
-**v6**
-
 ``` js
 d3.select("svg")
   .on("click", function (event) {
     console.log(d3.pointer(event).map(Math.round));
     });
 ``` 
-
-
-**v5**
-
-``` js
-// won't work on this page
-d3.select("svg")
-  .on("click", function () {
-    console.log(d3.mouse(this));
-    });
-```    
-
-### Location on SVG
-
-**v6**
-`d3.pointer(event)` 
-
-**v5**
-`d3.mouse(this)`
 
 ### Attribute of an element
 
