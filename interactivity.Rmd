@@ -63,17 +63,30 @@ d3.select("line")
       });
 ```
 
+### Do something with an attribute of the element that received the event
+
+``` js
+d3.select("circle")
+  .on("click", function(event) {
+  var rad = d3.select(event.currentTarget).attr("r");
+  d3.select("text")
+    .text(`The radius is ${rad} pixels.`);
+    });
+```  
+
 ### Do something with the data bound to the element that received the event
 
 ``` js
 d3.select("circle")
   .datum("4")
   .on("click", function(event, d) {
-    d3.select(event.currentTarget)
+    d3.select(event.currentTarget) 
       .attr("stroke", "red")
       .attr("stroke-width", d => d);
       });
 ```
+
+As in the previous example, `d3.select(this)` can be used instead of `d3.select(event.currentTarget)`.
 
 Try changing the data value bound to the circle with `d3.select("circle").datum("10")` and clicking again.
 
@@ -104,6 +117,13 @@ d3.selectAll("input")
     d3.select("p#color").style("color", favcolor);
     });
 ```    
+<script>
+d3.selectAll("input")
+  .on("click", function(event) {
+    var favcolor = event.currentTarget.value;
+    d3.select("p#color").style("color", favcolor);
+    });
+</script>	
 
 ## Separating the function and event listener
 
