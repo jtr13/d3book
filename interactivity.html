@@ -418,6 +418,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb131-5"><a href="interactivity.html#cb131-5"></a>      .<span class="at">attr</span>(<span class="st">&quot;stroke&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)</span>
 <span id="cb131-6"><a href="interactivity.html#cb131-6"></a>      .<span class="at">attr</span>(<span class="st">&quot;stroke-width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)<span class="op">;</span></span>
 <span id="cb131-7"><a href="interactivity.html#cb131-7"></a>      <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
+<p><strong>Note that starting with v6, the data is the 2nd parameter to be passed: <code>function(event, d)</code>.</strong></p>
 <p>As in the previous example, <code>d3.select(this)</code> can be used instead of <code>d3.select(event.currentTarget)</code>.</p>
 <p>Try changing the data value bound to the circle with <code>d3.select("circle").datum("10")</code> and clicking again.</p>
 </div>
