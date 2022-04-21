@@ -63,7 +63,7 @@ d3.select("line")
       });
 ```
 
-### Do something with an attribute of the element that received the event
+### Get the value of an attribute of the element that received the event
 
 ``` js
 d3.select("circle")
@@ -91,7 +91,7 @@ As in the previous example, `d3.select(this)` can be used instead of `d3.select(
 Try changing the data value bound to the circle with `d3.select("circle").datum("10")` and clicking again.
 
 
-### Do something with the svg location of the event
+### Get the svg location of the event
 
 ``` js
 d3.select("svg")
