@@ -23,7 +23,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2022-04-20" />
+<meta name="date" content="2022-04-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -245,9 +245,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2" data-path="interactivity.html"><a href="interactivity.html#binding-event-listeners"><i class="fa fa-check"></i><b>7.2</b> Binding event listeners</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="interactivity.html"><a href="interactivity.html#do-something-unrelated-to-the-element-that-received-the-event"><i class="fa fa-check"></i><b>7.2.1</b> Do something unrelated to the element that received the event</a></li>
 <li class="chapter" data-level="7.2.2" data-path="interactivity.html"><a href="interactivity.html#change-an-attribute-of-the-element-that-received-the-event"><i class="fa fa-check"></i><b>7.2.2</b> Change an attribute of the element that received the event</a></li>
-<li class="chapter" data-level="7.2.3" data-path="interactivity.html"><a href="interactivity.html#do-something-with-an-attribute-of-the-element-that-received-the-event"><i class="fa fa-check"></i><b>7.2.3</b> Do something with an attribute of the element that received the event</a></li>
+<li class="chapter" data-level="7.2.3" data-path="interactivity.html"><a href="interactivity.html#get-the-value-of-an-attribute-of-the-element-that-received-the-event"><i class="fa fa-check"></i><b>7.2.3</b> Get the value of an attribute of the element that received the event</a></li>
 <li class="chapter" data-level="7.2.4" data-path="interactivity.html"><a href="interactivity.html#do-something-with-the-data-bound-to-the-element-that-received-the-event"><i class="fa fa-check"></i><b>7.2.4</b> Do something with the data bound to the element that received the event</a></li>
-<li class="chapter" data-level="7.2.5" data-path="interactivity.html"><a href="interactivity.html#do-something-with-the-svg-location-of-the-event"><i class="fa fa-check"></i><b>7.2.5</b> Do something with the svg location of the event</a></li>
+<li class="chapter" data-level="7.2.5" data-path="interactivity.html"><a href="interactivity.html#get-the-svg-location-of-the-event"><i class="fa fa-check"></i><b>7.2.5</b> Get the svg location of the event</a></li>
 <li class="chapter" data-level="7.2.6" data-path="interactivity.html"><a href="interactivity.html#do-something-with-the-value-of-a-radio-button"><i class="fa fa-check"></i><b>7.2.6</b> Do something with the value of a radio button</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="interactivity.html"><a href="interactivity.html#separating-the-function-and-event-listener"><i class="fa fa-check"></i><b>7.3</b> Separating the function and event listener</a><ul>
@@ -400,8 +400,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb129-4"><a href="interactivity.html#cb129-4"></a>      .<span class="at">attr</span>(<span class="st">&quot;stroke&quot;</span><span class="op">,</span> <span class="st">&quot;yellow&quot;</span>)<span class="op">;</span></span>
 <span id="cb129-5"><a href="interactivity.html#cb129-5"></a>      <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
 </div>
-<div id="do-something-with-an-attribute-of-the-element-that-received-the-event" class="section level3 hasAnchor">
-<h3><span class="header-section-number">7.2.3</span> Do something with an attribute of the element that received the event<a href="interactivity.html#do-something-with-an-attribute-of-the-element-that-received-the-event" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="get-the-value-of-an-attribute-of-the-element-that-received-the-event" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.2.3</span> Get the value of an attribute of the element that received the event<a href="interactivity.html#get-the-value-of-an-attribute-of-the-element-that-received-the-event" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb130"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb130-1"><a href="interactivity.html#cb130-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>)</span>
 <span id="cb130-2"><a href="interactivity.html#cb130-2"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>(event) <span class="op">{</span></span>
 <span id="cb130-3"><a href="interactivity.html#cb130-3"></a>  <span class="kw">var</span> rad <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="va">event</span>.<span class="at">currentTarget</span>).<span class="at">attr</span>(<span class="st">&quot;r&quot;</span>)<span class="op">;</span></span>
@@ -421,8 +421,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>As in the previous example, <code>d3.select(this)</code> can be used instead of <code>d3.select(event.currentTarget)</code>.</p>
 <p>Try changing the data value bound to the circle with <code>d3.select("circle").datum("10")</code> and clicking again.</p>
 </div>
-<div id="do-something-with-the-svg-location-of-the-event" class="section level3 hasAnchor">
-<h3><span class="header-section-number">7.2.5</span> Do something with the svg location of the event<a href="interactivity.html#do-something-with-the-svg-location-of-the-event" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="get-the-svg-location-of-the-event" class="section level3 hasAnchor">
+<h3><span class="header-section-number">7.2.5</span> Get the svg location of the event<a href="interactivity.html#get-the-svg-location-of-the-event" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb132"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb132-1"><a href="interactivity.html#cb132-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
 <span id="cb132-2"><a href="interactivity.html#cb132-2"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>(event) <span class="op">{</span></span>
 <span id="cb132-3"><a href="interactivity.html#cb132-3"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;text&quot;</span>)</span>
