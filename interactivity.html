@@ -412,13 +412,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="do-something-with-the-data-bound-to-the-element-that-received-the-event" class="section level3 hasAnchor">
 <h3><span class="header-section-number">7.2.4</span> Do something with the data bound to the element that received the event<a href="interactivity.html#do-something-with-the-data-bound-to-the-element-that-received-the-event" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb131"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb131-1"><a href="interactivity.html#cb131-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb131-2"><a href="interactivity.html#cb131-2"></a>  .<span class="at">datum</span>(<span class="st">&quot;4&quot;</span>)</span>
+<span id="cb131-2"><a href="interactivity.html#cb131-2"></a>  .<span class="at">data</span>([<span class="op">{</span><span class="dt">s</span><span class="op">:</span> <span class="st">&quot;red&quot;</span><span class="op">,</span> <span class="dt">sw</span><span class="op">:</span> <span class="st">&quot;15&quot;</span><span class="op">}</span>])</span>
 <span id="cb131-3"><a href="interactivity.html#cb131-3"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>(event<span class="op">,</span> d) <span class="op">{</span></span>
 <span id="cb131-4"><a href="interactivity.html#cb131-4"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="va">event</span>.<span class="at">currentTarget</span>) </span>
-<span id="cb131-5"><a href="interactivity.html#cb131-5"></a>      .<span class="at">attr</span>(<span class="st">&quot;stroke&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)</span>
-<span id="cb131-6"><a href="interactivity.html#cb131-6"></a>      .<span class="at">attr</span>(<span class="st">&quot;stroke-width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)<span class="op">;</span></span>
+<span id="cb131-5"><a href="interactivity.html#cb131-5"></a>      .<span class="at">attr</span>(<span class="st">&quot;stroke&quot;</span><span class="op">,</span> <span class="va">d</span>.<span class="at">s</span>)</span>
+<span id="cb131-6"><a href="interactivity.html#cb131-6"></a>      .<span class="at">attr</span>(<span class="st">&quot;stroke-width&quot;</span><span class="op">,</span> <span class="va">d</span>.<span class="at">sw</span>)<span class="op">;</span></span>
 <span id="cb131-7"><a href="interactivity.html#cb131-7"></a>      <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
-<p><strong>Note that starting with v6, the data is the 2nd parameter to be passed: <code>function(event, d)</code>.</strong></p>
+<p><strong>Note that starting with v6, the data is the 2nd parameter to be passed: <code>function(event, d)</code>. In addition, note that you do not need to pass <code>d</code> again when accessing the data: for example we use <code>d.s</code> not <code>d =&gt; d.s</code></strong>.</p>
 <p>As in the previous example, <code>d3.select(this)</code> can be used instead of <code>d3.select(event.currentTarget)</code>.</p>
 <p>Try changing the data value bound to the circle with <code>d3.select("circle").datum("10")</code> and clicking again.</p>
 </div>
@@ -433,7 +433,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="do-something-with-the-value-of-a-radio-button" class="section level3 hasAnchor">
 <h3><span class="header-section-number">7.2.6</span> Do something with the value of a radio button<a href="interactivity.html#do-something-with-the-value-of-a-radio-button" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p id="color">
+<p id="color" style="background-color: silver; color: white;">
 Please select your favorite primary color:
 </p>
 <p><input type="radio" id="html" name="fav_color" value="red"> red
