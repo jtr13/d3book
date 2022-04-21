@@ -105,7 +105,7 @@ d3.select("svg")
 
 ### Do something with the value of a radio button
 
-<p id="color">Please select your favorite primary color:</p>
+<p id="color" style="background-color: silver; color: white;">Please select your favorite primary color:</p>
 <input type="radio" id="html" name="fav_color" value="red"> red
 <input type="radio" id="css" name="fav_color" value="blue"> blue
 <input type="radio" id="javascript" name="fav_color" value="yellow"> yellow
