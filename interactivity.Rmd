@@ -86,6 +86,8 @@ d3.select("circle")
       });
 ```
 
+**Note that starting with v6, the data is the 2nd parameter to be passed: `function(event, d)`.**
+
 As in the previous example, `d3.select(this)` can be used instead of `d3.select(event.currentTarget)`.
 
 Try changing the data value bound to the circle with `d3.select("circle").datum("10")` and clicking again.
