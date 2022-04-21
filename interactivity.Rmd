@@ -78,15 +78,15 @@ d3.select("circle")
 
 ``` js
 d3.select("circle")
-  .datum("4")
+  .data([{s: "red", sw: "15"}])
   .on("click", function(event, d) {
     d3.select(event.currentTarget) 
-      .attr("stroke", "red")
-      .attr("stroke-width", d => d);
+      .attr("stroke", d.s)
+      .attr("stroke-width", d.sw);
       });
 ```
 
-**Note that starting with v6, the data is the 2nd parameter to be passed: `function(event, d)`.**
+**Note that starting with v6, the data is the 2nd parameter to be passed: `function(event, d)`. In addition, note that you do not need to pass `d` again when accessing the data: for example we use `d.s` not `d => d.s`**.
 
 As in the previous example, `d3.select(this)` can be used instead of `d3.select(event.currentTarget)`.
 
