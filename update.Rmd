@@ -86,6 +86,8 @@ We'll start with six circles and add some.
 Let's bind new data to the circles:
 
 ``` js
+var svg = d3.select("svg");
+
 var circ = svg.selectAll("circle")
       .data([123, 52, 232, 90, 34, 12, 189, 110]);
 ```
