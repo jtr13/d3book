@@ -15,7 +15,7 @@ webshot::webshot("https://jtr13.github.io/d3book/interactivity.html", selector =
 ```
 
 ```{asis, echo=HTML}
-<svg width="300" height="200">
+<svg width="400" height="300">
   <rect width="300" height="200" fill="lightblue"></rect>
   <circle cx="50" cy="75" r="20" fill="blue"></circle>
   <ellipse cx="175" cy="100" rx="45" ry="30" fill="green"></ellipse>
@@ -24,7 +24,9 @@ webshot::webshot("https://jtr13.github.io/d3book/interactivity.html", selector =
 </svg>
 ```  
 
-It's helpful to think carefully about what you want to happen when an event listener is triggered and what information you need. Open Developer Tools and try these in the Console. Note that event management [changed in v6](https://observablehq.com/@d3/d3v6-migration-guide#events){target="_blank"} so code written for earlier versions of D3 will not work. 
+In this chapter, we will explore some basic but interesting demonstrations. When going through the section, read the script first before executing it in the console. Think beforehead what will happen when an event listener is triggered and what information you need. 
+
+For the following scripts open Developer Tools and try these in the Console. Note that event management [changed in v6](https://observablehq.com/@d3/d3v6-migration-guide#events){target="_blank"} so code written for earlier versions of D3 will not work. 
 
 
 ### Do something unrelated to the element that received the event
@@ -39,6 +41,7 @@ d3.select("svg")
         .text("Hello World");
         });
 ```
+Click on the svg after entering the code into console, what do you observe?
 
 ### Change an attribute of the element that received the event
 
@@ -50,7 +53,7 @@ d3.select("line")
       });
 ```
 
-In the context of event handlers, "this" is the element that received the event, a.k.a. what you clicked on if it's a click event. An alternative ($\geq$ v6, see link above) is to pass the event and access the element with `event.currentTarget`:
+In the context of event handlers, "this" is the element that received the event, a.k.a. what you clicked on if it's a click event (In this case the red line). An alternative ($\geq$ v6, see link above) is to pass the event and access the element with `event.currentTarget`:
 
 
 or
@@ -73,6 +76,8 @@ d3.select("circle")
     .text(`The radius is ${rad} pixels.`);
     });
 ```  
+
+We retrieve the radius of the circle after clicking on it.
 
 ### Do something with the data bound to the element that received the event
 
