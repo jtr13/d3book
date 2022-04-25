@@ -4,8 +4,105 @@
 
 Read: *IDVW2*, Chapter 9, pp. 178-184; Chapter 12, pp. 231-249
 
+## Bind data <i class="fas fa-table"></i>
+
+(*IDVW2*, pp. 98-108)
+
+Before getting into update, enter, and exit. We want to introduce the concept of binding data.
+
+To follow along with the code in this section, download and open [six_blue_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html){target="_blank"}.
+
+Bind data:
+
+``` js
+d3.select("svg").selectAll("circle").data([90, 230, 140, 75, 180, 25]);
+```
+
+Check data binding:
+
+``` js
+d3.select("svg").selectAll("circle").data();
+```
+
+Set x-coordinate of each circle to data value using arrow function:
+
+``` js
+d3.select("svg").selectAll("circle").attr("cx", d => d);
+```
+
+Set x-coordinate of each circle to data value with a JavaScript function:
+
+``` js
+d3.select("svg").selectAll("circle").attr("cx", function(d) {return d;});
+```
+
+We'll bind a new set of data to the circles, this time storing the dataset in a variable:
+
+``` js
+var dataset = [50, 80, 110, 140, 170, 200];
+```
+
+We'll also store a selection of all circles before binding the data:
+
+``` js
+var circ = d3.select("svg").selectAll("circle");
+```
+
+And now, the data bind:
+
+``` js
+circ.data(dataset);
+```
+
+Nothing appears to have happened; the circles remain the same and there is no evidence of any changes looking at the circles in the DOM (see Elements tab).
+
+We can check that the data are indeed bound with:
+
+``` js
+circ.data();  // now we see data
+```
+
+Modify elements w/ stored selections, bound data:
+
+``` js
+circ.attr("cx", function(d) {return d;});
+
+circ.attr("cx", function(d) {return d/2;});
+
+circ.attr("cx", function(d) {return d/4;}).attr("r", "10");
+```
+
+Same as above, using arrow functions:
+
+``` js
+circ.attr("cx", d => d);
+
+circ.attr("cx", d => d/2);
+
+circ.attr("cx", d => d/4).attr("r", "10");
+```
+
+Note that if we bind a new set of data to the DOM elements, the original set will be overwritten:
+
+``` js
+var newdata = [145, 29, 53, 196, 200, 12];
+
+circ.data(newdata);
+
+circ.transition()
+    .duration(2000)
+    .attr("cx", d => 2*d);
+```
+
+Now that you should have a basic understanding of binding data. Try out the following exericise before heading into the section of update, enter, and exit.
+
+## Exercise <i class="fas fa-dumbbell"></i>: data bind
+
+Download and open a fresh copy of  [six_blue_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html){target="_blank"} in Chrome and practice binding data to the circles and modifying the circles based on the data as in the examples above.
+
 ## Lecture slides <i class="fa fa-television"></i>
 
+Besides the content below, you can also refer to the slides for a structured walkthrough on update, enter, and exit.
 [D3 Data Bind](https://github.com/jtr13/D3/blob/master/UpdateEnterExit.pdf){target="_blank"}
 
 ## Remove some elements <i class="far fa-minus-square"></i>
