@@ -8,7 +8,7 @@ Let's skip the explanations and start coding in D3 right now. Why? So you can se
 
 1. If you don't have it, [install the Chrome browser](https://www.google.com/chrome/){target="_blank"}.
 
-2. Download a copy of `shapes.html` by opening the following page and then saving with *File, Save Page As...*: [`shapes.html`](https://raw.githubusercontent.com/jtr13/d3book/master/code/shapes.html){target="_blank"}. (Or download a zip of the whole repo. Clicking [here](https://github.com/jtr13/d3book/archive/master.zip){target="_blank"} will start the download. Or fork and clone the  [repo](https://github.com/jtr13/d3book){target="_blank"}).
+2. Download a copy of [`shapes.html`](https://raw.githubusercontent.com/jtr13/d3book/master/code/shapes.html){target="_blank"}. Open the previous link, right click -> Save As -> Add .html to the end of the file name.
 
 3. If Chrome is your default browser, open `shapes.html` by double clicking it. Otherwise, open it with *File, Open File...* in Chrome.
 
