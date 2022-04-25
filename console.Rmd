@@ -237,7 +237,7 @@ d3.select("#moveleft").attr("x", "200").text("I want to move left.")
 
 ### HTML
 
-Continue trying out code with `five_green_circles.html` open in Chrome.
+Continue trying out code with [five_green_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/five_green_circles.html){target="_blank"} open in Chrome.
 
 The following adds a `<p>` tag but doesn't change how the page looks, since there's no text associated with it.
 
