@@ -101,6 +101,9 @@
       .attr("y", d => yScale(d))
       .attr("width", xScale.bandwidth())
       .attr("height", d => innerHeight - yScale(d))
+      .transition() // all bars turn blue
+      .duration(2000)
+      .ease(d3.easeLinear)
       .attr("fill", "blue");
 
     bars.exit()
@@ -115,12 +118,6 @@
       .duration(2000)
       .ease(d3.easeLinear)
       .call(xAxis);
-
-    svg.select(".yAxis")
-      .transition()
-      .duration(2000)
-      .ease(d3.easeLinear)
-      .call(yAxis);
 
   }
 
