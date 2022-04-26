@@ -216,64 +216,63 @@ And another example with axes:
 
 <svg id="withaxes" width="600" height="400"></svg>
 
-    <script>
-      var svg = d3.select("svg#withaxes")
+<script>
+  var svg = d3.select("svg#withaxes")
       
-      var margin = {top: 20, right: 50, bottom: 30, left: 50}
+  var margin = {top: 20, right: 50, bottom: 30, left: 50}
       
-      var width =  +svg.attr("width") - margin.left - margin.right
+  var width =  +svg.attr("width") - margin.left - margin.right
       
-      var height = +svg.attr("height") - margin.top - margin.bottom
+  var height = +svg.attr("height") - margin.top - margin.bottom
       
-      var g = svg.append("g").attr("transform", `translate(${margin.left}, ${margin.top})`);
+  var g = svg.append("g").attr("transform", `translate(${margin.left}, ${margin.top})`);
       
-      var parseTime = d3.timeParse("%d-%b-%y");
+  var parseTime = d3.timeParse("%d-%b-%y");
       
-      var xScale = d3.scaleTime().range([0, width]);
+  var xScale = d3.scaleTime().range([0, width]);
       
-      var yScale = d3.scaleLinear()
-        .domain([20, 80])
-        .range([height, 0]);
+  var yScale = d3.scaleLinear()
+    .domain([20, 80])
+    .range([height, 0]);
         
-      var xAxis = d3.axisBottom()
-        .scale(xScale)
-        .tickFormat(d3.timeFormat("%Y-%m-%d"));
+  var xAxis = d3.axisBottom()
+    .scale(xScale)
+    .tickFormat(d3.timeFormat("%m-%d"));
         
+  var line = d3.line()
+    .x(d => xScale(d.date))
+    .y(d => yScale(d.high));
       
-      var line = d3.line()
-        .x(d => xScale(d.date))
-        .y(d => yScale(d.high));
-      
-      var data = 
-      [{"date":"1-Apr-18","high":60},
-      {"date":"2-Apr-18","high":43},
-      {"date":"3-Apr-18","high":43},
-      {"date":"4-Apr-18","high":56},
-      {"date":"5-Apr-18","high":45},
-      {"date":"6-Apr-18","high":62},
-      {"date":"7-Apr-18","high":49}];
-      data.forEach(function(d) {
-            d.date = parseTime(d.date);
-      });
+  var data = 
+    [{"date":"1-Apr-18","high":60},
+    {"date":"2-Apr-18","high":43},
+    {"date":"3-Apr-18","high":43},
+    {"date":"4-Apr-18","high":56},
+    {"date":"5-Apr-18","high":45},
+    {"date":"6-Apr-18","high":62},
+    {"date":"7-Apr-18","high":49}];
+    data.forEach(function(d) {
+        d.date = parseTime(d.date);
+    });
      
-      xScale
-        .domain(d3.extent(data, d => d.date));
+  xScale
+    .domain(d3.extent(data, d => d.date));
         
-      g.append("g")
-          .attr("transform", `translate(0, ${height})`)
-          .call(xAxis);
+  g.append("g")
+    .attr("transform", `translate(0, ${height})`)
+    .call(xAxis);
       
-      g.append("g")
-          .call(d3.axisLeft(yScale))
+  g.append("g")
+    .call(d3.axisLeft(yScale))
       
-      g.append("path")
-          .datum(data)
-          .attr("class", "line")
-          .attr("fill", "none")
-          .attr("stroke", "red")
-          .attr("stroke-width", 1.5)
-          .attr("d", line);
-    </script>
+  g.append("path")
+    .datum(data)
+    .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", "red")
+    .attr("stroke-width", 1.5)
+    .attr("d", line);
+</script>
 
 ``` html
 <!DOCTYPE html>
