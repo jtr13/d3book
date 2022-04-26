@@ -1,5 +1,10 @@
 # Object Constancy <i class="fa fa-object-ungroup"></i> {#object}
 
+
+## Lecture slides <i class="fa fa-television"></i>
+
+[object_constancy.pdf](pdfs/object_constancy.pdf){target="_blank"}
+
 ## No object constancy
 
 <script src="https://d3js.org/d3.v7.js"></script>
@@ -48,7 +53,6 @@ Standalone version: [no_object_constancy.html](code/no_object_constancy.html)
 
 Standalone version: [object_constancy.html](code/object_constancy.html)
 
-Slides: [object_constancy.pdf](pdfs/object_constancy.pdf){target="_blank"}
 
 
 ### Practice joining data by key
