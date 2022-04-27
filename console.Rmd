@@ -314,7 +314,7 @@ Download and open a fresh copy of [five_green_circles.html](https://raw.githubus
 
 2. Select all circles of "apple" class make them red.
 
-3. Select the first circle and add an orange border ("stroke"), and stroke width ("stroke-width") of 5.
+3. Select the first circle and add an orange border (use attribute "stroke"), and stroke width ("stroke-width") of 5.
 
 4. Select all circles of "apple" class and move them to the middle of the svg.
 
