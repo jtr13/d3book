@@ -194,8 +194,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="d3console.html"><a href="d3console.html#exercise-green-circles"><i class="fa fa-check"></i><b>3.5</b> Exercise <i class="fas fa-dumbbell"></i>: green circles</a></li>
 <li class="chapter" data-level="3.6" data-path="d3console.html"><a href="d3console.html#exercise-blue-circles"><i class="fa fa-check"></i><b>3.6</b> Exercise <i class="fas fa-dumbbell"></i> <i class="fas fa-dumbbell"></i>: blue circles</a></li>
-<li class="chapter" data-level="3.7" data-path="d3console.html"><a href="d3console.html#bind-data-finally"><i class="fa fa-check"></i><b>3.7</b> Bind data… <em>finally!</em> <i class="fas fa-table"></i></a></li>
-<li class="chapter" data-level="3.8" data-path="d3console.html"><a href="d3console.html#exercise-data-bind"><i class="fa fa-check"></i><b>3.8</b> Exercise <i class="fas fa-dumbbell"></i>: data bind</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html"><i class="fa fa-check"></i><b>4</b> Update, Enter, and Exit <i class="fa fa-refresh"></i></a><ul>
 <li class="chapter" data-level="4.1" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#lecture-slides"><i class="fa fa-check"></i><b>4.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
@@ -377,59 +375,59 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>It’s helpful to think carefully about what you want to happen when an event listener is triggered and what information you need. Open Developer Tools and try these in the Console. Note that event management <a href="https://observablehq.com/@d3/d3v6-migration-guide#events" target="_blank">changed in v6</a> so code written for earlier versions of D3 will not work.</p>
 <div id="do-something-unrelated-to-the-element-that-received-the-event" class="section level3 hasAnchor">
 <h3><span class="header-section-number">7.2.1</span> Do something unrelated to the element that received the event<a href="interactivity.html#do-something-unrelated-to-the-element-that-received-the-event" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb127"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb127-1"><a href="interactivity.html#cb127-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
-<span id="cb127-2"><a href="interactivity.html#cb127-2"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span> () <span class="op">{</span></span>
-<span id="cb127-3"><a href="interactivity.html#cb127-3"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
-<span id="cb127-4"><a href="interactivity.html#cb127-4"></a>      .<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</span>
-<span id="cb127-5"><a href="interactivity.html#cb127-5"></a>        .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;100&quot;</span>)</span>
-<span id="cb127-6"><a href="interactivity.html#cb127-6"></a>        .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> <span class="st">&quot;40&quot;</span>)</span>
-<span id="cb127-7"><a href="interactivity.html#cb127-7"></a>        .<span class="at">text</span>(<span class="st">&quot;Hello World&quot;</span>)<span class="op">;</span></span>
-<span id="cb127-8"><a href="interactivity.html#cb127-8"></a>        <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb116-1"><a href="interactivity.html#cb116-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
+<span id="cb116-2"><a href="interactivity.html#cb116-2"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span> () <span class="op">{</span></span>
+<span id="cb116-3"><a href="interactivity.html#cb116-3"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
+<span id="cb116-4"><a href="interactivity.html#cb116-4"></a>      .<span class="at">append</span>(<span class="st">&quot;text&quot;</span>)</span>
+<span id="cb116-5"><a href="interactivity.html#cb116-5"></a>        .<span class="at">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;100&quot;</span>)</span>
+<span id="cb116-6"><a href="interactivity.html#cb116-6"></a>        .<span class="at">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> <span class="st">&quot;40&quot;</span>)</span>
+<span id="cb116-7"><a href="interactivity.html#cb116-7"></a>        .<span class="at">text</span>(<span class="st">&quot;Hello World&quot;</span>)<span class="op">;</span></span>
+<span id="cb116-8"><a href="interactivity.html#cb116-8"></a>        <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
 </div>
 <div id="change-an-attribute-of-the-element-that-received-the-event" class="section level3 hasAnchor">
 <h3><span class="header-section-number">7.2.2</span> Change an attribute of the element that received the event<a href="interactivity.html#change-an-attribute-of-the-element-that-received-the-event" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb128"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb128-1"><a href="interactivity.html#cb128-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;line&quot;</span>)</span>
-<span id="cb128-2"><a href="interactivity.html#cb128-2"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></span>
-<span id="cb128-3"><a href="interactivity.html#cb128-3"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>)</span>
-<span id="cb128-4"><a href="interactivity.html#cb128-4"></a>      .<span class="at">attr</span>(<span class="st">&quot;stroke-width&quot;</span><span class="op">,</span> <span class="st">&quot;10&quot;</span>)<span class="op">;</span></span>
-<span id="cb128-5"><a href="interactivity.html#cb128-5"></a>      <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb117-1"><a href="interactivity.html#cb117-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;line&quot;</span>)</span>
+<span id="cb117-2"><a href="interactivity.html#cb117-2"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></span>
+<span id="cb117-3"><a href="interactivity.html#cb117-3"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>)</span>
+<span id="cb117-4"><a href="interactivity.html#cb117-4"></a>      .<span class="at">attr</span>(<span class="st">&quot;stroke-width&quot;</span><span class="op">,</span> <span class="st">&quot;10&quot;</span>)<span class="op">;</span></span>
+<span id="cb117-5"><a href="interactivity.html#cb117-5"></a>      <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
 <p>In the context of event handlers, “this” is the element that received the event, a.k.a. what you clicked on if it’s a click event. An alternative (<span class="math inline">\(\geq\)</span> v6, see link above) is to pass the event and access the element with <code>event.currentTarget</code>:</p>
 <p>or</p>
-<div class="sourceCode" id="cb129"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb129-1"><a href="interactivity.html#cb129-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;line&quot;</span>)</span>
-<span id="cb129-2"><a href="interactivity.html#cb129-2"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>(event) <span class="op">{</span></span>
-<span id="cb129-3"><a href="interactivity.html#cb129-3"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="va">event</span>.<span class="at">currentTarget</span>)</span>
-<span id="cb129-4"><a href="interactivity.html#cb129-4"></a>      .<span class="at">attr</span>(<span class="st">&quot;stroke&quot;</span><span class="op">,</span> <span class="st">&quot;yellow&quot;</span>)<span class="op">;</span></span>
-<span id="cb129-5"><a href="interactivity.html#cb129-5"></a>      <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb118-1"><a href="interactivity.html#cb118-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;line&quot;</span>)</span>
+<span id="cb118-2"><a href="interactivity.html#cb118-2"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>(event) <span class="op">{</span></span>
+<span id="cb118-3"><a href="interactivity.html#cb118-3"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="va">event</span>.<span class="at">currentTarget</span>)</span>
+<span id="cb118-4"><a href="interactivity.html#cb118-4"></a>      .<span class="at">attr</span>(<span class="st">&quot;stroke&quot;</span><span class="op">,</span> <span class="st">&quot;yellow&quot;</span>)<span class="op">;</span></span>
+<span id="cb118-5"><a href="interactivity.html#cb118-5"></a>      <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
 </div>
 <div id="get-the-value-of-an-attribute-of-the-element-that-received-the-event" class="section level3 hasAnchor">
 <h3><span class="header-section-number">7.2.3</span> Get the value of an attribute of the element that received the event<a href="interactivity.html#get-the-value-of-an-attribute-of-the-element-that-received-the-event" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb130"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb130-1"><a href="interactivity.html#cb130-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb130-2"><a href="interactivity.html#cb130-2"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>(event) <span class="op">{</span></span>
-<span id="cb130-3"><a href="interactivity.html#cb130-3"></a>  <span class="kw">var</span> rad <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="va">event</span>.<span class="at">currentTarget</span>).<span class="at">attr</span>(<span class="st">&quot;r&quot;</span>)<span class="op">;</span></span>
-<span id="cb130-4"><a href="interactivity.html#cb130-4"></a>  <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;text&quot;</span>)</span>
-<span id="cb130-5"><a href="interactivity.html#cb130-5"></a>    .<span class="at">text</span>(<span class="vs">`The radius is </span><span class="sc">${</span>rad<span class="sc">}</span><span class="vs"> pixels.`</span>)<span class="op">;</span></span>
-<span id="cb130-6"><a href="interactivity.html#cb130-6"></a>    <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb119-1"><a href="interactivity.html#cb119-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb119-2"><a href="interactivity.html#cb119-2"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>(event) <span class="op">{</span></span>
+<span id="cb119-3"><a href="interactivity.html#cb119-3"></a>  <span class="kw">var</span> rad <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="va">event</span>.<span class="at">currentTarget</span>).<span class="at">attr</span>(<span class="st">&quot;r&quot;</span>)<span class="op">;</span></span>
+<span id="cb119-4"><a href="interactivity.html#cb119-4"></a>  <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;text&quot;</span>)</span>
+<span id="cb119-5"><a href="interactivity.html#cb119-5"></a>    .<span class="at">text</span>(<span class="vs">`The radius is </span><span class="sc">${</span>rad<span class="sc">}</span><span class="vs"> pixels.`</span>)<span class="op">;</span></span>
+<span id="cb119-6"><a href="interactivity.html#cb119-6"></a>    <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
 </div>
 <div id="do-something-with-the-data-bound-to-the-element-that-received-the-event" class="section level3 hasAnchor">
 <h3><span class="header-section-number">7.2.4</span> Do something with the data bound to the element that received the event<a href="interactivity.html#do-something-with-the-data-bound-to-the-element-that-received-the-event" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb131"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb131-1"><a href="interactivity.html#cb131-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb131-2"><a href="interactivity.html#cb131-2"></a>  .<span class="at">data</span>([<span class="op">{</span><span class="dt">s</span><span class="op">:</span> <span class="st">&quot;red&quot;</span><span class="op">,</span> <span class="dt">sw</span><span class="op">:</span> <span class="st">&quot;15&quot;</span><span class="op">}</span>])</span>
-<span id="cb131-3"><a href="interactivity.html#cb131-3"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>(event<span class="op">,</span> d) <span class="op">{</span></span>
-<span id="cb131-4"><a href="interactivity.html#cb131-4"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="va">event</span>.<span class="at">currentTarget</span>) </span>
-<span id="cb131-5"><a href="interactivity.html#cb131-5"></a>      .<span class="at">attr</span>(<span class="st">&quot;stroke&quot;</span><span class="op">,</span> <span class="va">d</span>.<span class="at">s</span>)</span>
-<span id="cb131-6"><a href="interactivity.html#cb131-6"></a>      .<span class="at">attr</span>(<span class="st">&quot;stroke-width&quot;</span><span class="op">,</span> <span class="va">d</span>.<span class="at">sw</span>)<span class="op">;</span></span>
-<span id="cb131-7"><a href="interactivity.html#cb131-7"></a>      <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb120-1"><a href="interactivity.html#cb120-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb120-2"><a href="interactivity.html#cb120-2"></a>  .<span class="at">data</span>([<span class="op">{</span><span class="dt">s</span><span class="op">:</span> <span class="st">&quot;red&quot;</span><span class="op">,</span> <span class="dt">sw</span><span class="op">:</span> <span class="st">&quot;15&quot;</span><span class="op">}</span>])</span>
+<span id="cb120-3"><a href="interactivity.html#cb120-3"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>(event<span class="op">,</span> d) <span class="op">{</span></span>
+<span id="cb120-4"><a href="interactivity.html#cb120-4"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="va">event</span>.<span class="at">currentTarget</span>) </span>
+<span id="cb120-5"><a href="interactivity.html#cb120-5"></a>      .<span class="at">attr</span>(<span class="st">&quot;stroke&quot;</span><span class="op">,</span> <span class="va">d</span>.<span class="at">s</span>)</span>
+<span id="cb120-6"><a href="interactivity.html#cb120-6"></a>      .<span class="at">attr</span>(<span class="st">&quot;stroke-width&quot;</span><span class="op">,</span> <span class="va">d</span>.<span class="at">sw</span>)<span class="op">;</span></span>
+<span id="cb120-7"><a href="interactivity.html#cb120-7"></a>      <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
 <p><strong>Note that starting with v6, the data is the 2nd parameter to be passed: <code>function(event, d)</code>. In addition, note that you do not need to pass <code>d</code> again when accessing the data: for example we use <code>d.s</code> not <code>d =&gt; d.s</code></strong>.</p>
 <p>As in the previous example, <code>d3.select(this)</code> can be used instead of <code>d3.select(event.currentTarget)</code>.</p>
 <p>Try changing the data value bound to the circle with <code>d3.select("circle").datum("10")</code> and clicking again.</p>
 </div>
 <div id="get-the-svg-location-of-the-event" class="section level3 hasAnchor">
 <h3><span class="header-section-number">7.2.5</span> Get the svg location of the event<a href="interactivity.html#get-the-svg-location-of-the-event" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb132"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb132-1"><a href="interactivity.html#cb132-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
-<span id="cb132-2"><a href="interactivity.html#cb132-2"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>(event) <span class="op">{</span></span>
-<span id="cb132-3"><a href="interactivity.html#cb132-3"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;text&quot;</span>)</span>
-<span id="cb132-4"><a href="interactivity.html#cb132-4"></a>      .<span class="at">text</span>(<span class="vs">`(</span><span class="sc">${</span><span class="va">d3</span>.<span class="at">pointer</span>(event).<span class="at">map</span>(<span class="va">Math</span>.<span class="at">round</span>)<span class="sc">}</span><span class="vs">)`</span>)</span>
-<span id="cb132-5"><a href="interactivity.html#cb132-5"></a>      <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb121-1"><a href="interactivity.html#cb121-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
+<span id="cb121-2"><a href="interactivity.html#cb121-2"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>(event) <span class="op">{</span></span>
+<span id="cb121-3"><a href="interactivity.html#cb121-3"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;text&quot;</span>)</span>
+<span id="cb121-4"><a href="interactivity.html#cb121-4"></a>      .<span class="at">text</span>(<span class="vs">`(</span><span class="sc">${</span><span class="va">d3</span>.<span class="at">pointer</span>(event).<span class="at">map</span>(<span class="va">Math</span>.<span class="at">round</span>)<span class="sc">}</span><span class="vs">)`</span>)</span>
+<span id="cb121-5"><a href="interactivity.html#cb121-5"></a>      <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
 <p>(Up to v5, <code>d3.mouse(this)</code> was used instead of <code>d3.pointer(event)</code>.)</p>
 </div>
 <div id="do-something-with-the-value-of-a-radio-button" class="section level3 hasAnchor">
@@ -440,11 +438,11 @@ Please select your favorite primary color:
 <p><input type="radio" id="html" name="fav_color" value="red"> red
 <input type="radio" id="css" name="fav_color" value="blue"> blue
 <input type="radio" id="javascript" name="fav_color" value="yellow"> yellow</p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb133-1"><a href="interactivity.html#cb133-1"></a><span class="va">d3</span>.<span class="at">selectAll</span>(<span class="st">&quot;input&quot;</span>)</span>
-<span id="cb133-2"><a href="interactivity.html#cb133-2"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>(event) <span class="op">{</span></span>
-<span id="cb133-3"><a href="interactivity.html#cb133-3"></a>    <span class="kw">var</span> favcolor <span class="op">=</span> <span class="va">event</span>.<span class="va">currentTarget</span>.<span class="at">value</span><span class="op">;</span></span>
-<span id="cb133-4"><a href="interactivity.html#cb133-4"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;p#color&quot;</span>).<span class="at">style</span>(<span class="st">&quot;color&quot;</span><span class="op">,</span> favcolor)<span class="op">;</span></span>
-<span id="cb133-5"><a href="interactivity.html#cb133-5"></a>    <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb122-1"><a href="interactivity.html#cb122-1"></a><span class="va">d3</span>.<span class="at">selectAll</span>(<span class="st">&quot;input&quot;</span>)</span>
+<span id="cb122-2"><a href="interactivity.html#cb122-2"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>(event) <span class="op">{</span></span>
+<span id="cb122-3"><a href="interactivity.html#cb122-3"></a>    <span class="kw">var</span> favcolor <span class="op">=</span> <span class="va">event</span>.<span class="va">currentTarget</span>.<span class="at">value</span><span class="op">;</span></span>
+<span id="cb122-4"><a href="interactivity.html#cb122-4"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;p#color&quot;</span>).<span class="at">style</span>(<span class="st">&quot;color&quot;</span><span class="op">,</span> favcolor)<span class="op">;</span></span>
+<span id="cb122-5"><a href="interactivity.html#cb122-5"></a>    <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
 <script>
 d3.selectAll("input")
   .on("click", function(event) {
@@ -457,17 +455,17 @@ d3.selectAll("input")
 <div id="separating-the-function-and-event-listener" class="section level2 hasAnchor">
 <h2><span class="header-section-number">7.3</span> Separating the function and event listener<a href="interactivity.html#separating-the-function-and-event-listener" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Examples</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb134-1"><a href="interactivity.html#cb134-1"></a><span class="kw">function</span> <span class="at">goyellow</span>() <span class="op">{</span></span>
-<span id="cb134-2"><a href="interactivity.html#cb134-2"></a>  <span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>)</span>
-<span id="cb134-3"><a href="interactivity.html#cb134-3"></a>    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;yellow&quot;</span>)</span>
-<span id="cb134-4"><a href="interactivity.html#cb134-4"></a>    <span class="op">};</span></span></code></pre></div>
-<div class="sourceCode" id="cb135"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb135-1"><a href="interactivity.html#cb135-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb135-2"><a href="interactivity.html#cb135-2"></a>  .<span class="at">on</span>(<span class="st">&quot;mouseover&quot;</span><span class="op">,</span> goyellow)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb123-1"><a href="interactivity.html#cb123-1"></a><span class="kw">function</span> <span class="at">goyellow</span>() <span class="op">{</span></span>
+<span id="cb123-2"><a href="interactivity.html#cb123-2"></a>  <span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>)</span>
+<span id="cb123-3"><a href="interactivity.html#cb123-3"></a>    .<span class="at">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;yellow&quot;</span>)</span>
+<span id="cb123-4"><a href="interactivity.html#cb123-4"></a>    <span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb124-1"><a href="interactivity.html#cb124-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb124-2"><a href="interactivity.html#cb124-2"></a>  .<span class="at">on</span>(<span class="st">&quot;mouseover&quot;</span><span class="op">,</span> goyellow)<span class="op">;</span></span></code></pre></div>
 <p>Try this in the Console:</p>
-<div class="sourceCode" id="cb136"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb136-1"><a href="interactivity.html#cb136-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
-<span id="cb136-2"><a href="interactivity.html#cb136-2"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span> (event) <span class="op">{</span></span>
-<span id="cb136-3"><a href="interactivity.html#cb136-3"></a>    <span class="va">console</span>.<span class="at">log</span>(<span class="va">d3</span>.<span class="at">pointer</span>(event).<span class="at">map</span>(<span class="va">Math</span>.<span class="at">round</span>))<span class="op">;</span></span>
-<span id="cb136-4"><a href="interactivity.html#cb136-4"></a>    <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb125-1"><a href="interactivity.html#cb125-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
+<span id="cb125-2"><a href="interactivity.html#cb125-2"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span> (event) <span class="op">{</span></span>
+<span id="cb125-3"><a href="interactivity.html#cb125-3"></a>    <span class="va">console</span>.<span class="at">log</span>(<span class="va">d3</span>.<span class="at">pointer</span>(event).<span class="at">map</span>(<span class="va">Math</span>.<span class="at">round</span>))<span class="op">;</span></span>
+<span id="cb125-4"><a href="interactivity.html#cb125-4"></a>    <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
 <div id="attribute-of-an-element" class="section level3 hasAnchor">
 <h3><span class="header-section-number">7.3.1</span> Attribute of an element<a href="interactivity.html#attribute-of-an-element" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>d3.select(this).attr("id");</code></p>
@@ -482,23 +480,23 @@ d3.selectAll("input")
 <h2><span class="header-section-number">7.4</span> Add / remove “buttons”<a href="interactivity.html#add-remove-buttons" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>(HTML paragraphs are used as buttons in this example.)</p>
 <p>HTML:</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb137-1"><a href="interactivity.html#cb137-1"></a><span class="kw">&lt;p</span><span class="ot"> id=</span><span class="st">&quot;add&quot;</span><span class="kw">&gt;</span>Add an element<span class="kw">&lt;/p&gt;</span></span>
-<span id="cb137-2"><a href="interactivity.html#cb137-2"></a><span class="kw">&lt;p</span><span class="ot"> id=</span><span class="st">&quot;remove_left&quot;</span><span class="kw">&gt;</span>Remove bar (left)<span class="kw">&lt;/p&gt;</span></span>
-<span id="cb137-3"><a href="interactivity.html#cb137-3"></a><span class="kw">&lt;p</span><span class="ot"> id=</span><span class="st">&quot;remove_right&quot;</span><span class="kw">&gt;</span>Remove bar (right)<span class="kw">&lt;/p&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb126-1"><a href="interactivity.html#cb126-1"></a><span class="kw">&lt;p</span><span class="ot"> id=</span><span class="st">&quot;add&quot;</span><span class="kw">&gt;</span>Add an element<span class="kw">&lt;/p&gt;</span></span>
+<span id="cb126-2"><a href="interactivity.html#cb126-2"></a><span class="kw">&lt;p</span><span class="ot"> id=</span><span class="st">&quot;remove_left&quot;</span><span class="kw">&gt;</span>Remove bar (left)<span class="kw">&lt;/p&gt;</span></span>
+<span id="cb126-3"><a href="interactivity.html#cb126-3"></a><span class="kw">&lt;p</span><span class="ot"> id=</span><span class="st">&quot;remove_right&quot;</span><span class="kw">&gt;</span>Remove bar (right)<span class="kw">&lt;/p&gt;</span></span></code></pre></div>
 <p>JavaScript:</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb138-1"><a href="interactivity.html#cb138-1"></a><span class="va">d3</span>.<span class="at">selectAll</span>(<span class="st">&quot;p&quot;</span>)</span>
-<span id="cb138-2"><a href="interactivity.html#cb138-2"></a>    .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span> () <span class="op">{</span></span>
-<span id="cb138-3"><a href="interactivity.html#cb138-3"></a>      <span class="kw">var</span> paraID <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">attr</span>(<span class="st">&quot;id&quot;</span>)<span class="op">;</span></span>
-<span id="cb138-4"><a href="interactivity.html#cb138-4"></a>      <span class="cf">if</span> (paraID <span class="op">==</span> <span class="st">&quot;add&quot;</span>) <span class="op">{</span></span>
-<span id="cb138-5"><a href="interactivity.html#cb138-5"></a>          <span class="kw">var</span> newvalue <span class="op">=</span> <span class="va">Math</span>.<span class="at">floor</span>(<span class="va">Math</span>.<span class="at">random</span>()<span class="op">*</span><span class="dv">400</span>)<span class="op">;</span></span>
-<span id="cb138-6"><a href="interactivity.html#cb138-6"></a>          <span class="va">bardata</span>.<span class="at">push</span>(newvalue)<span class="op">;</span></span>
-<span id="cb138-7"><a href="interactivity.html#cb138-7"></a>          <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (paraID <span class="op">==</span> <span class="st">&quot;remove_left&quot;</span>) <span class="op">{</span></span>
-<span id="cb138-8"><a href="interactivity.html#cb138-8"></a>          <span class="va">bardata</span>.<span class="at">shift</span>()<span class="op">;</span></span>
-<span id="cb138-9"><a href="interactivity.html#cb138-9"></a>          <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
-<span id="cb138-10"><a href="interactivity.html#cb138-10"></a>          <span class="va">bardata</span>.<span class="at">pop</span>()<span class="op">;</span></span>
-<span id="cb138-11"><a href="interactivity.html#cb138-11"></a>          <span class="op">};</span></span>
-<span id="cb138-12"><a href="interactivity.html#cb138-12"></a>      <span class="at">update</span>(bardata)<span class="op">;</span></span>
-<span id="cb138-13"><a href="interactivity.html#cb138-13"></a>      <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb127-1"><a href="interactivity.html#cb127-1"></a><span class="va">d3</span>.<span class="at">selectAll</span>(<span class="st">&quot;p&quot;</span>)</span>
+<span id="cb127-2"><a href="interactivity.html#cb127-2"></a>    .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span> () <span class="op">{</span></span>
+<span id="cb127-3"><a href="interactivity.html#cb127-3"></a>      <span class="kw">var</span> paraID <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">attr</span>(<span class="st">&quot;id&quot;</span>)<span class="op">;</span></span>
+<span id="cb127-4"><a href="interactivity.html#cb127-4"></a>      <span class="cf">if</span> (paraID <span class="op">==</span> <span class="st">&quot;add&quot;</span>) <span class="op">{</span></span>
+<span id="cb127-5"><a href="interactivity.html#cb127-5"></a>          <span class="kw">var</span> newvalue <span class="op">=</span> <span class="va">Math</span>.<span class="at">floor</span>(<span class="va">Math</span>.<span class="at">random</span>()<span class="op">*</span><span class="dv">400</span>)<span class="op">;</span></span>
+<span id="cb127-6"><a href="interactivity.html#cb127-6"></a>          <span class="va">bardata</span>.<span class="at">push</span>(newvalue)<span class="op">;</span></span>
+<span id="cb127-7"><a href="interactivity.html#cb127-7"></a>          <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (paraID <span class="op">==</span> <span class="st">&quot;remove_left&quot;</span>) <span class="op">{</span></span>
+<span id="cb127-8"><a href="interactivity.html#cb127-8"></a>          <span class="va">bardata</span>.<span class="at">shift</span>()<span class="op">;</span></span>
+<span id="cb127-9"><a href="interactivity.html#cb127-9"></a>          <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb127-10"><a href="interactivity.html#cb127-10"></a>          <span class="va">bardata</span>.<span class="at">pop</span>()<span class="op">;</span></span>
+<span id="cb127-11"><a href="interactivity.html#cb127-11"></a>          <span class="op">};</span></span>
+<span id="cb127-12"><a href="interactivity.html#cb127-12"></a>      <span class="at">update</span>(bardata)<span class="op">;</span></span>
+<span id="cb127-13"><a href="interactivity.html#cb127-13"></a>      <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
 </div>
 <div id="putting-it-all-together" class="section level2 hasAnchor">
 <h2><span class="header-section-number">7.5</span> Putting it all together<a href="interactivity.html#putting-it-all-together" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -525,27 +523,27 @@ Click the circle.
 </svg></p>
 </div>
 <div style="margin-left: 30px">
-<div class="sourceCode" id="cb139"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb139-1"><a href="interactivity.html#cb139-1"></a><span class="co">// global variable keeps track of which radio button is clicked</span></span>
-<span id="cb139-2"><a href="interactivity.html#cb139-2"></a><span class="kw">var</span> action <span class="op">=</span> <span class="st">&quot;left&quot;</span><span class="op">;</span></span>
-<span id="cb139-3"><a href="interactivity.html#cb139-3"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;div#rad&quot;</span>)</span>
-<span id="cb139-4"><a href="interactivity.html#cb139-4"></a>  .<span class="at">selectAll</span>(<span class="st">&quot;input&quot;</span>)</span>
-<span id="cb139-5"><a href="interactivity.html#cb139-5"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span> action <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">node</span>().<span class="at">value</span><span class="op">;</span> <span class="op">}</span>)<span class="op">;</span></span>
-<span id="cb139-6"><a href="interactivity.html#cb139-6"></a>      </span>
-<span id="cb139-7"><a href="interactivity.html#cb139-7"></a><span class="co">// circle click behavior depends on value of &quot;action&quot;</span></span>
-<span id="cb139-8"><a href="interactivity.html#cb139-8"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg#radio&quot;</span>).<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb139-9"><a href="interactivity.html#cb139-9"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span> () <span class="op">{</span></span>
-<span id="cb139-10"><a href="interactivity.html#cb139-10"></a>    <span class="cf">if</span> (action <span class="op">==</span> <span class="st">&quot;left&quot;</span>) <span class="op">{</span></span>
-<span id="cb139-11"><a href="interactivity.html#cb139-11"></a>      <span class="kw">var</span> cx_new <span class="op">=</span> <span class="op">+</span><span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span>) <span class="op">-</span> <span class="dv">50</span><span class="op">;</span></span>
-<span id="cb139-12"><a href="interactivity.html#cb139-12"></a>      <span class="cf">if</span> (cx_new <span class="op">&lt;</span> <span class="dv">20</span>) cx_new <span class="op">=</span> <span class="dv">20</span><span class="op">;</span></span>
-<span id="cb139-13"><a href="interactivity.html#cb139-13"></a>      <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
-<span id="cb139-14"><a href="interactivity.html#cb139-14"></a>      <span class="kw">var</span> cx_new <span class="op">=</span> <span class="op">+</span><span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span>) <span class="op">+</span> <span class="dv">50</span><span class="op">;</span></span>
-<span id="cb139-15"><a href="interactivity.html#cb139-15"></a>      <span class="cf">if</span> (cx_new <span class="op">&gt;</span> <span class="dv">280</span>) cx_new <span class="op">=</span> <span class="dv">280</span><span class="op">;</span></span>
-<span id="cb139-16"><a href="interactivity.html#cb139-16"></a>      <span class="op">}</span></span>
-<span id="cb139-17"><a href="interactivity.html#cb139-17"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>)</span>
-<span id="cb139-18"><a href="interactivity.html#cb139-18"></a>      .<span class="at">transition</span>()</span>
-<span id="cb139-19"><a href="interactivity.html#cb139-19"></a>      .<span class="at">duration</span>(<span class="dv">500</span>)</span>
-<span id="cb139-20"><a href="interactivity.html#cb139-20"></a>      .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> cx_new)<span class="op">;</span></span>
-<span id="cb139-21"><a href="interactivity.html#cb139-21"></a>      <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb128-1"><a href="interactivity.html#cb128-1"></a><span class="co">// global variable keeps track of which radio button is clicked</span></span>
+<span id="cb128-2"><a href="interactivity.html#cb128-2"></a><span class="kw">var</span> action <span class="op">=</span> <span class="st">&quot;left&quot;</span><span class="op">;</span></span>
+<span id="cb128-3"><a href="interactivity.html#cb128-3"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;div#rad&quot;</span>)</span>
+<span id="cb128-4"><a href="interactivity.html#cb128-4"></a>  .<span class="at">selectAll</span>(<span class="st">&quot;input&quot;</span>)</span>
+<span id="cb128-5"><a href="interactivity.html#cb128-5"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span> action <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">node</span>().<span class="at">value</span><span class="op">;</span> <span class="op">}</span>)<span class="op">;</span></span>
+<span id="cb128-6"><a href="interactivity.html#cb128-6"></a>      </span>
+<span id="cb128-7"><a href="interactivity.html#cb128-7"></a><span class="co">// circle click behavior depends on value of &quot;action&quot;</span></span>
+<span id="cb128-8"><a href="interactivity.html#cb128-8"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg#radio&quot;</span>).<span class="at">select</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb128-9"><a href="interactivity.html#cb128-9"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span> () <span class="op">{</span></span>
+<span id="cb128-10"><a href="interactivity.html#cb128-10"></a>    <span class="cf">if</span> (action <span class="op">==</span> <span class="st">&quot;left&quot;</span>) <span class="op">{</span></span>
+<span id="cb128-11"><a href="interactivity.html#cb128-11"></a>      <span class="kw">var</span> cx_new <span class="op">=</span> <span class="op">+</span><span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span>) <span class="op">-</span> <span class="dv">50</span><span class="op">;</span></span>
+<span id="cb128-12"><a href="interactivity.html#cb128-12"></a>      <span class="cf">if</span> (cx_new <span class="op">&lt;</span> <span class="dv">20</span>) cx_new <span class="op">=</span> <span class="dv">20</span><span class="op">;</span></span>
+<span id="cb128-13"><a href="interactivity.html#cb128-13"></a>      <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb128-14"><a href="interactivity.html#cb128-14"></a>      <span class="kw">var</span> cx_new <span class="op">=</span> <span class="op">+</span><span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span>) <span class="op">+</span> <span class="dv">50</span><span class="op">;</span></span>
+<span id="cb128-15"><a href="interactivity.html#cb128-15"></a>      <span class="cf">if</span> (cx_new <span class="op">&gt;</span> <span class="dv">280</span>) cx_new <span class="op">=</span> <span class="dv">280</span><span class="op">;</span></span>
+<span id="cb128-16"><a href="interactivity.html#cb128-16"></a>      <span class="op">}</span></span>
+<span id="cb128-17"><a href="interactivity.html#cb128-17"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>)</span>
+<span id="cb128-18"><a href="interactivity.html#cb128-18"></a>      .<span class="at">transition</span>()</span>
+<span id="cb128-19"><a href="interactivity.html#cb128-19"></a>      .<span class="at">duration</span>(<span class="dv">500</span>)</span>
+<span id="cb128-20"><a href="interactivity.html#cb128-20"></a>      .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> cx_new)<span class="op">;</span></span>
+<span id="cb128-21"><a href="interactivity.html#cb128-21"></a>      <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
 <script type="text/javascript">
 // global variable keeps track of which radio button is clicked
 var action = "left";
@@ -589,30 +587,30 @@ Click a square.
 </svg>
 </div>
 <div style="margin-left: 30px">
-<div class="sourceCode" id="cb140"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb140-1"><a href="interactivity.html#cb140-1"></a><span class="co">// movement function</span></span>
-<span id="cb140-2"><a href="interactivity.html#cb140-2"></a><span class="kw">var</span> jump <span class="op">=</span> <span class="kw">function</span> () <span class="op">{</span></span>
-<span id="cb140-3"><a href="interactivity.html#cb140-3"></a>      <span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">transition</span>().<span class="at">duration</span>(<span class="dv">500</span>)</span>
-<span id="cb140-4"><a href="interactivity.html#cb140-4"></a>      .<span class="at">attr</span>(<span class="st">&#39;y&#39;</span><span class="op">,</span> <span class="st">&#39;0&#39;</span>)</span>
-<span id="cb140-5"><a href="interactivity.html#cb140-5"></a>      .<span class="at">transition</span>().<span class="at">duration</span>(<span class="dv">500</span>).<span class="at">ease</span>(<span class="va">d3</span>.<span class="at">easeBounce</span>)</span>
-<span id="cb140-6"><a href="interactivity.html#cb140-6"></a>      .<span class="at">attr</span>(<span class="st">&#39;y&#39;</span><span class="op">,</span> <span class="st">&#39;75&#39;</span>)<span class="op">;</span></span>
-<span id="cb140-7"><a href="interactivity.html#cb140-7"></a><span class="op">};</span></span>
-<span id="cb140-8"><a href="interactivity.html#cb140-8"></a></span>
-<span id="cb140-9"><a href="interactivity.html#cb140-9"></a><span class="co">// initial setup: add event listener to red square</span></span>
-<span id="cb140-10"><a href="interactivity.html#cb140-10"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg#radio2&quot;</span>)</span>
-<span id="cb140-11"><a href="interactivity.html#cb140-11"></a>  .<span class="at">select</span>(<span class="st">&quot;rect#red&quot;</span>)</span>
-<span id="cb140-12"><a href="interactivity.html#cb140-12"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> jump)<span class="op">;</span></span>
-<span id="cb140-13"><a href="interactivity.html#cb140-13"></a>    </span>
-<span id="cb140-14"><a href="interactivity.html#cb140-14"></a><span class="co">// switch event listeners if radio button is clicked</span></span>
-<span id="cb140-15"><a href="interactivity.html#cb140-15"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;div#rad2&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;input&quot;</span>)</span>
-<span id="cb140-16"><a href="interactivity.html#cb140-16"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span> () <span class="op">{</span></span>
-<span id="cb140-17"><a href="interactivity.html#cb140-17"></a>  <span class="cf">if</span> (<span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">node</span>().<span class="at">value</span> <span class="op">==</span> <span class="st">&quot;blue&quot;</span>) <span class="op">{</span></span>
-<span id="cb140-18"><a href="interactivity.html#cb140-18"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg#radio2&quot;</span>).<span class="at">select</span>(<span class="st">&quot;rect#blue&quot;</span>).<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> jump)<span class="op">;</span></span>
-<span id="cb140-19"><a href="interactivity.html#cb140-19"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg#radio2&quot;</span>).<span class="at">select</span>(<span class="st">&quot;rect#red&quot;</span>).<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">null</span>)<span class="op">;</span></span>
-<span id="cb140-20"><a href="interactivity.html#cb140-20"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
-<span id="cb140-21"><a href="interactivity.html#cb140-21"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg#radio2&quot;</span>).<span class="at">select</span>(<span class="st">&quot;rect#red&quot;</span>).<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> jump)<span class="op">;</span></span>
-<span id="cb140-22"><a href="interactivity.html#cb140-22"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg#radio2&quot;</span>).<span class="at">select</span>(<span class="st">&quot;rect#blue&quot;</span>).<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">null</span>)<span class="op">;</span></span>
-<span id="cb140-23"><a href="interactivity.html#cb140-23"></a>    <span class="op">}</span></span>
-<span id="cb140-24"><a href="interactivity.html#cb140-24"></a><span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb129-1"><a href="interactivity.html#cb129-1"></a><span class="co">// movement function</span></span>
+<span id="cb129-2"><a href="interactivity.html#cb129-2"></a><span class="kw">var</span> jump <span class="op">=</span> <span class="kw">function</span> () <span class="op">{</span></span>
+<span id="cb129-3"><a href="interactivity.html#cb129-3"></a>      <span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">transition</span>().<span class="at">duration</span>(<span class="dv">500</span>)</span>
+<span id="cb129-4"><a href="interactivity.html#cb129-4"></a>      .<span class="at">attr</span>(<span class="st">&#39;y&#39;</span><span class="op">,</span> <span class="st">&#39;0&#39;</span>)</span>
+<span id="cb129-5"><a href="interactivity.html#cb129-5"></a>      .<span class="at">transition</span>().<span class="at">duration</span>(<span class="dv">500</span>).<span class="at">ease</span>(<span class="va">d3</span>.<span class="at">easeBounce</span>)</span>
+<span id="cb129-6"><a href="interactivity.html#cb129-6"></a>      .<span class="at">attr</span>(<span class="st">&#39;y&#39;</span><span class="op">,</span> <span class="st">&#39;75&#39;</span>)<span class="op">;</span></span>
+<span id="cb129-7"><a href="interactivity.html#cb129-7"></a><span class="op">};</span></span>
+<span id="cb129-8"><a href="interactivity.html#cb129-8"></a></span>
+<span id="cb129-9"><a href="interactivity.html#cb129-9"></a><span class="co">// initial setup: add event listener to red square</span></span>
+<span id="cb129-10"><a href="interactivity.html#cb129-10"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg#radio2&quot;</span>)</span>
+<span id="cb129-11"><a href="interactivity.html#cb129-11"></a>  .<span class="at">select</span>(<span class="st">&quot;rect#red&quot;</span>)</span>
+<span id="cb129-12"><a href="interactivity.html#cb129-12"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> jump)<span class="op">;</span></span>
+<span id="cb129-13"><a href="interactivity.html#cb129-13"></a>    </span>
+<span id="cb129-14"><a href="interactivity.html#cb129-14"></a><span class="co">// switch event listeners if radio button is clicked</span></span>
+<span id="cb129-15"><a href="interactivity.html#cb129-15"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;div#rad2&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;input&quot;</span>)</span>
+<span id="cb129-16"><a href="interactivity.html#cb129-16"></a>  .<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span> () <span class="op">{</span></span>
+<span id="cb129-17"><a href="interactivity.html#cb129-17"></a>  <span class="cf">if</span> (<span class="va">d3</span>.<span class="at">select</span>(<span class="kw">this</span>).<span class="at">node</span>().<span class="at">value</span> <span class="op">==</span> <span class="st">&quot;blue&quot;</span>) <span class="op">{</span></span>
+<span id="cb129-18"><a href="interactivity.html#cb129-18"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg#radio2&quot;</span>).<span class="at">select</span>(<span class="st">&quot;rect#blue&quot;</span>).<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> jump)<span class="op">;</span></span>
+<span id="cb129-19"><a href="interactivity.html#cb129-19"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg#radio2&quot;</span>).<span class="at">select</span>(<span class="st">&quot;rect#red&quot;</span>).<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">null</span>)<span class="op">;</span></span>
+<span id="cb129-20"><a href="interactivity.html#cb129-20"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb129-21"><a href="interactivity.html#cb129-21"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg#radio2&quot;</span>).<span class="at">select</span>(<span class="st">&quot;rect#red&quot;</span>).<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> jump)<span class="op">;</span></span>
+<span id="cb129-22"><a href="interactivity.html#cb129-22"></a>    <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg#radio2&quot;</span>).<span class="at">select</span>(<span class="st">&quot;rect#blue&quot;</span>).<span class="at">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">null</span>)<span class="op">;</span></span>
+<span id="cb129-23"><a href="interactivity.html#cb129-23"></a>    <span class="op">}</span></span>
+<span id="cb129-24"><a href="interactivity.html#cb129-24"></a><span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
 <script type="text/javascript">
 // movement function
 var jump = function () {

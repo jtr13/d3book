@@ -39,8 +39,6 @@ html-2
 svg-2
 exercise-green-circles
 exercise-blue-circles
-bind-data-finally
-exercise-data-bind
 update-enter-and-exit
 lecture-slides
 remove-some-elements
