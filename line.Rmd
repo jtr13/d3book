@@ -167,6 +167,14 @@ svg.append("path")
 
 <svg id="noaxes" width="500" height="400"></svg>
 
+<style>
+  .linestyle {
+    fill: none;
+    stroke: teal;
+    stroke-width: 5px;
+  }
+</style>
+
 <script>
   var w = 500;
   var h = 400;
