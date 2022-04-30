@@ -1,7 +1,7 @@
 book_filename: "d3book"
 delete_merged_file: true
-view: https://github.com/jtr13/d3book/blob/master/%s
-edit: https://github.com/jtr13/d3book/edit/master/%s
+view: https://github.com/jtr13/d3book/blob/main/%s
+edit: https://github.com/jtr13/d3book/edit/main/%s
 rmd_files: [
   "index.Rmd", # Welcome to D3 {-}
   "jump.Rmd", # Jump in the deep end <i class="fas fa-swimmer"></i> {#jump}
