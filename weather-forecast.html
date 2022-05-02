@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>11 Share D3 online  | D3 for R Users</title>
-  <meta name="description" content="11 Share D3 online  | D3 for R Users" />
+  <title>19 Weather forecast | D3 for R Users</title>
+  <meta name="description" content="19 Weather forecast | D3 for R Users" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="11 Share D3 online  | D3 for R Users" />
+  <meta property="og:title" content="19 Weather forecast | D3 for R Users" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="11 Share D3 online  | D3 for R Users" />
+  <meta name="twitter:title" content="19 Weather forecast | D3 for R Users" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="reading-files.html"/>
-<link rel="next" href="line-charts.html"/>
+<link rel="prev" href="population-density.html"/>
+<link rel="next" href="appendix-advanced-css.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -358,67 +358,210 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="share-d3-online" class="section level1 hasAnchor">
-<h1><span class="header-section-number">11</span> Share D3 online <i class="fa share-square"></i><a href="share-d3-online.html#share-d3-online" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>There are a number of ways you can share your D3 code online. Even if you’re not sharing, there are advantages to an online setup, for example, not having to set up a local server as described in the chapter on <a href="reading-files.html">reading files</a>.</p>
-<div id="vizhub" class="section level2 hasAnchor">
-<h2><span class="header-section-number">11.1</span> VizHub<a href="share-d3-online.html#vizhub" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>My top recommendation is to use <a href="https://vizhub.com/" target="_blank">vizhub.com</a>, created by Curran Kelleher, to host d3 visualizations online. Watch the video on the home page, “How to Use VizHub” for a quick how-to tutorial. Note however that using ES6 imports to import D3 modules separately, such as <code>import { select } from 'd3';</code> as demoed in the video is completely optional; it is sufficient to link to the full D3 library in the <code>&lt;head&gt;</code> section of <code>index.html</code> as we’ve been doing:</p>
-<pre><code>&lt;script src=&quot;https://d3js.org/d3.v7.js&quot;&gt;&lt;/script&gt;</code></pre>
-<p>As such you will not have <code>index.js</code> and generated <code>bundle.js</code> files as in the example.</p>
-<p>When browsing examples, remember that different versions of D3 are not compatible, so be sure to look at v6 or v7 examples, or know what you need to update from v4 or v5 examples. In addition, as with all code sharing sites, remember that not all examples are good examples. Examples by Curran Kelleher, the creator of VizHub, are good models to follow.</p>
-</div>
-<div id="bookdown" class="section level2 hasAnchor">
-<h2><span class="header-section-number">11.2</span> bookdown<a href="share-d3-online.html#bookdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Including D3 code directly in a bookdown book hosted online (such as GitHub Pages) has the advantage that everyone is in one document. On the downside the book must be knit to view the html which happens quickly without R code but is still an extra step.</p>
-<p>There are a few workflow options:</p>
-<div id="everything-in-the-.rmd" class="section level3 hasAnchor">
-<h3><span class="header-section-number">11.2.1</span> Everything in the .Rmd<a href="share-d3-online.html#everything-in-the-.rmd" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Include a link to the D3 library and then all of your code between script tags, and then your D3 between a second set of script tags:</p>
-<pre><code>&lt;script src=&quot;https://d3js.org/d3.v7.js&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-...
-&lt;/script&gt;</code></pre>
-<p>(You don’t need <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, and <code>&lt;body&gt;</code> tags.)</p>
-</div>
-<div id="put-d3-in-a-separate-.js-file" class="section level3 hasAnchor">
-<h3><span class="header-section-number">11.2.2</span> Put D3 in a separate .js file<a href="share-d3-online.html#put-d3-in-a-separate-.js-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>In your Rmd file include the link to the D3 library as well as a link to a file with your D3 code:</p>
-<pre><code>&lt;script src=&quot;https://d3js.org/d3.v7.js&quot;&gt;&lt;/script&gt;
-&lt;div id=&quot;mysvg&quot;&gt;&lt;/div&gt;
-&lt;script src=&quot;myjs.js&quot;&gt;&lt;/script&gt;</code></pre>
-<p>You can then create an identical <code>.html</code> file for testing purposes only. This has the advantage of not having to render the full bookdown book each time you would like to observe changes to your D3 code. This workflow is demoed in <a href="https://www.youtube.com/watch?v=AJhWtuXg7_k">this video</a>.</p>
-<p>Here is an example of a <a href="https://raw.githubusercontent.com/jtr13/d3book/master/code/spearman_standalone.html">standalone html file</a> that could be used to bypass the process of building your <strong>bookdown</strong> book while working on the D3 section. The included-in-the-.Rmd version of this visualization is available in the <a href="https://jtr13.github.io/d3book/spearman-rank-correlation-coefficient.html">Spearman Rank Correlation Coefficient chapter</a>.</p>
-</div>
-<div id="iframe" class="section level3 hasAnchor">
-<h3><span class="header-section-number">11.2.3</span> iframe<a href="share-d3-online.html#iframe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Create your entire visualization in a separate <code>.html</code> file and then include in your <code>.Rmd</code> file with <code>&lt;iframe&gt;</code>:</p>
-<pre><code>&lt;iframe src=&quot;mybarchart.html&quot; width=&quot;400&quot; height=&quot;300&quot;&gt;&lt;/iframe&gt;</code></pre>
-</div>
-</div>
-<div id="observable" class="section level2 hasAnchor">
-<h2><span class="header-section-number">11.3</span> Observable<a href="share-d3-online.html#observable" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Observable, created by D3 author Mike Bostock, is the official D3 web tool for creating and sharing D3 code. It is a powerful, popular tool–all new D3 code examples are now presented in Observable–but program flow is different than it is for stand-alone JavaScript. If you’re interested in learning more, see the collection of <a href="https://observablehq.com/tutorials" target="_blank">Observable Tutorials</a>.</p>
-</div>
-<div id="blockbuilder-2015-2020" class="section level2 hasAnchor">
-<h2><span class="header-section-number">11.4</span> Blockbuilder 2015-2020<a href="share-d3-online.html#blockbuilder-2015-2020" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>As an aside, <a href="https://blockbuilder.org/">blockbuilder.org</a> was a very popular service for sharing D3 code online, but by the end of 2020, will <a href="https://bl.ocks.org/enjalot/1ef61f8c72ddccc99707d36a85f0eba7">no longer allow users to create new blocks, and going forward will serve as an archive of previously created ones</a>. If you use it for this purpose, remember to pay attention to the version of D3 in use; some authors have included the version number in the block titles but this practice is not widespread. Remember as well that not all examples are good examples, both in terms of the graph choices and the quality of the code.</p>
-<p>A few reputable block authors, in terms of quality of D3 code, are:</p>
-<p><a href="https://bl.ocks.org/mbostock" target="_&quot;blank&quot;">Mike Bostock</a> (creator of D3)</p>
-<p><a href="https://bl.ocks.org/enjalot" target="_blank">Ian Johnson</a> (creator of blockbuilder.org)</p>
-<p><a href="https://bl.ocks.org/curran" target="_blank">Curran Kelleher</a> (data viz consultant / educator)</p>
-<p><a href="https://bl.ocks.org/d3noob" target="_blank">Malcolm Maclean</a> (author of <a href="https://leanpub.com/d3-t-and-t-v5" target="_blank">D3 Tips and Tricks, v5.x</a>, lots of simple v5 examples with v5 in title)</p>
-<p><a href="https://bl.ocks.org/timelyportfolio" target="_blank">Kent Russell</a> (creator of interactive <code>parcoords</code> package in R)</p>
+<div id="weather-forecast" class="section level1 hasAnchor">
+<h1><span class="header-section-number">19</span> Weather forecast<a href="weather-forecast.html#weather-forecast" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<script src="https://d3js.org/d3.v7.js"></script>
+<style>
+  * {
+    font-family: sans-serif;
+    }
+  text {
+    font-size: 12px;
+    }
+</style>
+<h3>
+Weather forecast for Columbia University
+</h3>
+<p>
+Lat, Lon: 40.807793, -73.962144
+</p>
+<p>
+(Hover over points for more details.)
+</p>
+<input type="radio" name="tempscale" value="F" checked="true">Fahrenheit
+<input type="radio" name="tempscale" value="C">Celsius
+<div id="plot">
 
 </div>
+<script type="text/javascript">
+
+// Width and height
+var w = 700;
+var h = 300;
+var margin = {top: 25, right: 100, bottom: 50, left: 100};
+var innerHeight = h - margin.top - margin.bottom;
+var innerWidth = w - margin.left - margin.right;
+
+// create "placeholder" image
+var icon = d3.select("div#plot")
+.append("div")
+.append("img")
+.attr("src", "https://github.com/jtr13/d3book/blob/master/images/blank86x86.png?raw=true")
+.style("padding-left", w/2 - 43 + "px");    
+  
+// create SVG element
+var svg = d3.select("div#plot")
+  .append("svg")
+    .attr("width", w)
+    .attr("height", h)
+  
+// create background rectangle
+svg.append("rect")
+.attr("width", w)
+.attr("height", h)
+.attr("fill", "#e7f5fe");
+
+// create caption
+d3.select("div#plot")  
+.append("div")
+  .style("padding", "10px")
+.append("a")
+.attr("href", "https://www.weather.gov/documentation/services-web-api")
+.text("Data source: https://www.weather.gov/documentation/services-web-api");
+
+// create plot group  
+svg.append("g")
+  .attr("id", "plot")
+  .attr("transform", `translate (${margin.left}, ${margin.top})`);
+
+d3.json("https://api.weather.gov/gridpoints/OKX/33,38/forecast").then(function(data) {
+
+// filter for isDaytime equals "true"
+var dataset = data.properties.periods.filter(d => d.isDaytime);
+
+var tempscale = "F";
+// create new property with celsius temperature
+dataset.forEach(d => d.celsius = (d.temperature - 32) * 5/9);
+
+xScale = d3.scaleLinear()
+.domain([d3.min(dataset.map(d => d.temperature - 9)),
+         d3.max(dataset.map(d => d.temperature + 9))])
+.range([0, innerWidth]);
+
+yScale = d3.scaleBand()
+.domain(dataset.map(d => d.name))
+.range([0, innerHeight]);
+
+xAxis = d3.axisBottom()
+.scale(xScale);
+  
+yAxis = d3.axisLeft()
+.scale(yScale);
+
+// Generate guide lines
+svg.select("g#plot")
+  .selectAll("line")
+  .data(dataset)
+  .enter()
+  .append("line")
+    .attr("x1", 0)
+    .attr("x2", innerWidth)
+    .attr("y1", d => yScale(d.name) + .5*yScale.bandwidth())
+    .attr("y2", d => yScale(d.name) + .5*yScale.bandwidth())
+    .attr("stroke", "#ddd")
+    .attr("stroke-width", 1);
+
+// Create circles
+svg.select("g#plot")
+  .selectAll("circle")
+  .data(dataset)
+  .enter()
+  .append("circle")
+    .attr("cx", d => xScale(d.temperature))
+    .attr("cy", d => yScale(d.name) + .5 * yScale.bandwidth())
+    .attr("r", 3)
+    .on("mouseover", function(event, d) {
+        var xcoord = +d3.select(event.currentTarget).attr("cx") + 5
+        var ycoord = +d3.select(event.currentTarget).attr("cy") - 5
+        svg.select("g#plot")
+          .append("text")
+          .attr("id", "tooltip")
+          .attr("x", xcoord)
+          .attr("y", ycoord)
+          .text(d.shortForecast);
+        
+      icon
+        .attr("src", d.icon);
+     })
+     .on("mouseout", function() {
+         d3.select("#tooltip").remove();
+       icon
+         .attr("src", "https://github.com/jtr13/d3book/blob/master/images/blank86x86.png?raw=true");
+     }
+     );
+
+// create x-axis
+svg.select("g#plot")
+  .append("g")
+  .attr("id", "xaxis")
+  .attr("transform", `translate (0, ${innerHeight})`)
+  .call(xAxis);
+  
+// create x-axis label
+svg.select("g#plot")
+  .append("text") 
+    .attr("id", "xlab")
+    .attr("x", innerWidth/2)
+    .attr("y", innerHeight + .75 * margin.bottom)
+    .attr("text-anchor", "middle")
+    .text("temperature (Fahrenheit)");
+
+// create y-axis      
+svg.select("g#plot")
+  .append("g")
+  .call(yAxis)    
+        
+// get value of radio button on click
+d3.selectAll("input")
+.on("click", function(event) { 
+    var tempscale = event.currentTarget.value; 
+    if (tempscale == "C") {
+    // update xScale domain
+        xScale.domain([d3.min(dataset.map(d => d.celsius - 5)),
+                       d3.max(dataset.map(d => d.celsius + 5))]);  
+    // update x-axis label
+        svg.select("#xlab")
+          .text("temperature (Celsius)")
+    // update cx value of circles
+        svg.selectAll("circle")
+          .attr("cx", d => xScale(d.celsius))
+    } else {
+    // update xScale domain
+        xScale.domain([d3.min(dataset.map(d => d.temperature - 9)),
+                       d3.max(dataset.map(d => d.temperature + 9))]);  
+    // update x-axis label
+        svg.select("#xlab")
+          .text("temperature (Fahrenheit)")      
+    // update cx value of circles
+        svg.selectAll("circle")
+          .attr("cx", d => xScale(d.temperature))
+    };
+  // update x-axis
+  svg.select("#xaxis")
+    .call(xAxis); 
+
+  }) // end .on
+}) // end d3.json
+
+.catch(function(error){
+  d3.select("svg")
+    .append("text")
+    .text("Error loading data.");
+});
+
+</script>
+
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="reading-files.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="line-charts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="population-density.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="appendix-advanced-css.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -449,7 +592,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jtr13/d3book/edit/master/online.Rmd",
+"link": "https://github.com/jtr13/d3book/edit/master/weather.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -457,7 +600,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/jtr13/d3book/blob/master/online.Rmd",
+"link": "https://github.com/jtr13/d3book/blob/master/weather.Rmd",
 "text": null
 },
 "download": null,
