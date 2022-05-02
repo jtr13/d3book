@@ -42,22 +42,25 @@
     .attr("height", h)
     .attr("fill", "aliceblue");
 
-  // add bars as a group
-
-  var bars = svg.append("g")
+  // create inner plot group
+  svg.append("g")
+      .attr("id", "plot")
       .attr("transform", `translate (${margin.left}, ${margin.top})`)
-    .selectAll("rect")
-      .data(bardata);
-
-  bars.enter().append("rect")
+	  
+  // create bars  
+  d3.select("g#plot")
+      .selectAll("rect")
+      .data(bardata)
+      .enter()
+      .append("rect")
       .attr("x", (d, i) => xScale(i))
       .attr("y", d => yScale(d))
       .attr("width", xScale.bandwidth())
       .attr("height", d => innerHeight - yScale(d))
       .attr("fill", "lightgreen");
-
-    svg.append("g")
-      .attr("transform", `translate (${margin.left}, ${margin.top})`)
+	  
+  // create text labels
+  d3.select("g#plot")
       .selectAll("text")
       .data(bardata)
       .enter()
@@ -67,7 +70,6 @@
       .text(d => d)
       .attr("fill", "blue")
       .attr("text-anchor", "middle");
-
 
     </script>
   </body>

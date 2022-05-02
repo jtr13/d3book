@@ -39,9 +39,9 @@ html-2
 svg-2
 exercise-green-circles
 exercise-blue-circles
-bind-data-finally
-exercise-data-bind
 update-enter-and-exit
+bind-data
+exercise-data-bind
 lecture-slides
 remove-some-elements
 add-some-elements
@@ -139,6 +139,7 @@ solutions
 correlation-coefficient
 spearman-rank-correlation-coefficient
 population-density
+weather-forecast
 appendix-advanced-css
 buttons
 active
