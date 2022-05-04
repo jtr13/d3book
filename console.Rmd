@@ -239,7 +239,9 @@ d3.select("#moveleft").attr("x", "200").text("I want to move left.")
 
 ### HTML
 
-Continue trying out code with `five_green_circles.html` open in Chrome.
+Continue trying out code with [five_green_circles.html](code/five_green_circles.html){target="_blank"} open in Chrome.
+
+Or [download the file](https://raw.githubusercontent.com/jtr13/d3book/main/code/five_green_circles.html){target="_blank"} and open it.
 
 The following adds a `<p>` tag but doesn't change how the page looks, since there's no text associated with it.
 
@@ -310,7 +312,7 @@ d3.select("svg").selectAll("circle").remove();
 
 ## Exercise <i class="fas fa-dumbbell"></i>: green circles
 
-Download and open a fresh copy of [five_green_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/five_green_circles.html){target="_blank"} in Chrome. Open Developer Tools open and do the following in the Console with D3:
+Return to [five_green_circles.html](code/five_green_circles.html){target="_blank"}, open Developer Tools, and do the following in the Console with D3:
 
 1. Select the circle with ID "henry" and make it blue.
 
@@ -320,11 +322,11 @@ Download and open a fresh copy of [five_green_circles.html](https://raw.githubus
 
 4. Select all circles of "apple" class and move them to the middle of the svg.
 
-[](#d3-in-the-console-green-circles)
+[Solution](solutions.html#d3-in-the-console-green-circles)
 
 ## Exercise <i class="fas fa-dumbbell"></i> <i class="fas fa-dumbbell"></i>: blue circles
 
-Download and open a fresh copy of  [six_blue_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html){target="_blank"} in Chrome. Open Developer Tools and execute Steps 1-4 one at a time in the Console. After Step 4, refresh the page to go back to Step 1 if so desired. (You do not need to create a loop as in the visual.)
+Return to [six_blue_circles.html](code/six_blue_circles.html){target="_blank"}, open Developer Tools, and execute Steps 1-4 one at a time in the Console. After Step 4, refresh the page to go back to Step 1 if so desired. (You do not need to create a loop as in the visual.)
 
 > <i class="far fa-lightbulb"></i> *This exercise is provided as a challenge. It's fine to skip this exercise and move on to the next section.*
 
@@ -348,7 +350,98 @@ Download and open a fresh copy of  [six_blue_circles.html](https://raw.githubuse
 
 </td></tr></table>
 
-[](#d3-in-the-console-blue-circles)
+[Solution](solutions.html#d3-in-the-console-blue-circles)
 
+## Bind data… *finally\!* <i class="fas fa-table"></i>
+
+(*IDVW2*, pp. 98-108)
+
+To follow along with the code in this section, download and open [six_blue_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html){target="_blank"}.
+
+Bind data:
+
+``` js
+d3.select("svg").selectAll("circle").data([90, 230, 140, 75, 180, 25]);
+```
+
+Check data binding:
+
+``` js
+d3.select("svg").selectAll("circle").data();
+```
+
+Set x-coordinate of each circle to data value using arrow function:
+
+``` js
+d3.select("svg").selectAll("circle").attr("cx", d => d);
+```
+
+Set x-coordinate of each circle to data value with a JavaScript function:
+
+``` js
+d3.select("svg").selectAll("circle").attr("cx", function(d) {return d;});
+```
+
+We'll bind a new set of data to the circles, this time storing the dataset in a variable:
+
+``` js
+var dataset = [50, 80, 110, 140, 170, 200];
+```
+
+We'll also store a selection of all circles before binding the data:
+
+``` js
+var circ = d3.select("svg").selectAll("circle");
+```
+
+And now, the data bind:
+
+``` js
+circ.data(dataset);
+```
+
+Nothing appears to have happened; the circles remain the same and there is no evidence of any changes looking at the circles in the DOM (see Elements tab).
+
+We can check that the data are indeed bound with:
+
+``` js
+circ.data();  // now we see data
+```
+
+Modify elements w/ stored selections, bound data:
+
+``` js
+circ.attr("cx", function(d) {return d;});
+
+circ.attr("cx", function(d) {return d/2;});
+
+circ.attr("cx", function(d) {return d/4;}).attr("r", "10");
+```
+
+Same as above, using arrow functions:
+
+``` js
+circ.attr("cx", d => d);
+
+circ.attr("cx", d => d/2);
+
+circ.attr("cx", d => d/4).attr("r", "10");
+```
+
+Note that if we bind a new set of data to the DOM elements, the original set will be overwritten:
+
+``` js
+var newdata = [145, 29, 53, 196, 200, 12];
+
+circ.data(newdata);
+
+circ.transition()
+    .duration(2000)
+    .attr("cx", d => 2*d);
+```
+
+## Exercise <i class="fas fa-dumbbell"></i>: data bind
+
+Return to [six_blue_circles.html](code/six_blue_circles.html){target="_blank"}, open Developer Tools, and practice binding data to the circles and modifying the circles based on the data as in the examples above.
 
 
