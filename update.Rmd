@@ -19,10 +19,9 @@ Download and open a fresh copy of  [six_blue_circles.html](https://raw.githubuse
 Let's bind four data values to the six circles:
 
 ``` js
-var svg = d3.select("svg");
-
-svg.selectAll("circle")
-    .data([123, 52, 232, 90]);
+d3.select("svg")
+  .selectAll("circle")
+  .data([123, 52, 232, 90]);
 ```
 
 Click the black triangle to view the `_enter`, `_exit`, and `_groups` fields. 
@@ -31,8 +30,9 @@ Click the black triangle to view the `_enter`, `_exit`, and `_groups` fields.
 We can store the selection in a variable:
 
 ``` js
-var circ = svg.selectAll("circle")
-    .data([123, 52, 232, 90]);
+var circ = d3.select("svg")
+  .selectAll("circle")
+  .data([123, 52, 232, 90]);
 ```
 
 Let's look at the exit selection:
@@ -86,10 +86,9 @@ We'll start with six circles and add some.
 Let's bind new data to the circles:
 
 ``` js
-var svg = d3.select("svg");
-
-var circ = svg.selectAll("circle")
-      .data([123, 52, 232, 90, 34, 12, 189, 110]);
+var circ = d3.select("svg")
+  .selectAll("circle")
+  .data([123, 52, 232, 90, 34, 12, 189, 110]);
 ```
 
 And look at the enter selection:
@@ -121,7 +120,8 @@ circ.transition()
 What do you need to do to act on *all* of the circles?
 
 ``` js
-svg.selectAll("circle")
+d3.select("svg")
+  .selectAll("circle")
   .transition()
   .duration(2000)
   .attr("cy", (d, i) => (i * 50) + 25)
@@ -144,7 +144,7 @@ The SVG will be added here:
 
 
 ``` js
-var svg = d3.select("div#dea")
+d3.select("div#dea")
   .append("svg")
   .attr("width", "400")
   .attr("height", "250");
@@ -159,15 +159,16 @@ var specialdata = [75, 150, 200];
 Add rectangles:
 
 ``` js
-  svg.selectAll("rect")
-    .data(specialdata)
-    .enter()
-    .append("rect")
-      .attr("x", d => d)
-      .attr("y", d => d)
-      .attr("width", "50")
-      .attr("height", "30")
-      .attr("fill", "pink");
+d3.select("svg")
+  .selectAll("rect")
+  .data(specialdata)
+  .enter()
+  .append("rect")
+    .attr("x", d => d)
+    .attr("y", d => d)
+    .attr("width", "50")
+    .attr("height", "30")
+    .attr("fill", "pink");
 ```
 
 ### Labels
@@ -175,15 +176,16 @@ Add rectangles:
 Note that we can also label the rectangles with the data value:
 
 ``` js
-  svg.selectAll("text")
-      .data(specialdata)
-      .enter()
-      .append("text")
-      .attr("x", d => d + 25)
-      .attr("y", d => d + 25)
-      .text(d => d)
-      .attr("fill", "blue")
-      .attr("text-anchor", "middle");
+  d3.select("svg")
+    .selectAll("text")
+    .data(specialdata)
+    .enter()
+    .append("text")
+    .attr("x", d => d + 25)
+    .attr("y", d => d + 25)
+    .text(d => d)
+    .attr("fill", "blue")
+    .attr("text-anchor", "middle");
 ```      
 
 
@@ -212,16 +214,16 @@ Open [six_blue_circles.html](code/six_blue_circles.html){target="_blank"} in Chr
 Run the following code in the Console:
 
 ``` js
-var svg = d3.select("svg");
-var circ = svg.selectAll("circle")
+var circ = d3.select("svg")
+  .selectAll("circle")
   .data([123, 52, 232, 90, 34, 12, 189, 110]);
   
 var allcirc = circ.enter()  // 2 placeholders
-        .append("circle")  // placeholders -> circles
-          .attr("cx", "100")  // acts on enter selection only
-          .attr("cy", (d, i) => (i - 5) * 50)
-          .attr("r", "20")
-          .attr("fill", "red");
+  .append("circle")  // placeholders -> circles
+     .attr("cx", "100")  // acts on enter selection only
+     .attr("cy", (d, i) => (i - 5) * 50)
+     .attr("r", "20")
+     .attr("fill", "red");
 ```
 
 Now try to predict what the following code will do. Were you right?
@@ -236,8 +238,8 @@ allcirc.transition()
 Refresh the page and then copy and paste the following into the Console and run.
 
 ``` js
-var svg = d3.select("svg");
-var circ = svg.selectAll("circle")
+var circ = d3.select("svg")
+  .selectAll("circle")
   .data([123, 52, 232, 90, 34, 12, 189, 110]); // update selection
   
 var allcirc = circ.enter()  // 2 placeholders
@@ -294,19 +296,19 @@ Open [six_blue_circles.html](code/six_blue_circles.html){target="_blank"} in Chr
 Run this code in the Console:
 
 ``` js
-var svg = d3.select("svg");
-
 var specialdata = [100, 250, 300];
 
-var bars = svg.selectAll("rect")
-      .data(specialdata)
-      .enter()
-      .append("rect")
-        .attr("x", d => d)
-        .attr("y", d => d)
-        .attr("width", "50")
-        .attr("height", "30")
-        .attr("fill", "red");
+var bars = 
+  d3.select("svg")
+    .selectAll("rect")
+    .data(specialdata)
+    .enter()
+    .append("rect")
+      .attr("x", d => d)
+      .attr("y", d => d)
+      .attr("width", "50")
+      .attr("height", "30")
+      .attr("fill", "red");
 ```
 
 What's going on?
@@ -319,17 +321,19 @@ var svg = d3.select("svg");
 
 var specialdata = [100, 250, 300];
 
-var bars = svg.append("g")
+var bars = 
+  d3.select("svg")
+    .append("g")
       .attr("id", "rects")
-      .selectAll("rect")
-      .data(specialdata)
-      .enter()
-      .append("rect")
-        .attr("x", d => d)
-        .attr("y", d => d)
-        .attr("width", "50")
-        .attr("height", "30")
-        .attr("fill", "red");
+    .selectAll("rect")
+    .data(specialdata)
+    .enter()
+    .append("rect")
+      .attr("x", d => d)
+      .attr("y", d => d)
+      .attr("width", "50")
+      .attr("height", "30")
+      .attr("fill", "red");
 ```
 
 Compare:
@@ -355,14 +359,16 @@ Open Developer Tools on this page.
 
 <svg id="gup"></svg>
 <script>
-  var svg = d3.select("svg#gup")
+  d3.select("svg#gup")
     .attr("width", "500")
     .attr("height", "500");
 
   var bardata = [300, 100, 150, 225, 75, 275];
 
-  var bars = svg.selectAll("rect")
-    .data(bardata);
+  var bars = 
+    d3.select("svg")
+      .selectAll("rect")
+      .data(bardata);
 
   bars.enter()
     .append("rect")
