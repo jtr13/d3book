@@ -194,10 +194,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="d3console.html"><a href="d3console.html#exercise-green-circles"><i class="fa fa-check"></i><b>3.5</b> Exercise <i class="fas fa-dumbbell"></i>: green circles</a></li>
 <li class="chapter" data-level="3.6" data-path="d3console.html"><a href="d3console.html#exercise-blue-circles"><i class="fa fa-check"></i><b>3.6</b> Exercise <i class="fas fa-dumbbell"></i> <i class="fas fa-dumbbell"></i>: blue circles</a></li>
+<li class="chapter" data-level="3.7" data-path="d3console.html"><a href="d3console.html#bind-data-finally"><i class="fa fa-check"></i><b>3.7</b> Bind data… <em>finally!</em> <i class="fas fa-table"></i></a></li>
+<li class="chapter" data-level="3.8" data-path="d3console.html"><a href="d3console.html#exercise-data-bind"><i class="fa fa-check"></i><b>3.8</b> Exercise <i class="fas fa-dumbbell"></i>: data bind</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html"><i class="fa fa-check"></i><b>4</b> Update, Enter, and Exit <i class="fa fa-refresh"></i></a><ul>
 <li class="chapter" data-level="4.1" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#bind-data"><i class="fa fa-check"></i><b>4.1</b> Bind data <i class="fas fa-table"></i></a></li>
-<li class="chapter" data-level="4.2" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#exercise-data-bind"><i class="fa fa-check"></i><b>4.2</b> Exercise <i class="fas fa-dumbbell"></i>: data bind</a></li>
+<li class="chapter" data-level="4.2" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#exercise-data-bind-1"><i class="fa fa-check"></i><b>4.2</b> Exercise <i class="fas fa-dumbbell"></i>: data bind</a></li>
 <li class="chapter" data-level="4.3" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#lecture-slides"><i class="fa fa-check"></i><b>4.3</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="4.4" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#remove-some-elements"><i class="fa fa-check"></i><b>4.4</b> Remove some elements <i class="far fa-minus-square"></i></a></li>
 <li class="chapter" data-level="4.5" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#add-some-elements"><i class="fa fa-check"></i><b>4.5</b> Add some elements <i class="far fa-plus-square"></i></a></li>
@@ -366,49 +368,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">10.1</span> Promises<a href="reading-files.html#promises" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Loading data is one area where <a href="https://github.com/d3/d3/blob/master/CHANGES.md" target="_blank">D3 v5 introduces major changes from D3 v4</a>. While v4 uses <a href="https://javascript.info/callbacks" target="_blank">callbacks</a>, v5 switches to <a href="https://javascript.info/promise-basics" target="_blank">promises</a>, as <a href="https://hiddentao.com/archives/2014/04/21/why-promises-are-more-flexible-than-callbacks" target="_blank">promises facilitate cleaner and more flexile code than callbacks</a>.</p>
 <p>The concept is simple. We want to control what code needs to wait until data loaded to be executed and what doesn’t. We can do that with the following structure:</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb155-1"><a href="reading-files.html#cb155-1"></a><span class="kw">var</span> rowConverter <span class="op">=</span> <span class="kw">function</span> (d) <span class="op">{</span></span>
-<span id="cb155-2"><a href="reading-files.html#cb155-2"></a>  <span class="cf">return</span> <span class="op">{</span></span>
-<span id="cb155-3"><a href="reading-files.html#cb155-3"></a>    <span class="dt">disp</span><span class="op">:</span> <span class="op">+</span><span class="va">d</span>.<span class="at">disp</span><span class="op">,</span></span>
-<span id="cb155-4"><a href="reading-files.html#cb155-4"></a>    <span class="dt">mpg</span><span class="op">:</span> <span class="op">+</span><span class="va">d</span>.<span class="at">mpg</span><span class="op">,</span></span>
-<span id="cb155-5"><a href="reading-files.html#cb155-5"></a>    <span class="dt">carname</span><span class="op">:</span> <span class="va">d</span>.<span class="at">carname</span><span class="op">,</span></span>
-<span id="cb155-6"><a href="reading-files.html#cb155-6"></a>    <span class="dt">cylcolor</span><span class="op">:</span> <span class="va">d</span>.<span class="at">cylcolor</span></span>
-<span id="cb155-7"><a href="reading-files.html#cb155-7"></a>    <span class="op">}</span></span>
-<span id="cb155-8"><a href="reading-files.html#cb155-8"></a><span class="op">};</span>  </span>
-<span id="cb155-9"><a href="reading-files.html#cb155-9"></a></span>
-<span id="cb155-10"><a href="reading-files.html#cb155-10"></a><span class="va">d3</span>.<span class="at">csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/jtr13/d3book/master/data/mtcars.csv&quot;</span><span class="op">,</span> rowConverter)</span>
-<span id="cb155-11"><a href="reading-files.html#cb155-11"></a>  .<span class="at">then</span>(<span class="kw">function</span>(data) <span class="op">{</span></span>
-<span id="cb155-12"><a href="reading-files.html#cb155-12"></a></span>
-<span id="cb155-13"><a href="reading-files.html#cb155-13"></a><span class="co">// stuff that requires the loaded data</span></span>
-<span id="cb155-14"><a href="reading-files.html#cb155-14"></a></span>
-<span id="cb155-15"><a href="reading-files.html#cb155-15"></a>  <span class="op">}</span>)</span>
-<span id="cb155-16"><a href="reading-files.html#cb155-16"></a>  .<span class="at">catch</span>(<span class="kw">function</span>(error) <span class="op">{</span></span>
-<span id="cb155-17"><a href="reading-files.html#cb155-17"></a>  </span>
-<span id="cb155-18"><a href="reading-files.html#cb155-18"></a><span class="co">// error handling  </span></span>
-<span id="cb155-19"><a href="reading-files.html#cb155-19"></a>  </span>
-<span id="cb155-20"><a href="reading-files.html#cb155-20"></a>  <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb166-1"><a href="reading-files.html#cb166-1"></a><span class="kw">var</span> rowConverter <span class="op">=</span> <span class="kw">function</span> (d) <span class="op">{</span></span>
+<span id="cb166-2"><a href="reading-files.html#cb166-2"></a>  <span class="cf">return</span> <span class="op">{</span></span>
+<span id="cb166-3"><a href="reading-files.html#cb166-3"></a>    <span class="dt">disp</span><span class="op">:</span> <span class="op">+</span><span class="va">d</span>.<span class="at">disp</span><span class="op">,</span></span>
+<span id="cb166-4"><a href="reading-files.html#cb166-4"></a>    <span class="dt">mpg</span><span class="op">:</span> <span class="op">+</span><span class="va">d</span>.<span class="at">mpg</span><span class="op">,</span></span>
+<span id="cb166-5"><a href="reading-files.html#cb166-5"></a>    <span class="dt">carname</span><span class="op">:</span> <span class="va">d</span>.<span class="at">carname</span><span class="op">,</span></span>
+<span id="cb166-6"><a href="reading-files.html#cb166-6"></a>    <span class="dt">cylcolor</span><span class="op">:</span> <span class="va">d</span>.<span class="at">cylcolor</span></span>
+<span id="cb166-7"><a href="reading-files.html#cb166-7"></a>    <span class="op">}</span></span>
+<span id="cb166-8"><a href="reading-files.html#cb166-8"></a><span class="op">};</span>  </span>
+<span id="cb166-9"><a href="reading-files.html#cb166-9"></a></span>
+<span id="cb166-10"><a href="reading-files.html#cb166-10"></a><span class="va">d3</span>.<span class="at">csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/jtr13/d3book/master/data/mtcars.csv&quot;</span><span class="op">,</span> rowConverter)</span>
+<span id="cb166-11"><a href="reading-files.html#cb166-11"></a>  .<span class="at">then</span>(<span class="kw">function</span>(data) <span class="op">{</span></span>
+<span id="cb166-12"><a href="reading-files.html#cb166-12"></a></span>
+<span id="cb166-13"><a href="reading-files.html#cb166-13"></a><span class="co">// stuff that requires the loaded data</span></span>
+<span id="cb166-14"><a href="reading-files.html#cb166-14"></a></span>
+<span id="cb166-15"><a href="reading-files.html#cb166-15"></a>  <span class="op">}</span>)</span>
+<span id="cb166-16"><a href="reading-files.html#cb166-16"></a>  .<span class="at">catch</span>(<span class="kw">function</span>(error) <span class="op">{</span></span>
+<span id="cb166-17"><a href="reading-files.html#cb166-17"></a>  </span>
+<span id="cb166-18"><a href="reading-files.html#cb166-18"></a><span class="co">// error handling  </span></span>
+<span id="cb166-19"><a href="reading-files.html#cb166-19"></a>  </span>
+<span id="cb166-20"><a href="reading-files.html#cb166-20"></a>  <span class="op">}</span>)<span class="op">;</span></span></code></pre></div>
 <p>The row converter function is used to select variables and change data types (“+” converts to floating point). <code>d3.csv()</code> returns a promise. If the promise is resolved, the <code>.then()</code> function will execute; if the promise is rejected, the <code>.catch()</code> function will execute.</p>
 <blockquote>
 <p><i class="fa fa-exclamation-triangle"></i> <em>Forget the mindset that you read files and store them in variables for later use. It doesn’t work that way here. The data is read in and acted on immediately. If most of the code requires loaded data, then most of the code will appear in the <code>.then()</code> method.</em></p>
 </blockquote>
 <p>A simple example of loading data in <strong>v5</strong> can be found in <a href="https://bl.ocks.org/tiktaktok/c2e02e2916c226ef44ed233cb46db40c" target="_blank">this block</a>. In contrast to the example above, an anonymous row converter function (with arrow functions) is used instead of calling a separate row converter function. Note as well that it’s not necessary to include all variables in the row converter as this author has done. For example, you could delete all the variables that aren’t used, so that the row converter in the <code>d3.csv</code> line becomes:</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb156-1"><a href="reading-files.html#cb156-1"></a>d <span class="kw">=&gt;</span> (<span class="op">{</span></span>
-<span id="cb156-2"><a href="reading-files.html#cb156-2"></a>            <span class="dt">HighwayMpg</span><span class="op">:</span> <span class="at">parseInt</span>(<span class="va">d</span>.<span class="at">HighwayMpg</span>)<span class="op">,</span></span>
-<span id="cb156-3"><a href="reading-files.html#cb156-3"></a>            <span class="dt">Horsepower</span><span class="op">:</span> <span class="at">parseInt</span>(<span class="va">d</span>.<span class="at">Horsepower</span>)<span class="op">,</span></span>
-<span id="cb156-4"><a href="reading-files.html#cb156-4"></a>        <span class="op">}</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb167-1"><a href="reading-files.html#cb167-1"></a>d <span class="kw">=&gt;</span> (<span class="op">{</span></span>
+<span id="cb167-2"><a href="reading-files.html#cb167-2"></a>            <span class="dt">HighwayMpg</span><span class="op">:</span> <span class="at">parseInt</span>(<span class="va">d</span>.<span class="at">HighwayMpg</span>)<span class="op">,</span></span>
+<span id="cb167-3"><a href="reading-files.html#cb167-3"></a>            <span class="dt">Horsepower</span><span class="op">:</span> <span class="at">parseInt</span>(<span class="va">d</span>.<span class="at">Horsepower</span>)<span class="op">,</span></span>
+<span id="cb167-4"><a href="reading-files.html#cb167-4"></a>        <span class="op">}</span>)</span></code></pre></div>
 <p>You will see that the code still works.</p>
 <p>For more about <code>d3.csv()</code>, see the <a href="https://github.com/d3/d3-fetch/blob/v1.1.2/README.md#csv" target="_blank"><code>d3.fetch</code> API</a>.</p>
 </div>
 <div id="local-server" class="section level2 hasAnchor">
 <h2><span class="header-section-number">10.2</span> Local server<a href="reading-files.html#local-server" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>For security reasons, Chrome does not let you read local files. To be able to do so, you can run a local server. One option is <a href="https://www.npmjs.com/package/http-server" target="_blank">http-server</a>. Follow the instructions to install <code>http-server</code>, navigate in a terminal to the directory with your html file, and then enter <code>http-server</code>:</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb157-1"><a href="reading-files.html#cb157-1"></a><span class="ex">joycerobbins@MacBook-Pro</span> d3-book-murray % http-server</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb168-1"><a href="reading-files.html#cb168-1"></a><span class="ex">joycerobbins@MacBook-Pro</span> d3-book-murray % http-server</span></code></pre></div>
 <p>You should get a message that ends with something like this:</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb158-1"><a href="reading-files.html#cb158-1"></a><span class="ex">Starting</span> up http-server, serving ./</span>
-<span id="cb158-2"><a href="reading-files.html#cb158-2"></a><span class="ex">...</span></span>
-<span id="cb158-3"><a href="reading-files.html#cb158-3"></a><span class="ex">Available</span> on:</span>
-<span id="cb158-4"><a href="reading-files.html#cb158-4"></a>  <span class="ex">http</span>://127.0.0.1:8080</span>
-<span id="cb158-5"><a href="reading-files.html#cb158-5"></a>  <span class="ex">http</span>://192.168.1.54:8080</span>
-<span id="cb158-6"><a href="reading-files.html#cb158-6"></a><span class="ex">Hit</span> CTRL-C to stop the server</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb169-1"><a href="reading-files.html#cb169-1"></a><span class="ex">Starting</span> up http-server, serving ./</span>
+<span id="cb169-2"><a href="reading-files.html#cb169-2"></a><span class="ex">...</span></span>
+<span id="cb169-3"><a href="reading-files.html#cb169-3"></a><span class="ex">Available</span> on:</span>
+<span id="cb169-4"><a href="reading-files.html#cb169-4"></a>  <span class="ex">http</span>://127.0.0.1:8080</span>
+<span id="cb169-5"><a href="reading-files.html#cb169-5"></a>  <span class="ex">http</span>://192.168.1.54:8080</span>
+<span id="cb169-6"><a href="reading-files.html#cb169-6"></a><span class="ex">Hit</span> CTRL-C to stop the server</span></code></pre></div>
 <p>Copy and paste one of the URLs in the browser and you should see an index of subfolders and/or files available in the folder in which you launched the local server:</p>
 <p><img src="images/index_of.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>From here you can navigate to the desired file. Take note that you cannot move up in the file structure so be sure to start the server in the highest level directory that you plan to access, or that the files you open need to access. In this particular case I am opening the code files for Scott Murray’s

@@ -194,10 +194,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="d3console.html"><a href="d3console.html#exercise-green-circles"><i class="fa fa-check"></i><b>3.5</b> Exercise <i class="fas fa-dumbbell"></i>: green circles</a></li>
 <li class="chapter" data-level="3.6" data-path="d3console.html"><a href="d3console.html#exercise-blue-circles"><i class="fa fa-check"></i><b>3.6</b> Exercise <i class="fas fa-dumbbell"></i> <i class="fas fa-dumbbell"></i>: blue circles</a></li>
+<li class="chapter" data-level="3.7" data-path="d3console.html"><a href="d3console.html#bind-data-finally"><i class="fa fa-check"></i><b>3.7</b> Bind data… <em>finally!</em> <i class="fas fa-table"></i></a></li>
+<li class="chapter" data-level="3.8" data-path="d3console.html"><a href="d3console.html#exercise-data-bind"><i class="fa fa-check"></i><b>3.8</b> Exercise <i class="fas fa-dumbbell"></i>: data bind</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html"><i class="fa fa-check"></i><b>4</b> Update, Enter, and Exit <i class="fa fa-refresh"></i></a><ul>
 <li class="chapter" data-level="4.1" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#bind-data"><i class="fa fa-check"></i><b>4.1</b> Bind data <i class="fas fa-table"></i></a></li>
-<li class="chapter" data-level="4.2" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#exercise-data-bind"><i class="fa fa-check"></i><b>4.2</b> Exercise <i class="fas fa-dumbbell"></i>: data bind</a></li>
+<li class="chapter" data-level="4.2" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#exercise-data-bind-1"><i class="fa fa-check"></i><b>4.2</b> Exercise <i class="fas fa-dumbbell"></i>: data bind</a></li>
 <li class="chapter" data-level="4.3" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#lecture-slides"><i class="fa fa-check"></i><b>4.3</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="4.4" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#remove-some-elements"><i class="fa fa-check"></i><b>4.4</b> Remove some elements <i class="far fa-minus-square"></i></a></li>
 <li class="chapter" data-level="4.5" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#add-some-elements"><i class="fa fa-check"></i><b>4.5</b> Add some elements <i class="far fa-plus-square"></i></a></li>
@@ -527,7 +529,8 @@ d3.select("#moveleft").attr("x", "200").text("I want to move left.")
 <h2><span class="header-section-number">3.3</span> Add elements <i class="far fa-plus-square"></i><a href="d3console.html#add-elements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="html-1" class="section level3 hasAnchor">
 <h3><span class="header-section-number">3.3.1</span> HTML<a href="d3console.html#html-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Continue trying out code with <code>five_green_circles.html</code> open in Chrome.</p>
+<p>Continue trying out code with <a href="code/five_green_circles.html" target="_blank">five_green_circles.html</a> open in Chrome.</p>
+<p>Or <a href="https://raw.githubusercontent.com/jtr13/d3book/main/code/five_green_circles.html" target="_blank">download the file</a> and open it.</p>
 <p>The following adds a <code>&lt;p&gt;</code> tag but doesn’t change how the page looks, since there’s no text associated with it.</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb36-1"><a href="d3console.html#cb36-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;body&quot;</span>).<span class="at">append</span>(<span class="st">&quot;p&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>To add text, use <code>.text()</code>:</p>
@@ -573,18 +576,18 @@ d3.select("#moveleft").attr("x", "200").text("I want to move left.")
 </div>
 <div id="exercise-green-circles" class="section level2 hasAnchor">
 <h2><span class="header-section-number">3.5</span> Exercise <i class="fas fa-dumbbell"></i>: green circles<a href="d3console.html#exercise-green-circles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Download and open a fresh copy of <a href="https://raw.githubusercontent.com/jtr13/d3book/master/code/five_green_circles.html" target="_blank">five_green_circles.html</a> in Chrome. Open Developer Tools open and do the following in the Console with D3:</p>
+<p>Return to <a href="code/five_green_circles.html" target="_blank">five_green_circles.html</a>, open Developer Tools, and do the following in the Console with D3:</p>
 <ol style="list-style-type: decimal">
 <li><p>Select the circle with ID “henry” and make it blue.</p></li>
 <li><p>Select all circles of “apple” class make them red.</p></li>
 <li><p>Select the first circle and add an orange border (use attribute “stroke”), and stroke width (“stroke-width”) of 5.</p></li>
 <li><p>Select all circles of “apple” class and move them to the middle of the svg.</p></li>
 </ol>
-<p><a href="solutions.html#d3-in-the-console-green-circles"></a></p>
+<p><a href="solutions.html#d3-in-the-console-green-circles">Solution</a></p>
 </div>
 <div id="exercise-blue-circles" class="section level2 hasAnchor">
 <h2><span class="header-section-number">3.6</span> Exercise <i class="fas fa-dumbbell"></i> <i class="fas fa-dumbbell"></i>: blue circles<a href="d3console.html#exercise-blue-circles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Download and open a fresh copy of <a href="https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html" target="_blank">six_blue_circles.html</a> in Chrome. Open Developer Tools and execute Steps 1-4 one at a time in the Console. After Step 4, refresh the page to go back to Step 1 if so desired. (You do not need to create a loop as in the visual.)</p>
+<p>Return to <a href="code/six_blue_circles.html" target="_blank">six_blue_circles.html</a>, open Developer Tools, and execute Steps 1-4 one at a time in the Console. After Step 4, refresh the page to go back to Step 1 if so desired. (You do not need to create a loop as in the visual.)</p>
 <blockquote>
 <p><i class="far fa-lightbulb"></i> <em>This exercise is provided as a challenge. It’s fine to skip this exercise and move on to the next section.</em></p>
 </blockquote>
@@ -607,7 +610,53 @@ d3.select("#moveleft").attr("x", "200").text("I want to move left.")
 </td>
 </tr>
 </table>
-<p><a href="solutions.html#d3-in-the-console-blue-circles"></a></p>
+<p><a href="solutions.html#d3-in-the-console-blue-circles">Solution</a></p>
+</div>
+<div id="bind-data-finally" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.7</span> Bind data… <em>finally!</em> <i class="fas fa-table"></i><a href="d3console.html#bind-data-finally" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>(<em>IDVW2</em>, pp. 98-108)</p>
+<p>To follow along with the code in this section, download and open <a href="https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html" target="_blank">six_blue_circles.html</a>.</p>
+<p>Bind data:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb43-1"><a href="d3console.html#cb43-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">data</span>([<span class="dv">90</span><span class="op">,</span> <span class="dv">230</span><span class="op">,</span> <span class="dv">140</span><span class="op">,</span> <span class="dv">75</span><span class="op">,</span> <span class="dv">180</span><span class="op">,</span> <span class="dv">25</span>])<span class="op">;</span></span></code></pre></div>
+<p>Check data binding:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb44-1"><a href="d3console.html#cb44-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">data</span>()<span class="op">;</span></span></code></pre></div>
+<p>Set x-coordinate of each circle to data value using arrow function:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb45-1"><a href="d3console.html#cb45-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)<span class="op">;</span></span></code></pre></div>
+<p>Set x-coordinate of each circle to data value with a JavaScript function:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb46-1"><a href="d3console.html#cb46-1"></a><span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>).<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="kw">function</span>(d) <span class="op">{</span><span class="cf">return</span> d<span class="op">;}</span>)<span class="op">;</span></span></code></pre></div>
+<p>We’ll bind a new set of data to the circles, this time storing the dataset in a variable:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb47-1"><a href="d3console.html#cb47-1"></a><span class="kw">var</span> dataset <span class="op">=</span> [<span class="dv">50</span><span class="op">,</span> <span class="dv">80</span><span class="op">,</span> <span class="dv">110</span><span class="op">,</span> <span class="dv">140</span><span class="op">,</span> <span class="dv">170</span><span class="op">,</span> <span class="dv">200</span>]<span class="op">;</span></span></code></pre></div>
+<p>We’ll also store a selection of all circles before binding the data:</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb48-1"><a href="d3console.html#cb48-1"></a><span class="kw">var</span> circ <span class="op">=</span> <span class="va">d3</span>.<span class="at">select</span>(<span class="st">&quot;svg&quot;</span>).<span class="at">selectAll</span>(<span class="st">&quot;circle&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<p>And now, the data bind:</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb49-1"><a href="d3console.html#cb49-1"></a><span class="va">circ</span>.<span class="at">data</span>(dataset)<span class="op">;</span></span></code></pre></div>
+<p>Nothing appears to have happened; the circles remain the same and there is no evidence of any changes looking at the circles in the DOM (see Elements tab).</p>
+<p>We can check that the data are indeed bound with:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb50-1"><a href="d3console.html#cb50-1"></a><span class="va">circ</span>.<span class="at">data</span>()<span class="op">;</span>  <span class="co">// now we see data</span></span></code></pre></div>
+<p>Modify elements w/ stored selections, bound data:</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb51-1"><a href="d3console.html#cb51-1"></a><span class="va">circ</span>.<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="kw">function</span>(d) <span class="op">{</span><span class="cf">return</span> d<span class="op">;}</span>)<span class="op">;</span></span>
+<span id="cb51-2"><a href="d3console.html#cb51-2"></a></span>
+<span id="cb51-3"><a href="d3console.html#cb51-3"></a><span class="va">circ</span>.<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="kw">function</span>(d) <span class="op">{</span><span class="cf">return</span> d<span class="op">/</span><span class="dv">2</span><span class="op">;}</span>)<span class="op">;</span></span>
+<span id="cb51-4"><a href="d3console.html#cb51-4"></a></span>
+<span id="cb51-5"><a href="d3console.html#cb51-5"></a><span class="va">circ</span>.<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="kw">function</span>(d) <span class="op">{</span><span class="cf">return</span> d<span class="op">/</span><span class="dv">4</span><span class="op">;}</span>).<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;10&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<p>Same as above, using arrow functions:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb52-1"><a href="d3console.html#cb52-1"></a><span class="va">circ</span>.<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)<span class="op">;</span></span>
+<span id="cb52-2"><a href="d3console.html#cb52-2"></a></span>
+<span id="cb52-3"><a href="d3console.html#cb52-3"></a><span class="va">circ</span>.<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">/</span><span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb52-4"><a href="d3console.html#cb52-4"></a></span>
+<span id="cb52-5"><a href="d3console.html#cb52-5"></a><span class="va">circ</span>.<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">/</span><span class="dv">4</span>).<span class="at">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="st">&quot;10&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<p>Note that if we bind a new set of data to the DOM elements, the original set will be overwritten:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb53-1"><a href="d3console.html#cb53-1"></a><span class="kw">var</span> newdata <span class="op">=</span> [<span class="dv">145</span><span class="op">,</span> <span class="dv">29</span><span class="op">,</span> <span class="dv">53</span><span class="op">,</span> <span class="dv">196</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">12</span>]<span class="op">;</span></span>
+<span id="cb53-2"><a href="d3console.html#cb53-2"></a></span>
+<span id="cb53-3"><a href="d3console.html#cb53-3"></a><span class="va">circ</span>.<span class="at">data</span>(newdata)<span class="op">;</span></span>
+<span id="cb53-4"><a href="d3console.html#cb53-4"></a></span>
+<span id="cb53-5"><a href="d3console.html#cb53-5"></a><span class="va">circ</span>.<span class="at">transition</span>()</span>
+<span id="cb53-6"><a href="d3console.html#cb53-6"></a>    .<span class="at">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb53-7"><a href="d3console.html#cb53-7"></a>    .<span class="at">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="dv">2</span><span class="op">*</span>d)<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="exercise-data-bind" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.8</span> Exercise <i class="fas fa-dumbbell"></i>: data bind<a href="d3console.html#exercise-data-bind" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Return to <a href="code/six_blue_circles.html" target="_blank">six_blue_circles.html</a>, open Developer Tools, and practice binding data to the circles and modifying the circles based on the data as in the examples above.</p>
 
 </div>
 </div>
