@@ -116,7 +116,9 @@ d3.select("circle").attr("style", "fill: blue;");
 
 ### Modify text
 
-This section is interactive. Hover over code as directed to observe effects.
+This section is interactive: You can hover over code as directed to observe effects. 
+
+The interactivity is enabled by D3 scripts that are included in the `.Rmd` source file of this page. If you're interested you can view these scripts by either clicking on the eye icon above <i class="fa fa-eye"></i> or opening Developer Tools in Chrome. In either case, look for the code between the `<script>` `</script>` tags.
 
 #### HTML text {-}
 
@@ -316,11 +318,11 @@ Return to [five_green_circles.html](code/five_green_circles.html){target="_blank
 
 2. Select all circles of "apple" class make them red.
 
-3. Select the first circle and add an orange border ("stroke"), and stroke width ("stroke-width") of 5.
+3. Select the first circle and add an orange border (use attribute "stroke"), and stroke width ("stroke-width") of 5.
 
 4. Select all circles of "apple" class and move them to the middle of the svg.
 
-[](#d3-in-the-console-green-circles)
+[Solution](solutions.html#d3-in-the-console-green-circles)
 
 ## Exercise <i class="fas fa-dumbbell"></i> <i class="fas fa-dumbbell"></i>: blue circles
 
@@ -349,8 +351,6 @@ Return to [six_blue_circles.html](code/six_blue_circles.html){target="_blank"}, 
 </td></tr></table>
 
 [Solution](solutions.html#d3-in-the-console-blue-circles)
-
-
 
 ## Bind data… *finally\!* <i class="fas fa-table"></i>
 
@@ -443,4 +443,5 @@ circ.transition()
 ## Exercise <i class="fas fa-dumbbell"></i>: data bind
 
 Return to [six_blue_circles.html](code/six_blue_circles.html){target="_blank"}, open Developer Tools, and practice binding data to the circles and modifying the circles based on the data as in the examples above.
+
 

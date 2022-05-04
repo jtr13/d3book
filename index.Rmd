@@ -100,7 +100,7 @@ The next chapter, [Jump in the deep end](jump.html), employs this workflow.
 
 ### This book in the Console
 
-If you're not reading the `.pdf` version, you can open DevTools on this very page. This is very convenient because not only to you not have to leave this book to practice D3, you can copy code blocks and paste them in the Console.  In addition to opening DevTools (see above), close the side bar by clicking on the <i class="fa fa-align-justify"></i> icon above to give yourself more screen space.
+If you're not reading the `.pdf` version, you can open DevTools on this very page. This is very convenient because not only to you not have to leave this book to practice D3, you can copy code blocks and paste them in the Console.  In addition to opening DevTools (see above), close the side bar by clicking on the <i class="fa fa-align-justify"></i> ("Toggle Sidebar") icon on the top left of the page, to the left of the search icon, to give yourself more screen space.
 
 Let's try it out. 
 

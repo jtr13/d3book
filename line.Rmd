@@ -167,6 +167,36 @@ svg.append("path")
 
 <svg id="noaxes" width="500" height="400"></svg>
 
+<style>
+  .linestyle {
+    fill: none;
+    stroke: teal;
+    stroke-width: 5px;
+  }
+</style>
+
+<script>
+  var w = 500;
+  var h = 400;
+  var svg = d3.select("svg#noaxes");
+  var dataset = [ [0, 60], [1, 43], [2, 43], [3, 56],
+      [4, 45], [5, 62], [6, 49] ];
+  var xScale = d3.scaleBand()
+    .domain(d3.range(dataset.length))
+    .range([0, w]);
+  var yScale = d3.scaleLinear()
+    .domain([d3.min(dataset, d => d[1]) - 20,
+             d3.max(dataset, d => d[1]) + 20])
+    .range([h, 0]);
+  var mylinegen = d3.line()
+    .x(d => xScale(d[0]))
+    .y(d => yScale(d[1]));
+  svg.append("path")
+     .datum(dataset)
+     .attr("d", mylinegen)
+     .attr("class", "linestyle");
+</script>
+
 Putting it all together, we have:
 
 ``` html
@@ -216,6 +246,64 @@ And another example with axes:
 
 <svg id="withaxes" width="600" height="400"></svg>
 
+<script>
+  var svg = d3.select("svg#withaxes")
+
+  var margin = {top: 20, right: 50, bottom: 30, left: 50}
+
+  var width =  +svg.attr("width") - margin.left - margin.right
+
+  var height = +svg.attr("height") - margin.top - margin.bottom
+
+  var g = svg.append("g").attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+  var parseTime = d3.timeParse("%d-%b-%y");
+
+  var xScale = d3.scaleTime().range([0, width]);
+
+  var yScale = d3.scaleLinear()
+    .domain([20, 80])
+    .range([height, 0]);
+
+  var xAxis = d3.axisBottom()
+    .scale(xScale)
+    .tickFormat(d3.timeFormat("%m-%d"));
+
+  var line = d3.line()
+    .x(d => xScale(d.date))
+    .y(d => yScale(d.high));
+
+  var data =
+    [{"date":"1-Apr-18","high":60},
+    {"date":"2-Apr-18","high":43},
+    {"date":"3-Apr-18","high":43},
+    {"date":"4-Apr-18","high":56},
+    {"date":"5-Apr-18","high":45},
+    {"date":"6-Apr-18","high":62},
+    {"date":"7-Apr-18","high":49}];
+    data.forEach(function(d) {
+        d.date = parseTime(d.date);
+    });
+
+  xScale
+    .domain(d3.extent(data, d => d.date));
+
+  g.append("g")
+    .attr("transform", `translate(0, ${height})`)
+    .call(xAxis);
+
+  g.append("g")
+    .call(d3.axisLeft(yScale))
+
+  g.append("path")
+    .datum(data)
+    .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", "red")
+    .attr("stroke-width", 1.5)
+    .attr("d", line);
+</script>
+
 ``` html
 <!DOCTYPE html>
 <html lang="en">
@@ -228,33 +316,33 @@ And another example with axes:
     <svg id="withaxes" width="600" height="400"></svg>
     <script>
       var svg = d3.select("svg#withaxes")
-      
+
       var margin = {top: 20, right: 50, bottom: 30, left: 50}
-      
+
       var width =  +svg.attr("width") - margin.left - margin.right
-      
+
       var height = +svg.attr("height") - margin.top - margin.bottom
-      
+
       var g = svg.append("g").attr("transform", `translate(${margin.left}, ${margin.top})`);
-      
+
       var parseTime = d3.timeParse("%d-%b-%y");
-      
+
       var xScale = d3.scaleTime().range([0, width]);
-      
+
       var yScale = d3.scaleLinear()
         .domain([20, 80])
         .range([height, 0]);
-        
+
       var xAxis = d3.axisBottom()
         .scale(xScale)
         .tickFormat(d3.timeFormat("%Y-%m-%d"));
-        
-      
+
+
       var line = d3.line()
         .x(d => xScale(d.date))
         .y(d => yScale(d.high));
-      
-      var data = 
+
+      var data =
       [{"date":"1-Apr-18","high":60},
       {"date":"2-Apr-18","high":43},
       {"date":"3-Apr-18","high":43},
@@ -265,17 +353,17 @@ And another example with axes:
       data.forEach(function(d) {
             d.date = parseTime(d.date);
       });
-     
+
       xScale
         .domain(d3.extent(data, d => d.date));
-        
+
       g.append("g")
           .attr("transform", `translate(0, ${height})`)
           .call(xAxis);
-      
+
       g.append("g")
           .call(d3.axisLeft(yScale))
-      
+
       g.append("path")
           .datum(data)
           .attr("class", "line")
@@ -293,4 +381,3 @@ And another example with axes:
 ## Additional Resources
 
 [Multiple Time Series in D3](https://medium.com/@ecb2198/multiple-time-series-in-d3-5562b981236c) by Eric Boxer (EDAV 2018)
-
