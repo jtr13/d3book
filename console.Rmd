@@ -116,7 +116,9 @@ d3.select("circle").attr("style", "fill: blue;");
 
 ### Modify text
 
-This section is interactive. Hover over code as directed to observe effects.
+This section is interactive: You can hover over code as directed to observe effects. 
+
+The interactivity is enabled by D3 scripts that are included in the `.Rmd` source file of this page. If you're interested you can view these scripts by either clicking on the eye icon above <i class="fa fa-eye"></i> or opening Developer Tools in Chrome. In either case, look for the code between the `<script>` `</script>` tags.
 
 #### HTML text {-}
 
