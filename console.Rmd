@@ -237,7 +237,9 @@ d3.select("#moveleft").attr("x", "200").text("I want to move left.")
 
 ### HTML
 
-Continue trying out code with [five_green_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/five_green_circles.html){target="_blank"} open in Chrome.
+Continue trying out code with [five_green_circles.html](code/five_green_circles.html){target="_blank"} open in Chrome.
+
+Or [download the file](https://raw.githubusercontent.com/jtr13/d3book/main/code/five_green_circles.html){target="_blank"} and open it.
 
 The following adds a `<p>` tag but doesn't change how the page looks, since there's no text associated with it.
 
@@ -308,7 +310,7 @@ d3.select("svg").selectAll("circle").remove();
 
 ## Exercise <i class="fas fa-dumbbell"></i>: green circles
 
-Download and open a fresh copy of [five_green_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/five_green_circles.html){target="_blank"} in Chrome. Open Developer Tools open and do the following in the Console with D3:
+Return to [five_green_circles.html](code/five_green_circles.html){target="_blank"}, open Developer Tools, and do the following in the Console with D3:
 
 1. Select the circle with ID "henry" and make it blue.
 
@@ -322,7 +324,7 @@ Download and open a fresh copy of [five_green_circles.html](https://raw.githubus
 
 ## Exercise <i class="fas fa-dumbbell"></i> <i class="fas fa-dumbbell"></i>: blue circles
 
-Download and open a fresh copy of  [six_blue_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html){target="_blank"} in Chrome. Open Developer Tools and execute Steps 1-4 one at a time in the Console. After Step 4, refresh the page to go back to Step 1 if so desired. (You do not need to create a loop as in the visual.)
+Return to [six_blue_circles.html](code/six_blue_circles.html){target="_blank"}, open Developer Tools, and execute Steps 1-4 one at a time in the Console. After Step 4, refresh the page to go back to Step 1 if so desired. (You do not need to create a loop as in the visual.)
 
 > <i class="far fa-lightbulb"></i> *This exercise is provided as a challenge. It's fine to skip this exercise and move on to the next section.*
 
@@ -346,7 +348,7 @@ Download and open a fresh copy of  [six_blue_circles.html](https://raw.githubuse
 
 </td></tr></table>
 
-[](#d3-in-the-console-blue-circles)
+[Solution](solutions.html#d3-in-the-console-blue-circles)
 
 
 
@@ -440,5 +442,5 @@ circ.transition()
 
 ## Exercise <i class="fas fa-dumbbell"></i>: data bind
 
-Download and open a fresh copy of  [six_blue_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html){target="_blank"} in Chrome and practice binding data to the circles and modifying the circles based on the data as in the examples above.
+Return to [six_blue_circles.html](code/six_blue_circles.html){target="_blank"}, open Developer Tools, and practice binding data to the circles and modifying the circles based on the data as in the examples above.
 
