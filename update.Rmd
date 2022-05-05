@@ -4,6 +4,10 @@
 
 Read: *IDVW2*, Chapter 9, pp. 178-184; Chapter 12, pp. 231-249
 
+## Lecture slides <i class="fa fa-television"></i>
+
+[D3 Data Bind](https://github.com/jtr13/D3/blob/master/UpdateEnterExit.pdf){target="_blank"}
+
 ## Bind data <i class="fas fa-table"></i>
 
 (*IDVW2*, pp. 98-108)
@@ -100,10 +104,6 @@ Now that you should have a basic understanding of binding data. Try out the foll
 
 Download and open a fresh copy of  [six_blue_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html){target="_blank"} in Chrome and practice binding data to the circles and modifying the circles based on the data as in the examples above.
 
-## Lecture slides <i class="fa fa-television"></i>
-
-Besides the content below, you can also refer to the slides for a structured walkthrough on update, enter, and exit.
-[D3 Data Bind](https://github.com/jtr13/D3/blob/master/UpdateEnterExit.pdf){target="_blank"}
 
 ## Remove some elements <i class="far fa-minus-square"></i>
 
