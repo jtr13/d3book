@@ -386,6 +386,8 @@ Open the bar chart you created in the previous exercise in Chrome, or [this one]
 
 1. Add text labels inside the bars at the right end with the length of the bar in pixels.
 
+[Solution][Update, Enter, and Exit: merge]
+
 ## Groups <i class="fa fa-object-group"></i>
 
 Open [six_blue_circles.html](code/six_blue_circles.html){target="_blank"} in Chrome. (You do not need to download it first.)
@@ -661,9 +663,14 @@ For example:
 update([100, 200, 300]);
 ```
 
+[Solution][Update, Enter, and Exit: functions]
+
+
 ## Exercise <i class="fas fa-dumbbell"></i>: vertical bar chart
 
 Change the bar chart in [general_update_pattern.html](code/general_update_pattern.html){target="_blank"} to a vertical bar chart.
+
+[Solution][Update, Enter, and Exit: vertical bar chart]
 
 
 

@@ -296,6 +296,16 @@ In order to change a horizontal bar chart to a vertical barchart we need to firs
 Therefore in order to bring everything "down", we need to tweak the `y` coordinate. In order to do that we can subtract from the height of the svg the data value of each bar. In this way all bars will end at 400 and start `d` pixels before the end. 
 
 ``` js
+// Create svg with same data
+
+var svg = d3.select("body")
+  .append("svg")
+    .attr("width", "500")
+    .attr("height", "400");
+var bardata = [300, 100, 150, 225, 75, 275];
+var bars = svg.selectAll("rect")
+  .data(bardata);
+  
 bars.enter()
   .append("rect")
   .attr("x", (d, i) => i * 50 + 50)
