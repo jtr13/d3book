@@ -109,7 +109,6 @@ SVG (Scalable Vector Graphics) is a human readable graphics format that facilita
 </svg>
 ```
 
-Rendered:
 <script src="https://d3js.org/d3.v7.min.js"></script>
 
 ```{r, eval=knitr::is_latex_output(), out.width="50%", echo=FALSE}
