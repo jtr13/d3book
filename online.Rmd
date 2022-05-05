@@ -59,13 +59,17 @@ Create your entire visualization in a separate `.html` file and then include in 
 
 Observable, created by D3 author Mike Bostock, is the official D3 web tool for creating and sharing D3 code. It is a powerful, popular tool--all new D3 code examples are now presented in Observable--but program flow is different than it is for stand-alone JavaScript. If you're interested in learning more, see the collection of [Observable Tutorials](https://observablehq.com/tutorials){target="_blank"}.
 
+Here's some reputable Observable authors:
+
+[Mike Bostock](https://observablehq.com/@mbostock){target=_"blank"} (creator of D3)
+
+[Sandraviz](https://observablehq.com/@sandraviz){target=_"blank"} 
+
 ## Blockbuilder 2015-2020
 
 As an aside, [blockbuilder.org](https://blockbuilder.org/) was a very popular service for sharing D3 code online, but by the end of 2020, will [no longer allow users to create new blocks, and going forward will serve as an archive of previously created ones](https://bl.ocks.org/enjalot/1ef61f8c72ddccc99707d36a85f0eba7). If you use it for this purpose, remember to pay attention to the version of D3 in use; some authors have included the version number in the block titles but this practice is not widespread. Remember as well that not all examples are good examples, both in terms of the graph choices and the quality of the code.
 
 A few reputable block authors, in terms of quality of D3 code, are:
-
-[Mike Bostock](https://bl.ocks.org/mbostock){target=_"blank"} (creator of D3)
 
 [Ian Johnson](https://bl.ocks.org/enjalot){target="_blank"} (creator of blockbuilder.org)
 
