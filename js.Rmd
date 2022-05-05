@@ -116,12 +116,16 @@ x.map(Math.sqrt);
 [10, 20, 30, 40].map((d, i) => d*i);     // try me
 ```
 
+**R: Sum two arrays**
+
 ```{r}
 # sum two arrays
 x <- 1:3
 y <- 4:6
 x + y
 ```
+
+**JavaScript: Sum two arrays**
 
 ``` js
 # sum two arrays
