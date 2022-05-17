@@ -2,6 +2,10 @@
 
 ## Scales
 
+Recall previously when we were creating the horizontal bar plot, we hand coded the width of the bars to be 35 and paddings between the bars to be 15. There are some problems with this approach, for one we are not utilizing the whole svg element. Whatsmore, if we have more bars, the specified width and paddings might become inappropriate. To create smart graphs that fit well into the container, we will introduce scales and axes in this chapter.
+
+Note: This chapter consisits of many exercises and we recommend following along.
+
 ### Lecture slides <i class="fa fa-television"></i>
 
 <script src="https://d3js.org/d3.v7.js"></script>
@@ -34,34 +38,43 @@ See diagram here: https://github.com/d3/d3-scale#band-scales
 
 > <i class="far fa-lightbulb"></i> *Be sure to use `d3.scaleBand()`, not `d3.scaleOrdinal()` for this use case.
 
-### Bar chart 
-
-#### `d3.scaleBand()` {-}
+### Exercise <i class="fas fa-dumbbell"></i>: Scaled vertical bar chart 
 
 *IDVW2* Chapter 9, pp. 150-153
 
-Here `d3.scaleBand()` is used to create an `xScale` function to convert bar numbers to pixels. Change the `w` parameter and observe how the bars are resized to fit on the SVG.
+In the follwing exercise, create a scaled vertical bar chart. If you have followed along in the previous exercise to create the vertical bar chart, you can use your own file. Otherwise, you can start from [here](https://jtr13.github.io/d3book/solutions/general_update_pattern_vertical.html).
+
+Instruction & hints:
+1. Specify the width and height of the svg to be 400 and 300 respectively. 
+2. Use bardata = [300, 100, 150, 220, 70, 270].
+3. Use `d3.scaleBand()` to create `xScale` function to convert bar numbers to pixels.
+4. Set `paddingInner` to be 0.1.
+5. Think carefully what to set on the attribues of the rectangles.
+
+The following is what a scaled vertical bar chart should look like. Compare the graph with what you started with and think about the difference.
 
 <iframe src="code/d3.scaleBand.html" width="450" height="350" frameBorder="0"></iframe>
 
-[Code for download](https://raw.githubusercontent.com/jtr13/d3book/master/code/d3.scaleBand.html){target="_blank"}
+[Solution](https://raw.githubusercontent.com/jtr13/d3book/master/code/d3.scaleBand.html){target="_blank"}
 
+6. Use `d3.scaleLinear()` to create `yScale` function to convert bar heights to pixels.
+7. Show the height of bars at appropriate position.
 
-#### `d3.scaleLinear()` {-}
-
-In the next graph, `d3.scaleLinear()` is added to create a `yScale` function to convert bar heights to pixels. Change the data and observe how the bars are resized to fit on the SVG.
+The completed graph should be similiar to the following:
 
 <iframe src="code/d3.scaleLinear.html" width="450" height="350" frameBorder="0"></iframe>
 
-[Code for download](https://raw.githubusercontent.com/jtr13/d3book/master/code/d3.scaleLinear.html){target="_blank"}
+[Solution](https://raw.githubusercontent.com/jtr13/d3book/master/code/d3.scaleLinear.html){target="_blank"}
 
 ## Margins
+
+We introduce the concept of margin as axes need space in the graph.
 
 ### Lecture slides <i class="fa fa-television"></i>
 
 [Margins](pdfs/margins.pdf){target="_blank"}
 
-"Margin convention"
+The following ia a margin convention:
 
 ``` js
   var w = 500;
@@ -71,11 +84,17 @@ In the next graph, `d3.scaleLinear()` is added to create a `yScale` function to 
   var innerHeight = h - margin.top - margin.bottom;
 ```
 
-### Bar chart with margins
+### Exercise <i class="fas fa-dumbbell"></i>: Bar chart with margins
+
+In this exercise, we want to add margins to the graph we created in the last exercise.
+
+Hint: Use the margin convention provided above.
+
+The completed graph should be similiar to the following:
 
 <iframe src="code/margins.html" width="450" height="350" frameBorder="0"></iframe>
 
-[Code for download](https://raw.githubusercontent.com/jtr13/d3book/master/code/margins.html){target="_blank"}
+[solution](https://raw.githubusercontent.com/jtr13/d3book/master/code/margins.html){target="_blank"}
 
 ## Axes 
 
@@ -85,11 +104,19 @@ See: *IDVW2*, Chapter 8: Axes
 
 [Axes](pdfs/axes.pdf){target="_blank"}
 
-### Bar chart with axes
+### Exercise <i class="fas fa-dumbbell"></i>: Bar chart with margins
 
+In this exercise, we are finally able to complete our bar chart! Add x and y axes to the graph.
+
+Instructions:
+1. Create x&y axes using `d3.axisBottom()`/`d3.axisLeft()`.
+2. Create corresponding svg elements.
+3. Remember to translate to position axes.
+
+The completed graph should be similiar to the following:
 <iframe src="code/axes.html" width="450" height="350" frameBorder="0"></iframe>
 
-[Code for download](https://raw.githubusercontent.com/jtr13/d3book/master/code/axes.html){target="_blank"}
+[Solution](https://raw.githubusercontent.com/jtr13/d3book/master/code/axes.html){target="_blank"}
 
 Practice changing the data and seeing what happens.
 
