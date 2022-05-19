@@ -566,7 +566,10 @@ function changedata(data) {
       .attr("y", (d, i) => i * 50) // enter selection only
       .attr("height", "35")  
       .attr("fill", "lightgreen")
+      .attr("width", "0")
     .merge(bars) // merge in the update selection
+      .transition()
+      .duration(2000)
       .attr("width", d => d); // acts on all bars
       
   bars.exit()
