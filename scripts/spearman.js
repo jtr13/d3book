@@ -36,7 +36,7 @@ var yScale = d3.scaleLinear()
 
 
 //Create SVG element
-  var svg = d3.select("body")
+  var svg = d3.select("div#spearman")
     .append("svg")
       .attr("width", w)
       .attr("height", h);
