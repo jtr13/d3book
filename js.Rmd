@@ -13,7 +13,7 @@ objects, arrays, arrays of objects, functions (and other things)
 
 ``` js
 // try me in the Console 
-var array_dataset = [[100, 75, 30], [200, 125, 20]];
+const array_dataset = [[100, 75, 30], [200, 125, 20]];
 
 d3.select("svg#arrays")
   .selectAll("circle")
