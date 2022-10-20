@@ -23,7 +23,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2022-10-15" />
+<meta name="date" content="2022-10-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -49,7 +49,6 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
@@ -62,18 +61,18 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -93,7 +92,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -143,14 +142,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">D3 for R Users</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to D3</a><ul>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#workflow"><i class="fa fa-check"></i><b>0.1</b> Workflow</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to D3</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#workflow"><i class="fa fa-check"></i><b>0.1</b> Workflow</a>
+<ul>
 <li class="chapter" data-level="0.1.1" data-path="index.html"><a href="index.html#javascript-console"><i class="fa fa-check"></i><b>0.1.1</b> JavaScript Console</a></li>
 <li class="chapter" data-level="0.1.2" data-path="index.html"><a href="index.html#this-book-in-the-console"><i class="fa fa-check"></i><b>0.1.2</b> This book in the Console</a></li>
 <li class="chapter" data-level="0.1.3" data-path="index.html"><a href="index.html#text-editor"><i class="fa fa-check"></i><b>0.1.3</b> Text editor</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="jump.html"><a href="jump.html"><i class="fa fa-check"></i><b>1</b> Jump in the deep end <i class="fas fa-swimmer"></i></a><ul>
+<li class="chapter" data-level="1" data-path="jump.html"><a href="jump.html"><i class="fa fa-check"></i><b>1</b> Jump in the deep end <i class="fas fa-swimmer"></i></a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="jump.html"><a href="jump.html#get-ready"><i class="fa fa-check"></i><b>1.1</b> Get ready <i class="fas fa-forward"></i></a></li>
 <li class="chapter" data-level="1.2" data-path="jump.html"><a href="jump.html#elements-tab"><i class="fa fa-check"></i><b>1.2</b> Elements tab <i class="far fa-folder"></i></a></li>
 <li class="chapter" data-level="1.3" data-path="jump.html"><a href="jump.html#console-tab"><i class="fa fa-check"></i><b>1.3</b> Console tab <i class="far fa-folder"></i></a></li>
@@ -158,9 +160,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.5" data-path="jump.html"><a href="jump.html#add-transitions"><i class="fa fa-check"></i><b>1.5</b> Add transitions <i class="far fa-paper-plane"></i></a></li>
 <li class="chapter" data-level="1.6" data-path="jump.html"><a href="jump.html#add-interactivity"><i class="fa fa-check"></i><b>1.6</b> Add interactivity <i class="fas fa-mouse-pointer"></i></a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="web.html"><a href="web.html"><i class="fa fa-check"></i><b>2</b> Web tech <i class="fas fa-server"></i></a><ul>
+<li class="chapter" data-level="2" data-path="web.html"><a href="web.html"><i class="fa fa-check"></i><b>2</b> Web tech <i class="fas fa-server"></i></a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="web.html"><a href="web.html#html"><i class="fa fa-check"></i><b>2.1</b> HTML <i class="fab fa-html5"></i></a></li>
-<li class="chapter" data-level="2.2" data-path="web.html"><a href="web.html#css"><i class="fa fa-check"></i><b>2.2</b> CSS <i class="fab fa-css3"></i></a><ul>
+<li class="chapter" data-level="2.2" data-path="web.html"><a href="web.html#css"><i class="fa fa-check"></i><b>2.2</b> CSS <i class="fab fa-css3"></i></a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="web.html"><a href="web.html#internal-style-sheet"><i class="fa fa-check"></i><b>2.2.1</b> Internal style sheet</a></li>
 <li class="chapter" data-level="2.2.2" data-path="web.html"><a href="web.html#external-style-sheets"><i class="fa fa-check"></i><b>2.2.2</b> External style sheets</a></li>
 <li class="chapter" data-level="2.2.3" data-path="web.html"><a href="web.html#inline-styling"><i class="fa fa-check"></i><b>2.2.3</b> Inline styling</a></li>
@@ -171,24 +175,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.6" data-path="web.html"><a href="web.html#html-tree"><i class="fa fa-check"></i><b>2.6</b> HTML tree <i class="fas fa-tree"></i></a></li>
 <li class="chapter" data-level="2.7" data-path="web.html"><a href="web.html#exercise-shapes"><i class="fa fa-check"></i><b>2.7</b> Exercise <i class="fas fa-dumbbell"></i>: shapes</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="d3console.html"><a href="d3console.html"><i class="fa fa-check"></i><b>3</b> D3 in the Console <i class="far fa-folder"></i></a><ul>
-<li class="chapter" data-level="3.1" data-path="d3console.html"><a href="d3console.html#selections"><i class="fa fa-check"></i><b>3.1</b> Selections <i class="fas fa-clipboard-list"></i></a><ul>
+<li class="chapter" data-level="3" data-path="d3console.html"><a href="d3console.html"><i class="fa fa-check"></i><b>3</b> D3 in the Console <i class="far fa-folder"></i></a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="d3console.html"><a href="d3console.html#selections"><i class="fa fa-check"></i><b>3.1</b> Selections <i class="fas fa-clipboard-list"></i></a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="d3console.html"><a href="d3console.html#select-by-tag"><i class="fa fa-check"></i><b>3.1.1</b> Select by tag</a></li>
 <li class="chapter" data-level="3.1.2" data-path="d3console.html"><a href="d3console.html#select-by-class"><i class="fa fa-check"></i><b>3.1.2</b> Select by class</a></li>
 <li class="chapter" data-level="3.1.3" data-path="d3console.html"><a href="d3console.html#select-by-id"><i class="fa fa-check"></i><b>3.1.3</b> Select by ID</a></li>
 <li class="chapter" data-level="3.1.4" data-path="d3console.html"><a href="d3console.html#store-selections"><i class="fa fa-check"></i><b>3.1.4</b> Store selections</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="d3console.html"><a href="d3console.html#modify-existing-elements"><i class="fa fa-check"></i><b>3.2</b> Modify existing elements <i class="fas fa-exchange-alt"></i></a><ul>
+<li class="chapter" data-level="3.2" data-path="d3console.html"><a href="d3console.html#modify-existing-elements"><i class="fa fa-check"></i><b>3.2</b> Modify existing elements <i class="fas fa-exchange-alt"></i></a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="d3console.html"><a href="d3console.html#modify-attributes"><i class="fa fa-check"></i><b>3.2.1</b> Modify attributes</a></li>
 <li class="chapter" data-level="3.2.2" data-path="d3console.html"><a href="d3console.html#modify-styles"><i class="fa fa-check"></i><b>3.2.2</b> Modify styles</a></li>
 <li class="chapter" data-level="3.2.3" data-path="d3console.html"><a href="d3console.html#modify-text"><i class="fa fa-check"></i><b>3.2.3</b> Modify text</a></li>
 <li class="chapter" data-level="3.2.4" data-path="d3console.html"><a href="d3console.html#move-svg-text"><i class="fa fa-check"></i><b>3.2.4</b> Move SVG text</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="d3console.html"><a href="d3console.html#add-elements"><i class="fa fa-check"></i><b>3.3</b> Add elements <i class="far fa-plus-square"></i></a><ul>
+<li class="chapter" data-level="3.3" data-path="d3console.html"><a href="d3console.html#add-elements"><i class="fa fa-check"></i><b>3.3</b> Add elements <i class="far fa-plus-square"></i></a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="d3console.html"><a href="d3console.html#html-1"><i class="fa fa-check"></i><b>3.3.1</b> HTML</a></li>
 <li class="chapter" data-level="3.3.2" data-path="d3console.html"><a href="d3console.html#svg-1"><i class="fa fa-check"></i><b>3.3.2</b> SVG</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="d3console.html"><a href="d3console.html#remove-elements"><i class="fa fa-check"></i><b>3.4</b> Remove elements <i class="far fa-minus-square"></i></a><ul>
+<li class="chapter" data-level="3.4" data-path="d3console.html"><a href="d3console.html#remove-elements"><i class="fa fa-check"></i><b>3.4</b> Remove elements <i class="far fa-minus-square"></i></a>
+<ul>
 <li class="chapter" data-level="3.4.1" data-path="d3console.html"><a href="d3console.html#html-2"><i class="fa fa-check"></i><b>3.4.1</b> HTML</a></li>
 <li class="chapter" data-level="3.4.2" data-path="d3console.html"><a href="d3console.html#svg-2"><i class="fa fa-check"></i><b>3.4.2</b> SVG</a></li>
 </ul></li>
@@ -197,13 +206,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.7" data-path="d3console.html"><a href="d3console.html#bind-data-finally"><i class="fa fa-check"></i><b>3.7</b> Bind data… <em>finally!</em> <i class="fas fa-table"></i></a></li>
 <li class="chapter" data-level="3.8" data-path="d3console.html"><a href="d3console.html#exercise-data-bind"><i class="fa fa-check"></i><b>3.8</b> Exercise <i class="fas fa-dumbbell"></i>: data bind</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html"><i class="fa fa-check"></i><b>4</b> Update, Enter, and Exit <i class="fa fa-refresh"></i></a><ul>
+<li class="chapter" data-level="4" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html"><i class="fa fa-check"></i><b>4</b> Update, Enter, and Exit <i class="fa fa-refresh"></i></a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#lecture-slides"><i class="fa fa-check"></i><b>4.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="4.2" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#bind-data"><i class="fa fa-check"></i><b>4.2</b> Bind data <i class="fas fa-table"></i></a></li>
 <li class="chapter" data-level="4.3" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#exercise-data-bind-1"><i class="fa fa-check"></i><b>4.3</b> Exercise <i class="fas fa-dumbbell"></i>: data bind</a></li>
 <li class="chapter" data-level="4.4" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#remove-some-elements"><i class="fa fa-check"></i><b>4.4</b> Remove some elements <i class="far fa-minus-square"></i></a></li>
 <li class="chapter" data-level="4.5" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#add-some-elements"><i class="fa fa-check"></i><b>4.5</b> Add some elements <i class="far fa-plus-square"></i></a></li>
-<li class="chapter" data-level="4.6" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#data-enter-append"><i class="fa fa-check"></i><b>4.6</b> Data / enter / append <i class="fa fa-table"></i></a><ul>
+<li class="chapter" data-level="4.6" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#data-enter-append"><i class="fa fa-check"></i><b>4.6</b> Data / enter / append <i class="fa fa-table"></i></a>
+<ul>
 <li class="chapter" data-level="4.6.1" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#labels"><i class="fa fa-check"></i><b>4.6.1</b> Labels</a></li>
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#exercise-horizontal-bar-chart"><i class="fa fa-check"></i><b>4.7</b> Exercise <i class="fas fa-dumbbell"></i>: horizontal bar chart</a></li>
@@ -214,10 +225,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.12" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#exercise-functions"><i class="fa fa-check"></i><b>4.12</b> Exercise: <i class="fas fa-dumbbell"></i>: functions</a></li>
 <li class="chapter" data-level="4.13" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#exercise-vertical-bar-chart"><i class="fa fa-check"></i><b>4.13</b> Exercise <i class="fas fa-dumbbell"></i>: vertical bar chart</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="just-enough-js.html"><a href="just-enough-js.html"><i class="fa fa-check"></i><b>5</b> Just Enough JS <i class="fab fa-js-square"></i></a><ul>
+<li class="chapter" data-level="5" data-path="just-enough-js.html"><a href="just-enough-js.html"><i class="fa fa-check"></i><b>5</b> Just Enough JS <i class="fab fa-js-square"></i></a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="just-enough-js.html"><a href="just-enough-js.html#arrays-of-arrays"><i class="fa fa-check"></i><b>5.1</b> Arrays of arrays</a></li>
 <li class="chapter" data-level="5.2" data-path="just-enough-js.html"><a href="just-enough-js.html#arrays-of-objects"><i class="fa fa-check"></i><b>5.2</b> Arrays of objects</a></li>
-<li class="chapter" data-level="5.3" data-path="just-enough-js.html"><a href="just-enough-js.html#map"><i class="fa fa-check"></i><b>5.3</b> <code>.map()</code></a><ul>
+<li class="chapter" data-level="5.3" data-path="just-enough-js.html"><a href="just-enough-js.html#map"><i class="fa fa-check"></i><b>5.3</b> <code>.map()</code></a>
+<ul>
 <li class="chapter" data-level="5.3.1" data-path="just-enough-js.html"><a href="just-enough-js.html#simple-arrays"><i class="fa fa-check"></i><b>5.3.1</b> Simple arrays</a></li>
 <li class="chapter" data-level="5.3.2" data-path="just-enough-js.html"><a href="just-enough-js.html#arrays-of-arrays-1"><i class="fa fa-check"></i><b>5.3.2</b> Arrays of arrays</a></li>
 <li class="chapter" data-level="5.3.3" data-path="just-enough-js.html"><a href="just-enough-js.html#create-arrays-of-objects"><i class="fa fa-check"></i><b>5.3.3</b> Create arrays of objects</a></li>
@@ -226,25 +239,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.5" data-path="just-enough-js.html"><a href="just-enough-js.html#d3-statistics"><i class="fa fa-check"></i><b>5.5</b> D3 statistics</a></li>
 <li class="chapter" data-level="5.6" data-path="just-enough-js.html"><a href="just-enough-js.html#d3-.map"><i class="fa fa-check"></i><b>5.6</b> D3 + <code>.map()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="scales-and-axes.html"><a href="scales-and-axes.html"><i class="fa fa-check"></i><b>6</b> Scales and Axes <i class="fa fa-arrows"></i></a><ul>
-<li class="chapter" data-level="6.1" data-path="scales-and-axes.html"><a href="scales-and-axes.html#scales"><i class="fa fa-check"></i><b>6.1</b> Scales</a><ul>
+<li class="chapter" data-level="6" data-path="scales-and-axes.html"><a href="scales-and-axes.html"><i class="fa fa-check"></i><b>6</b> Scales and Axes <i class="fa fa-arrows"></i></a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="scales-and-axes.html"><a href="scales-and-axes.html#scales"><i class="fa fa-check"></i><b>6.1</b> Scales</a>
+<ul>
 <li class="chapter" data-level="6.1.1" data-path="scales-and-axes.html"><a href="scales-and-axes.html#lecture-slides-1"><i class="fa fa-check"></i><b>6.1.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="6.1.2" data-path="scales-and-axes.html"><a href="scales-and-axes.html#practice"><i class="fa fa-check"></i><b>6.1.2</b> Practice</a></li>
 <li class="chapter" data-level="6.1.3" data-path="scales-and-axes.html"><a href="scales-and-axes.html#bar-chart"><i class="fa fa-check"></i><b>6.1.3</b> Bar chart</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="scales-and-axes.html"><a href="scales-and-axes.html#margins"><i class="fa fa-check"></i><b>6.2</b> Margins</a><ul>
+<li class="chapter" data-level="6.2" data-path="scales-and-axes.html"><a href="scales-and-axes.html#margins"><i class="fa fa-check"></i><b>6.2</b> Margins</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="scales-and-axes.html"><a href="scales-and-axes.html#lecture-slides-2"><i class="fa fa-check"></i><b>6.2.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="6.2.2" data-path="scales-and-axes.html"><a href="scales-and-axes.html#bar-chart-with-margins"><i class="fa fa-check"></i><b>6.2.2</b> Bar chart with margins</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="scales-and-axes.html"><a href="scales-and-axes.html#axes"><i class="fa fa-check"></i><b>6.3</b> Axes</a><ul>
+<li class="chapter" data-level="6.3" data-path="scales-and-axes.html"><a href="scales-and-axes.html#axes"><i class="fa fa-check"></i><b>6.3</b> Axes</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="scales-and-axes.html"><a href="scales-and-axes.html#lecture-slides-3"><i class="fa fa-check"></i><b>6.3.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="6.3.2" data-path="scales-and-axes.html"><a href="scales-and-axes.html#bar-chart-with-axes"><i class="fa fa-check"></i><b>6.3.2</b> Bar chart with axes</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="scales-and-axes.html"><a href="scales-and-axes.html#bar-chart-with-categorical-labels"><i class="fa fa-check"></i><b>6.4</b> Bar chart with categorical labels</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="interactivity.html"><a href="interactivity.html"><i class="fa fa-check"></i><b>7</b> Interactivity <i class="fas fa-mouse-pointer"></i></a><ul>
+<li class="chapter" data-level="7" data-path="interactivity.html"><a href="interactivity.html"><i class="fa fa-check"></i><b>7</b> Interactivity <i class="fas fa-mouse-pointer"></i></a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="interactivity.html"><a href="interactivity.html#lecture-slides-4"><i class="fa fa-check"></i><b>7.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
-<li class="chapter" data-level="7.2" data-path="interactivity.html"><a href="interactivity.html#binding-event-listeners"><i class="fa fa-check"></i><b>7.2</b> Binding event listeners</a><ul>
+<li class="chapter" data-level="7.2" data-path="interactivity.html"><a href="interactivity.html#binding-event-listeners"><i class="fa fa-check"></i><b>7.2</b> Binding event listeners</a>
+<ul>
 <li class="chapter" data-level="7.2.1" data-path="interactivity.html"><a href="interactivity.html#do-something-unrelated-to-the-element-that-received-the-event"><i class="fa fa-check"></i><b>7.2.1</b> Do something unrelated to the element that received the event</a></li>
 <li class="chapter" data-level="7.2.2" data-path="interactivity.html"><a href="interactivity.html#change-an-attribute-of-the-element-that-received-the-event"><i class="fa fa-check"></i><b>7.2.2</b> Change an attribute of the element that received the event</a></li>
 <li class="chapter" data-level="7.2.3" data-path="interactivity.html"><a href="interactivity.html#get-the-value-of-an-attribute-of-the-element-that-received-the-event"><i class="fa fa-check"></i><b>7.2.3</b> Get the value of an attribute of the element that received the event</a></li>
@@ -252,40 +271,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.5" data-path="interactivity.html"><a href="interactivity.html#get-the-svg-location-of-the-event"><i class="fa fa-check"></i><b>7.2.5</b> Get the svg location of the event</a></li>
 <li class="chapter" data-level="7.2.6" data-path="interactivity.html"><a href="interactivity.html#do-something-with-the-value-of-a-radio-button"><i class="fa fa-check"></i><b>7.2.6</b> Do something with the value of a radio button</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="interactivity.html"><a href="interactivity.html#separating-the-function-and-event-listener"><i class="fa fa-check"></i><b>7.3</b> Separating the function and event listener</a><ul>
+<li class="chapter" data-level="7.3" data-path="interactivity.html"><a href="interactivity.html#separating-the-function-and-event-listener"><i class="fa fa-check"></i><b>7.3</b> Separating the function and event listener</a>
+<ul>
 <li class="chapter" data-level="7.3.1" data-path="interactivity.html"><a href="interactivity.html#attribute-of-an-element"><i class="fa fa-check"></i><b>7.3.1</b> Attribute of an element</a></li>
 <li class="chapter" data-level="7.3.2" data-path="interactivity.html"><a href="interactivity.html#value-of-radio-button"><i class="fa fa-check"></i><b>7.3.2</b> Value of radio button</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="interactivity.html"><a href="interactivity.html#add-remove-buttons"><i class="fa fa-check"></i><b>7.4</b> Add / remove “buttons”</a></li>
 <li class="chapter" data-level="7.5" data-path="interactivity.html"><a href="interactivity.html#putting-it-all-together"><i class="fa fa-check"></i><b>7.5</b> Putting it all together</a></li>
-<li class="chapter" data-level="7.6" data-path="interactivity.html"><a href="interactivity.html#dependent-event-listeners"><i class="fa fa-check"></i><b>7.6</b> Dependent event listeners</a><ul>
+<li class="chapter" data-level="7.6" data-path="interactivity.html"><a href="interactivity.html#dependent-event-listeners"><i class="fa fa-check"></i><b>7.6</b> Dependent event listeners</a>
+<ul>
 <li class="chapter" data-level="7.6.1" data-path="interactivity.html"><a href="interactivity.html#global-variable-example"><i class="fa fa-check"></i><b>7.6.1</b> Global variable example</a></li>
 <li class="chapter" data-level="7.6.2" data-path="interactivity.html"><a href="interactivity.html#turn-off-event-listener"><i class="fa fa-check"></i><b>7.6.2</b> Turn off event listener</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="transitions.html"><a href="transitions.html"><i class="fa fa-check"></i><b>8</b> Transitions <i class="far fa-paper-plane"></i></a><ul>
+<li class="chapter" data-level="8" data-path="transitions.html"><a href="transitions.html"><i class="fa fa-check"></i><b>8</b> Transitions <i class="far fa-paper-plane"></i></a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="transitions.html"><a href="transitions.html#examples"><i class="fa fa-check"></i><b>8.1</b> Examples</a></li>
 <li class="chapter" data-level="8.2" data-path="transitions.html"><a href="transitions.html#do-this"><i class="fa fa-check"></i><b>8.2</b> Do this</a></li>
 <li class="chapter" data-level="8.3" data-path="transitions.html"><a href="transitions.html#not-this"><i class="fa fa-check"></i><b>8.3</b> Not this</a></li>
 <li class="chapter" data-level="8.4" data-path="transitions.html"><a href="transitions.html#strategy"><i class="fa fa-check"></i><b>8.4</b> Strategy</a></li>
 <li class="chapter" data-level="8.5" data-path="transitions.html"><a href="transitions.html#exercise-bar-chart-with-transitions"><i class="fa fa-check"></i><b>8.5</b> Exercise <i class="fas fa-dumbbell"></i>: Bar chart with transitions</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="object.html"><a href="object.html"><i class="fa fa-check"></i><b>9</b> Object Constancy <i class="fa fa-object-ungroup"></i></a><ul>
+<li class="chapter" data-level="9" data-path="object.html"><a href="object.html"><i class="fa fa-check"></i><b>9</b> Object Constancy <i class="fa fa-object-ungroup"></i></a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="object.html"><a href="object.html#lecture-slides-5"><i class="fa fa-check"></i><b>9.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="9.2" data-path="object.html"><a href="object.html#no-object-constancy"><i class="fa fa-check"></i><b>9.2</b> No object constancy</a></li>
-<li class="chapter" data-level="9.3" data-path="object.html"><a href="object.html#object-constancy"><i class="fa fa-check"></i><b>9.3</b> Object constancy</a><ul>
+<li class="chapter" data-level="9.3" data-path="object.html"><a href="object.html#object-constancy"><i class="fa fa-check"></i><b>9.3</b> Object constancy</a>
+<ul>
 <li class="chapter" data-level="9.3.1" data-path="object.html"><a href="object.html#practice-joining-data-by-key"><i class="fa fa-check"></i><b>9.3.1</b> Practice joining data by key</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="reading-files.html"><a href="reading-files.html"><i class="fa fa-check"></i><b>10</b> Reading files <i class="fa fa-file-text-o"></i></a><ul>
+<li class="chapter" data-level="10" data-path="reading-files.html"><a href="reading-files.html"><i class="fa fa-check"></i><b>10</b> Reading files <i class="fa fa-file-text-o"></i></a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="reading-files.html"><a href="reading-files.html#promises"><i class="fa fa-check"></i><b>10.1</b> Promises</a></li>
 <li class="chapter" data-level="10.2" data-path="reading-files.html"><a href="reading-files.html#local-server"><i class="fa fa-check"></i><b>10.2</b> Local server</a></li>
 <li class="chapter" data-level="10.3" data-path="reading-files.html"><a href="reading-files.html#other-local-options"><i class="fa fa-check"></i><b>10.3</b> Other local options</a></li>
 <li class="chapter" data-level="10.4" data-path="reading-files.html"><a href="reading-files.html#hosting-online"><i class="fa fa-check"></i><b>10.4</b> Hosting online</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="share-d3-online.html"><a href="share-d3-online.html"><i class="fa fa-check"></i><b>11</b> Share D3 online <i class="fa share-square"></i></a><ul>
+<li class="chapter" data-level="11" data-path="share-d3-online.html"><a href="share-d3-online.html"><i class="fa fa-check"></i><b>11</b> Share D3 online <i class="fa share-square"></i></a>
+<ul>
 <li class="chapter" data-level="11.1" data-path="share-d3-online.html"><a href="share-d3-online.html#vizhub"><i class="fa fa-check"></i><b>11.1</b> VizHub</a></li>
-<li class="chapter" data-level="11.2" data-path="share-d3-online.html"><a href="share-d3-online.html#bookdown"><i class="fa fa-check"></i><b>11.2</b> bookdown</a><ul>
+<li class="chapter" data-level="11.2" data-path="share-d3-online.html"><a href="share-d3-online.html#bookdown"><i class="fa fa-check"></i><b>11.2</b> bookdown</a>
+<ul>
 <li class="chapter" data-level="11.2.1" data-path="share-d3-online.html"><a href="share-d3-online.html#everything-in-the-.rmd"><i class="fa fa-check"></i><b>11.2.1</b> Everything in the .Rmd</a></li>
 <li class="chapter" data-level="11.2.2" data-path="share-d3-online.html"><a href="share-d3-online.html#put-d3-in-a-separate-.js-file"><i class="fa fa-check"></i><b>11.2.2</b> Put D3 in a separate .js file</a></li>
 <li class="chapter" data-level="11.2.3" data-path="share-d3-online.html"><a href="share-d3-online.html#iframe"><i class="fa fa-check"></i><b>11.2.3</b> iframe</a></li>
@@ -293,7 +320,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.3" data-path="share-d3-online.html"><a href="share-d3-online.html#observable"><i class="fa fa-check"></i><b>11.3</b> Observable</a></li>
 <li class="chapter" data-level="11.4" data-path="share-d3-online.html"><a href="share-d3-online.html#blockbuilder-2015-2020"><i class="fa fa-check"></i><b>11.4</b> Blockbuilder 2015-2020</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="line-charts.html"><a href="line-charts.html"><i class="fa fa-check"></i><b>12</b> Line charts <i class="fa fa-line-chart"></i></a><ul>
+<li class="chapter" data-level="12" data-path="line-charts.html"><a href="line-charts.html"><i class="fa fa-check"></i><b>12</b> Line charts <i class="fa fa-line-chart"></i></a>
+<ul>
 <li class="chapter" data-level="12.1" data-path="line-charts.html"><a href="line-charts.html#lecture-slides-6"><i class="fa fa-check"></i><b>12.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="12.2" data-path="line-charts.html"><a href="line-charts.html#svg-line-element"><i class="fa fa-check"></i><b>12.2</b> SVG <code>&lt;line&gt;</code> element</a></li>
 <li class="chapter" data-level="12.3" data-path="line-charts.html"><a href="line-charts.html#svg-path-element"><i class="fa fa-check"></i><b>12.3</b> SVG <code>&lt;path&gt;</code> element</a></li>
@@ -302,7 +330,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.6" data-path="line-charts.html"><a href="line-charts.html#put-the-line-generator-to-work"><i class="fa fa-check"></i><b>12.6</b> Put the line generator to work</a></li>
 <li class="chapter" data-level="12.7" data-path="line-charts.html"><a href="line-charts.html#additional-resources"><i class="fa fa-check"></i><b>12.7</b> Additional Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="layouts.html"><a href="layouts.html"><i class="fa fa-check"></i><b>13</b> Layouts <i class="fa fa-bar-chart"></i></a><ul>
+<li class="chapter" data-level="13" data-path="layouts.html"><a href="layouts.html"><i class="fa fa-check"></i><b>13</b> Layouts <i class="fa fa-bar-chart"></i></a>
+<ul>
 <li class="chapter" data-level="13.1" data-path="layouts.html"><a href="layouts.html#lecture-slides-7"><i class="fa fa-check"></i><b>13.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="13.2" data-path="layouts.html"><a href="layouts.html#set-up-data-and-stack-method"><i class="fa fa-check"></i><b>13.2</b> Set up data and stack method</a></li>
 <li class="chapter" data-level="13.3" data-path="layouts.html"><a href="layouts.html#set-up-scales"><i class="fa fa-check"></i><b>13.3</b> Set up scales</a></li>
@@ -310,11 +339,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.5" data-path="layouts.html"><a href="layouts.html#add-rectangles"><i class="fa fa-check"></i><b>13.5</b> Add rectangles</a></li>
 <li class="chapter" data-level="13.6" data-path="layouts.html"><a href="layouts.html#get-the-code"><i class="fa fa-check"></i><b>13.6</b> Get the code</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="general-advice.html"><a href="general-advice.html"><i class="fa fa-check"></i><b>14</b> General Advice <i class="fa fa-bug"></i></a><ul>
+<li class="chapter" data-level="14" data-path="general-advice.html"><a href="general-advice.html"><i class="fa fa-check"></i><b>14</b> General Advice <i class="fa fa-bug"></i></a>
+<ul>
 <li class="chapter" data-level="14.1" data-path="general-advice.html"><a href="general-advice.html#debugging-tips"><i class="fa fa-check"></i><b>14.1</b> Debugging Tips</a></li>
 <li class="chapter" data-level="14.2" data-path="general-advice.html"><a href="general-advice.html#other"><i class="fa fa-check"></i><b>14.2</b> Other</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="solutions.html"><a href="solutions.html"><i class="fa fa-check"></i><b>15</b> Solutions <i class="fa fa-check-square-o"></i></a><ul>
+<li class="chapter" data-level="15" data-path="solutions.html"><a href="solutions.html"><i class="fa fa-check"></i><b>15</b> Solutions <i class="fa fa-check-square-o"></i></a>
+<ul>
 <li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#web-tech-shapes"><i class="fa fa-check"></i>Web tech: shapes</a></li>
 <li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#d3-in-the-console-green-circles"><i class="fa fa-check"></i>D3 in the Console: green circles</a></li>
 <li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#d3-in-the-console-blue-circles"><i class="fa fa-check"></i>D3 in the Console: blue circles</a></li>
@@ -331,8 +362,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18" data-path="population-density.html"><a href="population-density.html"><i class="fa fa-check"></i><b>18</b> Population Density</a></li>
 <li class="chapter" data-level="19" data-path="weather-forecast.html"><a href="weather-forecast.html"><i class="fa fa-check"></i><b>19</b> Weather forecast</a></li>
 <li class="part"><span><b>II Appendices</b></span></li>
-<li class="chapter" data-level="20" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html"><i class="fa fa-check"></i><b>20</b> Appendix: advanced CSS</a><ul>
-<li class="chapter" data-level="20.1" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html#buttons"><i class="fa fa-check"></i><b>20.1</b> Buttons</a><ul>
+<li class="chapter" data-level="20" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html"><i class="fa fa-check"></i><b>20</b> Appendix: advanced CSS</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html#buttons"><i class="fa fa-check"></i><b>20.1</b> Buttons</a>
+<ul>
 <li class="chapter" data-level="20.1.1" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html#active"><i class="fa fa-check"></i><b>20.1.1</b> <code>.active</code></a></li>
 <li class="chapter" data-level="20.1.2" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html#active-1"><i class="fa fa-check"></i><b>20.1.2</b> <code>:active</code></a></li>
 <li class="chapter" data-level="20.1.3" data-path="appendix-advanced-css.html"><a href="appendix-advanced-css.html#focus"><i class="fa fa-check"></i><b>20.1.3</b> <code>:focus</code></a></li>
@@ -360,7 +393,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="correlation-coefficient" class="section level1 hasAnchor">
+<div id="correlation-coefficient" class="section level1 hasAnchor" number="16">
 <h1><span class="header-section-number">16</span> Correlation Coefficient<a href="correlation-coefficient.html#correlation-coefficient" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <style>
   h2, h3, p, text {
