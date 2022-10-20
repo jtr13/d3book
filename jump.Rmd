@@ -105,15 +105,15 @@ y["b"];
 1.  Try these:
 
     ``` javascript
-    d3.select("circle").transition().duration(2000).attr("cx", "400");
+    d3.select("svg").select("circle").transition().duration(2000).attr("cx", "400");
 
-    d3.select("ellipse").transition().duration(2000).attr("transform", "translate (400, 400)");
+    d3.select("svg").select("ellipse").transition().duration(2000).attr("transform", "translate (400, 400)");
 
-    d3.select("line").transition().duration(2000).attr("x1", "400");
+    d3.select("svg").select("line").transition().duration(2000).attr("x1", "400");
 
-    d3.select("line").transition().duration(2000).attr("y1", "250");
+    d3.select("svg").select("line").transition().duration(2000).attr("y1", "250");
 
-    d3.select("p").transition().duration(2000).style("font-size", "72px");
+    d3.select("body").select("p").transition().duration(2000).style("font-size", "72px");
     ```
 
 2.  Experiment with more transitions.
@@ -130,7 +130,7 @@ y["b"];
 2.  Add an event listener to the circle that will be trigger a call to `goyellow()` on a mouseover:
 
     ``` javascript
-    d3.select("circle").on("mouseover", goyellow);
+    d3.select("svg").select("circle").on("mouseover", goyellow);
     ```
 
 3.  Test it out.
@@ -144,7 +144,7 @@ y["b"];
 7.  Try out a click event. (Note the use of an anonymous function.)
 
     ``` javascript
-    d3.select("line").on("click", function()
+    d3.select("svg").select("line").on("click", function()
       {d3.select(this).attr("stroke-width", "10");});
     ```
 
