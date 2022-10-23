@@ -43,13 +43,13 @@ d3.select("svg").selectAll("circle").attr("cx", function(d) {return d;});
 We'll bind a new set of data to the circles, this time storing the dataset in a variable:
 
 ``` js
-var dataset = [50, 80, 110, 140, 170, 200];
+const dataset = [50, 80, 110, 140, 170, 200];
 ```
 
 We'll also store a selection of all circles before binding the data:
 
 ``` js
-var circ = d3.select("svg").selectAll("circle");
+const circ = d3.select("svg").selectAll("circle");
 ```
 
 And now, the data bind:
@@ -89,7 +89,7 @@ circ.attr("cx", d => d/4).attr("r", "10");
 Note that if we bind a new set of data to the DOM elements, the original set will be overwritten:
 
 ``` js
-var newdata = [145, 29, 53, 196, 200, 12];
+const newdata = [145, 29, 53, 196, 200, 12];
 
 circ.data(newdata);
 
@@ -127,7 +127,7 @@ Click the black triangle to view the `_enter`, `_exit`, and `_groups` fields.
 We can store the selection in a variable:
 
 ``` js
-var circ = d3.select("svg")
+const circ = d3.select("svg")
   .selectAll("circle")
   .data([123, 52, 232, 90]);
 ```
@@ -160,7 +160,7 @@ circ.exit().transition().duration(2000).remove();
 
 Create a new variable `circ2` and compare it to `circ`:
 ``` js
-var circ2 = d3.selectAll("circle");
+const circ2 = d3.selectAll("circle");
 
 circ.data();
 
@@ -183,7 +183,7 @@ We'll start with six circles and add some.
 Let's bind new data to the circles:
 
 ``` js
-var circ = d3.select("svg")
+const circ = d3.select("svg")
   .selectAll("circle")
   .data([123, 52, 232, 90, 34, 12, 189, 110]);
 ```
@@ -250,7 +250,7 @@ d3.select("div#dea")
 Create an array of values:
 
 ``` js
-var specialdata = [75, 150, 200];
+const specialdata = [75, 150, 200];
 ```
 
 Add rectangles:
@@ -296,7 +296,7 @@ Add a script that adds an svg element and horizontal bars of the lengths (in pix
 
 
 ``` js
-    var bardata = [300, 100, 150, 225, 75, 275];
+    const bardata = [300, 100, 150, 225, 75, 275];
 ```
 
 [Solution](solutions.html#update-enter-and-exit-horizontal-bar-chart)
@@ -311,11 +311,11 @@ Open [six_blue_circles.html](code/six_blue_circles.html){target="_blank"} in Chr
 Run the following code in the Console:
 
 ``` js
-var circ = d3.select("svg")
+const circ = d3.select("svg")
   .selectAll("circle")
   .data([123, 52, 232, 90, 34, 12, 189, 110]);
   
-var allcirc = circ.enter()  // 2 placeholders
+const allcirc = circ.enter()  // 2 placeholders
   .append("circle")  // placeholders -> circles
      .attr("cx", "100")  // acts on enter selection only
      .attr("cy", (d, i) => (i - 5) * 50)
@@ -335,11 +335,11 @@ allcirc.transition()
 Refresh the page and then copy and paste the following into the Console and run.
 
 ``` js
-var circ = d3.select("svg")
+const circ = d3.select("svg")
   .selectAll("circle")
   .data([123, 52, 232, 90, 34, 12, 189, 110]); // update selection
   
-var allcirc = circ.enter()  // 2 placeholders
+const allcirc = circ.enter()  // 2 placeholders
         .append("circle")  // placeholders -> circles
           .attr("cx", "100")  // acts on enter selection only
           .attr("cy", (d, i) => (i - 5) * 50)
@@ -395,9 +395,9 @@ Open [six_blue_circles.html](code/six_blue_circles.html){target="_blank"} in Chr
 Run this code in the Console:
 
 ``` js
-var specialdata = [100, 250, 300];
+const specialdata = [100, 250, 300];
 
-var bars = 
+const bars = 
   d3.select("svg")
     .selectAll("rect")
     .data(specialdata)
@@ -416,11 +416,11 @@ Refresh the page, and try the following instead:
 
 
 ``` js
-var svg = d3.select("svg");
+const svg = d3.select("svg");
 
-var specialdata = [100, 250, 300];
+const specialdata = [100, 250, 300];
 
-var bars = 
+const bars = 
   d3.select("svg")
     .append("g")
       .attr("id", "rects")
@@ -462,9 +462,9 @@ Open Developer Tools on this page.
     .attr("width", "500")
     .attr("height", "500");
 
-  var bardata = [300, 100, 150, 225, 75, 275];
+  const bardata = [300, 100, 150, 225, 75, 275];
 
-  var bars = 
+  const bars = 
     d3.select("svg")
       .selectAll("rect")
       .data(bardata);
@@ -505,7 +505,7 @@ Let's use the enter selection to add new bars in this case:
 
 ``` js
 function changedata(data) {
-  var bars = d3.select("svg#gup") 
+  const bars = d3.select("svg#gup") 
     .selectAll("rect")
     .data(data);    // bars is the update selection
     
@@ -530,7 +530,7 @@ Let's add to the function to remove the extra bars in this case:
 
 ``` js
 function changedata(data) {
-  var bars = d3.select("svg#gup") 
+  const bars = d3.select("svg#gup") 
     .selectAll("rect")
     .data(data);    // bars is the update selection
     
@@ -556,7 +556,7 @@ changedata([271, 49, 389]);
 A fancy exit:
 ``` js
 function changedata(data) {
-  var bars = d3.select("svg#gup") 
+  const bars = d3.select("svg#gup") 
     .selectAll("rect")
     .data(data);    // bars is the update selection
     
@@ -607,14 +607,14 @@ Also available here: [general_update_pattern.html](code/general_update_pattern.h
 
 // Create svg and initial bars
 
-var svg = d3.select("body")
+const svg = d3.select("body")
   .append("svg")
     .attr("width", "500")
     .attr("height", "400");
 
-var bardata = [300, 100, 150, 225, 75, 275];
+const bardata = [300, 100, 150, 225, 75, 275];
 
-var bars = svg.selectAll("rect")
+const bars = svg.selectAll("rect")
   .data(bardata);
 
 bars.enter().append("rect")
@@ -628,7 +628,7 @@ bars.enter().append("rect")
 
 function update(data) {
 
-  var bars = svg.selectAll("rect")    // data join
+  const bars = svg.selectAll("rect")    // data join
     .data(data);
 
     bars.enter()

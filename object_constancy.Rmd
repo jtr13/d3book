@@ -67,12 +67,12 @@ Try the following:
 
 ``` js
 
-var dataset = [{key: 12, x: 163, y: 200},
+const dataset = [{key: 12, x: 163, y: 200},
                {key: 14, x: 206, y: 304},
                {key: 16, x: 452, y: 152},
                {key: 18, x: 321, y: 254}];
 
-var svg = d3.select("#key").append("svg")
+const svg = d3.select("#key").append("svg")
 		.attr("width", "600").attr("height", "400");
 
 svg.append("rect").attr("width", "600")
@@ -91,9 +91,9 @@ svg.selectAll("text")
 2. Bind a new dataset by key:
 
 ``` js
-var svg = d3.select("#key").select("svg");
+const svg = d3.select("#key").select("svg");
 
-var dataset = [{key: 12, x: 100, y: 200},
+const dataset = [{key: 12, x: 100, y: 200},
               {key: 16, x: 250, y: 300}];
               
 svg.selectAll("text")
@@ -113,13 +113,13 @@ svg.selectAll("text")
 3. And another one:
 
 ``` js
-var svg = d3.select("#key").select("svg");
+const svg = d3.select("#key").select("svg");
 
-var dataset = [{key: 23, x: 300, y: 150},
+const dataset = [{key: 23, x: 300, y: 150},
                {key: 5, x: 450, y: 270},
                {key: 16, x: 200, y: 250}];
               
-var databind = svg.selectAll("text")
+const databind = svg.selectAll("text")
   .data(dataset, d => d.key);
   
 databind  

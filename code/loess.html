@@ -7,36 +7,36 @@
   <body>
     <svg id="withaxes" width="600" height="400"></svg>
     <script>
-      var svg = d3.select("svg#withaxes");
+      const svg = d3.select("svg#withaxes");
 
-      var margin = {top: 20, right: 50, bottom: 30, left: 50};
+      const margin = {top: 20, right: 50, bottom: 30, left: 50};
 
-      var width =  +svg.attr("width") - margin.left - margin.right
+      const width =  +svg.attr("width") - margin.left - margin.right
 
-      var height = +svg.attr("height") - margin.top - margin.bottom
+      const height = +svg.attr("height") - margin.top - margin.bottom
 
-      var g = svg.append("g").attr("transform", `translate(${margin.left}, ${margin.top})`);
+      const g = svg.append("g").attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-      var xScale = d3.scaleLinear()
+      const xScale = d3.scaleLinear()
          .range([0, width]);
 
-      var yScale = d3.scaleLinear()
+      const yScale = d3.scaleLinear()
         .range([height, 0]);
 
-      var xAxis = d3.axisBottom()
+      const xAxis = d3.axisBottom()
         .scale(xScale)
         .tickFormat(d3.format("d"));
 
-      var regressionGenerator = d3.regressionLoess()
+      const regressionGenerator = d3.regressionLoess()
           .x(d => d.year)
           .y(d => d.value)
           .bandwidth(.2);   // try different values
 
-      var line = d3.line()
+      const line = d3.line()
           .x(d => xScale(d[0]))
           .y(d => yScale(d[1]));
 
-      var data = [{"state_name":"California","year":1900,"value":57.5605},
+      const data = [{"state_name":"California","year":1900,"value":57.5605},
       {"state_name":"California","year":1901,"value":57.3214},
         {"state_name":"California","year":1902,"value":56.2134},{"state_name":"California","year":1903,"value":56.317},
         {"state_name":"California","year":1904,"value":57.4467},{"state_name":"California","year":1905,"value":57.1332},

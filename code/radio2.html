@@ -16,7 +16,7 @@
   </svg>
   <script>
     // movement function
-    var jump = function () {
+    const jump = function () {
           d3.select(this).transition().duration(500)
           .attr('y', '0')
           .transition().duration(500).ease(d3.easeBounce)

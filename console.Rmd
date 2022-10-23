@@ -51,7 +51,7 @@ d3.select("svg").select("circle#henry");
 It is often helpful to store selections for later use. Here we store the svg selection in `mysvg`:
 
 ``` js
-var mysvg = d3.select("svg");
+const mysvg = d3.select("svg");
 ```
 
 > <i class="far fa-lightbulb"></i> *The JavaScript community is moving toward using `let` and `const` instead of `var`; we, however, will stick with `var` to be consistent with *IDVW2*. Of course you're welcome to use `const` and `let` instead, and if so, may find these articles helpful: [Let It Be - How to declare JavaScript variables](https://madhatted.com/2016/1/25/let-it-be){target="_blank"} and [ES2015 const is not about immutability](https://mathiasbynens.be/notes/es6-const){target="_blank"}.*
@@ -60,9 +60,9 @@ var mysvg = d3.select("svg");
 Store circle selection in a variable:
 
 ``` js
-var svg = d3.select("svg");
+const svg = d3.select("svg");
 
-var circ = svg.selectAll("circle");
+const circ = svg.selectAll("circle");
 
 ```
 
@@ -385,13 +385,13 @@ d3.select("svg").selectAll("circle").attr("cx", function(d) {return d;});
 We'll bind a new set of data to the circles, this time storing the dataset in a variable:
 
 ``` js
-var dataset = [50, 80, 110, 140, 170, 200];
+const dataset = [50, 80, 110, 140, 170, 200];
 ```
 
 We'll also store a selection of all circles before binding the data:
 
 ``` js
-var circ = d3.select("svg").selectAll("circle");
+const circ = d3.select("svg").selectAll("circle");
 ```
 
 And now, the data bind:
@@ -431,7 +431,7 @@ circ.attr("cx", d => d/4).attr("r", "10");
 Note that if we bind a new set of data to the DOM elements, the original set will be overwritten:
 
 ``` js
-var newdata = [145, 29, 53, 196, 200, 12];
+const newdata = [145, 29, 53, 196, 200, 12];
 
 circ.data(newdata);
 

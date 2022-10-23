@@ -133,7 +133,7 @@ JavaScript is the most common language for making web pages interactive. Code is
 
 We will learn JavaScript on an as-needed basis. In terms of data, we will begin with simple arrays:
 
-`var x = [3, 5, 1, 6, 7]`
+`const x = [3, 5, 1, 6, 7]`
 
 In the [Just Enough JS](just-enough-js.html) chapter, we cover more complex data structures and some methods for data manipulation. 
 

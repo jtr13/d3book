@@ -19,41 +19,41 @@ body {
 <script src="https://d3js.org/d3.v7.js"></script>
 <script>
 
-var width = 630;
+const width = 630;
 
-var height = 400
+const height = 400
 
-var margin = {top: 20, right: 50, bottom: 30, left: 50};
+const margin = {top: 20, right: 50, bottom: 30, left: 50};
 
-var innerWidth = width - margin.left - margin.right;
+const innerWidth = width - margin.left - margin.right;
 
-var innerHeight = height - margin.top - margin.bottom;
+const innerHeight = height - margin.top - margin.bottom;
 
-var parseDate = d3.timeParse("%Y-%m-%d");
+const parseDate = d3.timeParse("%Y-%m-%d");
 
-var xScale = d3.scaleTime()
+const xScale = d3.scaleTime()
     .range([0, innerWidth]);
 
-var yScale = d3.scaleLinear()
+const yScale = d3.scaleLinear()
     .range([innerHeight, 0]);
 
-var color = d3.scaleOrdinal(d3.schemeCategory10);
+const color = d3.scaleOrdinal(d3.schemeCategory10);
 
-var xAxis = d3.axisBottom()
+const xAxis = d3.axisBottom()
     .scale(xScale)
     .ticks(5);
 
-var yAxis = d3.axisLeft()
+const yAxis = d3.axisLeft()
     .scale(yScale)
     .tickFormat(d => d + "%")
     .ticks(5);
 
-var line = d3.line()
+const line = d3.line()
     .x(d => xScale(d.date))
     .y(d => yScale(d.price));
 
 
-var svg = d3.select("body").append("svg")
+const svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height)
   .append("g")
@@ -65,21 +65,21 @@ d3.tsv("https://raw.githubusercontent.com/jtr13/d3book/master/data/airbus_data.t
     d.date = parseDate(d.date);
   });
 
-  var colnames = Object.keys(data[0])
+  const colnames = Object.keys(data[0])
     .filter(key => key !== "date")
 
-  var companies = colnames.map(name => ({
+  const companies = colnames.map(name => ({
       name: name,
       values: data.map(d => ({date: d.date, price: +d[name]}))
       }));
 
-  var values = companies.map(d => d.values);
+  const values = companies.map(d => d.values);
 
-  var delay = 10000/values[0].length;
+  const delay = 10000/values[0].length;
 
-  var minprices = values.map((d, i) => d3.min(values[i].map(d => d.price)));
+  const minprices = values.map((d, i) => d3.min(values[i].map(d => d.price)));
 
-  var maxprices = values.map((d, i) => d3.max(values[i].map(d => d.price)));
+  const maxprices = values.map((d, i) => d3.max(values[i].map(d => d.price)));
 
   xScale
     .domain(d3.extent(data, d => d.date));
@@ -94,7 +94,7 @@ d3.tsv("https://raw.githubusercontent.com/jtr13/d3book/master/data/airbus_data.t
   svg.append("g")
       .call(yAxis);
 
-  var start = colnames.map(name => ({
+  const start = colnames.map(name => ({
       name: name,
       values: data.slice(0, 1).map(d => ({date: d.date, price: +d[name]}))
       }));
@@ -109,7 +109,7 @@ d3.tsv("https://raw.githubusercontent.com/jtr13/d3book/master/data/airbus_data.t
       .attr("fill", "none")
       .style("stroke", (d, i) => color(i));
 
-  var labels = svg
+  const labels = svg
     .selectAll("text.company")
     .data(start)
     .enter()
@@ -123,19 +123,19 @@ d3.tsv("https://raw.githubusercontent.com/jtr13/d3book/master/data/airbus_data.t
         .attr("x", d => xScale(d.date))
         .attr("y", d => yScale(d.price));
 
-    var len = values[0].length;
+    const len = values[0].length;
 
 
     for (let j = 1; j < len; j++) {
 
-      var companies = colnames.map(name => ({
+      const companies = colnames.map(name => ({
       name: name,
       values: data.slice(0, j).map(d => ({date: d.date, price: +d[name]}))
       }));
 
-      var values = companies.map(d => d.values);
+      const values = companies.map(d => d.values);
 
-      var last = values.map(d => d[values[0].length-1]);
+      const last = values.map(d => d[values[0].length-1]);
 
       console.log(last)
 

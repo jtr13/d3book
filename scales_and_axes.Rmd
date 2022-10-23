@@ -17,7 +17,7 @@ Practice creating an ordinal scale in the Console:
 > <i class="fa fa-hand-o-right"></i> *Open the JavaScript Console* <i class="fa fa-terminal"></i>
 
 ``` js
-var ordscale = d3.scaleBand()
+const ordscale = d3.scaleBand()
   .domain([0, 1, 2, 3, 4])
   .range([0, 100]);
 ```
@@ -64,11 +64,11 @@ In the next graph, `d3.scaleLinear()` is added to create a `yScale` function to 
 "Margin convention"
 
 ``` js
-  var w = 500;
-  var h = 400;
-  var margin = {top: 25, right: 0, bottom: 25, left: 25};
-  var innerWidth = w - margin.left - margin.right;
-  var innerHeight = h - margin.top - margin.bottom;
+  const w = 500;
+  const h = 400;
+  const margin = {top: 25, right: 0, bottom: 25, left: 25};
+  const innerWidth = w - margin.left - margin.right;
+  const innerHeight = h - margin.top - margin.bottom;
 ```
 
 ### Bar chart with margins

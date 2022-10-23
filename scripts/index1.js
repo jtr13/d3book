@@ -5,22 +5,22 @@
 
 // viewBox code: https://chartio.com/resources/tutorials/how-to-resize-an-svg-when-the-window-is-resized-in-d3-js/
 
-var width = 750;
+const width = 750;
     height = 150;
 
-var startnodes = [];
+const startnodes = [];
 for (i = 0; i < 20; i++) {
   startnodes[i] = {};
 };
 
-var force = d3.layout.force()
+const force = d3.layout.force()
     .size([width, height])
     .nodes(startnodes)
     .linkDistance(30)
     .charge(-60)
     .on("tick", tick);
 
-var svg = d3.select("div#container")
+const svg = d3.select("div#container")
   .append("svg")
   .attr("preserveAspectRatio", "xMinYMin meet")
   .attr("viewBox", "0 0 750 150")
@@ -33,12 +33,12 @@ svg.append("rect")
     .attr("height", height)
     .attr("fill","aliceblue");
 
-var nodes = force.nodes(),
+let nodes = force.nodes(),
     links = force.links(),
     node = svg.selectAll(".node"),
     link = svg.selectAll(".link");
 
-var cursor = svg.append("circle")
+const cursor = svg.append("circle")
     .attr("r", 15)
     .attr("stroke-width", "2px")
     .attr("transform", "translate(-100,-100)")
@@ -51,13 +51,13 @@ function mousemove() {
 }
 
 function mousedown() {
-  var point = d3.mouse(this),
+  const point = d3.mouse(this),
       node = {x: point[0], y: point[1]},
       n = nodes.push(node);
 
   // add links to any nearby nodes
   nodes.forEach(function(target) {
-    var x = target.x - node.x,
+    const x = target.x - node.x,
         y = target.y - node.y;
     if (Math.sqrt(x * x + y * y) < 30) {
       links.push({source: node, target: target});
