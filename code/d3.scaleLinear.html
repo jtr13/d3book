@@ -12,27 +12,27 @@
 
 // Create svg and initial bars
 
-  var w = 400;
-  var h = 300;
+  const w = 400;
+  const h = 300;
 
-  var svg = d3.select("body")
+  const svg = d3.select("body")
     .append("svg")
       .attr("width", w)
       .attr("height", h)
       .style("fill", "yellow");
 
-  var bardata = [5, 6, 10, 3, 2, 12];  // change data values and see what happens
+  const bardata = [5, 6, 10, 3, 2, 12];  // change data values and see what happens
 
-  var xScale = d3.scaleBand()
+  const xScale = d3.scaleBand()
       .domain(d3.range(bardata.length))
       .range([0, w])
       .paddingInner(.1);
 
-  var yScale = d3.scaleLinear()
+  const yScale = d3.scaleLinear()
       .domain([0, d3.max(bardata)])
       .range([h, 0])
 
-  var bars = svg.selectAll("rect")
+  const bars = svg.selectAll("rect")
       .data(bardata);
 
   bars.enter().append("rect")

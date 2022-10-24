@@ -10,14 +10,14 @@
 	<body>
 		<script>
 
-		var svg = d3.select("body")
+		const svg = d3.select("body")
 		  .append("svg")
 		  .attr("width", "700")
 		  .attr("height", "500");
-		var bardata = [300, 100, 150, 225, 75, 275];
+		const bardata = [300, 100, 150, 225, 75, 275];
 
 
-		var bars = svg.selectAll("rect")
+		const bars = svg.selectAll("rect")
 		  .data(bardata);
 
 		bars.enter()

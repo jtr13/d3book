@@ -23,7 +23,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2022-10-22" />
+<meta name="date" content="2022-10-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -459,7 +459,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb158-7"><a href="transitions.html#cb158-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)<span class="op">;</span></span></code></pre></div>
 <p>DO NOT store a selection with a transition (it’s no longer a selection with the transition):</p>
 <p>Try this:</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb159-1"><a href="transitions.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> circ <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
+<div class="sourceCode" id="cb159"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb159-1"><a href="transitions.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> circ <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
 <span id="cb159-2"><a href="transitions.html#cb159-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
 <span id="cb159-3"><a href="transitions.html#cb159-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">data</span>([<span class="dv">50</span><span class="op">,</span> <span class="dv">95</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">250</span>])</span>
 <span id="cb159-4"><a href="transitions.html#cb159-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">enter</span>()</span>

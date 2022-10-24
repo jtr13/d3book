@@ -23,7 +23,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2022-10-22" />
+<meta name="date" content="2022-10-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -405,10 +405,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">12.2</span> SVG <code>&lt;line&gt;</code> element<a href="line-charts.html#svg-line-element" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>(Use for two points only.)</p>
 <div class="sourceCode" id="cb174"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb174-1"><a href="line-charts.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;line</span> <span class="er">x1</span><span class="ot">=</span><span class="st">&quot;0&quot;</span> <span class="er">y1</span><span class="ot">=</span><span class="st">&quot;80&quot;</span> <span class="er">x2</span><span class="ot">=</span><span class="st">&quot;100&quot;</span> <span class="er">y2</span><span class="ot">=</span><span class="st">&quot;20&quot;</span> <span class="er">stroke</span><span class="ot">=</span><span class="st">&quot;black&quot;</span> <span class="kw">/&gt;</span></span></code></pre></div>
-<div class="sourceCode" id="cb175"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb175-1"><a href="line-charts.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> x1 <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb175-2"><a href="line-charts.html#cb175-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> y1 <span class="op">=</span> <span class="dv">80</span><span class="op">;</span></span>
-<span id="cb175-3"><a href="line-charts.html#cb175-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> x2 <span class="op">=</span> <span class="dv">100</span><span class="op">;</span></span>
-<span id="cb175-4"><a href="line-charts.html#cb175-4" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> y2 <span class="op">=</span> <span class="dv">20</span><span class="op">;</span></span>
+<div class="sourceCode" id="cb175"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb175-1"><a href="line-charts.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> x1 <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb175-2"><a href="line-charts.html#cb175-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> y1 <span class="op">=</span> <span class="dv">80</span><span class="op">;</span></span>
+<span id="cb175-3"><a href="line-charts.html#cb175-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> x2 <span class="op">=</span> <span class="dv">100</span><span class="op">;</span></span>
+<span id="cb175-4"><a href="line-charts.html#cb175-4" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> y2 <span class="op">=</span> <span class="dv">20</span><span class="op">;</span></span>
 <span id="cb175-5"><a href="line-charts.html#cb175-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb175-6"><a href="line-charts.html#cb175-6" aria-hidden="true" tabindex="-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)</span>
 <span id="cb175-7"><a href="line-charts.html#cb175-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;line&quot;</span>)</span>
@@ -478,17 +478,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="create-a-line-generator" class="section level2 hasAnchor" number="12.5">
 <h2><span class="header-section-number">12.5</span> Create a line generator<a href="line-charts.html#create-a-line-generator" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Expects data in an array of 2-dimensional arrays, that is, an array of (x,y) pairs:</p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb178-1"><a href="line-charts.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> dataset <span class="op">=</span> [ [<span class="dv">0</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">43</span>]<span class="op">,</span> [<span class="dv">2</span><span class="op">,</span> <span class="dv">43</span>]<span class="op">,</span> [<span class="dv">3</span><span class="op">,</span> <span class="dv">56</span>]<span class="op">,</span> [<span class="dv">4</span><span class="op">,</span> <span class="dv">45</span>]<span class="op">,</span> [<span class="dv">5</span><span class="op">,</span> <span class="dv">62</span>]<span class="op">,</span> [<span class="dv">6</span><span class="op">,</span> <span class="dv">49</span>] ]<span class="op">;</span></span>
+<div class="sourceCode" id="cb178"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb178-1"><a href="line-charts.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> dataset <span class="op">=</span> [ [<span class="dv">0</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">43</span>]<span class="op">,</span> [<span class="dv">2</span><span class="op">,</span> <span class="dv">43</span>]<span class="op">,</span> [<span class="dv">3</span><span class="op">,</span> <span class="dv">56</span>]<span class="op">,</span> [<span class="dv">4</span><span class="op">,</span> <span class="dv">45</span>]<span class="op">,</span> [<span class="dv">5</span><span class="op">,</span> <span class="dv">62</span>]<span class="op">,</span> [<span class="dv">6</span><span class="op">,</span> <span class="dv">49</span>] ]<span class="op">;</span></span>
 <span id="cb178-2"><a href="line-charts.html#cb178-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb178-3"><a href="line-charts.html#cb178-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> mylinegen <span class="op">=</span> d3<span class="op">.</span><span class="fu">line</span>()</span></code></pre></div>
+<span id="cb178-3"><a href="line-charts.html#cb178-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> mylinegen <span class="op">=</span> d3<span class="op">.</span><span class="fu">line</span>()</span></code></pre></div>
 <p>Test it in the Console:</p>
 <div class="sourceCode" id="cb179"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb179-1"><a href="line-charts.html#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mylinegen</span>(dataset)<span class="op">;</span></span></code></pre></div>
 <p>Add an ordinal scale for x:</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb180-1"><a href="line-charts.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> xScale <span class="op">=</span> d3<span class="op">.</span><span class="fu">scaleBand</span>()</span>
+<div class="sourceCode" id="cb180"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb180-1"><a href="line-charts.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> xScale <span class="op">=</span> d3<span class="op">.</span><span class="fu">scaleBand</span>()</span>
 <span id="cb180-2"><a href="line-charts.html#cb180-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">domain</span>(d3<span class="op">.</span><span class="fu">range</span>(dataset<span class="op">.</span><span class="at">length</span>))</span>
 <span id="cb180-3"><a href="line-charts.html#cb180-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">500</span>])</span></code></pre></div>
 <p>… and a linear scale for y:</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb181-1"><a href="line-charts.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> yScale <span class="op">=</span> d3<span class="op">.</span><span class="fu">scaleLinear</span>()</span>
+<div class="sourceCode" id="cb181"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb181-1"><a href="line-charts.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> yScale <span class="op">=</span> d3<span class="op">.</span><span class="fu">scaleLinear</span>()</span>
 <span id="cb181-2"><a href="line-charts.html#cb181-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">domain</span>([d3<span class="op">.</span><span class="fu">min</span>(dataset<span class="op">,</span> d <span class="kw">=&gt;</span> d[<span class="dv">1</span>]) <span class="op">-</span> <span class="dv">20</span><span class="op">,</span></span>
 <span id="cb181-3"><a href="line-charts.html#cb181-3" aria-hidden="true" tabindex="-1"></a>             d3<span class="op">.</span><span class="fu">max</span>(dataset<span class="op">,</span> d <span class="kw">=&gt;</span> d[<span class="dv">1</span>]) <span class="op">+</span> <span class="dv">20</span>])</span>
 <span id="cb181-4"><a href="line-charts.html#cb181-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">range</span>([<span class="dv">400</span><span class="op">,</span> <span class="dv">0</span>])<span class="op">;</span>         </span></code></pre></div>
@@ -500,7 +500,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Test again:</p>
 <div class="sourceCode" id="cb183"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb183-1"><a href="line-charts.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mylinegen</span>(dataset)<span class="op">;</span></span></code></pre></div>
 <p>Now let’s add a <code>&lt;path&gt;</code> element with that <code>d</code> attribute: (this step is just for learning purposes…)</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb184-1"><a href="line-charts.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> mypath <span class="op">=</span> <span class="fu">mylinegen</span>(dataset)<span class="op">;</span></span>
+<div class="sourceCode" id="cb184"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb184-1"><a href="line-charts.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> mypath <span class="op">=</span> <span class="fu">mylinegen</span>(dataset)<span class="op">;</span></span>
 <span id="cb184-2"><a href="line-charts.html#cb184-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb184-3"><a href="line-charts.html#cb184-3" aria-hidden="true" tabindex="-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg&quot;</span>)<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;path&quot;</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;d&quot;</span><span class="op">,</span> mypath)</span>
 <span id="cb184-4"><a href="line-charts.html#cb184-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;none&quot;</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;stroke&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)</span>
@@ -538,19 +538,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 </style>
 <script>
-  var w = 500;
-  var h = 400;
-  var svg = d3.select("svg#noaxes");
-  var dataset = [ [0, 60], [1, 43], [2, 43], [3, 56],
+  const w = 500;
+  const h = 400;
+  let svg = d3.select("svg#noaxes");
+  const dataset = [ [0, 60], [1, 43], [2, 43], [3, 56],
       [4, 45], [5, 62], [6, 49] ];
-  var xScale = d3.scaleBand()
+  let xScale = d3.scaleBand()
     .domain(d3.range(dataset.length))
     .range([0, w]);
-  var yScale = d3.scaleLinear()
+  let yScale = d3.scaleLinear()
     .domain([d3.min(dataset, d => d[1]) - 20,
              d3.max(dataset, d => d[1]) + 20])
     .range([h, 0]);
-  var mylinegen = d3.line()
+  const mylinegen = d3.line()
     .x(d => xScale(d[0]))
     .y(d => yScale(d[1]));
   svg.append("path")
@@ -575,19 +575,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb188-14"><a href="line-charts.html#cb188-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/head&gt;</span></span>
 <span id="cb188-15"><a href="line-charts.html#cb188-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;body&gt;</span></span>
 <span id="cb188-16"><a href="line-charts.html#cb188-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;script&gt;</span></span>
-<span id="cb188-17"><a href="line-charts.html#cb188-17" aria-hidden="true" tabindex="-1"></a>      <span class="kw">var</span> w <span class="op">=</span> <span class="dv">500</span><span class="op">;</span></span>
-<span id="cb188-18"><a href="line-charts.html#cb188-18" aria-hidden="true" tabindex="-1"></a>      <span class="kw">var</span> h <span class="op">=</span> <span class="dv">400</span><span class="op">;</span></span>
-<span id="cb188-19"><a href="line-charts.html#cb188-19" aria-hidden="true" tabindex="-1"></a>      <span class="kw">var</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg#noaxes&quot;</span>)<span class="op">;</span></span>
-<span id="cb188-20"><a href="line-charts.html#cb188-20" aria-hidden="true" tabindex="-1"></a>      <span class="kw">var</span> dataset <span class="op">=</span> [ [<span class="dv">0</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">43</span>]<span class="op">,</span> [<span class="dv">2</span><span class="op">,</span> <span class="dv">43</span>]<span class="op">,</span> [<span class="dv">3</span><span class="op">,</span> <span class="dv">56</span>]<span class="op">,</span></span>
+<span id="cb188-17"><a href="line-charts.html#cb188-17" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> w <span class="op">=</span> <span class="dv">500</span><span class="op">;</span></span>
+<span id="cb188-18"><a href="line-charts.html#cb188-18" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> h <span class="op">=</span> <span class="dv">400</span><span class="op">;</span></span>
+<span id="cb188-19"><a href="line-charts.html#cb188-19" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg#noaxes&quot;</span>)<span class="op">;</span></span>
+<span id="cb188-20"><a href="line-charts.html#cb188-20" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> dataset <span class="op">=</span> [ [<span class="dv">0</span><span class="op">,</span> <span class="dv">60</span>]<span class="op">,</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">43</span>]<span class="op">,</span> [<span class="dv">2</span><span class="op">,</span> <span class="dv">43</span>]<span class="op">,</span> [<span class="dv">3</span><span class="op">,</span> <span class="dv">56</span>]<span class="op">,</span></span>
 <span id="cb188-21"><a href="line-charts.html#cb188-21" aria-hidden="true" tabindex="-1"></a>          [<span class="dv">4</span><span class="op">,</span> <span class="dv">45</span>]<span class="op">,</span> [<span class="dv">5</span><span class="op">,</span> <span class="dv">62</span>]<span class="op">,</span> [<span class="dv">6</span><span class="op">,</span> <span class="dv">49</span>] ]<span class="op">;</span></span>
-<span id="cb188-22"><a href="line-charts.html#cb188-22" aria-hidden="true" tabindex="-1"></a>      <span class="kw">var</span> xScale <span class="op">=</span> d3<span class="op">.</span><span class="fu">scaleBand</span>()</span>
+<span id="cb188-22"><a href="line-charts.html#cb188-22" aria-hidden="true" tabindex="-1"></a>      <span class="kw">let</span> xScale <span class="op">=</span> d3<span class="op">.</span><span class="fu">scaleBand</span>()</span>
 <span id="cb188-23"><a href="line-charts.html#cb188-23" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">domain</span>(d3<span class="op">.</span><span class="fu">range</span>(dataset<span class="op">.</span><span class="at">length</span>))</span>
 <span id="cb188-24"><a href="line-charts.html#cb188-24" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> w])<span class="op">;</span></span>
-<span id="cb188-25"><a href="line-charts.html#cb188-25" aria-hidden="true" tabindex="-1"></a>      <span class="kw">var</span> yScale <span class="op">=</span> d3<span class="op">.</span><span class="fu">scaleLinear</span>()</span>
+<span id="cb188-25"><a href="line-charts.html#cb188-25" aria-hidden="true" tabindex="-1"></a>      <span class="kw">let</span> yScale <span class="op">=</span> d3<span class="op">.</span><span class="fu">scaleLinear</span>()</span>
 <span id="cb188-26"><a href="line-charts.html#cb188-26" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">domain</span>([d3<span class="op">.</span><span class="fu">min</span>(dataset<span class="op">,</span> d <span class="kw">=&gt;</span> d[<span class="dv">1</span>]) <span class="op">-</span> <span class="dv">20</span><span class="op">,</span></span>
 <span id="cb188-27"><a href="line-charts.html#cb188-27" aria-hidden="true" tabindex="-1"></a>                 d3<span class="op">.</span><span class="fu">max</span>(dataset<span class="op">,</span> d <span class="kw">=&gt;</span> d[<span class="dv">1</span>]) <span class="op">+</span> <span class="dv">20</span>])</span>
 <span id="cb188-28"><a href="line-charts.html#cb188-28" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">range</span>([h<span class="op">,</span> <span class="dv">0</span>])<span class="op">;</span></span>
-<span id="cb188-29"><a href="line-charts.html#cb188-29" aria-hidden="true" tabindex="-1"></a>      <span class="kw">var</span> mylinegen <span class="op">=</span> d3<span class="op">.</span><span class="fu">line</span>()</span>
+<span id="cb188-29"><a href="line-charts.html#cb188-29" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> mylinegen <span class="op">=</span> d3<span class="op">.</span><span class="fu">line</span>()</span>
 <span id="cb188-30"><a href="line-charts.html#cb188-30" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">x</span>(d <span class="kw">=&gt;</span> <span class="fu">xScale</span>(d[<span class="dv">0</span>]))</span>
 <span id="cb188-31"><a href="line-charts.html#cb188-31" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">y</span>(d <span class="kw">=&gt;</span> <span class="fu">yScale</span>(d[<span class="dv">1</span>]))<span class="op">;</span></span>
 <span id="cb188-32"><a href="line-charts.html#cb188-32" aria-hidden="true" tabindex="-1"></a>      svg<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;path&quot;</span>)</span>
@@ -602,33 +602,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <svg id="withaxes" width="600" height="400">
 </svg>
 <script>
-  var svg = d3.select("svg#withaxes")
+  svg = d3.select("svg#withaxes")
 
-  var margin = {top: 20, right: 50, bottom: 30, left: 50}
+  const margin = {top: 20, right: 50, bottom: 30, left: 50}
 
-  var width =  +svg.attr("width") - margin.left - margin.right
+  const width =  +svg.attr("width") - margin.left - margin.right
 
-  var height = +svg.attr("height") - margin.top - margin.bottom
+  const height = +svg.attr("height") - margin.top - margin.bottom
 
-  var g = svg.append("g").attr("transform", `translate(${margin.left}, ${margin.top})`);
+  const g = svg.append("g").attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-  var parseTime = d3.timeParse("%d-%b-%y");
+  const parseTime = d3.timeParse("%d-%b-%y");
 
-  var xScale = d3.scaleTime().range([0, width]);
+  xScale = d3.scaleTime().range([0, width]);
 
-  var yScale = d3.scaleLinear()
+  yScale = d3.scaleLinear()
     .domain([20, 80])
     .range([height, 0]);
 
-  var xAxis = d3.axisBottom()
+  const xAxis = d3.axisBottom()
     .scale(xScale)
     .tickFormat(d3.timeFormat("%m-%d"));
 
-  var line = d3.line()
+  const line = d3.line()
     .x(d => xScale(d.date))
     .y(d => yScale(d.high));
 
-  var data =
+  const data =
     [{"date":"1-Apr-18","high":60},
     {"date":"2-Apr-18","high":43},
     {"date":"3-Apr-18","high":43},
@@ -668,34 +668,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb189-8"><a href="line-charts.html#cb189-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;body&gt;</span></span>
 <span id="cb189-9"><a href="line-charts.html#cb189-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;svg</span> <span class="er">id</span><span class="ot">=</span><span class="st">&quot;withaxes&quot;</span> <span class="er">width</span><span class="ot">=</span><span class="st">&quot;600&quot;</span> <span class="er">height</span><span class="ot">=</span><span class="st">&quot;400&quot;</span><span class="kw">&gt;&lt;/svg&gt;</span></span>
 <span id="cb189-10"><a href="line-charts.html#cb189-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;script&gt;</span></span>
-<span id="cb189-11"><a href="line-charts.html#cb189-11" aria-hidden="true" tabindex="-1"></a>      <span class="kw">var</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg#withaxes&quot;</span>)</span>
+<span id="cb189-11"><a href="line-charts.html#cb189-11" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> svg2 <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg#withaxes&quot;</span>)</span>
 <span id="cb189-12"><a href="line-charts.html#cb189-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-13"><a href="line-charts.html#cb189-13" aria-hidden="true" tabindex="-1"></a>      <span class="kw">var</span> margin <span class="op">=</span> {<span class="dt">top</span><span class="op">:</span> <span class="dv">20</span><span class="op">,</span> <span class="dt">right</span><span class="op">:</span> <span class="dv">50</span><span class="op">,</span> <span class="dt">bottom</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span> <span class="dt">left</span><span class="op">:</span> <span class="dv">50</span>}</span>
+<span id="cb189-13"><a href="line-charts.html#cb189-13" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> margin <span class="op">=</span> {<span class="dt">top</span><span class="op">:</span> <span class="dv">20</span><span class="op">,</span> <span class="dt">right</span><span class="op">:</span> <span class="dv">50</span><span class="op">,</span> <span class="dt">bottom</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span> <span class="dt">left</span><span class="op">:</span> <span class="dv">50</span>}</span>
 <span id="cb189-14"><a href="line-charts.html#cb189-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-15"><a href="line-charts.html#cb189-15" aria-hidden="true" tabindex="-1"></a>      <span class="kw">var</span> width <span class="op">=</span>  <span class="op">+</span>svg<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span>) <span class="op">-</span> margin<span class="op">.</span><span class="at">left</span> <span class="op">-</span> margin<span class="op">.</span><span class="at">right</span></span>
+<span id="cb189-15"><a href="line-charts.html#cb189-15" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> width <span class="op">=</span>  <span class="op">+</span>svg2<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span>) <span class="op">-</span> margin<span class="op">.</span><span class="at">left</span> <span class="op">-</span> margin<span class="op">.</span><span class="at">right</span></span>
 <span id="cb189-16"><a href="line-charts.html#cb189-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-17"><a href="line-charts.html#cb189-17" aria-hidden="true" tabindex="-1"></a>      <span class="kw">var</span> height <span class="op">=</span> <span class="op">+</span>svg<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span>) <span class="op">-</span> margin<span class="op">.</span><span class="at">top</span> <span class="op">-</span> margin<span class="op">.</span><span class="at">bottom</span></span>
+<span id="cb189-17"><a href="line-charts.html#cb189-17" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> height <span class="op">=</span> <span class="op">+</span>svg2<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span>) <span class="op">-</span> margin<span class="op">.</span><span class="at">top</span> <span class="op">-</span> margin<span class="op">.</span><span class="at">bottom</span></span>
 <span id="cb189-18"><a href="line-charts.html#cb189-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-19"><a href="line-charts.html#cb189-19" aria-hidden="true" tabindex="-1"></a>      <span class="kw">var</span> g <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;g&quot;</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span> <span class="vs">`translate(</span><span class="sc">${</span>margin<span class="op">.</span><span class="at">left</span><span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>margin<span class="op">.</span><span class="at">top</span><span class="sc">}</span><span class="vs">)`</span>)<span class="op">;</span></span>
+<span id="cb189-19"><a href="line-charts.html#cb189-19" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> g <span class="op">=</span> svg2<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;g&quot;</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span> <span class="vs">`translate(</span><span class="sc">${</span>margin<span class="op">.</span><span class="at">left</span><span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>margin<span class="op">.</span><span class="at">top</span><span class="sc">}</span><span class="vs">)`</span>)<span class="op">;</span></span>
 <span id="cb189-20"><a href="line-charts.html#cb189-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-21"><a href="line-charts.html#cb189-21" aria-hidden="true" tabindex="-1"></a>      <span class="kw">var</span> parseTime <span class="op">=</span> d3<span class="op">.</span><span class="fu">timeParse</span>(<span class="st">&quot;%d-%b-%y&quot;</span>)<span class="op">;</span></span>
+<span id="cb189-21"><a href="line-charts.html#cb189-21" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> parseTime <span class="op">=</span> d3<span class="op">.</span><span class="fu">timeParse</span>(<span class="st">&quot;%d-%b-%y&quot;</span>)<span class="op">;</span></span>
 <span id="cb189-22"><a href="line-charts.html#cb189-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-23"><a href="line-charts.html#cb189-23" aria-hidden="true" tabindex="-1"></a>      <span class="kw">var</span> xScale <span class="op">=</span> d3<span class="op">.</span><span class="fu">scaleTime</span>()<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> width])<span class="op">;</span></span>
+<span id="cb189-23"><a href="line-charts.html#cb189-23" aria-hidden="true" tabindex="-1"></a>      xScale <span class="op">=</span> d3<span class="op">.</span><span class="fu">scaleTime</span>()<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> width])<span class="op">;</span></span>
 <span id="cb189-24"><a href="line-charts.html#cb189-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-25"><a href="line-charts.html#cb189-25" aria-hidden="true" tabindex="-1"></a>      <span class="kw">var</span> yScale <span class="op">=</span> d3<span class="op">.</span><span class="fu">scaleLinear</span>()</span>
+<span id="cb189-25"><a href="line-charts.html#cb189-25" aria-hidden="true" tabindex="-1"></a>      yScale <span class="op">=</span> d3<span class="op">.</span><span class="fu">scaleLinear</span>()</span>
 <span id="cb189-26"><a href="line-charts.html#cb189-26" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">domain</span>([<span class="dv">20</span><span class="op">,</span> <span class="dv">80</span>])</span>
 <span id="cb189-27"><a href="line-charts.html#cb189-27" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">range</span>([height<span class="op">,</span> <span class="dv">0</span>])<span class="op">;</span></span>
 <span id="cb189-28"><a href="line-charts.html#cb189-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-29"><a href="line-charts.html#cb189-29" aria-hidden="true" tabindex="-1"></a>      <span class="kw">var</span> xAxis <span class="op">=</span> d3<span class="op">.</span><span class="fu">axisBottom</span>()</span>
+<span id="cb189-29"><a href="line-charts.html#cb189-29" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> xAxis <span class="op">=</span> d3<span class="op">.</span><span class="fu">axisBottom</span>()</span>
 <span id="cb189-30"><a href="line-charts.html#cb189-30" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">scale</span>(xScale)</span>
 <span id="cb189-31"><a href="line-charts.html#cb189-31" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">tickFormat</span>(d3<span class="op">.</span><span class="fu">timeFormat</span>(<span class="st">&quot;%Y-%m-%d&quot;</span>))<span class="op">;</span></span>
 <span id="cb189-32"><a href="line-charts.html#cb189-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb189-33"><a href="line-charts.html#cb189-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-34"><a href="line-charts.html#cb189-34" aria-hidden="true" tabindex="-1"></a>      <span class="kw">var</span> line <span class="op">=</span> d3<span class="op">.</span><span class="fu">line</span>()</span>
+<span id="cb189-34"><a href="line-charts.html#cb189-34" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> line <span class="op">=</span> d3<span class="op">.</span><span class="fu">line</span>()</span>
 <span id="cb189-35"><a href="line-charts.html#cb189-35" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">x</span>(d <span class="kw">=&gt;</span> <span class="fu">xScale</span>(d<span class="op">.</span><span class="at">date</span>))</span>
 <span id="cb189-36"><a href="line-charts.html#cb189-36" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">y</span>(d <span class="kw">=&gt;</span> <span class="fu">yScale</span>(d<span class="op">.</span><span class="at">high</span>))<span class="op">;</span></span>
 <span id="cb189-37"><a href="line-charts.html#cb189-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-38"><a href="line-charts.html#cb189-38" aria-hidden="true" tabindex="-1"></a>      <span class="kw">var</span> data <span class="op">=</span></span>
+<span id="cb189-38"><a href="line-charts.html#cb189-38" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> data <span class="op">=</span></span>
 <span id="cb189-39"><a href="line-charts.html#cb189-39" aria-hidden="true" tabindex="-1"></a>      [{<span class="st">&quot;date&quot;</span><span class="op">:</span><span class="st">&quot;1-Apr-18&quot;</span><span class="op">,</span><span class="st">&quot;high&quot;</span><span class="op">:</span><span class="dv">60</span>}<span class="op">,</span></span>
 <span id="cb189-40"><a href="line-charts.html#cb189-40" aria-hidden="true" tabindex="-1"></a>      {<span class="st">&quot;date&quot;</span><span class="op">:</span><span class="st">&quot;2-Apr-18&quot;</span><span class="op">,</span><span class="st">&quot;high&quot;</span><span class="op">:</span><span class="dv">43</span>}<span class="op">,</span></span>
 <span id="cb189-41"><a href="line-charts.html#cb189-41" aria-hidden="true" tabindex="-1"></a>      {<span class="st">&quot;date&quot;</span><span class="op">:</span><span class="st">&quot;3-Apr-18&quot;</span><span class="op">,</span><span class="st">&quot;high&quot;</span><span class="op">:</span><span class="dv">43</span>}<span class="op">,</span></span>

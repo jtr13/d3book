@@ -23,7 +23,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2022-10-22" />
+<meta name="date" content="2022-10-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -421,21 +421,21 @@ Lat, Lon: 40.807793, -73.962144
 <script type="text/javascript">
 
 // Width and height
-var w = 700;
-var h = 300;
-var margin = {top: 25, right: 100, bottom: 50, left: 100};
-var innerHeight = h - margin.top - margin.bottom;
-var innerWidth = w - margin.left - margin.right;
+const w = 700;
+const h = 300;
+const margin = {top: 25, right: 100, bottom: 50, left: 100};
+const innerHeight = h - margin.top - margin.bottom;
+const innerWidth = w - margin.left - margin.right;
 
 // create "placeholder" image
-var icon = d3.select("div#plot")
+const icon = d3.select("div#plot")
 .append("div")
 .append("img")
 .attr("src", "https://github.com/jtr13/d3book/blob/master/images/blank86x86.png?raw=true")
 .style("padding-left", w/2 - 43 + "px");    
   
 // create SVG element
-var svg = d3.select("div#plot")
+const svg = d3.select("div#plot")
   .append("svg")
     .attr("width", w)
     .attr("height", h)
@@ -462,9 +462,9 @@ svg.append("g")
 d3.json("https://api.weather.gov/gridpoints/OKX/33,38/forecast").then(function(data) {
 
 // filter for isDaytime equals "true"
-var dataset = data.properties.periods.filter(d => d.isDaytime);
+const dataset = data.properties.periods.filter(d => d.isDaytime);
 
-var tempscale = "F";
+const tempscale = "F";
 // create new property with celsius temperature
 dataset.forEach(d => d.celsius = (d.temperature - 32) * 5/9);
 

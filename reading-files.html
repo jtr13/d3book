@@ -23,7 +23,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2022-10-22" />
+<meta name="date" content="2022-10-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -401,7 +401,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">10.1</span> Promises<a href="reading-files.html#promises" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Loading data is one area where <a href="https://github.com/d3/d3/blob/master/CHANGES.md" target="_blank">D3 v5 introduces major changes from D3 v4</a>. While v4 uses <a href="https://javascript.info/callbacks" target="_blank">callbacks</a>, v5 switches to <a href="https://javascript.info/promise-basics" target="_blank">promises</a>, as <a href="https://hiddentao.com/archives/2014/04/21/why-promises-are-more-flexible-than-callbacks" target="_blank">promises facilitate cleaner and more flexile code than callbacks</a>.</p>
 <p>The concept is simple. We want to control what code needs to wait until data loaded to be executed and what doesn’t. We can do that with the following structure:</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb166-1"><a href="reading-files.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> rowConverter <span class="op">=</span> <span class="kw">function</span> (d) {</span>
+<div class="sourceCode" id="cb166"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb166-1"><a href="reading-files.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> rowConverter <span class="op">=</span> <span class="kw">function</span> (d) {</span>
 <span id="cb166-2"><a href="reading-files.html#cb166-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {</span>
 <span id="cb166-3"><a href="reading-files.html#cb166-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">disp</span><span class="op">:</span> <span class="op">+</span>d<span class="op">.</span><span class="at">disp</span><span class="op">,</span></span>
 <span id="cb166-4"><a href="reading-files.html#cb166-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">mpg</span><span class="op">:</span> <span class="op">+</span>d<span class="op">.</span><span class="at">mpg</span><span class="op">,</span></span>

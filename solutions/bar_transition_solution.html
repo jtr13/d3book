@@ -17,14 +17,14 @@
 
 // Create svg and initial bars
 
-  var w = 400;
-  var h = 300;
-  var margin = {top: 25, right: 0, bottom: 25,
+  const w = 400;
+  const h = 300;
+  const margin = {top: 25, right: 0, bottom: 25,
       left: 25};
-  var innerWidth = w - margin.left - margin.right;
-  var innerHeight = h - margin.top - margin.bottom;
+  const innerWidth = w - margin.left - margin.right;
+  const innerHeight = h - margin.top - margin.bottom;
 
-  var svg = d3.select("svg")
+  const svg = d3.select("svg")
       .attr("width", w)
       .attr("height", h);
 
@@ -35,24 +35,24 @@
       .attr("height", h)
       .attr("fill", "lightblue");
 
-  var bardata = [300, 100, 150, 220, 70, 270];
+  const bardata = [300, 100, 150, 220, 70, 270];
 
-  var xScale = d3.scaleBand()
+  const xScale = d3.scaleBand()
       .domain(d3.range(bardata.length))
       .range([0, innerWidth])
       .paddingInner(.1);
 
-  var yScale = d3.scaleLinear()
+  const yScale = d3.scaleLinear()
       .domain([0, 400])  // use fixed y-scale if possible
       .range([innerHeight, 0])
 
-  var xAxis = d3.axisBottom()
+  const xAxis = d3.axisBottom()
       .scale(xScale);
 
-  var yAxis = d3.axisLeft()
+  const yAxis = d3.axisLeft()
       .scale(yScale);
 
-  var bars = svg.append("g")
+  const bars = svg.append("g")
       .attr("id", "plot")
       .attr("transform", `translate (${margin.left}, ${margin.top})`)
     .selectAll("rect")
@@ -81,11 +81,11 @@
 
     xScale.domain(d3.range(data.length));
 
-    var bars = svg.select("#plot")
+    const bars = svg.select("#plot")
         .selectAll("rect")
         .data(data);
 
-    var paddingpix = xScale.padding()*xScale.bandwidth()/(1 - xScale.padding())
+    const paddingpix = xScale.padding()*xScale.bandwidth()/(1 - xScale.padding())
 
     bars.enter().append("rect")
       .attr("x", innerWidth + paddingpix)  // new bar on the right
@@ -123,7 +123,7 @@
 
 
     function add() {
-      var newvalue = Math.floor(Math.random()*400);
+      const newvalue = Math.floor(Math.random()*400);
       bardata.push(newvalue);
       update(bardata);
     }

@@ -23,7 +23,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2022-10-22" />
+<meta name="date" content="2022-10-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -441,7 +441,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">7.2.3</span> Get the value of an attribute of the element that received the event<a href="interactivity.html#get-the-value-of-an-attribute-of-the-element-that-received-the-event" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb141"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb141-1"><a href="interactivity.html#cb141-1" aria-hidden="true" tabindex="-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;circle&quot;</span>)</span>
 <span id="cb141-2"><a href="interactivity.html#cb141-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>(<span class="bu">event</span>) {</span>
-<span id="cb141-3"><a href="interactivity.html#cb141-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> rad <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="bu">event</span><span class="op">.</span><span class="at">currentTarget</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span>)<span class="op">;</span></span>
+<span id="cb141-3"><a href="interactivity.html#cb141-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> rad <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="bu">event</span><span class="op">.</span><span class="at">currentTarget</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span>)<span class="op">;</span></span>
 <span id="cb141-4"><a href="interactivity.html#cb141-4" aria-hidden="true" tabindex="-1"></a>  d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;text&quot;</span>)</span>
 <span id="cb141-5"><a href="interactivity.html#cb141-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">text</span>(<span class="vs">`The radius is </span><span class="sc">${</span>rad<span class="sc">}</span><span class="vs"> pixels.`</span>)<span class="op">;</span></span>
 <span id="cb141-6"><a href="interactivity.html#cb141-6" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span></code></pre></div>
@@ -484,7 +484,7 @@ Please select your favorite primary color:
 <script>
 d3.selectAll("input")
   .on("click", function(event) {
-    var favcolor = event.currentTarget.value;
+    const favcolor = event.currentTarget.value;
     d3.select("p#color").style("color", favcolor);
     });
 </script>
@@ -524,9 +524,9 @@ d3.selectAll("input")
 <p>JavaScript:</p>
 <div class="sourceCode" id="cb149"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb149-1"><a href="interactivity.html#cb149-1" aria-hidden="true" tabindex="-1"></a>d3<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;p&quot;</span>)</span>
 <span id="cb149-2"><a href="interactivity.html#cb149-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span> () {</span>
-<span id="cb149-3"><a href="interactivity.html#cb149-3" aria-hidden="true" tabindex="-1"></a>      <span class="kw">var</span> paraID <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;id&quot;</span>)<span class="op">;</span></span>
+<span id="cb149-3"><a href="interactivity.html#cb149-3" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> paraID <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;id&quot;</span>)<span class="op">;</span></span>
 <span id="cb149-4"><a href="interactivity.html#cb149-4" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (paraID <span class="op">==</span> <span class="st">&quot;add&quot;</span>) {</span>
-<span id="cb149-5"><a href="interactivity.html#cb149-5" aria-hidden="true" tabindex="-1"></a>          <span class="kw">var</span> newvalue <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(<span class="bu">Math</span><span class="op">.</span><span class="fu">random</span>()<span class="op">*</span><span class="dv">400</span>)<span class="op">;</span></span>
+<span id="cb149-5"><a href="interactivity.html#cb149-5" aria-hidden="true" tabindex="-1"></a>          <span class="kw">const</span> newvalue <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(<span class="bu">Math</span><span class="op">.</span><span class="fu">random</span>()<span class="op">*</span><span class="dv">400</span>)<span class="op">;</span></span>
 <span id="cb149-6"><a href="interactivity.html#cb149-6" aria-hidden="true" tabindex="-1"></a>          bardata<span class="op">.</span><span class="fu">push</span>(newvalue)<span class="op">;</span></span>
 <span id="cb149-7"><a href="interactivity.html#cb149-7" aria-hidden="true" tabindex="-1"></a>          } <span class="cf">else</span> <span class="cf">if</span> (paraID <span class="op">==</span> <span class="st">&quot;remove_left&quot;</span>) {</span>
 <span id="cb149-8"><a href="interactivity.html#cb149-8" aria-hidden="true" tabindex="-1"></a>          bardata<span class="op">.</span><span class="fu">shift</span>()<span class="op">;</span></span>
@@ -562,7 +562,7 @@ Click the circle.
 </div>
 <div style="margin-left: 30px">
 <div class="sourceCode" id="cb150"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb150-1"><a href="interactivity.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="co">// global variable keeps track of which radio button is clicked</span></span>
-<span id="cb150-2"><a href="interactivity.html#cb150-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> action <span class="op">=</span> <span class="st">&quot;left&quot;</span><span class="op">;</span></span>
+<span id="cb150-2"><a href="interactivity.html#cb150-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> action <span class="op">=</span> <span class="st">&quot;left&quot;</span><span class="op">;</span></span>
 <span id="cb150-3"><a href="interactivity.html#cb150-3" aria-hidden="true" tabindex="-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;div#rad&quot;</span>)</span>
 <span id="cb150-4"><a href="interactivity.html#cb150-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;input&quot;</span>)</span>
 <span id="cb150-5"><a href="interactivity.html#cb150-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>() { action <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)<span class="op">.</span><span class="fu">node</span>()<span class="op">.</span><span class="at">value</span><span class="op">;</span> })<span class="op">;</span></span>
@@ -570,21 +570,22 @@ Click the circle.
 <span id="cb150-7"><a href="interactivity.html#cb150-7" aria-hidden="true" tabindex="-1"></a><span class="co">// circle click behavior depends on value of &quot;action&quot;</span></span>
 <span id="cb150-8"><a href="interactivity.html#cb150-8" aria-hidden="true" tabindex="-1"></a>d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg#radio&quot;</span>)<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;circle&quot;</span>)</span>
 <span id="cb150-9"><a href="interactivity.html#cb150-9" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span> () {</span>
-<span id="cb150-10"><a href="interactivity.html#cb150-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (action <span class="op">==</span> <span class="st">&quot;left&quot;</span>) {</span>
-<span id="cb150-11"><a href="interactivity.html#cb150-11" aria-hidden="true" tabindex="-1"></a>      <span class="kw">var</span> cx_new <span class="op">=</span> <span class="op">+</span>d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span>) <span class="op">-</span> <span class="dv">50</span><span class="op">;</span></span>
-<span id="cb150-12"><a href="interactivity.html#cb150-12" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (cx_new <span class="op">&lt;</span> <span class="dv">20</span>) cx_new <span class="op">=</span> <span class="dv">20</span><span class="op">;</span></span>
-<span id="cb150-13"><a href="interactivity.html#cb150-13" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
-<span id="cb150-14"><a href="interactivity.html#cb150-14" aria-hidden="true" tabindex="-1"></a>      <span class="kw">var</span> cx_new <span class="op">=</span> <span class="op">+</span>d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span>) <span class="op">+</span> <span class="dv">50</span><span class="op">;</span></span>
-<span id="cb150-15"><a href="interactivity.html#cb150-15" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (cx_new <span class="op">&gt;</span> <span class="dv">280</span>) cx_new <span class="op">=</span> <span class="dv">280</span><span class="op">;</span></span>
-<span id="cb150-16"><a href="interactivity.html#cb150-16" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb150-17"><a href="interactivity.html#cb150-17" aria-hidden="true" tabindex="-1"></a>    d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)</span>
-<span id="cb150-18"><a href="interactivity.html#cb150-18" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">transition</span>()</span>
-<span id="cb150-19"><a href="interactivity.html#cb150-19" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">duration</span>(<span class="dv">500</span>)</span>
-<span id="cb150-20"><a href="interactivity.html#cb150-20" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> cx_new)<span class="op">;</span></span>
-<span id="cb150-21"><a href="interactivity.html#cb150-21" aria-hidden="true" tabindex="-1"></a>      })<span class="op">;</span></span></code></pre></div>
+<span id="cb150-10"><a href="interactivity.html#cb150-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> cx_new<span class="op">;</span></span>
+<span id="cb150-11"><a href="interactivity.html#cb150-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (action <span class="op">==</span> <span class="st">&quot;left&quot;</span>) {</span>
+<span id="cb150-12"><a href="interactivity.html#cb150-12" aria-hidden="true" tabindex="-1"></a>      cx_new <span class="op">=</span> <span class="op">+</span>d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span>) <span class="op">-</span> <span class="dv">50</span><span class="op">;</span></span>
+<span id="cb150-13"><a href="interactivity.html#cb150-13" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (cx_new <span class="op">&lt;</span> <span class="dv">20</span>) cx_new <span class="op">=</span> <span class="dv">20</span><span class="op">;</span></span>
+<span id="cb150-14"><a href="interactivity.html#cb150-14" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
+<span id="cb150-15"><a href="interactivity.html#cb150-15" aria-hidden="true" tabindex="-1"></a>      cx_new <span class="op">=</span> <span class="op">+</span>d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span>) <span class="op">+</span> <span class="dv">50</span><span class="op">;</span></span>
+<span id="cb150-16"><a href="interactivity.html#cb150-16" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (cx_new <span class="op">&gt;</span> <span class="dv">280</span>) cx_new <span class="op">=</span> <span class="dv">280</span><span class="op">;</span></span>
+<span id="cb150-17"><a href="interactivity.html#cb150-17" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb150-18"><a href="interactivity.html#cb150-18" aria-hidden="true" tabindex="-1"></a>    d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)</span>
+<span id="cb150-19"><a href="interactivity.html#cb150-19" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">transition</span>()</span>
+<span id="cb150-20"><a href="interactivity.html#cb150-20" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">duration</span>(<span class="dv">500</span>)</span>
+<span id="cb150-21"><a href="interactivity.html#cb150-21" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> cx_new)<span class="op">;</span></span>
+<span id="cb150-22"><a href="interactivity.html#cb150-22" aria-hidden="true" tabindex="-1"></a>      })<span class="op">;</span></span></code></pre></div>
 <script type="text/javascript">
 // global variable keeps track of which radio button is clicked
-var action = "left";
+let action = "left";
 d3.select("div#rad")
   .selectAll("input")
   .on("click", function() { action = d3.select(this).node().value; });
@@ -592,11 +593,12 @@ d3.select("div#rad")
 // circle click behavior depends on value of "action"
 d3.select("svg#radio").select("circle")
   .on("click", function () {
+    let cx_new;
     if (action == "left") {
-      var cx_new = +d3.select(this).attr("cx") - 50;
+      cx_new = +d3.select(this).attr("cx") - 50;
       if (cx_new < 20) cx_new = 20;
       } else {
-      var cx_new = +d3.select(this).attr("cx") + 50;
+      cx_new = +d3.select(this).attr("cx") + 50;
       if (cx_new > 280) cx_new = 280;
       }
     d3.select(this)
@@ -626,7 +628,7 @@ Click a square.
 </div>
 <div style="margin-left: 30px">
 <div class="sourceCode" id="cb151"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb151-1"><a href="interactivity.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="co">// movement function</span></span>
-<span id="cb151-2"><a href="interactivity.html#cb151-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> jump <span class="op">=</span> <span class="kw">function</span> () {</span>
+<span id="cb151-2"><a href="interactivity.html#cb151-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> jump <span class="op">=</span> <span class="kw">function</span> () {</span>
 <span id="cb151-3"><a href="interactivity.html#cb151-3" aria-hidden="true" tabindex="-1"></a>      d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)<span class="op">.</span><span class="fu">transition</span>()<span class="op">.</span><span class="fu">duration</span>(<span class="dv">500</span>)</span>
 <span id="cb151-4"><a href="interactivity.html#cb151-4" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&#39;y&#39;</span><span class="op">,</span> <span class="st">&#39;0&#39;</span>)</span>
 <span id="cb151-5"><a href="interactivity.html#cb151-5" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">transition</span>()<span class="op">.</span><span class="fu">duration</span>(<span class="dv">500</span>)<span class="op">.</span><span class="fu">ease</span>(d3<span class="op">.</span><span class="at">easeBounce</span>)</span>
@@ -651,7 +653,7 @@ Click a square.
 <span id="cb151-24"><a href="interactivity.html#cb151-24" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
 <script type="text/javascript">
 // movement function
-var jump = function () {
+const jump = function () {
       d3.select(this).transition().duration(500)
       .attr('y', '0')
       .transition().duration(500).ease(d3.easeBounce)
