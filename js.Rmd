@@ -4,7 +4,21 @@
 
 Basics: *IDVW*, pp. 36-52
 
+Before JavaScript ES6, the 'var' keyword was used to declare a variable. Variables declared using the 'var' keyword are either globally or functionally scoped, they do not support block-level scope. Therefore, in JavaScript ES6, the 'let' keyword and 'const' keyword were introduced.
+ 
+The 'let' keyword deals with a block scope. It can be reassigned but cannot be redeclared.
+
+The 'const' keyword is also blocked scoped. It cannot be reassigned and cannot be redeclared.
+
+As a general rule, you should always declare variables with 'const', if you realize that the value of the variable needs to change, go back and change it to 'let'.
+
+For more detailed information regaring 'var', 'let' and 'const', please see [Difference between var, let, and const keyword in JavaScript](https://www.educative.io/answers/difference-between-var-let-and-const-keyword-in-javascript)
+
+
+
 objects, arrays, arrays of objects, functions (and other things)
+
+
 
 ## Arrays of arrays
 
@@ -35,7 +49,7 @@ makesvg("arrays")
 
 ``` js
 // Try me in the Console
-var object_dataset = [
+const object_dataset = [
   {cx: 100, cy: 150, fill: `red`},
   {cx: 200, cy: 100, fill: `blue`}
   ];
@@ -76,7 +90,7 @@ Math.sqrt(3);     // Try me in the Console
 ```
 
 ``` js
-var x = [3, 5, 7];     // Try me in the Console
+const x = [3, 5, 7];     // Try me in the Console
 Math.sqrt(x);          // Doesn't work...
 ```
 
@@ -96,23 +110,23 @@ sqrt(x)
 Do something to every element of a simple array:
 
 ``` js
-# take the square root of each element
-var x = [3, 5, 7];     // try me
+// take the square root of each element
+const x = [3, 5, 7];     // try me
 x.map(Math.sqrt);
 ```
 
 ``` js
-# multiply each element by 3
+// multiply each element by 3
 [4, 10, 12].map(d => d*3);     // try me
 ```
 
 ``` js
-# multiply each element by 3
+// multiply each element by 3
 [4, 10, 12].map(function(d) {return d*3;});     // try me
 ```
 
 ``` js
-# multiply each element by its index
+// multiply each element by its index
 [10, 20, 30, 40].map((d, i) => d*i);     // try me
 ```
 
@@ -128,16 +142,16 @@ x + y
 **JavaScript: Sum two arrays**
 
 ``` js
-# sum two arrays
-var x = [1, 2, 3];
-var y = [4, 5, 6];
+// sum two arrays
+const x = [1, 2, 3];
+const y = [4, 5, 6];
 x + y                         // try me... what went wrong?
 ```
 
 ``` js
-# sum two arrays
-var x = [1, 2, 3];
-var y = [4, 5, 6];
+// sum two arrays
+const x = [1, 2, 3];
+const y = [4, 5, 6];
 x.map((d, i) => d + y[i]);     // try me
 ```
 
@@ -179,7 +193,7 @@ Create an array of objects out of a simple array (note the parentheses around th
 Use `d3.sort()` rather than plain JavaScript options.
 
 ``` js
-var y = [3, 1, 5, 12, 7];     // try me
+const y = [3, 1, 5, 12, 7];     // try me
 d3.sort(y);
 ```
 
@@ -221,7 +235,7 @@ A few with different names:
 Thus for a single quantile we have:
 
 ``` js
-var x = [12, 34, 1, 43, 90, 72];      // try me
+const x = [12, 34, 1, 43, 90, 72];      // try me
 d3.quantile(x, .25);
 ```
 
@@ -246,7 +260,7 @@ quantile(x)
 **JavaScript**
 
 ``` js
-var x = [1, 12, 34, 43, 72, 90];      // try me
+const x = [1, 12, 34, 43, 72, 90];      // try me
 [0, .25, .5, .75, 1].map(p => d3.quantile(x, p));
 ```
 
@@ -263,7 +277,7 @@ sum(purrr::map_dbl(l, ~.x[1]))
 **JavaScript**
 
 ``` js
-var dataset = [[100, 200, 40], [300, 150, 20]];     // try me
+const dataset = [[100, 200, 40], [300, 150, 20]];     // try me
 d3.sum(dataset.map(d => d[0]));
 ```
 
@@ -281,7 +295,7 @@ purrr::map_dbl(l, ~sum(.x))
 **JavaScript**
 
 ``` js
-var dataset = [[100, 200, 40], [300, 150, 20]];     // try me
+const dataset = [[100, 200, 40], [300, 150, 20]];     // try me
 dataset.map(d => d3.sum(d));
 ```
 

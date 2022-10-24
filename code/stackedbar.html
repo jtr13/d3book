@@ -11,11 +11,11 @@
     <script>
 
   // width and height
-  var w = 500;
-  var h = 300;
+  const w = 500;
+  const h = 300;
 
   // original data
-  var dataset = [
+  const dataset = [
     { apples: 5, oranges: 10, grapes: 22 },
     { apples: 4, oranges: 12, grapes: 28 },
     { apples: 2, oranges: 19, grapes: 32 },
@@ -24,41 +24,41 @@
   ];
 
   // set up stack method
-  var stack = d3.stack()
+  const stack = d3.stack()
     .keys([ "apples", "oranges", "grapes" ])
     .order(d3.stackOrderDescending);
 
   // data, stacked
-  var series = stack(dataset);
+  const series = stack(dataset);
 
   // set up scales
-    var xScale = d3.scaleBand()
+    const xScale = d3.scaleBand()
     .domain(d3.range(dataset.length))
     .range([0, w])
     .paddingInner(0.05);
 
-  var yScale = d3.scaleLinear()
+  const yScale = d3.scaleLinear()
     .domain([0,	d3.max(dataset, d => d.apples + d.oranges + d.grapes)])
     .range([h, 0]);
 
   // use one of the built-in d3 color scales
-  var colors = d3.scaleOrdinal(d3.schemeCategory10);
+  const colors = d3.scaleOrdinal(d3.schemeCategory10);
 
   // create SVG element
-  var svg = d3.select("body")
+  const svg = d3.select("body")
     .append("svg")
     .attr("width", w)
     .attr("height", h);
 
   // add a group for each row of data
-  var groups = svg.selectAll("g")
+  const groups = svg.selectAll("g")
     .data(series)
     .enter()
     .append("g")
     .style("fill", (d, i) => colors(i));
 
   // add a rect for each data value
-  var rects = groups.selectAll("rect")
+  const rects = groups.selectAll("rect")
     .data(d => d)
     .enter()
     .append("rect")

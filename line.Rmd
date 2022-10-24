@@ -17,10 +17,10 @@ Read: *IDVW2*, Chapter 11 Using Paths
 ```
 
 ``` js
-var x1 = 0;
-var y1 = 80;
-var x2 = 100;
-var y2 = 20;
+const x1 = 0;
+const y1 = 80;
+const x2 = 100;
+const y2 = 20;
 
 d3.select("svg")
   .append("line")
@@ -77,9 +77,9 @@ Format that we need looks something like this:
 Expects data in an array of 2-dimensional arrays, that is, an array of (x,y) pairs:
 
 ``` js
-var dataset = [ [0, 60], [1, 43], [2, 43], [3, 56], [4, 45], [5, 62], [6, 49] ];
+const dataset = [ [0, 60], [1, 43], [2, 43], [3, 56], [4, 45], [5, 62], [6, 49] ];
 
-var mylinegen = d3.line()
+const mylinegen = d3.line()
 ```
 Test it in the Console:
 
@@ -90,7 +90,7 @@ mylinegen(dataset);
 Add an ordinal scale for x:
 
 ``` js
-var xScale = d3.scaleBand()
+const xScale = d3.scaleBand()
     .domain(d3.range(dataset.length))
     .range([0, 500])
 ```    
@@ -98,7 +98,7 @@ var xScale = d3.scaleBand()
 ... and a linear scale for y:
 
 ``` js    
-var yScale = d3.scaleLinear()
+const yScale = d3.scaleLinear()
     .domain([d3.min(dataset, d => d[1]) - 20,
              d3.max(dataset, d => d[1]) + 20])
     .range([400, 0]);         
@@ -124,7 +124,7 @@ mylinegen(dataset);
 Now let's add a `<path>` element with that `d` attribute: (this step is just for learning purposes...)
 
 ``` js
-var mypath = mylinegen(dataset);
+const mypath = mylinegen(dataset);
 
 d3.select("svg").append("path").attr("d", mypath)
     .attr("fill", "none").attr("stroke", "red")
@@ -176,19 +176,19 @@ svg.append("path")
 </style>
 
 <script>
-  var w = 500;
-  var h = 400;
-  var svg = d3.select("svg#noaxes");
-  var dataset = [ [0, 60], [1, 43], [2, 43], [3, 56],
+  const w = 500;
+  const h = 400;
+  let svg = d3.select("svg#noaxes");
+  const dataset = [ [0, 60], [1, 43], [2, 43], [3, 56],
       [4, 45], [5, 62], [6, 49] ];
-  var xScale = d3.scaleBand()
+  let xScale = d3.scaleBand()
     .domain(d3.range(dataset.length))
     .range([0, w]);
-  var yScale = d3.scaleLinear()
+  let yScale = d3.scaleLinear()
     .domain([d3.min(dataset, d => d[1]) - 20,
              d3.max(dataset, d => d[1]) + 20])
     .range([h, 0]);
-  var mylinegen = d3.line()
+  const mylinegen = d3.line()
     .x(d => xScale(d[0]))
     .y(d => yScale(d[1]));
   svg.append("path")
@@ -216,19 +216,19 @@ Putting it all together, we have:
   </head>
   <body>
     <script>
-      var w = 500;
-      var h = 400;
-      var svg = d3.select("svg#noaxes");
-      var dataset = [ [0, 60], [1, 43], [2, 43], [3, 56],
+      const w = 500;
+      const h = 400;
+      const svg = d3.select("svg#noaxes");
+      const dataset = [ [0, 60], [1, 43], [2, 43], [3, 56],
           [4, 45], [5, 62], [6, 49] ];
-      var xScale = d3.scaleBand()
+      let xScale = d3.scaleBand()
         .domain(d3.range(dataset.length))
         .range([0, w]);
-      var yScale = d3.scaleLinear()
+      let yScale = d3.scaleLinear()
         .domain([d3.min(dataset, d => d[1]) - 20,
                  d3.max(dataset, d => d[1]) + 20])
         .range([h, 0]);
-      var mylinegen = d3.line()
+      const mylinegen = d3.line()
         .x(d => xScale(d[0]))
         .y(d => yScale(d[1]));
       svg.append("path")
@@ -247,33 +247,33 @@ And another example with axes:
 <svg id="withaxes" width="600" height="400"></svg>
 
 <script>
-  var svg = d3.select("svg#withaxes")
+  svg = d3.select("svg#withaxes")
 
-  var margin = {top: 20, right: 50, bottom: 30, left: 50}
+  const margin = {top: 20, right: 50, bottom: 30, left: 50}
 
-  var width =  +svg.attr("width") - margin.left - margin.right
+  const width =  +svg.attr("width") - margin.left - margin.right
 
-  var height = +svg.attr("height") - margin.top - margin.bottom
+  const height = +svg.attr("height") - margin.top - margin.bottom
 
-  var g = svg.append("g").attr("transform", `translate(${margin.left}, ${margin.top})`);
+  const g = svg.append("g").attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-  var parseTime = d3.timeParse("%d-%b-%y");
+  const parseTime = d3.timeParse("%d-%b-%y");
 
-  var xScale = d3.scaleTime().range([0, width]);
+  xScale = d3.scaleTime().range([0, width]);
 
-  var yScale = d3.scaleLinear()
+  yScale = d3.scaleLinear()
     .domain([20, 80])
     .range([height, 0]);
 
-  var xAxis = d3.axisBottom()
+  const xAxis = d3.axisBottom()
     .scale(xScale)
     .tickFormat(d3.timeFormat("%m-%d"));
 
-  var line = d3.line()
+  const line = d3.line()
     .x(d => xScale(d.date))
     .y(d => yScale(d.high));
 
-  var data =
+  const data =
     [{"date":"1-Apr-18","high":60},
     {"date":"2-Apr-18","high":43},
     {"date":"3-Apr-18","high":43},
@@ -315,34 +315,34 @@ And another example with axes:
 	<body>
     <svg id="withaxes" width="600" height="400"></svg>
     <script>
-      var svg = d3.select("svg#withaxes")
+      const svg2 = d3.select("svg#withaxes")
 
-      var margin = {top: 20, right: 50, bottom: 30, left: 50}
+      const margin = {top: 20, right: 50, bottom: 30, left: 50}
 
-      var width =  +svg.attr("width") - margin.left - margin.right
+      const width =  +svg2.attr("width") - margin.left - margin.right
 
-      var height = +svg.attr("height") - margin.top - margin.bottom
+      const height = +svg2.attr("height") - margin.top - margin.bottom
 
-      var g = svg.append("g").attr("transform", `translate(${margin.left}, ${margin.top})`);
+      const g = svg2.append("g").attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-      var parseTime = d3.timeParse("%d-%b-%y");
+      const parseTime = d3.timeParse("%d-%b-%y");
 
-      var xScale = d3.scaleTime().range([0, width]);
+      xScale = d3.scaleTime().range([0, width]);
 
-      var yScale = d3.scaleLinear()
+      yScale = d3.scaleLinear()
         .domain([20, 80])
         .range([height, 0]);
 
-      var xAxis = d3.axisBottom()
+      const xAxis = d3.axisBottom()
         .scale(xScale)
         .tickFormat(d3.timeFormat("%Y-%m-%d"));
 
 
-      var line = d3.line()
+      const line = d3.line()
         .x(d => xScale(d.date))
         .y(d => yScale(d.high));
 
-      var data =
+      const data =
       [{"date":"1-Apr-18","high":60},
       {"date":"2-Apr-18","high":43},
       {"date":"3-Apr-18","high":43},

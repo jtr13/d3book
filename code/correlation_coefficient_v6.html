@@ -29,42 +29,42 @@
 
 		<script type="text/javascript">
 
- 		  var action = "add";
+ 		  let action = "add";
 
 			//Width and height of svg
-			var w = 600;
-			var h = 400;
-			var padding = 30;
+			const w = 600;
+			const h = 400;
+			const padding = 30;
 
 			// axis min / max
-		  var xmin = -50;
-		  var xmax = 50;
-		  var ymin = -30;
-		  var ymax = 30;
+		  const xmin = -50;
+		  const xmax = 50;
+		  const ymin = -30;
+		  const ymax = 30;
 
 			//		Scale functions
 
-			var xScale = d3.scaleLinear()
+			const xScale = d3.scaleLinear()
 								 .domain([xmin, xmax])
 								 .range([padding, w - padding * 2]);
 
-			var yScale = d3.scaleLinear()
+			const yScale = d3.scaleLinear()
 								 .domain([ymin, ymax])
 								 .range([h - padding, padding]);
 
 
 			//Define X axis
-			var xAxis = d3.axisBottom()
+			const xAxis = d3.axisBottom()
 							  .scale(xScale)
 							  .ticks(5);
 
 			//Define Y axis
-			var yAxis = d3.axisLeft()
+			const yAxis = d3.axisLeft()
 							  .scale(yScale)
 							  .ticks(5);
 
 			//Create SVG element
-			var svg = d3.select("body")
+			const svg = d3.select("body")
 						.append("svg")
 						.attr("width", w)
 						.attr("height", h);
@@ -92,9 +92,9 @@
 
 			// Update stats function
 
-			var updatestats = function() {
+			const updatestats = function() {
 
-				var data = d3.selectAll("circle").data();
+				const data = d3.selectAll("circle").data();
 
 				if(data.length < 2) {
 					d3.select("h3#r").text("Two points are needed to calculate r.");
@@ -124,9 +124,9 @@
 
 				// add a point
 
-				var new_x = xScale.invert(d3.pointer(event)[0]);
+				const new_x = xScale.invert(d3.pointer(event)[0]);
 
-				var new_y = yScale.invert(d3.pointer(event)[1]);
+				const new_y = yScale.invert(d3.pointer(event)[1]);
 
 				svg.append("circle")
 				    .data([[new_x, new_y]])
