@@ -1,8 +1,8 @@
 // Data
 
- var groupnames = ["A", "B"];
- var numpositions = 7;
- var groups = [];
+ const groupnames = ["A", "B"];
+ const numpositions = 7;
+ const groups = [];
  for (var i = 0; i < groupnames.length; i++) {
    groups[i] = d3.range(numpositions)
      .map(d =>({group: groupnames[i], key: d + 1, rank: d + 1}));
@@ -10,33 +10,33 @@
 
  // Colors
 
-var colors = d3.scaleSequential(d3.interpolateViridis)
+const colors = d3.scaleSequential(d3.interpolateViridis)
   .domain([0, numpositions]);
 
 
 
 //Width and height of svg
-  var w = 400;
-  var h = 500;
-  var margin = {top: 40, left: 30, bottom: 20, right: 30};
+  const w = 400;
+  const h = 500;
+  const margin = {top: 40, left: 30, bottom: 20, right: 30};
 
 // Scale functions
 
-var xScale = d3.scaleBand()
+const xScale = d3.scaleBand()
   .domain(groupnames)
   .range([margin.left, w - margin.right]);
 
-var xpos = function(x) {
+const xpos = function(x) {
   return xScale(x) + xScale.bandwidth()/2;
 }
 
-var yScale = d3.scaleLinear()
+const yScale = d3.scaleLinear()
   .domain([.5, numpositions + .5])
   .range([margin.top, h - margin.bottom]);
 
 
 //Create SVG element
-  var svg = d3.select("body")
+  const svg = d3.select("div#spearman")
     .append("svg")
       .attr("width", w)
       .attr("height", h);
@@ -49,7 +49,7 @@ var yScale = d3.scaleLinear()
 
 // Initial positions
 
-  var ladders = svg.selectAll("g")
+  const ladders = svg.selectAll("g")
     .data(groupnames)
     .enter()
     .append("g")
@@ -69,8 +69,8 @@ var yScale = d3.scaleLinear()
 
 // http://bl.ocks.org/ironfrown/5dc9cbeeba8bd8783120ee8af744c11c#file-how-to-drag-and-rotate-labels-in-d3-md
 
-  for (var i = 0; i < groupnames.length; i++) {
-   var holders = d3.select(`g#${groupnames[i]}`)
+  for (let i = 0; i < groupnames.length; i++) {
+   const holders = d3.select(`g#${groupnames[i]}`)
     .selectAll("g")
     .data(groups[i], d => d.key)
 		.enter()
@@ -102,7 +102,7 @@ var yScale = d3.scaleLinear()
 
 // drag behavior
   function dragged(event, d) {
-    var whichladder = d3.select(this).data()[0].group;
+    const whichladder = d3.select(this).data()[0].group;
     if (event.y >= yScale.range()[0] & event.y <= yScale.range()[1]) {
 
       d3.select(this).attr("transform",
@@ -112,9 +112,9 @@ var yScale = d3.scaleLinear()
   };
 
   function ended(event, d) {
-    var whichladder = d3.select(this).data()[0].group;
-    var newrank = getrank(whichladder);
-    var newdata = d3.range(numpositions).map(d => ( {group: whichladder, key: newrank[d], rank: d + 1 } ) );
+    const whichladder = d3.select(this).data()[0].group;
+    const newrank = getrank(whichladder);
+    const newdata = d3.range(numpositions).map(d => ( {group: whichladder, key: newrank[d], rank: d + 1 } ) );
     d3.select(`g#${whichladder}`)
       .selectAll("g")
       .data(newdata, d => d.key)
@@ -130,15 +130,15 @@ var yScale = d3.scaleLinear()
 
 
   function getrank(group) {
-    var ycoords = [];
+    const ycoords = [];
     d3.selectAll(`g#${group}`)
     .selectAll("g").each(function () {
       // https://stackoverflow.com/questions/57272211/how-to-get-coordinatescx-cy-of-circles-after-d3-force-collision
       const thisD3 = d3.select(this);
       ycoords.push(thisD3.attr("gy"));
     });
-    var addrank = ycoords.map((d, i) => [+d, i+1]);
-    var newrank = d3.sort(addrank, d => d[0]).map(d => d[1]);
+    const addrank = ycoords.map((d, i) => [+d, i+1]);
+    const newrank = d3.sort(addrank, d => d[0]).map(d => d[1]);
     return(newrank);
   }
 
@@ -146,16 +146,16 @@ var yScale = d3.scaleLinear()
 
 // Calculate rho
 
-var calculate = function() {
-    var rank1 = getrank("A");
-    var rank2 = getrank("B");
-    var d = [];
-    for (var i = 0; i < rank1.length; i++) {
+const calculate = function() {
+    const rank1 = getrank("A");
+    const rank2 = getrank("B");
+    const d = [];
+    for (let i = 0; i < rank1.length; i++) {
       d.push(rank1[i] - rank2[i]);
     };
-    var d2 = d.map(d => Math.pow(d, 2));
-    var f = d3.format(".2f")
-    var rho = f(1 - (6*d3.sum(d2)/(Math.pow(rank1.length, 3) - rank1.length)));
+    const d2 = d.map(d => Math.pow(d, 2));
+    const f = d3.format(".2f")
+    const rho = f(1 - (6*d3.sum(d2)/(Math.pow(rank1.length, 3) - rank1.length)));
     d3.select("h4").text(rho);
 }
 

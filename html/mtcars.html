@@ -12,31 +12,31 @@
 <div id="reading-files"></div>
 		<script type="text/javascript">
 //Width and height
-var w = 600;
-var h = 300;
-var padding = 40;
+const w = 600;
+const h = 300;
+const padding = 40;
 
 //Create scale functions
-var xScale = d3.scaleLinear()
+const xScale = d3.scaleLinear()
 					 .domain([0, 1])
 					 .range([padding, w - padding / 2]);
 
-var yScale = d3.scaleLinear()
+const yScale = d3.scaleLinear()
 					 .domain([0, 1])
 					 .range([h - padding, padding / 2]);
 
 //Define X axis
-var xAxis = d3.axisBottom()
+const xAxis = d3.axisBottom()
 				  .scale(xScale)
 				  .ticks(5);
 
 //Define Y axis
-var yAxis = d3.axisLeft()
+const yAxis = d3.axisLeft()
 				  .scale(yScale)
 				  .ticks(5);
 
 //Create SVG element
-var svg = d3.select("div#reading-files")
+const svg = d3.select("div#reading-files")
 			.append("svg")
 			.attr("width", w)
 			.attr("height", h);
@@ -59,7 +59,7 @@ svg.append("g")
 	.attr("transform", "translate(" + padding + ",0)")
 	.call(yAxis);
 
-var rowConverter = function (d) {
+const rowConverter = function (d) {
   return {grad: +d.graduation_rate,
     attend: +d.attendance_rate,
     name: d.school_name};
@@ -71,7 +71,7 @@ d3.csv("html/mtcars.html")
   });
 
 	//Create circles
-var allCircles = svg.selectAll("circle")
+const allCircles = svg.selectAll("circle")
    .data(data)
    .enter()
    .append("circle")
@@ -79,7 +79,7 @@ var allCircles = svg.selectAll("circle")
    .attr("cy", d => yScale(d.grad))
    .attr("r", 2.5)
    .on("mouseover", function ()
-     { var school = d3.select(this).datum().name;
+     { const school = d3.select(this).datum().name;
      svg.select("text#nm").text(school)});
    })
 .catch(function(error){

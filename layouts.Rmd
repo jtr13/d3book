@@ -13,11 +13,11 @@
 
 ``` js
   // try me in the Console   
-	var w = 500;
-	var h = 300;
+	const w = 500;
+	const h = 300;
 
 	// original data
-	var dataset = [
+	const dataset = [
 		{ apples: 5, oranges: 10, grapes: 22 },
 		{ apples: 4, oranges: 12, grapes: 28 },
 		{ apples: 2, oranges: 19, grapes: 32 },
@@ -26,12 +26,12 @@
 	];
 
 	// set up stack method
-	var stack = d3.stack()
+	const stack = d3.stack()
 		.keys([ "apples", "oranges", "grapes" ])
 		.order(d3.stackOrderDescending);  
 		
 	// data, stacked
-	var series = stack(dataset);	
+	const series = stack(dataset);	
 ```
 
 Try `stack(dataset)` in the Console.
@@ -39,16 +39,16 @@ Try `stack(dataset)` in the Console.
 ## Set up scales
 
 ``` js
-	var xScale = d3.scaleBand()
+	const xScale = d3.scaleBand()
 		.domain(d3.range(dataset.length))
 		.range([0, w])
 		.paddingInner(0.05);
 		
-	var yScale = d3.scaleLinear()
+	const yScale = d3.scaleLinear()
 		.domain([0,	d3.max(dataset, d => d.apples + d.oranges + d.grapes)])
 		.range([h, 0]); 
 				
-	var colors = d3.scaleOrdinal(d3.schemeCategory10);
+	const colors = d3.scaleOrdinal(d3.schemeCategory10);
 ```
 
 Enter `d3.schemeCategory10` in the Console. 
@@ -61,13 +61,13 @@ See built-in color options [here](https://github.com/d3/d3-scale-chromatic){targ
 	
 ``` js		
 	//Create SVG element
-	var svg = d3.select("#stacked")
+	const svg = d3.select("#stacked")
 		.append("svg")
 		.attr("width", w)
 		.attr("height", h);
 	
 // Add a group for each row of data
-	var groups = svg.selectAll("g")
+	const groups = svg.selectAll("g")
 		.data(series)
 				.enter()
 				.append("g")
@@ -83,7 +83,7 @@ Why doesn't anything show up yet? Right-click and Inspect to find out.
 
 ``` js
 // Add a rect for each data value
-	var rects = groups.selectAll("rect")
+	const rects = groups.selectAll("rect")
 		.data(d => d)
 		.enter()
 		.append("rect")

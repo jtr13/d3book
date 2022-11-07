@@ -11,7 +11,7 @@ Loading data is one area where [D3 v5 introduces major changes from D3 v4](https
 The concept is simple. We want to control what code needs to wait until data loaded to be executed and what doesn't. We can do that with the following structure:
 
 ``` js
-var rowConverter = function (d) {
+const rowConverter = function (d) {
   return {
     disp: +d.disp,
     mpg: +d.mpg,

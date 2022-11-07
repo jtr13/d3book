@@ -103,29 +103,29 @@ write.csv(copytodocs, file="docs/data/mtcars.csv", row.names = FALSE)
 
 # {js}
 // width and height
-var w = 600;
-var h = 300;
-var padding = 50;
+const w = 600;
+const h = 300;
+const padding = 50;
 
 // create scale functions
-var xScale = d3.scaleLinear()
+const xScale = d3.scaleLinear()
   .range([padding, w - padding]);
 
-var yScale = d3.scaleLinear()
+const yScale = d3.scaleLinear()
   .range([h - padding, 0]);
 
 // define X axis
-var xAxis = d3.axisBottom()
+const xAxis = d3.axisBottom()
   .scale(xScale)
   .ticks(5);
 
 // define Y axis
-var yAxis = d3.axisLeft()
+const yAxis = d3.axisLeft()
   .scale(yScale)
   .ticks(5);
 
 // create SVG element
-var svg = d3.select("div#cars")
+const svg = d3.select("div#cars")
   .append("svg")
   .attr("width", w)
   .attr("height", h);
@@ -161,7 +161,7 @@ svg.append("text")
   .attr("transform", `rotate(-90, ${padding/3}, ${h/2})`)
   .text("mpg");
 
-var rowConverter = function(d) {
+const rowConverter = function(d) {
   return {
     disp: +d.disp,
     mpg: +d.mpg,
@@ -177,7 +177,7 @@ d3.csv("https://raw.githubusercontent.com/jtr13/d3book/master/docs/data/mtcars.c
     d3.select("#yaxis").call(yAxis);
 
     //Create circles
-    var allCircles = svg.selectAll("circle")
+    const allCircles = svg.selectAll("circle")
       .data(data)
       .enter()
       .append("circle")

@@ -96,7 +96,7 @@ DO NOT store a selection with a transition (it's no longer a selection with the 
 Try this:
 
 ``` js
-var circ = d3.select("svg")
+const circ = d3.select("svg")
   .selectAll("circle")
   .data([50, 95, 100, 200, 50, 150, 250])
   .enter()

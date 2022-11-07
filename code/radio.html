@@ -15,7 +15,7 @@
   </svg>
   <script>
     // global variable keeps track of which radio button is clicked
-    var action = "left";
+    let action = "left";
     d3.selectAll("input")
       .on("click", function() {
 					action = d3.select(this).node().value;
@@ -25,11 +25,12 @@
 		d3.select("svg#radio")
 		  .select("circle")
 		  .on("click", function () {
+		    let cx_new;
 		    if (action == "left") {
-		      var cx_new = +d3.select(this).attr("cx") - 50;
+		      cx_new = +d3.select(this).attr("cx") - 50;
 		      if (cx_new < 20) cx_new = 20;
 		      } else {
-		      var cx_new = +d3.select(this).attr("cx") + 50;
+		      cx_new = +d3.select(this).attr("cx") + 50;
 		      if (cx_new > 280) cx_new = 280;
 		      }
 

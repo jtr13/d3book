@@ -1,20 +1,20 @@
 // Create svg and initial bars
 
-  var dur = 0;
+  let dur = 0;
 
   d3.selectAll("input.noc")
     .on("click", function() {
 					dur = +d3.select(this).node().value;
 			  });
 
-  var w = 400;
-  var h = 300;
-  var margin = {top: 25, right: 0, bottom: 25, left: 25};
-  var innerWidth = w - margin.left - margin.right;
-  var innerHeight = h - margin.top - margin.bottom;
+  const w = 400;
+  const h = 300;
+  const margin = {top: 25, right: 0, bottom: 25, left: 25};
+  const innerWidth = w - margin.left - margin.right;
+  const innerHeight = h - margin.top - margin.bottom;
 
 
-  var svg = d3.select("#chart")
+  const svg = d3.select("#chart")
     .append("svg")
       .attr("width", w)
       .attr("height", h);
@@ -26,24 +26,24 @@
       .attr("height", h)
       .attr("fill", "lightblue");
 
-  var bardata = [300, 100, 150, 220, 70, 270];
+  const bardata = [300, 100, 150, 220, 70, 270];
 
-  var xScale = d3.scaleBand()
+  const xScale = d3.scaleBand()
       .domain(d3.range(bardata.length))
       .range([0, innerWidth])
       .paddingInner(.1);
 
-  var yScale = d3.scaleLinear()
+  const yScale = d3.scaleLinear()
       .domain([0, d3.max(bardata)])
       .range([innerHeight, 0])
 
-  var xAxis = d3.axisBottom()
+  const xAxis = d3.axisBottom()
       .scale(xScale);
 
-  var yAxis = d3.axisLeft()
+  const yAxis = d3.axisLeft()
       .scale(yScale);
 
-  var bars = svg.append("g")
+  const bars = svg.append("g")
       .attr("id", "plot")
       .attr("transform", `translate (${margin.left}, ${margin.top})`)
     .selectAll("rect")
@@ -74,9 +74,9 @@
 
     yScale.domain([0, d3.max(data)]);
 
-    var svg = d3.select("#chart").select("svg");
+    const svg = d3.select("#chart").select("svg");
 
-    var bars = svg.select("#plot")
+    const bars = svg.select("#plot")
       .selectAll("rect")
         .data(data);
     console.log(bars.data());
@@ -115,11 +115,11 @@
     d3.selectAll("p.noc")
         .on("click", function () {
 
-      var paraID = d3.select(this).attr("id");
+      let paraID = d3.select(this).attr("id");
       console.log(paraID);
 
       if (paraID == "add") {
-          var newvalue = Math.floor(Math.random()*400);
+          const newvalue = Math.floor(Math.random()*400);
           bardata.push(newvalue);
           console.log(bardata);
 

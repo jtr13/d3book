@@ -9,26 +9,26 @@
 
   <script>
 
-  var w = 400;
-  var h = 300;
-  var margin = {top: 25, right: 0, bottom: 25, left: 25};
-  var innerWidth = w - margin.left - margin.right;
-  var innerHeight = h - margin.top - margin.bottom;
+  const w = 400;
+  const h = 300;
+  const margin = {top: 25, right: 0, bottom: 25, left: 25};
+  const innerWidth = w - margin.left - margin.right;
+  const innerHeight = h - margin.top - margin.bottom;
 
-  var bardata = [5, 6, 10, 3, 2, 12];
+  const bardata = [5, 6, 10, 3, 2, 12];
 
-  var xScale = d3.scaleBand()
+  const xScale = d3.scaleBand()
       .domain(d3.range(bardata.length))
       .range([0, innerWidth])
       .paddingInner(.1);
 
-  var yScale = d3.scaleLinear()
+  const yScale = d3.scaleLinear()
       .domain([0, d3.max(bardata)])
       .range([innerHeight, 0])
 
   // add svg
 
-  var svg = d3.select("body")
+  const svg = d3.select("body")
     .append("svg")
       .attr("width", w)
       .attr("height", h);
@@ -46,8 +46,8 @@
   svg.append("g")
       .attr("id", "plot")
       .attr("transform", `translate (${margin.left}, ${margin.top})`)
-	  
-  // create bars  
+
+  // create bars
   d3.select("g#plot")
       .selectAll("rect")
       .data(bardata)
@@ -58,7 +58,7 @@
       .attr("width", xScale.bandwidth())
       .attr("height", d => innerHeight - yScale(d))
       .attr("fill", "lightgreen");
-	  
+
   // create text labels
   d3.select("g#plot")
       .selectAll("text")

@@ -111,7 +111,7 @@ d3.select("svg").selectAll("circle")
 ``` js
 d3.select("svg").selectAll("circle")
   .on("click", function(event) {
-  var rad = d3.select(event.currentTarget).attr("r");
+  const rad = d3.select(event.currentTarget).attr("r");
   d3.select("svg").select("text")
     .text(`The radius is ${rad} pixels.`);
     });
@@ -190,7 +190,7 @@ d3.selectAll("input")
 <script>
 d3.selectAll("input")
   .on("click", function(event) {
-    var favcolor = event.currentTarget.value;
+    const favcolor = event.currentTarget.value;
     d3.select("p#color").style("color", favcolor);
     });
 </script>	
@@ -227,6 +227,27 @@ Hint: use HTML paragraphs as buttons
 
 [solution](code/vertical_bar.html){target="_blank"}
 
+JavaScript:
+
+``` js
+d3.selectAll("p")
+    .on("click", function () {
+      const paraID = d3.select(this).attr("id");
+      if (paraID == "add") {
+          const newvalue = Math.floor(Math.random()*400);
+          bardata.push(newvalue);
+          } else if (paraID == "remove_left") {
+          bardata.shift();
+          } else {
+          bardata.pop();
+          };
+      update(bardata);
+      });
+```
+
+## Putting it all together
+
+Vertical bar chart with add / remove buttons and general update pattern
 
 ## Dependent event listeners
 
@@ -259,7 +280,7 @@ webshot::webshot("https://jtr13.github.io/d3book/interactivity.html#global-varia
 <div style="margin-left: 30px">
 ```{js}
 // global variable keeps track of which radio button is clicked
-var action = "left";
+let action = "left";
 d3.select("div#rad")
   .selectAll("input")
   .on("click", function() { action = d3.select(this).node().value; });
@@ -267,11 +288,12 @@ d3.select("div#rad")
 // circle click behavior depends on value of "action"
 d3.select("svg#radio").select("circle")
   .on("click", function () {
+    let cx_new;
     if (action == "left") {
-      var cx_new = +d3.select(this).attr("cx") - 50;
+      cx_new = +d3.select(this).attr("cx") - 50;
       if (cx_new < 20) cx_new = 20;
       } else {
-      var cx_new = +d3.select(this).attr("cx") + 50;
+      cx_new = +d3.select(this).attr("cx") + 50;
       if (cx_new > 280) cx_new = 280;
       }
     d3.select(this)
@@ -311,7 +333,7 @@ webshot::webshot("https://jtr13.github.io/d3book/interactivity.html#turn-off-eve
 
 ```{js}
 // movement function
-var jump = function () {
+const jump = function () {
       d3.select(this).transition().duration(500)
       .attr('y', '0')
       .transition().duration(500).ease(d3.easeBounce)
