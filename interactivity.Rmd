@@ -8,92 +8,146 @@ Read: *IDVW2*, Chapter 10 Interactivity
 
 [Interactivity](pdfs/interactivity.pdf){target="_blank"}
 
-## Binding event listeners
+## Event listeners
 
 ```{r, echo=FALSE, eval=!HTML, out.width='33%'}
 webshot::webshot("https://jtr13.github.io/d3book/interactivity.html", selector = "svg")
 ```
 
+One of the main reason that we choose D3 is its potential to create interactive graphs. In this chapter, we will explain basic concepts and present some interesting interactivity graphs. For demonstrating purpose, all the interaction will be reflected in the following graph. When going through sections, read the script first before executing it in the console. 
+
+<center>
 ```{asis, echo=HTML}
-<svg width="300" height="200">
-  <rect width="300" height="200" fill="lightblue"></rect>
-  <circle cx="50" cy="75" r="20" fill="blue"></circle>
-  <ellipse cx="175" cy="100" rx="45" ry="30" fill="green"></ellipse>
-  <text x="100" y="150">(100, 150)</text>
-  <line x1="250" y1="150" x2="275" y2="175" stroke="red" stroke-width="5"></line>
+<svg width="500" height="400">
+  <rect width="500" height="400" fill="lightblue"></rect>
+  <text x="300" y="20"></text>
+  <circle cx="50" cy="40" r="20" fill="blue"></circle>
+  <circle cx="100" cy="80" r="30" fill="blue"></circle>
+  <circle cx="200" cy="160" r="45" fill="blue"></circle>
+  <circle cx="350" cy="280" r="67.5" fill="blue"></circle>
 </svg>
 ```  
+</center>
 
-It's helpful to think carefully about what you want to happen when an event listener is triggered and what information you need. Open Developer Tools and try these in the Console. Note that event management [changed in v6](https://observablehq.com/@d3/d3v6-migration-guide#events){target="_blank"} so code written for earlier versions of D3 will not work. 
+**Note:** there is an empty `<text>` field in the graph.
 
+**Note:** event management [changed in v6](https://observablehq.com/@d3/d3v6-migration-guide#events){target="_blank"} so code written for earlier versions of D3 will not work. 
 
-### Do something unrelated to the element that received the event
+### Basics
+
+To create an interaction, we should consider three questions: What is the user event? What is the receiver of the event? What happens when the event is triggered? Consider the following script and think about the questions in all subsections.
 
 ``` js
-d3.select("svg")
+d3.select("svg").selectAll("circle")
   .on("click", function () {
-    d3.select("svg")
-      .append("text")
-        .attr("x", "100")
-        .attr("y", "40")
-        .text("Hello World");
+    d3.select("svg").select("text")
+      .text("You clicked on a circle!");
         });
 ```
 
-### Change an attribute of the element that received the event
+* What is the user event? **Clicking**
+* What is the receiver of the event? **All circles**
+* What happens when the event is triggered? **Change the text to "You clicked on a circle!"**
+
+Generally, **user events** are any [DOM event type](https://developer.mozilla.org/en-US/docs/Web/Events#Standard_events). We will focus on mouse events, for example: "click","mouseover",and "mouseout" and they are specified in `.on()`. **Receivers of the event** is the element that you want to bind the event listener and they are specified in the first selection arguments. Lastly, what happens after you trigger the events is the **change** you want to reflect. There are a variety of things you can do and we will introduce some below.
+
+**Note:** in the above example, we do not need any information of the circles (attributes, data, etc.)
+
+#### Add an element
 
 ``` js
-d3.select("line")
-  .on("click", function() {
+d3.select("svg")
+  .on("click", function(event) {
+    var coord = d3.pointer(event)
     d3.select(this)
-      .attr("stroke-width", "10");
+      .append("circle")
+        .attr("cx",coord[0])
+        .attr("cy",coord[1])
+        .attr("r","2")
+        .attr("fill", "red");
       });
 ```
 
-In the context of event handlers, "this" is the element that received the event, a.k.a. what you clicked on if it's a click event. An alternative ($\geq$ v6, see link above) is to pass the event and access the element with `event.currentTarget`:
+Starting with the basic, you can add an element onto the svg. After executing the script, you can add a circle at where you click.
 
+In this script:
 
-or
+* What is the user event? **Clicking**
+* What is the receiver of the event? **The svg element**
+* What happens when the event is triggered? **Add a red circle of radius 2 at wherever you click**
+
+**Note:** `d3.pointer()` will be explained later
+
+#### Change an attribute value
 
 ``` js
-d3.select("line")
+d3.select("svg").selectAll("circle")
+  .on("click", function(event) {
+    d3.select(this)
+      .attr("fill", "red");
+      });
+```
+
+You can change the attribute value of an element. In this case, circles will turn red if you click on it. Comparing with the first example, since you are changing the color of the circles you click, you will need to know which circle you click. 
+
+In this script:
+
+* What is the user event? **Clicking**
+* What is the receiver of the event? **All circles**
+* What happens when the event is triggered? **Change the circle you click to red**
+
+**Note:** in the context of event handlers, "this" is the element that received the event, a.k.a. what you clicked on if it's a click event (In this case the red line). An alternative ($\geq$ v6, see link above) is to pass the event and access the element with `event.currentTarget`:
+
+``` js
+d3.select("svg").selectAll("circle")
   .on("click", function(event) {
     d3.select(event.currentTarget)
-      .attr("stroke", "yellow");
+      .attr("fill", "red");
       });
 ```
 
-### Get the value of an attribute of the element that received the event
+#### Get attribute value 
 
 ``` js
-d3.select("circle")
+d3.select("svg").selectAll("circle")
   .on("click", function(event) {
   const rad = d3.select(event.currentTarget).attr("r");
-  d3.select("text")
+  d3.select("svg").select("text")
     .text(`The radius is ${rad} pixels.`);
     });
 ```  
 
-### Do something with the data bound to the element that received the event
+You can retrieve the attribute value of an element. In this case, we retrieve the radius of circles and show it on the svg.
+
+In this script:
+
+* What is the user event? **Clicking**
+* What is the receiver of the event? **All circles**
+* What happens when the event is triggered? **Retrieve the radius of the circle you click and show it on the svg element** (Note in this case we have multiple changes)
+
+#### Change attribute using bounded data
 
 ``` js
-d3.select("circle")
-  .data([{s: "red", sw: "15"}])
+d3.select("svg").selectAll("circle")
+  .data([5,40,20,60])
   .on("click", function(event, d) {
     d3.select(event.currentTarget) 
-      .attr("stroke", d.s)
-      .attr("stroke-width", d.sw);
+      .attr("r", d)
       });
+
 ```
+You can change an attribute using bounded data. In this case, every circle will have a data bounded to it.
 
-**Note that starting with v6, the data is the 2nd parameter to be passed: `function(event, d)`. In addition, note that you do not need to pass `d` again when accessing the data: for example we use `d.s` not `d => d.s`**.
+In this script:
 
-As in the previous example, `d3.select(this)` can be used instead of `d3.select(event.currentTarget)`.
+* What is the user event? **Clicking**
+* What is the receiver of the event? **All circles**
+* What happens when the event is triggered? **Change the radius of the circle you click according to bounded data** 
 
-Try changing the data value bound to the circle with `d3.select("circle").datum("10")` and clicking again.
+**Note:** starting with v6, the data is the 2nd parameter to be passed: `function(event, d)`. In addition, you do not need to pass `d` again when accessing the data: for example we use `d` not `d => d`.
 
 
-### Get the svg location of the event
+#### Get the location of the event
 
 ``` js
 d3.select("svg")
@@ -103,9 +157,22 @@ d3.select("svg")
       });
 ```
 
-(Up to v5, `d3.mouse(this)` was used instead of `d3.pointer(event)`.)
+We can use `d3.pointer(event)` to retreive the location of you mouse upon clicking. It returns an array of two elements (x,y coordinates).
 
-### Do something with the value of a radio button
+**Note:** starting with v6, d3.mouse() was removed and replaced with d3.pointer().
+
+``` js
+d3.select("svg")
+  .on("click", function (event) {
+    console.log(d3.pointer(event).map(Math.round));
+    });
+``` 
+
+In the second script, the location of a click is shown in the console.
+
+#### Change the value of a radio button
+
+The following sections involve dealing with html elements like radio button.
 
 <p id="color" style="background-color: silver; color: white;">Please select your favorite primary color:</p>
 <input type="radio" id="html" name="fav_color" value="red"> red
@@ -118,7 +185,8 @@ d3.selectAll("input")
     var favcolor = event.currentTarget.value;
     d3.select("p#color").style("color", favcolor);
     });
-```    
+```  
+
 <script>
 d3.selectAll("input")
   .on("click", function(event) {
@@ -127,9 +195,9 @@ d3.selectAll("input")
     });
 </script>	
 
-## Separating the function and event listener
+#### Separating the function and event listener
 
-Examples
+We can also write a function and event listener separately to improve readability. For example, try the following in the console:
 
 ``` js
 function goyellow() {
@@ -143,36 +211,21 @@ d3.select("circle")
   .on("mouseover", goyellow);
 ```
 
-Try this in the Console:  
+### Exercise <i class="fas fa-dumbbell"></i>: Functions
 
-``` js
-d3.select("svg")
-  .on("click", function (event) {
-    console.log(d3.pointer(event).map(Math.round));
-    });
-``` 
+In this exercise, we will create a vertical bar chart with "buttons" to add or remove bars.
 
-### Attribute of an element
+You can start with a vertical bar plot with general update patterns.
 
-`d3.select(this).attr("id");`
-
-### Value of radio button
-
-`d3.select(this).node().value;`  (string)
-
-`+d3.select(this).node().value;` (number)
-
-## Add / remove "buttons"
-
-(HTML paragraphs are used as buttons in this example.)
-
-HTML:
+Hint: use HTML paragraphs as buttons
 
 ``` html
 <p id="add">Add an element</p>
 <p id="remove_left">Remove bar (left)</p>
 <p id="remove_right">Remove bar (right)</p>
 ```
+
+[solution](code/vertical_bar.html){target="_blank"}
 
 JavaScript:
 
@@ -196,11 +249,9 @@ d3.selectAll("p")
 
 Vertical bar chart with add / remove buttons and general update pattern
 
-[vertical_bar.html](code/vertical_bar.html){target="_blank"}
-
 ## Dependent event listeners
 
-In these examples, the behavior or existence of one event listener depends on another.
+In the following examples, the behavior or existence of one event listener depends on another.
 
 ### Global variable example
 
