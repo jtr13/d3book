@@ -14,7 +14,7 @@ Read: *IDVW2*, Chapter 9, pp. 178-184; Chapter 12, pp. 231-249
 
 Before getting into update, enter, and exit. We want to introduce the concept of binding data.
 
-To follow along with the code in this section, download and open [six_blue_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html){target="_blank"}.
+To follow along with the code in this section, open [six_blue_circles.html](https://jtr13.github.io/d3book/code/six_blue_circles.html)){target="_blank"} in Chrome and work in the JavaScript Console.
 
 Bind data:
 
@@ -102,7 +102,7 @@ Now that you should have a basic understanding of binding data. Try out the foll
 
 ## Exercise <i class="fas fa-dumbbell"></i>: data bind
 
-Download and open a fresh copy of  [six_blue_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html){target="_blank"} in Chrome and practice binding data to the circles and modifying the circles based on the data as in the examples above.
+Open [six_blue_circles.html](https://jtr13.github.io/d3book/code/six_blue_circles.html)){target="_blank"} in Chrome. Open the JavaScript Console and practice binding data to the circles and modifying the circles based on the data as in the examples above.
 
 
 ## Remove some elements <i class="far fa-minus-square"></i>
