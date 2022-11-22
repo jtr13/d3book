@@ -8,13 +8,15 @@ Read: *IDVW2*, Chapter 9, pp. 178-184; Chapter 12, pp. 231-249
 
 [D3 Data Bind](https://github.com/jtr13/d3book/blob/main/pdfs/databind.pdf){target="_blank"}
 
+[Jump to bar chart](update-enter-and-exit.html#general-update-pattern)
+
 ## Bind data <i class="fas fa-table"></i>
 
 (*IDVW2*, pp. 98-108)
 
 Before getting into update, enter, and exit. We want to introduce the concept of binding data.
 
-To follow along with the code in this section, open [six_blue_circles.html](https://jtr13.github.io/d3book/code/six_blue_circles.html)){target="_blank"} in Chrome and work in the JavaScript Console.
+To follow along with the code in this section, open [six_blue_circles.html](code/six_blue_circles.html)){target="_blank"} in Chrome and work in the JavaScript Console.
 
 Bind data:
 
@@ -102,7 +104,7 @@ Now that you should have a basic understanding of binding data. Try out the foll
 
 ## Exercise <i class="fas fa-dumbbell"></i>: data bind
 
-Open [six_blue_circles.html](https://jtr13.github.io/d3book/code/six_blue_circles.html)){target="_blank"} in Chrome. Open the JavaScript Console and practice binding data to the circles and modifying the circles based on the data as in the examples above.
+Open [six_blue_circles.html](code/six_blue_circles.html)){target="_blank"} in Chrome. Open the JavaScript Console and practice binding data to the circles and modifying the circles based on the data as in the examples above.
 
 
 ## Remove some elements <i class="far fa-minus-square"></i>
@@ -111,7 +113,7 @@ Open [six_blue_circles.html](https://jtr13.github.io/d3book/code/six_blue_circle
 
 We'll start with six circles and remove some.
 
-Download and open a fresh copy of  [six_blue_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html){target="_blank"} in Chrome.
+Open [six_blue_circles.html](code/six_blue_circles.html)){target="_blank"} in Chrome and open the JavaScript Console. 
 
 Let's bind four data values to the six circles:
 
@@ -178,9 +180,9 @@ What's going on?
 
 *a.k.a. more data values than DOM elements*
 
-We'll start with six circles and add some.
+We'll start with [six_blue_circles.html](code/six_blue_circles.html){target="_blank"} in Chrome and add some circles.
 
-Let's bind new data to the circles:
+First, let's bind new data to the circles:
 
 ``` js
 const circ = d3.select("svg")
@@ -306,7 +308,7 @@ Add a script that adds an svg element and horizontal bars of the lengths (in pix
 
 a.k.a. combining update and enter selections with `.merge()`
 
-Open [six_blue_circles.html](code/six_blue_circles.html){target="_blank"} in Chrome. (You do not need to download it first.)
+Open [six_blue_circles.html](code/six_blue_circles.html){target="_blank"} in Chrome. 
 
 Run the following code in the Console:
 
@@ -390,7 +392,7 @@ Open the bar chart you created in the previous exercise in Chrome, or [this one]
 
 ## Groups <i class="fa fa-object-group"></i>
 
-Open [six_blue_circles.html](code/six_blue_circles.html){target="_blank"} in Chrome. (You do not need to download it first.)
+Open [six_blue_circles.html](code/six_blue_circles.html){target="_blank"} in Chrome.
 
 Run this code in the Console:
 
@@ -452,7 +454,7 @@ d3.select("svg")
   .attr("fill", "purple");
 ```
 
-## General Update Pattern
+## General Update Pattern (with merge)
 
 Open Developer Tools on this page.
 
@@ -555,7 +557,7 @@ changedata([271, 49, 389]);
 
 A fancy exit:
 ``` js
-function changedata(data) {
+function fancychange(data) {
   const bars = d3.select("svg#gup") 
     .selectAll("rect")
     .data(data);    // bars is the update selection
@@ -579,9 +581,9 @@ function changedata(data) {
 ```
 
 ``` js
-changedata([234, 129, 432, 286, 49, 372]);
+fancychange([234, 129, 432, 286, 49, 372]);
 
-changedata([401, 23, 173]);
+fancychange([401, 23, 173]);
 ```
 
 VOILA! We have created the D3 General Update Pattern!
@@ -597,7 +599,6 @@ Also available here: [general_update_pattern.html](code/general_update_pattern.h
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>EDAV5_1</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
   </head>
 
@@ -653,6 +654,55 @@ function update(data) {
 
 </html>
 ```
+
+## General Update Pattern (with join)
+
+This is a newer method which simplifies the general update pattern by automatically adding elements for the enter selection, removing elements for the exit selection, merging the enter and update selections and then acting on them all with `.join()`. 
+
+The update pattern above could be replaced with the following:
+
+```
+function changedata2(data) {
+  const svg = d3.select("svg#gup") 
+  svg.selectAll("rect")
+    .data(data)
+    .join("rect") // need "rect" for appending elements
+      .attr("x", "30")  
+      .attr("y", (d, i) => i * 50)
+      .attr("height", "35")  
+      .attr("fill", "lightgreen")
+      .attr("width", d => d);
+  }
+```
+
+Try:
+
+``` js
+changedata2([271, 49, 389]);
+```
+
+With `.join()` you can get more granular with **enter**, **update**, and **exit** selections as we did previously. `changedata3()` is equivalent to `changedata2()`:
+
+```
+function changedata3(data) {
+  const svg = d3.select("svg#gup") 
+  svg.selectAll("rect")
+    .data(data)
+    .join(
+      enter => enter.append("rect")
+        .attr("x", "30")  
+        .attr("y", (d, i) => i * 50)
+        .attr("height", "35")  
+        .attr("fill", "lightgreen"),
+      update => update
+        .attr("width", d => d),
+      exit => exit.remove()
+      );
+  }
+```
+  
+  
+  
 
 ## Exercise: <i class="fas fa-dumbbell"></i>: functions
 
