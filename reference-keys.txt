@@ -53,7 +53,8 @@ exercise-horizontal-bar-chart
 merge-selections
 exercise-merge
 groups
-general-update-pattern
+general-update-pattern-with-merge
+general-update-pattern-with-join
 exercise-functions
 exercise-vertical-bar-chart
 just-enough-js
