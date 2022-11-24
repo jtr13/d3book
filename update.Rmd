@@ -8,7 +8,11 @@ Read: *IDVW2*, Chapter 9, pp. 178-184; Chapter 12, pp. 231-249
 
 [D3 Data Bind](https://github.com/jtr13/d3book/blob/main/pdfs/databind.pdf){target="_blank"}
 
-[Jump to bar chart](#general-update-pattern-with-merge)
+## Bookmarks
+
+[Jump to data/enter/append](#data-enter-append)
+
+[Jump to general update pattern](#general-update-pattern-with-merge)
 
 ## Bind data <i class="fas fa-table"></i>
 
