@@ -104,7 +104,7 @@ Now that you should have a basic understanding of binding data. Try out the foll
 
 ## Exercise <i class="fas fa-dumbbell"></i>: data bind
 
-Open [six_blue_circles.html](code/six_blue_circles.html)){target="_blank"} in Chrome. Open the JavaScript Console and practice binding data to the circles and modifying the circles based on the data as in the examples above.
+Open [six_blue_circles.html](code/six_blue_circles.html){target="_blank"} in Chrome. Open the JavaScript Console and practice binding data to the circles and modifying the circles based on the data as in the examples above.
 
 
 ## Remove some elements <i class="far fa-minus-square"></i>
