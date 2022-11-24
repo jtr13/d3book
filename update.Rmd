@@ -692,7 +692,8 @@ function changedata3(data) {
       enter => enter.append("rect")
         .attr("x", "30")  
         .attr("y", (d, i) => i * 50)
-        .attr("height", "35")  
+        .attr("height", "35")
+        .attr("width", d => d)
         .attr("fill", "lightgreen"),
       update => update
         .attr("width", d => d),
