@@ -555,37 +555,6 @@ Try:
 changedata([271, 49, 389]);
 ```
 
-A fancy exit:
-``` js
-function fancychange(data) {
-  const bars = d3.select("svg#gup") 
-    .selectAll("rect")
-    .data(data);    // bars is the update selection
-    
-  bars.enter()
-    .append("rect")
-      .attr("x", "30")  // until merge, acts on
-      .attr("y", (d, i) => i * 50) // enter selection only
-      .attr("height", "35")  
-      .attr("fill", "lightgreen")
-    .merge(bars) // merge in the update selection
-      .attr("width", d => d); // acts on all bars
-      
-  bars.exit()
-    .attr("fill", "red")
-    .transition()
-    .duration(2000)
-    .attr("width", "0")
-    .remove();
-  }
-```
-
-``` js
-fancychange([234, 129, 432, 286, 49, 372]);
-
-fancychange([401, 23, 173]);
-```
-
 VOILA! We have created the D3 General Update Pattern!
 
 It is covered in *IDVW* in the "Other Kinds of Data Updates" section on pp. 178-186 in Chapter 9. (The earlier part of Chapter 9 deals with data updates in which the number of DOM elements remains the same.)
@@ -604,7 +573,7 @@ Also available here: [general_update_pattern.html](code/general_update_pattern.h
 
   <body>
 
-    <script id="s1">
+<script id="s1">
 
 // Create svg and initial bars
 
@@ -657,7 +626,9 @@ function update(data) {
 
 ## General Update Pattern (with join)
 
-This is a newer method which simplifies the general update pattern by automatically adding elements for the enter selection, removing elements for the exit selection, merging the enter and update selections and then acting on them all with `.join()`. 
+**Optional**
+
+This is a newer method--introduced in v5--which simplifies the general update pattern by automatically adding elements for the enter selection, removing elements for the exit selection, merging the enter and update selections and then acting on them all with `.join()`. 
 
 The update pattern above could be replaced with the following:
 
@@ -702,7 +673,7 @@ function changedata3(data) {
   }
 ```
   
-  
+Generally, however, unless you have [transitions](transitions.html){target="_blank"}, you will not need to control the enter, exit and update selections separately. 
   
 
 ## Exercise: <i class="fas fa-dumbbell"></i>: functions
