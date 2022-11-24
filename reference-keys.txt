@@ -43,6 +43,7 @@ bind-data-finally
 exercise-data-bind
 update-enter-and-exit
 lecture-slides
+bookmarks
 bind-data
 exercise-data-bind-1
 remove-some-elements
