@@ -745,97 +745,73 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb95-17"><a href="update-enter-and-exit.html#cb95-17" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
 <p>Try:</p>
 <div class="sourceCode" id="cb96"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb96-1"><a href="update-enter-and-exit.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">changedata</span>([<span class="dv">271</span><span class="op">,</span> <span class="dv">49</span><span class="op">,</span> <span class="dv">389</span>])<span class="op">;</span></span></code></pre></div>
-<p>A fancy exit:</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb97-1"><a href="update-enter-and-exit.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">fancychange</span>(data) {</span>
-<span id="cb97-2"><a href="update-enter-and-exit.html#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> bars <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;svg#gup&quot;</span>) </span>
-<span id="cb97-3"><a href="update-enter-and-exit.html#cb97-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb97-4"><a href="update-enter-and-exit.html#cb97-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">data</span>(data)<span class="op">;</span>    <span class="co">// bars is the update selection</span></span>
-<span id="cb97-5"><a href="update-enter-and-exit.html#cb97-5" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb97-6"><a href="update-enter-and-exit.html#cb97-6" aria-hidden="true" tabindex="-1"></a>  bars<span class="op">.</span><span class="fu">enter</span>()</span>
-<span id="cb97-7"><a href="update-enter-and-exit.html#cb97-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb97-8"><a href="update-enter-and-exit.html#cb97-8" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)  <span class="co">// until merge, acts on</span></span>
-<span id="cb97-9"><a href="update-enter-and-exit.html#cb97-9" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i <span class="op">*</span> <span class="dv">50</span>) <span class="co">// enter selection only</span></span>
-<span id="cb97-10"><a href="update-enter-and-exit.html#cb97-10" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;35&quot;</span>)  </span>
-<span id="cb97-11"><a href="update-enter-and-exit.html#cb97-11" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightgreen&quot;</span>)</span>
-<span id="cb97-12"><a href="update-enter-and-exit.html#cb97-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">merge</span>(bars) <span class="co">// merge in the update selection</span></span>
-<span id="cb97-13"><a href="update-enter-and-exit.html#cb97-13" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)<span class="op">;</span> <span class="co">// acts on all bars</span></span>
-<span id="cb97-14"><a href="update-enter-and-exit.html#cb97-14" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb97-15"><a href="update-enter-and-exit.html#cb97-15" aria-hidden="true" tabindex="-1"></a>  bars<span class="op">.</span><span class="fu">exit</span>()</span>
-<span id="cb97-16"><a href="update-enter-and-exit.html#cb97-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;red&quot;</span>)</span>
-<span id="cb97-17"><a href="update-enter-and-exit.html#cb97-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">transition</span>()</span>
-<span id="cb97-18"><a href="update-enter-and-exit.html#cb97-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb97-19"><a href="update-enter-and-exit.html#cb97-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;0&quot;</span>)</span>
-<span id="cb97-20"><a href="update-enter-and-exit.html#cb97-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
-<span id="cb97-21"><a href="update-enter-and-exit.html#cb97-21" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
-<div class="sourceCode" id="cb98"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb98-1"><a href="update-enter-and-exit.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fancychange</span>([<span class="dv">234</span><span class="op">,</span> <span class="dv">129</span><span class="op">,</span> <span class="dv">432</span><span class="op">,</span> <span class="dv">286</span><span class="op">,</span> <span class="dv">49</span><span class="op">,</span> <span class="dv">372</span>])<span class="op">;</span></span>
-<span id="cb98-2"><a href="update-enter-and-exit.html#cb98-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb98-3"><a href="update-enter-and-exit.html#cb98-3" aria-hidden="true" tabindex="-1"></a><span class="fu">fancychange</span>([<span class="dv">401</span><span class="op">,</span> <span class="dv">23</span><span class="op">,</span> <span class="dv">173</span>])<span class="op">;</span></span></code></pre></div>
 <p>VOILA! We have created the D3 General Update Pattern!</p>
 <p>It is covered in <em>IDVW</em> in the “Other Kinds of Data Updates” section on pp. 178-186 in Chapter 9. (The earlier part of Chapter 9 deals with data updates in which the number of DOM elements remains the same.)</p>
 <p><strong>Note that the General Update Pattern changed with D3 Version 4 so avoid examples from Version 3.</strong></p>
 <p>Also available here: <a href="code/general_update_pattern.html" target="_blank">general_update_pattern.html</a></p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb99-1"><a href="update-enter-and-exit.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;!</span>DOCTYPE html<span class="op">&gt;</span></span>
-<span id="cb99-2"><a href="update-enter-and-exit.html#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>html lang<span class="op">=</span><span class="st">&quot;en&quot;</span><span class="op">&gt;</span></span>
-<span id="cb99-3"><a href="update-enter-and-exit.html#cb99-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span>head<span class="op">&gt;</span></span>
-<span id="cb99-4"><a href="update-enter-and-exit.html#cb99-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>meta charset<span class="op">=</span><span class="st">&quot;utf-8&quot;</span><span class="op">&gt;</span></span>
-<span id="cb99-5"><a href="update-enter-and-exit.html#cb99-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>script src<span class="op">=</span><span class="st">&quot;https://d3js.org/d3.v7.min.js&quot;</span><span class="op">&gt;&lt;/</span>script<span class="op">&gt;</span></span>
-<span id="cb99-6"><a href="update-enter-and-exit.html#cb99-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;/</span>head<span class="op">&gt;</span></span>
-<span id="cb99-7"><a href="update-enter-and-exit.html#cb99-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-8"><a href="update-enter-and-exit.html#cb99-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span>body<span class="op">&gt;</span></span>
-<span id="cb99-9"><a href="update-enter-and-exit.html#cb99-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-10"><a href="update-enter-and-exit.html#cb99-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>script id<span class="op">=</span><span class="st">&quot;s1&quot;</span><span class="op">&gt;</span></span>
-<span id="cb99-11"><a href="update-enter-and-exit.html#cb99-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-12"><a href="update-enter-and-exit.html#cb99-12" aria-hidden="true" tabindex="-1"></a><span class="co">// Create svg and initial bars</span></span>
-<span id="cb99-13"><a href="update-enter-and-exit.html#cb99-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-14"><a href="update-enter-and-exit.html#cb99-14" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;body&quot;</span>)</span>
-<span id="cb99-15"><a href="update-enter-and-exit.html#cb99-15" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;svg&quot;</span>)</span>
-<span id="cb99-16"><a href="update-enter-and-exit.html#cb99-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;500&quot;</span>)</span>
-<span id="cb99-17"><a href="update-enter-and-exit.html#cb99-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;400&quot;</span>)<span class="op">;</span></span>
-<span id="cb99-18"><a href="update-enter-and-exit.html#cb99-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-19"><a href="update-enter-and-exit.html#cb99-19" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> bardata <span class="op">=</span> [<span class="dv">300</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">225</span><span class="op">,</span> <span class="dv">75</span><span class="op">,</span> <span class="dv">275</span>]<span class="op">;</span></span>
-<span id="cb99-20"><a href="update-enter-and-exit.html#cb99-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-21"><a href="update-enter-and-exit.html#cb99-21" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> bars <span class="op">=</span> svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb99-22"><a href="update-enter-and-exit.html#cb99-22" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">data</span>(bardata)<span class="op">;</span></span>
-<span id="cb99-23"><a href="update-enter-and-exit.html#cb99-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-24"><a href="update-enter-and-exit.html#cb99-24" aria-hidden="true" tabindex="-1"></a>bars<span class="op">.</span><span class="fu">enter</span>()<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
-<span id="cb99-25"><a href="update-enter-and-exit.html#cb99-25" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)</span>
-<span id="cb99-26"><a href="update-enter-and-exit.html#cb99-26" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i<span class="op">*</span><span class="dv">50</span>)</span>
-<span id="cb99-27"><a href="update-enter-and-exit.html#cb99-27" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
-<span id="cb99-28"><a href="update-enter-and-exit.html#cb99-28" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;35&quot;</span>)</span>
-<span id="cb99-29"><a href="update-enter-and-exit.html#cb99-29" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightgreen&quot;</span>)<span class="op">;</span></span>
-<span id="cb99-30"><a href="update-enter-and-exit.html#cb99-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-31"><a href="update-enter-and-exit.html#cb99-31" aria-hidden="true" tabindex="-1"></a><span class="co">// General Update Pattern</span></span>
-<span id="cb99-32"><a href="update-enter-and-exit.html#cb99-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-33"><a href="update-enter-and-exit.html#cb99-33" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">update</span>(data) {</span>
-<span id="cb99-34"><a href="update-enter-and-exit.html#cb99-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-35"><a href="update-enter-and-exit.html#cb99-35" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> bars <span class="op">=</span> svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)    <span class="co">// data join</span></span>
-<span id="cb99-36"><a href="update-enter-and-exit.html#cb99-36" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">data</span>(data)<span class="op">;</span></span>
-<span id="cb99-37"><a href="update-enter-and-exit.html#cb99-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-38"><a href="update-enter-and-exit.html#cb99-38" aria-hidden="true" tabindex="-1"></a>    bars<span class="op">.</span><span class="fu">enter</span>()</span>
-<span id="cb99-39"><a href="update-enter-and-exit.html#cb99-39" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)    <span class="co">// add new elements</span></span>
-<span id="cb99-40"><a href="update-enter-and-exit.html#cb99-40" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)</span>
-<span id="cb99-41"><a href="update-enter-and-exit.html#cb99-41" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i<span class="op">*</span><span class="dv">50</span>)</span>
-<span id="cb99-42"><a href="update-enter-and-exit.html#cb99-42" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
-<span id="cb99-43"><a href="update-enter-and-exit.html#cb99-43" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;35&quot;</span>)</span>
-<span id="cb99-44"><a href="update-enter-and-exit.html#cb99-44" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;yellow&quot;</span>)</span>
-<span id="cb99-45"><a href="update-enter-and-exit.html#cb99-45" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">merge</span>(bars)    <span class="co">// merge</span></span>
-<span id="cb99-46"><a href="update-enter-and-exit.html#cb99-46" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">transition</span>()</span>
-<span id="cb99-47"><a href="update-enter-and-exit.html#cb99-47" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)</span>
-<span id="cb99-48"><a href="update-enter-and-exit.html#cb99-48" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
-<span id="cb99-49"><a href="update-enter-and-exit.html#cb99-49" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;orange&quot;</span>)<span class="op">;</span></span>
-<span id="cb99-50"><a href="update-enter-and-exit.html#cb99-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-51"><a href="update-enter-and-exit.html#cb99-51" aria-hidden="true" tabindex="-1"></a>    bars<span class="op">.</span><span class="fu">exit</span>()<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span>    <span class="co">// remove extra elements</span></span>
-<span id="cb99-52"><a href="update-enter-and-exit.html#cb99-52" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb99-53"><a href="update-enter-and-exit.html#cb99-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-54"><a href="update-enter-and-exit.html#cb99-54" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;/</span>script<span class="op">&gt;</span></span>
-<span id="cb99-55"><a href="update-enter-and-exit.html#cb99-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-56"><a href="update-enter-and-exit.html#cb99-56" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;/</span>body<span class="op">&gt;</span></span>
-<span id="cb99-57"><a href="update-enter-and-exit.html#cb99-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-58"><a href="update-enter-and-exit.html#cb99-58" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span>html<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb97-1"><a href="update-enter-and-exit.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;!</span>DOCTYPE html<span class="op">&gt;</span></span>
+<span id="cb97-2"><a href="update-enter-and-exit.html#cb97-2" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>html lang<span class="op">=</span><span class="st">&quot;en&quot;</span><span class="op">&gt;</span></span>
+<span id="cb97-3"><a href="update-enter-and-exit.html#cb97-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span>head<span class="op">&gt;</span></span>
+<span id="cb97-4"><a href="update-enter-and-exit.html#cb97-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>meta charset<span class="op">=</span><span class="st">&quot;utf-8&quot;</span><span class="op">&gt;</span></span>
+<span id="cb97-5"><a href="update-enter-and-exit.html#cb97-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>script src<span class="op">=</span><span class="st">&quot;https://d3js.org/d3.v7.min.js&quot;</span><span class="op">&gt;&lt;/</span>script<span class="op">&gt;</span></span>
+<span id="cb97-6"><a href="update-enter-and-exit.html#cb97-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;/</span>head<span class="op">&gt;</span></span>
+<span id="cb97-7"><a href="update-enter-and-exit.html#cb97-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-8"><a href="update-enter-and-exit.html#cb97-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span>body<span class="op">&gt;</span></span>
+<span id="cb97-9"><a href="update-enter-and-exit.html#cb97-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-10"><a href="update-enter-and-exit.html#cb97-10" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>script id<span class="op">=</span><span class="st">&quot;s1&quot;</span><span class="op">&gt;</span></span>
+<span id="cb97-11"><a href="update-enter-and-exit.html#cb97-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-12"><a href="update-enter-and-exit.html#cb97-12" aria-hidden="true" tabindex="-1"></a><span class="co">// Create svg and initial bars</span></span>
+<span id="cb97-13"><a href="update-enter-and-exit.html#cb97-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-14"><a href="update-enter-and-exit.html#cb97-14" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;body&quot;</span>)</span>
+<span id="cb97-15"><a href="update-enter-and-exit.html#cb97-15" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;svg&quot;</span>)</span>
+<span id="cb97-16"><a href="update-enter-and-exit.html#cb97-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> <span class="st">&quot;500&quot;</span>)</span>
+<span id="cb97-17"><a href="update-enter-and-exit.html#cb97-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;400&quot;</span>)<span class="op">;</span></span>
+<span id="cb97-18"><a href="update-enter-and-exit.html#cb97-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-19"><a href="update-enter-and-exit.html#cb97-19" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> bardata <span class="op">=</span> [<span class="dv">300</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">225</span><span class="op">,</span> <span class="dv">75</span><span class="op">,</span> <span class="dv">275</span>]<span class="op">;</span></span>
+<span id="cb97-20"><a href="update-enter-and-exit.html#cb97-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-21"><a href="update-enter-and-exit.html#cb97-21" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> bars <span class="op">=</span> svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb97-22"><a href="update-enter-and-exit.html#cb97-22" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">data</span>(bardata)<span class="op">;</span></span>
+<span id="cb97-23"><a href="update-enter-and-exit.html#cb97-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-24"><a href="update-enter-and-exit.html#cb97-24" aria-hidden="true" tabindex="-1"></a>bars<span class="op">.</span><span class="fu">enter</span>()<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb97-25"><a href="update-enter-and-exit.html#cb97-25" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)</span>
+<span id="cb97-26"><a href="update-enter-and-exit.html#cb97-26" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i<span class="op">*</span><span class="dv">50</span>)</span>
+<span id="cb97-27"><a href="update-enter-and-exit.html#cb97-27" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
+<span id="cb97-28"><a href="update-enter-and-exit.html#cb97-28" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;35&quot;</span>)</span>
+<span id="cb97-29"><a href="update-enter-and-exit.html#cb97-29" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;lightgreen&quot;</span>)<span class="op">;</span></span>
+<span id="cb97-30"><a href="update-enter-and-exit.html#cb97-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-31"><a href="update-enter-and-exit.html#cb97-31" aria-hidden="true" tabindex="-1"></a><span class="co">// General Update Pattern</span></span>
+<span id="cb97-32"><a href="update-enter-and-exit.html#cb97-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-33"><a href="update-enter-and-exit.html#cb97-33" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">update</span>(data) {</span>
+<span id="cb97-34"><a href="update-enter-and-exit.html#cb97-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-35"><a href="update-enter-and-exit.html#cb97-35" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> bars <span class="op">=</span> svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)    <span class="co">// data join</span></span>
+<span id="cb97-36"><a href="update-enter-and-exit.html#cb97-36" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">data</span>(data)<span class="op">;</span></span>
+<span id="cb97-37"><a href="update-enter-and-exit.html#cb97-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-38"><a href="update-enter-and-exit.html#cb97-38" aria-hidden="true" tabindex="-1"></a>    bars<span class="op">.</span><span class="fu">enter</span>()</span>
+<span id="cb97-39"><a href="update-enter-and-exit.html#cb97-39" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;rect&quot;</span>)    <span class="co">// add new elements</span></span>
+<span id="cb97-40"><a href="update-enter-and-exit.html#cb97-40" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> <span class="st">&quot;30&quot;</span>)</span>
+<span id="cb97-41"><a href="update-enter-and-exit.html#cb97-41" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> (d<span class="op">,</span> i) <span class="kw">=&gt;</span> i<span class="op">*</span><span class="dv">50</span>)</span>
+<span id="cb97-42"><a href="update-enter-and-exit.html#cb97-42" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
+<span id="cb97-43"><a href="update-enter-and-exit.html#cb97-43" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;35&quot;</span>)</span>
+<span id="cb97-44"><a href="update-enter-and-exit.html#cb97-44" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;yellow&quot;</span>)</span>
+<span id="cb97-45"><a href="update-enter-and-exit.html#cb97-45" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">merge</span>(bars)    <span class="co">// merge</span></span>
+<span id="cb97-46"><a href="update-enter-and-exit.html#cb97-46" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">transition</span>()</span>
+<span id="cb97-47"><a href="update-enter-and-exit.html#cb97-47" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">duration</span>(<span class="dv">2000</span>)</span>
+<span id="cb97-48"><a href="update-enter-and-exit.html#cb97-48" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d)</span>
+<span id="cb97-49"><a href="update-enter-and-exit.html#cb97-49" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;orange&quot;</span>)<span class="op">;</span></span>
+<span id="cb97-50"><a href="update-enter-and-exit.html#cb97-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-51"><a href="update-enter-and-exit.html#cb97-51" aria-hidden="true" tabindex="-1"></a>    bars<span class="op">.</span><span class="fu">exit</span>()<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span>    <span class="co">// remove extra elements</span></span>
+<span id="cb97-52"><a href="update-enter-and-exit.html#cb97-52" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb97-53"><a href="update-enter-and-exit.html#cb97-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-54"><a href="update-enter-and-exit.html#cb97-54" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;/</span>script<span class="op">&gt;</span></span>
+<span id="cb97-55"><a href="update-enter-and-exit.html#cb97-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-56"><a href="update-enter-and-exit.html#cb97-56" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;/</span>body<span class="op">&gt;</span></span>
+<span id="cb97-57"><a href="update-enter-and-exit.html#cb97-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-58"><a href="update-enter-and-exit.html#cb97-58" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span>html<span class="op">&gt;</span></span></code></pre></div>
 </div>
 <div id="general-update-pattern-with-join" class="section level2 hasAnchor" number="4.12">
 <h2><span class="header-section-number">4.12</span> General Update Pattern (with join)<a href="update-enter-and-exit.html#general-update-pattern-with-join" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This is a newer method which simplifies the general update pattern by automatically adding elements for the enter selection, removing elements for the exit selection, merging the enter and update selections and then acting on them all with <code>.join()</code>.</p>
+<p><strong>Optional</strong></p>
+<p>This is a newer method–introduced in v5–which simplifies the general update pattern by automatically adding elements for the enter selection, removing elements for the exit selection, merging the enter and update selections and then acting on them all with <code>.join()</code>.</p>
 <p>The update pattern above could be replaced with the following:</p>
 <pre><code>function changedata2(data) {
   const svg = d3.select(&quot;svg#gup&quot;) 
@@ -849,7 +825,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       .attr(&quot;width&quot;, d =&gt; d);
   }</code></pre>
 <p>Try:</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb101-1"><a href="update-enter-and-exit.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">changedata2</span>([<span class="dv">271</span><span class="op">,</span> <span class="dv">49</span><span class="op">,</span> <span class="dv">389</span>])<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb99-1"><a href="update-enter-and-exit.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">changedata2</span>([<span class="dv">271</span><span class="op">,</span> <span class="dv">49</span><span class="op">,</span> <span class="dv">389</span>])<span class="op">;</span></span></code></pre></div>
 <p>With <code>.join()</code> you can get more granular with <strong>enter</strong>, <strong>update</strong>, and <strong>exit</strong> selections as we did previously. <code>changedata3()</code> is equivalent to <code>changedata2()</code>:</p>
 <pre><code>function changedata3(data) {
   const svg = d3.select(&quot;svg#gup&quot;) 
@@ -859,19 +835,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       enter =&gt; enter.append(&quot;rect&quot;)
         .attr(&quot;x&quot;, &quot;30&quot;)  
         .attr(&quot;y&quot;, (d, i) =&gt; i * 50)
-        .attr(&quot;height&quot;, &quot;35&quot;)  
+        .attr(&quot;height&quot;, &quot;35&quot;)
+        .attr(&quot;width&quot;, d =&gt; d)
         .attr(&quot;fill&quot;, &quot;lightgreen&quot;),
       update =&gt; update
         .attr(&quot;width&quot;, d =&gt; d),
       exit =&gt; exit.remove()
       );
   }</code></pre>
+<p>Generally, however, unless you have <a href="transitions.html" target="_blank">transitions</a>, you will not need to control the enter, exit and update selections separately.</p>
 </div>
 <div id="exercise-functions" class="section level2 hasAnchor" number="4.13">
 <h2><span class="header-section-number">4.13</span> Exercise: <i class="fas fa-dumbbell"></i>: functions<a href="update-enter-and-exit.html#exercise-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Open <a href="code/general_update_pattern.html" target="_blank">general_update_pattern.html</a> and practice running the <code>update()</code> function with different datasets in the Console.</p>
 <p>For example:</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb103-1"><a href="update-enter-and-exit.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">update</span>([<span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">300</span>])<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb101-1"><a href="update-enter-and-exit.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">update</span>([<span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">300</span>])<span class="op">;</span></span></code></pre></div>
 <p><a href="solutions.html#update-enter-and-exit-functions">Solution</a></p>
 </div>
 <div id="exercise-vertical-bar-chart" class="section level2 hasAnchor" number="4.14">

@@ -398,49 +398,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">10.1</span> Promises<a href="reading-files.html#promises" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Loading data is one area where <a href="https://github.com/d3/d3/blob/master/CHANGES.md" target="_blank">D3 v5 introduces major changes from D3 v4</a>. While v4 uses <a href="https://javascript.info/callbacks" target="_blank">callbacks</a>, v5 switches to <a href="https://javascript.info/promise-basics" target="_blank">promises</a>, as <a href="https://hiddentao.com/archives/2014/04/21/why-promises-are-more-flexible-than-callbacks" target="_blank">promises facilitate cleaner and more flexile code than callbacks</a>.</p>
 <p>The concept is simple. We want to control what code needs to wait until data loaded to be executed and what doesn’t. We can do that with the following structure:</p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb169-1"><a href="reading-files.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> rowConverter <span class="op">=</span> <span class="kw">function</span> (d) {</span>
-<span id="cb169-2"><a href="reading-files.html#cb169-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {</span>
-<span id="cb169-3"><a href="reading-files.html#cb169-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">disp</span><span class="op">:</span> <span class="op">+</span>d<span class="op">.</span><span class="at">disp</span><span class="op">,</span></span>
-<span id="cb169-4"><a href="reading-files.html#cb169-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">mpg</span><span class="op">:</span> <span class="op">+</span>d<span class="op">.</span><span class="at">mpg</span><span class="op">,</span></span>
-<span id="cb169-5"><a href="reading-files.html#cb169-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">carname</span><span class="op">:</span> d<span class="op">.</span><span class="at">carname</span><span class="op">,</span></span>
-<span id="cb169-6"><a href="reading-files.html#cb169-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">cylcolor</span><span class="op">:</span> d<span class="op">.</span><span class="at">cylcolor</span></span>
-<span id="cb169-7"><a href="reading-files.html#cb169-7" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb169-8"><a href="reading-files.html#cb169-8" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span>  </span>
-<span id="cb169-9"><a href="reading-files.html#cb169-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb169-10"><a href="reading-files.html#cb169-10" aria-hidden="true" tabindex="-1"></a>d3<span class="op">.</span><span class="fu">csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/jtr13/d3book/master/data/mtcars.csv&quot;</span><span class="op">,</span> rowConverter)</span>
-<span id="cb169-11"><a href="reading-files.html#cb169-11" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">then</span>(<span class="kw">function</span>(data) {</span>
-<span id="cb169-12"><a href="reading-files.html#cb169-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb169-13"><a href="reading-files.html#cb169-13" aria-hidden="true" tabindex="-1"></a><span class="co">// stuff that requires the loaded data</span></span>
-<span id="cb169-14"><a href="reading-files.html#cb169-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb169-15"><a href="reading-files.html#cb169-15" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb169-16"><a href="reading-files.html#cb169-16" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">catch</span>(<span class="kw">function</span>(error) {</span>
-<span id="cb169-17"><a href="reading-files.html#cb169-17" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb169-18"><a href="reading-files.html#cb169-18" aria-hidden="true" tabindex="-1"></a><span class="co">// error handling  </span></span>
-<span id="cb169-19"><a href="reading-files.html#cb169-19" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb169-20"><a href="reading-files.html#cb169-20" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb167-1"><a href="reading-files.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> rowConverter <span class="op">=</span> <span class="kw">function</span> (d) {</span>
+<span id="cb167-2"><a href="reading-files.html#cb167-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {</span>
+<span id="cb167-3"><a href="reading-files.html#cb167-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">disp</span><span class="op">:</span> <span class="op">+</span>d<span class="op">.</span><span class="at">disp</span><span class="op">,</span></span>
+<span id="cb167-4"><a href="reading-files.html#cb167-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">mpg</span><span class="op">:</span> <span class="op">+</span>d<span class="op">.</span><span class="at">mpg</span><span class="op">,</span></span>
+<span id="cb167-5"><a href="reading-files.html#cb167-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">carname</span><span class="op">:</span> d<span class="op">.</span><span class="at">carname</span><span class="op">,</span></span>
+<span id="cb167-6"><a href="reading-files.html#cb167-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">cylcolor</span><span class="op">:</span> d<span class="op">.</span><span class="at">cylcolor</span></span>
+<span id="cb167-7"><a href="reading-files.html#cb167-7" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb167-8"><a href="reading-files.html#cb167-8" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span>  </span>
+<span id="cb167-9"><a href="reading-files.html#cb167-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-10"><a href="reading-files.html#cb167-10" aria-hidden="true" tabindex="-1"></a>d3<span class="op">.</span><span class="fu">csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/jtr13/d3book/master/data/mtcars.csv&quot;</span><span class="op">,</span> rowConverter)</span>
+<span id="cb167-11"><a href="reading-files.html#cb167-11" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">then</span>(<span class="kw">function</span>(data) {</span>
+<span id="cb167-12"><a href="reading-files.html#cb167-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-13"><a href="reading-files.html#cb167-13" aria-hidden="true" tabindex="-1"></a><span class="co">// stuff that requires the loaded data</span></span>
+<span id="cb167-14"><a href="reading-files.html#cb167-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-15"><a href="reading-files.html#cb167-15" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb167-16"><a href="reading-files.html#cb167-16" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">catch</span>(<span class="kw">function</span>(error) {</span>
+<span id="cb167-17"><a href="reading-files.html#cb167-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb167-18"><a href="reading-files.html#cb167-18" aria-hidden="true" tabindex="-1"></a><span class="co">// error handling  </span></span>
+<span id="cb167-19"><a href="reading-files.html#cb167-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb167-20"><a href="reading-files.html#cb167-20" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span></code></pre></div>
 <p>The row converter function is used to select variables and change data types (“+” converts to floating point). <code>d3.csv()</code> returns a promise. If the promise is resolved, the <code>.then()</code> function will execute; if the promise is rejected, the <code>.catch()</code> function will execute.</p>
 <blockquote>
 <p><i class="fa fa-exclamation-triangle"></i> <em>Forget the mindset that you read files and store them in variables for later use. It doesn’t work that way here. The data is read in and acted on immediately. If most of the code requires loaded data, then most of the code will appear in the <code>.then()</code> method.</em></p>
 </blockquote>
 <p>A simple example of loading data in <strong>v5</strong> can be found in <a href="https://bl.ocks.org/tiktaktok/c2e02e2916c226ef44ed233cb46db40c" target="_blank">this block</a>. In contrast to the example above, an anonymous row converter function (with arrow functions) is used instead of calling a separate row converter function. Note as well that it’s not necessary to include all variables in the row converter as this author has done. For example, you could delete all the variables that aren’t used, so that the row converter in the <code>d3.csv</code> line becomes:</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb170-1"><a href="reading-files.html#cb170-1" aria-hidden="true" tabindex="-1"></a>d <span class="kw">=&gt;</span> ({</span>
-<span id="cb170-2"><a href="reading-files.html#cb170-2" aria-hidden="true" tabindex="-1"></a>            <span class="dt">HighwayMpg</span><span class="op">:</span> <span class="pp">parseInt</span>(d<span class="op">.</span><span class="at">HighwayMpg</span>)<span class="op">,</span></span>
-<span id="cb170-3"><a href="reading-files.html#cb170-3" aria-hidden="true" tabindex="-1"></a>            <span class="dt">Horsepower</span><span class="op">:</span> <span class="pp">parseInt</span>(d<span class="op">.</span><span class="at">Horsepower</span>)<span class="op">,</span></span>
-<span id="cb170-4"><a href="reading-files.html#cb170-4" aria-hidden="true" tabindex="-1"></a>        })</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb168-1"><a href="reading-files.html#cb168-1" aria-hidden="true" tabindex="-1"></a>d <span class="kw">=&gt;</span> ({</span>
+<span id="cb168-2"><a href="reading-files.html#cb168-2" aria-hidden="true" tabindex="-1"></a>            <span class="dt">HighwayMpg</span><span class="op">:</span> <span class="pp">parseInt</span>(d<span class="op">.</span><span class="at">HighwayMpg</span>)<span class="op">,</span></span>
+<span id="cb168-3"><a href="reading-files.html#cb168-3" aria-hidden="true" tabindex="-1"></a>            <span class="dt">Horsepower</span><span class="op">:</span> <span class="pp">parseInt</span>(d<span class="op">.</span><span class="at">Horsepower</span>)<span class="op">,</span></span>
+<span id="cb168-4"><a href="reading-files.html#cb168-4" aria-hidden="true" tabindex="-1"></a>        })</span></code></pre></div>
 <p>You will see that the code still works.</p>
 <p>For more about <code>d3.csv()</code>, see the <a href="https://github.com/d3/d3-fetch/blob/v1.1.2/README.md#csv" target="_blank"><code>d3.fetch</code> API</a>.</p>
 </div>
 <div id="local-server" class="section level2 hasAnchor" number="10.2">
 <h2><span class="header-section-number">10.2</span> Local server<a href="reading-files.html#local-server" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>For security reasons, Chrome does not let you read local files. To be able to do so, you can run a local server. One option is <a href="https://www.npmjs.com/package/http-server" target="_blank">http-server</a>. Follow the instructions to install <code>http-server</code>, navigate in a terminal to the directory with your html file, and then enter <code>http-server</code>:</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb171-1"><a href="reading-files.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="ex">joycerobbins@MacBook-Pro</span> d3-book-murray % http-server</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb169-1"><a href="reading-files.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="ex">joycerobbins@MacBook-Pro</span> d3-book-murray % http-server</span></code></pre></div>
 <p>You should get a message that ends with something like this:</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb172-1"><a href="reading-files.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Starting</span> up http-server, serving ./</span>
-<span id="cb172-2"><a href="reading-files.html#cb172-2" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span></span>
-<span id="cb172-3"><a href="reading-files.html#cb172-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Available</span> on:</span>
-<span id="cb172-4"><a href="reading-files.html#cb172-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">http://127.0.0.1:8080</span></span>
-<span id="cb172-5"><a href="reading-files.html#cb172-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">http://192.168.1.54:8080</span></span>
-<span id="cb172-6"><a href="reading-files.html#cb172-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Hit</span> CTRL-C to stop the server</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb170-1"><a href="reading-files.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Starting</span> up http-server, serving ./</span>
+<span id="cb170-2"><a href="reading-files.html#cb170-2" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span></span>
+<span id="cb170-3"><a href="reading-files.html#cb170-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Available</span> on:</span>
+<span id="cb170-4"><a href="reading-files.html#cb170-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">http://127.0.0.1:8080</span></span>
+<span id="cb170-5"><a href="reading-files.html#cb170-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">http://192.168.1.54:8080</span></span>
+<span id="cb170-6"><a href="reading-files.html#cb170-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Hit</span> CTRL-C to stop the server</span></code></pre></div>
 <p>Copy and paste one of the URLs in the browser and you should see an index of subfolders and/or files available in the folder in which you launched the local server:</p>
 <p><img src="images/index_of.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>From here you can navigate to the desired file. Take note that you cannot move up in the file structure so be sure to start the server in the highest level directory that you plan to access, or that the files you open need to access. In this particular case I am opening the code files for Scott Murray’s
