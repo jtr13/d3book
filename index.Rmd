@@ -15,7 +15,7 @@ always_allow_html: yes
 #), 'packages.bib')
 
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
-klippy::klippy(c("js", "r"))
+#klippy::klippy(c("js", "r"))
 ```
 
 <style>
