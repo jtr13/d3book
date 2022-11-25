@@ -143,7 +143,6 @@ solutions
 correlation-coefficient
 spearman-rank-correlation-coefficient
 population-density
-weather-forecast
 appendix-advanced-css
 buttons
 active
