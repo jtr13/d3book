@@ -43,12 +43,9 @@ bind-data-finally
 exercise-data-bind
 update-enter-and-exit
 lecture-slides
-bookmarks
-bind-data
-exercise-data-bind-1
-remove-some-elements
-add-some-elements
-data-enter-append
+use-exit-selection-to-remove-elements
+use-enter-selection-to-add-elements
+data-enter-append-sequence
 labels
 exercise-horizontal-bar-chart
 merge-selections
