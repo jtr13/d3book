@@ -20,7 +20,7 @@ Read: *IDVW2*, Chapter 9, pp. 178-184; Chapter 12, pp. 231-249
 
 Before getting into update, enter, and exit. We want to introduce the concept of binding data.
 
-To follow along with the code in this section, open [six_blue_circles.html](code/six_blue_circles.html)){target="_blank"} in Chrome and work in the JavaScript Console.
+To follow along with the code in this section, open [six_blue_circles.html](code/six_blue_circles.html){target="_blank"} in Chrome and work in the JavaScript Console.
 
 Bind data:
 
