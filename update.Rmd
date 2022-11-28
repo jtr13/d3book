@@ -18,7 +18,7 @@ Read: *IDVW2*, Chapter 9, pp. 178-184; Chapter 12, pp. 231-249
 
 We'll start with six circles and remove some.
 
-Open [six_blue_circles.html](code/six_blue_circles.html)){target="_blank"} in Chrome and open the JavaScript Console. 
+Open [six_blue_circles.html](code/six_blue_circles.html){target="_blank"} in Chrome and open the JavaScript Console. 
 
 Let's bind four data values to the six circles:
 
