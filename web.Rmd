@@ -183,7 +183,7 @@ Of note:
     
 ## Exercise <i class="fas fa-dumbbell"></i>: shapes
 
-Download a copy of `shapes.html` by opening [this page](https://raw.githubusercontent.com/jtr13/d3book/master/code/shapes.html){target="_blank"} and clicking *File, Save Page As...* Set yourself up to work locally in a text editor [help](index.html#text-editor). (Developer Tools should not be open; we will not be using the Console.)
+Download a copy of `shapes.html` by opening [this page](https://raw.githubusercontent.com/jtr13/d3book/main/code/shapes.html){target="_blank"} and clicking *File, Save Page As...* Set yourself up to work locally in a text editor [help](index.html#text-editor). (Developer Tools should not be open; we will not be using the Console.)
 
 1. Add an additional circle to the svg.
 

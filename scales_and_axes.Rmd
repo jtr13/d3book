@@ -44,7 +44,7 @@ Here `d3.scaleBand()` is used to create an `xScale` function to convert bar numb
 
 <iframe src="code/d3.scaleBand.html" width="450" height="350" frameBorder="0"></iframe>
 
-[Code for download](https://raw.githubusercontent.com/jtr13/d3book/master/code/d3.scaleBand.html){target="_blank"}
+[Code for download](https://raw.githubusercontent.com/jtr13/d3book/main/code/d3.scaleBand.html){target="_blank"}
 
 
 #### `d3.scaleLinear()` {-}
@@ -53,7 +53,7 @@ In the next graph, `d3.scaleLinear()` is added to create a `yScale` function to 
 
 <iframe src="code/d3.scaleLinear.html" width="450" height="350" frameBorder="0"></iframe>
 
-[Code for download](https://raw.githubusercontent.com/jtr13/d3book/master/code/d3.scaleLinear.html){target="_blank"}
+[Code for download](https://raw.githubusercontent.com/jtr13/d3book/main/code/d3.scaleLinear.html){target="_blank"}
 
 ## Margins
 
@@ -75,7 +75,7 @@ In the next graph, `d3.scaleLinear()` is added to create a `yScale` function to 
 
 <iframe src="code/margins.html" width="450" height="350" frameBorder="0"></iframe>
 
-[Code for download](https://raw.githubusercontent.com/jtr13/d3book/master/code/margins.html){target="_blank"}
+[Code for download](https://raw.githubusercontent.com/jtr13/d3book/main/code/margins.html){target="_blank"}
 
 ## Axes 
 
@@ -89,7 +89,7 @@ See: *IDVW2*, Chapter 8: Axes
 
 <iframe src="code/axes.html" width="450" height="350" frameBorder="0"></iframe>
 
-[Code for download](https://raw.githubusercontent.com/jtr13/d3book/master/code/axes.html){target="_blank"}
+[Code for download](https://raw.githubusercontent.com/jtr13/d3book/main/code/axes.html){target="_blank"}
 
 Practice changing the data and seeing what happens.
 
@@ -97,5 +97,5 @@ Practice changing the data and seeing what happens.
 
 <iframe src="code/axes_cat_labels.html" width="450" height="350" frameBorder="0"></iframe>
 
-[Code for download](https://raw.githubusercontent.com/jtr13/d3book/master/code/axes_cat_labels.html){target="_blank"}
+[Code for download](https://raw.githubusercontent.com/jtr13/d3book/main/code/axes_cat_labels.html){target="_blank"}
 

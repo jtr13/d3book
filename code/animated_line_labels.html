@@ -60,7 +60,7 @@ const svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", `translate( ${margin.left} , ${margin.top} )` );
 
-d3.tsv("https://raw.githubusercontent.com/jtr13/d3book/master/data/airbus_data.tsv").then(function(data) {
+d3.tsv("https://raw.githubusercontent.com/jtr13/d3book/main/data/airbus_data.tsv").then(function(data) {
 
   data.forEach(function(d) {
     d.date = parseDate(d.date);

@@ -68,7 +68,7 @@ const circ = svg.selectAll("circle");
 
 ## Modify existing elements <i class="fas fa-exchange-alt"></i>
 
-Try out the code in this section with a downloaded copy of [five_green_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/five_green_circles.html){target="_blank"} opened in Chrome and the Console visible.
+Try out the code in this section with a downloaded copy of [five_green_circles.html](https://raw.githubusercontent.com/jtr13/d3book/main/code/five_green_circles.html){target="_blank"} opened in Chrome and the Console visible.
 
 ### Modify attributes
 
@@ -356,7 +356,7 @@ Return to [six_blue_circles.html](code/six_blue_circles.html){target="_blank"}, 
 
 (*IDVW2*, pp. 98-108)
 
-To follow along with the code in this section, download and open [six_blue_circles.html](https://raw.githubusercontent.com/jtr13/d3book/master/code/six_blue_circles.html){target="_blank"}.
+To follow along with the code in this section, download and open [six_blue_circles.html](https://raw.githubusercontent.com/jtr13/d3book/main/code/six_blue_circles.html){target="_blank"}.
 
 Bind data:
 

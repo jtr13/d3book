@@ -30,7 +30,7 @@ const innerWidth = w - margin.left - margin.right;
 const icon = d3.select("div#plot")
 .append("div")
 .append("img")
-.attr("src", "https://github.com/jtr13/d3book/blob/master/images/blank86x86.png?raw=true")
+.attr("src", "https://github.com/jtr13/d3book/blob/main/images/blank86x86.png?raw=true")
 .style("padding-left", w/2 - 43 + "px");    
   
 // create SVG element
@@ -120,7 +120,7 @@ svg.select("g#plot")
      .on("mouseout", function() {
          d3.select("#tooltip").remove();
        icon
-         .attr("src", "https://github.com/jtr13/d3book/blob/master/images/blank86x86.png?raw=true");
+         .attr("src", "https://github.com/jtr13/d3book/blob/main/images/blank86x86.png?raw=true");
      }
      );
 

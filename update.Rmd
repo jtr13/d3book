@@ -195,7 +195,7 @@ Note that we can also label the rectangles with the data value:
 
 ## Exercise <i class="fas fa-dumbbell"></i>: horizontal bar chart
 
-1. Create a new html file (try to recreate the template without looking... or save a copy of [this one](https://raw.githubusercontent.com/jtr13/d3book/master/code/d3template.html){target="_blank"}) and open it in your text editor. 
+1. Create a new html file (try to recreate the template without looking... or save a copy of [this one](https://raw.githubusercontent.com/jtr13/d3book/main/code/d3template.html){target="_blank"}) and open it in your text editor. 
 
 > <i class="far fa-lightbulb"></i> *If you create a new file in RStudio, choose "Text File" and use the `.html` file extension when you save it. Do not choose "R HTML".*
 

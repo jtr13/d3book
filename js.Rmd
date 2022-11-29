@@ -239,7 +239,7 @@ const x = [12, 34, 1, 43, 90, 72];      // try me
 d3.quantile(x, .25);
 ```
 
-https://github.com/d3/d3/blob/master/API.md#statistics
+https://github.com/d3/d3/blob/main/API.md#statistics
 
 
 ## D3 + `.map()`

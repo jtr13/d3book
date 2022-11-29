@@ -6,7 +6,7 @@ The benefit to reading files asynchronously is that we don't have to wait to whi
 
 ## Promises
 
-Loading data is one area where [D3 v5 introduces major changes from D3 v4](https://github.com/d3/d3/blob/master/CHANGES.md){target="_blank"}. While v4 uses [callbacks](https://javascript.info/callbacks){target="_blank"}, v5 switches to [promises](https://javascript.info/promise-basics){target="_blank"}, as [promises facilitate cleaner and more flexile code than callbacks](https://hiddentao.com/archives/2014/04/21/why-promises-are-more-flexible-than-callbacks){target="_blank"}.
+Loading data is one area where [D3 v5 introduces major changes from D3 v4](https://github.com/d3/d3/blob/main/CHANGES.md){target="_blank"}. While v4 uses [callbacks](https://javascript.info/callbacks){target="_blank"}, v5 switches to [promises](https://javascript.info/promise-basics){target="_blank"}, as [promises facilitate cleaner and more flexile code than callbacks](https://hiddentao.com/archives/2014/04/21/why-promises-are-more-flexible-than-callbacks){target="_blank"}.
 
 The concept is simple. We want to control what code needs to wait until data loaded to be executed and what doesn't. We can do that with the following structure:
 
@@ -20,7 +20,7 @@ const rowConverter = function (d) {
     }
 };  
 
-d3.csv("https://raw.githubusercontent.com/jtr13/d3book/master/data/mtcars.csv", rowConverter)
+d3.csv("https://raw.githubusercontent.com/jtr13/d3book/main/data/mtcars.csv", rowConverter)
   .then(function(data) {
 
 // stuff that requires the loaded data
