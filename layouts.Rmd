@@ -96,6 +96,6 @@ Why doesn't anything show up yet? Right-click and Inspect to find out.
 
 ## Get the code
 
-[Code for download](https://raw.githubusercontent.com/jtr13/d3book/master/code/stackedbar.html){target="_blank"}
+[Code for download](https://raw.githubusercontent.com/jtr13/d3book/main/code/stackedbar.html){target="_blank"}
 
 

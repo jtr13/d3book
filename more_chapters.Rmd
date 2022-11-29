@@ -6,4 +6,4 @@
 
 ## Maintainer links
 
-Edit [`_bookdown.yml`](https://github.com/jtr13/d3book/edit/master/_bookdown.yml){target="_blank"}
+Edit [`_bookdown.yml`](https://github.com/jtr13/d3book/edit/main/_bookdown.yml){target="_blank"}
