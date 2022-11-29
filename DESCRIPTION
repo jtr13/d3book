@@ -16,7 +16,4 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
     bookdown,
-    purrr,
-    webshot
-Remotes: 
-    rlesur/klippy
+    purrr
