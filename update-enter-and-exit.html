@@ -554,7 +554,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="exercise-merge" class="section level2 hasAnchor" number="4.7">
 <h2><span class="header-section-number">4.7</span> Exercise <i class="fas fa-dumbbell"></i>: merge<a href="update-enter-and-exit.html#exercise-merge" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Open <a href="code/horiz_bar.html" target="_blank">this bar chart</a> and work in the Console. (You don’t have to download it.)</p>
+<p>Open <a href="code/horiz_bar.html" target="_blank">this bar chart</a> in Chrome and work in the Console. (You don’t have to download it.)</p>
+<p>All of your solutions should begin with:</p>
+<ul>
+<li>Creating a data array (ex. <code>const dataset = [1, 2, 3];</code>)</li>
+<li>Selecting the <code>svg</code> and storing it (<code>const svg = d3.select("svg");</code>)</li>
+<li>Binding the data and storing it (ex. <code>const bars = svg.selectAll("rect").data(dataset));</code>)</li>
+</ul>
 <ol style="list-style-type: decimal">
 <li><p>Change the data to any six other values and update the lengths of the bars.</p></li>
 <li><p>Bind a new dataset, <code>newbardata</code> to the bars, update the bar lengths, and remove any extra bars.</p>
