@@ -22,16 +22,16 @@
 // Width and height
 const w = 700;
 const h = 300;
-const margin = {top: 25, right: 100, bottom: 50, left: 100};
+const margin = {top: 25, right: 100, bottom: 50, left: 120};
 const innerHeight = h - margin.top - margin.bottom;
 const innerWidth = w - margin.left - margin.right;
 
 // create "placeholder" image
 const icon = d3.select("div#plot")
-.append("div")
-.append("img")
-.attr("src", "https://github.com/jtr13/d3book/blob/master/images/blank86x86.png?raw=true")
-.style("padding-left", w/2 - 43 + "px");    
+  .append("div")
+  .append("img")
+  .attr("src", "https://github.com/jtr13/d3book/blob/master/images/blank86x86.png?raw=true")
+  .style("padding-left", w/2 - 43 + "px");    
   
 // create SVG element
 const svg = d3.select("div#plot")
@@ -41,17 +41,17 @@ const svg = d3.select("div#plot")
   
 // create background rectangle
 svg.append("rect")
-.attr("width", w)
-.attr("height", h)
-.attr("fill", "#e7f5fe");
+    .attr("width", w)
+    .attr("height", h)
+    .attr("fill", "#e7f5fe");
 
 // create caption
 d3.select("div#plot")  
-.append("div")
-  .style("padding", "10px")
-.append("a")
-.attr("href", "https://www.weather.gov/documentation/services-web-api")
-.text("Data source: https://www.weather.gov/documentation/services-web-api");
+  .append("div")
+    .style("padding", "10px")
+  .append("a")
+    .attr("href", "https://www.weather.gov/documentation/services-web-api")
+    .text("Data source: https://www.weather.gov/documentation/services-web-api");
 
 // create plot group  
 svg.append("g")
@@ -60,95 +60,97 @@ svg.append("g")
 
 d3.json("https://api.weather.gov/gridpoints/OKX/33,38/forecast").then(function(data) {
 
-// filter for isDaytime equals "true"
-const dataset = data.properties.periods.filter(d => d.isDaytime);
+  // filter for isDaytime equals "true"
+  const dataset = data.properties.periods.filter(d => d.isDaytime);
 
-const tempscale = "F";
-// create new property with celsius temperature
-dataset.forEach(d => d.celsius = (d.temperature - 32) * 5/9);
-
-xScale = d3.scaleLinear()
-.domain([d3.min(dataset.map(d => d.temperature - 9)),
-         d3.max(dataset.map(d => d.temperature + 9))])
-.range([0, innerWidth]);
-
-yScale = d3.scaleBand()
-.domain(dataset.map(d => d.name))
-.range([0, innerHeight]);
-
-xAxis = d3.axisBottom()
-.scale(xScale);
+  const tempscale = "F";
+  // create new property with celsius temperature
+  dataset.forEach(d => d.celsius = (d.temperature - 32) * 5/9);
   
-yAxis = d3.axisLeft()
-.scale(yScale);
+  // create new property combining name (day of week) and date
+  dataset.forEach(d => d.label = d.name.concat(" ", d.startTime.slice(5, 10)))
 
-// Generate guide lines
-svg.select("g#plot")
-  .selectAll("line")
-  .data(dataset)
-  .enter()
-  .append("line")
-    .attr("x1", 0)
-    .attr("x2", innerWidth)
-    .attr("y1", d => yScale(d.name) + .5*yScale.bandwidth())
-    .attr("y2", d => yScale(d.name) + .5*yScale.bandwidth())
-    .attr("stroke", "#ddd")
-    .attr("stroke-width", 1);
+  xScale = d3.scaleLinear()
+    .domain([d3.min(dataset.map(d => d.temperature - 9)),
+             d3.max(dataset.map(d => d.temperature + 9))])
+    .range([0, innerWidth]);
 
-// Create circles
-svg.select("g#plot")
-  .selectAll("circle")
-  .data(dataset)
-  .enter()
-  .append("circle")
-    .attr("cx", d => xScale(d.temperature))
-    .attr("cy", d => yScale(d.name) + .5 * yScale.bandwidth())
-    .attr("r", 3)
-    .on("mouseover", function(event, d) {
-        var xcoord = +d3.select(event.currentTarget).attr("cx") + 5
-        var ycoord = +d3.select(event.currentTarget).attr("cy") - 5
-        svg.select("g#plot")
-          .append("text")
-          .attr("id", "tooltip")
-          .attr("x", xcoord)
-          .attr("y", ycoord)
-          .text(d.shortForecast);
-        
-      icon
-        .attr("src", d.icon);
-     })
-     .on("mouseout", function() {
+  yScale = d3.scaleBand()
+    .domain(dataset.map(d => d.label))
+    .range([0, innerHeight]);
+
+  xAxis = d3.axisBottom()
+    .scale(xScale);
+  
+  yAxis = d3.axisLeft()
+    .scale(yScale);
+
+  // Generate guide lines
+  svg.select("g#plot")
+    .selectAll("line")
+    .data(dataset)
+    .enter()
+    .append("line")
+      .attr("x1", 0)
+      .attr("x2", innerWidth)
+      .attr("y1", d => yScale(d.label) + .5*yScale.bandwidth())
+      .attr("y2", d => yScale(d.label) + .5*yScale.bandwidth())
+      .attr("stroke", "#ddd")
+      .attr("stroke-width", 1);
+
+  // Create circles
+  svg.select("g#plot")
+    .selectAll("circle")
+    .data(dataset)
+    .enter()
+    .append("circle")
+      .attr("cx", d => xScale(d.temperature))
+      .attr("cy", d => yScale(d.label) + .5 * yScale.bandwidth())
+      .attr("r", 3)
+      .on("mouseover", function(event, d) {
+          const xcoord = +d3.select(event.currentTarget).attr("cx") + 5
+          const ycoord = +d3.select(event.currentTarget).attr("cy") - 5
+          svg.select("g#plot")
+            .append("text")
+              .attr("id", "tooltip")
+              .attr("x", xcoord)
+              .attr("y", ycoord)
+              .text(d.shortForecast);
+        icon
+          .attr("src", d.icon);
+          })
+      .on("mouseout", function() {
          d3.select("#tooltip").remove();
-       icon
-         .attr("src", "https://github.com/jtr13/d3book/blob/master/images/blank86x86.png?raw=true");
-     }
-     );
+         icon
+           .attr("src", "https://github.com/jtr13/d3book/blob/master/images/blank86x86.png?raw=true");
+           }
+           );
 
-// create x-axis
-svg.select("g#plot")
-  .append("g")
-  .attr("id", "xaxis")
-  .attr("transform", `translate (0, ${innerHeight})`)
-  .call(xAxis);
+  // create x-axis
+  svg.select("g#plot")
+    .append("g")
+    .attr("id", "xaxis")
+    .attr("transform", `translate (0, ${innerHeight})`)
+    .call(xAxis);
   
-// create x-axis label
-svg.select("g#plot")
-  .append("text") 
-    .attr("id", "xlab")
-    .attr("x", innerWidth/2)
-    .attr("y", innerHeight + .75 * margin.bottom)
-    .attr("text-anchor", "middle")
-    .text("temperature (Fahrenheit)");
+  // create x-axis label
+  svg.select("g#plot")
+    .append("text") 
+      .attr("id", "xlab")
+      .attr("x", innerWidth/2)
+      .attr("y", innerHeight + .75 * margin.bottom)
+      .attr("text-anchor", "middle")
+      .text("temperature (Fahrenheit)");
 
-// create y-axis      
-svg.select("g#plot")
-  .append("g")
-  .call(yAxis)    
+  // create y-axis      
+  svg.select("g#plot")
+    .append("g")
+    .call(yAxis)    
         
-// get value of radio button on click
-d3.selectAll("input")
-.on("click", function(event) { 
-    var tempscale = event.currentTarget.value; 
+  // get value of radio button on click
+  d3.selectAll("input")
+  .on("click", function(event) { 
+    const tempscale = event.currentTarget.value; 
     if (tempscale == "C") {
     // update xScale domain
         xScale.domain([d3.min(dataset.map(d => d.celsius - 5)),
