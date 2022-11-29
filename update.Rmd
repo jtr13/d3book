@@ -211,73 +211,51 @@ Add a script that adds an svg element and horizontal bars of the lengths (in pix
 
 ## Merge selections <i class="fa fa-code-fork"></i>
 
-a.k.a. combining update and enter selections with `.merge()`
+We now know how to work separately with the update, enter, and exit selections. Often in practice we wish to do the same thing or almost the same thing with the enter and update selections. That is where `.merge()` comes in. If we merge the update and enter selections we don't have to repeat our code.
 
 Open [six_blue_circles.html](code/six_blue_circles.html){target="_blank"} in Chrome. 
 
 Run the following code in the Console:
 
 ``` js
-const circ = d3.select("svg")
-  .selectAll("circle")
-  .data([123, 52, 232, 90, 34, 12, 189, 110]);
+const newdata = [123, 52, 232, 90, 34, 12, 189, 110];
+const svg = d3.select("svg");
+const circ = svg.selectAll("circle")
+  .data(newdata);
   
-const allcirc = circ.enter()  // 2 placeholders
+circ.enter()  // 2 placeholders
   .append("circle")  // placeholders -> circles
      .attr("cx", "100")  // acts on enter selection only
      .attr("cy", (d, i) => (i - 5) * 50)
      .attr("r", "20")
-     .attr("fill", "red");
+     .attr("fill", "red")
+  .merge(circ)
+     .transition()
+     .duration(2000)
+     .attr("cx", "200");
 ```
 
-Now try to predict what the following code will do. Were you right?
-
-``` js
-allcirc.transition() 
-        .duration(3000)
-        .attr("cx", "400")
-        .attr("fill", "purple");
-```
-
-Refresh the page and then copy and paste the following into the Console and run.
-
-``` js
-const circ = d3.select("svg")
-  .selectAll("circle")
-  .data([123, 52, 232, 90, 34, 12, 189, 110]); // update selection
-  
-const allcirc = circ.enter()  // 2 placeholders
-        .append("circle")  // placeholders -> circles
-          .attr("cx", "100")  // acts on enter selection only
-          .attr("cy", (d, i) => (i - 5) * 50)
-          .attr("r", "20")
-          .attr("fill", "red")
-	      .merge(circ);  // combines enter and update selections
-```
-
-And now, the following code (same as before).  What changed? Why?
-
-``` js	
-allcirc.transition() 
-        .duration(3000)
-        .attr("cx", "400")
-        .attr("fill", "purple");
-```
 
 Note the pattern:
 
-Store the data bind in `X`.
+* Create a data array
+* Store the svg selection
+* Store the data bind in X
 
-`Y = X.enter().append()` *attributes* `.merge(X)`
-
-Do more stuff with `Y`.
+```
+X.enter()
+  .append(some shape)
+  *add attributes*  // acts on enter selection only (no transitions!)
+  .merge(X)
+  *attributes, other stuff* // acts on enter and update selections
+```
 
 *Do not include transitions in a stored selection!*
 
 
 ## Exercise <i class="fas fa-dumbbell"></i>: merge
 
-Open the bar chart you created in the previous exercise in Chrome, or [this one](solutions/horizontal_bar_chart.html){target="_blank"} and work in the Console. (You don't have to download it.)
+Open [this bar chart](code/horiz_bar.html){target="_blank"} and work in the Console. (You don't have to download it.)
 
 1. Change the data to any six other values and update the lengths of the bars.
 
