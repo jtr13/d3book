@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>14 General Advice  | D3 for R Users</title>
-  <meta name="description" content="14 General Advice  | D3 for R Users" />
+  <title>19 Weather forecast | D3 for R Users</title>
+  <meta name="description" content="19 Weather forecast | D3 for R Users" />
   <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="14 General Advice  | D3 for R Users" />
+  <meta property="og:title" content="19 Weather forecast | D3 for R Users" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="14 General Advice  | D3 for R Users" />
+  <meta name="twitter:title" content="19 Weather forecast | D3 for R Users" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="layouts.html"/>
-<link rel="next" href="solutions.html"/>
+<link rel="prev" href="population-density.html"/>
+<link rel="next" href="appendix-advanced-css.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -388,39 +388,210 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="general-advice" class="section level1 hasAnchor" number="14">
-<h1><span class="header-section-number">14</span> General Advice <i class="fa fa-bug"></i><a href="general-advice.html#general-advice" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="debugging-tips" class="section level2 hasAnchor" number="14.1">
-<h2><span class="header-section-number">14.1</span> Debugging Tips<a href="general-advice.html#debugging-tips" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><p>Make extensive use of Elements to see what’s being added to the DOM.</p></li>
-<li><p>Make extensive use of Console to check the values of variables and/or test code.</p></li>
-<li><p>Pay attention to errors in the Console.</p></li>
-<li><p>Use <code>console.log()</code> esp. in functions</p></li>
-<li><p>Post Minimal Working Examples on Ed Discussion in Canvas. See:</p>
-<p><a href="https://stackoverflow.com/help/mcve" target="_blank">“How to create a Minimal, Complete, and Verifiable example”</a></p>
-<p>(But don’t worry if it’s not perfect, we’re not going to judge.)</p></li>
-<li><p>Use a text editor that helps you identify unmatched () {} [].</p></li>
-</ul>
-<p>Have a tip? Click the <i class="fas fa-edit"></i>
-button, add the tip, and create a pull request.</p>
-</div>
-<div id="other" class="section level2 hasAnchor" number="14.2">
-<h2><span class="header-section-number">14.2</span> Other<a href="general-advice.html#other" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><p>Save working versions!</p></li>
-<li><p>Pay attention to the order</p></li>
-</ul>
+<div id="weather-forecast" class="section level1 hasAnchor" number="19">
+<h1><span class="header-section-number">19</span> Weather forecast<a href="weather-forecast.html#weather-forecast" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<script src="https://d3js.org/d3.v7.js"></script>
+<style>
+  * {
+    font-family: sans-serif;
+    }
+  text {
+    font-size: 12px;
+    }
+</style>
+<h3>
+Weather forecast for Columbia University
+</h3>
+<p>
+Lat, Lon: 40.807793, -73.962144
+</p>
+<p>
+(Hover over points for more details.)
+</p>
+<input type="radio" name="tempscale" value="F" checked="true">Fahrenheit
+<input type="radio" name="tempscale" value="C">Celsius
+<div id="plot">
 
 </div>
+<script type="text/javascript">
+
+// Width and height
+const w = 700;
+const h = 300;
+const margin = {top: 25, right: 100, bottom: 50, left: 100};
+const innerHeight = h - margin.top - margin.bottom;
+const innerWidth = w - margin.left - margin.right;
+
+// create "placeholder" image
+const icon = d3.select("div#plot")
+.append("div")
+.append("img")
+.attr("src", "https://github.com/jtr13/d3book/blob/main/images/blank86x86.png?raw=true")
+.style("padding-left", w/2 - 43 + "px");    
+  
+// create SVG element
+const svg = d3.select("div#plot")
+  .append("svg")
+    .attr("width", w)
+    .attr("height", h)
+  
+// create background rectangle
+svg.append("rect")
+.attr("width", w)
+.attr("height", h)
+.attr("fill", "#e7f5fe");
+
+// create caption
+d3.select("div#plot")  
+.append("div")
+  .style("padding", "10px")
+.append("a")
+.attr("href", "https://www.weather.gov/documentation/services-web-api")
+.text("Data source: https://www.weather.gov/documentation/services-web-api");
+
+// create plot group  
+svg.append("g")
+  .attr("id", "plot")
+  .attr("transform", `translate (${margin.left}, ${margin.top})`);
+
+d3.json("https://api.weather.gov/gridpoints/OKX/33,38/forecast").then(function(data) {
+
+// filter for isDaytime equals "true"
+const dataset = data.properties.periods.filter(d => d.isDaytime);
+
+const tempscale = "F";
+// create new property with celsius temperature
+dataset.forEach(d => d.celsius = (d.temperature - 32) * 5/9);
+
+xScale = d3.scaleLinear()
+.domain([d3.min(dataset.map(d => d.temperature - 9)),
+         d3.max(dataset.map(d => d.temperature + 9))])
+.range([0, innerWidth]);
+
+yScale = d3.scaleBand()
+.domain(dataset.map(d => d.name))
+.range([0, innerHeight]);
+
+xAxis = d3.axisBottom()
+.scale(xScale);
+  
+yAxis = d3.axisLeft()
+.scale(yScale);
+
+// Generate guide lines
+svg.select("g#plot")
+  .selectAll("line")
+  .data(dataset)
+  .enter()
+  .append("line")
+    .attr("x1", 0)
+    .attr("x2", innerWidth)
+    .attr("y1", d => yScale(d.name) + .5*yScale.bandwidth())
+    .attr("y2", d => yScale(d.name) + .5*yScale.bandwidth())
+    .attr("stroke", "#ddd")
+    .attr("stroke-width", 1);
+
+// Create circles
+svg.select("g#plot")
+  .selectAll("circle")
+  .data(dataset)
+  .enter()
+  .append("circle")
+    .attr("cx", d => xScale(d.temperature))
+    .attr("cy", d => yScale(d.name) + .5 * yScale.bandwidth())
+    .attr("r", 3)
+    .on("mouseover", function(event, d) {
+        var xcoord = +d3.select(event.currentTarget).attr("cx") + 5
+        var ycoord = +d3.select(event.currentTarget).attr("cy") - 5
+        svg.select("g#plot")
+          .append("text")
+          .attr("id", "tooltip")
+          .attr("x", xcoord)
+          .attr("y", ycoord)
+          .text(d.shortForecast);
+        
+      icon
+        .attr("src", d.icon);
+     })
+     .on("mouseout", function() {
+         d3.select("#tooltip").remove();
+       icon
+         .attr("src", "https://github.com/jtr13/d3book/blob/main/images/blank86x86.png?raw=true");
+     }
+     );
+
+// create x-axis
+svg.select("g#plot")
+  .append("g")
+  .attr("id", "xaxis")
+  .attr("transform", `translate (0, ${innerHeight})`)
+  .call(xAxis);
+  
+// create x-axis label
+svg.select("g#plot")
+  .append("text") 
+    .attr("id", "xlab")
+    .attr("x", innerWidth/2)
+    .attr("y", innerHeight + .75 * margin.bottom)
+    .attr("text-anchor", "middle")
+    .text("temperature (Fahrenheit)");
+
+// create y-axis      
+svg.select("g#plot")
+  .append("g")
+  .call(yAxis)    
+        
+// get value of radio button on click
+d3.selectAll("input")
+.on("click", function(event) { 
+    var tempscale = event.currentTarget.value; 
+    if (tempscale == "C") {
+    // update xScale domain
+        xScale.domain([d3.min(dataset.map(d => d.celsius - 5)),
+                       d3.max(dataset.map(d => d.celsius + 5))]);  
+    // update x-axis label
+        svg.select("#xlab")
+          .text("temperature (Celsius)")
+    // update cx value of circles
+        svg.selectAll("circle")
+          .attr("cx", d => xScale(d.celsius))
+    } else {
+    // update xScale domain
+        xScale.domain([d3.min(dataset.map(d => d.temperature - 9)),
+                       d3.max(dataset.map(d => d.temperature + 9))]);  
+    // update x-axis label
+        svg.select("#xlab")
+          .text("temperature (Fahrenheit)")      
+    // update cx value of circles
+        svg.selectAll("circle")
+          .attr("cx", d => xScale(d.temperature))
+    };
+  // update x-axis
+  svg.select("#xaxis")
+    .call(xAxis); 
+
+  }) // end .on
+}) // end d3.json
+
+.catch(function(error){
+  d3.select("svg")
+    .append("text")
+    .text("Error loading data.");
+});
+
+</script>
+
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="layouts.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="solutions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="population-density.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="appendix-advanced-css.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -451,7 +622,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jtr13/d3book/edit/main/debugging.Rmd",
+"link": "https://github.com/jtr13/d3book/edit/main/weather.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -459,7 +630,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/jtr13/d3book/blob/main/debugging.Rmd",
+"link": "https://github.com/jtr13/d3book/blob/main/weather.Rmd",
 "text": null
 },
 "download": null,
