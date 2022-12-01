@@ -78,7 +78,6 @@ lecture-slides-3
 bar-chart-with-axes
 bar-chart-with-categorical-labels
 interactivity
-lecture-slides-4
 binding-event-listeners
 do-something-unrelated-to-the-element-that-received-the-event
 change-an-attribute-of-the-element-that-received-the-event
@@ -101,7 +100,7 @@ not-this
 strategy
 exercise-bar-chart-with-transitions
 object
-lecture-slides-5
+lecture-slides-4
 no-object-constancy
 object-constancy
 practice-joining-data-by-key
@@ -119,7 +118,7 @@ iframe
 observable
 blockbuilder-2015-2020
 line-charts
-lecture-slides-6
+lecture-slides-5
 svg-line-element
 svg-path-element
 data-for-line-chart
@@ -127,7 +126,7 @@ create-a-line-generator
 put-the-line-generator-to-work
 additional-resources
 layouts
-lecture-slides-7
+lecture-slides-6
 set-up-data-and-stack-method
 set-up-scales
 add-groups
