@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+        <title>Horizontal Bar Chart</title>
+        <script src="https://d3js.org/d3.v7.js"></script>
+    </head>
+
+    <body>
+        <p></p>
+      
+        <script>
+        const w = 700;
+        const h = 400;
+        const svg = d3.select("body")
+          .append("svg")
+          .attr("width", w)
+          .attr("height", h);
+          
+        const rowConverter = function (d) {
+          return {
+            name: d.name,
+            row: +d.row,
+            col: +d.col
+            }
+        };  
+    
+        
+        d3.csv("https://raw.githubusercontent.com/jtr13/d3book/main/data/world.csv", rowConverter)
+          .then(function(data) {
+              console.log(data)
+              const colmax = d3.max(data.map(d => +d.col));
+              const rowmax = d3.max(data.map(d => +d.row));
+              console.log(+svg.attr("width")/colmax);
+              console.log(+svg.attr("height")/rowmax);
+              const mult = d3.min([+svg.attr("width")/colmax, +svg.attr("height")/rowmax]);
+              console.log(mult);
+    
+
+
+
+        d3.select("svg")
+          .selectAll("rect")
+          .data(data)
+          .enter()
+          .append("rect")
+          .attr("x", d => +d.col * mult )
+          .attr("y", d => +d.row * mult )
+          .attr("width", mult)
+          .attr("height", mult)
+          .attr("stroke", "blue")
+          .attr("fill", "lightblue")
+          .on("mouseover", function(event, d) {
+              d3.select("body").select("p").text(d.name);
+          });
+          
+          
+          })
+          .catch(function(error) {
+          
+        // error handling  
+          
+          });
+
+        </script>
+        
+        
+    </body>
+</html>
+
+
+
+
+
