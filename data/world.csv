@@ -1,0 +1,193 @@
+"name","code_alpha3","code_country","code_iso_3166_2","col","row"
+"Afghanistan","AFG","004","ISO 3166-2:AF",22,8
+"Albania","ALB","008","ISO 3166-2:AL",15,9
+"Algeria","DZA","012","ISO 3166-2:DZ",13,11
+"Angola","AGO","024","ISO 3166-2:AO",13,17
+"Antarctica","ATA","010","ISO 3166-2:AQ",15,23
+"Antigua & Barbuda","ATG","028","ISO 3166-2:AG",7,4
+"Argentina","ARG","032","ISO 3166-2:AR",6,14
+"Armenia","ARM","051","ISO 3166-2:AM",20,6
+"Australia","AUS","036","ISO 3166-2:AU",24,19
+"Austria","AUT","040","ISO 3166-2:AT",15,6
+"Azerbaijan","AZE","031","ISO 3166-2:AZ",21,7
+"Bahamas","BHS","044","ISO 3166-2:BS",4,2
+"Bahrain","BHR","048","ISO 3166-2:BH",20,9
+"Bangladesh","BGD","050","ISO 3166-2:BD",23,8
+"Barbados","BRB","052","ISO 3166-2:BB",8,6
+"Belarus","BLR","112","ISO 3166-2:BY",17,4
+"Belgium","BEL","056","ISO 3166-2:BE",13,5
+"Belize","BLZ","084","ISO 3166-2:BZ",2,3
+"Benin","BEN","204","ISO 3166-2:BJ",15,14
+"Bhutan","BTN","064","ISO 3166-2:BT",24,7
+"Bolivia","BOL","068","ISO 3166-2:BO",6,11
+"Bosnia & Herzegovina","BIH","070","ISO 3166-2:BA",15,7
+"Botswana","BWA","072","ISO 3166-2:BW",15,18
+"Brazil","BRA","076","ISO 3166-2:BR",8,11
+"Brunei Darussalam","BRN","096","ISO 3166-2:BN",25,12
+"Bulgaria","BGR","100","ISO 3166-2:BG",17,7
+"Burkina Faso","BFA","854","ISO 3166-2:BF",13,13
+"Burundi","BDI","108","ISO 3166-2:BI",15,16
+"Cambodia","KHM","116","ISO 3166-2:KH",25,10
+"Cameroon","CMR","120","ISO 3166-2:CM",14,15
+"Canada","CAN","124","ISO 3166-2:CA",1,1
+"Cabo Verde","CPV","132","ISO 3166-2:CV",10,15
+"Central African Republic","CAF","140","ISO 3166-2:CF",16,14
+"Chad","TCD","148","ISO 3166-2:TD",14,13
+"Chile","CHL","152","ISO 3166-2:CL",6,13
+"China","CHN","156","ISO 3166-2:CN",24,6
+"Colombia","COL","170","ISO 3166-2:CO",5,9
+"Comoros","COM","174","ISO 3166-2:KM",18,18
+"Congo","COG","178","ISO 3166-2:CG",14,16
+"Congo (Democratic Republic of the)","COD","180","ISO 3166-2:CD",15,15
+"Costa Rica","CRI","188","ISO 3166-2:CR",3,7
+"Côte d'Ivoire","CIV","384","ISO 3166-2:CI",12,15
+"Croatia","HRV","191","ISO 3166-2:HR",14,7
+"Cuba","CUB","192","ISO 3166-2:CU",4,3
+"Cyprus","CYP","196","ISO 3166-2:CY",17,10
+"Czech Republic","CZE","203","ISO 3166-2:CZ",15,5
+"Denmark","DNK","208","ISO 3166-2:DK",14,3
+"Djibouti","DJI","262","ISO 3166-2:DJ",17,13
+"Dominica","DMA","212","ISO 3166-2:DM",7,7
+"Dominican Republic","DOM","214","ISO 3166-2:DO",6,4
+"Ecuador","ECU","218","ISO 3166-2:EC",5,10
+"Egypt","EGY","818","ISO 3166-2:EG",16,11
+"El Salvador","SLV","222","ISO 3166-2:SV",1,5
+"Equatorial Guinea","GNQ","226","ISO 3166-2:GQ",13,16
+"Eritrea","ERI","232","ISO 3166-2:ER",16,13
+"Estonia","EST","233","ISO 3166-2:EE",17,2
+"Ethiopia","ETH","231","ISO 3166-2:ET",17,14
+"Fiji","FJI","242","ISO 3166-2:FJ",27,19
+"Finland","FIN","246","ISO 3166-2:FI",17,1
+"France","FRA","250","ISO 3166-2:FR",12,5
+"Gabon","GAB","266","ISO 3166-2:GA",14,17
+"Gambia","GMB","270","ISO 3166-2:GM",12,12
+"Georgia","GEO","268","ISO 3166-2:GE",21,6
+"Germany","DEU","276","ISO 3166-2:DE",14,4
+"Ghana","GHA","288","ISO 3166-2:GH",13,14
+"Greece","GRC","300","ISO 3166-2:GR",16,9
+"Greenland","GRL","304","ISO 3166-2:GL",8,1
+"Grenada","GRD","308","ISO 3166-2:GD",7,8
+"Guatemala","GTM","320","ISO 3166-2:GT",1,4
+"Guinea","GIN","324","ISO 3166-2:GN",11,14
+"Guinea-Bissau","GNB","624","ISO 3166-2:GW",11,13
+"Guyana","GUY","328","ISO 3166-2:GY",6,10
+"Haiti","HTI","332","ISO 3166-2:HT",5,4
+"Honduras","HND","340","ISO 3166-2:HN",2,5
+"Hungary","HUN","348","ISO 3166-2:HU",16,6
+"Iceland","ISL","352","ISO 3166-2:IS",10,1
+"India","IND","356","ISO 3166-2:IN",22,9
+"Indonesia","IDN","360","ISO 3166-2:ID",25,13
+"Iran (Islamic Republic of)","IRN","364","ISO 3166-2:IR",20,8
+"Iraq","IRQ","368","ISO 3166-2:IQ",20,7
+"Ireland","IRL","372","ISO 3166-2:IE",10,4
+"Israel","ISR","376","ISO 3166-2:IL",18,10
+"Italy","ITA","380","ISO 3166-2:IT",13,7
+"Jamaica","JAM","388","ISO 3166-2:JM",4,4
+"Japan","JPN","392","ISO 3166-2:JP",27,6
+"Jordan","JOR","400","ISO 3166-2:JO",18,8
+"Kazakhstan","KAZ","398","ISO 3166-2:KZ",24,5
+"Kenya","KEN","404","ISO 3166-2:KE",17,15
+"Kiribati","KIR","296","ISO 3166-2:KI",27,17
+"North Korea","PRK","408","ISO 3166-2:KP",25,6
+"South Korea","KOR","410","ISO 3166-2:KR",25,7
+"Kosovo","XKX","383","ISO 3166-2:XK",16,8
+"Kuwait","KWT","414","ISO 3166-2:KW",19,8
+"Kyrgyzstan","KGZ","417","ISO 3166-2:KG",23,6
+"Lao People's Democratic Republic","LAO","418","ISO 3166-2:LA",25,9
+"Latvia","LVA","428","ISO 3166-2:LV",17,3
+"Lebanon","LBN","422","ISO 3166-2:LB",18,9
+"Lesotho","LSO","426","ISO 3166-2:LS",17,19
+"Liberia","LBR","430","ISO 3166-2:LR",12,14
+"Libya","LBY","434","ISO 3166-2:LY",15,11
+"Lithuania","LTU","440","ISO 3166-2:LT",16,4
+"Luxembourg","LUX","442","ISO 3166-2:LU",13,6
+"Macedonia","MKD","807","ISO 3166-2:MK",17,8
+"Madagascar","MDG","450","ISO 3166-2:MG",19,19
+"Malawi","MWI","454","ISO 3166-2:MW",15,17
+"Malaysia","MYS","458","ISO 3166-2:MY",24,11
+"Maldives","MDV","462","ISO 3166-2:MV",21,12
+"Mali","MLI","466","ISO 3166-2:ML",14,12
+"Malta","MLT","470","ISO 3166-2:MT",11,8
+"Marshall Islands","MHL","584","ISO 3166-2:MH",26,15
+"Mauritania","MRT","478","ISO 3166-2:MR",11,12
+"Mauritius","MUS","480","ISO 3166-2:MU",19,20
+"Mexico","MEX","484","ISO 3166-2:MX",1,3
+"Micronesia (Federated States of)","FSM","583","ISO 3166-2:FM",26,16
+"Moldova (Republic of)","MDA","498","ISO 3166-2:MD",18,5
+"Mongolia","MNG","496","ISO 3166-2:MN",25,5
+"Montenegro","MNE","499","ISO 3166-2:ME",15,8
+"Morocco","MAR","504","ISO 3166-2:MA",12,11
+"Mozambique","MOZ","508","ISO 3166-2:MZ",16,17
+"Myanmar","MMR","104","ISO 3166-2:MM",24,8
+"Namibia","NAM","516","ISO 3166-2:NA",15,19
+"Nauru","NRU","520","ISO 3166-2:NR",26,17
+"Nepal","NPL","524","ISO 3166-2:NP",23,9
+"Netherlands","NLD","528","ISO 3166-2:NL",13,4
+"New Zealand","NZL","554","ISO 3166-2:NZ",26,21
+"Nicaragua","NIC","558","ISO 3166-2:NI",2,6
+"Niger","NER","562","ISO 3166-2:NE",15,12
+"Nigeria","NGA","566","ISO 3166-2:NG",13,15
+"Norway","NOR","578","ISO 3166-2:NO",15,1
+"Oman","OMN","512","ISO 3166-2:OM",19,11
+"Pakistan","PAK","586","ISO 3166-2:PK",21,8
+"Palau","PLW","585","ISO 3166-2:PW",25,16
+"Panama","PAN","591","ISO 3166-2:PA",4,8
+"Papua New Guinea","PNG","598","ISO 3166-2:PG",25,17
+"Paraguay","PRY","600","ISO 3166-2:PY",6,12
+"Peru","PER","604","ISO 3166-2:PE",5,11
+"Philippines","PHL","608","ISO 3166-2:PH",26,11
+"Poland","POL","616","ISO 3166-2:PL",15,4
+"Portugal","PRT","620","ISO 3166-2:PT",11,6
+"Qatar","QAT","634","ISO 3166-2:QA",19,10
+"Romania","ROU","642","ISO 3166-2:RO",17,6
+"Russian Federation","RUS","643","ISO 3166-2:RU",25,4
+"Rwanda","RWA","646","ISO 3166-2:RW",16,16
+"St. Kitts & Nevis","KNA","659","ISO 3166-2:KN",6,5
+"St. Lucia","LCA","662","ISO 3166-2:LC",7,5
+"St. Vincent & the Grenadines","VCT","670","ISO 3166-2:VC",7,6
+"Samoa","WSM","882","ISO 3166-2:WS",28,18
+"Sao Tome and Principe","STP","678","ISO 3166-2:ST",11,16
+"Saudi Arabia","SAU","682","ISO 3166-2:SA",19,9
+"Senegal","SEN","686","ISO 3166-2:SN",13,12
+"Serbia","SRB","688","ISO 3166-2:RS",16,7
+"Seychelles","SYC","690","ISO 3166-2:SC",18,17
+"Sierra Leone","SLE","694","ISO 3166-2:SL",12,13
+"Singapore","SGP","702","ISO 3166-2:SG",24,13
+"Slovakia","SVK","703","ISO 3166-2:SK",16,5
+"Slovenia","SVN","705","ISO 3166-2:SI",14,6
+"Solomon Islands","SLB","090","ISO 3166-2:SB",26,18
+"Somalia","SOM","706","ISO 3166-2:SO",18,14
+"South Africa","ZAF","710","ISO 3166-2:ZA",16,20
+"South Sudan","SSD","728","ISO 3166-2:SS",15,13
+"Spain","ESP","724","ISO 3166-2:ES",12,6
+"Sri Lanka","LKA","144","ISO 3166-2:LK",22,11
+"Sudan","SDN","729","ISO 3166-2:SD",16,12
+"Suriname","SUR","740","ISO 3166-2:SR",7,11
+"Swaziland","SWZ","748","ISO 3166-2:SZ",16,19
+"Sweden","SWE","752","ISO 3166-2:SE",16,1
+"Switzerland","CHE","756","ISO 3166-2:CH",14,5
+"Syria","SYR","760","ISO 3166-2:SY",19,7
+"Tajikistan","TJK","762","ISO 3166-2:TJ",23,7
+"Tanzania","TZA","834","ISO 3166-2:TZ",17,16
+"Thailand","THA","764","ISO 3166-2:TH",24,10
+"Timor-Leste","TLS","626","ISO 3166-2:TL",25,14
+"Togo","TGO","768","ISO 3166-2:TG",14,14
+"Tonga","TON","776","ISO 3166-2:TO",28,19
+"Trinidad & Tobago","TTO","780","ISO 3166-2:TT",7,9
+"Tunisia","TUN","788","ISO 3166-2:TN",14,11
+"Turkey","TUR","792","ISO 3166-2:TR",18,7
+"Turkmenistan","TKM","795","ISO 3166-2:TM",22,7
+"Tuvalu","TUV","798","ISO 3166-2:TV",27,18
+"Uganda","UGA","800","ISO 3166-2:UG",16,15
+"Ukraine","UKR","804","ISO 3166-2:UA",17,5
+"United Arab Emirates","ARE","784","ISO 3166-2:AE",20,10
+"Great Britain and Northern Ireland","GBR","826","ISO 3166-2:GB",11,4
+"United States of America","USA","840","ISO 3166-2:US",1,2
+"Uruguay","URY","858","ISO 3166-2:UY",7,12
+"Uzbekistan","UZB","860","ISO 3166-2:UZ",22,6
+"Vanuatu","VUT","548","ISO 3166-2:VU",26,19
+"Venezuela","VEN","862","ISO 3166-2:VE",6,9
+"Viet Nam","VNM","704","ISO 3166-2:VN",26,9
+"Yemen","YEM","887","ISO 3166-2:YE",18,11
+"Zambia","ZMB","894","ISO 3166-2:ZM",14,18
+"Zimbabwe","ZWE","716","ISO 3166-2:ZW",16,18
