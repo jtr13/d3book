@@ -7,38 +7,44 @@
         <script src="https://d3js.org/d3.v7.js"></script>
     </head>
 
-    <body>
+        <body>
         <p></p>
       
         <script>
-        const w = 700;
-        const h = 400;
+        const w = 900;
+        const h = 700;
+        
+        const mycolor = d3.scaleLinear()
+          .range(["white", "purple"])
+        
+        
         const svg = d3.select("body")
           .append("svg")
           .attr("width", w)
           .attr("height", h);
+        
+        svg.append("rect")
+          .attr("width", w)
+          .attr("height", h)
+          .attr("fill", "aliceblue");
           
         const rowConverter = function (d) {
           return {
             name: d.name,
-            row: +d.row,
-            col: +d.col
+            code: d.code_country,
+            row: d.row,
+            col: d.col
             }
         };  
     
         
         d3.csv("https://raw.githubusercontent.com/jtr13/d3book/main/data/world.csv", rowConverter)
           .then(function(data) {
-              console.log(data)
               const colmax = d3.max(data.map(d => +d.col));
               const rowmax = d3.max(data.map(d => +d.row));
-              console.log(+svg.attr("width")/colmax);
-              console.log(+svg.attr("height")/rowmax);
               const mult = d3.min([+svg.attr("width")/colmax, +svg.attr("height")/rowmax]);
-              console.log(mult);
-    
-
-
+              
+              mycolor.domain([d3.min(data.map(d => +d.code)), d3.max(data.map(d => +d.code))])
 
         d3.select("svg")
           .selectAll("rect")
@@ -50,17 +56,15 @@
           .attr("width", mult)
           .attr("height", mult)
           .attr("stroke", "blue")
-          .attr("fill", "lightblue")
-          .on("mouseover", function(event, d) {
-              d3.select("body").select("p").text(d.name);
-          });
-          
-          
+          .attr("fill", d => mycolor(+d.code))
+          .on("mouseover", (event, d) => 
+              {d3.select("body").select("p").text(d.name + " " + d.code);});
           })
           .catch(function(error) {
-          
-        // error handling  
-          
+              svg.append("text")
+                .attr("x", w/2)
+                .attr("y", h/2)
+                .text("Error loading data.");
           });
 
         </script>
