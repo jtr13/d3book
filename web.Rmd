@@ -161,7 +161,7 @@ Of note:
 
 - An HTML document is composed of lines or sections set off with tags. In particular `<style> ... </style>`, `<svg> ... </svg>`, and `<script> ... </script>` indicate the inclusion of CSS, SVG, and JavaScript/D3 respectively.
 
-- For D3 to work, you must link to a D3 library. To link to the online version, copy and paste the `<script>` line from [https://d3js.org ](https://d3js.org ){target="_blank"}. Alternatively, you can also download a copy from the same site and reference your local copy with:
+- For D3 to work, you must link to a D3 library. To link to the online version, include this line: `<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>`. Alternatively, you can also download a copy from the same site and reference your local copy with:
 
     ``` js
     <script src="d3.js"></script>
