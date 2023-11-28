@@ -81,7 +81,7 @@ circ2.exit();
 What's going on?
 
 
-## Use enter selection to add elements<i class="far fa-plus-square"></i>
+## Use enter selection to add elements <i class="far fa-plus-square"></i>
 
 *a.k.a. more data values than DOM elements*
 
@@ -132,7 +132,7 @@ d3.select("svg")
   .attr("cx", "200");
 ```
 
-## Data / enter / append sequence<i class="fa fa-table"></i>
+## Data / enter / append sequence <i class="fa fa-table"></i>
 
 We'll start with nothing--not even an SVG--and add elements with the data / enter / append sequence.
 
@@ -195,16 +195,22 @@ Note that we can also label the rectangles with the data value:
 
 ## Exercise <i class="fas fa-dumbbell"></i>: horizontal bar chart
 
-1. Create a new html file (try to recreate the template without looking... or save a copy of [this one](https://raw.githubusercontent.com/jtr13/d3book/main/code/d3template.html){target="_blank"}) and open it in your text editor. 
+1. Save a copy of [this exercise](https://raw.githubusercontent.com/jtr13/d3book/main/code/horiz_bar_exercise.html){target="_blank"} and open it in your text editor. 
 
-> <i class="far fa-lightbulb"></i> *If you create a new file in RStudio, choose "Text File" and use the `.html` file extension when you save it. Do not choose "R HTML".*
-
-Add a script that adds an svg element and horizontal bars of the lengths (in pixels) specified in `bardata`. Create the bars with the data / enter / append sequence.
+Create a horizontal bar chart with bar widths equal to the data values stored in `bardata`. Do so by replacing all the "ADD's" with constants or functions and then uncommenting those lines. 
 
 
 ``` js
     const bardata = [300, 100, 150, 225, 75, 275];
 ```
+
+It should look like this:
+
+```{r, out.width='50%',echo=FALSE}
+knitr::include_graphics("images/barchart.png")
+```
+
+
 
 [Solution](solutions.html#update-enter-and-exit-horizontal-bar-chart)
 
@@ -513,7 +519,7 @@ function update(data) {
 </html>
 ```
 
-## General Update Pattern (with join)
+## General Update Pattern (with join) 
 
 **Optional**
 
