@@ -210,8 +210,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.1" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#lecture-slides"><i class="fa fa-check"></i><b>4.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="4.2" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#use-exit-selection-to-remove-elements"><i class="fa fa-check"></i><b>4.2</b> Use exit selection to remove elements <i class="far fa-minus-square"></i></a></li>
-<li class="chapter" data-level="4.3" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#use-enter-selection-to-add-elements"><i class="fa fa-check"></i><b>4.3</b> Use enter selection to add elements<i class="far fa-plus-square"></i></a></li>
-<li class="chapter" data-level="4.4" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#data-enter-append-sequence"><i class="fa fa-check"></i><b>4.4</b> Data / enter / append sequence<i class="fa fa-table"></i></a>
+<li class="chapter" data-level="4.3" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#use-enter-selection-to-add-elements"><i class="fa fa-check"></i><b>4.3</b> Use enter selection to add elements <i class="far fa-plus-square"></i></a></li>
+<li class="chapter" data-level="4.4" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#data-enter-append-sequence"><i class="fa fa-check"></i><b>4.4</b> Data / enter / append sequence <i class="fa fa-table"></i></a>
 <ul>
 <li class="chapter" data-level="4.4.1" data-path="update-enter-and-exit.html"><a href="update-enter-and-exit.html#labels"><i class="fa fa-check"></i><b>4.4.1</b> Labels</a></li>
 </ul></li>
@@ -438,7 +438,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>What’s going on?</p>
 </div>
 <div id="use-enter-selection-to-add-elements" class="section level2 hasAnchor" number="4.3">
-<h2><span class="header-section-number">4.3</span> Use enter selection to add elements<i class="far fa-plus-square"></i><a href="update-enter-and-exit.html#use-enter-selection-to-add-elements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">4.3</span> Use enter selection to add elements <i class="far fa-plus-square"></i><a href="update-enter-and-exit.html#use-enter-selection-to-add-elements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><em>a.k.a. more data values than DOM elements</em></p>
 <p>We’ll start with <a href="code/six_blue_circles.html" target="_blank">six_blue_circles.html</a> in Chrome and add some circles.</p>
 <p>First, let’s bind new data to the circles:</p>
@@ -468,7 +468,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb65-6"><a href="update-enter-and-exit.html#cb65-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> <span class="st">&quot;200&quot;</span>)<span class="op">;</span></span></code></pre></div>
 </div>
 <div id="data-enter-append-sequence" class="section level2 hasAnchor" number="4.4">
-<h2><span class="header-section-number">4.4</span> Data / enter / append sequence<i class="fa fa-table"></i><a href="update-enter-and-exit.html#data-enter-append-sequence" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">4.4</span> Data / enter / append sequence <i class="fa fa-table"></i><a href="update-enter-and-exit.html#data-enter-append-sequence" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We’ll start with nothing–not even an SVG–and add elements with the data / enter / append sequence.</p>
 <p>Work in the Console on this page (<a href="index.html#this-book-console">help</a>).</p>
 <blockquote>
@@ -514,13 +514,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="exercise-horizontal-bar-chart" class="section level2 hasAnchor" number="4.5">
 <h2><span class="header-section-number">4.5</span> Exercise <i class="fas fa-dumbbell"></i>: horizontal bar chart<a href="update-enter-and-exit.html#exercise-horizontal-bar-chart" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
-<li>Create a new html file (try to recreate the template without looking… or save a copy of <a href="https://raw.githubusercontent.com/jtr13/d3book/main/code/d3template.html" target="_blank">this one</a>) and open it in your text editor.</li>
+<li>Save a copy of <a href="https://raw.githubusercontent.com/jtr13/d3book/main/code/horiz_bar_exercise.html" target="_blank">this exercise</a> and open it in your text editor.</li>
 </ol>
-<blockquote>
-<p><i class="far fa-lightbulb"></i> <em>If you create a new file in RStudio, choose “Text File” and use the <code>.html</code> file extension when you save it. Do not choose “R HTML”.</em></p>
-</blockquote>
-<p>Add a script that adds an svg element and horizontal bars of the lengths (in pixels) specified in <code>bardata</code>. Create the bars with the data / enter / append sequence.</p>
+<p>Create a horizontal bar chart with bar widths equal to the data values stored in <code>bardata</code>. Do so by replacing all the “ADD’s” with constants or functions and then uncommenting those lines.</p>
 <div class="sourceCode" id="cb70"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb70-1"><a href="update-enter-and-exit.html#cb70-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> bardata <span class="op">=</span> [<span class="dv">300</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">225</span><span class="op">,</span> <span class="dv">75</span><span class="op">,</span> <span class="dv">275</span>]<span class="op">;</span></span></code></pre></div>
+<p>It should look like this:</p>
+<p><img src="images/barchart.png" width="50%" /></p>
 <p><a href="solutions.html#update-enter-and-exit-horizontal-bar-chart">Solution</a></p>
 </div>
 <div id="merge-selections" class="section level2 hasAnchor" number="4.6">
