@@ -1,33 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
-		<meta charset="utf-8">
-		<title>Horizontal Bar Chart</title>
-		<script src="https://d3js.org/d3.v7.js"></script>
-	</head>
+    <meta charset="utf-8">
+    <title>Horizontal Bar Chart</title>
+    <script src="https://d3js.org/d3.v7.js"></script>
+  </head>
 
-	<body>
-		<script>
+  <body>
+    <script>
 
-		const svg = d3.select("body")
-		  .append("svg")
-		  .attr("width", "700")
-		  .attr("height", "500");
-		const bardata = [300, 100, 150, 225, 75, 275];
+    const svg = d3.select("body")
+      .append("svg")
+        .attr("width", "700")
+        .attr("height", "500");
+    const bardata = [300, 100, 150, 225, 75, 275];
 
+    const bars = svg.selectAll("rect")
+      .data(bardata);
 
-		const bars = svg.selectAll("rect")
-		  .data(bardata);
+    bars.enter()
+      .append("rect")
+        .attr("x", "30")
+        .attr("y", (d, i) => i * 50 + 50)
+        .attr("width", d => d)
+        .attr("height", "35")
+        .attr("fill", "cornflowerblue");
 
-		bars.enter()
-		  .append("rect")
-		  .attr("x", "30")
-		  .attr("y", (d, i) => i * 50 + 50)
-		  .attr("width", d => d)
-		  .attr("height", "35")
-		  .attr("fill", "cornflowerblue");
-
-		</script>
-	</body>
+    </script>
+  </body>
 </html>
