@@ -4,6 +4,10 @@ Read: *IDVW2*, Chapter 10 Interactivity
 
 <script src="https://d3js.org/d3.v7.js"></script>
 
+## Bar chart example
+
+For this demo we will use [this file](https://raw.githubusercontent.com/jtr13/d3book/main/code/vertical_bar.html). 
+
 ## Binding event listeners
 
 ```{r, echo=FALSE, eval=!HTML, out.width='33%'}

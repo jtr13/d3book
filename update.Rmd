@@ -195,7 +195,7 @@ Note that we can also label the rectangles with the data value:
 
 ## Exercise <i class="fas fa-dumbbell"></i>: horizontal bar chart
 
-1. Save a copy of [this exercise](https://raw.githubusercontent.com/jtr13/d3book/main/code/horiz_bar_exercise.html){target="_blank"} and open it in your text editor. 
+1. Save a copy of [this exercise](https://raw.githubusercontent.com/jtr13/d3book/main/code/bar_chart_exercise.html){target="_blank"} and open it in your text editor. 
 
 Create a horizontal bar chart with bar widths equal to the data values stored in `bardata`. Do so by replacing all the "ADD's" with constants or functions and then uncommenting those lines. 
 
@@ -585,9 +585,11 @@ update([100, 200, 300]);
 
 ## Exercise <i class="fas fa-dumbbell"></i>: vertical bar chart
 
-Change the bar chart in [general_update_pattern.html](code/general_update_pattern.html){target="_blank"} to a vertical bar chart.
+1. Save a copy of [this exercise](https://raw.githubusercontent.com/jtr13/d3book/main/code/bar_chart_exercise.html){target="_blank"} and open it in your text editor. 
 
-[Solution][Update, Enter, and Exit: vertical bar chart]
+Create a **vertical** bar chart with bar heights equal to the data values stored in `bardata`. Do so by replacing all the "ADD's" with constants or functions and then uncommenting those lines. 
+
+[Solution ][Update, Enter, and Exit: vertical bar chart]
 
 
 
