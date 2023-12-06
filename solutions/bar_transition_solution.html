@@ -88,29 +88,29 @@
     const paddingpix = xScale.padding()*xScale.bandwidth()/(1 - xScale.padding())
 
     bars.enter().append("rect")
-      .attr("x", innerWidth + paddingpix)  // new bar on the right
-      .attr("y", d => yScale(d))
-      .attr("width", xScale.bandwidth())
-      .attr("height", d => innerHeight - yScale(d))
-      .attr("fill", "orange")
+        .attr("x", innerWidth + paddingpix)  // new bar on the right
+        .attr("y", d => yScale(d))
+        .attr("width", xScale.bandwidth())
+        .attr("height", d => innerHeight - yScale(d))
+        .attr("fill", "orange")
       .merge(bars)
       .transition()  // all bars more into place
       .duration(2000)
       .ease(d3.easeLinear)
-      .attr("x", (d, i) => xScale(i))
-      .attr("y", d => yScale(d))
-      .attr("width", xScale.bandwidth())
-      .attr("height", d => innerHeight - yScale(d))
+        .attr("x", (d, i) => xScale(i))
+        .attr("y", d => yScale(d))
+        .attr("width", xScale.bandwidth())
+        .attr("height", d => innerHeight - yScale(d))
       .transition() // all bars turn blue
       .duration(2000)
       .ease(d3.easeLinear)
-      .attr("fill", "blue");
+        .attr("fill", "blue");
 
     bars.exit()
       .transition()
       .duration(2000)
       .ease(d3.easeLinear)
-      .attr("x", innerWidth + paddingpix)
+        .attr("x", innerWidth + paddingpix)
       .remove();
 
     svg.select(".xAxis")

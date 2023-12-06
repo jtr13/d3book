@@ -1,20 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Vertical Bar Chart</title>
-    <script src="https://d3js.org/d3.v7.js"></script>
-  </head>
-
-  <body>
-
-    <svg></svg>
-    <p></p>
-    <button type="button" onclick="add()">Add bar</button>
-    <button type="button" onclick="remove()">Remove bar</button>
-
-  <script>
-
 // Create svg and initial bars
 
   const w = 400;
@@ -24,7 +7,7 @@
   const innerWidth = w - margin.left - margin.right;
   const innerHeight = h - margin.top - margin.bottom;
 
-  const svg = d3.select("svg")
+  const svg = d3.select("svg#transitions")
       .attr("width", w)
       .attr("height", h);
 
@@ -43,7 +26,7 @@
       .paddingInner(.1);
 
   const yScale = d3.scaleLinear()
-      .domain([0, d3.max(bardata)])
+      .domain([0, 400])  // use fixed y-scale if possible
       .range([innerHeight, 0])
 
   const xAxis = d3.axisBottom()
@@ -81,33 +64,49 @@
 
     xScale.domain(d3.range(data.length));
 
-    yScale.domain([0, d3.max(data)]);
-
     const bars = svg.select("#plot")
         .selectAll("rect")
         .data(data);
 
-    bars.enter().append("rect")
-      .merge(bars)
-      .attr("x", (d, i) => xScale(i))
-      .attr("y", d => yScale(d))
-      .attr("width", xScale.bandwidth())
-      .attr("height", d => innerHeight - yScale(d))
-      .attr("fill", "blue");
+    const paddingpix = xScale.padding()*xScale.bandwidth()/(1 - xScale.padding())
 
-    bars.exit().remove();
+    bars.enter().append("rect")
+        .attr("x", innerWidth + paddingpix)  // new bar on the right
+        .attr("y", d => yScale(d))
+        .attr("width", xScale.bandwidth())
+        .attr("height", d => innerHeight - yScale(d))
+        .attr("fill", "orange")
+      .merge(bars)
+      .transition()  // all bars more into place
+      .duration(2000)
+      .ease(d3.easeLinear)
+        .attr("x", (d, i) => xScale(i))
+        .attr("y", d => yScale(d))
+        .attr("width", xScale.bandwidth())
+        .attr("height", d => innerHeight - yScale(d))
+      .transition() // all bars turn blue
+      .duration(2000)
+      .ease(d3.easeLinear)
+        .attr("fill", "blue");
+
+    bars.exit()
+      .transition()
+      .duration(2000)
+      .ease(d3.easeLinear)
+        .attr("x", innerWidth + paddingpix)
+      .remove();
 
     svg.select(".xAxis")
-        .call(xAxis);
-
-    svg.select(".yAxis")
-        .call(yAxis);
+      .transition()
+      .duration(2000)
+      .ease(d3.easeLinear)
+      .call(xAxis);
 
   }
 
 
     function add() {
-      var newvalue = Math.floor(Math.random()*400);
+      const newvalue = Math.floor(Math.random()*400);
       bardata.push(newvalue);
       update(bardata);
     }
@@ -117,8 +116,3 @@
       update(bardata);
       };
 
-    </script>
-
-  </body>
-
-</html>

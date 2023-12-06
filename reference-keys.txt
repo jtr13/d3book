@@ -85,12 +85,10 @@ change-an-attribute-of-the-element-that-received-the-event
 get-the-value-of-an-attribute-of-the-element-that-received-the-event
 do-something-with-the-data-bound-to-the-element-that-received-the-event
 get-the-svg-location-of-the-event
-do-something-with-the-value-of-a-radio-button
 separating-the-function-and-event-listener
-attribute-of-an-element
-value-of-radio-button
-add-remove-buttons
-putting-it-all-together
+buttons
+html-text-as-buttons
+radio-buttons
 dependent-event-listeners
 global-variable-example
 turn-off-event-listener
@@ -142,7 +140,7 @@ spearman-rank-correlation-coefficient
 population-density
 weather-forecast
 appendix-advanced-css
-buttons
+buttons-1
 active
 active-1
 focus
