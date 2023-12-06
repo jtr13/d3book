@@ -1,20 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Vertical Bar Chart</title>
-    <script src="https://d3js.org/d3.v7.js"></script>
-  </head>
-
-  <body>
-
-    <svg></svg>
-    <p></p>
-    <button type="button" onclick="add()">Add bar</button>
-    <button type="button" onclick="remove()">Remove bar</button>
-
-  <script>
-
 // Create svg and initial bars
 
   const w = 400;
@@ -24,7 +7,7 @@
   const innerWidth = w - margin.left - margin.right;
   const innerHeight = h - margin.top - margin.bottom;
 
-  const svg = d3.select("svg")
+  const svg = d3.select("svg#transitions")
       .attr("width", w)
       .attr("height", h);
 
@@ -133,9 +116,3 @@
       update(bardata);
       };
 
-
-    </script>
-
-  </body>
-
-</html>

@@ -105,27 +105,6 @@ d3.select("svg")
 
 (Up to v5, `d3.mouse(this)` was used instead of `d3.pointer(event)`.)
 
-### Do something with the value of a radio button
-
-<p id="color" style="background-color: silver; color: white;">Please select your favorite primary color:</p>
-<input type="radio" id="html" name="fav_color" value="red"> red
-<input type="radio" id="css" name="fav_color" value="blue"> blue
-<input type="radio" id="javascript" name="fav_color" value="yellow"> yellow
-
-``` js
-d3.selectAll("input")
-  .on("click", function(event) {
-    var favcolor = event.currentTarget.value;
-    d3.select("p#color").style("color", favcolor);
-    });
-```    
-<script>
-d3.selectAll("input")
-  .on("click", function(event) {
-    const favcolor = event.currentTarget.value;
-    d3.select("p#color").style("color", favcolor);
-    });
-</script>	
 
 ## Separating the function and event listener
 
@@ -143,28 +122,9 @@ d3.select("circle")
   .on("mouseover", goyellow);
 ```
 
-Try this in the Console:  
+## Buttons
 
-``` js
-d3.select("svg")
-  .on("click", function (event) {
-    console.log(d3.pointer(event).map(Math.round));
-    });
-``` 
-
-### Attribute of an element
-
-`d3.select(this).attr("id");`
-
-### Value of radio button
-
-`d3.select(this).node().value;`  (string)
-
-`+d3.select(this).node().value;` (number)
-
-## Add / remove "buttons"
-
-(HTML paragraphs are used as buttons in this example.)
+### HTML text as buttons
 
 HTML:
 
@@ -192,11 +152,55 @@ d3.selectAll("p")
       });
 ```
 
-## Putting it all together
+Putting it all together:
 
 Vertical bar chart with add / remove buttons and general update pattern
 
 [vertical_bar.html](code/vertical_bar.html){target="_blank"}
+
+
+### Radio buttons
+
+HTML:
+
+``` html
+<p id="color" style="background-color: silver; color: white;">
+   Please select your favorite primary color:</p>
+<input type="radio" name="fav_color" value="red"> red
+<input type="radio" name="fav_color" value="blue"> blue
+<input type="radio" name="fav_color" value="yellow"> yellow
+```
+
+Note: 
+
+* `type` is always `radio` for radio buttons
+* `name` is shared for a group of radio buttons
+* `value` is unique
+
+
+JavaScript:
+
+``` js
+d3.selectAll('input[name="fav_color"]')
+  .on("click", function(event) {
+    var favcolor = event.currentTarget.value;
+    d3.select("p#color").style("color", favcolor);
+    });
+```    
+
+<p id="color" style="background-color: silver; color: white;">Please select your favorite primary color:</p>
+<input type="radio" name="fav_color" value="red"> red
+<input type="radio" name="fav_color" value="blue"> blue
+<input type="radio" name="fav_color" value="yellow"> yellow
+
+<script>
+d3.selectAll('input[name="fav_color"]')
+  .on("click", function(event) {
+    const favcolor = event.currentTarget.value;
+    d3.select("p#color").style("color", favcolor);
+    });
+</script>	
+
 
 ## Dependent event listeners
 
