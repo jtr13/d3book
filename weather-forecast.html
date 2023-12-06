@@ -511,14 +511,14 @@ svg.select("g#plot")
           .attr("x", xcoord)
           .attr("y", ycoord)
           .text(d.shortForecast);
-        
-      icon
-        .attr("src", d.icon);
+        icon
+          .attr("src", d.icon);
      })
      .on("mouseout", function() {
-         d3.select("#tooltip").remove();
-       icon
-         .attr("src", "https://github.com/jtr13/d3book/blob/main/images/blank86x86.png?raw=true");
+         d3.select("#tooltip")
+           .remove();
+         icon
+           .attr("src", "https://github.com/jtr13/d3book/blob/main/images/blank86x86.png?raw=true");
      }
      );
 
@@ -578,7 +578,10 @@ d3.selectAll("input")
 .catch(function(error){
   d3.select("svg")
     .append("text")
-    .text("Error loading data.");
+    .style("font-size", "24px")
+    .attr("x", "100")
+    .attr("y", "100")
+    .text("Error loading data");
 });
 
 </script>
