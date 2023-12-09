@@ -8,11 +8,6 @@
 
   <body>
 
-    <svg></svg>
-    <p></p>
-    <button type="button" onclick="add()">Add bar</button>
-    <button type="button" onclick="remove()">Remove bar</button>
-
   <script>
 
 // Create svg and initial bars
@@ -24,7 +19,8 @@
   const innerWidth = w - margin.left - margin.right;
   const innerHeight = h - margin.top - margin.bottom;
 
-  const svg = d3.select("svg")
+  const svg = d3.select("body")
+      .append("svg")
       .attr("width", w)
       .attr("height", h);
 
@@ -118,6 +114,10 @@
       };
 
     </script>
+
+    <p></p>
+    <button type="button" onclick="add()">Add bar</button>
+    <button type="button" onclick="remove()">Remove bar</button>
 
   </body>
 
