@@ -109,13 +109,8 @@ local-server
 other-local-options
 hosting-online
 share-d3-online
-vizhub
-bookdown
-everything-in-the-.rmd
-put-d3-in-a-separate-.js-file
-iframe
+quarto
 observable
-blockbuilder-2015-2020
 line-charts
 lecture-slides-5
 svg-line-element
