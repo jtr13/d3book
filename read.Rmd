@@ -52,6 +52,8 @@ For more about `d3.csv()`, see the [`d3.fetch` API](https://github.com/d3/d3-fet
 
 ## Local server
 
+Note: As long as you read from online sources as in the example above, you do not need to set up a local server. 
+
 For security reasons, Chrome does not let you read local files. To be able to do so, you can run a local server. One option is [http-server](https://www.npmjs.com/package/http-server){target="_blank"}. Follow the instructions to install `http-server`, navigate in a terminal to the directory with your html file, and then enter `http-server`:
 
 ``` bash
