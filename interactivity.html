@@ -23,7 +23,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2023-12-09" />
+<meta name="date" content="2023-12-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -504,9 +504,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>HTML:</p>
 <div class="sourceCode" id="cb136"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb136-1"><a href="interactivity.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;p</span> <span class="er">id</span><span class="ot">=</span><span class="st">&quot;color&quot;</span> <span class="er">style</span><span class="ot">=</span><span class="st">&quot;background-color: silver; color: white;&quot;</span><span class="kw">&gt;</span></span>
 <span id="cb136-2"><a href="interactivity.html#cb136-2" aria-hidden="true" tabindex="-1"></a>   Please select your favorite primary color:<span class="kw">&lt;/p&gt;</span></span>
-<span id="cb136-3"><a href="interactivity.html#cb136-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;input</span> <span class="er">type</span><span class="ot">=</span><span class="st">&quot;radio&quot;</span> <span class="er">name</span><span class="ot">=</span><span class="st">&quot;fav_color&quot;</span> <span class="er">value</span><span class="ot">=</span><span class="st">&quot;red&quot;</span><span class="kw">&gt;</span> red</span>
-<span id="cb136-4"><a href="interactivity.html#cb136-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;input</span> <span class="er">type</span><span class="ot">=</span><span class="st">&quot;radio&quot;</span> <span class="er">name</span><span class="ot">=</span><span class="st">&quot;fav_color&quot;</span> <span class="er">value</span><span class="ot">=</span><span class="st">&quot;blue&quot;</span><span class="kw">&gt;</span> blue</span>
-<span id="cb136-5"><a href="interactivity.html#cb136-5" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;input</span> <span class="er">type</span><span class="ot">=</span><span class="st">&quot;radio&quot;</span> <span class="er">name</span><span class="ot">=</span><span class="st">&quot;fav_color&quot;</span> <span class="er">value</span><span class="ot">=</span><span class="st">&quot;yellow&quot;</span><span class="kw">&gt;</span> yellow</span></code></pre></div>
+<span id="cb136-3"><a href="interactivity.html#cb136-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;input</span> <span class="er">type</span><span class="ot">=</span><span class="st">&quot;radio&quot;</span> <span class="er">name</span><span class="ot">=</span><span class="st">&quot;fav_color&quot;</span> <span class="er">value</span><span class="ot">=</span><span class="st">&quot;red&quot;</span><span class="kw">&gt;</span>red<span class="kw">&lt;/input&gt;</span></span>
+<span id="cb136-4"><a href="interactivity.html#cb136-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;input</span> <span class="er">type</span><span class="ot">=</span><span class="st">&quot;radio&quot;</span> <span class="er">name</span><span class="ot">=</span><span class="st">&quot;fav_color&quot;</span> <span class="er">value</span><span class="ot">=</span><span class="st">&quot;blue&quot;</span><span class="kw">&gt;</span>blue<span class="kw">&lt;/input&gt;</span></span>
+<span id="cb136-5"><a href="interactivity.html#cb136-5" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;input</span> <span class="er">type</span><span class="ot">=</span><span class="st">&quot;radio&quot;</span> <span class="er">name</span><span class="ot">=</span><span class="st">&quot;fav_color&quot;</span> <span class="er">value</span><span class="ot">=</span><span class="st">&quot;yellow&quot;</span><span class="kw">&gt;</span>yellow<span class="kw">&lt;/input&gt;</span></span></code></pre></div>
 <p>Note:</p>
 <ul>
 <li><code>type</code> is always <code>radio</code> for radio buttons</li>
@@ -522,9 +522,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p id="color" style="background-color: silver; color: white;">
 Please select your favorite primary color:
 </p>
-<p><input type="radio" name="fav_color" value="red"> red
-<input type="radio" name="fav_color" value="blue"> blue
-<input type="radio" name="fav_color" value="yellow"> yellow</p>
+<p><input type="radio" name="fav_color" value="red">red</input>
+<input type="radio" name="fav_color" value="blue">blue</input>
+<input type="radio" name="fav_color" value="yellow">yellow</input></p>
 <script>
 d3.selectAll('input[name="fav_color"]')
   .on("click", function(event) {
