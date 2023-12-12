@@ -105,8 +105,8 @@ svg.select("g#plot")
     .attr("cy", d => yScale(d.name) + .5 * yScale.bandwidth())
     .attr("r", 3)
     .on("mouseover", function(event, d) {
-        var xcoord = +d3.select(event.currentTarget).attr("cx") + 5
-        var ycoord = +d3.select(event.currentTarget).attr("cy") - 5
+        const xcoord = +d3.select(event.currentTarget).attr("cx") + 5
+        const ycoord = +d3.select(event.currentTarget).attr("cy") - 5
         svg.select("g#plot")
           .append("text")
           .attr("id", "tooltip")
@@ -148,7 +148,7 @@ svg.select("g#plot")
 // get value of radio button on click
 d3.selectAll("input")
 .on("click", function(event) { 
-    var tempscale = event.currentTarget.value; 
+    const tempscale = event.currentTarget.value; 
     if (tempscale == "C") {
     // update xScale domain
         xScale.domain([d3.min(dataset.map(d => d.celsius - 5)),
