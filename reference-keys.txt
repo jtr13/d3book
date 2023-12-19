@@ -9,6 +9,7 @@ console-tab
 modify-elements
 add-transitions
 add-interactivity
+examples
 web
 html
 css
@@ -93,7 +94,7 @@ dependent-event-listeners
 global-variable-example
 turn-off-event-listener
 transitions
-examples
+examples-1
 do-this
 not-this
 strategy

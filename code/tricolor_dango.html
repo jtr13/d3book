@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Tricolor Dango</title>
+		<script crossorigin="anonymous" src="https://d3js.org/d3.v7.js"></script>  <!-- link to D3 library -->
+
+		<style type="text/css">
+			p {color:black;}
+            a {color:green}
+            circle {
+                fill:rgba(236, 197, 203, 0.991); 
+                r: 30px;
+                stroke: rgba(225, 225, 224, 0.395);
+                stroke-width: 5px;
+            }
+            ellipse {
+                fill: rgb(221, 243, 240);
+                stroke: rgb(129, 129, 248);
+                stroke-width: 2px;
+            }
+            #yellow_ball {
+                fill: rgb(255, 255, 226);
+            }
+            #green_ball{
+                fill: rgb(71, 166, 71);
+            }
+            .stick{
+                stroke: rgb(134, 98, 20);
+                stroke-width: 6px;
+                stroke-linecap:round
+            }
+		</style>
+
+	</head>
+
+	<body>
+        <h1>Tricolor Dango</h1>
+        <p>Try clicking the buttons!</p>
+        <p>And try clicking the svg!</p>
+        <button onclick="startAnime()" style="font-size: 18px;">Start</button>
+        <button onclick="resetAnime()" style="font-size: 18px;">Reset</button>
+        <button onclick="clear_all()" style="font-size: 18px;">Clear All</button>
+
+        <br></br>   <!-- line break -->
+
+		<svg width="500" height="300">  <!-- some SVG -->
+			<rect width="500" height="300" fill="lightblue"></rect>
+
+			<ellipse cx="250" cy="150" rx="120" ry="55"></ellipse>
+			<ellipse cx="250" cy="150" rx="100" ry="40"></ellipse>
+            <g id="first">
+                <line class="stick" x1="178" y1="150" x2="120" y2="150"></line>
+                
+                <circle cx="200" cy="150" id="green_ball"></circle>
+                <circle cx="250" cy="150" id="yellow_ball"></circle>
+                <circle  cx="300" cy="150"></circle>
+    
+                <line class="stick" x1="322" y1="150" x2="340" y2="150"></line>
+            </g>
+
+            
+            <!-- this group is for the small dango to appear at the top -->
+            <g id="s_dg_grp"></g>
+
+            <text id="text" x="150" y="250" fill="white" font-size="24">Tricolor Dango</text>
+
+        </svg>
+
+        <br></br>   <!-- line break -->
+        <p>Small dango animation:</p>
+        <input type="radio" name="sdg_anm " value="on" checked="true">On</input>
+        <input type="radio" name="sdg_anm " value="off">Off</input>
+        <br></br>
+
+        <p> What is Tricolor Dango?</p>
+        <a href="https://urldefense.proofpoint.com/v2/url?u=https-3A__genshin-2Dimpact.fandom.com_wiki_Tricolor-5FDango&amp;d=DwMGAg&amp;c=009klHSCxuh5AI1vNQzSO0KGjl4nbi2Q0M1QLJX9BeE&amp;r=IKBT9yN-7vYfwcbSMxwMntn4FdMloqyFpSTjZo3i2_g&amp;m=-nAvFN2LPSL_SjVAIxuSYLO54KzzNyFUyc62TL_btG8AXv4khaRLYoJ5R526P4Ld&amp;s=Y15yWkSd12b2z3F-M8jqBmm9jV4zK5t_JsCLCOYuR_Q&amp;e=">https://genshin-impact.fandom.com/wiki/Tricolor_Dango</a>
+		<script>
+		    // JavaScript / D3 will go here
+            const width = 500;
+            const height = 300;
+            const small_scale = 0.25;
+
+            d3.select('#first').clone(true).attr('id','second')
+            d3.select('#first').clone(true).attr('id','third')
+
+            d3.select('svg').on('click', small_dango)
+
+            let Anime = "on";
+            d3.selectAll('input[name="sdg_anm "]').on("click", function(event) {
+                Anime = event.currentTarget.value
+            });
+
+            function startAnime(){
+                // first reset
+                resetAnime()
+
+                d3.select('#first').transition().duration(2000).attr('transform', 'scale(0.8) translate(80, 30)')
+                d3.select('#second').transition().duration(2000).attr('transform', 'scale(0.8) translate(50, 50)')
+                d3.select('#third').transition().duration(2000).attr('transform', 'scale(0.8) translate(60, 10)')
+
+                d3.select('#text').transition().duration(2000).attr('font-size', 50).attr('x', 80).attr('y', 250)
+                    .transition().duration(0).text('Yummy!').attr('x', 160).attr('y', 250);
+
+            }
+
+
+            function resetAnime(){
+                d3.select('#first').interrupt().attr('transform', 'scale(1) translate(0, 0)')
+                d3.select('#second').interrupt().attr('transform', 'scale(1) translate(0, 0)')
+                d3.select('#third').interrupt().attr('transform', 'scale(1) translate(0, 0)')
+                d3.select('#text').interrupt().attr('font-size', 24).attr('x', 150).attr('y', 250)
+                    .transition().duration(2000).text('Tricolor Dango');
+            }    
+
+            function small_dango(event){
+                // d3.pointer(event)
+                var new_dango = d3.select('#first')
+                .clone(true)        // clone the dango
+                .attr('id', null)
+                .attr('class', 'small_dango')   // add a class in order for "clear all" to function
+                
+                // PITFALL: transforms are applied FROM RIGHT TO LEFT lol
+                // Note: the original data is not changed by transform. So the status of #first doesn't bother.
+
+                var rotate = -45 + Math.random() * 20;
+                if (Anime == "on"){
+                    new_dango
+                    .attr('transform', `translate(0, -10) translate(${d3.pointer(event)})  rotate(-60) scale(${small_scale}) translate(-250, -150)`) // first move (the center?) to the origin, then rotate, scale, and move to the pointer (a little bit above))
+                    .attr('opacity', 0)
+                    .transition().duration(1000)
+                        .attr('opacity', 1)
+                        .attr('transform', `translate(0, 5)  translate(${d3.pointer(event)})  rotate(${rotate}) scale(${small_scale}) translate(-250, -150)`)
+                    .transition().duration(1000)
+                    .transition().duration(2000)
+                        .attr('transform', `translate(0, 15)  translate(${d3.pointer(event)}) rotate(${rotate + 10}) scale(${small_scale})  translate(-250, -150)`)
+                        .attr('opacity', 0)
+                        .remove()
+                    } else {
+                    new_dango.attr('transform', `translate(${d3.pointer(event)})  rotate(${rotate}) scale(${small_scale}) translate(-250, -150)`)
+                }
+
+                // put the new dango into the group
+                d3.select('g#s_dg_grp').node().appendChild(new_dango.node())
+            }
+
+            function clear_all(){
+                d3.selectAll('.small_dango').remove()
+                // or: 
+                // d3.selectAll('g#s_dg_grp').selectAll('*').remove()
+            }
+
+
+		</script>
+
+	</body>
+
+</html>
