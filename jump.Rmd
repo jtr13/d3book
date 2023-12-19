@@ -154,3 +154,9 @@ y["b"];
     d3.select("svg").on("click", function(event)
       {d3.select("text").text(`(${d3.pointer(event)})`)});
     ```
+
+## Examples
+
+Check out this fun visualization by Yilan Chen (EDAV 2023) that started with `shapes.html`: 
+
+[Tricolor Dango](code/tricolor_dango.html)

@@ -1,4 +1,4 @@
-# D3 in the Console <i class="far fa-folder"></i> {#d3console}
+# Modify, Add, Remove <i class="fa-solid fa-shapes"></i> {#d3console}
 
 Read *IDVW2*, Chapter 6: Drawing with Data. Skip pp. 89-96 as we will not be drawing bar charts with the `div`approach.
 
