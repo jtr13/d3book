@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>NYC High Schools</title>
+		<script src="https://d3js.org/d3.v7.min.js"></script>
+		<style type="text/css">
+		* {
+			font-family: sans-serif;
+			font-size: 12px;
+		}
+		</style>
+	</head>
+	<body>
+	  <h1>NYC High Schools: Graduation rate vs. attendance rate</h1>
+		<script type="text/javascript">
+		// SCATTERPLOT SVG
+
+		// width and height
+		var w = 400;
+		var h = 400;
+		var padding = 40;
+
+		// create scale functions
+		var xScale = d3.scaleLinear()
+		.range([padding, w - padding / 2]);
+
+		var yScale = d3.scaleLinear()
+		.range([h - padding, padding / 2]);
+
+		var colors = d3.scaleOrdinal(d3.schemeCategory10);
+
+		// define X axis
+		var xAxis = d3.axisBottom()
+		.scale(xScale)
+		.ticks(5);
+
+		// define Y axis
+		var yAxis = d3.axisLeft()
+		.scale(yScale)
+		.ticks(5);
+
+		// create SVG elements
+		var svg = d3.select("body")
+		.append("svg")
+		.attr("width", w)
+		.attr("height", h);
+
+		// create X axis
+		svg.append("g")
+		.attr("id", "xaxis")
+		.attr("transform", "translate(0," + (h - padding) + ")")
+		.call(xAxis);
+
+		// create Y axis
+		svg.append("g")
+		.attr("id", "yaxis")
+		.attr("transform", "translate(" + padding + ",0)")
+		.call(yAxis);
+
+		// create text elements
+		svg.append("text")
+		.attr("id", "nm")
+		.attr("x", w/2)
+		.attr("y", h/2);
+
+		d3.select("body")
+		  .append("h1")
+		  .attr("id", "neigh")
+		  .text("Number of students per school");
+
+	// 	BAR CHART SVG
+	var bar_w = 800;
+	var bar_h = 300;
+
+  var margin = {top: 25, right: 0, bottom: 25,
+      left: 325};
+  var innerWidth = bar_w - margin.left - margin.right;
+  var innerHeight = bar_h - margin.top - margin.bottom;
+
+  var bar_xScale = d3.scaleLinear()
+      .range([0, innerWidth])
+
+  var bar_yScale = d3.scaleBand()
+      .range([0, innerHeight])
+      .paddingInner(.1);
+
+  var bar_xAxis = d3.axisBottom()
+      .scale(bar_xScale)
+      .tickFormat(d3.format("d"));
+
+  var bar_yAxis = d3.axisLeft()
+      .scale(bar_yScale);
+
+// add 2nd svg
+
+  var svg2 = d3.select("body")
+    .append("svg")
+      .attr("width", bar_w)
+      .attr("height", bar_h);
+
+// add bar group
+
+  svg2.append("g")
+      .attr("id", "plot")
+      .attr("transform", `translate (${margin.left}, ${margin.top})`)
+      .attr("fill", "cornflowerblue");
+
+// add axes
+
+  svg2.append("g")
+      .attr("id", "bar_xAxis")
+      .attr("transform", `translate (${margin.left}, ${bar_h - margin.bottom})`)
+      .call(bar_xAxis);
+
+  svg2.append("g")
+      .attr("id", "bar_yAxis")
+      .attr("transform", `translate (${margin.left}, ${margin.top})`)
+      .call(bar_yAxis);
+
+
+		var rowConverter = function (d) {
+			if (!isNaN(d.graduation_rate) && !isNaN(d.attendance_rate)) {
+				return {
+					grad: +d.graduation_rate,
+					attend: +d.attendance_rate,
+					name: d.school_name,
+					neighborhood: d.neighborhood,
+					boro: d.boro,
+					students: +d.total_students
+				}
+			}
+		};
+
+		var updatebars = function(bardata) {
+
+		  bar_yScale
+		   .domain(bardata.map(d => d.name));
+
+		  var bars = svg2.select("g")
+		    .selectAll("rect")
+		    .data(bardata);
+
+		  bars.enter()
+		    .append("rect")
+		    .merge(bars)
+		    .attr("x", bar_xScale(0))
+		    .attr("y", d => bar_yScale(d.name))
+		    .attr("width", d => bar_xScale(d.students))
+		    .attr("height", bar_yScale.bandwidth());
+
+		  bars.exit()
+		    .remove();
+
+		  svg2.select("#bar_xAxis")
+		    .call(bar_xAxis);
+
+		  svg2.select("#bar_yAxis")
+		    .call(bar_yAxis);
+
+
+		}
+
+		d3.csv("https://data.cityofnewyork.us/api/views/uq7m-95z8/rows.csv", rowConverter)
+		.then(function(data) {
+
+		  bar_xScale
+		    .domain([0, d3.max(data.map(d => d.students))]);
+
+			yScale
+			.domain([d3.min(data.map(d => d.grad)),
+				d3.max(data.map(d => d.grad))]);
+
+				svg.select("#yaxis").call(yAxis);
+
+				xScale.domain([d3.min(data.map(d => d.attend)
+					.filter(d => d > 0)),
+					d3.max(data.map(d => d.attend))]);
+
+					d3.select("#xaxis").call(xAxis);
+
+
+					//Create circles
+					var allCircles = svg.selectAll("circle")
+					.data(data)
+					.enter()
+					.append("circle")    // add jitter to deal with overplotting
+					.attr("cx", d => xScale(+d.attend+Math.random()/200))
+					.attr("cy", d => yScale(+d.grad+Math.random()/200))
+					.attr("r", 4)
+					.attr("fill-opacity", ".5")
+					.on("mouseover", function ()
+					{
+						var school = d3.select(this);
+						d3.selectAll("circle")
+						.attr("fill", "lightgrey");
+
+						school
+						.attr("fill", "lightblue")
+						.attr("fill-opacity", 1)
+						.attr("r", 5)
+						.raise();
+
+						var neigh = school.datum().neighborhood;
+						var samenabe = svg.selectAll("circle")
+						  .data().filter(d => d.neighborhood == neigh);
+						var samenabe_sorted = samenabe.slice().sort((a, b) => d3.descending(a.students, b.students))
+						svg.append("g")
+						  .attr("id", "temp")
+						svg.select("g#temp")
+						  .selectAll("circle")
+						  .data(samenabe)
+						  .enter()
+						  .append("circle")
+						  .attr("cx", d => xScale(d.attend))
+					    .attr("cy", d => yScale(d.grad))
+					    .attr("r", 4)
+					    .attr("fill", "red");
+					  svg.select("g#temp")
+					   .selectAll("text")
+					   .data(samenabe)
+					   .enter()
+					   .append("text")
+						  .attr("x", d => xScale(d.attend))
+						  .attr("y", d => yScale(d.grad))
+						  .attr("fill", "blue")
+						  .style("text-anchor", function (d) {
+							  if (d.attend > d3.mean(data.map(d => d.attend))) {
+								  return "end";
+							  } else {
+								  return "start";
+							  }
+						})
+						.text(d => d.name)
+						.raise();
+
+						d3.select("#neigh")
+						  .text("Number of students per school in " + neigh);
+
+		/*			d3.select("body")
+						  .append("g")
+						  .attr("id", "temp2")
+						  .selectAll("p")
+						  .data(samenabe_sorted)
+						  .enter()
+						  .append("p")
+						  .text(d => d.name + " " + d.students);  */
+
+						updatebars(samenabe_sorted);
+
+					})  // end on mouseover
+					.on("mouseout", function () {
+					  d3.select("g#temp")
+					    .remove();
+					  d3.select("g#temp2")
+					    .remove();
+						d3.selectAll("circle")
+						.attr("fill", "black")
+						.attr("fill-opacity", .5);
+						d3.select("text#nm")
+						.text("");
+						d3.select(this)
+						.attr("r", 4);
+					});
+
+					// initialize
+
+	/*				var school_init = svg.select("circle")
+					var neigh_init = school_init.datum().neighborhood;
+					console.log(neigh_init);
+					var samenabe_init = svg.selectAll("circle")
+						  .data().filter(d => d.neighborhood == neigh_init);
+						var samenabe_init_sorted = samenabe.slice().sort((a, b) => d3.descending(a.students, b.students))
+					updatebars(samenabe_init_sorted); */
+
+				})  // end .then
+				.catch(function(error){
+					svg.select("text#nm").text("Error loading data.");
+				});
+		</script>
+	</body>
+</html>
