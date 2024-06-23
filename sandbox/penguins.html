@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Penguins</title>
+		<script src="https://d3js.org/d3.v7.min.js"></script>
+		<style type="text/css">
+		* {
+			font-family: sans-serif;
+			font-size: 12px;
+		}
+		</style>
+	</head>
+	<body>
+	  <h1>Palmer Penguins</h1>
+		<script type="text/javascript">
+		// SCATTERPLOT SVG
+
+		// width and height
+		const w = 400;
+		const h = 400;
+		const margin = {left: 50, right: 20, top: 20, bottom: 50};
+		const innerHeight = h - margin.top - margin.bottom;
+    const innerWidth = w - margin.left - margin.right;
+
+
+		// create scale functions
+		const xScale = d3.scaleLinear()
+		.range([0, innerWidth]);
+
+		const yScale = d3.scaleLinear()
+		.range([innerHeight, 0]);
+
+		const colors = d3.scaleOrdinal(d3.schemeCategory10);
+
+		// define X axis
+		const xAxis = d3.axisBottom()
+		.scale(xScale)
+		.ticks(5);
+
+		// define Y axis
+		const yAxis = d3.axisLeft()
+		.scale(yScale)
+		.ticks(5);
+
+		// create SVG elements
+		const svg = d3.select("body")
+		.append("svg")
+		.attr("width", w)
+		.attr("height", h);
+
+		// create plot area
+    svg.append("g")
+      .attr("id", "plotarea")
+      .attr("transform", `translate( ${margin.left}, ${margin.top} )`)
+
+   // create x-axis
+   svg.select("g#plotarea")
+    .append("g")
+    .attr("id", "xaxis")
+    .attr("transform", `translate (0, ${innerHeight})`)
+    .call(xAxis);
+
+  // create x-axis label
+  svg.select("g#plotarea")
+    .append("text")
+      .attr("id", "xlab")
+      .attr("x", innerWidth/2)
+      .attr("y", innerHeight + .75 * margin.bottom)
+      .attr("text-anchor", "middle")
+      .text("Flipper length (mm)");
+
+  // create y-axis
+  svg.select("g#plotarea")
+    .append("g")
+    .attr("id", "yaxis")
+    .call(yAxis);
+
+  // create y-axis label
+  svg.select("g#plotarea")
+    .append("text")
+      .attr("id", "ylab")
+      .attr("x", -margin.left/2)
+      .attr("y", innerHeight/2)
+      .attr("text-anchor", "middle")
+      .attr("transform", "rotate (-90, " + (0-margin.left/2) + "," + innerHeight/2 + ")" )
+      .text("Flipper depth (mm)");
+
+    const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+
+		const rowConverter = function (d) {
+				return {
+				  species: d.species,
+				  island: d.island,
+				  bill_length_mm: +d.bill_length_mm,
+				  bill_depth_mm: +d.bill_depth_mm,
+				  flipper_length_mm: +d.flipper_length_mm,
+				  body_mass_g: +d.body_mass_g,
+				  sex: d.sex,
+				  year: +d.year
+				}
+		};
+
+
+		d3.csv("https://raw.githubusercontent.com/allisonhorst/palmerpenguins/main/inst/extdata/penguins.csv", rowConverter)
+		.then(function(data) {
+
+			xScale.domain([d3.min(data.map(d => d.bill_length_mm)),
+					d3.max(data.map(d => d.bill_length_mm))]);
+
+			d3.select("#xaxis").call(xAxis);
+
+			yScale.domain([d3.min(data.map(d => d.bill_depth_mm)),
+				d3.max(data.map(d => d.bill_depth_mm))]);
+
+			d3.select("#yaxis").call(yAxis);
+
+
+		//Create circles
+			const allCircles = svg.select("g#plotarea")
+			  .append("g").attr("id", "allcircles").selectAll("circle")
+				.data(data)
+				.enter()
+				.append("circle")
+					.attr("cx", d => xScale(d.bill_length_mm))
+					.attr("cy", d => yScale(d.bill_depth_mm))
+					.attr("r", 4)
+					.style("fill", d => colorScale(d.species))
+					.attr("fill-opacity", ".5")
+
+
+				})  // end .then
+				.catch(function(error){
+					svg.select("text#nm").text("Error loading data.");
+				});
+		</script>
+	</body>
+</html>
