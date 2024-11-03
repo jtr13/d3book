@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 Web tech  | D3 for R Users</title>
   <meta name="description" content="2 Web tech  | D3 for R Users" />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 Web tech  | D3 for R Users" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Joyce Robbins" />
 
 
-<meta name="date" content="2024-04-20" />
+<meta name="date" content="2024-11-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -49,6 +49,7 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
@@ -58,9 +59,8 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -94,7 +94,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
+code span.bu { } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -107,7 +107,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.im { } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -397,7 +397,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.1</span> HTML <i class="fab fa-html5"></i><a href="web.html#html" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Note that <code>shapes.html</code> has an HyperText Markup Language or <code>.html</code> extension; HTML in fact provides the structure for the document. It has a <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> section.</p>
 <p>In the <code>&lt;head&gt;</code> section we use <code>&lt;script&gt;</code> tags to link to the D3 library:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb11-1"><a href="web.html#cb11-1" tabindex="-1"></a><span class="op">&lt;</span>script src<span class="op">=</span><span class="st">&quot;https://d3js.org/d3.v7.js&quot;</span><span class="op">&gt;&lt;/</span>script<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb11-1"><a href="web.html#cb11-1" aria-hidden="true"></a><span class="op">&lt;</span>script src<span class="op">=</span><span class="st">&quot;https://d3js.org/d3.v7.js&quot;</span><span class="op">&gt;&lt;/</span>script<span class="op">&gt;</span></span></code></pre></div>
 <p>HTML content is enclosed between opening an closing <strong>tags</strong> such as <code>&lt;h1&gt;</code> and <code>&lt;/h1&gt;</code>.</p>
 <p>HTML class and ID <strong>attributes</strong> are included inside the opening tags:</p>
 <p><code>&lt;h1 class="myclass" id="myid"&gt;This is an h1 header.&lt;/h1&gt;</code></p>
@@ -408,26 +408,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="internal-style-sheet" class="section level3 hasAnchor" number="2.2.1">
 <h3><span class="header-section-number">2.2.1</span> Internal style sheet<a href="web.html#internal-style-sheet" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>shapes.html</code> has an <em>internal style sheet</em>: CSS style information appears in the <code>&lt;head&gt;</code> section marked off with <code>&lt;style&gt;</code> tags:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb12-1"><a href="web.html#cb12-1" tabindex="-1"></a><span class="op">&lt;</span>style type<span class="op">=</span><span class="st">&quot;text/css&quot;</span><span class="op">&gt;</span></span>
-<span id="cb12-2"><a href="web.html#cb12-2" tabindex="-1"></a>    h1 {<span class="dt">color</span><span class="op">:</span>red<span class="op">;</span>}     <span class="co">/* CSS styling */</span></span>
-<span id="cb12-3"><a href="web.html#cb12-3" tabindex="-1"></a>    p {<span class="dt">color</span><span class="op">:</span>blue<span class="op">;</span>}</span>
-<span id="cb12-4"><a href="web.html#cb12-4" tabindex="-1"></a><span class="op">&lt;/</span>style<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb12-1"><a href="web.html#cb12-1" aria-hidden="true"></a><span class="op">&lt;</span>style type<span class="op">=</span><span class="st">&quot;text/css&quot;</span><span class="op">&gt;</span></span>
+<span id="cb12-2"><a href="web.html#cb12-2" aria-hidden="true"></a>    h1 {<span class="dt">color</span><span class="op">:</span>red<span class="op">;</span>}     <span class="co">/* CSS styling */</span></span>
+<span id="cb12-3"><a href="web.html#cb12-3" aria-hidden="true"></a>    p {<span class="dt">color</span><span class="op">:</span>blue<span class="op">;</span>}</span>
+<span id="cb12-4"><a href="web.html#cb12-4" aria-hidden="true"></a><span class="op">&lt;/</span>style<span class="op">&gt;</span></span></code></pre></div>
 <p>Here we specify that all HTML <code>&lt;h1&gt;</code> headers should be red and all HTML paragraphs <code>&lt;p&gt;</code> should be blue. This is an example of an <em>internal style sheet</em>. Later we will consider alternatives: <em>external style sheets</em> and <em>inline styling</em>.</p>
 <p>Styling for coder designed classes is also specified in this section. For example, we could style a “formal” class as such:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb13-1"><a href="web.html#cb13-1" tabindex="-1"></a><span class="op">&lt;</span>style type<span class="op">=</span><span class="st">&quot;text/css&quot;</span><span class="op">&gt;</span></span>
-<span id="cb13-2"><a href="web.html#cb13-2" tabindex="-1"></a>    <span class="op">.</span><span class="at">formal</span> {<span class="dt">color</span><span class="op">:</span> red<span class="op">;</span>        </span>
-<span id="cb13-3"><a href="web.html#cb13-3" tabindex="-1"></a>        font<span class="op">-</span><span class="dt">size</span><span class="op">:</span> <span class="dv">30</span><span class="er">px</span><span class="op">;</span></span>
-<span id="cb13-4"><a href="web.html#cb13-4" tabindex="-1"></a>        font<span class="op">-</span><span class="dt">family</span><span class="op">:</span> Lucida Calligraphy<span class="op">;</span></span>
-<span id="cb13-5"><a href="web.html#cb13-5" tabindex="-1"></a>        }   </span>
-<span id="cb13-6"><a href="web.html#cb13-6" tabindex="-1"></a><span class="op">&lt;/</span>style<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb13-1"><a href="web.html#cb13-1" aria-hidden="true"></a><span class="op">&lt;</span>style type<span class="op">=</span><span class="st">&quot;text/css&quot;</span><span class="op">&gt;</span></span>
+<span id="cb13-2"><a href="web.html#cb13-2" aria-hidden="true"></a>    <span class="op">.</span><span class="at">formal</span> {<span class="dt">color</span><span class="op">:</span> red<span class="op">;</span>        </span>
+<span id="cb13-3"><a href="web.html#cb13-3" aria-hidden="true"></a>        font<span class="op">-</span><span class="dt">size</span><span class="op">:</span> 30px<span class="op">;</span></span>
+<span id="cb13-4"><a href="web.html#cb13-4" aria-hidden="true"></a>        font<span class="op">-</span><span class="dt">family</span><span class="op">:</span> Lucida Calligraphy<span class="op">;</span></span>
+<span id="cb13-5"><a href="web.html#cb13-5" aria-hidden="true"></a>        }   </span>
+<span id="cb13-6"><a href="web.html#cb13-6" aria-hidden="true"></a><span class="op">&lt;/</span>style<span class="op">&gt;</span></span></code></pre></div>
 <p>Note that classes are defined by the “.” before the name.</p>
 </div>
 <div id="external-style-sheets" class="section level3 hasAnchor" number="2.2.2">
 <h3><span class="header-section-number">2.2.2</span> External style sheets<a href="web.html#external-style-sheets" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>External style sheets are <code>.css</code> files that contain styling information and are linked to with a <code>&lt;link&gt;</code> tag in the <code>&lt;head&gt;</code> section of an HTML document:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb14-1"><a href="web.html#cb14-1" tabindex="-1"></a><span class="op">&lt;</span>head<span class="op">&gt;</span></span>
-<span id="cb14-2"><a href="web.html#cb14-2" tabindex="-1"></a>    <span class="op">&lt;</span>link rel<span class="op">=</span><span class="st">&quot;stylesheet&quot;</span> href<span class="op">=</span><span class="st">&quot;style.css&quot;</span><span class="op">&gt;</span></span>
-<span id="cb14-3"><a href="web.html#cb14-3" tabindex="-1"></a><span class="op">&lt;/</span>head<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb14-1"><a href="web.html#cb14-1" aria-hidden="true"></a><span class="op">&lt;</span>head<span class="op">&gt;</span></span>
+<span id="cb14-2"><a href="web.html#cb14-2" aria-hidden="true"></a>    <span class="op">&lt;</span>link rel<span class="op">=</span><span class="st">&quot;stylesheet&quot;</span> href<span class="op">=</span><span class="st">&quot;style.css&quot;</span><span class="op">&gt;</span></span>
+<span id="cb14-3"><a href="web.html#cb14-3" aria-hidden="true"></a><span class="op">&lt;/</span>head<span class="op">&gt;</span></span></code></pre></div>
 <p>External style sheets are the preferred way of styling as they can easily be modified without changing the web page; in fact, the motivation for CSS came from a desire in the early days of the internet to separate styling from content.</p>
 <p>Developers have the option now of choosing premade themes, which are shared through external style sheets. They can be quite complex. The <a href="https://github.com/thomaspark/bootswatch/blob/master/docs/4/minty/bootstrap.css" target="_blank"><code>.css</code> file</a> for the <a href="https://bootswatch.com/minty/" target="_blank" style = "font-family: Roboto; background-color: #78C2AD; color: white; border-radius: 5px"> Minty </a> theme from Bootswatch, for example, contains over 10,000 lines.</p>
 <p><a href="http://www.csszengarden.com/" target="_blank">CSS Zen Garden</a> demonstrates the power of external style sheets: the same HTML document takes on very different looks depending on the stylesheet to which it is linked.</p>
@@ -448,13 +448,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="svg" class="section level2 hasAnchor" number="2.3">
 <h2><span class="header-section-number">2.3</span> SVG <i class="far fa-image"></i><a href="web.html#svg" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>SVG (Scalable Vector Graphics) is a human readable graphics format that facilitates manipulation of individual elements. You may be familiar with <code>.svg</code> files. Here we have SVG graphics within <code>&lt;svg&gt;</code> tags in the <code>&lt;body&gt;</code> section of the HTML document:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb16-1"><a href="web.html#cb16-1" tabindex="-1"></a><span class="op">&lt;</span>svg width<span class="op">=</span><span class="st">&quot;500&quot;</span> height<span class="op">=</span><span class="st">&quot;300&quot;</span><span class="op">&gt;</span>  <span class="op">&lt;!--</span> some SVG <span class="op">--&gt;</span></span>
-<span id="cb16-2"><a href="web.html#cb16-2" tabindex="-1"></a>    <span class="op">&lt;</span>rect x<span class="op">=</span><span class="st">&quot;20&quot;</span> y<span class="op">=</span><span class="st">&quot;20&quot;</span> width<span class="op">=</span><span class="st">&quot;460&quot;</span> height<span class="op">=</span><span class="st">&quot;260&quot;</span> fill<span class="op">=</span><span class="st">&quot;lightblue&quot;</span><span class="op">&gt;&lt;/</span>rect<span class="op">&gt;</span></span>
-<span id="cb16-3"><a href="web.html#cb16-3" tabindex="-1"></a>    <span class="op">&lt;</span>circle cx<span class="op">=</span><span class="st">&quot;50&quot;</span> cy<span class="op">=</span><span class="st">&quot;75&quot;</span> r<span class="op">=</span><span class="st">&quot;20&quot;</span> fill<span class="op">=</span><span class="st">&quot;blue&quot;</span><span class="op">&gt;&lt;/</span>circle<span class="op">&gt;</span></span>
-<span id="cb16-4"><a href="web.html#cb16-4" tabindex="-1"></a>    <span class="op">&lt;</span>ellipse cx<span class="op">=</span><span class="st">&quot;175&quot;</span> cy<span class="op">=</span><span class="st">&quot;100&quot;</span> rx<span class="op">=</span><span class="st">&quot;45&quot;</span> ry<span class="op">=</span><span class="st">&quot;30&quot;</span> fill<span class="op">=</span><span class="st">&quot;green&quot;</span><span class="op">&gt;&lt;/</span>ellipse<span class="op">&gt;</span></span>
-<span id="cb16-5"><a href="web.html#cb16-5" tabindex="-1"></a>    <span class="op">&lt;</span>text x<span class="op">=</span><span class="st">&quot;150&quot;</span> y<span class="op">=</span><span class="st">&quot;200&quot;</span><span class="op">&gt;</span>(<span class="dv">150</span><span class="op">,</span> <span class="dv">200</span>)<span class="op">&lt;/</span>text<span class="op">&gt;</span></span>
-<span id="cb16-6"><a href="web.html#cb16-6" tabindex="-1"></a>    <span class="op">&lt;</span>line x1<span class="op">=</span><span class="st">&quot;250&quot;</span> y1<span class="op">=</span><span class="st">&quot;150&quot;</span> x2<span class="op">=</span><span class="st">&quot;300&quot;</span> y2<span class="op">=</span><span class="st">&quot;200&quot;</span> stroke<span class="op">=</span><span class="st">&quot;red&quot;</span> stroke<span class="op">-</span>width<span class="op">=</span><span class="st">&quot;5&quot;</span><span class="op">&gt;&lt;/</span>line<span class="op">&gt;</span></span>
-<span id="cb16-7"><a href="web.html#cb16-7" tabindex="-1"></a><span class="op">&lt;/</span>svg<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb16-1"><a href="web.html#cb16-1" aria-hidden="true"></a><span class="op">&lt;</span>svg width<span class="op">=</span><span class="st">&quot;500&quot;</span> height<span class="op">=</span><span class="st">&quot;300&quot;</span><span class="op">&gt;</span>  <span class="op">&lt;!--</span> some SVG <span class="op">--&gt;</span></span>
+<span id="cb16-2"><a href="web.html#cb16-2" aria-hidden="true"></a>    <span class="op">&lt;</span>rect x<span class="op">=</span><span class="st">&quot;20&quot;</span> y<span class="op">=</span><span class="st">&quot;20&quot;</span> width<span class="op">=</span><span class="st">&quot;460&quot;</span> height<span class="op">=</span><span class="st">&quot;260&quot;</span> fill<span class="op">=</span><span class="st">&quot;lightblue&quot;</span><span class="op">&gt;&lt;/</span>rect<span class="op">&gt;</span></span>
+<span id="cb16-3"><a href="web.html#cb16-3" aria-hidden="true"></a>    <span class="op">&lt;</span>circle cx<span class="op">=</span><span class="st">&quot;50&quot;</span> cy<span class="op">=</span><span class="st">&quot;75&quot;</span> r<span class="op">=</span><span class="st">&quot;20&quot;</span> fill<span class="op">=</span><span class="st">&quot;blue&quot;</span><span class="op">&gt;&lt;/</span>circle<span class="op">&gt;</span></span>
+<span id="cb16-4"><a href="web.html#cb16-4" aria-hidden="true"></a>    <span class="op">&lt;</span>ellipse cx<span class="op">=</span><span class="st">&quot;175&quot;</span> cy<span class="op">=</span><span class="st">&quot;100&quot;</span> rx<span class="op">=</span><span class="st">&quot;45&quot;</span> ry<span class="op">=</span><span class="st">&quot;30&quot;</span> fill<span class="op">=</span><span class="st">&quot;green&quot;</span><span class="op">&gt;&lt;/</span>ellipse<span class="op">&gt;</span></span>
+<span id="cb16-5"><a href="web.html#cb16-5" aria-hidden="true"></a>    <span class="op">&lt;</span>text x<span class="op">=</span><span class="st">&quot;150&quot;</span> y<span class="op">=</span><span class="st">&quot;200&quot;</span><span class="op">&gt;</span>(<span class="dv">150</span><span class="op">,</span> <span class="dv">200</span>)<span class="op">&lt;/</span>text<span class="op">&gt;</span></span>
+<span id="cb16-6"><a href="web.html#cb16-6" aria-hidden="true"></a>    <span class="op">&lt;</span>line x1<span class="op">=</span><span class="st">&quot;250&quot;</span> y1<span class="op">=</span><span class="st">&quot;150&quot;</span> x2<span class="op">=</span><span class="st">&quot;300&quot;</span> y2<span class="op">=</span><span class="st">&quot;200&quot;</span> stroke<span class="op">=</span><span class="st">&quot;red&quot;</span> stroke<span class="op">-</span>width<span class="op">=</span><span class="st">&quot;5&quot;</span><span class="op">&gt;&lt;/</span>line<span class="op">&gt;</span></span>
+<span id="cb16-7"><a href="web.html#cb16-7" aria-hidden="true"></a><span class="op">&lt;/</span>svg<span class="op">&gt;</span></span></code></pre></div>
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <svg width="500" height="300">
 <!-- some SVG -->
@@ -491,7 +491,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><p>An HTML document is composed of lines or sections set off with tags. In particular <code>&lt;style&gt; ... &lt;/style&gt;</code>, <code>&lt;svg&gt; ... &lt;/svg&gt;</code>, and <code>&lt;script&gt; ... &lt;/script&gt;</code> indicate the inclusion of CSS, SVG, and JavaScript/D3 respectively.</p></li>
 <li><p>For D3 to work, you must link to a D3 library. To link to the online version, include this line: <code>&lt;script src="https://cdn.jsdelivr.net/npm/d3@7"&gt;&lt;/script&gt;</code> or <code>&lt;script src="https://d3js.org/d3.v7.js"&gt;&lt;/script&gt;</code>. Alternatively, you can download a copy of the library from <a href="https://d3js.org/getting-started#d3-in-vanilla-html">https://d3js.org/getting-started#d3-in-vanilla-html</a>–clicking on <code>d3.v7.js</code> or <code>d3.v7.min.js</code> will download the file. Then add the following to the <code>&lt;head&gt;</code> section of your <code>.html</code> file:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb17-1"><a href="web.html#cb17-1" tabindex="-1"></a><span class="op">&lt;</span>script src<span class="op">=</span><span class="st">&quot;d3.js&quot;</span><span class="op">&gt;&lt;/</span>script<span class="op">&gt;</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb17"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb17-1"><a href="web.html#cb17-1" aria-hidden="true"></a><span class="op">&lt;</span>script src<span class="op">=</span><span class="st">&quot;d3.js&quot;</span><span class="op">&gt;&lt;/</span>script<span class="op">&gt;</span></span></code></pre></div></li>
 <li><p>There are two main sections. The <code>&lt;head&gt;</code> section contains the <em>title</em>, <em>link to D3 library</em>, and <em>internal CSS</em>. The <code>&lt;body&gt;</code> section contains HTML elements (<code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, etc.), SVGs (between <code>&lt;svg&gt;</code>/<code>&lt;/svg&gt;</code>tags) and JavaScript/D3 scripts (between <code>&lt;script&gt;</code>/<code>&lt;script&gt;</code>tags).</p></li>
 </ul>
 <blockquote>
