@@ -87,7 +87,7 @@ All of our workflows require Google Chrome, so if you don't have it already, [do
 
 ### JavaScript Console
 
-With this workflow we will open a web page--either online or local--in Chrome and [run JavaScript in the Console](https://developers.google.com/web/tools/chrome-devtools/console/javascript){target="_blank"}. To view the Console, open Chrome DevTools by clicking *View, Developer, JavaScript Console* if you have a menu bar in Chrome, using a keyboard shortcut (Mac: option+command+j; Windows, Linux, Chrome OS: control+shift+J), or employing another one of the [many options](https://developers.google.com/web/tools/chrome-devtools/open){target="_blank"} for doing so. The Console is one piece of a suite of tools available in the browser.
+With this workflow we will open a web page--either online or local--in Chrome and run JavaScript in the Console. To view the Console, open Chrome DevTools by clicking *View, Developer, JavaScript Console* if you have a menu bar in Chrome, using a keyboard shortcut (Mac: option+command+j; Windows, Linux, Chrome OS: control+shift+J), or employing another one of the [many options](https://developer.chrome.com/docs/devtools/console/reference#open){target="_blank"} for doing so. The Console is one piece of a suite of tools available in the browser.
 
 With the DevTools open, your screen will look like this:
 

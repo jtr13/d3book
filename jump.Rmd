@@ -1,7 +1,7 @@
-# Jump in the deep end <i class="fas fa-swimmer"></i> {#jump} 
+# Quick demo <i class="fas fa-running"></i> {#jump} 
 
 
-Let's skip the explanations and start coding in D3 right now. Why? So you can see the benefits and know what you're working toward when you get stuck in the weeds.  Then we'll go back and start learning step by step. In this chapter we will work in the JavaScript Console ([help](index.html#javascript-console)).
+Let's skip the explanations and start coding in D3 right now. Then we'll go back and learn step by step. In this chapter we will work in the JavaScript Console ([help](index.html#javascript-console)).
 
 
 ## Get ready <i class="fas fa-forward"></i>
@@ -74,7 +74,7 @@ y["b"];
     ```
     
     
-> <i class="far fa-lightbulb"></i> *Note that "select" and "attr" are separate operations chained together with "." -- think pipe (%>%) operator.*
+> <i class="far fa-lightbulb"></i> *Note that "select" and "attr" are separate operations chained together with "." -- think pipe (`|>`) operator.*
 
     
 
