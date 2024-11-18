@@ -17,16 +17,16 @@ Practice creating an ordinal scale in the Console:
 > <i class="fa fa-hand-o-right"></i> *Open the JavaScript Console* <i class="fa fa-terminal"></i>
 
 ``` js
-const ordscale = d3.scaleBand()
+const myscale = d3.scaleBand()
   .domain([0, 1, 2, 3, 4])
   .range([0, 100]);
 ```
   
 ``` js  
-ordscale(1);
+myscale(1);
 ```
 
-Try other numbers: `ordscale(3);`, `ordscale(2.5);`, `ordscale(7);`, etc.
+Try other numbers: `myscale(3);`, `myscale(2.5);`, `myscale(7);`, etc.
 
 Add inner padding and try again.
 
