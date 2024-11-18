@@ -30,21 +30,21 @@ Try other numbers: `myscale(3);`, `myscale(2.5);`, `myscale(7);`, etc.
 
 Add inner padding and try again.
 
-See diagram here: https://github.com/d3/d3-scale#band-scales
+More on band scales here: [https://d3js.org/d3-scale/band](https://d3js.org/d3-scale/band)
 
 > <i class="far fa-lightbulb"></i> *Be sure to use `d3.scaleBand()`, not `d3.scaleOrdinal()` for this use case.
 
-### Bar chart 
+### Exercise <i class="fas fa-dumbbell"></i>: vertical bar chart
 
 #### `d3.scaleBand()` {-}
 
 *IDVW2* Chapter 9, pp. 150-153
 
-Here `d3.scaleBand()` is used to create an `xScale` function to convert bar numbers to pixels. Change the `w` parameter and observe how the bars are resized to fit on the SVG.
+Create the vertical bar chart shown below by filling in the lines marked ADD [in this file](https://raw.githubusercontent.com/jtr13/d3book/main/code/d3.scaleBand_exercise.html){target="_blank"} and uncommenting them. (Note that we are not yet employing a linear scale for the y-axis.)
 
 <iframe src="code/d3.scaleBand.html" width="450" height="350" frameBorder="0"></iframe>
 
-[Code for download](https://raw.githubusercontent.com/jtr13/d3book/main/code/d3.scaleBand.html){target="_blank"}
+[Solution](https://raw.githubusercontent.com/jtr13/d3book/main/code/d3.scaleBand.html){target="_blank"}
 
 
 #### `d3.scaleLinear()` {-}
