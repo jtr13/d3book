@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>d3.scaleBand</title>
+    <script src="https://d3js.org/d3.v7.js"></script>
+  </head>
+
+  <body>
+
+    <script>
+
+      const w = 400;  // change this value and see what happens
+      const h = 300;
+
+      const svg = d3.select("body")
+        .append("svg")
+          .attr("width", w)
+          .attr("height", h);
+
+      const bardata = [300, 100, 150, 220, 70, 270];
+
+      const xScale = d3.scaleBand()
+        .domain(d3.range(bardata.length)) // what does this do?
+        .range([0, w])
+        .paddingInner(.1);
+
+      const bars = svg.selectAll("rect")
+          .data(bardata);
+
+      bars.enter().append("rect")
+   //       .attr("x", ADD)
+   //       .attr("y", ADD)
+   //       .attr("width", ADD)
+   //       .attr("height", ADD)
+          .attr("fill", "lightgreen");
+
+    </script>
+
+  </body>
+
+</html>
