@@ -456,7 +456,7 @@ It is covered in *IDVW* in the "Other Kinds of Data Updates" section on pp. 178-
 
 **Note that the General Update Pattern changed with D3 Version 4 so avoid examples from Version 3.**
 
-Also available here: [general_update_pattern.html](https://raw.githubusercontent.com/jtr13/d3book/main/code/bar_chart_exercise.html){target="_blank"}
+Also available here for download: [general_update_pattern.html](https://raw.githubusercontent.com/jtr13/d3book/main/code/general_update_pattern.html){target="_blank"}
 
 ``` js
 <!DOCTYPE html>
