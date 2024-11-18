@@ -245,7 +245,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.1.1" data-path="scales-and-axes.html"><a href="scales-and-axes.html#lecture-slides-1"><i class="fa fa-check"></i><b>6.1.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
 <li class="chapter" data-level="6.1.2" data-path="scales-and-axes.html"><a href="scales-and-axes.html#practice"><i class="fa fa-check"></i><b>6.1.2</b> Practice</a></li>
-<li class="chapter" data-level="6.1.3" data-path="scales-and-axes.html"><a href="scales-and-axes.html#bar-chart"><i class="fa fa-check"></i><b>6.1.3</b> Bar chart</a></li>
+<li class="chapter" data-level="6.1.3" data-path="scales-and-axes.html"><a href="scales-and-axes.html#exercise-vertical-bar-chart-1"><i class="fa fa-check"></i><b>6.1.3</b> Exercise <i class="fas fa-dumbbell"></i>: vertical bar chart</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="scales-and-axes.html"><a href="scales-and-axes.html#margins"><i class="fa fa-check"></i><b>6.2</b> Margins</a>
 <ul>
@@ -410,20 +410,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb124"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb124-1"><a href="scales-and-axes.html#cb124-1" aria-hidden="true"></a><span class="fu">myscale</span>(<span class="dv">1</span>)<span class="op">;</span></span></code></pre></div>
 <p>Try other numbers: <code>myscale(3);</code>, <code>myscale(2.5);</code>, <code>myscale(7);</code>, etc.</p>
 <p>Add inner padding and try again.</p>
-<p>See diagram here: <a href="https://github.com/d3/d3-scale#band-scales" class="uri">https://github.com/d3/d3-scale#band-scales</a></p>
+<p>More on band scales here: <a href="https://d3js.org/d3-scale/band">https://d3js.org/d3-scale/band</a></p>
 <blockquote>
 <p><i class="far fa-lightbulb"></i> *Be sure to use <code>d3.scaleBand()</code>, not <code>d3.scaleOrdinal()</code> for this use case.</p>
 </blockquote>
 </div>
-<div id="bar-chart" class="section level3 hasAnchor" number="6.1.3">
-<h3><span class="header-section-number">6.1.3</span> Bar chart<a href="scales-and-axes.html#bar-chart" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exercise-vertical-bar-chart-1" class="section level3 hasAnchor" number="6.1.3">
+<h3><span class="header-section-number">6.1.3</span> Exercise <i class="fas fa-dumbbell"></i>: vertical bar chart<a href="scales-and-axes.html#exercise-vertical-bar-chart-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="d3.scaleband" class="section level4 unnumbered hasAnchor" number="">
 <h4><code>d3.scaleBand()</code><a href="scales-and-axes.html#d3.scaleband" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><em>IDVW2</em> Chapter 9, pp. 150-153</p>
-<p>Here <code>d3.scaleBand()</code> is used to create an <code>xScale</code> function to convert bar numbers to pixels. Change the <code>w</code> parameter and observe how the bars are resized to fit on the SVG.</p>
+<p>Create the vertical bar chart shown below by filling in the lines marked ADD <a href="https://raw.githubusercontent.com/jtr13/d3book/main/code/d3.scaleBand_exercise.html" target="_blank">in this file</a> and uncommenting them. (Note that we are not yet employing a linear scale for the y-axis.)</p>
 <iframe src="code/d3.scaleBand.html" width="450" height="350" frameBorder="0">
 </iframe>
-<p><a href="https://raw.githubusercontent.com/jtr13/d3book/main/code/d3.scaleBand.html" target="_blank">Code for download</a></p>
+<p><a href="https://raw.githubusercontent.com/jtr13/d3book/main/code/d3.scaleBand.html" target="_blank">Solution</a></p>
 </div>
 <div id="d3.scalelinear" class="section level4 unnumbered hasAnchor" number="">
 <h4><code>d3.scaleLinear()</code><a href="scales-and-axes.html#d3.scalelinear" class="anchor-section" aria-label="Anchor link to header"></a></h4>

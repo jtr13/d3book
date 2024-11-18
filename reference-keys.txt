@@ -70,7 +70,7 @@ scales-and-axes
 scales
 lecture-slides-1
 practice
-bar-chart
+exercise-vertical-bar-chart-1
 margins
 lecture-slides-2
 bar-chart-with-margins
