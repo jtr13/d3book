@@ -4,17 +4,10 @@ Read: *IDVW2*, Chapter 10 Interactivity
 
 <script src="https://d3js.org/d3.v7.js"></script>
 
-## Bar chart example
+## Binding event listeners to SVG elements
 
-For this demo we will use [this file](https://raw.githubusercontent.com/jtr13/d3book/main/code/vertical_bar.html). 
 
-## Binding event listeners
-
-```{r, echo=FALSE, eval=!HTML, out.width='33%'}
-webshot::webshot("https://jtr13.github.io/d3book/interactivity.html", selector = "svg")
-```
-
-```{asis, echo=HTML}
+```{asis}
 <svg width="300" height="200">
   <rect width="300" height="200" fill="lightblue"></rect>
   <circle cx="50" cy="75" r="20" fill="blue"></circle>
@@ -122,44 +115,29 @@ d3.select("circle")
   .on("mouseover", goyellow);
 ```
 
-## Buttons
+## HTML buttons
 
-### HTML text as buttons
-
-HTML:
 
 ``` html
-<p id="add">Add an element</p>
-<p id="remove_left">Remove bar (left)</p>
-<p id="remove_right">Remove bar (right)</p>
+<button type="button" onclick="showdate()">Click for date</button>
 ```
-
-JavaScript:
 
 ``` js
-d3.selectAll("p")
-    .on("click", function () {
-      const paraID = d3.select(this).attr("id");
-      if (paraID == "add") {
-          const newvalue = Math.floor(Math.random()*400);
-          bardata.push(newvalue);
-          } else if (paraID == "remove_left") {
-          bardata.shift();
-          } else {
-          bardata.pop();
-          };
-      update(bardata);
-      });
+function showdate() {
+  console.log(Date());
+}
 ```
 
-Putting it all together:
+<button type="button" onclick="showdate()">Click for date</button>
 
-Vertical bar chart with add / remove buttons and general update pattern
+### Exercise
 
-[vertical_bar.html](code/vertical_bar.html){target="_blank"}
+Add buttons as indicated to [this file](https://raw.githubusercontent.com/jtr13/d3book/main/code/vertical_bar_button_exercise.html).
 
 
-### Radio buttons
+
+
+## Radio buttons
 
 HTML:
 
@@ -212,11 +190,8 @@ Here the circle click behavior depends on the value of the radio button: if the 
 
 A global variable is used to keep track of the radio button value. The event listener on the circle conditions the behavior on the value of this global variable.
 
-```{r, echo=FALSE, eval=!HTML, out.width='33%'}
-webshot::webshot("https://jtr13.github.io/d3book/interactivity.html#global-variable-example", selector = "#rad")
-```
 
-```{asis, echo=HTML}
+```{asis}
 <div id="rad" style="margin-left: 30px">
 <h4>Click the circle.</h4>
 <input type="radio" name="direction" value="left" checked="true">&nbsp;Move left
@@ -263,9 +238,7 @@ d3.select("svg#radio").select("circle")
 
 In this example, the event listeners on the squares are turned on or off depending on the value of the radio button. Event listeners can be removed by setting the behavior to `null`.
 
-```{r, echo=FALSE, eval=!HTML, out.width='33%'}
-webshot::webshot("https://jtr13.github.io/d3book/interactivity.html#turn-off-event-listener", selector = "#rad2")
-```
+
 
 ```{asis, echo=knitr::is_html_output()}
 <div id="rad2" style="margin-left: 30px">
@@ -313,3 +286,5 @@ d3.select("div#rad2").selectAll("input")
 ```
 
 </div>
+
+
