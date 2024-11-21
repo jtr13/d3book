@@ -7,8 +7,9 @@
   </head>
 
   <body>
-    <!--add buttons here to add a bar, remove a bar (left),
-    and remove a bar (right) -->
+<!-- Add three buttons here to add a bar, remove a bar (right),
+and remove a bar (left) -->
+
     <br><br>
 
     <script>
@@ -39,7 +40,7 @@
         .paddingInner(0.1);
 
       const yScale = d3.scaleLinear()
-        .domain([0, 400)
+        .domain([0, 400])
         .range([innerHeight, 0]);
 
       const xAxis = d3.axisBottom()
@@ -91,9 +92,6 @@
 
         svg.select(".xAxis")
           .call(xAxis);
-
-        svg.select(".yAxis")
-          .call(yAxis);
       }
 
       function add() {
