@@ -325,12 +325,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="13" data-path="layouts.html"><a href="layouts.html"><i class="fa fa-check"></i><b>13</b> Layouts <i class="fa fa-bar-chart"></i></a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="layouts.html"><a href="layouts.html#lecture-slides-5"><i class="fa fa-check"></i><b>13.1</b> Lecture slides <i class="fa fa-television"></i></a></li>
-<li class="chapter" data-level="13.2" data-path="layouts.html"><a href="layouts.html#set-up-data-and-stack-method"><i class="fa fa-check"></i><b>13.2</b> Set up data and stack method</a></li>
-<li class="chapter" data-level="13.3" data-path="layouts.html"><a href="layouts.html#set-up-scales"><i class="fa fa-check"></i><b>13.3</b> Set up scales</a></li>
-<li class="chapter" data-level="13.4" data-path="layouts.html"><a href="layouts.html#add-groups"><i class="fa fa-check"></i><b>13.4</b> Add groups</a></li>
-<li class="chapter" data-level="13.5" data-path="layouts.html"><a href="layouts.html#add-rectangles"><i class="fa fa-check"></i><b>13.5</b> Add rectangles</a></li>
-<li class="chapter" data-level="13.6" data-path="layouts.html"><a href="layouts.html#get-the-code"><i class="fa fa-check"></i><b>13.6</b> Get the code</a></li>
+<li class="chapter" data-level="13.1" data-path="layouts.html"><a href="layouts.html#set-up-data-and-stack-method"><i class="fa fa-check"></i><b>13.1</b> Set up data and stack method</a></li>
+<li class="chapter" data-level="13.2" data-path="layouts.html"><a href="layouts.html#set-up-scales"><i class="fa fa-check"></i><b>13.2</b> Set up scales</a></li>
+<li class="chapter" data-level="13.3" data-path="layouts.html"><a href="layouts.html#add-groups"><i class="fa fa-check"></i><b>13.3</b> Add groups</a></li>
+<li class="chapter" data-level="13.4" data-path="layouts.html"><a href="layouts.html#add-rectangles"><i class="fa fa-check"></i><b>13.4</b> Add rectangles</a></li>
+<li class="chapter" data-level="13.5" data-path="layouts.html"><a href="layouts.html#get-the-code"><i class="fa fa-check"></i><b>13.5</b> Get the code</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="general-advice.html"><a href="general-advice.html"><i class="fa fa-check"></i><b>14</b> General Advice <i class="fa fa-bug"></i></a>
 <ul>
@@ -390,12 +389,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">13</span> Layouts <i class="fa fa-bar-chart"></i><a href="layouts.html#layouts" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <script src="https://d3js.org/d3.v7.js"></script>
 <p><em>IDVW2</em>, Chapter 13 Layouts (<code>d3.stack()</code> only, pp. 264-270)</p>
-<div id="lecture-slides-5" class="section level2 hasAnchor" number="13.1">
-<h2><span class="header-section-number">13.1</span> Lecture slides <i class="fa fa-television"></i><a href="layouts.html#lecture-slides-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href="pdfs/layouts.pdf" target="_blank">layouts.pdf</a></p>
-</div>
-<div id="set-up-data-and-stack-method" class="section level2 hasAnchor" number="13.2">
-<h2><span class="header-section-number">13.2</span> Set up data and stack method<a href="layouts.html#set-up-data-and-stack-method" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="set-up-data-and-stack-method" class="section level2 hasAnchor" number="13.1">
+<h2><span class="header-section-number">13.1</span> Set up data and stack method<a href="layouts.html#set-up-data-and-stack-method" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <blockquote>
 <p><i class="fa fa-hand-o-right"></i> <em>Open the JavaScript Console</em> <i class="fa fa-terminal"></i></p>
 </blockquote>
@@ -421,8 +416,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb175-20"><a href="layouts.html#cb175-20" aria-hidden="true"></a>    <span class="kw">const</span> series <span class="op">=</span> <span class="fu">stack</span>(dataset)<span class="op">;</span>  </span></code></pre></div>
 <p>Try <code>stack(dataset)</code> in the Console.</p>
 </div>
-<div id="set-up-scales" class="section level2 hasAnchor" number="13.3">
-<h2><span class="header-section-number">13.3</span> Set up scales<a href="layouts.html#set-up-scales" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="set-up-scales" class="section level2 hasAnchor" number="13.2">
+<h2><span class="header-section-number">13.2</span> Set up scales<a href="layouts.html#set-up-scales" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb176"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb176-1"><a href="layouts.html#cb176-1" aria-hidden="true"></a>    <span class="kw">const</span> xScale <span class="op">=</span> d3<span class="op">.</span><span class="fu">scaleBand</span>()</span>
 <span id="cb176-2"><a href="layouts.html#cb176-2" aria-hidden="true"></a>        <span class="op">.</span><span class="fu">domain</span>(d3<span class="op">.</span><span class="fu">range</span>(dataset<span class="op">.</span><span class="at">length</span>))</span>
 <span id="cb176-3"><a href="layouts.html#cb176-3" aria-hidden="true"></a>        <span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> w])</span>
@@ -437,8 +432,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Now try out the <code>colors</code> function. What is the domain?</p>
 <p>See built-in color options <a href="https://github.com/d3/d3-scale-chromatic" target="_blank">here</a>. Of course you are not limited to these and can use any appropriate color scheme.</p>
 </div>
-<div id="add-groups" class="section level2 hasAnchor" number="13.4">
-<h2><span class="header-section-number">13.4</span> Add groups<a href="layouts.html#add-groups" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="add-groups" class="section level2 hasAnchor" number="13.3">
+<h2><span class="header-section-number">13.3</span> Add groups<a href="layouts.html#add-groups" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb177"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb177-1"><a href="layouts.html#cb177-1" aria-hidden="true"></a>    <span class="co">//Create SVG element</span></span>
 <span id="cb177-2"><a href="layouts.html#cb177-2" aria-hidden="true"></a>    <span class="kw">const</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;#stacked&quot;</span>)</span>
 <span id="cb177-3"><a href="layouts.html#cb177-3" aria-hidden="true"></a>        <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;svg&quot;</span>)</span>
@@ -457,8 +452,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>[There’s a div with id “stacked” here.]</p>
 <p>Why doesn’t anything show up yet? Right-click and Inspect to find out.</p>
 </div>
-<div id="add-rectangles" class="section level2 hasAnchor" number="13.5">
-<h2><span class="header-section-number">13.5</span> Add rectangles<a href="layouts.html#add-rectangles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="add-rectangles" class="section level2 hasAnchor" number="13.4">
+<h2><span class="header-section-number">13.4</span> Add rectangles<a href="layouts.html#add-rectangles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb178"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb178-1"><a href="layouts.html#cb178-1" aria-hidden="true"></a><span class="co">// Add a rect for each data value</span></span>
 <span id="cb178-2"><a href="layouts.html#cb178-2" aria-hidden="true"></a>    <span class="kw">const</span> rects <span class="op">=</span> groups<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
 <span id="cb178-3"><a href="layouts.html#cb178-3" aria-hidden="true"></a>        <span class="op">.</span><span class="fu">data</span>(d <span class="kw">=&gt;</span> d)</span>
@@ -470,8 +465,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb178-9"><a href="layouts.html#cb178-9" aria-hidden="true"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> xScale<span class="op">.</span><span class="fu">bandwidth</span>())<span class="op">;</span></span>
 <span id="cb178-10"><a href="layouts.html#cb178-10" aria-hidden="true"></a>                        </span></code></pre></div>
 </div>
-<div id="get-the-code" class="section level2 hasAnchor" number="13.6">
-<h2><span class="header-section-number">13.6</span> Get the code<a href="layouts.html#get-the-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="get-the-code" class="section level2 hasAnchor" number="13.5">
+<h2><span class="header-section-number">13.5</span> Get the code<a href="layouts.html#get-the-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="https://raw.githubusercontent.com/jtr13/d3book/main/code/stackedbar.html" target="_blank">Code for download</a></p>
 
 </div>

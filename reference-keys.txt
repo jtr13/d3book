@@ -119,7 +119,6 @@ create-a-line-generator
 put-the-line-generator-to-work
 additional-resources
 layouts
-lecture-slides-5
 set-up-data-and-stack-method
 set-up-scales
 add-groups
