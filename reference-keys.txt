@@ -112,7 +112,6 @@ share-d3-online
 quarto
 observable
 line-charts
-lecture-slides-5
 svg-line-element
 svg-path-element
 data-for-line-chart
@@ -120,7 +119,7 @@ create-a-line-generator
 put-the-line-generator-to-work
 additional-resources
 layouts
-lecture-slides-6
+lecture-slides-5
 set-up-data-and-stack-method
 set-up-scales
 add-groups
