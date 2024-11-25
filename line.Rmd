@@ -4,9 +4,6 @@
 
 Read: *IDVW2*, Chapter 11 Using Paths
 
-## Lecture slides <i class="fa fa-television"></i>
-
-[line_charts.pdf](pdfs/line_charts.pdf){target="_blank"}
 
 ## SVG `<line>` element
 
