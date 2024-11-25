@@ -4,10 +4,6 @@
 
 *IDVW2*, Chapter 13 Layouts (`d3.stack()` only, pp. 264-270)
 
-## Lecture slides <i class="fa fa-television"></i>
-
-[layouts.pdf](pdfs/layouts.pdf){target="_blank"}
-
 ## Set up data and stack method
 > <i class="fa fa-hand-o-right"></i> *Open the JavaScript Console* <i class="fa fa-terminal"></i>
 
