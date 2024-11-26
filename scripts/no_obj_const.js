@@ -14,12 +14,12 @@
   const innerHeight = h - margin.top - margin.bottom;
 
 
-  const svg = d3.select("#chart")
+  const svg3 = d3.select("#chart")
     .append("svg")
       .attr("width", w)
       .attr("height", h);
 
-  svg.append("rect")
+  svg3.append("rect")
       .attr("x", 0)
       .attr("y", 0)
       .attr("width", w)
@@ -43,7 +43,7 @@
   const yAxis = d3.axisLeft()
       .scale(yScale);
 
-  const bars = svg.append("g")
+  const bars = svg3.append("g")
       .attr("id", "plot")
       .attr("transform", `translate (${margin.left}, ${margin.top})`)
     .selectAll("rect")
@@ -56,12 +56,12 @@
       .attr("height", d => innerHeight - yScale(d))
       .attr("fill", "blue");
 
-  svg.append("g")
+  svg3.append("g")
       .attr("class", "xAxis")
       .attr("transform", `translate (${margin.left}, ${h - margin.bottom})`)
       .call(xAxis);
 
-  svg.append("g")
+  svg3.append("g")
       .attr("class", "yAxis")
       .attr("transform", `translate (${margin.left}, ${margin.top})`)
       .call(yAxis);
@@ -76,7 +76,7 @@
 
     const svg = d3.select("#chart").select("svg");
 
-    const bars = svg.select("#plot")
+    const bars = svg3.select("#plot")
       .selectAll("rect")
         .data(data);
     console.log(bars.data());
@@ -98,13 +98,13 @@
 
     bars.exit().remove();
 
-    svg.select(".xAxis")
+    svg3.select(".xAxis")
       .transition()
         .duration(dur)
         .ease(d3.easeLinear)
         .call(xAxis);
 
-    svg.select(".yAxis")
+    svg3.select(".yAxis")
       .transition()
         .duration(dur)
         .ease(d3.easeLinear)
