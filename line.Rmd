@@ -10,41 +10,31 @@ Read: *IDVW2*, Chapter 11 Using Paths
 (Use for two points only.)
 
 ``` html
-<line x1="0" y1="80" x2="100" y2="20" stroke="black" />
+<line x1="50" y1="180" x2="400" y2="20" stroke="blue" stroke-width="5"></line>
 ```
 
-``` js
-const x1 = 0;
-const y1 = 80;
-const x2 = 100;
-const y2 = 20;
-
-d3.select("svg")
-  .append("line")
-  .attr("x1", x1)
-  .attr("x2", x2)
-  .attr("y1", y1)
-  .attr("y2", y2);
-```
+<svg width = "500" height = "200">
+  <line x1="50" y1="180" x2="400" y2="20" stroke="blue" stroke-width="5"></line>
+</svg>
 
 ## SVG `<path>` element
 
 (Use if you have more than two points.)
 
 ``` html
-<svg width = "500" height = "400">
-  <path d="M 50 400 L 100 300 L 150 300 L 200 33 L 250 175
+<path d="M 50 200 L 100 100 L 150 100 L 200 33 L 250 175
+     L 300 275 L 350 250 L 400 125" fill="none"
+     stroke="red" stroke-width="5"></path>
+```
+
+<svg width = "500" height = "300">
+  <path d="M 50 200 L 100 100 L 150 100 L 200 33 L 250 175
      L 300 275 L 350 250 L 400 125" fill="none"
       stroke="red" stroke-width="5">
   </path>
 </svg>
-```
 
-`d` attribute:
-
-M = move to
-
-L = line to
+`d` attribute: M = move to, L = line to
 
 More options: [https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d)
 
@@ -63,11 +53,7 @@ April 5|45
 April 6|62
 April 7|49
 
-Format that we need looks something like this:
-
-``` html
-<path class="line" fill="none" d="M0,149.15254237288136L71.42857142857143,264.40677966101697L142.85714285714286,264.40677966101697L214.28571428571428,176.27118644067798L285.7142857142857,250.84745762711864L357.14285714285717,135.59322033898303L428.57142857142856,223.72881355932205"></path>
-```
+To create a line chart we need to generate the `d` attribute.
 
 ## Create a line generator
 
@@ -123,19 +109,24 @@ Now let's add a `<path>` element with that `d` attribute: (this step is just for
 ``` js
 const mypath = mylinegen(dataset);
 
-d3.select("svg").append("path").attr("d", mypath)
+d3.select("svg#mypath")
+ .append("path").attr("d", mypath)
     .attr("fill", "none").attr("stroke", "red")
     .attr("stroke-width", "5");
 ```
 
+<svg id="mypath" width="500" height="300">
+  <rect width="500" height="300" fill="lightblue"></rect>
+</svg>
+
 ## Put the line generator to work
 
-Now let's do it the direct way: bind the *datum* and calculate the path in one step:
+The more common (and direct) method to create a path: bind the *datum* and calculate the path in one step:
 
 ``` js
 d3.select("svg").append("path")
     .datum(dataset)
-    .attr("d", mylinegen)
+    .attr("d", mylinegen)  // passes the data to mylinegen
     .attr("fill", "none")
     .attr("stroke", "teal")
     .attr("stroke-width", "5");
@@ -162,216 +153,13 @@ svg.append("path")
     .attr("class", "linestyle");
 ```
 
-<svg id="noaxes" width="500" height="400"></svg>
 
-<style>
-  .linestyle {
-    fill: none;
-    stroke: teal;
-    stroke-width: 5px;
-  }
-</style>
-
-<script>
-  const w = 500;
-  const h = 400;
-  let svg = d3.select("svg#noaxes");
-  const dataset = [ [0, 60], [1, 43], [2, 43], [3, 56],
-      [4, 45], [5, 62], [6, 49] ];
-  let xScale = d3.scaleBand()
-    .domain(d3.range(dataset.length))
-    .range([0, w]);
-  let yScale = d3.scaleLinear()
-    .domain([d3.min(dataset, d => d[1]) - 20,
-             d3.max(dataset, d => d[1]) + 20])
-    .range([h, 0]);
-  const mylinegen = d3.line()
-    .x(d => xScale(d[0]))
-    .y(d => yScale(d[1]));
-  svg.append("path")
-     .datum(dataset)
-     .attr("d", mylinegen)
-     .attr("class", "linestyle");
-</script>
-
-Putting it all together, we have:
-
-``` html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Line generator</title>
-    <script src="https://d3js.org/d3.v7.js"></script>
-    <style type ="text/css">
-      .linestyle {
-        fill: none;
-        stroke: teal;
-        stroke-width: 5px;
-      }
-    </style>
-  </head>
-  <body>
-    <script>
-      const w = 500;
-      const h = 400;
-      const svg = d3.select("svg#noaxes");
-      const dataset = [ [0, 60], [1, 43], [2, 43], [3, 56],
-          [4, 45], [5, 62], [6, 49] ];
-      let xScale = d3.scaleBand()
-        .domain(d3.range(dataset.length))
-        .range([0, w]);
-      let yScale = d3.scaleLinear()
-        .domain([d3.min(dataset, d => d[1]) - 20,
-                 d3.max(dataset, d => d[1]) + 20])
-        .range([h, 0]);
-      const mylinegen = d3.line()
-        .x(d => xScale(d[0]))
-        .y(d => yScale(d[1]));
-      svg.append("path")
-         .datum(dataset)
-         .attr("d", mylinegen)
-         .attr("class", "linestyle");
-    </script>
-
-  </body>
-</html>
-```
+[Full code](code/linechart_noaxes.html)
 
 
 And another example with axes:
 
-<svg id="withaxes" width="600" height="400"></svg>
-
-<script>
-  svg = d3.select("svg#withaxes")
-
-  const margin = {top: 20, right: 50, bottom: 30, left: 50}
-
-  const width =  +svg.attr("width") - margin.left - margin.right
-
-  const height = +svg.attr("height") - margin.top - margin.bottom
-
-  const g = svg.append("g").attr("transform", `translate(${margin.left}, ${margin.top})`);
-
-  const parseTime = d3.timeParse("%d-%b-%y");
-
-  xScale = d3.scaleTime().range([0, width]);
-
-  yScale = d3.scaleLinear()
-    .domain([20, 80])
-    .range([height, 0]);
-
-  const xAxis = d3.axisBottom()
-    .scale(xScale)
-    .tickFormat(d3.timeFormat("%m-%d"));
-
-  const line = d3.line()
-    .x(d => xScale(d.date))
-    .y(d => yScale(d.high));
-
-  const data =
-    [{"date":"1-Apr-18","high":60},
-    {"date":"2-Apr-18","high":43},
-    {"date":"3-Apr-18","high":43},
-    {"date":"4-Apr-18","high":56},
-    {"date":"5-Apr-18","high":45},
-    {"date":"6-Apr-18","high":62},
-    {"date":"7-Apr-18","high":49}];
-    data.forEach(function(d) {
-        d.date = parseTime(d.date);
-    });
-
-  xScale
-    .domain(d3.extent(data, d => d.date));
-
-  g.append("g")
-    .attr("transform", `translate(0, ${height})`)
-    .call(xAxis);
-
-  g.append("g")
-    .call(d3.axisLeft(yScale))
-
-  g.append("path")
-    .datum(data)
-    .attr("class", "line")
-    .attr("fill", "none")
-    .attr("stroke", "red")
-    .attr("stroke-width", 1.5)
-    .attr("d", line);
-</script>
-
-``` html
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		<script src="https://d3js.org/d3.v7.js"></script>
-	</head>
-	<body>
-    <svg id="withaxes" width="600" height="400"></svg>
-    <script>
-      const svg2 = d3.select("svg#withaxes")
-
-      const margin = {top: 20, right: 50, bottom: 30, left: 50}
-
-      const width =  +svg2.attr("width") - margin.left - margin.right
-
-      const height = +svg2.attr("height") - margin.top - margin.bottom
-
-      const g = svg2.append("g").attr("transform", `translate(${margin.left}, ${margin.top})`);
-
-      const parseTime = d3.timeParse("%d-%b-%y");
-
-      xScale = d3.scaleTime().range([0, width]);
-
-      yScale = d3.scaleLinear()
-        .domain([20, 80])
-        .range([height, 0]);
-
-      const xAxis = d3.axisBottom()
-        .scale(xScale)
-        .tickFormat(d3.timeFormat("%Y-%m-%d"));
-
-
-      const line = d3.line()
-        .x(d => xScale(d.date))
-        .y(d => yScale(d.high));
-
-      const data =
-      [{"date":"1-Apr-18","high":60},
-      {"date":"2-Apr-18","high":43},
-      {"date":"3-Apr-18","high":43},
-      {"date":"4-Apr-18","high":56},
-      {"date":"5-Apr-18","high":45},
-      {"date":"6-Apr-18","high":62},
-      {"date":"7-Apr-18","high":49}];
-      data.forEach(function(d) {
-            d.date = parseTime(d.date);
-      });
-
-      xScale
-        .domain(d3.extent(data, d => d.date));
-
-      g.append("g")
-          .attr("transform", `translate(0, ${height})`)
-          .call(xAxis);
-
-      g.append("g")
-          .call(d3.axisLeft(yScale))
-
-      g.append("path")
-          .datum(data)
-          .attr("class", "line")
-          .attr("fill", "none")
-          .attr("stroke", "red")
-          .attr("stroke-width", 1.5)
-          .attr("d", line);
-    </script>
-	</body>
-</html>
-```
+[Line chart with axes](code/linechart_withaxes.html)
 
 (Also uses: `d3.timeParse()` and JavaScript [`Array.foreach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) )
 
